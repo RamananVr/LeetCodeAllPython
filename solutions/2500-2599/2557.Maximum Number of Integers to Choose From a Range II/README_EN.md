@@ -1,0 +1,102 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [2557. Maximum Number of Integers to Choose From a Range II 🔒](https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii)
+
+## Description
+
+<!-- description:start -->
+
+<p>You are given an integer array <code>banned</code> and two integers <code>n</code> and <code>maxSum</code>. You are choosing some number of integers following the below rules:</p>
+
+<ul>
+	<li>The chosen integers have to be in the range <code>[1, n]</code>.</li>
+	<li>Each integer can be chosen <strong>at most once</strong>.</li>
+	<li>The chosen integers should not be in the array <code>banned</code>.</li>
+	<li>The sum of the chosen integers should not exceed <code>maxSum</code>.</li>
+</ul>
+
+<p>Return <em>the <strong>maximum</strong> number of integers you can choose following the mentioned rules</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> banned = [1,4,6], n = 6, maxSum = 4
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> You can choose the integer 3.
+3 is in the range [1, 6], and do not appear in banned. The sum of the chosen integers is 3, which does not exceed maxSum.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> banned = [4,3,5,6], n = 7, maxSum = 18
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> You can choose the integers 1, 2, and 7.
+All these integers are in the range [1, 7], all do not appear in banned, and their sum is 10, which does not exceed maxSum.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= banned.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= banned[i] &lt;= n &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= maxSum &lt;= 10<sup>15</sup></code></li>
+</ul>
+
+<!-- description:end -->
+
+## Solutions
+
+<!-- solution:start -->
+
+### Solution 1: Deduplication + Sorting + Binary Search
+
+We can add $0$ and $n + 1$ to the array `banned`, then deduplicate and sort the array `banned`.
+
+Next, we enumerate every two adjacent elements $i$ and $j$ in the array `banned`. The range of selectable integers is $[i + 1, j - 1]$. We use binary search to enumerate the number of elements we can select in this range, find the maximum number of selectable elements, and then add it to $ans$. At the same time, we subtract the sum of these elements from `maxSum`. If `maxSum` is less than $0$, we break the loop. Return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `banned`.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+        banned.extend([0, n + 1])
+        ban = sorted(set(banned))
+        ans = 0
+        for i, j in pairwise(ban):
+            left, right = 0, j - i - 1
+            while left < right:
+                mid = (left + right + 1) >> 1
+                if (i + 1 + i + mid) * mid // 2 <= maxSum:
+                    left = mid
+                else:
+                    right = mid - 1
+            ans += left
+            maxSum -= (i + 1 + i + left) * left // 2
+            if maxSum <= 0:
+                break
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

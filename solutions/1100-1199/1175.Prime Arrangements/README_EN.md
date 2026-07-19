@@ -1,0 +1,94 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md
+rating: 1489
+source: Weekly Contest 152 Q1
+tags:
+    - Math
+---
+
+<!-- problem:start -->
+
+# [1175. Prime Arrangements](https://leetcode.com/problems/prime-arrangements)
+
+## Description
+
+<!-- description:start -->
+
+<p>Return the number of permutations of 1 to <code>n</code> so that prime numbers are at prime indices (1-indexed.)</p>
+
+<p><em>(Recall that an integer&nbsp;is prime if and only if it is greater than 1, and cannot be written as a product of two positive integers&nbsp;both smaller than it.)</em></p>
+
+<p>Since the answer may be large, return the answer <strong>modulo <code>10^9 + 7</code></strong>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 5
+<strong>Output:</strong> 12
+<strong>Explanation:</strong> For example [1,2,5,4,3] is a valid permutation, but [5,2,3,4,1] is not because the prime number 5 is at index 1.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 100
+<strong>Output:</strong> 682289015
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 100</code></li>
+</ul>
+
+<!-- description:end -->
+
+## Solutions
+
+<!-- solution:start -->
+
+### Solution 1: Mathematics
+
+First, count the number of prime numbers within the range $[1,n]$, which we denote as $cnt$. Then, calculate the product of the factorial of $cnt$ and $n-cnt$ to get the answer, remember to perform the modulo operation.
+
+Here, we use the "Sieve of Eratosthenes" to count prime numbers.
+
+If $x$ is a prime number, then multiples of $x$ greater than $x$, such as $2x$, $3x$, ... are definitely not prime numbers, so we can start from here.
+
+Let $primes[i]$ indicate whether the number $i$ is a prime number. If it is a prime number, it is $true$, otherwise it is $false$.
+
+We sequentially traverse each number $i$ in the range $[2,n]$. If this number is a prime number, the number of prime numbers increases by $1$, and then all its multiples $j$ are marked as composite numbers (except for the prime number itself), that is, $primes[j]=false$. In this way, at the end of the run, we can know the number of prime numbers.
+
+The time complexity is $O(n \times \log \log n)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numPrimeArrangements(self, n: int) -> int:
+        def count(n):
+            cnt = 0
+            primes = [True] * (n + 1)
+            for i in range(2, n + 1):
+                if primes[i]:
+                    cnt += 1
+                    for j in range(i + i, n + 1, i):
+                        primes[j] = False
+            return cnt
+
+        cnt = count(n)
+        ans = factorial(cnt) * factorial(n - cnt)
+        return ans % (10**9 + 7)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

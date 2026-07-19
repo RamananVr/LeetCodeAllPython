@@ -1,0 +1,9 @@
+# Generated output
+manifest.csv
+
+# Temporary git working directories
+leetcode-sync-*/
+
+# Python
+__pycache__/
+*.pyc

@@ -1,0 +1,115 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md
+tags:
+    - Array
+    - Binary Search
+---
+
+<!-- problem:start -->
+
+# [1891. Cutting Ribbons 🔒](https://leetcode.com/problems/cutting-ribbons)
+
+## Description
+
+<!-- description:start -->
+
+<p>You are given an integer array <code>ribbons</code>, where <code>ribbons[i]</code> represents the length of the <code>i<sup>th</sup></code> ribbon, and an integer <code>k</code>. You may cut any of the ribbons into any number of segments of <strong>positive integer</strong> lengths, or perform no cuts at all.</p>
+
+<ul>
+	<li>For example, if you have a ribbon of length <code>4</code>, you can:
+
+    <ul>
+    	<li>Keep the ribbon of length <code>4</code>,</li>
+    	<li>Cut it into one ribbon of length <code>3</code> and one ribbon of length <code>1</code>,</li>
+    	<li>Cut it into two ribbons of length <code>2</code>,</li>
+    	<li>Cut it into one ribbon of length <code>2</code> and two ribbons of length <code>1</code>, or</li>
+    	<li>Cut it into four ribbons of length <code>1</code>.</li>
+    </ul>
+    </li>
+
+</ul>
+
+<p>Your task is to determine the <strong>maximum</strong> length of ribbon, <code>x</code>, that allows you to cut <em>at least</em> <code>k</code> ribbons, each of length <code>x</code>. You can discard any leftover ribbon from the cuts. If it is <strong>impossible</strong> to cut <code>k</code> ribbons of the same length, return 0.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> ribbons = [9,7,5], k = 3
+<strong>Output:</strong> 5
+<strong>Explanation:</strong>
+- Cut the first ribbon to two ribbons, one of length 5 and one of length 4.
+- Cut the second ribbon to two ribbons, one of length 5 and one of length 2.
+- Keep the third ribbon as it is.
+Now you have 3 ribbons of length 5.</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> ribbons = [7,5,9], k = 4
+<strong>Output:</strong> 4
+<strong>Explanation:</strong>
+- Cut the first ribbon to two ribbons, one of length 4 and one of length 3.
+- Cut the second ribbon to two ribbons, one of length 4 and one of length 1.
+- Cut the third ribbon to three ribbons, two of length 4 and one of length 1.
+Now you have 4 ribbons of length 4.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> ribbons = [5,7,9], k = 22
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> You cannot obtain k ribbons of the same positive integer length.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= ribbons.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= ribbons[i] &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
+</ul>
+
+<!-- description:end -->
+
+## Solutions
+
+<!-- solution:start -->
+
+### Solution 1: Binary Search
+
+We observe that if we can obtain $k$ ropes of length $x$, then we can also obtain $k$ ropes of length $x-1$. This implies that there is a monotonicity property, and we can use binary search to find the maximum length $x$ such that we can obtain $k$ ropes of length $x$.
+
+We define the left boundary of the binary search as $left=0$, the right boundary as $right=\max(ribbons)$, and the middle value as $mid=(left+right+1)/2$. We then calculate the number of ropes we can obtain with length $mid$, denoted as $cnt$. If $cnt \geq k$, it means we can obtain $k$ ropes of length $mid$, so we update $left$ to $mid$. Otherwise, we update $right$ to $mid-1$.
+
+Finally, we return $left$ as the maximum length of the ropes we can obtain.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of ropes and the maximum length of the ropes, respectively. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxLength(self, ribbons: List[int], k: int) -> int:
+        left, right = 0, max(ribbons)
+        while left < right:
+            mid = (left + right + 1) >> 1
+            cnt = sum(x // mid for x in ribbons)
+            if cnt >= k:
+                left = mid
+            else:
+                right = mid - 1
+        return left
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

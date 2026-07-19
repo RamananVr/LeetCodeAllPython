@@ -1,0 +1,93 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README_EN.md
+rating: 1249
+source: Biweekly Contest 86 Q1
+tags:
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
+# [2395. Find Subarrays With Equal Sum](https://leetcode.com/problems/find-subarrays-with-equal-sum)
+
+## Description
+
+<!-- description:start -->
+
+<p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, determine whether there exist <strong>two</strong> subarrays of length <code>2</code> with <strong>equal</strong> sum. Note that the two subarrays must begin at <strong>different</strong> indices.</p>
+
+<p>Return <code>true</code><em> if these subarrays exist, and </em><code>false</code><em> otherwise.</em></p>
+
+<p>A <b>subarray</b> is a contiguous non-empty sequence of elements within an array.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [4,2,4]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> The subarrays with elements [4,2] and [2,4] have the same sum of 6.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,3,4,5]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> No two subarrays of size 2 have the same sum.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [0,0,0]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> The subarrays [nums[0],nums[1]] and [nums[1],nums[2]] have the same sum of 0. 
+Note that even though the subarrays have the same content, the two subarrays are considered different because they are in different positions in the original array.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>2 &lt;= nums.length &lt;= 1000</code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
+
+<!-- description:end -->
+
+## Solutions
+
+<!-- solution:start -->
+
+### Solution 1: Hash Table
+
+We can traverse the array $nums$, and use a hash table $vis$ to record the sum of every two adjacent elements in the array. If the sum of the current two elements has already appeared in the hash table, then return `true`. Otherwise, add the sum of the current two elements to the hash table.
+
+If we finish traversing and haven't found two subarrays that meet the condition, return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findSubarrays(self, nums: List[int]) -> bool:
+        vis = set()
+        for a, b in pairwise(nums):
+            if (x := a + b) in vis:
+                return True
+            vis.add(x)
+        return False
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

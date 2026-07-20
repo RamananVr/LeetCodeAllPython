@@ -45,7 +45,19 @@ def _is_fence(line: str) -> bool:
     return s.startswith("```") or s.startswith("~~~")
 
 
-def clean_readme(text: str) -> str:
+def _solution_link_prefix(rel_path) -> str:
+    """Relative prefix that points a README at ``rel_path`` back to ``solutions/``.
+
+    Upstream links are absolute (``/solution/<range>/<problem>/README_EN.md``),
+    which break on GitHub. ``rel_path`` is the file's path relative to the output
+    root (e.g. ``README_EN.md`` for the index, ``0000-0099/0001.Two Sum/README_EN.md``
+    for a problem). A file that is ``d`` directories deep needs ``../`` * d.
+    """
+    parts = Path(rel_path).parts
+    return "../" * (len(parts) - 1)
+
+
+def clean_readme(text: str, rel_path=None) -> str:
     """Rewrite a README_EN.md to reference only Python (plus SQL) solutions.
 
     Removes the Chinese-doc link line and drops every non-Python/SQL ``#### <Lang>``
@@ -53,7 +65,10 @@ def clean_readme(text: str) -> str:
     the surrounding ``tabs:start/tabs:end`` markers — this tolerates malformed
     upstream files that use stray markers. Empty ``tabs`` blocks are removed.
     Frontmatter, the problem description, prose, and kept code are untouched.
-    Idempotent.
+
+    When ``rel_path`` (the file's path relative to the output root) is given,
+    upstream absolute ``/solution/...`` links are rewritten to repo-relative paths
+    so they resolve correctly on GitHub. Idempotent.
     """
     lines = text.splitlines()
     out: list[str] = []
@@ -109,6 +124,9 @@ def clean_readme(text: str) -> str:
     result = re.sub(
         r"<!-- tabs:start -->\s*<!-- tabs:end -->\n?", "", result
     )
+    # Rewrite upstream absolute /solution/ links to repo-relative paths.
+    if rel_path is not None:
+        result = result.replace("](/solution/", "](" + _solution_link_prefix(rel_path))
     # Collapse runs of blank lines introduced by removals.
     result = re.sub(r"\n{3,}", "\n\n", result)
     if not result.endswith("\n"):
@@ -241,7 +259,7 @@ def copy_out(
         try:
             dest.parent.mkdir(parents=True, exist_ok=True)
             if src.name == "README_EN.md":
-                cleaned = clean_readme(src.read_text(encoding="utf-8"))
+                cleaned = clean_readme(src.read_text(encoding="utf-8"), rel_path=rel)
                 dest.write_text(cleaned, encoding="utf-8")
             else:
                 shutil.copy2(src, dest)
@@ -263,7 +281,7 @@ def clean_existing_tree(out: Path) -> dict[str, int]:
     for path in sorted(out.rglob("README_EN.md")):
         try:
             original = path.read_text(encoding="utf-8")
-            cleaned = clean_readme(original)
+            cleaned = clean_readme(original, rel_path=path.relative_to(out))
             if cleaned != original:
                 path.write_text(cleaned, encoding="utf-8")
                 counts["changed"] += 1

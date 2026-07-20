@@ -56,6 +56,28 @@ def parse_index(md: str) -> list[dict]:
     return entries
 
 
+def generate(source, out) -> int:
+    """Parse the index table at ``source`` and write ``out`` as search JSON.
+
+    Returns the number of entries written. Raises ``FileNotFoundError`` if the
+    source is missing and ``ValueError`` if no rows could be parsed. Reusable from
+    other scripts (e.g. the fetcher) to keep ``search-index.json`` in sync.
+    """
+    src = Path(source)
+    if not src.is_file():
+        raise FileNotFoundError(f"source not found: {src}")
+
+    entries = parse_index(src.read_text(encoding="utf-8"))
+    if not entries:
+        raise ValueError(f"no rows parsed from index table: {src}")
+
+    Path(out).write_text(
+        json.dumps(entries, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
+    return len(entries)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument(
@@ -75,17 +97,13 @@ def main() -> int:
         print(f"error: source not found: {src}", file=sys.stderr)
         return 1
 
-    md = src.read_text(encoding="utf-8")
-    entries = parse_index(md)
-    if not entries:
-        print("error: no rows parsed from index table", file=sys.stderr)
+    try:
+        count = generate(src, args.out)
+    except (FileNotFoundError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
         return 1
 
-    Path(args.out).write_text(
-        json.dumps(entries, ensure_ascii=False, separators=(",", ":")),
-        encoding="utf-8",
-    )
-    print(f"Wrote {len(entries)} entries to {args.out}")
+    print(f"Wrote {count} entries to {args.out}")
     return 0
 
 

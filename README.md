@@ -31,6 +31,10 @@ Run whenever `solutions/README_EN.md` changes:
 python build_index.py            # writes search-index.json
 ```
 
+> **Note:** `fetch_solutions.py` already rebuilds the index automatically after a
+> fetch or clean (see below), so you normally only run this directly for a manual
+> one-off regeneration.
+
 ### Run locally
 
 ```bash
@@ -65,4 +69,12 @@ python fetch_solutions.py                 # fetch + clean into solutions/
 python fetch_solutions.py --clean-existing  # re-clean the already-fetched tree
 ```
 
-After a refresh, regenerate the index with `python build_index.py`.
+The master index table (`solutions/README_EN.md`) is always refreshed on a fetch —
+even in the default skip-existing mode — so newly added problems appear in it. After
+the fetch (or clean) completes, `search-index.json` is **rebuilt automatically** from
+that table, so new problems are immediately searchable on the website. Control this with:
+
+```bash
+python fetch_solutions.py --no-index                 # skip the automatic index rebuild
+python fetch_solutions.py --index-out search-index.json  # customize the index output path
+```

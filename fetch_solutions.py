@@ -20,6 +20,8 @@ import sys
 import tempfile
 from pathlib import Path
 
+import build_index
+
 REPO_URL = "https://github.com/doocs/leetcode.git"
 SPARSE_SUBTREE = "solution"
 
@@ -248,7 +250,12 @@ def copy_out(
             else "sql"
         )
 
-        if dest.exists() and not overwrite:
+        # The master index (solutions/README_EN.md, depth 1) is the source of truth
+        # for search-index.json, so always refresh it — otherwise newly added
+        # problems would never appear in the index on a default (skip-existing) run.
+        is_master_index = src.name == "README_EN.md" and len(rel.parts) == 1
+
+        if dest.exists() and not overwrite and not is_master_index:
             counts["skipped"] += 1
             continue
 
@@ -360,7 +367,40 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=None,
         help="Use this path for the git working dir instead of a temp dir.",
     )
+    parser.add_argument(
+        "--index-out",
+        type=Path,
+        default=Path("search-index.json"),
+        help="Path to write the search index JSON (default: ./search-index.json).",
+    )
+    parser.add_argument(
+        "--no-index",
+        action="store_true",
+        help=(
+            "Do not (re)build the search index after fetching/cleaning. By default "
+            "search-index.json is regenerated from the updated index table so newly "
+            "fetched problems are searchable on the website."
+        ),
+    )
     return parser.parse_args(argv)
+
+
+def rebuild_index(out: Path, index_out: Path, dry_run: bool = False) -> None:
+    """Regenerate the website search index from the mirrored index table.
+
+    Reads ``<out>/README_EN.md`` (the master table refreshed by the fetch) and
+    writes ``index_out``. Failures are logged as warnings, never fatal, so a
+    successful fetch is not undone by an index-build hiccup.
+    """
+    if dry_run:
+        _log("  (dry-run: search index not rebuilt)")
+        return
+    source = out / "README_EN.md"
+    try:
+        count = build_index.generate(source, index_out)
+        _log(f"  Search index:  {count} entries -> {index_out}")
+    except (FileNotFoundError, ValueError) as exc:
+        _log(f"WARN: could not rebuild search index: {exc}")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -374,6 +414,8 @@ def main(argv: list[str] | None = None) -> int:
         _log(f"  Changed:    {counts['changed']}")
         _log(f"  Unchanged:  {counts['unchanged']}")
         _log(f"  Failed:     {counts['failed']}")
+        if not args.no_index:
+            rebuild_index(args.out, args.index_out)
         return 0 if counts["failed"] == 0 else 1
 
     check_git()
@@ -409,6 +451,8 @@ def main(argv: list[str] | None = None) -> int:
             _log("  (dry-run: no files written)")
         else:
             _log(f"  Output:        {args.out.resolve()}")
+        if not args.no_index:
+            rebuild_index(args.out, args.index_out, dry_run=args.dry_run)
     except RuntimeError as exc:
         _log(f"ERROR: {exc}")
         return 1

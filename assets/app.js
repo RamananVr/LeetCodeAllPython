@@ -15,6 +15,57 @@
 
   function $(id) { return document.getElementById(id); }
 
+  /* ---- Math (KaTeX via marked extension) -------------------------------- */
+
+  function registerMathExtension() {
+    if (!window.marked || !window.katex || !window.marked.use) return;
+
+    function render(tex, displayMode, raw) {
+      try {
+        return window.katex.renderToString(tex, {
+          displayMode: displayMode,
+          throwOnError: false,
+        });
+      } catch (e) {
+        return raw;
+      }
+    }
+
+    window.marked.use({
+      extensions: [
+        {
+          name: "blockMath",
+          level: "block",
+          start: function (src) { var i = src.indexOf("$$"); return i < 0 ? undefined : i; },
+          tokenizer: function (src) {
+            var m = /^\$\$([\s\S]+?)\$\$/.exec(src);
+            if (m) {
+              return { type: "blockMath", raw: m[0], text: m[1].trim() };
+            }
+          },
+          renderer: function (token) {
+            return render(token.text, true, token.raw);
+          },
+        },
+        {
+          name: "inlineMath",
+          level: "inline",
+          start: function (src) { var i = src.indexOf("$"); return i < 0 ? undefined : i; },
+          tokenizer: function (src) {
+            // Single-$ inline math; not $$ (handled by blockMath). Allow escaped chars.
+            var m = /^\$(?!\$)((?:\\.|[^$\\])+?)\$/.exec(src);
+            if (m) {
+              return { type: "inlineMath", raw: m[0], text: m[1].trim() };
+            }
+          },
+          renderer: function (token) {
+            return render(token.text, false, token.raw);
+          },
+        },
+      ],
+    });
+  }
+
   function debounce(fn, ms) {
     var t;
     return function () {
@@ -263,6 +314,7 @@
     if (window.marked) {
       window.marked.setOptions({ gfm: true, breaks: false });
     }
+    registerMathExtension();
 
     initTheme();
 

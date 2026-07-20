@@ -19,7 +19,9 @@ A mirror of [doocs/leetcode](https://github.com/doocs/leetcode) solutions, trimm
 
 A dependency-free (vanilla HTML/CSS/JS) site that searches the mirrored solutions by
 **problem name, number, or tag**, filters by difficulty, and renders the selected
-problem's `README_EN.md` (Python/SQL, syntax-highlighted) in-page.
+problem's `README_EN.md` (Python/SQL, syntax-highlighted) in-page. LaTeX math in the
+write-ups (`$...$` / `$$...$$`) is rendered with a locally-vendored **KaTeX**
+(`assets/vendor/katex/`), so the site has no runtime CDN dependency.
 
 ### Regenerate the search index
 

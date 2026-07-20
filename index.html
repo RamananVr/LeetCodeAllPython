@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeetCode Solutions Search (Python / SQL)</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link id="hljs-light" rel="stylesheet" href="assets/vendor/github.min.css" />
+  <link id="hljs-dark" rel="stylesheet" href="assets/vendor/github-dark.min.css" disabled />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>LeetCode Solutions</h1>
+      <span class="subtitle">Python &amp; SQL &middot; search by name, number, or tag</span>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+  </header>
+
+  <main class="layout">
+    <section class="sidebar" aria-label="Search and filters">
+      <input
+        id="search"
+        class="search-input"
+        type="search"
+        placeholder="Search e.g. 175, palindrome, Database…"
+        autocomplete="off"
+        autofocus
+      />
+      <div class="filters">
+        <label class="filter-label" for="difficulty">Difficulty</label>
+        <select id="difficulty" class="difficulty-select">
+          <option value="">All</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+      <div id="active-tags" class="active-tags" aria-label="Active tag filters"></div>
+      <div class="result-count" id="result-count">Loading…</div>
+      <ul id="results" class="results" aria-label="Search results"></ul>
+    </section>
+
+    <section class="detail" aria-label="Solution detail">
+      <div id="detail-empty" class="detail-empty">
+        <p>Select a problem to view its solution.</p>
+      </div>
+      <article id="detail-content" class="markdown-body" hidden></article>
+    </section>
+  </main>
+
+  <script src="assets/vendor/marked.min.js"></script>
+  <script src="assets/vendor/highlight.min.js"></script>
+  <script src="assets/vendor/python.min.js"></script>
+  <script src="assets/vendor/sql.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

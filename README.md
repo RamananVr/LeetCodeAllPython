@@ -35,6 +35,12 @@ python build_index.py            # writes search-index.json
 > fetch or clean (see below), so you normally only run this directly for a manual
 > one-off regeneration.
 
+A GitHub Actions workflow (`.github/workflows/build-index.yml`) also rebuilds and
+commits `search-index.json` automatically whenever `solutions/README_EN.md` changes
+on `main` — so the index stays in sync even if the tree is edited without running the
+fetcher. For the workflow's bot commit to push, enable write access once:
+**Settings → Actions → General → Workflow permissions → "Read and write permissions"**.
+
 ### Run locally
 
 ```bash

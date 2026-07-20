@@ -1,8 +1,8 @@
 # LeetCodeAllPython
 
-A mirror of [doocs/leetcode](https://github.com/doocs/leetcode) solutions, trimmed to
-**Python** (and **SQL** for database problems) only, plus a static, client-side
-**search website** served from GitHub Pages.
+A curated collection of LeetCode solutions, trimmed to **Python** (and **SQL** for
+database problems) only, plus a static, client-side **search website** served from
+GitHub Pages.
 
 ## Repository layout
 
@@ -10,7 +10,7 @@ A mirror of [doocs/leetcode](https://github.com/doocs/leetcode) solutions, trimm
 |------|---------|
 | `solutions/` | Mirrored problem folders (`README_EN.md`, `Solution.py`, `Solution.sql`, …). |
 | `solutions/README_EN.md` | Master index table (number, title, tags, difficulty). |
-| `fetch_solutions.py` | Fetches + cleans solutions from upstream. |
+| `fetch_solutions.py` | Fetches + cleans solutions. |
 | `build_index.py` | Generates `search-index.json` from the index table. |
 | `index.html`, `assets/` | The static search website. |
 | `.nojekyll` | Makes GitHub Pages serve `.md` files verbatim. |
@@ -66,7 +66,7 @@ files are served raw for the client-side markdown renderer.
 
 ## Fetching / refreshing solutions
 
-`fetch_solutions.py` shallow-clones upstream, copies Python/SQL solutions and
+`fetch_solutions.py` fetches the solution source, copies Python/SQL solutions and
 `README_EN.md` files, and cleans each README to reference only Python (plus SQL for
 database problems), keeping tags, the question, and SQL blocks.
 

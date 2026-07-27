@@ -73,14 +73,34 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+With indices satisfying $i \le j \le k$, the same index may be chosen more than once, and XOR is commutative. Therefore, the answer equals the number of distinct XOR values obtainable by picking any three elements from the array (with replacement).
+
+Let $M = \max(\textit{nums})$. The XOR of any two non-negative integers at most $M$ is less than $2M$, so a boolean array of length $2M$ can be used for marking.
+
+First enumerate all pairs $(a, b)$ and mark $a \oplus b$ in array $\textit{st}$. Then enumerate every appeared pairwise XOR value $\textit{ab}$ and each third element $c$, and mark $\textit{ab} \oplus c$ in array $s$. Finally count the number of non-zero entries in $s$.
+
+The time complexity is $O(n^2 + M \cdot n)$, and the space complexity is $O(M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def uniqueXorTriplets(self, nums: List[int]) -> int:
+        mx = max(nums) << 1
+        st = [False] * mx
+        for a in nums:
+            for b in nums:
+                st[a ^ b] = True
+        s = [0] * mx
+        for ab in range(mx):
+            if st[ab]:
+                for c in nums:
+                    s[ab ^ c] = 1
+        return sum(s)
 ```
 
 <!-- tabs:end -->

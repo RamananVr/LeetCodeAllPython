@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README_EN.md
+rating: 2122
+source: Weekly Contest 512 Q4
 ---
 
 <!-- problem:start -->
@@ -117,14 +119,52 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4003.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dijkstra
+
+The cost to enter cell $(i, j)$ is $(i+1)(j+1)$. Actions are numbered from $1$: on odd actions you should move right or down, and on even actions left or up; you may also wait in place. Moving against the parity rule costs an extra $\textit{penalty}$ of the current cell, and waiting also costs $\textit{penalty}$. After every action the required parity flips.
+
+Use state $(i, j, k)$ for the minimum cost of being at $(i, j)$ when the next action has parity $k$ ($k = 1$ for an odd action, $k = 0$ for an even action). The start is $(0, 0, 1)$ with cost $1$.
+
+From the current state you may:
+
+- **Wait**: add $\textit{penalty}[i][j]$ and flip the parity;
+- **Move**: enumerate four directions, add the destination entrance cost; if the direction mismatches the current parity, also add $\textit{penalty}[i][j]$, then flip the parity at the new cell.
+
+Run Dijkstra on this state graph; the first time $(m-1, n-1)$ is popped is the answer.
+
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minCost(self, m: int, n: int, penalty: List[List[int]]) -> int:
+        dist = [[[inf] * 2 for _ in range(n)] for _ in range(m)]
+        dist[0][0][1] = 1
+        pq = [(1, 0, 0, 1)]
+        dirs = ((-1, 0), (0, 1), (0, -1), (1, 0))
+        while pq:
+            d, i, j, k = heappop(pq)
+            if i == m - 1 and j == n - 1:
+                return d
+            if d > dist[i][j][k]:
+                continue
 
+            p = penalty[i][j]
+            nd = d + p
+            if nd < dist[i][j][k ^ 1]:
+                dist[i][j][k ^ 1] = nd
+                heappush(pq, (nd, i, j, k ^ 1))
+
+            for idx, (dx, dy) in enumerate(dirs):
+                x, y = i + dx, j + dy
+                if 0 <= x < m and 0 <= y < n:
+                    nd = d + (x + 1) * (y + 1) + (idx & 1 ^ k) * p
+                    if nd < dist[x][y][k ^ 1]:
+                        dist[x][y][k ^ 1] = nd
+                        heappush(pq, (nd, x, y, k ^ 1))
 ```
 
 <!-- tabs:end -->

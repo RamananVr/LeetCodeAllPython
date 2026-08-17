@@ -55,11 +55,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Simulation + Hash Table
+### Solution 1: Simulation
 
-First, we calculate the longest prefix sum $s$ of the array $nums$. Then, starting from $s$, we enumerate the integer $x$. If $x$ is not in the array $nums$, then $x$ is the answer. Here, we can use a hash table to quickly determine whether an integer is in the array $nums$.
+First, we calculate the sum $s$ of the longest sequential prefix of the array $nums$. Then, starting from $s$, we enumerate the integer $x$. If $x$ is not in the array $nums$, then $x$ is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+Since $nums[i] \leq 50$ in this problem, we can use an array of length $51$ (or a hash table) to record the integers that appear in the array, so as to quickly determine whether an integer is in the array $nums$.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $nums$, and $M$ is the upper bound of the array elements, which is $51$ in this problem.
 
 <!-- tabs:start -->
 
@@ -68,14 +70,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def missingInteger(self, nums: List[int]) -> int:
-        s, j = nums[0], 1
-        while j < len(nums) and nums[j] == nums[j - 1] + 1:
-            s += nums[j]
-            j += 1
-        vis = set(nums)
-        for x in count(s):
-            if x not in vis:
-                return x
+        s = nums[0]
+        for x, y in pairwise(nums):
+            if x + 1 != y:
+                break
+            s += y
+        st = set(nums)
+        while s in st:
+            s += 1
+        return s
 ```
 
 <!-- tabs:end -->

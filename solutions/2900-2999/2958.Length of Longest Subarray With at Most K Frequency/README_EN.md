@@ -73,9 +73,9 @@ It can be shown that there are no good subarrays with length more than 4.
 
 ### Solution 1: Two Pointers
 
-We can use two pointers $j$ and $i$ to represent the left and right endpoints of the subarray, initially both pointers point to the first element of the array.
+We can use two pointers $l$ and $r$ to represent the left and right endpoints of the subarray, initially both pointers point to the first element of the array.
 
-Next, we iterate over each element $x$ in the array $nums$. For each element $x$, we increment the occurrence count of $x$, then check if the current subarray meets the requirements. If the current subarray does not meet the requirements, we move the pointer $j$ one step to the right, and decrement the occurrence count of $nums[j]$, until the current subarray meets the requirements. Then we update the answer $ans = \max(ans, i - j + 1)$. Continue the iteration until $i$ reaches the end of the array.
+Next, we iterate over each element $x$ in the array $nums$. For each element $x$, we increment the occurrence count of $x$, then check if the current subarray meets the requirements. If the current subarray does not meet the requirements, we move the pointer $l$ one step to the right, and decrement the occurrence count of $nums[l]$, until the current subarray meets the requirements. Then we update the answer $ans = \max(ans, r - l + 1)$. Continue the iteration until $r$ reaches the end of the array.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
@@ -86,14 +86,14 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 ```python
 class Solution:
     def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        ans = l = 0
         cnt = defaultdict(int)
-        ans = j = 0
-        for i, x in enumerate(nums):
+        for r, x in enumerate(nums):
             cnt[x] += 1
             while cnt[x] > k:
-                cnt[nums[j]] -= 1
-                j += 1
-            ans = max(ans, i - j + 1)
+                cnt[nums[l]] -= 1
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
 ```
 

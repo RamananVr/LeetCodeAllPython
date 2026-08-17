@@ -57,9 +57,9 @@ The following substring has a length of 2 and contains at most two occurrences o
 
 ### Solution 1: Two Pointers
 
-We use two pointers $i$ and $j$ to maintain a sliding window, and an array $cnt$ to record the occurrence times of each character in the window.
+We use two pointers $l$ and $r$ to maintain a sliding window, and an array $cnt$ to record the occurrence times of each character in the window.
 
-In each iteration, we add the character $c$ at the pointer $j$ into the window, then check if $cnt[c]$ is greater than $2$. If it is, we move the pointer $i$ to the right until $cnt[c]$ is less than or equal to $2$. At this point, we update the answer $ans = \max(ans, j - i + 1)$.
+In each iteration, we add the character $c$ at the pointer $r$ into the window, then check if $cnt[c]$ is greater than $2$. If it is, we move the pointer $l$ to the right until $cnt[c]$ is less than or equal to $2$. At this point, we update the answer $ans = \max(ans, r - l + 1)$.
 
 Finally, we return the answer $ans$.
 
@@ -72,14 +72,14 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 ```python
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
-        cnt = Counter()
-        ans = i = 0
-        for j, c in enumerate(s):
+        ans = l = 0
+        cnt = defaultdict(int)
+        for r, c in enumerate(s):
             cnt[c] += 1
             while cnt[c] > 2:
-                cnt[s[i]] -= 1
-                i += 1
-            ans = max(ans, j - i + 1)
+                cnt[s[l]] -= 1
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
 ```
 

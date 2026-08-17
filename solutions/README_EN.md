@@ -4023,6 +4023,17 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4015  |  [Weighted Sum of a Tree](4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
 |  4016  |  [Maximum Area of Two Non-Overlapping Square Submatrices](4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
 |  4017  |  [Peaks in Array II](4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 514  |
+|  4018  |  [Total Sum of Interaction Cost in Tree Groups II](4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  4019  |  [Merge Close Characters II](4000-4099/4019.Merge%20Close%20Characters%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  4020  |  [Elevator Requests I](4000-4099/4020.Elevator%20Requests%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 189  |
+|  4021  |  [Minimum Operations to Make a Rotated Palindrome I](4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
+|  4022  |  [K-th Digit in Infinite String](4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
+|  4023  |  [Elevator Requests II](4000-4099/4023.Elevator%20Requests%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 189  |
+|  4024  |  [Nearest Available Drone](4000-4099/4024.Nearest%20Available%20Drone/README_EN.md)  |    |  Easy  |  Weekly Contest 515  |
+|  4025  |  [Minimize the Maximum Waiting Time at Synchronized Traffic Lights](4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README_EN.md)  |    |  Medium  |  Weekly Contest 515  |
+|  4026  |  [Maximum Gap Between Stations](4000-4099/4026.Maximum%20Gap%20Between%20Stations/README_EN.md)  |    |  Medium  |  Weekly Contest 515  |
+|  4027  |  [Elevator Requests III](4000-4099/4027.Elevator%20Requests%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 515  |
+|  4029  |  [Minimum Operations to Make a Rotated Palindrome II](4000-4099/4029.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

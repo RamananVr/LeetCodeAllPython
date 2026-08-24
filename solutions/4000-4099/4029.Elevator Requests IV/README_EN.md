@@ -1,20 +1,12 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4027.Elevator%20Requests%20III/README_EN.md
-rating: 2200
-source: Weekly Contest 515 Q4
-tags:
-    - Bit Manipulation
-    - Array
-    - Dynamic Programming
-    - Bitmask
-    - Sorting
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4029.Elevator%20Requests%20IV/README_EN.md
 ---
 
 <!-- problem:start -->
 
-# [4027. Elevator Requests III](https://leetcode.com/problems/elevator-requests-iii)
+# [4029. Elevator Requests IV 🔒](https://leetcode.com/problems/elevator-requests-iv)
 
 ## Description
 
@@ -90,7 +82,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
-	<li><code>1 &lt;= requests.length &lt;= 16</code></li>
+	<li><code>1 &lt;= requests.length &lt;= 500</code></li>
 	<li><code>requests[i] == [arrival<sub>i</sub>, floor<sub>i</sub>]</code></li>
 	<li><code>0 &lt;= arrival<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= start, floor<sub>i</sub> &lt;= n - 1</code></li>
@@ -102,46 +94,14 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: State Compression DP
-
-The number of floors $n$ can be as large as $10^9$, but there are at most $m \le 16$ requests, so we only need to plan a path among at most $m$ target floors.
-
-This is a traveling salesman problem with arrival-time constraints. Let $f[i][j]$ be the minimum time to fulfill the set of requests represented by bitmask $i$, with request $j$ fulfilled last.
-
-For each state $i$ that contains request $j$, let $i_0 = i \oplus 2^j$:
-
-- If $i_0 = 0$, we start from $\textit{start}$, and the time is $\max(|\textit{start} - \textit{floor}_j|, \textit{arrival}_j)$;
-- Otherwise, we enumerate the previous request $j_0$, and the time is $\max(f[i_0][j_0] + |\textit{floor}_{j_0} - \textit{floor}_j|, \textit{arrival}_j)$.
-
-The answer is the minimum of $f[2^m-1][j]$ over all $j$.
-
-The time complexity is $O(m^2 \times 2^m)$, and the space complexity is $O(m \times 2^m)$, where $m$ is the number of requests.
+### Solution 1
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-class Solution:
-    def elevatorRequests(self, n: int, start: int, requests: list[list[int]]) -> int:
-        m = len(requests)
-        f = [[0] * m for _ in range(1 << m)]
-        for i in range(1 << m):
-            for j in range(m):
-                if i >> j & 1:
-                    f[i][j] = inf
-                    i0 = i ^ (1 << j)
-                    if i0 == 0:
-                        d = abs(start - requests[j][1])
-                        f[i][j] = min(f[i][j], max(d, requests[j][0]))
-                    else:
-                        for j0 in range(m):
-                            if j0 != j and (i >> j0 & 1):
-                                d = abs(requests[j0][1] - requests[j][1])
-                                f[i][j] = min(
-                                    f[i][j], max(f[i0][j0] + d, requests[j][0])
-                                )
-        return min(f[(1 << m) - 1][j] for j in range(m))
+
 ```
 
 <!-- tabs:end -->

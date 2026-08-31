@@ -73,14 +73,61 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Level Order Traversal
+
+We can serialize an N-ary tree with level order traversal. Start from the root, append its value, and enqueue it. Each time we dequeue a node, we append the values of all its children and enqueue them, then append a special character `#` to mark the end of that node's children. Finally we join the values with commas.
+
+During deserialization, we split the string by the delimiter. Create the root from the first value and enqueue it. For each dequeued node, keep reading the following values as its children until we meet `#`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the N-ary tree.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+"""
+# Definition for a Node.
+class Node(object):
+    def __init__(self, val: Optional[int] = None, children: Optional[List['Node']] = None):
+        self.val = val
+        self.children = children
+"""
 
+class Codec:
+    def serialize(self, root: 'Node') -> str:
+        if root is None:
+            return ''
+        ans = [str(root.val)]
+        q = deque([root])
+        while q:
+            node = q.popleft()
+            for child in node.children or []:
+                ans.append(str(child.val))
+                q.append(child)
+            ans.append('#')
+        return ','.join(ans)
+
+    def deserialize(self, data: str) -> 'Node':
+        if not data:
+            return None
+        vals = data.split(',')
+        root = Node(int(vals[0]), [])
+        q = deque([root])
+        i = 1
+        while q:
+            node = q.popleft()
+            while vals[i] != '#':
+                child = Node(int(vals[i]), [])
+                node.children.append(child)
+                q.append(child)
+                i += 1
+            i += 1
+        return root
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.deserialize(codec.serialize(root))
 ```
 
 <!-- tabs:end -->

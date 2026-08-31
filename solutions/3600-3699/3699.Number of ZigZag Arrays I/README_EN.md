@@ -84,14 +84,42 @@ source: Weekly Contest 469 Q3
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+Let $m = r - l + 1$ and map the range $[l, r]$ to $[0, m - 1]$.
+
+Let $up[i]$ be the number of arrays of the current length that end with $i$ whose last step is an increase, and $down[i]$ the number whose last step is a decrease. For length $1$ there is no direction, so initialize $up[i] = down[i] = 1$.
+
+Transitions:
+
+- If the array ends at $i$ with a decrease, the previous value must be greater than $i$ and the previous step must be an increase: $down'[i] = \sum_{j > i} up[j]$;
+- If the last step is an increase: $up'[i] = \sum_{j < i} down[j]$.
+
+Prefix and suffix sums make each transition $O(m)$. Repeat $n - 1$ times. The answer is the sum of all $up[i] + down[i]$.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, where $n$ is the array length and $m$ is the size of the value range.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def zigZagArrays(self, n: int, l: int, r: int) -> int:
+        mod = 10**9 + 7
+        m = r - l + 1
+        up = [1] * m
+        down = [1] * m
+        for _ in range(n - 1):
+            pre = [0] * (m + 1)
+            suf = [0] * (m + 1)
+            for i in range(m):
+                pre[i + 1] = (pre[i] + down[i]) % mod
+            for i in range(m - 1, -1, -1):
+                suf[i] = (suf[i + 1] + up[i]) % mod
+            up = pre[:m]
+            down = suf[1:]
+        return sum(up + down) % mod
 ```
 
 <!-- tabs:end -->

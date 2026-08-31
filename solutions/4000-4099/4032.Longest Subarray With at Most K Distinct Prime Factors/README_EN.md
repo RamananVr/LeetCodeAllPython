@@ -91,14 +91,41 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4032.Lo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Preprocessing + Sliding Window
+
+First, we preprocess the list of prime factors for every number in $[2, 10^5]$ and store them in $\textit{primes}$. Specifically, we enumerate $i = 2, 3, \cdots, M$. If $\textit{primes}[i]$ is empty, then $i$ is a prime, and we add $i$ to the prime-factor list of every multiple of $i$.
+
+Then we use a sliding window to find the longest valid subarray. A hash table $\textit{cnt}$ records the occurrence count of each prime factor in the current window. When the right pointer $r$ expands, we add all prime factors of $\textit{nums}[r]$ to the window. When the number of distinct prime factors in the window exceeds $k$, the left pointer $l$ shrinks and we remove the prime factors of $\textit{nums}[l]$. Whenever the window is valid, we update the answer with the window length.
+
+The time complexity is $O(M \log \log M + n \log M)$, and the space complexity is $O(M \log \log M)$, where $n$ is the length of $\textit{nums}$ and $M = 10^5$ is the maximum value of the array elements.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+mx = 100001
+primes = [[] for _ in range(mx)]
+for i in range(2, mx):
+    if not primes[i]:
+        for j in range(i, mx, i):
+            primes[j].append(i)
 
+class Solution:
+    def longestSubarray(self, nums: list[int], k: int) -> int:
+        cnt = defaultdict(int)
+        ans = l = 0
+        for r, x in enumerate(nums):
+            for y in primes[x]:
+                cnt[y] += 1
+            while len(cnt) > k:
+                for y in primes[nums[l]]:
+                    cnt[y] -= 1
+                    if cnt[y] == 0:
+                        cnt.pop(y)
+                l += 1
+            ans = max(ans, r - l + 1)
+        return ans
 ```
 
 <!-- tabs:end -->

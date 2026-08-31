@@ -132,14 +132,73 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: State Compression DP
+
+The number of lists satisfies $n \le 12$, so a bitmask can represent any subset of lists.
+
+Merging two sorted lists yields the sorted union of their elements, so the length and median of a set of lists depend only on the set itself, not on the merge order. The median is the left middle element after sorting, i.e. the $\lfloor (len + 1)/2 \rfloor$-th smallest value.
+
+Precompute for every nonempty subset $i$:
+
+- $\textit{cnt}[i]$: the number of elements in the subset;
+- $\textit{med}[i]$: the median of the subset. Binary search over distinct values and count how many elements in the subset are at most $\textit{mid}$.
+
+Let $f[i]$ be the minimum cost to merge all lists in subset $i$ into one list. If $i$ contains a single list, $f[i] = 0$. Otherwise enumerate a nonempty proper subset $j$ of $i$ and let $k = i \oplus j$:
+
+$$
+f[i] = \min_{j \subset i} \big(f[j] + f[k] + |\textit{med}[j] - \textit{med}[k]|\big) + \textit{cnt}[i]
+$$
+
+The length part of the last merge is always $\textit{cnt}[i]$. The answer is $f[2^n - 1]$.
+
+Time complexity is $O(3^n + 2^n \times n \times \log V \times \log L)$, and space complexity is $O(2^n)$, where $n$ is the number of lists, $V$ is the number of distinct values, and $L$ is the maximum length of a single list.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minMergeCost(self, lists: List[List[int]]) -> int:
+        n = len(lists)
+        vals = sorted({x for v in lists for x in v})
+        cnt = [0] * (1 << n)
+        med = [0] * (1 << n)
+        for i in range(1, 1 << n):
+            for j, v in enumerate(lists):
+                if i >> j & 1:
+                    cnt[i] += len(v)
+            need = (cnt[i] + 1) // 2
+            l, r = 0, len(vals) - 1
+            while l < r:
+                mid = (l + r) >> 1
+                le = 0
+                b = i
+                while b:
+                    t = (b & -b).bit_length() - 1
+                    le += bisect_right(lists[t], vals[mid])
+                    if le >= need:
+                        break
+                    b &= b - 1
+                if le >= need:
+                    r = mid
+                else:
+                    l = mid + 1
+            med[i] = vals[l]
 
+        f = [inf] * (1 << n)
+        for i in range(1, 1 << n):
+            if i.bit_count() == 1:
+                f[i] = 0
+                continue
+            j = (i - 1) & i
+            while j:
+                k = i ^ j
+                if j <= k:
+                    f[i] = min(f[i], f[j] + f[k] + abs(med[j] - med[k]))
+                j = (j - 1) & i
+            f[i] += cnt[i]
+        return f[-1]
 ```
 
 <!-- tabs:end -->

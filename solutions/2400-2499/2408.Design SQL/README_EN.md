@@ -11,7 +11,7 @@ tags:
 
 <!-- problem:start -->
 
-# [2408. Design SQL 🔒](https://leetcode.com/problems/design-sql)
+# [2408. Design SQL](https://leetcode.com/problems/design-sql)
 
 ## Description
 

@@ -52,7 +52,6 @@ bSTIterator.next(); // return 15
 bSTIterator.hasNext(); // return True
 bSTIterator.next(); // return 20
 bSTIterator.hasNext(); // return False
-
 </pre>
 
 <p>&nbsp;</p>

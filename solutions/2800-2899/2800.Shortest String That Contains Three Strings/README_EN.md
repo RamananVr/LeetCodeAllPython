@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your task is to find a string that has the<strong> minimum</strong> length and contains all three strings as <strong>substrings</strong>.
-
 <p>If there are multiple such strings, return the<em> </em><strong>lexicographically<em> </em>smallest </strong>one.</p>
 
 <p>Return <em>a string denoting the answer to the problem.</em></p>

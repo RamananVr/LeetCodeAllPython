@@ -65,14 +65,65 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming + Prefix Sum
+
+For each column $j$, let $k[j] \in \{0, 1, \ldots, n\}$ be the number of cells colored black from the top. A white cell $(i, j)$ scores if and only if at least one horizontally adjacent cell is black, and it is counted only once. The contribution of column $j$ is therefore:
+
+$$
+\max\bigl(0,\ s[j][\max(k[j-1], k[j+1])] - s[j][k[j]]\bigr)
+$$
+
+where $s[j][h]$ is the prefix sum of the first $h$ cells in column $j$ (boundary column heights are treated as $0$).
+
+Let $f[h_1][h_2]$ be the maximum score after processing column $j$ with $k[j] = h_1$ and $k[j-1] = h_2$. When choosing the next height $hp = k[j+1]$:
+
+$$
+g[hp][h_1] = \max_{h_2}\bigl(f[h_1][h_2] + \max(0,\ s[j][\max(h_2, hp)] - s[j][h_1])\bigr)
+$$
+
+Split the transition into $h_2 \le hp$ and $h_2 > hp$, and maintain prefix / suffix maxima so that each column costs $O(n^2)$ instead of $O(n^3)$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the grid size.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumScore(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        s = [[0] * (n + 1) for _ in range(n)]
+        for j in range(n):
+            for i, x in enumerate(grid):
+                s[j][i + 1] = s[j][i] + x[j]
+        f = [[-inf] * (n + 1) for _ in range(n + 1)]
+        for h in range(n + 1):
+            f[h][0] = 0
+        for j in range(n - 1):
+            g = [[-inf] * (n + 1) for _ in range(n + 1)]
+            for h1 in range(n + 1):
+                pre = [-inf] * (n + 2)
+                pre[0] = f[h1][0]
+                for h2 in range(1, n + 1):
+                    pre[h2] = max(pre[h2 - 1], f[h1][h2])
+                suf = [-inf] * (n + 2)
+                for h2 in range(n, -1, -1):
+                    v = -inf
+                    if f[h1][h2] != -inf:
+                        v = f[h1][h2] + max(0, s[j][h2] - s[j][h1])
+                    suf[h2] = max(suf[h2 + 1], v)
+                for hp in range(n + 1):
+                    add = max(0, s[j][hp] - s[j][h1])
+                    v1 = -inf if pre[hp] == -inf else pre[hp] + add
+                    g[hp][h1] = max(v1, suf[hp + 1])
+            f = g
+        ans = 0
+        for h1 in range(n + 1):
+            for h2 in range(n + 1):
+                if f[h1][h2] != -inf:
+                    ans = max(ans, f[h1][h2] + max(0, s[-1][h2] - s[-1][h1]))
+        return ans
 ```
 
 <!-- tabs:end -->

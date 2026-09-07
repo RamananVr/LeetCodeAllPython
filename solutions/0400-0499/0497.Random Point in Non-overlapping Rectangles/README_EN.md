@@ -50,7 +50,6 @@ solution.pick(); // return [1, -1]
 solution.pick(); // return [-1, -2]
 solution.pick(); // return [-2, -2]
 solution.pick(); // return [0, 0]
-
 </pre>
 
 <p>&nbsp;</p>

@@ -99,21 +99,19 @@ If $\textit{nums1}$ contains both odd and even numbers, we need to find the mini
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums1}$. The space complexity is $O(1)$.
 
+Similar problems:
+
+- [3875. Construct Uniform Parity Array I](https://github.com/doocs/leetcode/blob/main/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README_EN.md)
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
 class Solution:
-    def uniformArray(self, nums1: list[int]) -> bool:
-        mn = inf
-        for x in nums1:
-            if x % 2:
-                mn = min(mn, x)
-        for x in nums1:
-            if x % 2 == 0 and mn != inf and x < mn:
-                return False
-        return True
+    def uniformArray(self, nums1: List[int]) -> bool:
+        mn = min((x for x in nums1 if x & 1), default=None)
+        return mn is None or all(x >= mn for x in nums1 if x & 1 == 0)
 ```
 
 <!-- tabs:end -->

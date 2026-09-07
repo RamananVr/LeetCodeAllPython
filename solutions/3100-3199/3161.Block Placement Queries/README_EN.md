@@ -81,14 +81,63 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Indexed Tree + Ordered Set
+
+Obstacles are only inserted, so we can process the queries offline in reverse and turn "insert an obstacle" into "delete an obstacle". After a deletion the adjacent gap only grows, and a Fenwick tree can maintain prefix maxima.
+
+Put all obstacles into an ordered set, and add sentinels $0$ and $m+1$, where $m$ is the maximum coordinate. For every pair of neighboring obstacles $x_1, x_2$, update index $x_2$ in the Fenwick tree with the gap $x_2 - x_1$.
+
+Then scan the queries from back to front:
+
+- Type $2$: find the last obstacle $pre \le x$. The block can be placed if the maximum gap in $[0, pre]$ or the tail gap $(pre, x]$ is at least $sz$.
+- Type $1$: delete obstacle $x$, and update the gap at its successor $nxt$ to $nxt - pre$.
+
+The time complexity is $O(q \times \log m)$, and the space complexity is $O(m)$, where $q$ is the number of queries and $m$ is the maximum coordinate.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
 
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        mx = 0
+        while x:
+            mx = max(mx, self.c[x])
+            x -= x & -x
+        return mx
+
+class Solution:
+    def getResults(self, queries: List[List[int]]) -> List[bool]:
+        m = max(q[1] for q in queries)
+        sl = SortedList([0, m + 1])
+        for q in queries:
+            if q[0] == 1:
+                sl.add(q[1])
+        tree = BinaryIndexedTree(m + 1)
+        for x1, x2 in pairwise(sl):
+            tree.update(x2, x2 - x1)
+        ans = []
+        for q in reversed(queries):
+            x = q[1]
+            if q[0] == 1:
+                i = sl.index(x)
+                tree.update(sl[i + 1], sl[i + 1] - sl[i - 1])
+                sl.remove(x)
+            else:
+                i = sl.bisect_right(x)
+                pre = sl[i - 1]
+                ans.append(tree.query(pre) >= q[2] or x - pre >= q[2])
+        return ans[::-1]
 ```
 
 <!-- tabs:end -->

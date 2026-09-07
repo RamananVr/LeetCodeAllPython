@@ -15,7 +15,6 @@ tags:
 <!-- description:start -->
 
 Write a function&nbsp;<code>createHelloWorld</code>.&nbsp;It should return a new function that always returns&nbsp;<code>&quot;Hello World&quot;</code>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

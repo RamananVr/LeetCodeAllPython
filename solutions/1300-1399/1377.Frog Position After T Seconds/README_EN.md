@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README_EN.md
 rating: 1823
 source: Weekly Contest 179 Q4
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A frog jumps uniformly to an unvisited neighbor; we want the probability of sitting at $\textit{target}$ after $t$ seconds. The tree path is unique, so BFS by second carries the probability. If the dequeued node is the target, we return that probability when no unused neighbor remains or time is up; otherwise the frog must leave and the answer is $0$. Other nodes split the probability among unseen neighbors.
+
+<!-- thinking:end -->
 
 First, based on the undirected tree edges given in the problem, we construct an adjacency list $g$, where $g[u]$ represents all adjacent vertices of vertex $u$.
 

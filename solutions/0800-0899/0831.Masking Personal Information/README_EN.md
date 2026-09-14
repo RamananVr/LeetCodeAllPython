@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0831.Masking%20Personal%20Information/README_EN.md
 tags:
     - String
 ---
@@ -115,6 +114,16 @@ Thus, the resulting masked number is &quot;***-***-7890&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The input is a valid email or phone number, so the first character being a letter is enough to branch. No general parser is required.
+>
+> Emails are lowercased, keeping the first and last name letters plus the domain. Phones keep digits only: a country-code prefix of stars if needed, and a local number whose last four digits stay visible.
+
+<!-- thinking:end -->
 
 According to the problem description, we can first determine whether the string $s$ is an email or a phone number, and then handle it accordingly.
 

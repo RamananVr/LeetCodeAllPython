@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicates are allowed, unlike the previous problem. When $\textit{nums}[\textit{mid}]=\textit{nums}[r]$ we cannot tell which side holds the min, so we decrement $r$. All-equal input degenerates to $O(n)$; that is the cost of ties. Other branches still shrink as in rotated-array binary search.
+
+<!-- thinking:end -->
 
 We define the left boundary $l = 0$ and right boundary $r = n - 1$ for binary search. Each iteration, we calculate the middle position $mid = (l + r) \gg 1$ and compare the relationship between $nums[mid]$ and $nums[r]$:
 

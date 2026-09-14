@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README_EN.md
 rating: 1712
 source: Weekly Contest 136 Q2
 tags:
@@ -73,6 +72,18 @@ Hence, [1,2,3] is a valid answer. Other valid answers include [1,2,4], [1,4,2], 
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Degree is at most three and there are four colors, so a greedy coloring works and backtracking is unnecessary.
+>
+> Build the adjacency list. For garden $x$ collect colors already used by neighbors and assign the first free color in $1..4$.
+>
+> A vertex of degree $\le 3$ always has a free color; one pass finishes.
+
+<!-- thinking:end -->
 
 We first construct a graph $g$ based on the array $\textit{paths}$, where $g[x]$ represents the list of gardens adjacent to garden $x$.
 

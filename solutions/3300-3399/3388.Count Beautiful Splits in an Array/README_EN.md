@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3388.Count%20Beautiful%20Splits%20in%20an%20Array/README_EN.md
 rating: 2364
 source: Weekly Contest 428 Q3
 tags:
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: LCP + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split into three parts so that the first is a prefix of the second, or the second is a prefix of the third. With $n \le 5000$ two cut points are $O(n^2)$, but a naive prefix compare would add another linear factor.
+>
+> $\textit{lcp}[i][j]$ is the LCP of the two suffixes, built backward from $\textit{lcp}[i+1][j+1]$, after which a compare is $O(1)$.
+>
+> Cuts $(i,j)$ are beautiful when $\textit{lcp}[0][i] \ge i$ or $\textit{lcp}[i][j] \ge j-i$, with the obvious length constraints.
+
+<!-- thinking:end -->
 
 We can preprocess $\text{LCP}[i][j]$ to represent the length of the longest common prefix of $\textit{nums}[i:]$ and $\textit{nums}[j:]$. Initially, $\text{LCP}[i][j] = 0$.
 

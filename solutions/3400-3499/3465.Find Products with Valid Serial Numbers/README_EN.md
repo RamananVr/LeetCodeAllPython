@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README_EN.md
 tags:
     - Database
 ---
@@ -93,6 +92,18 @@ Each row in the table represents a product with its unique ID, name, and descrip
 <!-- solution:start -->
 
 ### Solution 1: Regex Matching
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A description must contain a serial of the form $\textit{SN}$, four digits, a hyphen, and four more digits. A raw substring search can glue that pattern to neighboring alphanumerics.
+>
+> Word boundaries $\b$ keep the serial a standalone token.
+>
+> Filter with `\bSN[0-9]{4}-[0-9]{4}\b` and sort by $\textit{product\_id}$.
+
+<!-- thinking:end -->
 
 According to the problem statement, we need to find all products that contain a valid serial number, and the rules for a valid serial number are:
 

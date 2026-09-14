@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README_EN.md
 rating: 1206
 source: Weekly Contest 486 Q1
 tags:
@@ -74,6 +73,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must drop a (possibly empty) prefix so the rest is strictly increasing, and the prefix should be as short as possible. $n \le 10^5$ forbids testing every prefix.
+>
+> The remainder is a suffix that is itself strictly increasing. The shortest prefix is the complement of the longest such suffix.
+>
+> Walking right to left, the first descent $nums[i-1] \ge nums[i]$ stops the suffix; the answer is $i$.
+>
+> If no descent appears, the whole array is increasing and the answer is $0$.
+
+<!-- thinking:end -->
 
 We can traverse the array backwards from the end to find the first position $i$ that does not satisfy the strictly increasing condition, i.e., $nums[i-1] \geq nums[i]$. At this point, the minimum length of the prefix to remove is $i$.
 

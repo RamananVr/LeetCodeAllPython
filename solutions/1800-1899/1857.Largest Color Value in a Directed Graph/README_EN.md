@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README_EN.md
 rating: 2312
 source: Weekly Contest 240 Q4
 tags:
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Topological Sort + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the maximum count of any single color on a directed path, or $-1$ if a cycle exists. There are exponentially many paths and $n,m\le 10^5$.
+>
+> A topological order processes a node after all predecessors. $dp[i][c]$ is the best count of color $c$ on a path ending at $i$; we take a coordinate-wise maximum over in-edges and add the node's own color. If fewer than $n$ nodes leave the queue, the graph has a cycle.
+
+<!-- thinking:end -->
 
 Calculate the in-degree of each node and perform a topological sort.
 

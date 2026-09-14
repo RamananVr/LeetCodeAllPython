@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README_EN.md
 rating: 1548
 source: Biweekly Contest 159 Q1
 tags:
@@ -96,6 +95,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating-parity permutation has at most two templates: even indices even, or even indices odd. If the two counts differ by more than $1$, it is impossible.
+>
+> Store the current indices of each parity and match them to the template slots $0,2,4,\ldots$. Adjacent swaps equal the sum of index gaps. When the counts are equal, try both templates and keep the smaller sum.
+
+<!-- thinking:end -->
 
 For a valid arrangement, the number of odd and even numbers can only differ by 1 or be equal. Therefore, if the difference between the number of odd and even numbers is greater than 1, it is impossible to form a valid arrangement, and we should return -1 directly.
 

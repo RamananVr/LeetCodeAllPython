@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0666.Path%20Sum%20IV/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -78,6 +77,16 @@ The path sum is (3 + 1) = 4.</p>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nodes are encoded as depth, position, and value. Building an explicit tree is unnecessary.
+>
+> Map $depth\times 10+pos$ to the value. DFS from $11$ using the child-index formula; when both children are missing, add the path sum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

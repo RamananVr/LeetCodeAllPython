@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3360.Stone%20Removal%20Game/README_EN.md
 rating: 1267
 source: Biweekly Contest 144 Q1
 tags:
@@ -72,6 +71,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players remove $10,9,\ldots$ stones in turn. With $n \le 50$ we simulate until a move is impossible.
+>
+> If the number of successful moves $k$ is odd, Alice made the last legal move and wins.
+>
+> Each step decreases $x$ by one, so the loop is $O(\sqrt{n})$ and no game DP is needed.
+
+<!-- thinking:end -->
 
 We simulate the game process according to the problem description until the game can no longer continue.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md
 rating: 2647
 source: Weekly Contest 307 Q4
 tags:
@@ -64,6 +63,16 @@ The 5-Sum of the array is 2.
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the $k$-th largest subsequence sum. The maximum $mx$ is the sum of positives; every other sum is $mx$ minus some subsequence of absolute values. $n \le 10^5$ and $k \le 2000$ forbid $2^n$ enumeration.
+>
+> Sort absolute values and expand subsequence sums in nondecreasing order with a min-heap: from $(s,i)$ push “add $nums[i]$” and “replace $nums[i-1]$ by $nums[i]$”. After $k-1$ pops the heap top is the $k$-th smallest amount to subtract.
+
+<!-- thinking:end -->
 
 First, we find the maximum subarray sum $mx$, which is the sum of all positive numbers.
 

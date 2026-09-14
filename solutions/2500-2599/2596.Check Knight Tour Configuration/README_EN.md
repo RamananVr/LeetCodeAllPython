@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md
 rating: 1448
 source: Weekly Contest 337 Q2
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the grid is a knight's tour from $(0,0)$ in order $0,1,\ldots,n^2-1$. $n\le 7$, so record each step's coordinates and test that consecutive cells differ by a $(1,2)$ leap. The start cell must hold $0$.
+
+<!-- thinking:end -->
 
 We first use an array $\textit{pos}$ to record the coordinates of each cell visited by the knight, then traverse the $\textit{pos}$ array and check if the coordinate difference between two adjacent cells is $(1, 2)$ or $(2, 1)$. If not, return $\textit{false}$.
 

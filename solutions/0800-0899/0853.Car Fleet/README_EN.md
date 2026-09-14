@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0853.Car%20Fleet/README_EN.md
 tags:
     - Stack
     - Array
@@ -90,6 +89,16 @@ There is only one car, hence there is only one fleet.</div>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A car closer to the target cannot be passed; a faster car behind catches up and joins the same fleet. $n\le 10^5$, so simulating overtakes is slow.
+>
+> Sort by position from the target backward and look at arrival times. A car slower than the fleet ahead starts a new fleet; otherwise it merges. The number of such leaders is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

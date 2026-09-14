@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md
 rating: 1435
 source: Weekly Contest 331 Q2
 tags:
@@ -66,6 +65,16 @@ We return [2,3,0].
 
 ### Solution 1: Preprocessing + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks how many words in a range start and end with a vowel. Testing every word per query is too slow at $n,q\le 10^5$.
+>
+> Collect the qualifying indices in order. A query becomes a count of indices inside $[l,r]$, i.e. the difference of two binary searches.
+
+<!-- thinking:end -->
+
 We can preprocess all the indices of the strings that start and end with a vowel, and record them in order in the array $nums$.
 
 Next, we iterate through each query $(l, r)$, and use binary search to find the first index $i$ in $nums$ that is greater than or equal to $l$, and the first index $j$ that is greater than $r$. Therefore, the answer to the current query is $j - i$.
@@ -91,6 +100,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 still costs a logarithm per query. A $0/1$ prefix sum of the vowel-string indicator answers each range as $s[r+1]-s[l]$ in constant time.
+
+<!-- thinking:end -->
 
 We can create a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the number of strings that start and end with a vowel in the first $i$ strings of the array $words$. Initially, $s[0] = 0$.
 

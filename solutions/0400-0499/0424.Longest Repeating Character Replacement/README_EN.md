@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README_EN.md
 tags:
     - Hash Table
     - String
@@ -54,6 +53,18 @@ There may exists other ways to achieve this answer too.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A window can be made uniform with at most $k$ changes iff its length minus the majority count is at most $k$. Trying every pair of ends is $O(n^2)$.
+>
+> Expand the right end while tracking the maximum frequency $\textit{mx}$. When $r-l+1-\textit{mx}>k$, shift the left end by one. The longest legal window has length $n-l$.
+>
+> There is no need to decrease $\textit{mx}$ on a left move: we only want the maximum length, and an overestimate of $\textit{mx}$ only makes the test stricter.
+
+<!-- thinking:end -->
 
 We use a hash table `cnt` to count the occurrence of each character in the string, and two pointers `l` and `r` to maintain a sliding window, such that the size of the window minus the count of the most frequent character does not exceed $k$.
 

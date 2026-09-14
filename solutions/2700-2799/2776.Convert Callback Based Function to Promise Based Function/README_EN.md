@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README_EN.md
 tags:
     - JavaScript
 ---
@@ -93,6 +92,16 @@ fn is called with a callback as the first argument and args as the rest. As the 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Turn a function that takes $next(data, error)$ first into one that returns a Promise. Calling the original function as-is cannot hook success and failure into $then/catch$.
+>
+> The returned async function builds a Promise, wraps $resolve/reject$ as $next$, and forwards the remaining arguments to $fn$. An $error$ rejects; otherwise $data$ fulfills.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

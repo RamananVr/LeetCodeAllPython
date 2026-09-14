@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0492.Construct%20the%20Rectangle/README_EN.md
 tags:
     - Math
 ---
@@ -62,6 +61,18 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The area is fixed; we want $L\ge W$ with $L-W$ minimized, i.e. a near-square. Scanning every divisor from $1$ is slower than needed.
+>
+> Start at $W=\lfloor\sqrt{\textit{area}}\rfloor$ and decrease until $W$ divides the area. Then $L=\textit{area}/W$ is at least $W$ and the gap is the smallest possible.
+>
+> Coming down from the square root makes the first factor pair the closest one.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

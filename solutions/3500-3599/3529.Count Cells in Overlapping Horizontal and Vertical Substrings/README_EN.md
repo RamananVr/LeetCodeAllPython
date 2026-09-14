@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3529.Count%20Cells%20in%20Overlapping%20Horizontal%20and%20Vertical%20Substrings/README_EN.md
 rating: 2105
 source: Biweekly Contest 155 Q3
 tags:
@@ -87,6 +86,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The flattened horizontal and vertical strings have length $mn \le 10^5$, so sliding $\textit{pattern}$ on the grid is too slow. A cell must belong to at least one horizontal match and one vertical match.
+>
+> Concatenate rows and columns, mark coverage with KMP (or the Z algorithm), map hits back to cells, and count the intersection.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

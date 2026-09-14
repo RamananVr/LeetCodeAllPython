@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3355.Zero%20Array%20Transformation%20I/README_EN.md
 rating: 1591
 source: Weekly Contest 424 Q2
 tags:
@@ -97,6 +96,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query covers $[l,r]$ once; we ask whether the queries can reduce $\textit{nums}$ to zero. With $n,m \le 10^5$ we cannot apply queries one by one.
+>
+> Coverage is a range add: $+1$ at $l$ and $-1$ at $r+1$. The prefix sum is the coverage of each index.
+>
+> If $\textit{nums}[i]$ exceeds that coverage, the array cannot become zero.
+
+<!-- thinking:end -->
 
 We can use a difference array to solve this problem.
 

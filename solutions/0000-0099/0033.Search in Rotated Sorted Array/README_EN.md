@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0033.Search%20in%20Rotated%20Sorted%20Array/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -52,6 +51,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is a left-to-right scan. Correct, but $n \le 5000$ and the problem requires $O(\log n)$.
+>
+> After the rotation the array is no longer fully sorted, so ordinary binary search cannot tell which half holds $target$.
+>
+> The key is that any cut leaves at least one half monotonic. Comparing $nums[0]$ with $nums[mid]$ tells us whether the left half is sorted; then we check whether $target$ lies in that sorted range and discard the other half.
+>
+> So we can still binary-search: the sorted half decides keep-or-drop, and the unsorted half is cut again in the next round.
+
+<!-- thinking:end -->
 
 We use binary search to divide the array into two parts, $[left,.. mid]$ and $[mid + 1,.. right]$. At this point, we can find that one part must be sorted.
 

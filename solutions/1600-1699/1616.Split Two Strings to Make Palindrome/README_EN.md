@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README_EN.md
 rating: 1868
 source: Weekly Contest 210 Q3
 tags:
@@ -71,6 +70,18 @@ Then, a<sub>prefix</sub> + b<sub>suffix</sub> = &quot;ula&quot; + &quot;alu&quot
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n$ split positions and $n$ can be $10^5$, so we cannot re-check a palindrome from scratch at every split.
+>
+> Match a prefix of $a$ with a suffix of $b$ as far as possible; the leftover middle must itself be a palindrome and must come entirely from $a$ or entirely from $b$. Then swap the two strings and repeat.
+>
+> Two pointers shrink while the ends match; afterwards test whether $a[i..j]$ or $b[i..j]$ is a palindrome. Either pairing direction may succeed.
+
+<!-- thinking:end -->
 
 We can use two pointers, where one pointer $i$ starts from the beginning of string $a$, and the other pointer $j$ starts from the end of string $b$. If the characters pointed to by the two pointers are equal, then both pointers move towards the center until they encounter different characters or the two pointers cross.
 

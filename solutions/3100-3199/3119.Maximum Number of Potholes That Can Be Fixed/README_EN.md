@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3119.Maximum%20Number%20of%20Potholes%20That%20Can%20Be%20Fixed/README_EN.md
 tags:
     - Greedy
     - String
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A run of $k$ potholes costs $k+1$ to fix and the budget is limited. Choosing a repair length for every run independently explodes with the number of runs.
+>
+> Longer runs yield more fixed holes per unit leftover. After fixing as many length-$k$ runs as the budget allows, unused runs become length $k-1$ runs.
+>
+> Count runs by length, then from large $k$ downward take $t=\min(\textit{budget}/(k+1),cnt[k])$, add $t\cdot k$ to the answer, and fold the rest into $cnt[k-1]$ until the budget is gone.
+
+<!-- thinking:end -->
 
 First, we count the number of each continuous pothole, recorded in the array $cnt$, i.e., $cnt[k]$ represents there are $cnt[k]$ continuous potholes of length $k$.
 

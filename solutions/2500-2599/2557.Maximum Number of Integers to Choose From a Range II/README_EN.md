@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README_EN.md
 tags:
     - Greedy
     - Array
@@ -63,6 +62,16 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 <!-- solution:start -->
 
 ### Solution 1: Deduplication + Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same selection rules as Range I, but $n$ and $\textit{maxSum}$ are far too large to scan from $1$ to $n$.
+>
+> Insert $0$ and $n+1$ into the banned set and sort. Each gap is a contiguous interval; the sum of its first $t$ integers is arithmetic, so binary search finds the largest affordable $t$. Fill gaps left to right until the budget runs out.
+
+<!-- thinking:end -->
 
 We can add $0$ and $n + 1$ to the array `banned`, then deduplicate and sort the array `banned`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README_EN.md
 rating: 1917
 source: Biweekly Contest 86 Q4
 tags:
@@ -65,6 +64,16 @@ It can be shown that it is not possible to run more than 3 consecutive robots wi
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers + Monotonic Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A contiguous team costs the window’s max charge time plus length times the sum of running costs. $n \le 5 \times 10^4$; scanning every window for the max is too slow. Cost grows with length, so the left end only moves right.
+>
+> Expand the right end with a monotonic deque for the max charge and a sum $s$ for running costs. When over budget, drop stale indices and move left. The maximum width is the answer.
+
+<!-- thinking:end -->
 
 The problem is essentially finding the maximum value within a sliding window, which can be solved using a monotonic queue.
 

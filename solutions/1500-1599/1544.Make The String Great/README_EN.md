@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1544.Make%20The%20String%20Great/README_EN.md
 rating: 1344
 source: Weekly Contest 201 Q1
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A “great” string has no adjacent letters that differ only in case. Repeated left-to-right deletions work for $n\le 100$, but a deletion can create a new pair further left, forcing extra passes.
+>
+> A stack holds the cleaned prefix. If the new character differs from the top by $32$ (exactly a case pair), pop; otherwise push. One linear scan produces the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

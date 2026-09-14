@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2632.Curry/README_EN.md
 tags:
     - JavaScript
 ---
@@ -89,6 +88,16 @@ curriedLife() === 42
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arguments may arrive in several calls and should evaluate only after the original arity is met. Immediate invocation cannot support `csum(1)(2)`.
+>
+> Compare collected arguments with `fn.length`: return another collector if short, otherwise apply the function once.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

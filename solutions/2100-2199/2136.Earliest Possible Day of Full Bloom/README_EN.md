@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2136.Earliest%20Possible%20Day%20of%20Full%20Bloom/README_EN.md
 rating: 2033
 source: Weekly Contest 275 Q4
 tags:
@@ -82,6 +81,18 @@ Thus, on day 2, all the seeds are blooming.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only one seed can be planted per day, so the sum of planting times is independent of order. The bloom day is the maximum of “finish-planting time plus grow time”. Planting short growers first delays the long ones.
+>
+> Seeds with larger $\textit{growTime}$ should start earlier, so we plant in decreasing grow time. A prefix $t$ accumulates $\textit{plantTime}$, and that seed blooms at $t+\textit{growTime}$; the answer is the maximum.
+>
+> One sorted scan yields the earliest full-bloom day.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that only one seed can be planted per day. Therefore, regardless of the planting order, the sum of the planting times for all seeds is always equal to $\sum_{i=0}^{n-1} plantTime[i]$. To make all seeds bloom as soon as possible, we should prioritize planting the seeds with the longest growth time. Hence, we can sort all seeds by their growth time in descending order and then plant them in sequence.
 

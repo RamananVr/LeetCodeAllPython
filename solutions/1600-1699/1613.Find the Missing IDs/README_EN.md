@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1613.Find%20the%20Missing%20IDs/README_EN.md
 tags:
     - Database
 ---
@@ -68,6 +67,18 @@ The maximum customer_id present in the table is 5, so in the range [1,5], IDs 2 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Missing ids are positive integers below the maximum $\texttt{customer\_id}$ that do not appear in the table. SQL has no built-in contiguous integer list, so we must build the candidate universe.
+>
+> Ids are at most $100$, so a recursive CTE yields $1$ through $100$; we then drop existing ids and keep those below the maximum.
+>
+> The outer query returns $n < \texttt{MAX}(\texttt{customer\_id})$ and $n \texttt{ NOT IN }$ the table as $\texttt{ids}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

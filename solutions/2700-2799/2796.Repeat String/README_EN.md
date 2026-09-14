@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2796.Repeat%20String/README_EN.md
 tags:
     - JavaScript
 ---
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add a method that repeats the string $times$ times. Looping concatenation allocates intermediate strings.
+>
+> Fill an array with $times$ copies of $this$ and $join$ them in one allocation.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

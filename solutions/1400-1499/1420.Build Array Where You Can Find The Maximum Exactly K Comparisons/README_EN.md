@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1420.Build%20Array%20Where%20You%20Can%20Find%20The%20Maximum%20Exactly%20K%20Comparisons/README_EN.md
 rating: 2175
 source: Weekly Contest 185 Q4
 tags:
@@ -70,6 +69,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The search cost is how many times the prefix maximum is updated. $n\le 50$, $m\le 100$, so we DP on length, cost, and current maximum.
+>
+> If position $i$ does not raise the maximum, it has $j$ choices and stays at the same cost. If it writes a new maximum $j$, we sum states whose previous maximum is smaller and whose cost is one less.
+>
+> $k=0$ is impossible. Sum $dp[n][k][\cdot]$ for the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

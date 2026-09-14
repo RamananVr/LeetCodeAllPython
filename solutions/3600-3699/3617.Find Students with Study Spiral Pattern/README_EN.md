@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md
 tags:
     - Database
 ---
@@ -161,6 +160,18 @@ Each row represents a study session by a student for a specific subject.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A spiral is a date-contiguous sequence (gaps at most two days) whose subjects repeat a cycle of length at least $3$. After grouping by student, sort by date and split on gaps.
+>
+> Only a segment of length at least $6$ can contain two full cycles. For every divisor $\textit{cycle\_len}\ge 3$ of the length, compare later blocks with the first.
+>
+> The first valid cycle records that student's cycle length and total hours. Join the student table and sort by cycle length then hours, both descending.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

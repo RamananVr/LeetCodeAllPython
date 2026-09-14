@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3429.Paint%20House%20IV/README_EN.md
 rating: 2165
 source: Weekly Contest 433 Q3
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An even number of houses stand in a circle: neighbors differ, and so do the opposite houses $i$ and $n-1-i$. $n\le 10^5$ forbids a heavier DP.
+>
+> A symmetric pair has only $3\times 2=6$ legal colorings. Consecutive pairs only need their adjoining colors to differ.
+>
+> DP over pairs: $f[i][c_1][c_2]$ is the minimum cost to paint pair $i$ with $(c_1,c_2)$. Transitions scan the previous pair's colors, for $O(n)$ states.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

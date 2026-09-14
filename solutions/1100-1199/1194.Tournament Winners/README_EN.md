@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1194.Tournament%20Winners/README_EN.md
 tags:
     - Database
 ---
@@ -101,6 +100,14 @@ Matches table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each group keeps the player with the highest total, breaking ties by smaller `player_id`. Unpivot both match sides into score rows, sum per player, then `RANK` by `(scores DESC, player_id)` within the group and keep $rk=1$. `UNION ALL` counts home and away points.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/README_EN.md
 rating: 1444
 source: Weekly Contest 191 Q2
 tags:
@@ -71,6 +70,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The largest piece is the product of the widest horizontal gap and the widest vertical gap. Sort the cuts, include the borders $0$ and $h$/$w$, take adjacent maxima, multiply, and reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We first sort `horizontalCuts` and `verticalCuts` separately, and then traverse both arrays to calculate the maximum difference between adjacent elements. We denote these maximum differences as $x$ and $y$, respectively. Finally, we return $x \times y$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0427.Construct%20Quad%20Tree/README_EN.md
 tags:
     - Tree
     - Array
@@ -96,6 +95,18 @@ Explanation is shown in the photo below:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A quad tree stores a uniform block as a leaf and otherwise splits into four. Rescanning every sub-rectangle repeats work, yet $n\le 64$ and a four-way split keep the total scan acceptable.
+>
+> DFS inspects whether the current rectangle contains both $0$ and $1$. One value yields a leaf; otherwise recurse on the four quadrants.
+>
+> A leaf's $\textit{val}$ is that block's color. Testing uniformity before splitting avoids cutting a solid region.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

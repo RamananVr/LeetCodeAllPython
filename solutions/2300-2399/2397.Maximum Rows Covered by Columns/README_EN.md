@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/README_EN.md
 rating: 1718
 source: Biweekly Contest 86 Q3
 tags:
@@ -89,6 +88,16 @@ Note that s = {1, 2} will also cover 3 rows, but it can be shown that no more th
 <!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Choose exactly $numSelect$ columns to cover as many rows as possible (every $1$ in the row lies in a chosen column). $n \le 12$, so subsets of columns fit in a bit mask.
+>
+> Pack each row as a mask. Enumerate column masks with the right popcount and count rows with $row \land mask = row$.
+
+<!-- thinking:end -->
 
 First, we convert each row of the matrix into a binary number and record it in the array $rows$. Here, $rows[i]$ represents the binary number corresponding to the $i$-th row, and the $j$-th bit of this binary number $rows[i]$ represents the value of the $i$-th row and $j$-th column.
 

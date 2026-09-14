@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memorization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good palindromic subsequence has length at least $2$ and consecutive paired letters must differ. Ordinary LPS only needs the interval ends; here we also remember the last paired character.
+>
+> $dfs(i,j,x)$ covers $[i,j]$ after a pair $x$. Equal ends different from $x$ form a new pair; otherwise shrink one side. Memoization is $O(n^2\lvert \Sigma \rvert)$.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i, j, x)$ to represent the length of the longest "good" palindrome subsequence ending with character $x$ in the index range $[i, j]$ of string $s$. The answer is $dfs(0, n - 1, 26)$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1387.Sort%20Integers%20by%20The%20Power%20Value/README_EN.md
 rating: 1506
 source: Biweekly Contest 22 Q3
 tags:
@@ -72,6 +71,14 @@ The fourth number in the sorted array is 7.
 <!-- solution:start -->
 
 ### Solution 1: Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort $[lo,hi]$ by Collatz steps to $1$, then by the value, and return the $k$-th. The range has at most $1000$ integers, so simulating each $x$ is enough; a cache avoids repeating a chain. Sorting by $f$ and indexing $k-1$ is the answer.
+
+<!-- thinking:end -->
 
 First, we define a function $\textit{f}(x)$, which represents the number of steps required to transform the number $x$ into $1$, i.e., the power value of the number $x$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README_EN.md
 rating: 1383
 source: Weekly Contest 384 Q2
 tags:
@@ -67,6 +66,18 @@ Hence, there are 2 subarrays in nums that match the pattern.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pattern encodes adjacent up/down/equal relations and $n \le 100$. Every window of length $m+1$ can be checked directly.
+>
+> Mapping each adjacent pair to $-1,0,1$ makes a window a match iff it equals the pattern.
+>
+> We enumerate starts and verify each in $O(m)$.
+
+<!-- thinking:end -->
 
 We can enumerate all subarrays of array `nums` with a length of $m + 1$, and then check whether they match the pattern array `pattern`. If they do, we increment the answer by one.
 

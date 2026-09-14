@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README_EN.md
 rating: 1680
 source: Weekly Contest 281 Q3
 tags:
@@ -69,6 +68,18 @@ Note that the string &quot;bbabaaa&quot; is lexicographically larger but the let
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Use as many characters as possible, greedily large in lexicographic order, without more than $\textit{repeatLimit}$ identical letters in a row. Always emit the current largest remaining letter, and when the cap is hit insert one strictly smaller letter.
+>
+> Count the $26$ letters and scan from `z` to `a`. Pointer $j$ tracks a smaller letter that still remains. Emit up to $\textit{repeatLimit}$ copies of $i$, then one $j$ if $i$ is leftover.
+>
+> $j$ only moves left, so the cost is linear in the length and the alphabet.
+
+<!-- thinking:end -->
 
 First, we use an array $cnt$ of length $26$ to count the number of occurrences of each character in string $s$. Then, we enumerate the $i$th letter of the alphabet in descending order, each time taking out at most $\min(cnt[i], repeatLimit)$ of letter $i$. If after taking them out $cnt[i]$ is still greater than $0$, we continue to take the $j$th letter of the alphabet, where $j$ is the largest index satisfying $j < i$ and $cnt[j] > 0$, until all letters are taken.
 

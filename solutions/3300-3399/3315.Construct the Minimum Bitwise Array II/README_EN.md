@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3315.Construct%20the%20Minimum%20Bitwise%20Array%20II/README_EN.md
 rating: 1714
 source: Biweekly Contest 141 Q2
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bitwise identity is the same as in part I; only the value range grows to $10^9$. The even prime is still $2$, and an odd $x$ is still repaired by flipping the bit below its lowest zero.
+>
+> A loop up to bit $32$ covers the full range, so no extra data structure is required.
+>
+> The implementation matches part I: scan each odd $x$ and XOR $2^{i-1}$.
+
+<!-- thinking:end -->
 
 For an integer $a$, the result of $a \lor (a + 1)$ is always odd. Therefore, if $\text{nums[i]}$ is even, then $\text{ans}[i]$ does not exist, and we directly return $-1$. In this problem, $\textit{nums}[i]$ is a prime number, so to check if it is even, we only need to check if it equals $2$.
 

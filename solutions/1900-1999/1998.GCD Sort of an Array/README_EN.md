@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README_EN.md
 rating: 2429
 source: Weekly Contest 257 Q4
 tags:
@@ -76,6 +75,16 @@ We can sort [10,5,9,3,15] by performing the following operations:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two numbers may be swapped if their gcd exceeds $1$; we ask whether the array can become sorted. Numbers that share a prime factor lie in one swap component. Pairwise gcd is too slow for values up to $10^5$.
+>
+> Sieve each value's primes and union the value with those primes. After sorting, a mismatch whose two numbers are in different components cannot be swapped into place.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

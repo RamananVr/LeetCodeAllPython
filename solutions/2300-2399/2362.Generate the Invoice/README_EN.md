@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2362.Generate%20the%20Invoice/README_EN.md
 tags:
     - Database
 ---
@@ -96,6 +95,16 @@ The highest price is $1000, and the invoices with the highest prices are 2 and 4
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the line items of the invoice with the largest total, breaking ties by the smallest id. Aggregate amounts first, then join back to the lines.
+>
+> Join purchases to products, sum by $invoice\_id$, take the top row by amount then id, and join again for each product’s quantity and price.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

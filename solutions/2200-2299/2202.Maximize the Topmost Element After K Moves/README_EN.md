@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2202.Maximize%20the%20Topmost%20Element%20After%20K%20Moves/README_EN.md
 rating: 1716
 source: Weekly Contest 284 Q3
 tags:
@@ -70,6 +69,18 @@ Since it is not possible to obtain a non-empty pile after one move, we return -1
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move pops the top or pushes back a previously popped value. $k$ can be $10^9$, so simulating step by step is impossible. The top after exactly $k$ moves falls into a few comparable cases.
+>
+> If $k = 0$, the top is $nums[0]$. A singleton array yields $-1$ after an odd number of moves (the only value is gone) and itself after an even number.
+>
+> When $n \ge 2$, any of the first $k-1$ popped values can be pushed back on the last move, so one candidate is $\max(nums[0..k-2])$. If $k < n$, the $k$-th pop can also expose $nums[k]$. Take the larger of the two.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

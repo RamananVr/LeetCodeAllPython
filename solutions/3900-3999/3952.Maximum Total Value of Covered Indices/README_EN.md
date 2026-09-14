@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3952.Maximum%20Total%20Value%20of%20Covered%20Indices/README_EN.md
 rating: 1762
 source: Biweekly Contest 184 Q3
 tags:
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each mark moves left by at most one and only once, and two marks cannot share an index. $n\le 10^5$ forces a linear decision.
+>
+> Left to right, a mark either stays or shifts to $i-1$ when that cell is free. Greedy should send a mark toward the larger $\textit{nums}$ value while letting earlier marks claim earlier vacancies first.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that at-most-one-left-shift assignment.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

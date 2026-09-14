@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README_EN.md
 rating: 1548
 source: Weekly Contest 317 Q2
 tags:
@@ -82,6 +81,14 @@ Since &quot;b&quot; is lexicographically smaller than &quot;c&quot;, it is inclu
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $n\le 10^5$, aggregate views per creator and keep that creator's most viewed video (lexicographically smallest id on ties). $cnt$ sums views; $d$ stores the best video index. Then take the maximum total and emit every creator that matches it.
+
+<!-- thinking:end -->
 
 We traverse the three arrays, use a hash table $cnt$ to count the total play count for each creator, and use a hash table $d$ to record the index of the video with the highest play count for each creator.
 

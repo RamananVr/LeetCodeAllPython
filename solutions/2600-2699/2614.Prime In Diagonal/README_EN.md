@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md
 rating: 1375
 source: Weekly Contest 340 Q1
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Math + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the two diagonals matter. The order is at most $300$ and values at most $4\times 10^6$, so trial division on diagonal entries, $O(n\sqrt{M})$, is enough.
+>
+> Integers below $2$ are not prime; others are tested up to the square root. We scan both diagonals and keep the largest prime.
+
+<!-- thinking:end -->
 
 We implement a function `is_prime` to check whether a number is prime.
 

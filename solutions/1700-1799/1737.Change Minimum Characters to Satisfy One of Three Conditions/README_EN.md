@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1737.Change%20Minimum%20Characters%20to%20Satisfy%20One%20of%20Three%20Conditions/README_EN.md
 rating: 1952
 source: Weekly Contest 225 Q2
 tags:
@@ -67,6 +66,18 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three goals: every letter of $a$ strictly less than every letter of $b$, the opposite, or both strings made of one letter. The alphabet has $26$ letters, so we can enumerate the cut or the target letter.
+>
+> Count frequencies. For the third goal, try each letter $c$ and count letters that are not $c$. For the first two, try a cut $c$ and rewrite one string below $c$ and the other at or above $c$.
+>
+> The answer is the minimum of the three.
+
+<!-- thinking:end -->
 
 First, we count the number of occurrences of each letter in strings $a$ and $b$, denoted as $cnt_1$ and $cnt_2$.
 

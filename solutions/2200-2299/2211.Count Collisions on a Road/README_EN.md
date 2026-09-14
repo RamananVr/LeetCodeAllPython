@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README_EN.md
 rating: 1581
 source: Weekly Contest 285 Q2
 tags:
@@ -71,6 +70,18 @@ No cars will collide with each other. Thus, the total number of collisions that 
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Opposite-direction meetings add $2$, a moving car hitting a stopped car adds $1$, and every car that ever meets another ends up still. $n \le 10^5$ makes pairwise simulation unattractive.
+>
+> A prefix of cars that only go left never hits anything; a suffix of cars that only go right never hits anything. After those two segments are removed, every remaining non-stationary car will stop and contribute $1$.
+>
+> Strip leading $\texttt{L}$ and trailing $\texttt{R}$, then count characters that are not $\texttt{S}$.
+
+<!-- thinking:end -->
 
 According to the problem description, when two cars moving in opposite directions collide, the collision count increases by $2$, meaning both cars stop, and the answer increases by $2$. When a moving car collides with a stationary car, the collision count increases by $1$, meaning one car stops, and the answer increases by $1$.
 

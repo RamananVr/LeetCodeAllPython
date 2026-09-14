@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README_EN.md
 rating: 1981
 source: Weekly Contest 479 Q3
 tags:
@@ -93,6 +92,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $score(j)$ is the total collected from room $j$ through $n$, and we want the sum of $score$ over all starts. HP decreases along the path, and a room scores iff the remaining HP is at least $requirement[i]$. Walking from the right, we maintain the HP threshold needed at each room and count how many starts still score there.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

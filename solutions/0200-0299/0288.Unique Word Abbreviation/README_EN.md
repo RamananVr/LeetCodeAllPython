@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README_EN.md
 tags:
     - Design
     - Array
@@ -77,6 +76,16 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An abbreviation is the first and last letters with the middle length. Queries should reuse a dictionary index: map each abbreviation to the set of words.
+>
+> A word is unique if its abbreviation is unseen, or the set contains only that word.
+
+<!-- thinking:end -->
 
 According to the problem description, we define a function $abbr(s)$, which calculates the abbreviation of the word $s$. If the length of the word $s$ is less than $3$, then its abbreviation is itself; otherwise, its abbreviation is its first letter + (its length - 2) + its last letter.
 

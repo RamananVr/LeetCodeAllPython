@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -56,6 +55,18 @@ Note that &#39;bcb&#39; is counted only once, even though it occurs twice.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct palindromic subsequences; $n\le 1000$ and four letters. Listing subsequences is impossible, and a plain palindrome DP overcounts the same string from different spans.
+>
+> Classify by the end letter: palindromes wrapped in $c$ are one plus the four kinds inside, or just $c$ itself. Shorter intervals yield a standard interval DP.
+>
+> $dp[i][j][k]$ is the count in $s[i..j]$ that start and end with letter $k$. Both ends equal $c$ gives $2+\sum dp[i+1][j-1]$; otherwise shrink the side that is not $c$. Sum the four values on $[0,n-1]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

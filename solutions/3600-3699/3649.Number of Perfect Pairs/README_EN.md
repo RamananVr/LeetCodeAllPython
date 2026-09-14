@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README_EN.md
 rating: 1715
 source: Biweekly Contest 163 Q2
 ---
@@ -162,6 +161,18 @@ source: Biweekly Contest 163 Q2
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A perfect pair typically reduces to an inequality on absolute values. Large $n$ calls for a sort and two pointers rather than every pair.
+>
+> Sort the absolute values. For each right end $r$, advance $l$ until the pair condition holds; every index in $[l,r)$ pairs with $r$.
+>
+> Sum the window lengths. The double loop over pairs is avoided.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

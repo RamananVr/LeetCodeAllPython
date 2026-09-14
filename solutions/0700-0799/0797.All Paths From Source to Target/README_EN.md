@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -56,7 +55,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List every path from $0$ to $n-1$ in a DAG. $n\le 15$; all paths must be reported.
+>
+> BFS stores full paths; a finished path is recorded, otherwise each neighbor is appended and enqueued.
+
+<!-- thinking:end -->
+
+Start from node $0$, keep paths in a queue, and record a path when it reaches $n-1$.
 
 <!-- tabs:start -->
 
@@ -85,7 +96,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS copies every prefix. DFS appends on one array, snapshots at the sink, and pops—fewer intermediate lists.
+
+<!-- thinking:end -->
+
+DFS from node $0$ and backtrack after each path that reaches the target.
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3535.Unit%20Conversion%20II/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -81,6 +80,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + Modular Inverse
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The conversion tree is the same as before, so $\textit{res}[i]$ — how many units of $i$ equal one unit of $0$ — is already known. Queries ask for a ratio between two units.
+>
+> The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{MOD-2}$.
+
+<!-- thinking:end -->
 
 The conversion relations form a directed tree rooted at $0$. Starting a DFS from node $0$, we maintain `res[i]` as the number of units of type $i$ that equal $1$ unit of type $0$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1505.Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits/README_EN.md
 rating: 2336
 source: Weekly Contest 196 Q4
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may perform at most $k$ adjacent swaps and want the lexicographically smallest number. $k$ can be $10^9$ while $n\le 3\times 10^4$, so we cannot simulate swaps one by one, nor move a digit with a linear scan at every position.
+>
+> Building the answer from the left, the current place should become the smallest digit that can still reach it with the remaining budget. Moving an unused original index $j$ to position $i$ costs the number of not-yet-taken digits between them.
+>
+> Store original indices of digits $0$–$9$ in deques, and let a Fenwick tree mark which original positions have already been taken. For each candidate digit the tree evaluates the true distance in $O(\log n)$; if it fits the remaining $k$, we take it and update the tree. Each position inspects a constant number of digits, so the total time is $O(n\log n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

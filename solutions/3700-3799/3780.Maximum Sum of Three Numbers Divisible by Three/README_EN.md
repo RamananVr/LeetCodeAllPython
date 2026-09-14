@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3780.Maximum%20Sum%20of%20Three%20Numbers%20Divisible%20by%20Three/README_EN.md
 rating: 1584
 source: Biweekly Contest 172 Q2
 tags:
@@ -72,6 +71,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Grouping + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three numbers sum to a multiple of $3$ iff their residues are $(0,0,0)$, $(1,1,1)$, $(2,2,2)$, or $(0,1,2)$. After grouping by residue and sorting each group descending, we try pairs of groups and take the best available value from the third.
+
+<!-- thinking:end -->
 
 We first sort the array $\textit{nums}$, then divide the elements in the array into three groups based on their modulo $3$ results, denoted as $\textit{g}[0]$, $\textit{g}[1]$, and $\textit{g}[2]$. Where $\textit{g}[i]$ stores all elements that satisfy $\textit{nums}[j] \bmod 3 = i$.
 

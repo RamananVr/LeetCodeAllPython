@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1270.All%20People%20Report%20to%20the%20Given%20Manager/README_EN.md
 tags:
     - Database
 ---
@@ -81,6 +80,14 @@ The employees with employee_id 3, 8, and 9 do not report their work to the head 
 <!-- solution:start -->
 
 ### Solution 1: Two Joins
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The hierarchy is at most three levels and the CEO is id $1$. Two self-joins walk $manager\_id$ to the manager's manager; if that is $1$ and the employee is not $1$, the employee reports to the CEO. The number of joins matches the depth bound.
+
+<!-- thinking:end -->
 
 We can use two joins to find all employees who report directly or indirectly to the company CEO.
 

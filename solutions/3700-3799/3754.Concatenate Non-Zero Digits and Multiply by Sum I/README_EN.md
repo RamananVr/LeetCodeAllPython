@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README_EN.md
 rating: 1247
 source: Weekly Contest 477 Q1
 tags:
@@ -70,6 +69,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ has few digits, so we may follow the definition directly. Peeling digits from the low end, each nonzero digit updates both the concatenated integer $x$ and the digit sum $s$; the answer is $x\cdot s$.
+
+<!-- thinking:end -->
 
 We can simulate the required operation by processing the number digit by digit. While processing each digit, we concatenate non-zero digits to form a new integer $x$ and calculate the digit sum $s$. Finally, we return $x \times s$.
 

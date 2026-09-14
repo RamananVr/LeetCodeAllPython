@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md
 rating: 1358
 source: Biweekly Contest 174 Q1
 tags:
@@ -106,6 +105,20 @@ The <strong>Manhattan Distance</strong> between two cells <code>(x<sub>i</sub>, 
 <!-- solution:start -->
 
 ### Solution 1: One-Pass Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among towers within Manhattan distance $\textit{radius}$, pick the largest quality, breaking ties by lexicographically smallest coordinates. $n \le 10^5$ does not require a spatial index.
+>
+> Each tower's distance to the center is independent and only needs comparison with the current best.
+>
+> A single pass skips towers beyond the radius and otherwise updates the best index by quality, then by coordinates.
+>
+> If no tower was chosen, return $[-1,-1]$; otherwise return that tower's coordinates.
+
+<!-- thinking:end -->
 
 We define a variable $\textit{idx}$ to record the index of the current best tower, initially $\textit{idx} = -1$. Then, we traverse each tower and calculate the Manhattan distance $\textit{dist}$ between it and $\textit{center}$:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md
 rating: 1680
 source: Weekly Contest 241 Q3
 tags:
@@ -75,6 +74,16 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must update one entry of $nums2$ and count pairs summing to $tot$. $nums2$ is long, so a nested scan on each query is impossible.
+>
+> $nums1$ has length at most $10^3$, so we enumerate it. A frequency map of $nums2$ lets $\textit{count}$ add $cnt[tot-x]$ for each $x\in nums1$, while $\textit{add}$ decrements the old value and increments the new one.
+
+<!-- thinking:end -->
 
 We note that the length of the array $\textit{nums1}$ does not exceed ${10}^3$, while the length of the array $\textit{nums2}$ reaches ${10}^5$. Therefore, if we directly enumerate all index pairs $(i, j)$ and check whether $\textit{nums1}[i] + \textit{nums2}[j]$ equals the specified value $\textit{tot}$, it will exceed the time limit.
 

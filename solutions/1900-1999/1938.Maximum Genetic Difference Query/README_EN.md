@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/README_EN.md
 rating: 2502
 source: Weekly Contest 250 Q4
 tags:
@@ -68,6 +67,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the node on the path to the root that maximizes xor with a given value. Walking to the root per query is too slow for $n,q\le 10^5$.
+>
+> A binary trie answers maximum xor. Attach queries to their nodes; DFS inserts a value on enter and deletes it on exit, so the trie holds exactly the root path.
+>
+> Preferring the opposite bit at each level answers a query in $O(\log V)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

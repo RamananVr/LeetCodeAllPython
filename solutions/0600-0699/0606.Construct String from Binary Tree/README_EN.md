@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A preorder walk with parentheses can recover the tree, but the empty-parenthesis rule is asymmetric: a missing right child may omit `()`, a missing left child may not.
+>
+> Recurse in three cases: a leaf is just the value; no right child wraps only the left; otherwise wrap both. That matches the required omission rule.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

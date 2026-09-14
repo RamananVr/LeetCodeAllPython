@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0360.Sort%20Transformed%20Array/README_EN.md
 tags:
     - Array
     - Math
@@ -46,6 +45,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Math + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums$ is sorted; we must output $ax^2+bx+c$ in order. Evaluating and sorting is $O(n\log n)$, but a quadratic is monotone on each side of the vertex.
+>
+> If $a>0$ the ends are larger, so fill the answer from the back; if $a\le 0$ fill from the front. Two pointers move inward in linear time.
+
+<!-- thinking:end -->
 
 By mathematical knowledge, the graph of a quadratic function is a parabola. When $a \gt 0$, the parabola opens upwards and its vertex is the minimum value; when $a \lt 0$, the parabola opens downwards and its vertex is the maximum value.
 

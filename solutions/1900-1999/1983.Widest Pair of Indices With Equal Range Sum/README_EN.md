@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -73,6 +72,16 @@ There are no pairs of indices that meet the requirements.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal range sums on two arrays are a zero-sum subarray of their pointwise difference. The longest such subarray is found from first occurrences of each prefix.
+>
+> A map stores the earliest index of a prefix; a repeat updates the width.
+
+<!-- thinking:end -->
 
 We observe that for any index pair $(i, j)$, if $nums1[i] + nums1[i+1] + ... + nums1[j] = nums2[i] + nums2[i+1] + ... + nums2[j]$, then $nums1[i] - nums2[i] + nums1[i+1] - nums2[i+1] + ... + nums1[j] - nums2[j] = 0$. If we subtract the corresponding elements of array $nums1$ and array $nums2$ to get a new array $nums$, the problem is transformed into finding the longest subarray in $nums$ such that the sum of the subarray is $0$. This can be solved using the prefix sum + hash table method.
 

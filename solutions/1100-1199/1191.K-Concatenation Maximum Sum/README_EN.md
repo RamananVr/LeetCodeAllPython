@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md
 rating: 1747
 source: Weekly Contest 154 Q3
 tags:
@@ -63,6 +62,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Case Discussion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After repeating $arr$ $k$ times, an optimal subarray spans at most the whole concatenation. Kadane on one copy gives $mxSub$, plus the max prefix and min prefix (hence max suffix). For $k=1$ that is the answer; otherwise also consider prefix+suffix, and if the total is positive add $k-2$ full copies. $k$ can be $10^5$, so we never materialize the concatenation.
+
+<!-- thinking:end -->
 
 We denote the sum of all elements in the array $arr$ as $s$, the maximum prefix sum as $mxPre$, the minimum prefix sum as $miPre$, and the maximum subarray sum as $mxSub$.
 

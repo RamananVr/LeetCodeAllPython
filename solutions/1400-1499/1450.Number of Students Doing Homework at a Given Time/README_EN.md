@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1450.Number%20of%20Students%20Doing%20Homework%20at%20a%20Given%20Time/README_EN.md
 rating: 1129
 source: Weekly Contest 189 Q1
 tags:
@@ -59,6 +58,14 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 <!-- solution:start -->
 
 ### Solution 1: Direct Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. Count students whose interval contains $\textit{queryTime}$.
+
+<!-- thinking:end -->
 
 We can directly traverse the two arrays. For each student, we check if $\textit{queryTime}$ is within their homework time interval. If it is, we increment the answer by one.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2895.Minimum%20Processing%20Time/README_EN.md
 rating: 1351
 source: Weekly Contest 366 Q2
 tags:
@@ -73,6 +72,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each processor has four cores; its finish time is its free time plus the longest assigned task. Sort free times ascending and tasks descending, give the four longest remaining tasks to the earliest free processor, and take the maximum finish time.
+
+<!-- thinking:end -->
 
 To minimize the time required to process all tasks, the four tasks with the longest processing time should be assigned to the processors that become idle earliest.
 

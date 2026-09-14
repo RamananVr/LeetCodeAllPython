@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README_EN.md
 rating: 2539
 source: Weekly Contest 235 Q4
 tags:
@@ -69,6 +68,16 @@ The different GCDs are 6, 10, 3, 2, and 1.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every subsequence GCD is at most the array maximum $mx$, yet there are $2^n$ subsequences and $n\le 10^5$, so we cannot enumerate them.
+>
+> A value $x$ is some subsequence GCD iff the GCD of the multiples of $x$ that appear in the array is exactly $x$. For each $x\in[1,mx]$ walk those multiples, updating a running gcd, and count $x$ as soon as the gcd becomes $x$. The harmonic sum of multiples is $O(mx\log mx)$.
+
+<!-- thinking:end -->
 
 For all sub-sequences of the array $nums$, their greatest common divisor (GCD) will not exceed the maximum value $mx$ in the array.
 

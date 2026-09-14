@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md
 rating: 1302
 source: Weekly Contest 164 Q1
 tags:
@@ -71,6 +70,14 @@ Total time = 7 seconds</pre>
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may step in eight directions each second, so the time between adjacent points is the Chebyshev distance $\max(|\Delta x|,|\Delta y|)$: a diagonal step spends both gaps at once. Points are visited in order, so the total is the sum of those distances. $n \le 100$ is one linear pass.
+
+<!-- thinking:end -->
 
 For two points $p_1=(x_1, y_1)$ and $p_2=(x_2, y_2)$, the distances moved in the horizontal and vertical directions are $d_x = |x_1 - x_2|$ and $d_y = |y_1 - y_2|$ respectively.
 

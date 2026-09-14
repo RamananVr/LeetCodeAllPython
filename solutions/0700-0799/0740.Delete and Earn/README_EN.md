@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -62,6 +61,18 @@ You earn a total of 9 points.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Taking $x$ earns every copy of $x$ and forbids $x-1$ and $x+1$. $n\le 2\times 10^4$ and values $\le 10^4$, so searching each choice repeats work.
+>
+> Each value is all-or-nothing and neighbors conflict—the house-robber recurrence. Bucket scores into $total[x]$, then walk the value line.
+>
+> Two rolling scalars are the best through $i-2$ and $i-1$; $i$ takes $\max(first+total[i], second)$. Time follows the max value.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

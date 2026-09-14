@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3838.Weighted%20Word%20Mapping/README_EN.md
 rating: 1240
 source: Biweekly Contest 176 Q1
 tags:
@@ -93,6 +92,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word's weight is the sum of letter weights, then taken modulo $26$ and mapped backward through the alphabet. Total length is small, so we follow the definition.
+>
+> Words do not interact, so no global structure is required.
+>
+> Sum $weights[c-'a']$ for each word, reduce modulo $26$, and map to the letter $s\bmod 26$ steps back from $\texttt{z}$.
+>
+> Concatenate the mapped letters in input order.
+
+<!-- thinking:end -->
 
 We iterate through each word $w$ in $\textit{words}$, calculate its weight $s$, which is the sum of the weights of all characters in the word. Then we calculate $s$ modulo 26, map the result to a lowercase English letter, and finally concatenate all the mapped characters and return.
 

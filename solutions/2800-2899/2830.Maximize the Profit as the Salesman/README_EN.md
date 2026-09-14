@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README_EN.md
 rating: 1851
 source: Weekly Contest 359 Q3
 tags:
@@ -69,6 +68,14 @@ It can be proven that 10 is the maximum amount of gold we can achieve.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Offers cannot overlap, so they form a chain of precedence. After sorting by end position, $f[i]$ is the best profit among the first $i$ offers: skip the $i$-th, or take it plus the last offer whose end is at most its start. Ends are monotone, so that predecessor is a binary search.
+
+<!-- thinking:end -->
 
 We sort all the purchase offers by $end$ in ascending order, and then use dynamic programming to solve the problem.
 

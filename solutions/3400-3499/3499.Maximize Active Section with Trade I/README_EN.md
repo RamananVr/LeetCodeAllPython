@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README_EN.md
 rating: 1729
 source: Biweekly Contest 153 Q2
 tags:
@@ -111,6 +110,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One trade flips the $0$-runs on both sides of a $1$-run to $1$. The gain is the sum of those two $0$-runs, plus every original $1$. $n\le 10^5$, so we scan runs.
+>
+> Non-adjacent $0$-runs cannot be merged by a single trade, so only neighboring $0$-pairs matter.
+>
+> Two pointers cut runs: $1$-runs add to the base answer; neighboring $0$-runs update $\textit{mx}$ by $\textit{pre}+\textit{cur}$. The answer is the number of $1$s plus $\textit{mx}$.
+
+<!-- thinking:end -->
 
 The problem is essentially equivalent to finding the number of `'1'` characters in the string $\textit{s}$, plus the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments.
 

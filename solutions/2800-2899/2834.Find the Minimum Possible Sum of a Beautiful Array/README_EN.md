@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README_EN.md
 rating: 1409
 source: Weekly Contest 360 Q2
 tags:
@@ -77,6 +76,14 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful array forbids any pair summing to $target$ and should have minimal sum. Greedy selection from $1$ may take every integer up to $\lfloor target/2\rfloor$; if more values are needed, continue from $target$. Both segments are arithmetic, so closed forms suffice.
+
+<!-- thinking:end -->
 
 We can greedily construct the array `nums` starting from $x = 1$, choosing $x$ each time and excluding $target - x$.
 

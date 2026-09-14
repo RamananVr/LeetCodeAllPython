@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/README_EN.md
 rating: 1407
 source: Weekly Contest 172 Q3
 tags:
@@ -68,6 +67,14 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Leaves equal to $\textit{target}$ must go, including those that become leaves after a child is removed. A preorder check misses a node that turns into a leaf only after its children disappear. Postorder fixes this: recurse on both children, then drop the node if it is now a target leaf. One walk performs the whole cascade.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

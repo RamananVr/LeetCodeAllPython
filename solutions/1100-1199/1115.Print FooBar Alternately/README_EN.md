@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md
 tags:
     - Concurrency
 ---
@@ -73,6 +72,14 @@ class FooBar {
 <!-- solution:start -->
 
 ### Solution 1: Multithreading + Semaphore
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two threads must alternate exactly $n$ times. Semaphores $f$ and $b$ start at $1$ and $0$ so `foo` runs first; each print releases the other and withholds itself until the next turn. $n$ rounds produce `foobar` repeated $n$ times.
+
+<!-- thinking:end -->
 
 We use two semaphores $f$ and $b$ to control the execution order of the two threads, where $f$ is initially set to $1$ and $b$ is set to $0$, indicating that thread $A$ executes first.
 

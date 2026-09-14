@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2158.Amount%20of%20New%20Area%20Painted%20Each%20Day/README_EN.md
 tags:
     - Segment Tree
     - Array
@@ -81,6 +80,18 @@ The amount of new area painted on day 1 is 0.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each day paints an interval; we need the newly painted length. Endpoints and days both reach $10^5$, so painting cell by cell is quadratic. We need range coverage and a covered-length query.
+>
+> A segment tree stores how many cells in a range are painted, with a lazy “paint all” tag. The day’s answer is the interval length minus the queried covered count, after which the interval is marked painted.
+>
+> Shift coordinates to start at $1$, and $\texttt{query}$ then $\texttt{modify}$ for each day.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

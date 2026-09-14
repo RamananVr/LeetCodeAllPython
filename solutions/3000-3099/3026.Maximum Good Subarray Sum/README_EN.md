@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md
 rating: 1816
 source: Biweekly Contest 123 Q3
 tags:
@@ -65,6 +64,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subarray has endpoints differing by $k$ in absolute value, and we want the maximum sum. $n \le 10^5$ forbids enumerating ends.
+>
+> The sum is a difference of prefix sums. For a right end $x$ the left end is $x-k$ or $x+k$, and we want the smallest prefix at that value.
+>
+> A hash map stores the minimum prefix (excluding the element itself). We update the answer from the current prefix, then offer that prefix to the next value.
+
+<!-- thinking:end -->
 
 We use a hash table $p$ to record the sum $s$ of the prefix array $nums[0..i-1]$ for $nums[i]$. If there are multiple identical $nums[i]$, we only keep the smallest $s$. Initially, we set $p[nums[0]]$ to $0$. In addition, we use a variable $s$ to record the current prefix sum, initially $s = 0$. Initialize the answer $ans$ to $-\infty$.
 

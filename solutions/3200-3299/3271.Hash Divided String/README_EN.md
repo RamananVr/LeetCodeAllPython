@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3271.Hash%20Divided%20String/README_EN.md
 rating: 1292
 source: Biweekly Contest 138 Q2
 tags:
@@ -77,6 +76,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each block of $k$ characters becomes one letter: $\sum (s_j-\texttt{a}) \bmod 26$. $n\le 1000$ and $k$ divides $n$, so a direct block scan is enough.
+>
+> Step by $k$, sum codes in the block, reduce modulo $26$, and convert back. One linear pass.
+
+<!-- thinking:end -->
 
 We can simulate the process according to the steps described in the problem.
 

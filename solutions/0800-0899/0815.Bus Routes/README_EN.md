@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0815.Bus%20Routes/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Riding one bus reaches every stop on that route; we want the fewest rides. Walking stop-to-stop would expand the same bus many times. The right BFS layer is a transfer.
+>
+> Build a stop-to-routes index. The queue stores a stop and the ride count; each route is expanded once, enqueueing its unseen stops. Every bus is processed at most once.
+
+<!-- thinking:end -->
 
 First, we check if $\textit{source}$ and $\textit{target}$ are the same. If they are, we directly return $0$.
 

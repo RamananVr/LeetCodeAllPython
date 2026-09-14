@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0737.Sentence%20Similarity%20II/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -79,6 +78,18 @@ Since &quot;leetcode is similar to &quot;onepiece&quot; and the first two words 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike Sentence Similarity I, similarity is transitive. Pair lookup is not enough; we need connected components. Union-find on the words in $\textit{similarPairs}$ fits.
+>
+> Assign ids, union each pair, then compare sentences: equal words pass; otherwise both must be known and share a root.
+>
+> Unequal lengths fail immediately. Path compression keeps the cost nearly linear.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

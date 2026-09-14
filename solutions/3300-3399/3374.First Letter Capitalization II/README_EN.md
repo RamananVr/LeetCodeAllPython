@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README_EN.md
 tags:
     - Database
 ---
@@ -118,6 +117,18 @@ Each row contains a unique ID and the corresponding text content.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides capitalizing words as in part I, each hyphen-separated piece must be capitalized on its own.
+>
+> Split on spaces; if a token contains `-`, split again and $\textit{capitalize}$ each piece.
+>
+> Thus `foo-bar` becomes `Foo-Bar`, and the rest follows part I.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

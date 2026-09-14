@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0189.Rotate%20Array/README_EN.md
 tags:
     - Array
     - Math
@@ -64,6 +63,14 @@ rotate 2 steps to the right: [3,99,-1,-100]
 <!-- solution:start -->
 
 ### Solution 1: Reverse three times
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rotate right by $k$. A second array is $O(n)$ space; $n\le 10^5$, and the follow-up wants in-place. A right rotate by $k$ moves the last $k$ items to the front. Reverse the whole array, then reverse the first $k$ and the last $n-k$. Three reversals, only swaps.
+
+<!-- thinking:end -->
 
 We can assume the length of the array is $n$ and calculate the actual number of steps needed by taking the module of $k$ and $n$, which is $k \bmod n$.
 

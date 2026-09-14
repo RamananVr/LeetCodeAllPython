@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0565.Array%20Nesting/README_EN.md
 tags:
     - Depth-First Search
     - Array
@@ -63,6 +62,16 @@ s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $A[i]$ points to $A[A[i]]$, partitioning the array into disjoint cycles. A nest is a cycle. Walking from every index would revisit the same cycle.
+>
+> A visited array marks seen indices; start a walk only from an unseen index and count the cycle. Disjointness visits each index once. The longest cycle is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -93,6 +102,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses an $O(n)$ visited array. Values already lie in $[0,n-1]$, so the sentinel $n$ can mark a visited cell in place.
+>
+> Walk the cycle, write $n$ into each cell, and count. A stored $n$ means this index was already processed. Extra space becomes constant; the cycles are the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

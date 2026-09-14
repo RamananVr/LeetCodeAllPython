@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -63,6 +62,16 @@ For the node with value 0: The sum of its descendants is 0 since it has no desce
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each node is compared with the sum of its descendants. A fresh walk per node is quadratic.
+>
+> A post-order DFS returns the subtree sum: if left plus right equals the node, increment the answer, then return the node plus both children. One traversal suffices.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

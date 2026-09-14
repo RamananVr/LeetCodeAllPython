@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README_EN.md
 rating: 1651
 source: Weekly Contest 501 Q3
 tags:
@@ -95,6 +94,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$, so we cannot simulate arbitrary replacements. An entry $a$ may be overwritten by any $b$ that divides it, and repeating that yields the smallest array value that divides $a$.
+>
+> Globally, each number should become the smallest array element that divides it. If $m$ is the global minimum, every multiple of $m$ can become $m$ and the rest stay themselves; the answer is the sum of those finals.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that per-position minimum divisor from the array.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

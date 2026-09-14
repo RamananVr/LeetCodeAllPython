@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2146.K%20Highest%20Ranked%20Items%20Within%20a%20Price%20Range/README_EN.md
 rating: 1836
 source: Biweekly Contest 70 Q3
 tags:
@@ -113,6 +112,18 @@ Note that k = 3 but there are only 2 reachable items within the price range.
 <!-- solution:start -->
 
 ### Solution 1: BFS + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rank is distance, then price, then row, then column. All-pairs shortest paths are too heavy. BFS from the start yields obstacle-aware distance, and the first visit is shortest.
+>
+> Collect cells whose price lies in $[\textit{low},\textit{high}]$ together with their distance, sort the quadruples, and take the first $k$.
+>
+> Mark visited cells as $0$ so they are not enqueued twice.
+
+<!-- thinking:end -->
 
 We can start from $(\textit{row}, \textit{col})$ and use breadth-first search to find all items with prices in the range $[\textit{low}, \textit{high}]$. Store the distance, price, row coordinate, and column coordinate of these items in the array $\textit{pq}$.
 

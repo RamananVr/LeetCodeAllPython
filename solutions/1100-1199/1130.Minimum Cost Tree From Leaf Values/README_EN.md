@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README_EN.md
 rating: 1919
 source: Weekly Contest 146 Q3
 tags:
@@ -67,6 +66,16 @@ The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The inorder leaves are fixed; the tree is determined by split positions. Recursing over all splits without memoization recomputes the same interval many times.
+>
+> $dfs(i,j)$ returns the minimum non-leaf cost and the max leaf on $[i,j]$. Try each split $k$ and add the product of the two leaf maxima. $O(n^2)$ intervals times $O(n)$ splits is $O(n^3)$ with memoization.
+
+<!-- thinking:end -->
+
 According to the problem description, the values in the array $arr$ correspond one-to-one with the values in the inorder traversal of each leaf node of the tree. We can divide the array into two non-empty sub-arrays, corresponding to the left and right subtrees of the tree, and recursively solve for the minimum possible sum of all non-leaf node values in each subtree.
 
 We design a function $dfs(i, j)$, which represents the minimum possible sum of all non-leaf node values in the index range $[i, j]$ of the array $arr$. The answer is $dfs(0, n - 1)$, where $n$ is the length of the array $arr$.
@@ -130,6 +139,14 @@ class Solution:
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1's recursion and cache become interval DP. Precompute $g[i][j]$ as the max leaf, then fill $f[i][j]$ by increasing length. The transition matches the memoized search without a call stack.
+
+<!-- thinking:end -->
+
 We can change the memoization search in Solution 1 to dynamic programming.
 
 Define $f[i][j]$ to represent the minimum possible sum of all non-leaf node values in the index range $[i, j]$ of the array $arr$, and $g[i][j]$ to represent the maximum value of all leaf nodes in the index range $[i, j]$ of the array $arr$. Then, the state transition equation is:
@@ -144,38 +161,6 @@ $$
 Finally, we return $f[0][n - 1]$.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $arr$.
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def mctFromLeafValues(self, arr: List[int]) -> int:
-        @cache
-        def dfs(i: int, j: int) -> int:
-            if i == j:
-                return 0
-            return min(
-                dfs(i, k) + dfs(k + 1, j) + g[i][k] * g[k + 1][j] for k in range(i, j)
-            )
-
-        n = len(arr)
-        g = [[0] * n for _ in range(n)]
-        for i in range(n - 1, -1, -1):
-            g[i][i] = arr[i]
-            for j in range(i + 1, n):
-                g[i][j] = max(g[i][j - 1], arr[j])
-        return dfs(0, n - 1)
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
 
 <!-- tabs:start -->
 

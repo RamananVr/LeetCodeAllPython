@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README_EN.md
 rating: 1478
 source: Weekly Contest 368 Q2
 tags:
@@ -74,6 +73,16 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 10^5$ forbids a triple loop. After fixing the peak we still only need the minima on both sides, which can be prepared in linear time.
+>
+> A suffix-minimum array $right$ together with a running $left$ tests each index in constant time. The algorithm is the same as part I; the constraints force this $O(n)$ form.
+
+<!-- thinking:end -->
 
 We can preprocess the minimum value on the right side of each position and record it in the array $right[i]$, where $right[i]$ represents the minimum value in $nums[i+1..n-1]$.
 

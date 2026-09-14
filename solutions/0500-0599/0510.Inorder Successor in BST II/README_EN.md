@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -67,6 +66,16 @@ class Node {
 <!-- solution:start -->
 
 ### Solution 1: Case Discussion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The usual inorder successor walks from the root. Here we only have a parent pointer, not the tree root.
+>
+> There are two cases: if a right child exists, the successor is the leftmost node of that subtree; otherwise climb parents until the node is a left child, and that parent is the successor. Both walks follow a single chain.
+
+<!-- thinking:end -->
 
 If the `node` has a right subtree, then the in-order successor of `node` is the leftmost node in the right subtree.
 

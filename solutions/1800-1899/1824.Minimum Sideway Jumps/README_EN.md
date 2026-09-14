@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README_EN.md
 rating: 1778
 source: Weekly Contest 236 Q3
 tags:
@@ -79,6 +78,16 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three lanes have obstacles and we may only jump sideways at the same point. Searching every path without memoization repeats the $O(n)$ states.
+>
+> Let $f[j]$ be the fewest side jumps to be on lane $j$ at the current point. A blocked lane becomes infinity; otherwise we either stay or jump from the cheapest lane at this point. A length-$3$ array rolls from the start to the finish.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum number of sidesteps for the frog to reach the $i$-th point and be on the $j$-th lane (index starts from $0$).
 

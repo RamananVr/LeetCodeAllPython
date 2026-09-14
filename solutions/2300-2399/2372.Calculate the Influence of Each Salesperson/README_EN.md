@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2372.Calculate%20the%20Influence%20of%20Each%20Salesperson/README_EN.md
 tags:
     - Database
 ---
@@ -127,6 +126,16 @@ The total for Jerry is 0.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A salesperson’s influence is the sum of their customers’ sales, or $0$ if they have none. People without sales must still appear.
+>
+> Left-join $Customer$ then $Sales$ onto $Salesperson$, group by salesperson, and $SUM(price)$ with $IFNULL$ to $0$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

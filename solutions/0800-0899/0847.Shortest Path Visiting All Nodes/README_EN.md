@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README_EN.md
 tags:
     - Bit Manipulation
     - Breadth-First Search
@@ -59,6 +58,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want a shortest walk that visits every node; edges may be reused. $n\le 12$, so the walk itself is not the state, but (current node, visited mask) has only $n\cdot 2^n$ pairs.
+>
+> Multi-source BFS from every start on that state space: the first time the mask is full, the layer index is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -93,6 +102,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Plain BFS expands by layer. An admissible heuristic — the number of still-unvisited nodes — lets a priority queue pop $dist+h$ first.
+>
+> Relaxation is still unit-weight shortest paths, so optimality is kept; full masks tend to appear earlier once most nodes are visited.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md
 rating: 1874
 source: Weekly Contest 129 Q2
 tags:
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Building $1,11,111,\ldots$ until divisibility overflows integers, and $k\le 10^5$ forbids an unbounded search. Divisibility depends only on the remainder modulo $k$.
+>
+> $(10n+1)\bmod k$ is determined by $n\bmod k$. There are only $k$ remainders; if $0$ never appears within $k$ steps, later values cycle and no such number exists.
+>
+> Starting from $1\bmod k$ we iterate at most $k$ times. The first zero remainder gives the number of digits; otherwise the answer is $-1$.
+
+<!-- thinking:end -->
 
 We observe that the positive integer $n$ starts with an initial value of $1$, and each time it is multiplied by $10$ and then $1$ is added, i.e., $n = n \times 10 + 1$. Since $(n \times 10 + 1) \bmod k = ((n \bmod k) \times 10 + 1) \bmod k$, we can determine whether $n$ is divisible by $k$ by calculating $n \bmod k$.
 

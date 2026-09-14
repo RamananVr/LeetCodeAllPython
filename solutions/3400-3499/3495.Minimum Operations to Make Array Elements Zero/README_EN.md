@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README_EN.md
 rating: 2205
 source: Weekly Contest 442 Q4
 tags:
@@ -99,6 +98,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation replaces two positive numbers in the range by $\lfloor x/4\rfloor$. $l,r$ reach $10^9$ with $10^5$ queries, so the range cannot be simulated.
+>
+> A single $x$ needs the smallest $p$ with $4^p>x$, constant on $[4^{i-1},4^i)$. One operation touches two numbers, so the range cost is about half the sum of $p$, except the slowest value may dominate.
+>
+> $f(x)$ is the prefix sum of those $p$ on $[1,x]$. For $[l,r]$ the answer is $\max(\lceil s/2\rceil,mx)$ with $s=f(r)-f(l-1)$ and $mx$ equal to $r$’s own $p$.
+
+<!-- thinking:end -->
 
 According to the problem description, suppose the minimum number of operations required to make an element $x$ become $0$ is $p$, where $p$ is the smallest integer such that $4^p > x$.
 

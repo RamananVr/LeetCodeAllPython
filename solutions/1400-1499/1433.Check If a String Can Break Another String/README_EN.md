@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1433.Check%20If%20a%20String%20Can%20Break%20Another%20String/README_EN.md
 rating: 1436
 source: Biweekly Contest 25 Q3
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$, so we cannot try permutations. One string breaks the other iff some pairing makes every character at least as large.
+>
+> Sort both and compare position-wise: if one side is always $\ge$ or always $\le$, such a permutation exists. Sorted pairing is optimal.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

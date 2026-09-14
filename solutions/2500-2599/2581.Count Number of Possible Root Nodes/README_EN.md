@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md
 rating: 2228
 source: Biweekly Contest 99 Q4
 tags:
@@ -93,6 +92,16 @@ Considering any node as root will give at least 1 correct guess.
 <!-- solution:start -->
 
 ### Solution 1: Tree DP (change root)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The root is unknown; guesses are directed edges. A node is valid if, when it is the root, at least $k$ guesses match. A DFS from every root is $O(n^2)$.
+>
+> First count matches $\textit{cnt}$ with root $0$. Moving the root to a neighbour $j$ drops edge $(i,j)$ as a parent-to-child and adds $(j,i)$ if guessed. A second DFS visits every root with this $O(1)$ update.
+
+<!-- thinking:end -->
 
 First, we traverse the given edge set $edges$ and convert it to an adjacency list $g$ where $g[i]$ represents the adjacent nodes of node $i$. Use a hash map $gs$ to record the given guess set $guesses$.
 

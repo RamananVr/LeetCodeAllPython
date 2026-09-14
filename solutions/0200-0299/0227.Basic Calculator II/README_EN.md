@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0227.Basic%20Calculator%20II/README_EN.md
 tags:
     - Stack
     - Math
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Multiplication and division bind tighter than addition, and there are no parentheses, so we cannot add every number immediately. Treat $+$ and $-$ as signed terms on a stack, and fold $*$ and $/$ into the top.
+>
+> $sign$ remembers the previous operator; after a number is complete we push or update the top, then sum the stack.
+
+<!-- thinking:end -->
 
 We traverse the string $s$, and use a variable `sign` to record the operator before each number. For the first number, its previous operator is considered as a plus sign. Each time we traverse to the end of a number, we decide the calculation method based on `sign`:
 

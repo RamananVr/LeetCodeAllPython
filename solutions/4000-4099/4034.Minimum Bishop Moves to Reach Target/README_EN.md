@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/README_EN.md
 rating: 1244
 source: Biweekly Contest 190 Q1
 ---
@@ -79,6 +78,18 @@ source: Biweekly Contest 190 Q1
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bishop stays on diagonals, so each move changes row and column by the same amount and $(r+c)\bmod 2$ is invariant. Opposite colours are unreachable; no search is required.
+>
+> On the same colour, one move suffices if the squares already share a diagonal; otherwise any two same-colour squares on an $8\times 8$ board have a common intermediate, so the distance is $2$.
+>
+> The case analysis yields only $-1$, $1$, or $2$, in constant time.
+
+<!-- thinking:end -->
 
 A bishop only moves along diagonals, and each move changes the row and the column by the same amount, so $(r + c) \bmod 2$ never changes. In other words, the bishop can only stand on squares of the same color as its starting square. If $(sr + sc)$ and $(tr + tc)$ have different parities, the bishop can never reach the target, so we return $-1$.
 

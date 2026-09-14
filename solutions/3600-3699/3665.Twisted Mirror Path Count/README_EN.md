@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README_EN.md
 rating: 1883
 source: Biweekly Contest 164 Q3
 tags:
@@ -160,6 +159,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mirrors bend a rightward step downward and conversely. Paths from the top-left to the bottom-right therefore carry a direction. Reduce modulo $10^9+7$.
+>
+> Let $f[i][j][d]$ be the number of ways to reach $(i,j)$ with last direction $d$. An empty cell may continue right or down; a mirror forces a turn.
+>
+> Transfer in increasing $i+j$. Seed the start with one way. The answer is the sum of directions at the destination.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

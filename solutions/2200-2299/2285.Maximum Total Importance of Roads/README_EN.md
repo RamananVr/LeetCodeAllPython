@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README_EN.md
 rating: 1496
 source: Biweekly Contest 79 Q3
 tags:
@@ -76,6 +75,16 @@ It can be shown that we cannot obtain a greater total importance than 20.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We assign distinct values $1$ through $n$ to cities; a road's importance is the sum of its ends. A city's contribution is its degree times its value, so larger degrees should get larger values.
+>
+> Count degrees, sort them, and dot with $1..n$.
+
+<!-- thinking:end -->
 
 We consider the contribution of each city to the total importance of all roads, recorded in the array $\textit{deg}$. Then, we sort $\textit{deg}$ by contribution from smallest to largest and allocate $[1, 2, ..., n]$ to the cities in order.
 

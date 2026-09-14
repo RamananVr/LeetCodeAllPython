@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0344.Reverse%20String/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -42,6 +41,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse a character array in place. A second buffer uses $O(n)$ space. Swapping ends is enough.
+>
+> Two pointers $i,j$ start at the ends, swap, and move inward until they meet. One pass, constant extra space.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$, initially pointing to the start and end of the array respectively. Each time, we swap the elements at $i$ and $j$, then move $i$ forward and $j$ backward, until $i$ and $j$ meet.
 

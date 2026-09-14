@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2143.Choose%20Numbers%20From%20Two%20Arrays%20in%20Range/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -83,6 +82,18 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced subarray picks one side at each index so the two sums are equal. There are $O(n^2)$ subarrays and exponentially many assignments. Values are small enough to DP on the difference of sums.
+>
+> Let $f[i][j]$ be the number of balanced ranges ending at $i$ whose difference is $j$ (shifted by $s_2=\sum\textit{nums2}$). Item $i$ may start a new range on either side, or extend a range from $i-1$ by $+a$ or $-b$.
+>
+> Sum $f[i][s_2]$ over $i$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

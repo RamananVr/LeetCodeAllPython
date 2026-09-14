@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3296.Minimum%20Number%20of%20Seconds%20to%20Make%20Mountain%20Height%20Zero/README_EN.md
 rating: 1694
 source: Weekly Contest 416 Q2
 tags:
@@ -105,6 +104,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Worker $i$ spends $wt_i\cdot h(h+1)/2$ to remove $h$ layers; they work in parallel. $H\le 10^5$ and $10^4$ workers forbid enumerating time. More time means more height removed, so we binary-search.
+>
+> $\textit{check}(t)$ solves each worker's quadratic for the layers they can remove in $t$ and sums them. The search upper bound is a large constant such as $10^{16}$; `bisect_left` yields the least feasible $t$.
+
+<!-- thinking:end -->
 
 We notice that if all workers can reduce the mountain height to $0$ in $t$ seconds, then for any $t' > t$, the workers can also reduce the mountain height to $0$ in $t'$ seconds. Therefore, we can use binary search to find the minimum $t$ such that the workers can reduce the mountain height to $0$ in $t$ seconds.
 

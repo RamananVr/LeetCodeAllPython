@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1409.Queries%20on%20a%20Permutation%20With%20Key/README_EN.md
 rating: 1334
 source: Weekly Contest 184 Q2
 tags:
@@ -73,6 +72,16 @@ Therefore, the array containing the result is [2,1,2,1].
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $m\le 10^3$. Locating a value in a length-$m$ permutation and moving it to the front is $O(m)$ per query, so $O(m^2)$ overall is acceptable.
+>
+> Keep the permutation in a list, record `index`, then pop and insert at the front.
+
+<!-- thinking:end -->
+
 The problem's data scale is not large, so we can directly simulate it.
 
 <!-- tabs:start -->
@@ -99,6 +108,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 scans the list each time. If we can ask “how many elements lie to the left of this value” in $O(\log(m+n))$, the same process is faster.
+>
+> Place the initial permutation on indices $[n+1,n+m]$ and move each queried value to a free slot on the left. A Fenwick tree stores occupancy; a prefix sum is the current index.
+
+<!-- thinking:end -->
 
 The Binary Indexed Tree (BIT), also known as the Fenwick Tree, efficiently supports the following two operations:
 

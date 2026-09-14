@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -84,6 +83,14 @@ It can be shown that these are the minimum possible relative losses.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query buys $m$ chocolates at threshold $k$. Relative loss is the price itself when $price\le k$, and $2k-price$ when $price>k$. An optimal mix takes some cheapest bars and some most expensive ones. After sorting and prefix sums, a binary search finds the split for every query.
+
+<!-- thinking:end -->
 
 Based on the problem description, we know:
 

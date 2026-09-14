@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3279.Maximum%20Total%20Area%20Occupied%20by%20Pistons/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pistons bounce in $[0,height]$ at unit speed; the area is the sum of positions, a polyline in time. $n\le 10^5$ and $height\le 10^6$ forbid looping every second. Velocity flips only at an endpoint, so there are few events.
+>
+> The start area is the sum of positions; net velocity is ups minus downs. At each bounce, add $\pm 2$ to a difference map. Sweep events in time, update the area on each constant-velocity segment, and keep the maximum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

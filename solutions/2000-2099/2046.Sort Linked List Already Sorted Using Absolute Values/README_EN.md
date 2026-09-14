@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README_EN.md
 tags:
     - Linked List
     - Two Pointers
@@ -68,6 +67,16 @@ The linked list is already sorted in non-decreasing order.
 <!-- solution:start -->
 
 ### Solution 1: Head Insertion Method
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list is sorted by absolute value, so negatives must move to the front in reverse of their encounter order. One pass suffices: head-insert a negative node; advance on non-negatives.
+>
+> $O(1)$ extra memory; no array rebuild.
+
+<!-- thinking:end -->
 
 We first assume that the first node is already sorted. Starting from the second node, when we encounter a node with a negative value, we use the head insertion method. For non-negative values, we continue to traverse down.
 

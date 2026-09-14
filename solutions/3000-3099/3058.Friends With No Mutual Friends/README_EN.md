@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md
 tags:
     - Database
 ---
@@ -73,6 +72,18 @@ Output table is ordered by user_id1 in ascending order.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Subquery
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep an undirected friendship when the two users share no friend. The table stores each edge once, so we first add the reverse edges.
+>
+> A self-join on the middle user lists every pair that shares a neighbor. Edges of the original table outside that set are the answer.
+>
+> Concatenate both directions, self-join, and filter the original pairs by membership.
+
+<!-- thinking:end -->
 
 First, we list all the friend relationships and record them in table `T`. Then we find the pairs of friends who do not have common friends.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1926.Nearest%20Exit%20from%20Entrance%20in%20Maze/README_EN.md
 rating: 1638
 source: Biweekly Contest 56 Q2
 tags:
@@ -79,6 +78,18 @@ Thus, the nearest exit is [1,2], which is 2 steps away.
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The nearest exit is an unweighted shortest path. DFS does not guarantee minimality. The entrance is not an exit even if it lies on the border.
+>
+> BFS from the entrance, painting visited empty cells as walls. The first time a border empty cell is reached, the current distance is the answer; an empty queue means unreachable.
+>
+> Expanding four-neighbors level by level keeps the step count equal to distance.
+
+<!-- thinking:end -->
 
 We can start from the entrance and perform a breadth-first search (BFS). Each time we reach a new empty cell, we mark it as visited and add it to the queue until we find an empty cell on the boundary, then return the number of steps.
 

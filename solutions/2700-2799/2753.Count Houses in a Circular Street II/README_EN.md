@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2753.Count%20Houses%20in%20a%20Circular%20Street%20II/README_EN.md
 ---
 
 <!-- problem:start -->
@@ -63,6 +62,16 @@ The number of houses is equal to k, which is 5.
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $k$ houses on a circle, at least one door is open, and we may only move right or close a door. Opening every door as in the previous problem is not available.
+>
+> Walk to an open door as a mark, then step right at most $k$ times. Close every open door and remember the step count. The last still-open door is one full lap from the start, so that count is the number of houses.
+
+<!-- thinking:end -->
 
 We notice that there is at least one door open in the problem. We can first find one of the open doors.
 

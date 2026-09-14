@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2018.Check%20if%20Word%20Can%20Be%20Placed%20In%20Crossword/README_EN.md
 rating: 1929
 source: Weekly Contest 260 Q3
 tags:
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $mn \le 2 \times 10^5$, the word must occupy a `#`-bounded slot, forward or backward. Trying four directions from each cell is linear in the grid size times $|word|$.
+>
+> A start must sit on a border or beside `#`. `check` also requires the cell past the word to be off-board or `#`, and letters to match or be spaces.
+>
+> Any successful direction returns true.
+
+<!-- thinking:end -->
 
 We can enumerate each position $(i, j)$ in the matrix, and judge whether we can place the word `word` from left to right or from right to left, or from top to bottom or from bottom to top, starting from this position.
 

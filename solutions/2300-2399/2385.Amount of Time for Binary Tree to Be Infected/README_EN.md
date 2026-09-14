@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md
 rating: 1711
 source: Weekly Contest 307 Q3
 tags:
@@ -71,6 +70,16 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 <!-- solution:start -->
 
 ### Solution 1: Two DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Infection travels along tree edges; the time is the eccentricity of $start$. Up to $10^5$ nodes, so parent links must be explicit.
+>
+> The first DFS builds an undirected adjacency list; the second DFS from $start$ returns the farthest depth. Both are linear.
+
+<!-- thinking:end -->
 
 First, we build a graph through one DFS, and get an adjacency list $g$, where $g[node]$ represents all nodes connected to the node $node$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md
 rating: 2124
 source: Biweekly Contest 39 Q3
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We jump $+a$ or $-b$ (never twice backward) and avoid forbidden cells. A state is (position, whether a backward jump is allowed); all edges have length $1$, so BFS is shortest.
+>
+> We may overshoot $x$ and return, so a right bound is needed. $6000$ covers the useful positions given $a$, $b$, and the forbidden range.
+>
+> The queue stores $(i,k)$ with $k=1$ meaning a backward jump is allowed. Seen pairs $(i,k)$ are skipped; forbidden or out-of-range cells are dropped.
+
+<!-- thinking:end -->
 
 We can use the position and jumping direction of the flea as the state, and use BFS to search for the shortest path. The key point of this problem is to determine the right boundary, that is, how far the flea can jump.
 

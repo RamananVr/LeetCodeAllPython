@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0484.Find%20Permutation/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -58,6 +57,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build the lexicographically smallest permutation of $1..n+1$ matching an $I/D$ string. Smallest order wants an increasing sequence except where a descent is required.
+>
+> Start from $1,2,\ldots,n+1$ and reverse each segment that a run of $D$ covers. Positions with $I$ keep their relative order.
+>
+> Reversing a $D$-run makes that interval decreasing and does not enlarge an untouched prefix, so the permutation is the smallest one.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

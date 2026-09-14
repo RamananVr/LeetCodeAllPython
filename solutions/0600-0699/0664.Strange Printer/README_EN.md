@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0664.Strange%20Printer/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One print paints a contiguous segment with the same letter. $n\le 100$ suits interval DP.
+>
+> $f[i][j]$ is the fewest prints for $s[i..j]$. Equal endpoints reuse the last stroke; otherwise try every split. Fill shorter intervals first.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum operations to print $s[i..j]$, with the initial value $f[i][j]=\infty$, and the answer is $f[0][n-1]$, where $n$ is the length of string $s$.
 

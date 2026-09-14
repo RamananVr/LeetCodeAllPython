@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2129.Capitalize%20the%20Title/README_EN.md
 rating: 1274
 source: Biweekly Contest 69 Q1
 tags:
@@ -71,6 +70,18 @@ The remaining words have a length of at least 3, so the first letter of each rem
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After splitting on spaces, words shorter than $3$ become lowercase and longer words are capitalized. The rule is independent per word, so a direct simulation suffices.
+>
+> Lowercase every token, capitalize those of length at least $3$, and join with spaces.
+>
+> The cost is linear in the title length.
+
+<!-- thinking:end -->
 
 Directly simulate the process. Split the string by spaces to get each word, then convert each word to the appropriate case as per the problem statement. Finally, join the words with spaces.
 

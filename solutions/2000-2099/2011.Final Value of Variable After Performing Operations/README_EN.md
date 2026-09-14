@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2011.Final%20Value%20of%20Variable%20After%20Performing%20Operations/README_EN.md
 rating: 1165
 source: Weekly Contest 259 Q1
 tags:
@@ -82,6 +81,16 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only four operations and $n \le 100$, so a linear scan suffices. Both increment forms add one and both decrement forms subtract one; the middle character decides the sign.
+>
+> Sum $+1$ or $-1$ according to whether $s[1]$ is `'+'`.
+
+<!-- thinking:end -->
 
 We traverse the array $\textit{operations}$. For each operation $\textit{operations}[i]$, if it contains `'+'`, we increment the answer by $1$, otherwise, we decrement the answer by $1$.
 

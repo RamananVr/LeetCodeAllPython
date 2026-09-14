@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README_EN.md
 rating: 1680
 source: Weekly Contest 294 Q3
 tags:
@@ -65,6 +64,16 @@ As shown in the diagram above, the line chart can be represented with a single l
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We connect prices by day; collinear consecutive segments share one line. There are $10^5$ points with distinct days. Sort by day and test whether adjacent slopes match. Division is noisy, so compare with cross multiplication.
+>
+> Keep the previous $(\Delta x,\Delta y)$; a new line is needed when $\Delta y\cdot\Delta x_1 \ne \Delta x\cdot\Delta y_1$. A single point uses zero lines.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

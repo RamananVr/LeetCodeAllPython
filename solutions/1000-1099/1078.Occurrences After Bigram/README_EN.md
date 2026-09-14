@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1078.Occurrences%20After%20Bigram/README_EN.md
 rating: 1274
 source: Weekly Contest 140 Q1
 tags:
@@ -47,6 +46,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the word that follows a given bigram. The text is single-space separated, so splitting and checking triples is enough at length $\le 1000$.
+>
+> Each $i$ looks at $(words[i],words[i+1],words[i+2])$ and collects the third word when the first two match.
+>
+> One linear scan finds every occurrence.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

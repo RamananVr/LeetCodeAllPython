@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README_EN.md
 rating: 2398
 source: Weekly Contest 483 Q4
 tags:
@@ -133,6 +132,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $n \le 12$ lists, so enumerating merge orders as Catalan trees repeats the same subsets. Total length is modest, but the order itself cannot be searched.
+>
+> Length and median of a merge depend only on the multiset of values, not on the intermediate merge sequence. Each subset therefore has a unique length and median.
+>
+> We represent unused lists as a bit mask, precompute each nonempty subset's count and left median, then DP by splitting a set into two nonempty proper subsets, adding the median gap and the total length.
+>
+> The $2^n$ subset DP covers every collection; the answer is the cost of the full mask.
+
+<!-- thinking:end -->
 
 The number of lists satisfies $n \le 12$, so a bitmask can represent any subset of lists.
 

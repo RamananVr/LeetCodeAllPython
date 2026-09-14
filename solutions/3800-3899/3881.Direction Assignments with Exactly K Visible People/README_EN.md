@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README_EN.md
 rating: 1760
 source: Biweekly Contest 179 Q2
 tags:
@@ -101,6 +100,20 @@ A person at index <code>pos</code> sees others as follows:
 <!-- solution:start -->
 
 ### Solution 1: Combinatorics + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person chooses L or R so that index $\textit{pos}$ sees exactly $k$ people. $n \le 10^5$ forbids $2^n$ assignments.
+>
+> A left person is visible iff they chose L, a right person iff they chose R, independent of $\textit{pos}$'s own facing; $\textit{pos}$ still has two choices.
+>
+> Enumerate $a$ visible people on the left; the right then needs $k-a$, contributing $2\binom{\textit{pos}}{a}\binom{n-\textit{pos}-1}{k-a}$.
+>
+> Factorials and inverses make each binomial $O(1)$.
+
+<!-- thinking:end -->
 
 There are $\textit{pos}$ people to the left of position $\textit{pos}$, and $n - \textit{pos} - 1$ people to the right.
 

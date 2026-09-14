@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/README_EN.md
 tags:
     - Dynamic Programming
 ---
@@ -50,6 +49,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From a cell we may step in four directions, at most $k$ times, and we count paths that leave the grid. Unmemoized search repeats the same cell and remaining steps.
+>
+> $dfs(i,j,k)$ is the number of out-of-bound paths from $(i,j)$ with $k$ steps left. Off-grid with $k \ge 0$ scores $1$; no steps left scores $0$. Four-way transitions modulo $10^9+7$. Each triple is computed once.
+
+<!-- thinking:end -->
 
 We define a function $\textit{dfs}(i, j, k)$ to represent the number of paths that can move out of the boundary starting from coordinates $(i, j)$ with $k$ steps remaining.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md
 rating: 1498
 source: Weekly Contest 387 Q2
 tags:
@@ -56,6 +55,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two-Dimensional Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every counted submatrix contains the top-left cell, so they are prefix submatrices. $n,m \le 1000$ forbids summing each one from scratch.
+>
+> A 2D prefix table gives the sum ending at $(i,j)$ in $O(1)$, which we compare with $k$.
+>
+> We fill $s_{i,j}=s_{i-1,j}+s_{i,j-1}-s_{i-1,j-1}+x$.
+
+<!-- thinking:end -->
 
 The problem is actually asking for the number of prefix submatrices in a two-dimensional matrix whose sum is less than or equal to $k$.
 

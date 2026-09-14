@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1303.Find%20the%20Team%20Size/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,14 @@ Employees with Id 5,6 are part of a team with team_id = 9.
 
 ### Solution 1: Group By + Equi-Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each employee needs the size of their team. Counting from the employee row would re-aggregate the same $\textit{team\_id}$ many times. Grouping by $\textit{team\_id}$ first yields team sizes; an equi-join on that key writes the size back onto every employee row.
+
+<!-- thinking:end -->
+
 We can first count the number of people in each team and record it in the `T` table. Then, we can use an equi-join to join the `Employee` table and the `T` table based on `team_id`, and obtain the total number of people in each team.
 
 <!-- tabs:start -->
@@ -103,6 +110,14 @@ FROM
 <!-- solution:start -->
 
 ### Solution 2: Left Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous query needs an intermediate table. A self-join of $\textit{Employee}$ on $\textit{team\_id}$, grouped by $\textit{employee\_id}$, aligns teammates in the join and produces the size in one statement without materializing a grouped CTE.
+
+<!-- thinking:end -->
 
 We can also use a left join to join the `Employee` table with itself based on `team_id`, and then group by `employee_id` to count the total number of people in each team that the employee belongs to.
 

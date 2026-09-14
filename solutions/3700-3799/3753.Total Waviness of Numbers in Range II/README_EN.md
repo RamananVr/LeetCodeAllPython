@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README_EN.md
 rating: 2296
 source: Biweekly Contest 170 Q4
 tags:
@@ -97,6 +96,14 @@ Return the total sum of waviness for all numbers in the range <code>[num1, num2]
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bound is $10^{15}$, so per-number simulation no longer works. The range sum is $calc(num2)-calc(num1-1)$. Filling digits from the high end, peaks and valleys depend only on the last two written digits. The DP state stores the position, those two digits, whether the number has started, and whether it is tight, and it accumulates both the count and the waviness.
+
+<!-- thinking:end -->
 
 We need the total waviness of all numbers in $[num1, num2]$. Convert the range query to $calc(num2) - calc(num1 - 1)$, where $calc(x)$ is the total waviness in $[1, x]$.
 

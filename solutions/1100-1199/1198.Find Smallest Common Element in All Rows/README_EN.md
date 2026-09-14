@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1198.Find%20Smallest%20Common%20Element%20in%20All%20Rows/README_EN.md
 rating: 1401
 source: Biweekly Contest 9 Q3
 tags:
@@ -57,6 +56,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows are strictly increasing, so a value appears at most once per row. Count while scanning; a value whose count equals the number of rows sits in every row. Left-to-right order fills smaller values first, so the first value to reach that count is the smallest common element, or $-1$ if none.
+
+<!-- thinking:end -->
 
 We use an array $cnt$ of length $10001$ to count the frequency of each number. We sequentially traverse each number in the matrix and increment its frequency. When the frequency of a number equals the number of rows in the matrix, it means that this number appears in each row, and thus it is the smallest common element. We return this number.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README_EN.md
 rating: 1432
 source: Biweekly Contest 133 Q3
 tags:
@@ -79,6 +78,18 @@ We can do the following operation:</p>
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation flips the suffix starting at $i$. The parity of later flips can be stored in one bit instead of rewriting the array.
+>
+> The true value is $x\oplus v$. A $0$ forces one more suffix flip and toggles $v$.
+>
+> One pass accumulates the number of toggles. Each index is inspected once.
+
+<!-- thinking:end -->
 
 We notice that whenever we change an element at a certain position to 1, all the elements to its right are flipped. Therefore, we can use a variable $v$ to record whether the current position and all elements to its right have been flipped. If flipped, the value of $v$ is 1, otherwise, it is 0.
 

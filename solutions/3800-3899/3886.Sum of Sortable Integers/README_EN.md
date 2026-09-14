@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README_EN.md
 rating: 1999
 source: Weekly Contest 495 Q3
 tags:
@@ -96,6 +95,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k$ is sortable iff $k$ divides $n$ and each block of length $k$ can be rotated so the concatenation is nondecreasing. $n \le 10^5$.
+>
+> There are few divisors; enumerate them. For each $k$, a block must be a rotation, and neighboring blocks must join monotonically.
+>
+> Global monotonicity means the chosen rotations concatenate in order. Check each position against the cyclic order, or compare adjacent blocks after their minimal rotations.
+>
+> Sum the divisors that pass.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

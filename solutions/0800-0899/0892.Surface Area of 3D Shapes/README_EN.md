@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README_EN.md
 tags:
     - Geometry
     - Array
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Stacked cubes’ exposed surface. $n\le 50$, so each nonempty cell adds $2+4v$, then we subtract faces glued to the north or west neighbor.
+>
+> The glued area is $2\cdot\min(v,\textit{neighbor})$. Empty cells contribute nothing.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

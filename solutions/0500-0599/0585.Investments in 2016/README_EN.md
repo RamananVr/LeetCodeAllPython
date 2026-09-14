@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0585.Investments%20in%202016/README_EN.md
 tags:
     - Database
 ---
@@ -82,6 +81,16 @@ So, the result is the sum of tiv_2016 of the first and last record, which is 45.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A 2016 policy counts if its 2015 amount is shared and its location is unique. A nested scan per row is quadratic.
+>
+> Window-count by `tiv_2015` and by `(lat, lon)`. Keep $cnt1>1$ and $cnt2=1$, sum `tiv_2016`, and round. One window pass replaces correlated subqueries.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

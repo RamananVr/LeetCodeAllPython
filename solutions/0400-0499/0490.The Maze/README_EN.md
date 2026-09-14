@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0490.The%20Maze/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -69,7 +68,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The ball rolls until it hits a wall; we ask whether it can stop on the destination. Walking cell by cell confuses “passing through” with “stopping”.
+>
+> DFS: from a stop, roll in each direction to a wall or border and recurse on that stop. A visited grid marks stops only. The destination is reachable once it is marked.
+>
+> The inner $\textit{while}$ rolls without marking cells on the way; the state space is stops, not every empty cell.
+
+<!-- thinking:end -->
+
+Roll in four directions until hitting a wall, and DFS every stoppable cell from the start.
 
 <!-- tabs:start -->
 
@@ -104,7 +117,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is recursive. The same rolling rule works with a queue: enqueue stops, and return as soon as the destination is reached. No call-stack depth, which is enough for a yes/no reachability query.
+
+<!-- thinking:end -->
+
+Roll in four directions and BFS the stoppable cells until the destination is reached.
 
 <!-- tabs:start -->
 

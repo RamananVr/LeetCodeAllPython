@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md
 tags:
     - Database
 ---
@@ -86,6 +85,14 @@ Each Metal element pairs with a Nonmetal element in the output table.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bond is any metal–nonmetal pair. Self-join $\textit{Elements}$ with types Metal and Nonmetal and project the two symbols.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

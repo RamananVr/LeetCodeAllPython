@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1555.Bank%20Account%20Summary/README_EN.md
 tags:
     - Database
 ---
@@ -109,6 +108,16 @@ Luis did not received any transfer, credit = $800
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Report each user's final credit and whether the limit was breached. Credits change via outgoing transfers, incoming transfers, and the opening balance; three separate updates easily drop users with no transactions.
+>
+> Record payments as negative amounts, receipts as positive ones, and $UNION\ ALL$ them with each user's opening credit. Grouping by user yields the closing balance, and users without activity keep their initial row. The sign of the sum tells whether the limit was breached.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

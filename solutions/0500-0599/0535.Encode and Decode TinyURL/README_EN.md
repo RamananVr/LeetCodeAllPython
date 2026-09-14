@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README_EN.md
 tags:
     - Design
     - Hash Table
@@ -59,6 +58,16 @@ string ans = obj.decode(tiny); // returns the original url after decoding it.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a reversible short URL. Hashing to a fixed string can collide and needs a conflict table.
+>
+> The short code need not be unpredictable, so a monotonic id suffices. A map stores `id -> long URL`; the short form is the domain plus that id, and decode reads the last path segment. Both operations are constant time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3115.Maximum%20Prime%20Difference/README_EN.md
 rating: 1294
 source: Weekly Contest 393 Q2
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer is the index gap between the leftmost and rightmost primes. Comparing every prime pair only rediscovers those two ends.
+>
+> Primality of a single value is $O(\sqrt{M})$, and both length and magnitude are modest, so locating the two ends is enough.
+>
+> Scan left for the first prime index $i$ and right for the last prime index $j$, then return $j-i$. Interior values never affect the distance.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to find the index $i$ of the first prime number, then find the index $j$ of the last prime number, and return $j - i$ as the answer.
 

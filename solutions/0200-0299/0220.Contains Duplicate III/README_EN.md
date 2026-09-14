@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0220.Contains%20Duplicate%20III/README_EN.md
 tags:
     - Array
     - Bucket Sort
@@ -68,6 +67,16 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a pair whose indices differ by at most $\textit{indexDiff}$ and values by at most $\textit{valueDiff}$. A hash set only tests equality, not nearest neighbors.
+>
+> Keep an ordered set of the last $\textit{indexDiff}$ values. For $v$, look up the least element $\ge v-\textit{valueDiff}$; if it is also $\le v+\textit{valueDiff}$, we are done. Then insert $v$ and drop the value that leaves the window.
+
+<!-- thinking:end -->
 
 We maintain a sliding window of size $k$, and the elements in the window are kept in order.
 

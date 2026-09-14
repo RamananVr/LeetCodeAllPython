@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1874.Minimize%20Product%20Sum%20of%20Two%20Arrays/README_EN.md
 tags:
     - Greedy
     - Array
@@ -57,6 +56,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may reorder one array and want the minimum of $\sum nums1[i]\cdot nums2[i]$. For positive numbers, large values should pair with small ones.
+>
+> Sort $nums1$ ascending and $nums2$ descending, then sum the pairwise products.
+
+<!-- thinking:end -->
 
 Since both arrays consist of positive integers, to minimize the sum of products, we can multiply the largest value in one array with the smallest value in the other array, the second largest with the second smallest, and so on.
 

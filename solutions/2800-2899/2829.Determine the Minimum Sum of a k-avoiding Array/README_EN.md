@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README_EN.md
 rating: 1347
 source: Weekly Contest 359 Q2
 tags:
@@ -56,6 +55,14 @@ It can be proven that there is no k-avoiding array with a sum less than 3.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $n$ distinct positive integers with no pair summing to $k$, and the sum should be minimal. Starting from $1$, take the next unused value and immediately forbid its partner $k-i$, so each choice is the smallest still allowed.
+
+<!-- thinking:end -->
 
 Starting from the positive integer $i = 1$, we sequentially determine if $i$ can be added to the array. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $k - i$ as visited, indicating that $k-i$ cannot be added to the array. We continue this process until the array's length reaches $n$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -63,6 +62,18 @@ The total cost is 6.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Start at index $0$ or $1$, pay the current stair, and climb one or two steps. $n\le 1000$; plain recursion repeats stairs.
+>
+> The cost from $i$ depends only on $i+1$ and $i+2$; past the top it is $0$. Memoization computes each index once.
+>
+> The answer is $\min(dfs(0), dfs(1))$. Time and space $O(n)$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i)$, which represents the minimum cost required to climb the stairs starting from the $i$-th step. Therefore, the answer is $\min(\textit{dfs}(0), \textit{dfs}(1))$.
 
 The execution process of the function $\textit{dfs}(i)$ is as follows:
@@ -91,13 +102,23 @@ class Solution:
         return min(dfs(0), dfs(1))
 ```
 
-<!-- tab:end -->
+<!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already linear but recursive. The same relation fills forward.
+>
+> $f[i]$ is the min cost to reach index $i$, from $i-1$ or $i-2$ paying that stair. $f[n]$ is the top.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the minimum cost needed to reach the $i$-th stair. Initially, $f[0] = f[1] = 0$, and the answer is $f[n]$.
 
@@ -132,6 +153,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f[i]$ reads only the previous two values, so two scalars suffice. Space $O(1)$.
+
+<!-- thinking:end -->
 
 We notice that the state transition equation for $f[i]$ only depends on $f[i - 1]$ and $f[i - 2]$. Therefore, we can use two variables $f$ and $g$ to alternately record the values of $f[i - 2]$ and $f[i - 1]$, thus optimizing the space complexity to $O(1)$.
 

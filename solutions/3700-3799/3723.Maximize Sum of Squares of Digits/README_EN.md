@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3723.Maximize%20Sum%20of%20Squares%20of%20Digits/README_EN.md
 rating: 1536
 source: Biweekly Contest 168 Q2
 tags:
@@ -97,6 +96,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With a fixed digit sum, the sum of squares is maximized by using as many $9$s as possible. If $9\times num<sum$ there is no solution; otherwise we write as many $9$s as we can, place the remainder in the next digit, and pad with zeros to length $num$, which also yields the numerically largest such integer.
+
+<!-- thinking:end -->
 
 If $\text{num} \times 9 < \text{sum}$, then there is no valid good integer, so we return an empty string.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README_EN.md
 rating: 2246
 source: Weekly Contest 445 Q4
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $l$ and $r$ have up to $100$ digits, so walking the interval is impossible. Count integers whose base-$b$ digits are non-decreasing via $f(r) - f(l-1)$.
+>
+> $f(x)$ is a digit DP: fill from the high digit, never decrease, and track the upper-bound flag. Reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

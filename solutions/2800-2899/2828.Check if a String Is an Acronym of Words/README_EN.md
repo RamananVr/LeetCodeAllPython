@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README_EN.md
 rating: 1151
 source: Weekly Contest 359 Q1
 tags:
@@ -69,6 +68,14 @@ Hence, s = &quot;ngguoy&quot; is the acronym.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An acronym is the concatenation of each word's first character. One pass that joins those letters and compares with $s$ is enough.
+
+<!-- thinking:end -->
+
 We can iterate over each string in the array $words$, concatenate their first letters to form a new string $t$, and then check if $t$ is equal to $s$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $words$.
@@ -90,6 +97,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 builds an extra string of length $n$. Comparing lengths first and then checking $words[i][0]$ against $s[i]$ avoids that allocation.
+
+<!-- thinking:end -->
 
 First, we check if the number of strings in $words$ is equal to the length of $s$. If not, $s$ is definitely not an acronym of the first letters of $words$, and we directly return $false$.
 

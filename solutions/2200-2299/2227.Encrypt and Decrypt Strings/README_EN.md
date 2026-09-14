@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README_EN.md
 rating: 1944
 source: Weekly Contest 287 Q4
 tags:
@@ -90,6 +89,16 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Encryption replaces each character by a fixed length-$2$ string. Decryption asks how many dictionary words encrypt to a given string. The dictionary has at most $100$ words, but decrypt may be called often, so recomputing mappings per query is wasteful.
+>
+> Build a char-to-cipher map and count the encryption of every dictionary word in $\textit{cnt}$. $\textit{encrypt}$ concatenates mappings (or returns empty on a missing key); $\textit{decrypt}$ is a single lookup in $\textit{cnt}$.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{mp}$ to record the encryption result of each character, and another hash table $\textit{cnt}$ to record the number of occurrences of each encryption result.
 

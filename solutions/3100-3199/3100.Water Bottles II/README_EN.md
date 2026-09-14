@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3100.Water%20Bottles%20II/README_EN.md
 rating: 1366
 source: Weekly Contest 391 Q2
 tags:
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each successful exchange increments the threshold, so a closed form must track a quadratic relation between empties and the growing cost. Both $n$ and $\textit{numExchange}$ are at most $100$, and a direct loop runs in $O(\sqrt{n})$, which fits the limits.
+>
+> All full bottles can be drunk first. Afterwards the only question is whether the empty count is at least the current threshold. Exchanging one bottle, drinking it, and incrementing the threshold reduces empties by $\textit{numExchange}-1$.
+>
+> Add $\textit{numBottles}$ to the answer, then while empties are enough subtract the threshold, increment it, and add one drunk bottle. The accumulated count is the maximum number of bottles drunk.
+
+<!-- thinking:end -->
 
 We can drink all the full water bottles at the beginning, so initially the amount of water we drink is $\textit{numBottles}$. Then, we repeatedly perform the following operations:
 

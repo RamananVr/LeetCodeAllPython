@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README_EN.md
 tags:
     - Database
 ---
@@ -129,6 +128,16 @@ This table contains team id, team name, matches_played, wins, draws, and losses.
 <!-- solution:start -->
 
 ### Solution 1: Window Function + CASE WHEN
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides points rank we split teams into three tiers by position. Rank is still min-rank; the cuts are one and two thirds of the table, rounded up.
+>
+> After points and `RANK`, a nested condition writes Tier 1/2/3, then sort by points and name. The window keeps tied teams in the same band.
+
+<!-- thinking:end -->
 
 We can use the window function `RANK()` to calculate each team's points, ranking, and the total number of teams. Then, we can use the `CASE WHEN` statement to determine the grade of each team.
 

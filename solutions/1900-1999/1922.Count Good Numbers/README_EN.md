@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md
 rating: 1674
 source: Weekly Contest 248 Q3
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Fast Exponentiation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even indices have $5$ choices and odd indices have $4$, independently. Looping $n\le 10^{15}$ times is impossible.
+>
+> The count is $5^{\lceil n/2\rceil}\cdot 4^{\lfloor n/2\rfloor}$, evaluated with modular fast exponentiation in $O(\log n)$.
+
+<!-- thinking:end -->
 
 For a "good number" of length $n$, the even-indexed positions have $\lceil \frac{n}{2} \rceil = \lfloor \frac{n + 1}{2} \rfloor$ digits, and these positions can be filled with $5$ different digits ($0, 2, 4, 6, 8$). The odd-indexed positions have $\lfloor \frac{n}{2} \rfloor$ digits, and these positions can be filled with $4$ different digits ($2, 3, 5, 7$). Therefore, the total number of "good numbers" of length $n$ is:
 

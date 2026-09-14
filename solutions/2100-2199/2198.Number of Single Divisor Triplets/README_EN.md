@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README_EN.md
 tags:
     - Array
     - Counting
@@ -68,6 +67,18 @@ Note that (0, 1, 2) is not a single divisor triplet because nums[0] + nums[1] + 
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A triplet’s sum must be divisible by exactly one of the three values. Ordered index triples count, but $n\le 10^5$ forbids enumerating indices. Values lie in $[1,100]$, so we enumerate values and multiply by frequencies.
+>
+> Count each value, then loop $a,b,c$ in $[1,100]$. If $a+b+c$ has exactly one divisor among them, add the corresponding product of frequencies, using $x(x-1)z$ when two of the values coincide.
+>
+> The cost is cubic in the value range, independent of $n$.
+
+<!-- thinking:end -->
 
 We notice that the range of elements in the array `nums` is $[1, 100]$. Therefore, we can enumerate three numbers $a, b, c$, where $a, b, c \in [1, 100]$, and then determine whether $a + b + c$ can only be divided by one of $a, b, c$. If so, we can calculate the number of single-factor triples with $a, b, c$ as elements. The specific calculation method is as follows:
 

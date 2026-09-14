@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README_EN.md
 rating: 1868
 source: Weekly Contest 285 Q3
 tags:
@@ -82,6 +81,18 @@ It can be shown that Bob cannot obtain a score higher than 27 points.
 <!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bob must allocate arrows to $12$ sections and scores a section only with strictly more arrows than Alice. Searching the exact count per section is hopeless: $\textit{numArrows}$ can be $10^5$. Only $12$ sections exist, so the real choice is which sections to win.
+>
+> Winning section $i$ costs $aliceArrows[i]+1$ arrows and yields $i$ points. Enumerate a $12$-bit mask of winning sections, accumulate cost and score, and keep the best feasible mask.
+>
+> Rebuild the arrow vector from that mask and dump leftover arrows into section $0$. $2^{12}$ masks are cheap.
+
+<!-- thinking:end -->
 
 Since there are only $12$ regions, we use binary enumeration to determine in which regions $\textit{Bob}$ scores. We use a variable $\textit{st}$ to represent the scheme in which $\textit{Bob}$ obtains the maximum score, and $\textit{mx}$ to represent the maximum score $\textit{Bob}$ obtains.
 

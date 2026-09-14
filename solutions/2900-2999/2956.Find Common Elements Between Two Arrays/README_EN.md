@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2956.Find%20Common%20Elements%20Between%20Two%20Arrays/README_EN.md
 rating: 1214
 source: Biweekly Contest 119 Q1
 tags:
@@ -82,6 +81,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many values of $nums1$ occur in $nums2$ and the opposite; this is membership, not index alignment. $n,m \le 100$, so build two sets and scan each array once.
+>
+> The domain is at most $100$, so a boolean array would also work. Return the pair.
+
+<!-- thinking:end -->
 
 We can use two hash tables or arrays $s1$ and $s2$ to record the elements that appear in the two arrays respectively.
 

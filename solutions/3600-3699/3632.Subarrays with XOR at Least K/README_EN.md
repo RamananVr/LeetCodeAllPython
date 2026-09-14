@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README_EN.md
 tags:
     - Bit Manipulation
     - Trie
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray XOR is a difference of prefix XORs. Scanning every left end for each right end is too slow. We need how many prefixes $p$ satisfy $p\oplus \textit{pre}[r]\ge k$.
+>
+> Bit by bit, $x\oplus y\ge k$ is decided on a binary trie: some branches are counted in full, others are descended, according to the bits of $k$.
+>
+> Insert prefix XORs left to right. Before each insertion, query the 01-trie for the number of stored prefixes whose XOR with the current value is at least $k$. Each query is $O(\log A)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

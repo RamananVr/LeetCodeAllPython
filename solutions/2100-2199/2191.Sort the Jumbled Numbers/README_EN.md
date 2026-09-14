@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README_EN.md
 rating: 1496
 source: Biweekly Contest 73 Q2
 tags:
@@ -73,6 +72,18 @@ Thus, the sorted array is [338,38,991].
 <!-- solution:start -->
 
 ### Solution 1: Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort by the mapped decimal value, keeping the original order on ties. We need a stable comparison on that mapped key.
+>
+> Map each number digit-wise to $y$, sort pairs $(y,i)$, and gather $\textit{nums}[i]$. Zero is mapped on its own so the loop is not skipped.
+>
+> A place weight $k$ rebuilds $y$ from the least significant digit.
+
+<!-- thinking:end -->
 
 We traverse each element $nums[i]$ in the array $nums$, store its mapped value $y$ and index $i$ into the array $arr$, then sort the array $arr$. Finally, we extract the index $i$ from the sorted array $arr$, convert it to the element $nums[i]$ in the original array $nums$.
 

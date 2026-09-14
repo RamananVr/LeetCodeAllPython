@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0647.Palindromic%20Substrings/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -55,6 +54,16 @@ tags:
 
 ### Solution 1: Expand Around Center
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count palindromic substrings. A full $n^2$ DP table works but is unnecessary if we only need the count.
+>
+> Expand around $2n-1$ centers (odd and even) and increment once for every successful step.
+
+<!-- thinking:end -->
+
 We can enumerate the center position of each palindrome and expand outward to count the number of palindromic substrings. For a string of length $n$, there are $2n-1$ possible center positions (covering both odd-length and even-length palindromes). For each center, we expand outward until the palindrome condition is no longer satisfied, and count the number of palindromic substrings.
 
 The time complexity is $O(n^2)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
@@ -82,6 +91,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Manacher's Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Center expansion is $O(n^2)$ in the worst case. Manacher computes every arm length $p[i]$ in linear time after inserting separators; the center contributes $\lfloor p[i]/2\rfloor$ palindromes.
+
+<!-- thinking:end -->
 
 In Manacher's algorithm, $p[i] - 1$ represents the maximum palindrome length centered at position $i$, and the number of palindromic substrings centered at position $i$ is $\left \lceil \frac{p[i]-1}{2} \right \rceil$.
 

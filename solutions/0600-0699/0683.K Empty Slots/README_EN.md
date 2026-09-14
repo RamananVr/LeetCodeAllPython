@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0683.K%20Empty%20Slots/README_EN.md
 tags:
     - Binary Indexed Tree
     - Segment Tree
@@ -64,6 +63,16 @@ We return 2 because on the second day, there were two on bulbs with one off bulb
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flowers bloom in order; we want the first day when two blooms enclose exactly $k$ empty slots. Pairing open flowers is quadratic.
+>
+> A Fenwick tree counts blooms. After $x$ opens, if $x\pm(k+1)$ is already open and the prefix difference between them is $0$, the gap is empty.
+
+<!-- thinking:end -->
 
 We can use a Binary Indexed Tree to maintain the prefix sum of the bulbs. Every time we turn on a bulb, we update the corresponding position in the Binary Indexed Tree. Then we check if the $k$ bulbs to the left or right of the current bulb are all turned off and the $(k+1)$-th bulb is already turned on. If either of these conditions is met, we return the current day.
 

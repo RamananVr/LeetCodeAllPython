@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3571.Find%20the%20Shortest%20Superstring%20II/README_EN.md
 tags:
     - String
 ---
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Overlapping Parts
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest superstring is the longer string when it already contains the shorter one, or a concatenation that overlaps a prefix of one with a suffix of the other. The strings are short, so every overlap length can be tried.
+>
+> Assume $s_1$ is shorter. If it occurs inside $s_2$, return $s_2$. Otherwise test whether a suffix of $s_1$ is a prefix of $s_2$ or a prefix of $s_1$ is a suffix of $s_2$, and concatenate on the first hit; if none match, return $s_1+s_2$.
+
+<!-- thinking:end -->
 
 We can construct the shortest string containing both `s1` and `s2` as substrings by enumerating the overlapping parts of the two strings.
 

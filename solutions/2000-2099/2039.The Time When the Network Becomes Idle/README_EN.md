@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/README_EN.md
 rating: 1865
 source: Biweekly Contest 63 Q3
 tags:
@@ -99,6 +98,18 @@ From the beginning of the second 3, the network becomes idle.
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges have unit weight, so latency is the shortest-path distance. BFS from $0$ yields $d$; a round trip is $2d$. Servers resend every $patience$ until the reply arrives.
+>
+> The last send is $(2d-1)//patience \times patience$, plus the return and one processing second. Take the maximum over nodes.
+>
+> The graph is undirected and connected, so one BFS suffices.
+
+<!-- thinking:end -->
 
 First, we construct an undirected graph $g$ based on the 2D array $edges$, where $g[u]$ represents all neighboring nodes of node $u$.
 

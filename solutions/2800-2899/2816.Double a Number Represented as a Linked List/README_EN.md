@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README_EN.md
 rating: 1393
 source: Weekly Contest 358 Q2
 tags:
@@ -55,6 +54,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Linked List + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list stores digits from high to low, so doubling left to right makes carries awkward. Reverse the list, simulate multiplication by two with a carry, then reverse again.
+
+<!-- thinking:end -->
 
 First, we reverse the linked list, then simulate the multiplication operation, and finally reverse the linked list back.
 

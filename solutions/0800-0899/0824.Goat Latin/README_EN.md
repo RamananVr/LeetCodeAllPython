@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0824.Goat%20Latin/README_EN.md
 tags:
     - String
 ---
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each word is rewritten: a consonant-initial word moves its first letter to the end, then every word gets $\textit{ma}$ plus a run of $a$ whose length is the word index. The sentence is short, so split and transform.
+>
+> Vowel tests use the lowercase first letter. The $i$-th word (1-based) appends $i$ copies of $a$; join with spaces.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

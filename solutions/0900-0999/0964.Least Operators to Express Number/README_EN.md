@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README_EN.md
 tags:
     - Memoization
     - Math
@@ -72,6 +71,14 @@ The expression contains 3 operations.
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build $\textit{target}$ from $x$ and the four operators, using as few operators as possible. Powers $x^k$ are the natural blocks. When $v\le x$, several copies of $x/x$ suffice. Otherwise take the least $k$ with $x^k\ge v$, and choose between finishing from $x^{k-1}$ plus a remainder and (when the overshoot is smaller than $v$) from $x^k$ minus the excess. Memoize the recursion.
+
+<!-- thinking:end -->
 
 We define a function $dfs(v)$, which represents the minimum number of operators needed to compose the number $v$ using $x$. Then the answer is $dfs(target)$.
 

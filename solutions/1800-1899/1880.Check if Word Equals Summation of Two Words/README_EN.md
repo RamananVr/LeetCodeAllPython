@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1880.Check%20if%20Word%20Equals%20Summation%20of%20Two%20Words/README_EN.md
 rating: 1187
 source: Weekly Contest 243 Q1
 tags:
@@ -80,6 +79,16 @@ We return true because 0 + 0 == 0.
 <!-- solution:start -->
 
 ### Solution 1: String to Number
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters $a\ldots j$ are digits $0\ldots 9$; we test whether two word-values sum to the third. The value is the concatenation of those digits.
+>
+> $f$ accumulates $ord(c)-ord('a')$ in base $10$. Compare $f(first)+f(second)$ with $f(target)$.
+
+<!-- thinking:end -->
 
 We define a function $\textit{f}(s)$ to calculate the numerical value of the string $s$. For each character $c$ in the string $s$, we convert it to the corresponding number $x$, then concatenate $x$ sequentially, and finally convert it to an integer.
 

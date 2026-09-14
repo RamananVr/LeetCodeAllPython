@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3046.Split%20the%20Array/README_EN.md
 rating: 1212
 source: Weekly Contest 386 Q1
 tags:
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the array into two equal-sized subsets of distinct elements. $n \le 100$.
+>
+> A value may appear at most twice, once in each subset; a third copy forces a repeat on one side.
+>
+> It is enough to test that the maximum frequency is less than $3$.
+
+<!-- thinking:end -->
 
 According to the problem, we need to divide the array into two parts, and the elements in each part are all distinct. Therefore, we can count the occurrence of each element in the array. If an element appears three or more times, it cannot satisfy the problem's requirements. Otherwise, we can divide the array into two parts.
 

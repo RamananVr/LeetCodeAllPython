@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3135.Equalize%20Strings%20by%20Adding%20or%20Removing%20Characters%20at%20Ends/README_EN.md
 tags:
     - String
     - Binary Search
@@ -107,6 +106,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only prefixes and suffixes may be deleted or appended, so a contiguous common substring must be kept. Testing every substring of $initial$ inside $target$ is $O(m^2n)$.
+>
+> The operation count is the discarded prefix/suffix of $initial$ plus the missing sides of $target$, i.e. $m+n-2\cdot mx$ for the longest common substring length $mx$.
+>
+> Standard DP: $f[i][j]$ is the common substring ending at $initial[i-1]$ and $target[j-1]$, extending when the letters match. The answer uses the global maximum $mx$.
+
+<!-- thinking:end -->
 
 Let's assume that the lengths of the strings `initial` and `target` are $m$ and $n$, respectively.
 

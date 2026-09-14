@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README_EN.md
 tags:
     - Array
     - Enumeration
@@ -94,6 +93,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The goal matches part I, but now $n,k\le 10^5$, so enumerating every pair $(x,y)$ is impossible. The cost of sending a value to residue $t$ is a circular distance and depends only on $v\bmod k$.
+>
+> Aggregate those costs for even indices and odd indices separately. The best pair $x\neq y$ is then a combination of the smallest and second-smallest residues on each side, which can be assembled in $O(k)$ rather than $O(k^2)$.
+>
+> This directory has no implemented solution yet; the walkthrough stops at aggregating residue costs by parity.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

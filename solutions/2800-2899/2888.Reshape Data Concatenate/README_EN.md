@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README_EN.md
 tags:
     - Pandas
 ---
@@ -81,6 +80,14 @@ df1</strong>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two frames share columns and should be stacked. `concat` with `ignore_index=True` rebuilds the index instead of keeping the original row labels.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

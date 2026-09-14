@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3963.Create%20Grid%20With%20Exactly%20One%20Path/README_EN.md
 rating: 1310
 source: Biweekly Contest 185 Q1
 ---
@@ -93,6 +92,16 @@ source: Biweekly Contest 185 Q1
 <!-- solution:start -->
 
 ### Solution 1: Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need exactly one down/right path from the top-left to the bottom-right. Fill the grid with walls, then open the first row and the last column, leaving the unique polyline “across the top, then down the right”.
+>
+> $m,n\le 25$, so construction is linear in the grid size.
+
+<!-- thinking:end -->
 
 We construct the grid as follows:
 

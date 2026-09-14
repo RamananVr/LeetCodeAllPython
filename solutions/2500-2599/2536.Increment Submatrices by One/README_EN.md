@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md
 rating: 1583
 source: Weekly Contest 328 Q2
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: 2D Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Several submatrices must be incremented by one. Walking every cell of every query is heavy when both $q$ and $n$ reach $500$.
+>
+> A 2D difference array turns one rectangle increment into four $O(1)$ corner updates: $+1$ at the top-left, $+1$ just past the bottom-right, and $-1$ at the other two corners. A 2D prefix sum restores the matrix after all queries.
+
+<!-- thinking:end -->
 
 A 2D difference array is a technique used to efficiently handle range updates on 2D arrays. We can implement fast updates on submatrices by maintaining a difference matrix of the same size as the original matrix.
 

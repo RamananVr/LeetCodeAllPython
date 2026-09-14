@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1215.Stepping%20Numbers/README_EN.md
 rating: 1674
 source: Biweekly Contest 10 Q3
 tags:
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $high$ can be $2\times 10^9$, so testing every integer is impossible. A stepping number's next digit is only last-digit $\pm 1$, so we grow them from $1\sim 9$ by BFS; the count is far smaller than the value range.
+>
+> The queue is increasing; we stop past $high$ and keep values in $[low,high]$. Zero is handled separately. BFS both emits in order and avoids duplicates.
+
+<!-- thinking:end -->
 
 First, if $low$ is $0$, we need to add $0$ to the answer.
 

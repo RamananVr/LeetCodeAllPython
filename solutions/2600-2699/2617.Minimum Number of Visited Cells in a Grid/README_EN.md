@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README_EN.md
 rating: 2581
 source: Weekly Contest 340 Q4
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $(0,0)$ we jump right or down by at most the written distance, minimizing visited cells. Naive BFS enumerates every reachable cell and, with up to $10^5$ cells, relaxes many obsolete jumps.
+>
+> $(i,j)$ only needs the closest predecessor in its row that can still reach column $j$, or in its column that can still reach row $i$. A min-heap per row and per column, ordered by distance, pops heads that can no longer reach the current index.
+>
+> Fill $dist$ in row-major order and, when a cell is reachable, push it into its row heap and column heap.
+
+<!-- thinking:end -->
 
 Let's denote the number of rows of the grid as $m$ and the number of columns as $n$. Define $dist[i][j]$ to be the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$. Initially, $dist[0][0]=1$ and $dist[i][j]=-1$ for all other $i$ and $j$.
 

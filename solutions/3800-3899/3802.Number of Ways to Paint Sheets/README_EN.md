@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3802.Number%20of%20Ways%20to%20Paint%20Sheets/README_EN.md
 ---
 
 <!-- problem:start -->
@@ -110,6 +109,19 @@ For each ordered pair <code>(i, j)</code>, where color <code>i</code> is used fo
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must use exactly two colors, each on a contiguous block, without exceeding $\textit{limit}$. $n \le 10^9$ forbids enumerating cut positions sheet by sheet.
+>
+> For an ordered pair $(i,j)$, valid cuts $x$ form an integer interval determined by $n$ and the two limits, whose length is $O(1)$.
+>
+> With $m \le 10^5$, pairing every two colors is $O(m^2)$ even after the cut is closed-form. The bottleneck is counting many limits at once.
+>
+> Each color's contribution depends only on how its limit sits relative to $n$. Sorting $\textit{limit}$ and accumulating interval lengths with prefix sums yields the answer modulo $10^9+7$.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

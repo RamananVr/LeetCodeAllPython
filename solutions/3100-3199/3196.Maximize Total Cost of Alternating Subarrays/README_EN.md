@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README_EN.md
 rating: 1846
 source: Weekly Contest 403 Q3
 tags:
@@ -98,6 +97,18 @@ tags:
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A partition scores each piece with alternating signs and a positive first term. All partitions are exponential.
+>
+> Whether the current value may be negated depends only on whether the previous one already was: a negation forces the next term positive.
+>
+> Memoize $dfs(i,j)$ with $j=1$ meaning a negation is allowed. Always try $nums[i]+dfs(i+1,1)$, and if allowed also $-nums[i]+dfs(i+1,0)$.
+
+<!-- thinking:end -->
+
 Based on the problem description, if the current number has not been flipped, then the next one can either be flipped or not flipped; if the current number has been flipped, then the next one can only remain unflipped.
 
 Therefore, we define a function $\textit{dfs}(i, j)$, which represents starting from the $i$-th number, whether the $i$-th number can be flipped, where $j$ indicates whether the $i$-th number is flipped. If $j = 0$, it means the $i$-th number cannot be flipped, otherwise, it can be flipped. The answer is $\textit{dfs}(0, 0)$.
@@ -137,6 +148,18 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is already linear in states but still recurses. The two choices roll into two scalars.
+>
+> $f$ is the best score if the current value stays positive, $g$ if it is negated. A negation requires the previous value to have stayed positive.
+>
+> Set $f=\max(f,g)+x$ and $g=f_{old}-x$. The answer is $\max(f,g)$ in constant extra space.
+
+<!-- thinking:end -->
 
 We can transform the memoization search from Solution 1 into dynamic programming.
 

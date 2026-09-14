@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0047.Permutations%20II/README_EN.md
 tags:
     - Array
     - Backtracking
@@ -51,6 +50,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is the same backtracking as unique permutations, then drop duplicates with a set. Correct, but $n \le 8$ and repeated numbers clone whole subtrees; filtering afterwards wastes time and space.
+>
+> The bottleneck is those duplicate branches. Swapping two equal values at the same depth yields the same permutation — each value may be chosen only once per layer.
+>
+> Sort so equals sit together, then skip a candidate when the previous equal is still unused. Each distinct value expands once at a position; every generated permutation is unique.
+
+<!-- thinking:end -->
 
 We can first sort the array so that duplicate numbers are placed together, making it easier to remove duplicates.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2408.Design%20SQL/README_EN.md
 tags:
     - Design
     - Array
@@ -184,6 +183,16 @@ sQL.ins(&quot;two&quot;, [&quot;fourth&quot;, &quot;fifth&quot;, &quot;sixth&quo
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must insert rows by table name and read cells by $1$-based row and column. The workload is bounded by the number of operations, so a full relational engine is unnecessary.
+>
+> A hash map from table name to a list of rows is enough: $rowId$ indexes $rowId-1$. Deleted rows are never selected, so $\textit{deleteRow}$ can be a no-op.
+
+<!-- thinking:end -->
 
 Create a hash table `tables` to store the mapping of table names to table data rows. Directly simulate the operations in the problem.
 

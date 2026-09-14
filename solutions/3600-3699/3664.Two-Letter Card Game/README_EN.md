@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3664.Two-Letter%20Card%20Game/README_EN.md
 rating: 2157
 source: Biweekly Contest 164 Q2
 tags:
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each card is two letters. A move spends two cards that share exactly a prescribed letter $x$. Count cards by whether they contain $x$ and by the other letter.
+>
+> Cards containing $x$ are $x?$ or $?x$. Two such cards pair when the other letters or the positions differ. Pair those piles greedily; cards without $x$ never pair.
+>
+> Try each of the $26$ choices of $x$, pair within the counted piles under their caps, and keep the maximum number of moves.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

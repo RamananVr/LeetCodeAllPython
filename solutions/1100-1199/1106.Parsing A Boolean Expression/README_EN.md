@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README_EN.md
 rating: 1880
 source: Weekly Contest 143 Q4
 tags:
@@ -77,6 +76,16 @@ Then, evaluate !(f) --&gt; NOT false --&gt; true. We return true.
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expression nests `!`, `&`, and `|`; a recursive descent must match parentheses and commas. A left-to-right scan pushes `t`, `f`, and operators; on `)` it pops until the operator and reduces by the popped true/false counts, which evaluates one parenthesized layer.
+>
+> Commas are separators and need not be stacked. A single character remains, the value of the whole expression.
+
+<!-- thinking:end -->
 
 For this type of expression parsing problem, we can use a stack to assist.
 

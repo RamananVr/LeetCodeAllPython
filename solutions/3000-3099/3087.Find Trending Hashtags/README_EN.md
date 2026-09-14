@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md
 tags:
     - Database
 ---
@@ -88,6 +87,16 @@ Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 <!-- solution:start -->
 
 ### Solution 1: Extract Substring + Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count hashtags in February $2024$ tweets and keep the top three by frequency then name. Each tweet contributes its first `#` word.
+>
+> Filter by month, extract the tag with a regular expression, prepend `#`, and take the first three rows of a sorted $\texttt{value\_counts}$.
+
+<!-- thinking:end -->
 
 We can query all tweets from February 2024, use the `SUBSTRING_INDEX` function to extract Hashtags, then use the `GROUP BY` and `COUNT` functions to count the occurrences of each Hashtag. Finally, we sort by the number of occurrences in descending order and by Hashtag in descending order, and take the top three popular Hashtags.
 

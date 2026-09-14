@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0578.Get%20Highest%20Answer%20Rate%20Question/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,16 @@ Question 285 has the highest answer rate.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer rate is answers over shows; take the highest, breaking ties by the smallest `question_id`. A single group-by is enough.
+>
+> `SUM(action = 'answer') / SUM(action = 'show')` is the rate. Order by rate descending and id ascending, then `LIMIT 1`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -95,6 +104,16 @@ LIMIT 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 aggregates with `GROUP BY`. A window can compute the same rate per question and then sort.
+>
+> `SUM(...) OVER (PARTITION BY question_id)` attaches the rate to every row; the outer query orders and keeps one id. Same winner as the group-by, and easier to mix with other window columns.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1345.Jump%20Game%20IV/README_EN.md
 rating: 1809
 source: Biweekly Contest 19 Q4
 tags:
@@ -72,6 +71,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A jump may go to a neighbor or to any equal value; we want the fewest jumps to the last index. $n \le 5 \times 10^4$, so rescanning an equal-value list is too slow. Layered BFS enqueues $i\pm 1$ and the equal indices, then $\textit{pop}$s that value's list so each such edge is used once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

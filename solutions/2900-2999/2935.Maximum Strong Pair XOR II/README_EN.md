@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md
 rating: 2348
 source: Weekly Contest 371 Q4
 tags:
@@ -75,6 +74,16 @@ The maximum XOR possible from these pairs is 500 XOR 520 = 1020 since the only o
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> This matches method 2 of part I, with $n \le 5 \times 10^4$ and values below $2^{20}$. Pair enumeration is impossible. For $x \le y$ a strong pair is $y \le 2x$; sort and keep that window with two pointers.
+>
+> A 0-1 trie walks the opposite bit to maximize XOR and uses $cnt$ to delete the left end. Twenty-one bits give $O(n \log A)$.
+
+<!-- thinking:end -->
 
 Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.
 

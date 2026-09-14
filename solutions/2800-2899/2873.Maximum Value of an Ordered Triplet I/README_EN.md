@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README_EN.md
 rating: 1270
 source: Weekly Contest 365 Q1
 tags:
@@ -64,6 +63,14 @@ It can be shown that there are no ordered triplets of indices with a value great
 <!-- solution:start -->
 
 ### Solution 1: Maintaining Prefix Maximum and Maximum Difference
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The value is $(nums[i]-nums[j])\times nums[k]$ with $i<j<k$. Even though $n$ is small, one pass suffices: while treating the current element as $k$, keep the prefix maximum $mx$ and the best difference $mx-nums[j]$, then multiply that difference by $nums[k]$.
+
+<!-- thinking:end -->
 
 We use two variables $\textit{mx}$ and $\textit{mxDiff}$ to maintain the prefix maximum value and maximum difference, respectively, and use a variable $\textit{ans}$ to maintain the answer. Initially, these variables are all $0$.
 

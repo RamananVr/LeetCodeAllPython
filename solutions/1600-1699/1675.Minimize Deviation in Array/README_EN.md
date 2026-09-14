@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README_EN.md
 rating: 2533
 source: Weekly Contest 217 Q4
 tags:
@@ -82,6 +81,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An odd value may be doubled once; an even value may be halved repeatedly. We want the smallest $\max-\min$. $n$ can be $5\times 10^4$, so we cannot list every reachable value of every element.
+>
+> Double every odd first so only halving remains. A max-heap holds the current maximum and we track the global minimum; repeatedly halve the top and update the deviation until the top is odd and cannot shrink.
+
+<!-- thinking:end -->
 
 Intuitively, to get the minimum offset of the array, we need to decrease the maximum value of the array and increase the minimum value of the array.
 

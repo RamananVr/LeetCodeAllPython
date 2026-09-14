@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0695.Max%20Area%20of%20Island/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -57,6 +56,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Area is the count of 4-connected land cells. Each cell is visited at most once.
+>
+> DFS a land cell, set it to $0$, and add the four recursive calls. The answer is the maximum over all starts.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

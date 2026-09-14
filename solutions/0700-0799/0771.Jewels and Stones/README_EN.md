@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0771.Jewels%20and%20Stones/README_EN.md
 tags:
     - Hash Table
     - String
@@ -43,6 +42,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many stones are jewels. Length $50$: put jewels in a set and test each stone. Case matters.
+
+<!-- thinking:end -->
 
 We can first use a hash table or array $s$ to record all types of jewels. Then traverse all the stones, and if the current stone is a jewel, increment the answer by one.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3992.Rearrange%20String%20to%20Avoid%20Character%20Pair/README_EN.md
 rating: 1251
 source: Biweekly Contest 187 Q1
 tags:
@@ -83,6 +82,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every $y$ must precede every $x$; other characters are free. Moving all $y$s to the front is enough.
+>
+> A two-pointer swap sends each $y$ to index $i$ and advances $i$, so the prefix is all $y$s. $n\le 100$.
+
+<!-- thinking:end -->
 
 We need to construct a permutation $t$ of $s$ such that every occurrence of $y$ appears before every occurrence of $x$. There are no extra constraints on the other characters.
 

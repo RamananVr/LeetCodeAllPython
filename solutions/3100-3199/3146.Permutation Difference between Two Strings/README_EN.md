@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3146.Permutation%20Difference%20between%20Two%20Strings/README_EN.md
 rating: 1152
 source: Weekly Contest 397 Q1
 tags:
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The difference sums absolute index gaps of each letter in $s$ and $t$. Searching the other string per letter is quadratic.
+>
+> Both strings are permutations, so letter-to-index is a bijection and one map suffices.
+>
+> Store positions of $s$, then walk $t$ and add $|d[c]-i|$.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array of length $26$, denoted as $\textit{d}$, to store the positions of each character in the string $\textit{s}$.
 

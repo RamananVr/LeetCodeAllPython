@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README_EN.md
 rating: 2118
 source: Weekly Contest 208 Q4
 tags:
@@ -78,6 +77,18 @@ We can achieve all the requests. </pre>
 <!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $m \le 16$ requests, so choosing a subset is $2^m \le 65536$ states; checking that every building has net flow zero fits the limits.
+>
+> A subset is feasible iff each building's incoming count equals its outgoing count — we need not simulate people moving.
+>
+> Enumerate mask $\textit{mask}$ and take $\textit{bit\_count}$ as the number of accepted requests. Only when that count beats the current answer do we verify that every building's counter is zero.
+
+<!-- thinking:end -->
 
 We note that the length of the room change request list does not exceed $16$. Therefore, we can use the method of binary enumeration to enumerate all room change request lists. Specifically, we can use a binary number of length $16$ to represent a room change request list, where the $i$-th bit being $1$ means the $i$-th room change request is selected, and $0$ means the $i$-th room change request is not selected.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md
 rating: 1190
 source: Weekly Contest 487 Q1
 tags:
@@ -68,6 +67,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A monobit integer has all bits equal: $0$ or a number of the form $2^{t}-1$. $n \le 1000$ allows scanning $[0,n]$, but it is enough to generate these values.
+>
+> Start from $1$ and repeatedly add the next higher $1$-bit, producing $1,3,7,\ldots$ until the value exceeds $n$.
+>
+> Counting $0$ as well gives the size of the range.
+>
+> The loop runs $O(\log n)$ times.
+
+<!-- thinking:end -->
 
 According to the problem description, a Monobit integer is either $0$, or its binary representation consists of all $1$s.
 

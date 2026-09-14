@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0129.Sum%20Root%20to%20Leaf%20Numbers/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -68,6 +67,14 @@ Therefore, sum = 495 + 491 + 40 = <code>1026</code>.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each root-to-leaf path is an integer; we want their sum. Depth is at most $10$, so there are few paths, but we need not build strings. Walking down, accumulate $s \times 10 + \textit{val}$. At a leaf that number is the contribution; add the two subtrees.
+
+<!-- thinking:end -->
 
 We can design a function $dfs(root, s)$, which represents the sum of all path numbers from the current node $root$ to the leaf nodes, given that the current path number is $s$. The answer is $dfs(root, 0)$.
 

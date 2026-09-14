@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README_EN.md
 rating: 2419
 source: Weekly Contest 333 Q3
 tags:
@@ -68,6 +67,16 @@ It can be proven that there is no more than 1 square-free subset in the given ar
 <!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count nonempty subsets whose product is square-free. Values lie in $[1,30]$, so $2^n$ is unnecessary: only thirty distinct numbers exist, and any number with a squared factor is forbidden.
+>
+> Ten primes sit below $30$, so a subset's prime set is a $10$-bit mask. $f[\textit{state}]$ is the number of ways to form that mask; ones may be taken freely, hence $f[0]=2^{\textit{cnt}[1]}$. Each square-free $x$ is a $0$-$1$ item transferred from high masks down. Sum every state and drop the empty subset.
+
+<!-- thinking:end -->
 
 Note that in the problem, the range of $nums[i]$ is $[1, 30]$. Therefore, we can preprocess all prime numbers less than or equal to $30$, which are $[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]$.
 

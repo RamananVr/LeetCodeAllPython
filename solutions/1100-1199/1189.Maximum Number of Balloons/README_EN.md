@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md
 rating: 1181
 source: Weekly Contest 154 Q1
 tags:
@@ -66,6 +65,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `balloon` needs $b,a$, two $l$, two $o$, and $n$. After counting `text`, halve $l$ and $o$ and take the min over $b,a,l,o,n$. There is no need to delete letters from the string repeatedly.
+
+<!-- thinking:end -->
 
 We count the frequency of each letter in the string `text`, and then divide the frequency of the letters 'o' and 'l' by 2, because the word `balloon` contains the letters 'o' and 'l' twice.
 

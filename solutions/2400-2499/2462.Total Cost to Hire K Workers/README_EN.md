@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README_EN.md
 rating: 1763
 source: Weekly Contest 318 Q3
 tags:
@@ -78,6 +77,16 @@ The total hiring cost is 4.
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of $k$ hires picks the cheapest among the first and last $\textit{candidates}$ workers; $n\le 10^5$. If those two sides cover the array, just take the $k$ global minima.
+>
+> Otherwise a heap holds both sides (with indices). After popping, push the next unused worker from that side. Stop refilling when the two pointers cross.
+
+<!-- thinking:end -->
 
 First, we check if $candidates \times 2$ is greater than or equal to $n$. If it is, we directly return the sum of the costs of the first $k$ smallest workers.
 

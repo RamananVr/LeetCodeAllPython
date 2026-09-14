@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md
 rating: 1198
 source: Biweekly Contest 104 Q1
 tags:
@@ -63,6 +62,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each record is fixed-width and the age occupies characters $12$ and $13$. Parsing those two digits and comparing with $60$ counts seniors without reading the other fields.
+
+<!-- thinking:end -->
 
 We can traverse each string $x$ in `details` and convert the $12$th and $13$th characters (indexed at $11$ and $12$) of $x$ to integers, and check if they are greater than $60$. If so, we add one to the answer.
 

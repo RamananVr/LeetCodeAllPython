@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README_EN.md
 rating: 1465
 source: Biweekly Contest 24 Q2
 tags:
@@ -66,6 +65,16 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k\le 10^9$ makes an unbounded-knapsack search over Fibonacci numbers unnecessary. Every positive integer has a Zeckendorf representation as a sum of distinct Fibonacci numbers.
+>
+> Repeatedly subtract the largest Fibonacci number $\le k$. If the previous term could still be used, a larger next term would have been chosen instead. Generate up to just past $k$, then walk backward.
+
+<!-- thinking:end -->
 
 We can greedily select the largest Fibonacci number that does not exceed $k$ each time, then subtract this number from $k$ and increment the answer by one. This process is repeated until $k = 0$.
 

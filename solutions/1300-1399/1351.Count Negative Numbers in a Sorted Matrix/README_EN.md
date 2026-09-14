@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1351.Count%20Negative%20Numbers%20in%20a%20Sorted%20Matrix/README_EN.md
 rating: 1139
 source: Weekly Contest 176 Q1
 tags:
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traverse from the Bottom-Left Corner
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows and columns are nonincreasing; count the negatives. A full scan is $O(mn)$. The bottom-left cell splits “smallest in this row / largest in this column”: a nonnegative value skips the rest of the row to the left by moving right; a negative adds $n-j$ and moves up. Each index changes once, in $O(m+n)$.
+
+<!-- thinking:end -->
 
 Since the matrix is sorted in non-strictly decreasing order both row-wise and column-wise, we can start traversing from the bottom-left corner of the matrix. Let the current position be $(i, j)$.
 

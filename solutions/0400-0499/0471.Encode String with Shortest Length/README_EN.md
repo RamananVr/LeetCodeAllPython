@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A shortest encoding may wrap the whole substring as $k[t]$ or split it. $n\le 150$ fits interval DP.
+>
+> $f[i][j]$ is the shortest encoding of $s[i..j]$. First compress the whole piece via the doubled-string period test (skip length $<5$), then try every cut $f[i][k]+f[k+1][j]$. Decreasing $i$ and increasing $j$ makes every subinterval ready.
+>
+> The period test is the same device as problem 459. The brackets store the period's own shortest encoding, not the raw text.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

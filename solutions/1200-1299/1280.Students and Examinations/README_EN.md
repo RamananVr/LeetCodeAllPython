@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1280.Students%20and%20Examinations/README_EN.md
 tags:
     - Database
 ---
@@ -135,6 +134,14 @@ John attended the Math exam 1 time, the Physics exam 1 time, and the Programming
 <!-- solution:start -->
 
 ### Solution 1: Two Joins + Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count exams per student per subject, including zeros. A Cartesian product of students and subjects left-joins exam rows and groups by student and subject. The left join keeps combinations with no exam; $COUNT$ turns a null join into zero.
+
+<!-- thinking:end -->
 
 We can first join the `Students` table and the `Subjects` table to obtain all combinations of students and subjects, and then join the `Examinations` table with the condition of `student_id` and `subject_name`. This way, we can get the number of times each student has taken each subject's test. Finally, we can group by `student_id` and `subject_name` to count the number of times each student has taken each subject's test.
 

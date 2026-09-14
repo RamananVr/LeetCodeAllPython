@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1087.Brace%20Expansion/README_EN.md
 rating: 1480
 source: Biweekly Contest 2 Q3
 tags:
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expression is a concatenation of letter runs and a single level of brace alternatives. The expansion is a Cartesian product; backtracking plus a sort is enough.
+>
+> `convert` splits on braces versus plain prefixes into lists of options. `dfs` picks one token from each list.
+>
+> Leaves are collected and sorted lexicographically.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README_EN.md
 rating: 1602
 source: Weekly Contest 316 Q2
 tags:
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Direct Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 10^3$, fix the left end $i$ and extend right, keeping a running GCD. The GCD is nonincreasing, so the double loop plus $gcd$ is acceptable. Count whenever $g=k$.
+
+<!-- thinking:end -->
 
 We can enumerate $nums[i]$ as the left endpoint of the subarray, and then enumerate $nums[j]$ as the right endpoint of the subarray, where $i \le j$. During the enumeration of the right endpoint, we can use a variable $g$ to maintain the greatest common divisor of the current subarray. Each time we enumerate a new right endpoint, we update the greatest common divisor $g = \gcd(g, nums[j])$. If $g=k$, then the greatest common divisor of the current subarray equals $k$, and we increase the answer by $1$.
 

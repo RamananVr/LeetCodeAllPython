@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README_EN.md
 tags:
     - Greedy
     - Array
@@ -70,6 +69,18 @@ It can be shown that there cannot be any containing array of size 4.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick as few points as possible so every interval contains at least two. $3000$ intervals rule out subsets. Points should sit as far right as possible to be reused.
+>
+> Sort by end, then by start descending, so tighter intervals come first. Keep the last two placed points $s<e$.
+>
+> Skip if both lie in the interval; if only $e$ does, add $b$; if neither does, add $b-1$ and $b$. Each step adds the fewest, rightmost points.
+
+<!-- thinking:end -->
 
 We want to select as few integer points as possible on the number line such that each interval contains at least two points. A classic and effective strategy is to sort intervals by their right endpoints and try to place selected points towards the right side of intervals, so that these points can cover more subsequent intervals.
 

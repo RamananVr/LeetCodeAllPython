@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README_EN.md
 rating: 2235
 source: Biweekly Contest 159 Q3
 tags:
@@ -97,6 +96,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray must contain at least two primes whose max–min gap is at most $k$. $n \le 5 \cdot 10^4$ suggests two pointers on prime positions.
+>
+> Sieve-mark primes, and keep the min and max prime inside a window; advance the left end when the gap exceeds $k$. For each right end the legal left ends form an interval, each giving one balanced subarray, provided the window still holds two primes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3366.Minimum%20Array%20Sum/README_EN.md
 rating: 2040
 source: Weekly Contest 425 Q3
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value may be halved (rounding up) or decreased by $d$, with budgets $\textit{op1}$ and $\textit{op2}$. With $n \le 100$ a 3D DP fits.
+>
+> $f[i][j][k]$ is the minimum sum after $i$ numbers using $j$ halvings and $k$ subtractions. Both orders of applying the two operations to one number must be tried.
+>
+> The answer is the minimum over the last layer.
+
+<!-- thinking:end -->
 
 For convenience, we denote the given $k$ as $d$.
 

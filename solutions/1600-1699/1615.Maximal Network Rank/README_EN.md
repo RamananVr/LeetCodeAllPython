@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1615.Maximal%20Network%20Rank/README_EN.md
 rating: 1521
 source: Weekly Contest 210 Q2
 tags:
@@ -72,6 +71,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Network rank is the sum of two cities' degrees, minus one if they share a road. The number of cities is small enough to try every unordered pair.
+>
+> We need $O(1)$ adjacency tests and ready-made degrees.
+>
+> An adjacency set $g$ gives both $\lvert g[a] \rvert$ and the test $a \in g[b]$. A double loop records the maximum.
+
+<!-- thinking:end -->
 
 We can use a one-dimensional array $\textit{cnt}$ to record the degree of each city and a two-dimensional array $\textit{g}$ to record whether there is a road between each pair of cities. If there is a road between city $a$ and city $b$, then $\textit{g}[a][b] = \textit{g}[b][a] = 1$; otherwise, $\textit{g}[a][b] = \textit{g}[b][a] = 0$.
 

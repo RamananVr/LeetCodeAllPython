@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md
 rating: 1495
 source: Weekly Contest 312 Q2
 tags:
@@ -68,6 +67,16 @@ The longest subarray with that value is [4], so we return 1.
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bitwise AND never increases a value, so the maximum AND of any subarray is the global maximum $\textit{mx}$. A subarray AND equals $\textit{mx}$ iff every element is $\textit{mx}$.
+>
+> The task is the longest run of $\textit{mx}$. Find the maximum, then scan once for its longest streak.
+
+<!-- thinking:end -->
 
 Since the bitwise AND operation does not increase the number, the maximum value is the maximum value in the array.
 

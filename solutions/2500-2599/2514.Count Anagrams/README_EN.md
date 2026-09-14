@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2514.Count%20Anagrams/README_EN.md
 rating: 2069
 source: Biweekly Contest 94 Q4
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string splits into words on spaces; the answer is the product of the number of distinct anagrams of each word, modulo $10^9+7$. Total length is $10^5$, so listing permutations is impossible.
+>
+> A word $w$ has $|w|!\,/\,\prod(c_i!)$ anagrams, where $c_i$ are letter frequencies. While scanning, $\textit{ans}$ multiplies the current index (the factorial) and $\textit{mul}$ multiplies the running count of the current letter (the denominator). Multiplying by the modular inverse of $\textit{mul}$ finishes every word in one pass.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

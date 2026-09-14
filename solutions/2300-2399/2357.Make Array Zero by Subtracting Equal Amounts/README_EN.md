@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README_EN.md
 rating: 1225
 source: Weekly Contest 304 Q1
 tags:
@@ -65,6 +64,16 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move picks a positive $x$ and subtracts it from every entry $\ge x$, which removes one distinct positive value. $n \le 100$, so counting those values is enough.
+>
+> Zeros never change and never create new positives. The answer is the size of $\{x \in nums: x>0\}$.
+
+<!-- thinking:end -->
 
 We observe that in each operation, all identical nonzero elements in the array $\textit{nums}$ can be reduced to $0$. Therefore, we only need to count the number of distinct nonzero elements in $\textit{nums}$, which is the minimum number of operations required. To count the distinct nonzero elements, we can use a hash table or an array.
 

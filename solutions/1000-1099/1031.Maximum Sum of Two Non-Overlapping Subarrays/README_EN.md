@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README_EN.md
 rating: 1680
 source: Weekly Contest 133 Q3
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating both segments is $O(n^2)$ and tight at $n\le 1000$. After one segment is fixed, the other only needs the best fixed-length window on the remaining side.
+>
+> Prefix sums give any window sum in $O(1)$. We handle “$\textit{firstLen}$ on the left” and “$\textit{secondLen}$ on the left” separately, keeping the best left window in $t$ as the right window slides.
+>
+> The answer is the larger of the two scans.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

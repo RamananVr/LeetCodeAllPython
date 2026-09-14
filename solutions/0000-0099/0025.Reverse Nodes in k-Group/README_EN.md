@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README_EN.md
 tags:
     - Recursion
     - Linked List
@@ -55,6 +54,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is recursion by groups: reverse $k$ nodes, then recurse on the rest. $n \le 5000$ would pass, but the follow-up asks for $O(1)$ extra space, and a recursive stack grows with the number of groups.
+>
+> Two places are easy to get wrong: we must confirm a full group of $k$ (otherwise leave the tail alone), and we must splice the reversed segment back without dropping a pointer.
+>
+> Inside a group the work is ordinary list reversal; between groups we only need the previous tail. Start from a dummy, walk $k$ steps to probe, then detach, reverse, and reconnect; stop when a probe falls short.
+>
+> Probe, reverse, and relink are all pointer writes, so extra space is $O(1)$.
+
+<!-- thinking:end -->
 
 We can simulate the entire reversal process according to the problem description.
 

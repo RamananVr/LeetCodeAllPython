@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md
 rating: 2039
 source: Weekly Contest 155 Q2
 tags:
@@ -68,6 +67,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Inclusion-Exclusion Principle
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Generating ugly numbers one by one needs about $n$ candidates, and $n$ can be $10^9$.
+>
+> The count of ugly numbers $\le x$ is monotone in $x$, so the $n$-th ugly number is the smallest $x$ whose count is at least $n$. Inclusion-exclusion evaluates that count in $O(1)$: add multiples of $a,b,c$, subtract pairwise LCMs, then add the LCM of all three.
+>
+> We binary-search $x$ on $[1, 2\times 10^9]$ and test the midpoint with inclusion-exclusion. The problem bounds the answer, so we never enumerate individual ugly numbers.
+
+<!-- thinking:end -->
 
 We can transform the problem into: find the smallest positive integer $x$ such that the number of ugly numbers less than or equal to $x$ is exactly $n$.
 

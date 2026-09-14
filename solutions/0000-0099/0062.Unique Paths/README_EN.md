@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0062.Unique%20Paths/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -56,6 +55,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to search: only right or down, enumerate every path. With $m, n \le 100$, the path count is combinatorial, so a raw search explodes.
+>
+> The bottleneck is revisiting the same cell. Paths into $(i, j)$ come only from above or the left and do not overlap, so the subproblems add.
+>
+> Store that count in $f[i][j]$ and fill in row-major order so the dependencies already exist. Start at $1$; the bottom-right cell is the answer.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the number of paths from the top left corner to $(i, j)$, initially $f[0][0] = 1$, and the answer is $f[m - 1][n - 1]$.
 
 Consider $f[i][j]$:
@@ -75,8 +86,6 @@ $$
 The final answer is $f[m - 1][n - 1]$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
-
-We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$, so we can optimize the first dimension space and only keep the second dimension space, resulting in a time complexity of $O(m \times n)$ and a space complexity of $O(n)$.
 
 <!-- tabs:start -->
 
@@ -102,7 +111,19 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Prefilled Borders)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 tests “has an above / has a left” on every cell, so the border keeps taking extra branches.
+>
+> The first row can arrive only from the left, the first column only from above, and both are all $1$. Prefill those borders and the interior adds unconditionally. Same complexity, cleaner code.
+
+<!-- thinking:end -->
+
+Fill the first row and first column with $1$, then only compute interior cells $f[i][j] = f[i-1][j] + f[i][j-1]$. Time and space stay $O(m \times n)$.
 
 <!-- tabs:start -->
 
@@ -124,7 +145,19 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Dynamic Programming (Rolling Array)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first two solutions keep a full $m \times n$ table. $f[i][j]$ only needs the previous row $f[i-1][j]$ and the left cell $f[i][j-1]$, so the first dimension can go.
+>
+> After compressing to 1D, $f[j]$ is still the previous row until we update it; add $f[j-1]$ to get the current row. Space drops to $O(n)$, time stays the same.
+
+<!-- thinking:end -->
+
+$f[i][j]$ depends only on the previous row and the left cell, so a 1D array of length $n$ is enough. The time complexity is $O(m \times n)$ and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

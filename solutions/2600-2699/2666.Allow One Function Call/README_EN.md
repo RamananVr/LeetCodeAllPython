@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md
 tags:
     - JavaScript
 ---
@@ -62,6 +61,16 @@ onceFn(4, 6, 8); // undefined, fn was not called
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The wrapper must run the original function only once. Without a flag, every call would enter it again.
+>
+> A closed-over $called$ flips after the first invocation; later calls return `undefined`.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

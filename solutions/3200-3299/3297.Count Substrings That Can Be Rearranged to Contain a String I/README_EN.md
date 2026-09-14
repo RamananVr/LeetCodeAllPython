@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README_EN.md
 rating: 1847
 source: Weekly Contest 416 Q3
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring can be rearranged to contain $\textit{word2}$ iff it is a supermultiset of $\textit{word2}$. Comparing counts on every substring is too slow on a long string. Coverage is monotone: a valid window stays valid when the right end grows, and shrinking the left finds the shortest cover.
+>
+> Track how many character types are still missing. The right end may decrement that count; while it is $0$, move the left. Every start to the left of that left end paired with the current right is valid, so add the left index. One slide.
+
+<!-- thinking:end -->
 
 The problem is essentially to find how many substrings in $\textit{word1}$ contain all the characters in $\textit{word2}$. We can use a sliding window to handle this.
 

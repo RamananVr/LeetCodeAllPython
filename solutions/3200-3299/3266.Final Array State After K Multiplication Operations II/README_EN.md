@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README_EN.md
 rating: 2508
 source: Weekly Contest 412 Q3
 tags:
@@ -123,6 +122,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min-Heap) + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same rule as I, but $k\le 10^9$, so we cannot simulate each step. Once every value is at least the original maximum $m$, each multiply turns the current min into a new max, and every $n$ operations touch each index once.
+>
+> A heap multiplies values still below $m$ until they catch up or $k$ runs out. The rest of $k$ is split as $k//n$ and $k\% n$, applied with fast pow and a modulus. If $\textit{multiplier}=1$, return immediately.
+
+<!-- thinking:end -->
 
 Let the length of the array $\textit{nums}$ be $n$, and the maximum value be $m$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1470.Shuffle%20the%20Array/README_EN.md
 rating: 1120
 source: Weekly Contest 192 Q1
 tags:
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Interleave $[x_1,\ldots,x_n]$ with $[y_1,\ldots,y_n]$. Zip the two halves and flatten.
+
+<!-- thinking:end -->
 
 We traverse the indices $i$ in the range $[0, n)$. Each time, we take $\textit{nums}[i]$ and $\textit{nums}[i+n]$ and place them sequentially into the answer array.
 

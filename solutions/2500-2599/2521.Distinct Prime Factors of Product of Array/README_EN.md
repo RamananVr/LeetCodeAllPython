@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README_EN.md
 rating: 1413
 source: Weekly Contest 326 Q2
 tags:
@@ -70,6 +69,16 @@ There is 1 distinct prime factor so we return 1.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prime Factorization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the number of distinct prime factors of $\prod nums[i]$. Forming the product first overflows and is unnecessary: the primes of the product are the union of the primes of each element.
+>
+> Trial-divide every $n$, insert factors into a set, and return the set size. Each factorization is $O(\sqrt{m})$.
+
+<!-- thinking:end -->
 
 For each element in the array, first perform prime factorization on it, and then add the decomposed prime factors to the hash table. Finally, return the size of the hash table.
 

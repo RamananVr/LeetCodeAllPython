@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -136,6 +135,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 5\times 10^4$ and $k\le 50$, so listing inversion subsets is impossible. An inversion multiplies a whole subtree by $-1$; overlapping inversions cancel, and distance $\ge k$ forbids two inversions too close on a path.
+>
+> A tree DP at each node stores the best suffix sum given that $t$ steps remain until another inversion is allowed. The parent edge decrements that cooldown; a new inversion is illegal while it is positive.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that cooldown DP.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README_EN.md
 rating: 2402
 source: Weekly Contest 421 Q3
 tags:
@@ -101,6 +100,18 @@ tags:
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count pairs of disjoint subsequences with equal GCD. With $n,M \le 200$, memoizing on index and the two running GCDs has about $n M^2$ states.
+>
+> Each value is skipped, folded into the first GCD, or folded into the second; an empty subsequence has GCD $0$.
+>
+> A finished state is valid when the two GCDs are equal. The initial call includes two empty subsequences, so we subtract $1$ before reducing modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs}(i, j, k)$ as the number of ways when considering elements with indices $0 \sim i$, where the current GCD of the first subsequence is $j$ and that of the second subsequence is $k$. By convention, the GCD of an empty subsequence is $0$, and $\gcd(x, 0) = x$.
 
 For the element at index $i$, there are three choices:
@@ -144,6 +155,18 @@ class Solution:
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The memoized recursion pays for call depth and a three-dimensional cache. The same transitions fit a rolling table: a new $g$ receives the three choices for $x$.
+>
+> Space drops from $O(n M^2)$ to $O(M^2)$ and there is no recursion. The answer is still the diagonal sum minus one.
+>
+> Skipping zero cells in $f$ further reduces the practical constant.
+
+<!-- thinking:end -->
+
 We can convert the memoization in Solution 1 into an iterative DP.
 
 Define $f[j][k]$ as the number of ways after processing the current elements such that the GCD of the first subsequence is $j$ and that of the second is $k$. Initially, $f[0][0] = 1$.
@@ -184,53 +207,6 @@ class Solution:
                     gj, gk = gcd(j, x), gcd(k, x)
                     g[gj][k] = (g[gj][k] + v) % mod
                     g[j][gk] = (g[j][gk] + v) % mod
-            f = g
-        return (sum(f[i][i] for i in range(m + 1)) - 1) % mod
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Dynamic Programming
-
-We can convert the memoization in Solution 1 into iterative dynamic programming.
-
-Define $f[j][k]$ as the number of ways where the current GCD of the first subsequence is $j$ and that of the second subsequence is $k$. Initially, $f[0][0] = 1$.
-
-Enumerate each element $x$ in the array in order, and transfer using a new array $g$:
-
-- Skip: $g[j][k] \mathrel{+}= f[j][k]$;
-- Put into the first subsequence: $g[\gcd(x, j)][k] \mathrel{+}= f[j][k]$;
-- Put into the second subsequence: $g[j][\gcd(x, k)] \mathrel{+}= f[j][k]$.
-
-After processing all elements, the answer is $\sum_{i = 0}^{m} f[i][i] - 1$, taken modulo $10^9 + 7$.
-
-The time complexity is $O(n \times m^2 \times \log m)$, and the space complexity is $O(m^2)$, where $n$ is the length of the array and $m$ is the maximum value in the array.
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def subsequencePairCount(self, nums: List[int]) -> int:
-        mod = 10**9 + 7
-        m = max(nums)
-        f = [[0] * (m + 1) for _ in range(m + 1)]
-        f[0][0] = 1
-        for x in nums:
-            g = [[0] * (m + 1) for _ in range(m + 1)]
-            for j in range(m + 1):
-                for k in range(m + 1):
-                    if f[j][k] == 0:
-                        continue
-                    v = f[j][k]
-                    g[j][k] = (g[j][k] + v) % mod
-                    g[gcd(x, j)][k] = (g[gcd(x, j)][k] + v) % mod
-                    g[j][gcd(x, k)] = (g[j][gcd(x, k)] + v) % mod
             f = g
         return (sum(f[i][i] for i in range(m + 1)) - 1) % mod
 ```

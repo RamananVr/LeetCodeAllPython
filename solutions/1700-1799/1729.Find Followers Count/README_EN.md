@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1729.Find%20Followers%20Count/README_EN.md
 tags:
     - Database
 ---
@@ -69,6 +68,16 @@ The followers of 2 are {0,1}
 <!-- solution:start -->
 
 ### Solution 1: Grouping and Aggregation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is a follow edge. We need follower counts per user, ordered by $\textit{user\_id}$.
+>
+> Group $\textit{Followers}$ by $\textit{user\_id}$, $\mathrm{COUNT}$ the rows, and order by the first column.
+
+<!-- thinking:end -->
 
 We can directly group the `Followers` table by `user_id`, and use the `COUNT` function to count the number of followers for each user.
 

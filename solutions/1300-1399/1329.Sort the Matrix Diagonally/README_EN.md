@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README_EN.md
 rating: 1548
 source: Biweekly Contest 18 Q3
 tags:
@@ -54,6 +53,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells on one diagonal share $j-i$. Extract each diagonal, sort it, and write it back. Mapping by $m-i+j$ gives a nonnegative bucket; sorting those buckets in reverse and popping while scanning restores increasing order from top-left to bottom-right.
+
+<!-- thinking:end -->
 
 We can treat each diagonal of the matrix as an array, sort these arrays, and then fill the sorted elements back into the original matrix.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README_EN.md
 rating: 1160
 source: Weekly Contest 248 Q1
 tags:
@@ -61,6 +60,16 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The definition $\textit{ans}[i]=\textit{nums}[\textit{nums}[i]]$ may use an extra array, so a straightforward comprehension suffices.
+>
+> One pass writes every mapping in $O(n)$ time.
+
+<!-- thinking:end -->
 
 We can directly simulate the process described in the problem by constructing a new array $\textit{ans}$. For each $i$, let $\textit{ans}[i] = \textit{nums}[\textit{nums}[i]]$.
 

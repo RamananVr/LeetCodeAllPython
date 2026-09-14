@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md
 tags:
     - Tree
     - Breadth-First Search
@@ -55,6 +54,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> This is ordinary level order, except the layers must be listed from the bottom up. Collect levels as usual and reverse the answer; there is no need to insert at the front while traversing. $n \le 2000$, so BFS by layer and a final reverse suffice.
+
+<!-- thinking:end -->
 
 We can use the BFS (Breadth-First Search) method to solve this problem. First, enqueue the root node, then continuously perform the following operations until the queue is empty:
 

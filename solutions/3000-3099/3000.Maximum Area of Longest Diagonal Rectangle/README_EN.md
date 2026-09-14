@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md
 rating: 1249
 source: Weekly Contest 379 Q1
 tags:
@@ -58,6 +57,18 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $100$ rectangles, so a linear scan of diagonals and areas is enough. Comparing square roots of the diagonals would introduce floating-point error.
+>
+> The diagonal length is determined by $l^2+w^2$, and the area is $l \times w$. A strictly larger squared sum uniquely owns the longest diagonal; equal sums compete on area.
+>
+> We therefore keep the best squared sum $\textit{mx}$ and its area $\textit{ans}$. When the squared sum grows we replace the area; when it ties we take the larger area.
+
+<!-- thinking:end -->
 
 According to the Pythagorean theorem, the square of the diagonal of a rectangle is $l^2 + w^2$, where $l$ and $w$ are the length and width of the rectangle, respectively.
 

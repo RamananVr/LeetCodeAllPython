@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2356.Number%20of%20Unique%20Subjects%20Taught%20by%20Each%20Teacher/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,16 @@ Teacher 2:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct subjects per teacher. The same subject may repeat across departments and must be unique’d.
+>
+> Group by $teacher\_id$ and $COUNT(DISTINCT subject\_id)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

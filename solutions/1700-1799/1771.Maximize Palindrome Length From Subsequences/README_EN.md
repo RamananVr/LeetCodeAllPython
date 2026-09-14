@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1771.Maximize%20Palindrome%20Length%20From%20Subsequences/README_EN.md
 rating: 2182
 source: Weekly Contest 229 Q4
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick a nonempty subsequence from each word and concatenate them into a palindrome. That is LPS on $s=\textit{word1}+\textit{word2}$, with the two ends coming from different words.
+>
+> $f[i][j]$ is the LPS of $s[i..j]$. Equal ends add $2$ to the inside, and we record the length when $i$ is in the first word and $j$ in the second; unequal ends take the better one-sided state.
+
+<!-- thinking:end -->
 
 First, we concatenate strings `word1` and `word2` to get string $s$. Then we can transform the problem into finding the length of the longest palindromic subsequence in string $s$. However, when calculating the final answer, we need to ensure that at least one character in the palindrome string comes from `word1` and another character comes from `word2`.
 

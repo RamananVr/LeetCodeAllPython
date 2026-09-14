@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3981.Count%20Distinct%20Ways%20to%20Form%20Target%20from%20Two%20Strings/README_EN.md
 rating: 2128
 source: Biweekly Contest 186 Q4
 tags:
@@ -123,6 +122,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We interleave increasing indices from two strings to form $\textit{target}$, using both strings at least once. A subsequence DP state is the prefix of $\textit{target}$ together with how far each word has been consumed, plus flags that each side has been used.
+>
+> Whether a 3D roll fits depends on the product of the lengths. A transition picks which word supplies the next character and jumps to the next match in that word.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that two-string subsequence DP.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3089.Find%20Bursty%20Behavior/README_EN.md
 tags:
     - Database
 ---
@@ -88,6 +87,18 @@ Each row of this table contains post_id, user_id, and post_date.
 <!-- solution:start -->
 
 ### Solution 1: Self-Join + Group Count
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A burst means some $7$-day window has at least twice the user’s average weekly posts in February $2024$. Both figures come from the same post table.
+>
+> A self-join on user with dates in $[d,d+6]$ counts each window; February posts divided by $4$ is the weekly average. We join them and keep the maximum window.
+>
+> The code builds the dated self-join, computes the February average, inner-joins, filters by the threshold, and aggregates.
+
+<!-- thinking:end -->
 
 We can use self-join to connect the `Posts` table with itself. The connection condition is `p1.user_id = p2.user_id` and `p2.post_date` is between `p1.post_date` and 6 days after `p1.post_date`. Then we group the connection results by `p1.user_id` and `p1.post_id` to count the number of posts for each user within 7 days of each day. We save this result in table `P`.
 

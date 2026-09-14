@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README_EN.md
 rating: 1210
 source: Weekly Contest 449 Q1
 tags:
@@ -92,6 +91,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $k$ distinct characters may remain, so deletions equal the total frequency of the discarded kinds. To minimize deletions, drop the rarest kinds.
+>
+> Count, sort the frequencies, and sum all but the largest $k$. The alphabet size $26$ makes the sort constant-time.
+
+<!-- thinking:end -->
 
 We can use an array $\textit{cnt}$ to count the frequency of each character. Then, we sort this array and return the sum of the first $26 - k$ elements.
 

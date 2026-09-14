@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README_EN.md
 rating: 1958
 source: Weekly Contest 472 Q3
 tags:
@@ -87,6 +86,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A permutation strictly larger than $\textit{target}$ has the form “common prefix + a larger letter + the rest in sorted order”, and a longer prefix is lexicographically smaller. Match $\textit{target}$ as far as the letter counts allow, then walk back and at the first feasible position place the smallest remaining letter larger than $\textit{target}[i]$.
+
+<!-- thinking:end -->
 
 To be strictly greater than $\textit{target}$, the answer must look like this: it matches some prefix of $\textit{target}$ exactly, places a character greater than the corresponding character of $\textit{target}$ at the next position, and arranges the remaining characters in ascending order. The longer this common prefix is, the smaller the resulting permutation, so we want the common prefix to be as long as possible.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3081.Replace%20Question%20Marks%20in%20String%20to%20Minimize%20Its%20Value/README_EN.md
 rating: 1904
 source: Biweekly Contest 126 Q3
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Question marks become lowercase letters to minimize $\sum \textit{freq}(\textit{freq}-1)/2$, then the lexicographically smallest such string. $n \le 10^5$.
+>
+> The quadratic cost is smallest when frequencies are balanced, so each `?` should go to a currently rarest letter. The resulting multiset is written back into the `?` slots in sorted order.
+>
+> A min-heap of $26$ pairs $(\textit{cnt},c)$ yields the multiset; we sort it and replace question marks from left to right.
+
+<!-- thinking:end -->
 
 According to the problem, we can find that if a letter $c$ appears $v$ times, then the score it contributes to the answer is $1 + 2 + \cdots + (v - 1) = \frac{v \times (v - 1)}{2}$. To make the answer as small as possible, we should replace the question marks with those letters that appear less frequently.
 

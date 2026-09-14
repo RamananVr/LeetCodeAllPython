@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -44,6 +43,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subarrays whose sum is $k$. Pairwise endpoints are $O(n^2)$, tight for $n \le 2 \times 10^4$.
+>
+> A prefix $s$ needs earlier prefixes equal to $s-k$. A hash map stores prefix frequencies, seeded with $\textit{cnt}[0]=1$ for the empty prefix. Query first, then insert, so the current index is not reused.
+
+<!-- thinking:end -->
 
 We define a hash table `cnt` to store the number of times the prefix sum of the array `nums` appears. Initially, we set the value of `cnt[0]` to `1`, indicating that the prefix sum `0` appears once.
 

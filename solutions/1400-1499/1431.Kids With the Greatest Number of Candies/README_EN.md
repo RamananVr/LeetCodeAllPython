@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1431.Kids%20With%20the%20Greatest%20Number%20of%20Candies/README_EN.md
 rating: 1176
 source: Biweekly Contest 25 Q1
 tags:
@@ -69,6 +68,14 @@ Kid 1 will always have the greatest number of candies, even if a different kid i
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. Compute the current maximum $mx$, then test whether each child plus the extra candies is at least $mx$. No need to simulate giving.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

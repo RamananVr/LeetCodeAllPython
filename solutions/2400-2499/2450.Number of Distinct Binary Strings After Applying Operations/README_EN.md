@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README_EN.md
 tags:
     - Math
     - String
@@ -71,6 +70,14 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping a length-$k$ window is an independent yes/no choice, and different subsets yield different strings. There are $n-k+1$ windows, so the count is $2^{n-k+1}$ modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 Assume the length of the string $s$ is $n$. Then there are $n - k + 1$ substrings of length $k$, and each substring can be flipped, so there are $2^{n - k + 1}$ ways to flip.
 

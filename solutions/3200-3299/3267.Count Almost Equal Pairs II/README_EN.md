@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README_EN.md
 rating: 2545
 source: Weekly Contest 412 Q4
 tags:
@@ -87,6 +86,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike I we may swap twice, and $n\le 5000$. We still sort so that swapping a larger number down is not missed. The two-swap closure is $O(\log^4 M)$ per value, which times $n$ fits.
+>
+> Swap once, then swap a second pair on the remaining digits, put every result in a set, and query earlier counts. The inner enumeration must not forget to restore.
+
+<!-- thinking:end -->
 
 We can enumerate each number, and for each number, we can enumerate each pair of different digits, then swap these two digits to get a new number. Record this new number in a hash table $\textit{vis}$, representing all possible numbers after at most one swap. Then continue to enumerate each pair of different digits, swap these two digits to get a new number, and record it in the hash table $\textit{vis}$, representing all possible numbers after at most two swaps.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README_EN.md
 rating: 1341
 source: Weekly Contest 406 Q2
 tags:
@@ -82,6 +81,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must delete list nodes whose values appear in $\textit{nums}$. With $n,m\le 10^5$, scanning the array at every node is quadratic.
+>
+> Put $\textit{nums}$ in a hash set for expected $O(1)$ tests. A dummy points at $\textit{head}$; if the successor's value is in the set, skip it, otherwise advance. One pass also covers a deleted head.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{s}$ to store all the elements in the array $\textit{nums}$. Then, we define a dummy node $\textit{dummy}$ and point it to the head node of the list $\textit{head}$.
 

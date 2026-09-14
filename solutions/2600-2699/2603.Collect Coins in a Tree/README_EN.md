@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README_EN.md
 rating: 2711
 source: Weekly Contest 338 Q4
 tags:
@@ -70,6 +69,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Topological sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After collecting every coin we must return to the start, and each edge is traversed at most twice. A full Euler tour of the tree would count coin-free branches and leaves that are already within distance $2$ of a coin. With $n \le 10^5$ we need a linear peeling.
+>
+> Coin-free leaves are never needed, so we delete them until every remaining leaf holds a coin. Collection works from distance $2$, so two further leaf layers can be dropped; the leftover component is the skeleton we must traverse both ways.
+>
+> A queue peels leaves in topological fashion: first coin-free leaves, then two rounds of current leaves. The answer is twice the number of edges whose both ends still sit on that skeleton.
+
+<!-- thinking:end -->
 
 We first convert the edges in $edges$ to the adjacency list $g$, where $g[i]$ represents all the adjacent nodes of node $i$, represented by a set.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3239.Minimum%20Number%20of%20Flips%20to%20Make%20Binary%20Grid%20Palindromic%20I/README_EN.md
 rating: 1387
 source: Biweekly Contest 136 Q2
 tags:
@@ -84,6 +83,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may make every row a palindrome or every column a palindrome, and want the fewer flips. $mn\le 2\times 10^5$, so count both costs and take the min.
+>
+> A row needs one flip per mismatched pair; columns are analogous. The two counts are independent. The matrix need not be rewritten.
+
+<!-- thinking:end -->
 
 We separately count the number of flips for rows and columns, denoted as $\textit{cnt1}$ and $\textit{cnt2}$, respectively. Finally, we take the minimum of the two.
 

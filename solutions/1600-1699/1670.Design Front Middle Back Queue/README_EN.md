@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md
 rating: 1610
 source: Biweekly Contest 40 Q3
 tags:
@@ -80,6 +79,16 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 <!-- solution:start -->
 
 ### Solution 1: Two Deques
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $O(1)$ insert/delete at the front, middle, and back; finding the midpoint of one list is linear. Split into deques $q_1$ (front half) and $q_2$ (back half) with $q_2$ at most one longer than $q_1$.
+>
+> After an update, $\texttt{rebalance}$ moves one element. The middle is the tail of $q_1$ when sizes are equal, otherwise the head of $q_2$.
+
+<!-- thinking:end -->
 
 We use two deques, where $q_1$ stores the first half, and $q_2$ stores the second half. The `rebalance` function is used to maintain the balance between the two queues, i.e., keeping the length of $q_2$ greater than or equal to the length of $q_1$, and the difference in length does not exceed $1$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md
 rating: 2277
 source: Weekly Contest 383 Q4
 tags:
@@ -78,6 +77,18 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 10^6$, so comparing suffixes with prefixes naively times out.
+>
+> The hashed check from part I’s second method is now mandatory.
+>
+> After a prefix-hash table is built, we try multiples of $k$ and compare $\textit{word}[1..n-i]$ with $\textit{word}[i+1..n]$ in $O(1)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

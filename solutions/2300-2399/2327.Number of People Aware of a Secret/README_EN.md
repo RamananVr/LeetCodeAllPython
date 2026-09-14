@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md
 rating: 1893
 source: Weekly Contest 300 Q3
 tags:
@@ -66,6 +65,16 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 <!-- solution:start -->
 
 ### Solution 1: Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A person shares once per day on $[delay, forget)$ after learning, then forgets. $n \le 1000$, so a day-by-day simulation is fine.
+>
+> Let $cnt[i]$ be new learners on day $i$; they copy themselves on each later share day. A difference array $d$ tracks who still remembers; the prefix through day $n$ is the answer.
+
+<!-- thinking:end -->
 
 We use a difference array $d[i]$ to record the change in the number of people who know the secret on day $i$, and an array $cnt[i]$ to record the number of people who newly learn the secret on day $i$.
 

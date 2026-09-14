@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md
 rating: 1876
 source: Weekly Contest 238 Q2
 tags:
@@ -71,6 +70,16 @@ Explanation:</strong> Increment the first element three times and the second ele
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may increment elements at most $k$ times and want the highest achievable frequency. The target must be some original value, and the raised elements form a contiguous prefix of the sorted array. Brute-forcing every right endpoint is too slow for $n\le 10^5$.
+>
+> After sorting, feasibility is monotone in the window length, so we binary-search the frequency. Prefix sums test whether some window of that length can be raised to its rightmost value with cost at most $k$.
+
+<!-- thinking:end -->
+
 According to the problem description, we can draw three conclusions:
 
 1. After several operations, the element with the highest frequency in the array must be an element in the original array. Why? Suppose the elements operated are $a_1, a_2, \cdots, a_m$, where the maximum is $a_m$. These elements have all been changed to the same value $x$, where $x \geq a_m$. Then we can also change these elements all to $a_m$, and the number of operations will not increase.
@@ -118,6 +127,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs prefix sums and a binary search. The window cost grows with the right end, so two pointers suffice: when $i$ advances we raise the window to $nums[i]$, and we move $j$ while the cost exceeds $k$. One scan yields the longest valid window.
+
+<!-- thinking:end -->
 
 We can also use two pointers to maintain a sliding window, where all elements in the window can be changed to the maximum value in the window. The number of operations for the elements in the window is $s$, and $s \leq k$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md
 rating: 1848
 source: Weekly Contest 152 Q3
 tags:
@@ -66,6 +65,14 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring becomes a palindrome with at most $k$ replacements iff we can pair off odd-count letters; each replacement fixes two odds. Many queries forbid rescanning. A $26$-wide prefix count yields interval parities; half the odd count compared with $k$ answers each query.
+
+<!-- thinking:end -->
 
 First, consider whether a substring can become a palindrome after at most $k$ replacements. Obviously, we need to count the number of times each character appears in the substring, which can be implemented through prefix sum. For characters that appear an even number of times, we do not need to replace them. For characters that appear an odd number of times, we need to replace them. The number of replacements is $\lfloor \frac{x}{2} \rfloor$, where $x$ is the number of characters that appear an odd number of times. If $\lfloor \frac{x}{2} \rfloor \leq k$, then this substring can become a palindrome.
 

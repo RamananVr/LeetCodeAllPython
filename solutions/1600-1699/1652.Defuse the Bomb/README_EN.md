@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md
 rating: 1416
 source: Biweekly Contest 39 Q1
 tags:
@@ -74,6 +73,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each entry becomes the sum of the next $k$ or previous $\lvert k \rvert$ values on a circle, or zero if $k=0$. Both $n$ and $\lvert k \rvert$ are small, so the definition is enough.
+>
+> Indices wrap modulo $n$: a positive $k$ sums $[i+1,i+k]$, a negative $k$ sums $[i+k,i)$.
+
+<!-- thinking:end -->
+
 We define an answer array `ans` of length `n`, initially all elements are `0`. According to the problem, if `k` is `0`, return `ans` directly.
 
 Otherwise, we traverse each position `i`:
@@ -120,6 +129,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 re-adds the same cells for every $i$. Doubling the array and taking prefix sums turns each circular range into two prefix lookups, in $O(n)$ total time.
+
+<!-- thinking:end -->
 
 In Solution 1, for each position $i$, we need to traverse $k$ positions, which involves a lot of repeated calculations. We can optimize this by using prefix sums.
 

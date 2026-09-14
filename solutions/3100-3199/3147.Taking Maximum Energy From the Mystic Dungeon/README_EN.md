@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3147.Taking%20Maximum%20Energy%20From%20the%20Mystic%20Dungeon/README_EN.md
 rating: 1460
 source: Weekly Contest 397 Q2
 tags:
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Reverse Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A walk starts anywhere and jumps by $k$, summing possibly negative energies. Forward accumulation from every start is linear, but the best continuation is easier from the end.
+>
+> Residue classes never mix. Walking backward from the end of a class, the running sum's maximum is the best start in that class.
+>
+> Enumerate terminals in $[n-k,n)$ and step $j-=k$, updating the global maximum. Each index is visited once.
+
+<!-- thinking:end -->
 
 We can enumerate the endpoints within the range $[n - k, n)$, then traverse backwards from each endpoint, accumulating the energy values of wizards at intervals of $k$, and update the answer.
 

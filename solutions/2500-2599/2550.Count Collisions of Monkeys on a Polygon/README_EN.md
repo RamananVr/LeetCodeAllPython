@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/README_EN.md
 rating: 1662
 source: Weekly Contest 330 Q2
 tags:
@@ -64,6 +63,16 @@ Two ways such that they collide at some point are:</p>
 <!-- solution:start -->
 
 ### Solution 1: Mathematics (Fast Power)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Monkeys on a regular $n$-gon each step clockwise or counterclockwise; we count walks that collide. There are $2^n$ assignments, and only the two unanimous directions are collision-free.
+>
+> $n$ reaches $10^9$, so enumerate nothing. Modular exponentiation gives $2^n$, then subtract $2$ with a borrow-safe modulo.
+
+<!-- thinking:end -->
 
 According to the problem description, each monkey has two ways of moving, either clockwise or counterclockwise. Therefore, there are a total of $2^n$ ways to move. The non-collision ways of moving are only two, that is, all monkeys move clockwise or all monkeys move counterclockwise. Therefore, the number of collision ways of moving is $2^n - 2$.
 

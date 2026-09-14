@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README_EN.md
 tags:
     - Stack
     - Array
@@ -80,6 +79,16 @@ It can be proven that 13 is the maximum number of books you can take.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Books come from a contiguous range of shelves, decreasing by at least one toward the left. Finding the break by brute force for every right end is too slow.
+>
+> Let $nums[i]=books[i]-i$. The break is the nearest smaller $nums[j]$ on the left. A monotonic stack fills $left[i]$; $dp[i]$ is the best take ending at $i$: an arithmetic segment in the middle plus $dp[j]$ on the left.
+
+<!-- thinking:end -->
 
 We directly compare each row and column of the matrix $grid$. If they are equal, then it is a pair of equal row-column pairs, and we increment the answer by one.
 

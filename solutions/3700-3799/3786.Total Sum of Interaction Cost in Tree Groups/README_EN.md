@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README_EN.md
 rating: 2139
 source: Weekly Contest 481 Q4
 tags:
@@ -120,6 +119,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the sum of path lengths over unordered pairs in the same group, and there are at most $20$ groups. Pairwise distance is the sum of depths minus twice the LCA depth. A per-group tree DP that counts how many group mates lie inside and outside each subtree accumulates the intra-group distances in near-linear time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

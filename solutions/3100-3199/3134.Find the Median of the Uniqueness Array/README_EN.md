@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3134.Find%20the%20Median%20of%20the%20Uniqueness%20Array/README_EN.md
 rating: 2451
 source: Weekly Contest 395 Q4
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The uniqueness array stores the distinct count of every subarray. Materializing $O(n^2)$ values to take a median is impossible.
+>
+> The number of subarrays with at most $x$ distinct values grows with $x$, so the median is the least $x$ whose count reaches half of $m=n(n+1)/2$. A sliding window counts those subarrays in linear time.
+>
+> Binary search $x$. Extend $r$, shrink $l$ while the window has more than $mx$ distinct values, and add $r-l+1$. The check succeeds once the count reaches $\lceil m/2\rceil$.
+
+<!-- thinking:end -->
 
 Let the length of the array $\textit{nums}$ be $n$. The length of the uniqueness array is $m = \frac{(1 + n) \times n}{2}$, and the median of the uniqueness array is the $\frac{m + 1}{2}$-th smallest number among these $m$ numbers.
 

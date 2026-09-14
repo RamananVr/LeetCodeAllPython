@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3987.Minimum%20Total%20Cost%20to%20Process%20All%20Elements/README_EN.md
 rating: 1549
 source: Weekly Contest 510 Q2
 tags:
@@ -95,6 +94,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $i$-th operation costs $i$, so the total is triangular and it suffices to minimize the operation count. Each operation adds $k$ resource; when $x$ exceeds $\textit{cur}$ we need $\lceil(x-\textit{cur})/k\rceil$ more operations.
+>
+> Walk left to right maintaining $\textit{cur}$ and $\textit{cnt}$, topping up before subtracting $x$. Finally form $\textit{cnt}(\textit{cnt}+1)/2$ modulo $10^9+7$.
+>
+> $n\le 10^5$, so one linear simulation suffices.
+
+<!-- thinking:end -->
 
 The $i$-th operation costs $i$, so if we perform $\textit{cnt}$ operations in total, the total cost is $1 + 2 + \cdots + \textit{cnt} = \dfrac{\textit{cnt}(\textit{cnt}+1)}{2}$. Minimizing the total cost is equivalent to minimizing the number of operations.
 

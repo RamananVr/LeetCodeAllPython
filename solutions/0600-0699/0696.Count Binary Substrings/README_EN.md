@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0696.Count%20Binary%20Substrings/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -53,6 +52,16 @@ Also, &quot;00110011&quot; is not a valid substring because all the 0&#39;s (and
 <!-- solution:start -->
 
 ### Solution 1: Iteration and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count substrings made of a run of $0$s next to a run of $1$s of equal length. Checking every substring is quadratic.
+>
+> Split into runs. Adjacent runs contribute $\min(\textit{pre},\textit{cur})$ valid substrings. One pass over the runs is enough.
+
+<!-- thinking:end -->
 
 We can iterate through the string $s$, using a variable $\textit{pre}$ to record the count of the previous consecutive characters, and another variable $\textit{cur}$ to record the count of the current consecutive characters. The number of valid substrings ending with the current character is $\min(\textit{pre}, \textit{cur})$. We accumulate $\min(\textit{pre}, \textit{cur})$ to the answer, assign the value of $\textit{cur}$ to $\textit{pre}$, and continue iterating through string $s$ until the end.
 

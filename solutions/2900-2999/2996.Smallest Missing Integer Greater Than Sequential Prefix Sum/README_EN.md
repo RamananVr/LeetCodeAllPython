@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md
 rating: 1405
 source: Biweekly Contest 121 Q1
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest sequential prefix starts at index $0$; let $s$ be its sum. We want the least integer $\ge s$ absent from the array. $n \le 50$: scan the prefix sum, then test $s,s+1,\ldots$ against a set.
+>
+> The domain is tiny, so a linear increment hits the gap.
+
+<!-- thinking:end -->
 
 First, we calculate the sum $s$ of the longest sequential prefix of the array $nums$. Then, starting from $s$, we enumerate the integer $x$. If $x$ is not in the array $nums$, then $x$ is the answer.
 

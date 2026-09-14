@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md
 rating: 2022
 source: Weekly Contest 290 Q4
 tags:
@@ -63,6 +62,16 @@ For each person, we return the number of flowers in full bloom during their arri
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each arrival time, count flowers still in bloom. Both arrays can have $5\times 10^4$ entries and times go to $10^9$. A flower is open at $t$ iff $\textit{start} \le t \le \textit{end}$, i.e. opened-so-far minus already-wilted.
+>
+> Sort all start times and all end times. For arrival $p$, $\textit{bisect\_right}$ on starts minus $\textit{bisect\_left}$ on ends is the count.
+
+<!-- thinking:end -->
+
 We sort the flowers by their start and end times. Then, for each person, we can use binary search to find the number of flowers in bloom when they arrive. This means finding the number of flowers that have started blooming by the time each person arrives, minus the number of flowers that have wilted by that time, to get the answer.
 
 The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{flowers}$ and $\textit{people}$, respectively.
@@ -87,6 +96,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Difference Array + Sorting + Offline Query
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 binary-searches each query separately. The same counts are a difference array: plus one at $\textit{start}$, minus one at $\textit{end}+1$. Sweep the sorted event times together with arrivals.
+>
+> A pointer accumulates every event at time $\le t$, which is the bloom count for that visitor. The asymptotics match, without two binary searches per query.
+
+<!-- thinking:end -->
 
 We can use a difference array to maintain the number of flowers at each time point. Next, we sort $people$ by their arrival times in ascending order. When each person arrives, we perform a prefix sum operation on the difference array to get the answer.
 

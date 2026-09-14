@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3269.Constructing%20Two%20Increasing%20Arrays/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two arrays must become strictly increasing with prescribed parities, minimizing the final maximum. $m,n\le 1000$ would allow guessing that maximum, but filling has optimal substructure.
+>
+> $f[i][j]$ is the smallest achievable maximum after $i$ values of $nums1$ and $j$ of $nums2$. The next write attaches to one array the least integer larger than the current maximum with the right parity. Boundaries follow one array; the interior takes the better of the two attachments.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the minimum of the maximum values among the first $i$ elements of array $\textit{nums1}$ and the first $j$ elements of array $\textit{nums2}$. Initially, $f[i][j] = 0$, and the answer is $f[m][n]$, where $m$ and $n$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 

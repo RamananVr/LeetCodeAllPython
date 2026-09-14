@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md
 rating: 1827
 source: Weekly Contest 142 Q3
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mountain is available only through `get`, and $n\le 10^4$ requires logarithmic queries. Find the peak, then binary-search the increasing left and the decreasing right.
+>
+> Comparing $get(mid)$ with $get(mid+1)$ locates the peak. `search` uses $k=\pm 1$ so the same lower-bound loop works on both sides.
+>
+> The left half is tried first so the smallest index is returned.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

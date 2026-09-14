@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1918.Kth%20Smallest%20Subarray%20Sum/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -72,6 +71,18 @@ Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $O(n^2)$ subarrays; materializing them is too heavy for $n\le 2\times 10^4$. All values are positive, so subarray sums are monotone in length.
+>
+> The number of subarrays with sum $\le s$ is non-decreasing in $s$. Binary-search $s$ and count that quantity with a two-pointer window in linear time.
+>
+> The search range is $[\min nums,\sum nums]$; the final left bound is the $k$-th smallest sum.
+
+<!-- thinking:end -->
 
 We observe that all elements in the array are positive integers. The larger the subarray sum $s$, the more subarrays there are with sums less than or equal to $s$. This monotonicity allows us to use binary search to solve the problem.
 

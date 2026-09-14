@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1214.Two%20Sum%20BSTs/README_EN.md
 rating: 1389
 source: Biweekly Contest 10 Q2
 tags:
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: In-order Traversal + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Searching $target-x$ in one BST is $O(n\log n)$ and acceptable for $5000$ nodes, but we must pair values from two trees. Inorder traversals yield two sorted arrays, i.e. two-sum on sorted lists.
+>
+> Pointers sit at the left of $nums[0]$ and the right of $nums[1]$: a small sum advances the left pointer, a large sum retreats the right. Inorder supplies order; two pointers pair in linear time.
+
+<!-- thinking:end -->
 
 We perform in-order traversals on the two trees separately, obtaining two sorted arrays $nums[0]$ and $nums[1]$. Then we use a two-pointer method to determine whether there exist two numbers whose sum equals the target value. The two-pointer method is as follows:
 

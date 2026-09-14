@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README_EN.md
 tags:
     - Database
 ---
@@ -115,6 +114,16 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 <!-- solution:start -->
 
 ### Solution 1: Equi-Join + Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List each customer's three most recent orders together with the name. Hand-picking three rows after a sort is brittle when dates tie; a window numbers rows inside each group.
+>
+> Join $Orders$ to $Customers$ on $customer\_id$, then $ROW\_NUMBER$ partitioned by customer and ordered by $order\_date$ descending. Keep ranks at most $3$, and emit name, id, and date in the required order.
+
+<!-- thinking:end -->
 
 We can use an equi-join to join the `Customers` table and the `Orders` table based on `customer_id`, and then use the window function `row_number()` to sort the orders for each customer by `order_date` in descending order and assign a row number to each order. Finally, we can filter out the orders with a row number less than or equal to $3$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2079.Watering%20Plants/README_EN.md
 rating: 1320
 source: Weekly Contest 268 Q2
 tags:
@@ -86,6 +85,16 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Capacity is at least any single plant; we water in order from the river. When the can cannot cover plant $i$ we refill, costing $2i+1$ steps.
+>
+> Track remaining water: decrement and step if enough, otherwise add $2i+1$ and reset to $capacity-p$.
+
+<!-- thinking:end -->
 
 We can simulate the process of watering the plants. We use a variable $\textit{water}$ to represent the current amount of water in the watering can, initially $\textit{water} = \textit{capacity}$.
 

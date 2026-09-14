@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md
 rating: 1376
 source: Biweekly Contest 109 Q1
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good array is $1..n-1$ once each plus two copies of $n$, where $n=|nums|-1$. Sorting and comparing with a constructed base array works, but frequencies suffice.
+>
+> After counting, $n$ must occur twice and every index in $1..n-1$ must occur at least once (the length then forces exactly once).
+
+<!-- thinking:end -->
 
 We can use a hash table or array $cnt$ to record the number of occurrences of each element in the array $nums$. Then we determine whether the following conditions are met:
 

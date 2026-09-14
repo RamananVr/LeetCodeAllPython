@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README_EN.md
 rating: 1370
 source: Weekly Contest 468 Q2
 tags:
@@ -83,6 +82,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simple Observation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray's value is its max minus its min. We pick $k$ (possibly overlapping) subarrays. No subarray exceeds the global $\max-\min$, and any segment that covers both extrema attains that bound.
+>
+> Selecting that covering segment $k$ times therefore yields $k$ copies of $\max-\min$.
+>
+> The answer is $k\cdot(\max(\textit{nums})-\min(\textit{nums}))$.
+
+<!-- thinking:end -->
 
 We can observe that the value of a subarray only depends on the global maximum and minimum values. Therefore, we just need to find the global maximum and minimum, then multiply their difference by $k$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README_EN.md
 rating: 1689
 source: Weekly Contest 185 Q3
 tags:
@@ -65,6 +64,18 @@ The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</stro
 <!-- solution:start -->
 
 ### Solution 1: Counting + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Several `croak`s interleave and the string can be length $10^5$, so we cannot match frogs one by one. Letters must advance in the order $c\to r\to o\to a\to k$.
+>
+> A 5-slot counter tracks how many calls sit at each stage. A $c$ starts a new unfinished frog; every later letter must consume the previous stage. A $k$ finishes one frog.
+>
+> The answer is the peak number of unfinished frogs. Leftover unfinished calls, or a length not divisible by $5$, yield $-1$.
+
+<!-- thinking:end -->
 
 We note that if the string `croakOfFrogs` is composed of several valid `"croak"` characters mixed together, its length must be a multiple of $5$. Therefore, if the length of the string is not a multiple of $5$, we can directly return $-1$.
 

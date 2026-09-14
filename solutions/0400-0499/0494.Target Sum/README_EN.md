@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0494.Target%20Sum/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -67,6 +66,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Assign $+$ or $-$ so the expression equals $\textit{target}$. $2^n$ is tight for $n\le 20$; the problem is a subset sum.
+>
+> If the negative part sums to $x$, then $(s-x)-x=\textit{target}$, so $x=(s-\textit{target})/2$. Impossible when $s<\textit{target}$ or the difference is odd. $f[i][j]$ is the number of ways for the first $i$ numbers to sum to $j$.
+>
+> The empty subset gives $f[0][0]=1$. Take-or-skip is the usual $0$-$1$ knapsack count.
+
+<!-- thinking:end -->
+
 Let's denote the sum of all elements in the array $\textit{nums}$ as $s$, and the sum of elements to which we assign a negative sign as $x$. Therefore, the sum of elements with a positive sign is $s - x$. We have:
 
 $$
@@ -119,6 +130,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ depends only on row $i-1$. Update $j$ downward in one array so an item is not reused; space follows the capacity.
+
+<!-- thinking:end -->
 
 We can observe that in the state transition equation of Solution 1, the value of $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i - 1][j - \textit{nums}[i - 1]]$. Therefore, we can eliminate the first dimension of the space and use only a one-dimensional array.
 

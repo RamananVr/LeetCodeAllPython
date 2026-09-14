@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md
 rating: 1489
 source: Weekly Contest 152 Q1
 tags:
@@ -55,6 +54,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Primes may occupy only prime indices and composites only composite indices, so the count is $cnt!\times(n-cnt)!$. With $n\le 100$, a sieve yields the prime count on $[1,n]$; multiply the two factorials modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 First, count the number of prime numbers within the range $[1,n]$, which we denote as $cnt$. Then, calculate the product of the factorial of $cnt$ and $n-cnt$ to get the answer, remember to perform the modulo operation.
 

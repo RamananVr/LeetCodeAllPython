@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README_EN.md
 rating: 1199
 source: Weekly Contest 434 Q1
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count cuts whose left and right sums differ by an even number. The parity of the difference is determined by the two running sums, so the whole array need not be rescanned.
+>
+> $l-r$ is even iff $l$ and $r$ have the same parity. Since $l-r=2l-\textit{total}$, we can just maintain $l$ and $r$ while moving the cut.
+>
+> Shift each of the first $n-1$ elements from $r$ into $l$ and count the cuts with $(l-r)\bmod 2=0$.
+
+<!-- thinking:end -->
 
 We use two variables $l$ and $r$ to represent the sum of the left subarray and the right subarray, respectively. Initially, $l = 0$ and $r = \sum_{i=0}^{n-1} \textit{nums}[i]$.
 

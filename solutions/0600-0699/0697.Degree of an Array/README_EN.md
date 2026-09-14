@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0697.Degree%20of%20an%20Array/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -58,6 +57,16 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The degree is the maximum frequency. A shortest subarray with the same degree must cover the first and last occurrence of some mode.
+>
+> Count frequencies and record endpoints. For values that attain the degree, take the minimum $right-left+1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -88,6 +97,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 records endpoints in one pass. We can also collect the modes first and scan first/last indices per mode. The helpers are longer, the complexity is the same.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

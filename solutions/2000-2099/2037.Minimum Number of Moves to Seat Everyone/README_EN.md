@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README_EN.md
 rating: 1356
 source: Biweekly Contest 63 Q1
 tags:
@@ -87,6 +86,16 @@ In total, 1 + 3 + 0 + 0 = 4 moves were used.
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Seats and students form a matching; cost is the $L_1$ distance. Crossing pairs cannot improve, so the $i$-th seat matches the $i$-th student after sorting.
+>
+> With $n \le 100$, sort both arrays and sum absolute differences.
+
+<!-- thinking:end -->
 
 Sort both arrays, then traverse the two arrays, calculate the distance between each student's seat and their actual seat, and add all the distances to get the answer.
 

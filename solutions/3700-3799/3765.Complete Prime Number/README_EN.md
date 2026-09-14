@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3765.Complete%20Prime%20Number/README_EN.md
 rating: 1378
 source: Biweekly Contest 171 Q1
 tags:
@@ -93,6 +92,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A complete prime needs every prefix and every suffix to be prime. $num\le 10^9$ yields only $O(\log n)$ prefixes and suffixes, each tested in $O(\sqrt{x})$. Prefixes are built by appending digits from the left; suffixes by accumulating from the right with place value.
+
+<!-- thinking:end -->
 
 We define a function $\text{is\_prime}(x)$ to determine whether a number $x$ is prime. Specifically, if $x < 2$, then $x$ is not prime; otherwise, we check all integers $i$ from $2$ to $\sqrt{x}$. If there exists some $i$ that divides $x$, then $x$ is not prime; otherwise, $x$ is prime.
 

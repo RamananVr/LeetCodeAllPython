@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0482.License%20Key%20Formatting/README_EN.md
 tags:
     - String
 ---
@@ -54,6 +53,18 @@ Note that the two extra dashes are not needed and can be removed.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After dropping old dashes, groups of $k$ characters are written from the right; the first group may be shorter, and letters must be upper case. A right-to-left scan plus a reverse works, but we need the first group's length anyway.
+>
+> The count of alphanumerics modulo $k$ is that first length ($k$ when the remainder is $0$). Write upper-case characters from the left, insert a dash when the counter hits zero, and strip a trailing dash.
+>
+> Knowing the first group length up front lets a left-to-right pass keep the short head without a second reverse.
+
+<!-- thinking:end -->
 
 First, we count the number of characters in the string $s$ excluding the hyphens, and take the modulus of $k$ to determine the number of characters in the first group. If it is $0$, then the number of characters in the first group is $k$; otherwise, it is the result of the modulus operation.
 

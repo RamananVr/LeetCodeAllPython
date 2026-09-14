@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README_EN.md
 tags:
     - Bit Manipulation
     - Memoization
@@ -68,6 +67,16 @@ We cannot form the target &quot;basicbasic&quot; from cutting letters from the g
 <!-- solution:start -->
 
 ### Solution 1: BFS + State Compression
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{target}$ has length at most $15$, and stickers may be reused. Searching sticker counts revisits the same covered set.
+>
+> A bit mask marks which letters of $\textit{target}$ are done. BFS from $0$, and each sticker fills as many missing bits as its letters allow. The first time the full mask appears is the minimum count.
+
+<!-- thinking:end -->
 
 We notice that the length of the string `target` does not exceed 15. We can use a binary number of length 15 to represent whether each character of `target` has been spelled out. If the $i$th bit is 1, it means that the $i$th character of `target` has been spelled out; otherwise, it has not been spelled out.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README_EN.md
 rating: 1414
 source: Weekly Contest 466 Q2
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation advances every occurrence of a chosen letter. The target is the all-$a$ string, so each non-$a$ character must walk forward to $a$.
+>
+> Operations on the same letter apply in parallel, and the total is the farthest distance to $a$, i.e. the maximum of $26-(c-\texttt{a})$.
+>
+> An all-$a$ string needs $0$ operations. One scan records that maximum.
+
+<!-- thinking:end -->
 
 According to the problem description, we always start from the character 'b' and successively change each character to the next one until it becomes 'a'. Therefore, we only need to find the character in the string that is farthest from 'a' and calculate its distance to 'a' to get the answer.
 

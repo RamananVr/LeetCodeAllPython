@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1412.Find%20the%20Quiet%20Students%20in%20All%20Exams/README_EN.md
 tags:
     - Database
 ---
@@ -104,6 +103,16 @@ So, we only return the information of Student 2.
 <!-- solution:start -->
 
 ### Solution 1: Using RANK() Window Function + Group By
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A quiet student is never the unique highest or lowest score in any exam they took. Ranking both ends per exam is simpler than filtering extrema exam by exam.
+>
+> `RANK()` over each `exam_id` in both directions marks the min and max. After joining `Student`, keep people whose count of rank $1$ in either direction is zero.
+
+<!-- thinking:end -->
 
 We can use the `RANK()` window function to calculate the ascending rank $rk1$ and descending rank $rk2$ of each student in each exam, and obtain the table $T$.
 

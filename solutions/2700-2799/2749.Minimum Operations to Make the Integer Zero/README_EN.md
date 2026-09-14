@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md
 rating: 2132
 source: Weekly Contest 351 Q2
 tags:
@@ -62,6 +61,16 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step subtracts $2^i+num2$ from $num1$; we want the fewest steps that reach $0$. The exponent range is large, so searching the sequence of $i$ is impossible.
+>
+> After exactly $k$ operations, $x=num1-k\cdot num2$ must be a sum of $k$ powers of two, i.e. $x\ge k$ and the popcount of $x$ is at most $k$. Increase $k$ from $1$ and stop once $x$ becomes negative.
+
+<!-- thinking:end -->
 
 If we operate $k$ times, then the problem essentially becomes: determining whether $\textit{num1} - k \times \textit{num2}$ can be split into the sum of $k$ $2^i$s.
 

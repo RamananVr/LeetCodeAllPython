@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0264.Ugly%20Number%20II/README_EN.md
 tags:
     - Hash Table
     - Math
@@ -53,6 +52,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Testing every integer by division wastes non-ugly values when $n$ is large. Every ugly number is a previous one times $2$, $3$, or $5$.
+>
+> A min-heap pops the next ugly number and pushes its products, with a set to skip duplicates. The $n$-th pop is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -80,6 +89,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The heap plus set uses extra memory and a log factor. Three pointers mark the next candidates times $2,3,5$; we write the min into $dp$ and advance every pointer that produced it, avoiding duplicates.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3227.Vowels%20Game%20in%20a%20String/README_EN.md
 rating: 1451
 source: Weekly Contest 407 Q2
 tags:
@@ -79,6 +78,16 @@ There is no valid play for Alice in her first turn, so Alice loses the game.</p>
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players delete a substring with an odd vowel count; the one who cannot move loses. $n\le 10^5$ rules out a game tree, but the vowel count $k$ already decides the winner.
+>
+> If $k=0$ the first player cannot move; if $k$ is odd she deletes the whole string; if $k$ is even she deletes $k-1$ vowels and leaves one, so the second player cannot move. Hence any vowel wins for Alice; one scan suffices.
+
+<!-- thinking:end -->
 
 Let's denote the number of vowels in the string as $k$.
 

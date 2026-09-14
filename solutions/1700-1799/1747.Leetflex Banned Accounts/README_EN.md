@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,16 @@ Account ID 4 --&gt; The account was active from &quot;2021-02-01 17:00:00&quot; 
 <!-- solution:start -->
 
 ### Solution 1: Self-Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An account is banned if two overlapping sessions use different IPs. We need those account ids.
+>
+> Self-join $\textit{LogInfo}$ on the same account, different IPs, and one $\textit{login}$ falling inside the other $[\textit{login},\textit{logout}]$. Distinct the ids.
+
+<!-- thinking:end -->
 
 We can use a self-join to find out the cases where each account logs in from different IP addresses on the same day. The conditions for joining are:
 

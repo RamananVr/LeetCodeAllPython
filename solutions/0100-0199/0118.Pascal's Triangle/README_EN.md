@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0118.Pascal%27s%20Triangle/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -41,6 +40,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ is formed by adding adjacent entries of row $i-1$, with $1$s on both ends. $\textit{numRows}\le 30$, so building row by row is enough. Each row depends only on the previous one.
+
+<!-- thinking:end -->
 
 We first create an answer array $f$, then set the first row of $f$ to $[1]$. Next, starting from the second row, the first and last elements of each row are $1$, and for other elements $f[i][j] = f[i - 1][j - 1] + f[i - 1][j]$.
 

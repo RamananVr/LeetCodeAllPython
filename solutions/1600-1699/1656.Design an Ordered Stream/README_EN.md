@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md
 rating: 1418
 source: Weekly Contest 215 Q1
 tags:
@@ -74,6 +73,16 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 <!-- solution:start -->
 
 ### Solution 1: Array Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inserts carry ids; only the contiguous filled prefix starting at the pointer may be emitted. Each id is used once, so an array indexed by id is enough.
+>
+> After writing $\textit{data}[\textit{idKey}]$, emit while $\textit{ptr}$ is occupied and advance the pointer.
+
+<!-- thinking:end -->
 
 We can use an array $\textit{data}$ of length $n + 1$ to simulate this stream, where $\textit{data}[i]$ represents the value of $\textit{id} = i$. At the same time, we use a pointer $\textit{ptr}$ to represent the current position. Initially, $\textit{ptr} = 1$.
 

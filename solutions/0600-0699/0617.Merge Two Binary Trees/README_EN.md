@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Aligned nodes add their values; a missing side keeps the other subtree intact. That is exactly a recursive definition.
+>
+> If one root is null, return the other; otherwise create a node with the sum and merge the left and right children.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

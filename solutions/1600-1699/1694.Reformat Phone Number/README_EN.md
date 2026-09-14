@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1694.Reformat%20Phone%20Number/README_EN.md
 rating: 1321
 source: Weekly Contest 220 Q1
 tags:
@@ -81,6 +80,16 @@ Joining the blocks gives &quot;123-456-78&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Simple Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strip spaces and dashes, then group by threes. A leftover of one digit turns the last two groups into $2+2$; a leftover of two digits is its own group.
+>
+> Slice by three after cleaning, fix the remainder, and join with dashes.
+
+<!-- thinking:end -->
 
 First, according to the problem description, we remove all spaces and hyphens from the string.
 

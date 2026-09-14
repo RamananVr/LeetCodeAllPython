@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README_EN.md
 rating: 2037
 source: Biweekly Contest 68 Q3
 tags:
@@ -88,6 +87,18 @@ We change s[6] and s[8] to &#39;)&#39; to make s valid.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlocked brackets may face either way; locked ones may not. An odd-length string cannot pair, and enumerating assignments for unlocked positions is exponential.
+>
+> Every prefix must have at least as many positions that can act as `'('` as locked `')'` characters; the suffix view is symmetric. Locked `'('` must be matched to the right, locked `')'` to the left.
+>
+> We reject odd length, then scan twice: rightward, count `'('` or unlocked slots and spend them on locked `')'`; leftward, swap the roles. A negative balance in either pass fails.
+
+<!-- thinking:end -->
 
 We observe that a string of odd length cannot be a valid parentheses string because there will always be one unmatched parenthesis. Therefore, if the length of the string $s$ is odd, return $\textit{false}$ immediately.
 

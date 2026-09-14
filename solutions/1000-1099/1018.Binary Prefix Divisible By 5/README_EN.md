@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md
 rating: 1376
 source: Weekly Contest 130 Q1
 tags:
@@ -59,6 +58,18 @@ Only the first number is divisible by 5, so answer[0] is true.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each prefix integer could be built and tested modulo $5$, but $n\le 10^5$ produces values up to $2^{10^5}$. Only the remainder modulo $5$ is needed.
+>
+> The next prefix is the old value shifted left plus the new bit: $x\leftarrow (2x+v)\bmod 5$.
+>
+> We update this remainder for every prefix and record whether it is $0$.
+
+<!-- thinking:end -->
 
 We use a variable $x$ to represent the current binary prefix, then traverse the array $nums$. For each element $v$, we left shift $x$ by one bit, then add $v$, and take the result modulo $5$. If the result equals $0$, it means the current binary prefix is divisible by $5$, and we add $\textit{true}$ to the answer array; otherwise, we add $\textit{false}$ to the answer array.
 

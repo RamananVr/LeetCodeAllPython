@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2028.Find%20Missing%20Observations/README_EN.md
 rating: 1444
 source: Weekly Contest 261 Q2
 tags:
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We miss $n$ dice in $[1,6]$ with overall mean $mean$. The missing sum $s$ is fixed, so we only test $s \in [n,6n]$. Construction beats search for $n,m \le 10^5$.
+>
+> If feasible, spread $s$ evenly: every entry $s//n$, then add one to the first $s \bmod n$ positions, all still $\le 6$.
+
+<!-- thinking:end -->
 
 According to the problem description, the sum of all numbers is $(n + m) \times \textit{mean}$, and the sum of known numbers is $\sum_{i=0}^{m-1} \textit{rolls}[i]$. Therefore, the sum of the missing numbers is $s = (n + m) \times \textit{mean} - \sum_{i=0}^{m-1} \textit{rolls}[i]$.
 

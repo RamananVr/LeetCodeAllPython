@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3283.Maximum%20Number%20of%20Moves%20to%20Kill%20All%20Pawns/README_EN.md
 rating: 2473
 source: Weekly Contest 414 Q4
 tags:
@@ -105,6 +104,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS + State Compression + Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A knight eats at most $15$ pawns, Alice maximizing total steps and Bob minimizing. The board is $50\times 50$; BFS from each pawn gives knight distances. The $15!$ orders need a subset game.
+>
+> $\textit{dfs}(last,state,k)$: $last$ is the last eaten pawn (initially the knight), $state$ the remaining set, $k$ whose turn. Alice maxes, Bob mins, using $dist[last][x][y]$. Memoized states are $O(n\cdot 2^n)$.
+
+<!-- thinking:end -->
 
 First, we preprocess the shortest distance for each pawn to any position on the chessboard and record it in the array $\textit{dist}$, where $\textit{dist}[i][x][y]$ represents the shortest distance for the $i$-th pawn to the position $(x, y)$.
 

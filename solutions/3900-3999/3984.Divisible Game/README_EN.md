@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3984.Divisible%20Game/README_EN.md
 rating: 1944
 source: Weekly Contest 509 Q3
 tags:
@@ -111,6 +110,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice picks $k>1$ and a subarray; multiples of $k$ go to her and the rest to Bob. The gap is $2\cdot(\text{sum of multiples})-\text{subarray sum}$.
+>
+> For each $k$, multiples form runs whose prefix sums yield the best gap. Among those $k$ that attain the maximum gap, take the smallest and multiply.
+>
+> This directory has no implemented solution yet; the walkthrough stops at grouping multiples by $k$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

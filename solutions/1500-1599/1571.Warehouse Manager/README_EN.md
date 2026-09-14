@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1571.Warehouse%20Manager/README_EN.md
 tags:
     - Database
 ---
@@ -107,6 +106,16 @@ LCHouse3: 1 unit of LC-T-Shirt.
 <!-- solution:start -->
 
 ### Solution 1: Inner Join + Group By + Sum Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compute each warehouse's total volume. Volume is the product of a product's dimensions and the stored unit count; those columns live in two tables.
+>
+> Join on $product\_id$, group by warehouse name, and sum $width\times length\times height\times units$.
+
+<!-- thinking:end -->
 
 We can use an inner join to join the `Warehouse` table and the `Products` table on the condition of `product_id`, and then group by warehouse name to calculate the inventory of each warehouse using the `SUM` function.
 

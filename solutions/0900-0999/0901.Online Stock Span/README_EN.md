@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md
 tags:
     - Stack
     - Design
@@ -69,6 +68,16 @@ stockSpanner.next(85);  // return 6
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning backward from today until a strictly higher price appears is quadratic over many queries. Spans already covered by an earlier price need not be recounted: if the stack top is at most today's $price$, its span can be merged in.
+>
+> A stack that is decreasing in price, storing $(price, cnt)$, pops and accumulates those spans before pushing. Each price enters and leaves once, so each query is amortized constant time.
+
+<!-- thinking:end -->
 
 Based on the problem description, we know that for the current day's price $price$, we start from this price and look backwards to find the first price that is larger than this price. The difference in indices $cnt$ between these two prices is the span of the current day's price.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3223.Minimum%20Length%20of%20String%20After%20Operations/README_EN.md
 rating: 1445
 source: Biweekly Contest 135 Q2
 tags:
@@ -73,6 +72,16 @@ We cannot perform any operations, so we return the length of the original string
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation deletes one matching character on each side of a chosen letter. $n\le 2\times 10^5$, so editing the string in place would move too much. Deletions of one letter never depend on another, so the remainder is determined by that letter's frequency alone.
+>
+> An odd count leaves $1$ after symmetric deletes; an even count leaves $2$. Summing the $26$ counts is the shortest length; the delete order need not be simulated.
+
+<!-- thinking:end -->
 
 We can count the occurrences of each character in the string, and then iterate through the count array. If a character appears an odd number of times, then $1$ of that character remains in the end; if a character appears an even number of times, then $2$ of that character remain. We can sum the remaining counts of all characters to get the final length of the string.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README_EN.md
 rating: 1225
 source: Weekly Contest 175 Q1
 tags:
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether some $i \neq j$ satisfies $arr[i]=2\,arr[j]$. A double loop works for $n \le 500$, but one hash pass is enough: succeed if $2x$ or, when $x$ is even, $x/2$ was already seen; otherwise insert $x$. The set holds only earlier elements, so the indices differ.
+
+<!-- thinking:end -->
 
 We define a hash table $s$ to record the elements that have been visited.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README_EN.md
 rating: 1604
 source: Weekly Contest 329 Q3
 tags:
@@ -64,6 +63,16 @@ Since we can make s equal to target, we return true.
 <!-- solution:start -->
 
 ### Solution 1: Lateral Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Allowed writes are $s[i]\lor s[j]$ and $s[i]\oplus s[j]$ into one of the two bits. Two zeros cannot create a one, but a single one can be copied anywhere or XOR-ed into a zero.
+>
+> Hence $s$ and $\textit{target}$ are convertible iff they both contain a $1$ or both contain none.
+
+<!-- thinking:end -->
 
 We notice that $1$ is actually a "tool" for number conversion. Therefore, as long as both strings either have $1$ or neither have $1$, we can make the two strings equal through operations.
 

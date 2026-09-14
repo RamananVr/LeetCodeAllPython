@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1860.Incremental%20Memory%20Leak/README_EN.md
 rating: 1387
 source: Biweekly Contest 52 Q2
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Second $i$ consumes $i$ units from the currently larger stick until both are too small. Capacities reach $2^{31}-1$, but the consumed sum is quadratic, so the crash time is about $\sqrt{m_1+m_2}$ and direct simulation is fine.
+>
+> Start from $i=1$, subtract $i$ from the larger remaining stick while possible, and return the crash second together with the leftovers.
+
+<!-- thinking:end -->
 
 We directly simulate the allocation of memory.
 

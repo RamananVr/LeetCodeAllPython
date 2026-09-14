@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1842.Next%20Palindrome%20Using%20Same%20Digits/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Find the Next Permutation of the First Half
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the next strictly larger palindrome that uses the same digits. The next permutation of the whole string need not stay palindromic.
+>
+> A palindrome is determined by its first half. Compute the next permutation of that half; if none exists there is no answer. Mirror the half to the suffix to restore the palindrome.
+
+<!-- thinking:end -->
 
 According to the problem description, we only need to find the next permutation of the first half of the string, then traverse the first half and symmetrically assign values to the second half.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1281.Subtract%20the%20Product%20and%20Sum%20of%20Digits%20of%20an%20Integer/README_EN.md
 rating: 1141
 source: Weekly Contest 166 Q1
 tags:
@@ -54,6 +53,14 @@ Result = 32 - 11 = 21
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10^5$, so repeated division by $10$ accumulates the digit product and sum; we subtract at the end. No string conversion. The loop runs once per digit.
+
+<!-- thinking:end -->
 
 We use two variables $x$ and $y$ to record the product of the digits and the sum of the digits respectively. At the beginning, $x=1,y=0$.
 

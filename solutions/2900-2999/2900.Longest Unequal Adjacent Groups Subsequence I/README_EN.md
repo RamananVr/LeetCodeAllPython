@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README_EN.md
 rating: 1468
 source: Biweekly Contest 115 Q2
 tags:
@@ -98,6 +97,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$ allows enumerating subsequences or an $O(n^2)$ DP for the longest length. $groups$ is binary, so two adjacent picks are valid only when the group flips; at most one index from each run of equal groups is useful.
+>
+> Keeping the first index of every run both connects to the previous run and does not shorten later choices. Any longest subsequence is accepted, so there is no need to compare $words$ inside a run. A single left-to-right scan builds the answer.
+
+<!-- thinking:end -->
 
 We can traverse the array $groups$, and for the current index $i$, if $i=0$ or $groups[i] \neq groups[i - 1]$, we add $words[i]$ to the answer array.
 

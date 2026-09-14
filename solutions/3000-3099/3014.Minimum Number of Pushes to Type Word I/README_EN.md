@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README_EN.md
 rating: 1324
 source: Weekly Contest 381 Q1
 tags:
@@ -80,6 +79,18 @@ It can be shown that no other mapping can provide a lower cost.
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters are distinct and there are at most $26$ of them. Eight keys charge $1,2,\ldots$ presses according to how many letters already sit on that key.
+>
+> With unit frequencies the optimum spreads letters evenly across the eight keys, filling every round of eight “$k$-press” slots first.
+>
+> We add $k \times 8$ per full round and charge the remainder at the next $k$, without assigning letters explicitly.
+
+<!-- thinking:end -->
 
 We notice that all the letters in the string $word$ are different. Therefore, we can greedily distribute the letters evenly across the $8$ keys to minimize the number of key presses.
 

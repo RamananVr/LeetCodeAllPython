@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README_EN.md
 tags:
     - Stack
     - Tree
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rebuilding the BST is heavier than needed. Preorder visits root, left, then right; a decreasing stack holds nodes that have not yet turned to their right subtree.
+>
+> A value below the last popped lower bound is invalid. Otherwise pop every smaller top as the new bound and push the current value.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

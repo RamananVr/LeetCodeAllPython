@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0273.Integer%20to%20English%20Words/README_EN.md
 tags:
     - Recursion
     - Math
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> English names group by thousands: Billion, Million, Thousand. Each block has at most three digits and is built from the teens table, the tens table, and Hundred.
+>
+> $0$ is Zero. From high to low, convert each nonempty block with $transfer$ and append the scale word.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

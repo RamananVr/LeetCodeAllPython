@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We cannot mutate the array or use a hash table. By pigeonhole, if more than $x$ values lie in $[1,x]$, the duplicate is there.
+>
+> Binary-search the value range: count how many entries are $\le mid$; if that count exceeds $mid$, search the left half, otherwise the right.
+
+<!-- thinking:end -->
 
 We can observe that if the number of elements in $[1,..x]$ is greater than $x$, then the duplicate number must be in $[1,..x]$, otherwise the duplicate number must be in $[x+1,..n]$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md
 rating: 1573
 source: Weekly Contest 164 Q3
 tags:
@@ -66,6 +65,16 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After each extra letter we want the three lexicographically smallest products with that prefix. There are $1000$ products: sort, then insert into a trie, each node keeping at most three indices in insertion order — the top three for that prefix.
+>
+> Walking $searchWord$ maps those index lists back to names. Sorting makes insertion order lexicographic; the trie locates prefixes.
+
+<!-- thinking:end -->
 
 The problem requires that after each letter of the input `searchWord`, recommend up to three products from the `products` array that have the same prefix as `searchWord`. If there are more than three products with the same prefix that can be recommended, return the three with the smallest lexicographic order.
 

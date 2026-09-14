@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README_EN.md
 tags:
     - Database
 ---
@@ -112,6 +111,16 @@ This table contains information about the shifts worked by employees, including 
 <!-- solution:start -->
 
 ### Solution 1: Self-Join + Group Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count pairwise overlapping shifts of the same employee. Sorting per employee would work; a self-join writes “starts earlier and ends after the other start” directly.
+>
+> Join on `employee_id` with $t_1$ starting earlier and ending after $t_2$ starts, count per employee, and drop zeros. Each ordered overlapping pair is counted once.
+
+<!-- thinking:end -->
 
 We first use a self-join to connect the `EmployeeShifts` table to itself. The join condition ensures that we only compare shifts belonging to the same employee and check if there is any overlap between shifts.
 

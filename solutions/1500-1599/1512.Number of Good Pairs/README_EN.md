@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README_EN.md
 rating: 1160
 source: Weekly Contest 197 Q1
 tags:
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count index pairs with $i<j$ and $nums[i]=nums[j]$. A double loop would pass for $n\le 100$, but it rescans earlier equals on every step.
+>
+> The current $x$ forms one pair with each previous $x$. A frequency map of values already seen lets us add that count and then increment, so one pass suffices.
+
+<!-- thinking:end -->
 
 Traverse the array, and for each element $x$, count how many elements before it are equal to $x$. This count represents the number of good pairs formed by $x$ and the previous elements. After traversing the entire array, we obtain the answer.
 

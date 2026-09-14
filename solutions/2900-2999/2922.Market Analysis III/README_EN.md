@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md
 tags:
     - Database
 ---
@@ -113,6 +112,16 @@ Since seller_ids 2 and 3 have the same count of one item each, they both will be
 <!-- solution:start -->
 
 ### Solution 1: Equijoin + Grouping + Subquery
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need, for each seller, the number of distinct items whose brand differs from the seller’s favorite, then the sellers that attain the maximum. Joining orders, users, and items aligns the three tables; the filter $item_brand \neq favorite_brand$ and a group on $seller_id$ remain.
+>
+> $COUNT(DISTINCT item_id)$ yields $num_items$. Comparing against a subquery $MAX(num_items)$ avoids mixing the aggregate with the filter in one layer. Sort by seller id.
+
+<!-- thinking:end -->
 
 We can use equijoin to connect the `Orders` table and the `Users` table according to `seller_id`, then connect `Items` according to `item_id`, and filter out the records where `item_brand` is not equal to `favorite_brand`. Then, group by `seller_id` and count the number of `item_id` corresponding to each `seller_id`. Finally, use a subquery to find the `seller_id` with the most `item_id`.
 

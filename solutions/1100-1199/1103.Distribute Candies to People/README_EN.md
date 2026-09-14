@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README_EN.md
 rating: 1287
 source: Weekly Contest 143 Q1
 tags:
@@ -67,6 +66,16 @@ On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $i$-th give (0-based) awards $\min(\textit{candies}, i+1)$ candies to person $i\bmod \textit{num\_people}$. The number of gives is governed by triangular numbers, about $\sqrt{2\cdot\textit{candies}}$, so a direct simulation finishes within the limits.
+>
+> A closed form for full rounds is unnecessary: clamp each gift by the remainder and stop when none are left.
+
+<!-- thinking:end -->
 
 We can directly simulate the process of each person receiving candies, following the rules described in the problem.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md
 rating: 1697
 source: Weekly Contest 492 Q2
 tags:
@@ -96,6 +95,20 @@ Therefore, no balanced index exists and the answer is -1.</div>
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced index has left sum equal to right product. $n \le 10^5$ and entries are positive, so the right product grows as the index moves left.
+>
+> Moving left decreases the left sum and increases the right product, so the equality holds at most once. If it exists it is unique.
+>
+> Walk right to left with the remaining left sum and the right product; return on equality. Once the product is already at least the remaining sum, later indices cannot match.
+>
+> One reverse pass decides the answer.
+
+<!-- thinking:end -->
 
 We first compute the total sum $s$ of all elements in the array. Then we enumerate each index $i$ from right to left, maintaining a variable $p$ to record the product of all elements to the right of index $i$. When we reach index $i$, we first subtract $nums[i]$ from $s$, then check whether $s$ equals $p$; if so, we return index $i$. Next, we multiply $p$ by $nums[i]$. If $p$ is greater than or equal to $s$, the product will only keep growing and no balanced index can be found afterwards, so we can terminate the enumeration early.
 

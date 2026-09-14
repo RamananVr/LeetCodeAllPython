@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2914.Minimum%20Number%20of%20Changes%20to%20Make%20Binary%20String%20Beautiful/README_EN.md
 rating: 1479
 source: Biweekly Contest 116 Q2
 tags:
@@ -74,6 +73,16 @@ It can be proven that 1 is the minimum number of changes needed to make the stri
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful string splits into equal pairs, and the pairing is fixed: $(s[0],s[1])$, $(s[2],s[3])$, and so on never interact. Changing across pairs cannot reduce the cost inside a pair.
+>
+> It remains only to test each odd index against the previous character and count mismatches. $n \le 10^5$ admits a single stride-$2$ scan.
+
+<!-- thinking:end -->
 
 We only need to traverse all odd indices $1, 3, 5, \cdots$ of the string $s$. If the current odd index is different from the previous index, i.e., $s[i] \ne s[i - 1]$, we need to modify the current character so that $s[i] = s[i - 1]$. Therefore, the answer needs to be incremented by $1$.
 

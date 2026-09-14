@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0324.Wiggle%20Sort%20II/README_EN.md
 tags:
     - Greedy
     - Array
@@ -58,6 +57,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $nums[0]<nums[1]>nums[2]<\cdots$ and may reorder in place.
+>
+> Sort, then fill even indices from the median downward and odd indices from the end downward. Reversed halves keep equal values from sitting next to each other.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -87,6 +96,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 sorts in $O(n\log n)$ and uses an extra array. Values lie in $[0,5000]$: count-sort, then emit large values onto odd indices first and even indices next. Peaks get large numbers in linear time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

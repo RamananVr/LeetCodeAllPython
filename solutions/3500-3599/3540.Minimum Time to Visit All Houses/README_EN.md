@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3540.Minimum%20Time%20to%20Visit%20All%20Houses/README_EN.md
 tags:
     - Array
     - Prefix Sum
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Houses sit on a cycle with different forward and backward weights, and $\textit{queries}$ must be visited in order. $n,q \le 10^5$ forbid searching the cycle each time.
+>
+> Prefix sums of the two directions give the shorter arc between any pair. Sum those arcs along the query sequence.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

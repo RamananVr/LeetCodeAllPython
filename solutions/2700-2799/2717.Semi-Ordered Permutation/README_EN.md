@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md
 rating: 1295
 source: Weekly Contest 348 Q2
 tags:
@@ -77,6 +76,16 @@ It can be proved that there is no sequence of less than three operations that ma
 <!-- solution:start -->
 
 ### Solution 1: Find the Positions of 1 and n
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent swaps should send $1$ to the left end and $n$ to the right end. A full sort is unnecessary; only those two keys move.
+>
+> $1$ needs $i$ left swaps and $n$ needs $n-1-j$ right swaps. If $1$ starts to the right of $n$, their crossing shares one swap, so we subtract one more. A single scan records the two indices.
+
+<!-- thinking:end -->
 
 We can first find the indices $i$ and $j$ of $1$ and $n$, respectively. Then, based on the relative positions of $i$ and $j$, we can determine the number of swaps required.
 

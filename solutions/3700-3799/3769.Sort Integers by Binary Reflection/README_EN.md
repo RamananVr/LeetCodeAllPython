@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README_EN.md
 rating: 1363
 source: Weekly Contest 479 Q1
 tags:
@@ -79,6 +78,14 @@ Note that 3 and 6 have the same reflection, so we arrange them in increasing ord
 <!-- solution:start -->
 
 ### Solution 1: Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sort key is the binary reversal that ignores leading zeros, with the original value as a tie-breaker. With $n\le 100$ we peel the lowest bit of each integer to form its reflection and sort by $(f(x),x)$.
+
+<!-- thinking:end -->
 
 We define a function $f(x)$ to calculate the binary reflection value of integer $x$. Specifically, we continuously extract the lowest bit of $x$ and add it to the end of the result $y$ until $x$ becomes $0$.
 

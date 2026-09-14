@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0640.Solve%20the%20Equation/README_EN.md
 tags:
     - Math
     - String
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A linear equation must be reduced to $ax+b=0$. Coefficients may be omitted and signs abut, so an ad-hoc scan is error-prone.
+>
+> Split on `=`. On each side, scan signed terms: a trailing `x` updates the coefficient, otherwise the constant. Compare both sides to report infinite, none, or the unique integer root.
+
+<!-- thinking:end -->
 
 We split the $equation$ by the equal sign `"="` into left and right expressions, and compute the coefficient of `"x"` (denoted $x_i$) and the constant value (denoted $y_i$) for each side.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1113.Reported%20Posts/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,14 @@ Actions table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct posts per `extra` (report reason) on the given date with `action = 'report'`. Filter date and action first, then `GROUP BY extra` and `COUNT(DISTINCT post_id)` so a post reported twice is counted once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

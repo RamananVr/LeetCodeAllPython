@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0827.Making%20A%20Large%20Island/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may flip at most one $0$ and want the largest island. $n\le 500$, so flooding from every $0$ would revisit the same islands.
+>
+> DFS first labels each island and records its area. Then each $0$ sums the distinct neighboring islands plus one. If the grid is all ones, the answer is the largest existing island.
+
+<!-- thinking:end -->
 
 We can assign a unique identifier to each connected component, using an array $p$ to record the connected component each position belongs to, i.e., $p[i][j]$ represents the connected component number of $(i, j)$. Use an array $cnt$ to record the size of each connected component, i.e., $cnt[root]$ represents the size of the connected component $root$.
 

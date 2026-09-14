@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README_EN.md
 rating: 1443
 source: Weekly Contest 431 Q1
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The product equaling $\gcd\cdot\operatorname{lcm}$ is an algebraic test on a subarray. With $n\le 100$ and values $\le 10$, we can enumerate every subarray while maintaining product, GCD, and LCM.
+>
+> The product grows quickly. Once it exceeds $\operatorname{lcm}(\textit{nums})\cdot\max(\textit{nums})$, a longer suffix cannot satisfy the identity, so the inner loop should stop.
+>
+> We fix the left end $i$, extend rightward updating $p$, $g$, and $l$, record the length when $p=g\cdot l$, and break when $p$ is already too large.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

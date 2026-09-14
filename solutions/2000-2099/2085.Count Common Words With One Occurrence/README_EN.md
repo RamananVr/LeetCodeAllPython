@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README_EN.md
 rating: 1307
 source: Biweekly Contest 66 Q1
 tags:
@@ -67,6 +66,16 @@ Thus, there are 2 strings that appear exactly once in each of the two arrays.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count words that occur once in each array. Build two counters and scan one of them, requiring both frequencies to be $1$.
+>
+> Linear in the two lengths.
+
+<!-- thinking:end -->
 
 We can use two hash tables, $cnt1$ and $cnt2$, to count the occurrences of each string in the two string arrays respectively. Then, we traverse one of the hash tables. If a string appears once in the other hash table and also appears once in the current hash table, we increment the answer by one.
 

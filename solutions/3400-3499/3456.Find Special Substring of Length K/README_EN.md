@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README_EN.md
 rating: 1244
 source: Weekly Contest 437 Q1
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special substring is a run of one letter whose length is exactly $k$, not a piece of a longer run. $|s|\le 100$, so a run-length scan is enough.
+>
+> A window of length $k$ would accept a slice of a longer identical run when both ends match.
+>
+> Two pointers isolate each constant run and succeed only when the run length equals $k$.
+
+<!-- thinking:end -->
 
 The problem essentially asks us to find each segment of consecutive identical characters and then determine if there exists a substring of length $k$. If such a substring exists, return $\textit{true}$; otherwise, return $\textit{false}$.
 

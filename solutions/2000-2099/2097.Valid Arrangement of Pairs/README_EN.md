@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md
 rating: 2650
 source: Weekly Contest 270 Q4
 tags:
@@ -82,6 +81,16 @@ end<sub>1</sub> = 1 == 1 = start<sub>2</sub>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs must chain, i.e. an Eulerian path in the directed graph of edges $start \to end$. Hierholzer runs in linear time for $m \le 10^5$. Start at a vertex with out-degree one higher than in-degree, else anywhere.
+>
+> Push edges in postorder and reverse to obtain the arrangement. The code tabs are empty; the reasoning is the Eulerian-path construction.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

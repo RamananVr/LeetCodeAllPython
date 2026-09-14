@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README_EN.md
 rating: 1314
 source: Biweekly Contest 50 Q1
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only increment elements, and the array must become strictly increasing at minimum cost. Searching final values at each index is unnecessary.
+>
+> From left to right the prefix maximum already fixes the next lower bound. If $v$ is below $mx+1$ we pay the difference and raise it; then $mx$ becomes the new prefix maximum. Extra increments would only raise later bounds, so one greedy pass is optimal.
+
+<!-- thinking:end -->
 
 We use a variable $mx$ to record the maximum value of the current strictly increasing array, initially $mx = 0$.
 

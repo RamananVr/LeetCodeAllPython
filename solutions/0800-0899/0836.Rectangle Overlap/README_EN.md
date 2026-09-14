@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0836.Rectangle%20Overlap/README_EN.md
 tags:
     - Geometry
     - Math
@@ -49,6 +48,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Determine Non-Overlap Cases
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We decide whether two axis-aligned rectangles have positive-area overlap. Describing the intersection box is messy; the complement is simpler: they miss if they are separated vertically or horizontally.
+>
+> If any of the four separations holds they are disjoint; negating that test is the overlap predicate. Areas are nonzero, so degenerate edges do not arise.
+
+<!-- thinking:end -->
 
 Let the coordinates of rectangle $\text{rec1}$ be $(x_1, y_1, x_2, y_2)$, and the coordinates of rectangle $\text{rec2}$ be $(x_3, y_3, x_4, y_4)$.
 

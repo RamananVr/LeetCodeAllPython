@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md
 rating: 2222
 source: Weekly Contest 293 Q4
 tags:
@@ -76,6 +75,16 @@ countIntervals.count();    // return 8
 <!-- solution:start -->
 
 ### Solution 1: Segment Tree (Dynamic Opening)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We maintain possibly overlapping integer intervals, adding a range and querying how many integers are covered. Coordinates reach $10^9$ and there are $10^5$ operations, so a dense array is impossible. Only coverage matters, not multiplicity.
+>
+> A dynamically allocated segment tree on $[1,10^9]$ creates nodes on demand. An update paints a range as fully covered with a lazy tag; a query reads the covered length at the root.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to maintain a set of intervals that supports adding intervals and querying operations. For adding intervals, we can use a segment tree to maintain the interval set.
 

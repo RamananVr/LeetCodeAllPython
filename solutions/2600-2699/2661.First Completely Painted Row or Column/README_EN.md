@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md
 rating: 1502
 source: Weekly Contest 343 Q2
 tags:
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Array Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells are painted in $arr$ order; we want the first full row or column. Rescanning a row or column each time is too slow for $mn \le 10^5$.
+>
+> Map every value to its coordinates and increment row and column counts. A count reaching $n$ or $m$ completes that line; the first such index is the answer.
+
+<!-- thinking:end -->
 
 We use a hash table $idx$ to record the position of each element in the matrix $mat$, that is $idx[mat[i][j]] = (i, j)$, and define two arrays $row$ and $col$ to record the number of colored elements in each row and each column respectively.
 

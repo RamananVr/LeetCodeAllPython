@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README_EN.md
 rating: 1817
 source: Weekly Contest 232 Q3
 tags:
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max-Heap of Increment)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each extra passing student joins one class; we maximize the average of pass ratios. The gain $\frac{a+1}{b+1}-\frac{a}{b}$ decreases as a class grows, so always give the next student to the class with the largest current gain.
+>
+> A heap keyed by that gain (or its negation) pops a class, increments both counts, and pushes it back. Average the final ratios.
+
+<!-- thinking:end -->
 
 Suppose a class currently has a pass rate of $\frac{a}{b}$. If we arrange a smart student into this class, then the pass rate of the class will become $\frac{a+1}{b+1}$. We can find that the increment of the pass rate is $\frac{a+1}{b+1} - \frac{a}{b}$.
 

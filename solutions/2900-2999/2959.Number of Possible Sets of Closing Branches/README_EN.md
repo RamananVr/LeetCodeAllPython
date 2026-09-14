@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README_EN.md
 rating: 2077
 source: Biweekly Contest 119 Q4
 tags:
@@ -97,6 +96,16 @@ It can be proven, that there are only 2 possible sets of closing branches.
 <!-- solution:start -->
 
 ### Solution 1: Binary Enumeration + Floyd Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After closing a subset of branches, remaining pairwise shortest paths must be at most $maxDistance$. $n \le 10$ yields $2^n$ masks. For each mask run Floyd on the surviving edges and test distances inside the subset.
+>
+> Parallel edges keep the lighter one. The empty set and singletons are valid (diagonals are set to $0$).
+
+<!-- thinking:end -->
 
 We notice that $n \leq 10$, so we might as well consider using the method of binary enumeration to enumerate all subsets of departments.
 

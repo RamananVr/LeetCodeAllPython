@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README_EN.md
 rating: 1301
 source: Weekly Contest 500 Q2
 tags:
@@ -85,6 +84,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Precompute Primes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$, so the reverse has at most four digits and the interval length is at most about $1000$. Trial division on each entry is acceptable, but repeating primality tests is wasteful.
+>
+> Sieve all primes up to $1000$ once, then sum those that fall in $[\min(n,r),\max(n,r)]$.
+>
+> The sieve is $O(M\log\log M)$ and the query itself is linear in the interval length.
+
+<!-- thinking:end -->
 
 We note that the reversed number $r$ of $n$ will not exceed 1000, so we can precompute all prime numbers up to 1000.
 

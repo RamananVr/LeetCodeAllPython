@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md
 rating: 1658
 source: Biweekly Contest 58 Q2
 tags:
@@ -61,6 +60,18 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A legal move needs a good segment: the played color, one or more opposite cells, then the same color. The board is $8\times 8$, so eight rays suffice.
+>
+> Walk from the move, counting steps. An empty cell or an early same-color cell aborts that ray; more than one step plus a same-color hit succeeds.
+>
+> We never flip discs.
+
+<!-- thinking:end -->
 
 We enumerate all possible directions. For each direction $(a, b)$, we start from $(\textit{rMove}, \textit{cMove})$ and use a variable $\textit{cnt}$ to record the number of cells we have passed. If, during our traversal, we encounter a cell of color $\textit{color}$ and $\textit{cnt} > 1$, then we have found a good line segment and return $\textit{true}$.
 

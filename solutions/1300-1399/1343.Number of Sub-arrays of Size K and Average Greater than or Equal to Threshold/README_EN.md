@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1343.Number%20of%20Sub-arrays%20of%20Size%20K%20and%20Average%20Greater%20than%20or%20Equal%20to%20Threshold/README_EN.md
 rating: 1317
 source: Biweekly Contest 19 Q2
 tags:
@@ -53,6 +52,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count windows of length $k$ whose average is at least $\textit{threshold}$. $n \le 10^5$ forbids rebuilding each window. The average test is the sum versus $k \times \textit{threshold}$. A sliding sum of width $k$ updates in $O(1)$ and counts qualifying windows in one pass.
+
+<!-- thinking:end -->
 
 We can multiply `threshold` by $k$, so that we can directly compare the sum within the window with `threshold`.
 

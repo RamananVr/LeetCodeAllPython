@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README_EN.md
 rating: 2038
 source: Biweekly Contest 35 Q3
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete the shortest subarray so the remaining sum is divisible by $p$. $n\le 10^5$ rules out enumerating intervals. If the total is $k$ modulo $p$, the deleted piece must be $k$ modulo $p$ as well.
+>
+> Scan prefix sums modulo $p$ and remember the last index of each residue. At residue $cur$, look up $(cur-k)\bmod p$; the gap is a candidate deletion. Deleting the entire array is forbidden.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of all elements in the array $\textit{nums}$ modulo $p$, denoted as $k$. If $k$ is $0$, it means the sum of all elements in the array $\textit{nums}$ is a multiple of $p$, so we directly return $0$.
 

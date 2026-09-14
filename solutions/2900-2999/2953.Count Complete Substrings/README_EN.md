@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md
 rating: 2449
 source: Weekly Contest 374 Q3
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Character Types + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A complete substring uses each of its characters exactly $k$ times and has adjacent codepoints differing by at most $2$. The second rule splits the string into independent pieces; the answer is the sum over pieces. A piece has at most $26$ letters, so enumerate the number of kinds $i$ and slide a window of length $i \cdot k$.
+>
+> $cnt$ and $freq$ track how many letters occur how often; increment when $freq[k]=i$. Both the split and the windows are linear for $n \le 10^5$.
+
+<!-- thinking:end -->
 
 According to condition 2 in the problem description, we can find that in a complete string, the difference between two adjacent characters does not exceed 2. Therefore, we traverse the string $word$, and we can use two pointers to split $word$ into several substrings. The number of character types in these substrings does not exceed 26, and the difference between adjacent characters does not exceed 2. Next, we only need to count the number of substrings in each substring where each character appears $k$ times.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md
 rating: 1641
 source: Weekly Contest 458 Q2
 tags:
@@ -82,6 +81,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A component's cost is its heaviest edge, and we want that maximum minimized while keeping at most $k$ components. If $k=n$, every edge may be dropped and the answer is $0$.
+>
+> The minimax value is monotone: if edges of weight at most $w$ yield at most $k$ components, every larger $w$ does too. Sorting edges and adding them lightest-first is Kruskal's process.
+>
+> Start with $n$ components and union. When the count falls to at most $k$, the current weight is the minimax cost. The input is connected, so the scan succeeds unless we already returned at $k=n$.
+
+<!-- thinking:end -->
 
 If $k = n$, it means all edges can be removed. In this case, all connected components are isolated nodes, and the maximum cost is 0.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,16 @@ Courses table:
 <!-- solution:start -->
 
 ### Solution 1: Grouping and Aggregation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Classes with at least five students. Group-count and filter with `HAVING`; a subquery is unnecessary.
+>
+> `GROUP BY class` then `HAVING COUNT(*) >= 5`. `HAVING` runs after grouping, unlike `WHERE`.
+
+<!-- thinking:end -->
 
 We can use the `GROUP BY` statement to group by class and then use the `HAVING` statement to filter out the classes with a student count greater than or equal to $5$.
 

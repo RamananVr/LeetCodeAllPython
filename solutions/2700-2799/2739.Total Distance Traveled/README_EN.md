@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md
 rating: 1262
 source: Weekly Contest 350 Q1
 tags:
@@ -62,6 +61,16 @@ Total distance traveled is 10km.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every $5$ liters from the main tank, one liter moves from the extra tank if it is nonempty; each liter travels $10$ km. The tanks are small enough to simulate liter by liter.
+>
+> Spend the main tank in a loop: add $10$ km, and every fifth liter move one liter from the extra tank, until the main tank is empty.
+
+<!-- thinking:end -->
 
 We can simulate the process of the truck's movement. Each time, it consumes 1 liter of fuel from the main fuel tank and travels 10 kilometers. Whenever the fuel in the main fuel tank is consumed by 5 liters, if there is fuel in the auxiliary fuel tank, 1 liter of fuel is transferred from the auxiliary fuel tank to the main fuel tank. The simulation continues until the fuel in the main fuel tank is exhausted.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0281.Zigzag%20Iterator/README_EN.md
 tags:
     - Design
     - Queue
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We emit two vectors in lockstep and skip a side that is exhausted. $cur$ names the active vector and each has its own index; after a read, $cur$ advances modulo $2$.
+>
+> $hasNext$ rotates $cur$ while the current list is spent; returning to the start means both are empty.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

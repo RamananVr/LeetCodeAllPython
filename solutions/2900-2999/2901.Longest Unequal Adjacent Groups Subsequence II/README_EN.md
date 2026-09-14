@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README_EN.md
 rating: 1898
 source: Biweekly Contest 115 Q3
 tags:
@@ -98,6 +97,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the previous problem, adjacent words must also have equal length and Hamming distance exactly $1$, so alternating groups greedily need not be feasible. $n$ is a few hundred and words are short, so $O(n^2 \cdot L)$ transitions are acceptable.
+>
+> Let $f[i]$ be the longest length ending at $i$ and $g[i]$ the predecessor. For $j < i$, update with $f[j]+1$ only when the groups differ and $check$ holds. Walk $g$ from an index that attains the global maximum $mx$ and reverse to recover one subsequence.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the length of the longest adjacent non-equal subsequence ending with the $i$-th word, and $g[i]$ as the predecessor index of the longest adjacent non-equal subsequence ending with the $i$-th word. Initially, we set $f[i] = 1$ and $g[i] = -1$.
 

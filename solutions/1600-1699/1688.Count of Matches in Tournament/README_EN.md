@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README_EN.md
 rating: 1203
 source: Weekly Contest 219 Q1
 tags:
@@ -66,6 +65,14 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each match eliminates one team. Crowning a champion eliminates $n-1$ teams, so the number of matches is always $n-1$; we need not simulate even/odd rounds.
+
+<!-- thinking:end -->
 
 From the problem description, we know that there are $n$ teams in total. Each pairing will eliminate one team. Therefore, the number of pairings is equal to the number of teams eliminated, which is $n - 1$.
 

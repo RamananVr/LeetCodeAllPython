@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3166.Calculate%20Parking%20Fees%20and%20Duration/README_EN.md
 tags:
     - Database
 ---
@@ -99,6 +98,18 @@ Each row of this table contains the ID of the parking lot, the ID of the car, th
 <!-- solution:start -->
 
 ### Solution 1: Grouping + Joining
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each car needs total fees, an hourly average, and the lot where it stayed longest. A second pass would be required after a naive group-by.
+>
+> Sum durations by $(car\_id,lot\_id)$, then rank lots per car by that duration to mark the longest stay.
+>
+> Aggregate fees and seconds from the raw table, left-join the rank-$1$ lot, and divide fee by hours rounded to two decimals.
+
+<!-- thinking:end -->
 
 We can first group by `car_id` and `lot_id` to calculate the parking duration for each car in each parking lot. Then, we use the `RANK()` function to rank the parking duration of each car in each parking lot to find the parking lot where each car has the longest parking duration.
 

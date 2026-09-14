@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README_EN.md
 rating: 1591
 source: Weekly Contest 487 Q2
 tags:
@@ -76,6 +75,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move deletes a proper subarray. Alice maximizes and Bob minimizes the last remaining value. $n \le 10^5$ makes the game tree impossible.
+>
+> Alice can delete the entire middle on the first move and leave one endpoint, so the answer is at least the larger endpoint.
+>
+> Any interior value that is not yet last can still be deleted by Bob later, so Alice cannot lock it in.
+>
+> With optimal play the result is exactly $\max(nums[0],nums[n-1])$.
+
+<!-- thinking:end -->
 
 Since Alice goes first, Alice can choose to remove all elements except the first and last elements, so the answer is at least $\max(nums[0], nums[n - 1])$.
 

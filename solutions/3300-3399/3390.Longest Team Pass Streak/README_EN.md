@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README_EN.md
 tags:
     - Database
 ---
@@ -143,6 +142,18 @@ pass_to is the player_id of the player receiving the pass.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want each team's longest run of consecutive same-team passes. A cross-team pass breaks that team's streak.
+>
+> After joining team names, a running sum of $\textit{same\_team}=0$ inside each team partitions the passes into streak groups.
+>
+> Keep only same-team rows, count by $(\textit{team},\textit{group\_id})$, and take the per-team maximum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

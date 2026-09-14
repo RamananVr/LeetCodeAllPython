@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -62,6 +61,16 @@ and that &quot;hit&quot; isn&#39;t the answer even though it occurs more because
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need word frequencies in the paragraph, ignoring punctuation and a banned list. The paragraph is at most $1000$ characters, so normalize then count.
+>
+> Lowercase the text, extract alphabetic tokens, and return the most frequent word that is not banned.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

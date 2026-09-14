@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0369.Plus%20One%20Linked%20List/README_EN.md
 tags:
     - Linked List
     - Math
@@ -43,6 +42,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Linked List Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add one to a non-negative integer stored as a list. Materializing an array uses extra $O(n)$ space. Carry only touches a trailing run of nines.
+>
+> A dummy head covers a new high digit. One scan remembers the last non-nine, increments it, and zeros the rest. If the dummy becomes $1$, it is the new head.
+
+<!-- thinking:end -->
 
 We first set a dummy head node $\textit{dummy}$, initially with a value of $0$, and the successor node of $\textit{dummy}$ is the linked list $\textit{head}$.
 

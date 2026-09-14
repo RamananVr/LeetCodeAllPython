@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2043.Simple%20Bank%20System/README_EN.md
 rating: 1356
 source: Weekly Contest 263 Q2
 tags:
@@ -77,6 +76,16 @@ bank.withdraw(10, 50);   // return false, it is invalid because account 10 does 
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are many accounts, yet each call touches one or two balances. Store them in an array; account numbers are $1$-based so we index $account-1$.
+>
+> Transfer and withdraw check bounds and funds; deposit only checks the id. Every operation is $O(1)$.
+
+<!-- thinking:end -->
 
 We can use an array $\textit{balance}$ to store the balance of each account. For each operation, we simply perform the required checks and updates according to the problem statement.
 

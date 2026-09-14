@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md
 rating: 1521
 source: Biweekly Contest 120 Q2
 tags:
@@ -72,6 +71,16 @@ It can be shown that the largest possible perimeter is 12.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A polygon needs the longest side shorter than the sum of the others. After sorting, if the longest side is $a_k$, the other sides should be the smaller $k-1$ values, so only prefixes matter.
+>
+> When $s[k-1]>nums[k-1]$, update the perimeter $s[k]$. Scan $k$ from $3$ to $n$ for $n \le 10^5$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

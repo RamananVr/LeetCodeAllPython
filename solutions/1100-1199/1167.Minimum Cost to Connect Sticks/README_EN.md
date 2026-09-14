@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README_EN.md
 rating: 1481
 source: Biweekly Contest 7 Q3
 tags:
@@ -71,6 +70,14 @@ There is only one stick left, so you are done. The total cost is 4 + 9 + 17 = 30
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cost of joining two sticks is their sum, and the new stick is merged again, so longer sticks are charged repeatedly. Always joining the two shortest lengths limits how often large values reappear. A min-heap pops two sticks, pushes their sum, and accumulates the cost until one stick remains.
+
+<!-- thinking:end -->
 
 We can use a greedy approach, each time choosing the shortest two sticks to connect, which ensures the minimum cost of connection.
 

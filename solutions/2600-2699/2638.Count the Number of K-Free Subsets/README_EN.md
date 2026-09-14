@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README_EN.md
 tags:
     - Array
     - Math
@@ -67,6 +66,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Grouping + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subset may not contain two values differing by $k$. Enumerating $2^n$ subsets fails for $n \le 50$. Values that differ by $k$ share a residue modulo $k$, so other residue classes are independent.
+>
+> Inside a sorted class, only an adjacent gap of $k$ forbids taking both, which is a linear DP: $f[i]=f[i-1]+f[i-2]$ on a conflict, otherwise $f[i]=2f[i-1]$.
+>
+> Multiply the class answers; $f[0]=1$ counts the empty subset.
+
+<!-- thinking:end -->
 
 First, sort the array $nums$ in ascending order, and then group the elements in the array according to the remainder modulo $k$, that is, the elements $nums[i] \bmod k$ with the same remainder are in the same group. Then for any two elements in different groups, their absolute difference is not equal to $k$. Therefore, we can obtain the number of subsets in each group, and then multiply the number of subsets in each group to obtain the answer.
 

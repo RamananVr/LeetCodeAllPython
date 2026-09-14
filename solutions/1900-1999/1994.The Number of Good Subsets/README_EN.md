@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md
 rating: 2464
 source: Biweekly Contest 60 Q4
 tags:
@@ -84,6 +83,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subset is square-free and values lie in $[1,30]$. Multiples of squares are skipped; remaining numbers have distinct prime factors that fit in a $10$-bit mask.
+>
+> $f[\textit{state}]$ counts subsets with that prime set. For each $x$ we update states containing its mask from high to low. Any number of ones scales the empty set, and we sum the nonempty states.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md
 rating: 2374
 source: Weekly Contest 238 Q4
 tags:
@@ -79,6 +78,16 @@ We can build the buildings with heights [0,1,2,3,3,4,4,5,4,3], and the tallest b
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent heights differ by at most $1$ and some buildings have caps. $n$ can be $10^9$, so we cannot simulate every building.
+>
+> The restrictions split the line into $O(m)$ segments. Sort them, then propagate the distance constraint from both ends to tighten each cap. Between two consecutive restrictions the optimal skyline rises then falls; the peak has a closed form from the two caps and the gap. The global maximum of those peaks is the answer.
+
+<!-- thinking:end -->
 
 First, we sort all the constraints by the building number in ascending order.
 

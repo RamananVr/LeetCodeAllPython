@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README_EN.md
 rating: 2060
 source: Weekly Contest 505 Q3
 tags:
@@ -115,6 +114,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $m$ non-overlapping segments of length in $[l,r]$ should maximize the sum of their sums. A DP that also enumerates length is governed by $n,m,r-l$; part I typically allows $O(nm(r-l))$ or an $O(nm)$ prefix-sum form.
+>
+> Let $f[i][t]$ be the best sum on the first $i$ elements with at most $t$ segments: skip as $f[i-1][t]$, or end a legal segment $[j,i)$ as $f[j][t-1]+(s_i-s_j)$. The answer is the best among $t\ge 1$.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that partition DP.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README_EN.md
 rating: 1546
 source: Weekly Contest 479 Q2
 tags:
@@ -75,6 +74,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 5\times 10^5$ and the sum must start from $2$. After sieving primes up to the limit, we accumulate prefix sums and keep those that remain prime; a query is a binary search for the largest such sum that does not exceed $n$.
+
+<!-- thinking:end -->
 
 We can preprocess a list of all prime numbers less than or equal to $5 \times 10^5$, then calculate the consecutive prime sums starting from 2, and store those sums that are prime numbers in an array $s$.
 

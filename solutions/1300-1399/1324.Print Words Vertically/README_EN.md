@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1324.Print%20Words%20Vertically/README_EN.md
 rating: 1328
 source: Weekly Contest 172 Q2
 tags:
@@ -68,6 +67,14 @@ Each word would be put on only one column and that in one column there will be o
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words are read column-wise after a split; the height is the longest word, shorter words are padded, and trailing spaces on each column are removed. After computing that length $n$, column $j$ gathers the $j$-th character of every word (or a space), then pops trailing spaces before joining.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

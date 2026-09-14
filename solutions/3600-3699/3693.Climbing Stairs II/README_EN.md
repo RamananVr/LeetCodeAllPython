@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3693.Climbing%20Stairs%20II/README_EN.md
 rating: 1560
 source: Biweekly Contest 166 Q2
 ---
@@ -129,6 +128,18 @@ source: Biweekly Contest 166 Q2
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $0$ to $n$ a step may cover $1$, $2$, or $3$ stairs, paying $\textit{costs}[i-1]$ plus the squared span. Optimal substructure gives a linear DP.
+>
+> $f[i]$ is the cheapest way to reach $i$. Transfer from $i-3,i-2,i-1$ with cost $x+(i-j)^2$.
+>
+> $f[0]=0$ and the answer is $f[n]$. Each stair has a constant number of predecessors.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the minimum total cost required to reach the $i$-th stair, initially $f[0] = 0$, and all other $f[i] = +\infty$.
 

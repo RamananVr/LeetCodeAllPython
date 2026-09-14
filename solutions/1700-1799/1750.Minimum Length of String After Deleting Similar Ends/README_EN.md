@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1750.Minimum%20Length%20of%20String%20After%20Deleting%20Similar%20Ends/README_EN.md
 rating: 1501
 source: Biweekly Contest 45 Q3
 tags:
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move deletes a nonempty prefix and suffix of the same character. Afterward the new ends may match again. Two pointers simulate every deletion.
+>
+> While the ends share a character and have not crossed, skip the whole run on both sides and step inward. The remainder is $\max(0,j-i+1)$.
+
+<!-- thinking:end -->
 
 We define two pointers $i$ and $j$ to point to the head and tail of the string $s$ respectively, then move them to the middle until the characters pointed to by $i$ and $j$ are not equal, then $\max(0, j - i + 1)$ is the answer.
 

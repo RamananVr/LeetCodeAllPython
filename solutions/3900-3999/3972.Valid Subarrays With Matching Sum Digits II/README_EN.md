@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3972.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20II/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Part I enumerated subarrays; now $n\le 10^5$. The last digit of a sum is a prefix-sum difference modulo $10$; the first digit depends on magnitude and is harder.
+>
+> Bucket prefix sums by residue modulo $10$. For each right end, count left ends that match the last-digit condition and whose range sum has leading digit $x$, after splitting by order of magnitude.
+>
+> This directory has no implemented solution yet; the walkthrough stops at prefix sums modulo $10$ plus a leading-digit filter.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

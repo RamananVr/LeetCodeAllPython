@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README_EN.md
 rating: 1822
 source: Biweekly Contest 117 Q4
 tags:
@@ -88,6 +87,16 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One item is bought per day at value times the day index, and each shop is consumed from right to left. Larger days multiply more, so large values should wait: each day take the smallest among the shops’ currently exposed rightmost items.
+>
+> Those right ends form a min-heap. Pop the minimum, add $d \cdot v$, and push the previous item of that shop. There are $m \cdot n$ heap operations with $m \le 10$ and $n \le 10^4$.
+
+<!-- thinking:end -->
 
 According to the problem description, we should prioritize purchasing items with smaller values and leave items with larger values to be purchased later in order to maximize the total cost. Therefore, we use a priority queue (min-heap) to store the smallest value item that has not been purchased in each store. Initially, we add the rightmost item in each store to the priority queue.
 

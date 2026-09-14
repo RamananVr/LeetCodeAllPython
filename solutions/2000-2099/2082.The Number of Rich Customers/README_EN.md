@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README_EN.md
 tags:
     - Database
 ---
@@ -68,6 +67,14 @@ Customer 3 has one bill with an amount strictly greater than 500.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A customer is rich if any order exceeds $500$. Duplicates must not count twice, so `COUNT(DISTINCT customer_id)` with `WHERE amount > 500`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

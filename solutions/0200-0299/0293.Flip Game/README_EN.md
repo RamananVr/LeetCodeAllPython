@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0293.Flip%20Game/README_EN.md
 tags:
     - String
 ---
@@ -50,6 +49,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move flips one occurrence of $++$ to $--$. Scan adjacent pairs, flip each $++$, record the string, and restore.
+
+<!-- thinking:end -->
 
 We traverse the string. If the current character and the next character are both `+`, we change these two characters to `-`, add the result to the result array, and then change these two characters back to `+`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md
 rating: 1372
 source: Biweekly Contest 115 Q1
 tags:
@@ -91,6 +90,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Positive integers append to $seen$; a run of $-1$s means the $k$-th last seen value. A counter $k$ grows on $-1$ and resets on a positive number; if $k$ exceeds the length of $seen$, the answer is $-1$.
+
+<!-- thinking:end -->
 
 We directly simulate according to the problem description.
 

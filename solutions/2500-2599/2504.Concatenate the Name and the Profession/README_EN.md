@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2504.Concatenate%20the%20Name%20and%20the%20Profession/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,16 @@ Person table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row should show the name followed by the first letter of the profession in parentheses, ordered by $\textit{person\_id}$ descending. Concatenating in application code works, but a single query is enough.
+>
+> $\operatorname{CONCAT}$ joins the name, parentheses, and $\operatorname{SUBSTRING}(\textit{profession},1,1)$; then order by $\textit{person\_id}$ descending.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

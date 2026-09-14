@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README_EN.md
 tags:
     - JavaScript
 ---
@@ -85,6 +84,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A generator should jump around a circular array by the step it receives and yield the current value. A copied array is unnecessary; an index modulo $n$ is enough.
+>
+> $yield$ $arr[startIndex]$, then add the next $jump$ to the index and reduce modulo $n$ in the positive range so negative steps stay valid.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

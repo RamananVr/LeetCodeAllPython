@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0199.Binary%20Tree%20Right%20Side%20View/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -76,6 +75,14 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The right side view is the rightmost node of each level. $n\le 100$. Enqueue the right child first so the front of the queue is that level's rightmost node; record it, then drain the level. No need to take the last element afterwards.
+
+<!-- thinking:end -->
+
 We can use breadth-first search (BFS) and define a queue $\textit{q}$ to store the nodes. We start by putting the root node into the queue. Each time, we take out all the nodes of the current level from the queue. For the current node, we first check if the right subtree exists; if it does, we put the right subtree into the queue. Then, we check if the left subtree exists; if it does, we put the left subtree into the queue. This way, the first node taken out from the queue each time is the rightmost node of that level.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
@@ -115,6 +122,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a queue. Recurse right then left with a depth: the first visit at that depth is the rightmost node. Space follows height rather than width.
+
+<!-- thinking:end -->
 
 Use DFS (depth-first search) to traverse the binary tree. Each time, traverse the right subtree first, then the left subtree. This way, the first node visited at each level is the rightmost node of that level.
 

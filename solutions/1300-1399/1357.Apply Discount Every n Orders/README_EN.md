@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README_EN.md
 rating: 1429
 source: Biweekly Contest 20 Q2
 tags:
@@ -84,6 +83,14 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  7<sup>th
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every $n$-th customer gets a bill-wide discount. Product ids map to prices once in a hash table. A counter modulo $n$ applies the discount when it wraps to $0$ and returns the raw sum otherwise.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to store the product ID and unit price, mapping each entry in `products` to the corresponding price in `prices` during initialization.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -85,6 +84,16 @@ See the picture below for a better understanding.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is great enough iff its subtree contains at least $k$ strictly smaller values. Sorting every subtree wastes work when $k$ is small.
+>
+> A post-order DFS merges at most $k$ smallest child values in a heap of size $k$. If the heap is full and its top (the negated $k$-th smallest) is still less than the node, the node is counted.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

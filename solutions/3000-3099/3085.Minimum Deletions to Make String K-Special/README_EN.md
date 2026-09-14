@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README_EN.md
 rating: 1764
 source: Weekly Contest 389 Q3
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every remaining pair of frequencies may differ by at most $k$. We may only delete, $n \le 10^5$, and there are $26$ letters.
+>
+> Kept frequencies lie in some interval $[v,v+k]$. Letters below $v$ are deleted entirely; those above $v+k$ are cut down to $v+k$.
+>
+> We enumerate the smallest kept frequency $v$ and take the minimum of that sum over the $26$ counts.
+
+<!-- thinking:end -->
 
 First, we can count the occurrence of each character in the string and put all the counts into an array $nums$. Since the string only contains lowercase letters, the length of the array $nums$ will not exceed $26$.
 

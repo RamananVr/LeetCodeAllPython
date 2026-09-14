@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README_EN.md
 tags:
     - Math
     - Enumeration
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the least integer greater than $k$ that is a multiple of $k$ and uses only two given digits. Generating multiples of $k$ may skip many digit constraints; BFS on digits emits every legal number in order.
+>
+> Sort the two digits and append either one to the current value. The queue is short-first and then lexicographic, so the first candidate $>k$ and divisible by $k$ is minimal. Overflow past $2^{31}-1$ means none exists.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

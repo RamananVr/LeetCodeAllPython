@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is sorted and distinct, so the number of missing values before index $i$ is $nums[i]-nums[0]-i$. A linear walk finds the $k$-th missing, but the follow-up asks for logarithmic time.
+>
+> $\textit{missing}(i)$ is increasing. If $k$ exceeds the missing count at the end, the answer lies past the array; otherwise we bisect the least $i$ with $\textit{missing}(i)\ge k$ and add the leftover gap to $nums[i-1]$.
+>
+> The search range is $[0,n-1]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

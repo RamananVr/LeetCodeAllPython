@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -77,6 +76,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A turbulent subarray alternates strict comparisons. Checking every subarray is quadratic. Ending at $i$, we only need the longest rise-ending and fall-ending lengths, each extending the opposite state of $i-1$, or resetting to $1$ on a tie. Two rolling variables suffice.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the length of the longest turbulent subarray ending at $\textit{nums}[i]$ with an increasing state, and $g[i]$ as the length of the longest turbulent subarray ending at $\textit{nums}[i]$ with a decreasing state. Initially, $f[0] = 1$, $g[0] = 1$. The answer is $\max(f[i], g[i])$.
 

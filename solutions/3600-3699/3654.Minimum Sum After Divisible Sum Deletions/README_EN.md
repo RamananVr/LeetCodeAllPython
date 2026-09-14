@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README_EN.md
 rating: 2038
 source: Weekly Contest 463 Q3
 tags:
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may delete subarrays whose sums are divisible by $k$ and want the minimum leftover sum. That is the total minus the most we can delete.
+>
+> A deletable piece is a segment whose prefix sums share a residue modulo $k$. Let each residue remember the smallest prefix sum that produced it.
+>
+> On prefix $s$, if the same $s\bmod k$ was seen, $s$ minus that stored prefix is a deletable sum. The answer is the array sum minus the largest such deletion (chained through DP on residues).
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

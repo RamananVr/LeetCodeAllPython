@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README_EN.md
 rating: 2362
 source: Weekly Contest 198 Q3
 tags:
@@ -71,6 +70,16 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want as many non-overlapping substrings as possible, each containing every occurrence of the characters it uses. $n\le 10^5$, so we cannot test every substring.
+>
+> Each character has a first and last index. Starting from a left boundary, expand the interval to the rightmost occurrence of every character inside it, producing a minimal legal segment. These segments form an interval graph; picking them greedily by right endpoint maximizes the count and yields the lexicographically smallest concatenation.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

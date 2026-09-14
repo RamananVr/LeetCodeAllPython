@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README_EN.md
 tags:
     - String
 ---
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid record has at most one `'A'` and no three consecutive `'L'`s. One scan is enough; a regular expression is unnecessary.
+>
+> Count `'A'` and test for the substring `LLL`. Both checks must pass. Lengths are at most $1000$, so a linear pass suffices.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

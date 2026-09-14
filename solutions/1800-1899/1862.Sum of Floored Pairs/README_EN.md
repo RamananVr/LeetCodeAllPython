@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README_EN.md
 rating: 2170
 source: Biweekly Contest 52 Q4
 tags:
@@ -62,6 +61,16 @@ We calculate the floor of the division for every pair of indices in the array th
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum of Value Range + Optimized Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $\sum_{i,j}\lfloor nums[i]/nums[j]\rfloor$. Pair enumeration is $O(n^2)$ and too slow for $n\le 10^5$.
+>
+> Values are at most $10^5$, so build a prefix of frequencies. For each denominator $y$ and quotient $d$, the count of numerators in $[dy,dy+y)$ is a prefix difference, multiplied by $cnt[y]\cdot d$. The harmonic enumeration is $O(M\log M)$.
+
+<!-- thinking:end -->
 
 First, we count the occurrences of each element in the array $nums$ and record them in the array $cnt$. Then, we calculate the prefix sum of the array $cnt$ and record it in the array $s$, i.e., $s[i]$ represents the count of elements less than or equal to $i$.
 

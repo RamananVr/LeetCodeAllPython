@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3969.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20I/README_EN.md
 rating: 1397
 source: Weekly Contest 507 Q2
 tags:
@@ -83,6 +82,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1500$, so enumerating subarrays in $O(n^2)$ is fine. Fix the left end, accumulate $s$, and test whether both the last and first digits of $s$ equal $x$.
+>
+> The last digit is $s\bmod 10$; the first is the leading character of $\mathrm{str}(s)$. Count with the double loop.
+
+<!-- thinking:end -->
 
 We can enumerate the left endpoint $l$ of the subarray, and for each $l$, we enumerate the right endpoint $r$ in the range $[l, n)$, and calculate the sum of $nums[l..r]$. If it satisfies the conditions, the answer is increased by one.
 

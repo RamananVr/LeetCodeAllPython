@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README_EN.md
 tags:
     - Stack
     - Depth-First Search
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike 339, the weight is $maxDepth-depth+1$. Two passes (find depth, then sum) work. One DFS can accumulate the plain sum $s$ and the depth-weighted sum $ws$.
+>
+> The target is $\sum a_i(maxDepth-d_i+1)=(maxDepth+1)s-ws$. The DFS updates $maxDepth$ and, on an integer, adds to both $s$ and $ws$.
+
+<!-- thinking:end -->
 
 Let's assume the integers are $a_1, a_2, \cdots, a_n$, their depths are $d_1, d_2, \cdots, d_n$, the maximum depth is $\textit{maxDepth}$, then the answer is:
 

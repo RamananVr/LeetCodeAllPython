@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3341.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20I/README_EN.md
 rating: 1721
 source: Weekly Contest 422 Q2
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dijkstra's Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move into $(x,y)$ cannot happen before $\textit{moveTime}[x][y]$, and every step costs $1$. Weights are nonnegative but depend on arrival time, so BFS is wrong.
+>
+> With $n,m \le 50$, Dijkstra on time is enough. The relaxation is $t=\max(\textit{moveTime}[x][y],\textit{dist}[i][j])+1$.
+>
+> The first time the priority queue pops the destination is the answer.
+
+<!-- thinking:end -->
 
 We define a two-dimensional array $\textit{dist}$, where $\textit{dist}[i][j]$ represents the minimum time required to reach room $(i, j)$ from the starting point. Initially, we set all elements in the $\textit{dist}$ array to infinity, and then set the $\textit{dist}$ value of the starting point $(0, 0)$ to $0$.
 

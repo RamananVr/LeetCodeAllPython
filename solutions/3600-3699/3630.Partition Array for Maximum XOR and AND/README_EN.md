@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3630.Partition%20Array%20for%20Maximum%20XOR%20and%20AND/README_EN.md
 rating: 2743
 source: Weekly Contest 460 Q4
 tags:
@@ -113,6 +112,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Partition into $A,B,C$ and maximize $(\mathrm{XOR}\,A)+(\mathrm{AND}\,B)+(\mathrm{XOR}\,C)$. A linear basis handles which XOR values are constructible.
+>
+> The XOR of the whole array is fixed. $\mathrm{AND}\,B$ is the bitwise AND of a subset, so we enumerate candidate AND masks.
+>
+> For a fixed AND contribution, insert the remaining values into a linear basis. The maximum XOR the basis can form, together with the XOR of the leftovers, yields the $A,C$ pair. Combining the enumeration with the basis gives the optimum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README_EN.md
 rating: 1883
 source: Biweekly Contest 64 Q2
 tags:
@@ -67,6 +66,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick at most two non-overlapping events of maximum value. Pairwise search is quadratic for $n \le 10^5$. After sorting by start, the best single event in a suffix is a static array.
+>
+> $f[i]$ is that suffix maximum. For each event as the first, binary-search the first start after its end and add $f[idx]$ (or take the event alone).
+>
+> Sort plus binary search is $O(n \log n)$.
+
+<!-- thinking:end -->
 
 We can sort the events by their start times, and then preprocess the maximum value starting from each event, i.e., $f[i]$ represents the maximum value of choosing one event from the $i$-th event to the last event.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1482.Minimum%20Number%20of%20Days%20to%20Make%20m%20Bouquets/README_EN.md
 rating: 1945
 source: Weekly Contest 193 Q3
 tags:
@@ -77,6 +76,14 @@ It is obvious that we can make two bouquets in different ways.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> More days only make it easier to form $m$ bouquets. $n\le 10^5$ and bloom days reach $10^9$, so binary-search the day. The check counts adjacent blooms of length $k$. If no day works, return $-1$.
+
+<!-- thinking:end -->
 
 According to the problem description, if a day $t$ can satisfy making $m$ bouquets, then for any $t' > t$, it can also satisfy making $m$ bouquets. Therefore, we can use binary search to find the minimum day that satisfies making $m$ bouquets.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0661.Image%20Smoother/README_EN.md
 tags:
     - Array
     - Matrix
@@ -59,6 +58,16 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 <!-- solution:start -->
 
 ### Solution 1: Direct Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cell becomes the floor-average of itself and its (up to eight) neighbors. A $200\times 200$ grid can be scanned directly.
+>
+> For $(i,j)$ sum the in-bound cells of $[i-1,i+1]\times[j-1,j+1]$ into a new matrix so in-place writes do not affect neighbors.
+
+<!-- thinking:end -->
 
 We create a 2D array $\textit{ans}$ of size $m \times n$, where $\textit{ans}[i][j]$ represents the smoothed value of the cell in the $i$-th row and $j$-th column of the image.
 

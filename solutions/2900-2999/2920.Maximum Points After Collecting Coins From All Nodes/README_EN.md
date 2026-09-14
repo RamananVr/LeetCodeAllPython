@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md
 rating: 2350
 source: Weekly Contest 369 Q4
 tags:
@@ -78,6 +77,16 @@ Coins will be collected from all the nodes using the first way. Therefore, total
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At each node we may subtract $k$ or right-shift every remaining coin. The shift applies to the unprocessed subtree, and coins are at most $10^4$, so about $14$ shifts wipe them out; the shift count is a tiny extra state.
+>
+> $dfs(i,fa,j)$ is the best score at $i$ after $j$ shifts: take $(coins[i] \gg j)-k$ and recurse with $j$, or take $coins[i] \gg (j+1)$ and recurse with $j+1$ when $j<14$. Memoized DFS from the root yields the answer.
+
+<!-- thinking:end -->
 
 First, we construct a graph $g$ based on the edges given in the problem, where $g[i]$ represents all adjacent nodes of node $i$. Then we can use the method of memoization search to solve this problem.
 

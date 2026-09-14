@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README_EN.md
 rating: 1256
 source: Biweekly Contest 76 Q1
 tags:
@@ -55,6 +54,16 @@ Thus, the closest number to 0 in the array is 1.
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the value closest to zero, breaking ties toward the larger number. $n \le 10^3$ would allow a sort, but a single running optimum is enough.
+>
+> Scan once: replace the answer when the absolute value is smaller, or equal and the number itself is larger.
+
+<!-- thinking:end -->
 
 We define a variable $\textit{d}$ to record the current minimum distance, initially $\textit{d}=\infty$. Then we traverse the array, for each element $x$, we calculate $y=|x|$. If $y \lt d$ or $y=d$ and $x \gt \textit{ans}$, we update the answer $\textit{ans}=x$ and $\textit{d}=y$.
 

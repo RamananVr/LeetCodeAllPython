@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md
 tags:
     - Database
 ---
@@ -94,6 +93,18 @@ Result table orderd by employee_id, project_id in ascending order.
 <!-- solution:start -->
 
 ### Solution 1: Grouping Statistics + Equi-Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want employee–project rows whose workload exceeds the team average. That average is not in the employee table alone; it uses project workloads.
+>
+> Join projects to employees, average workload by $\textit{team}$, and keep rows above that mean.
+>
+> Two merges (compute the mean, then join it back) followed by a sort on employee and project id.
+
+<!-- thinking:end -->
 
 First, we join the `Project` table and the `Employees` table based on `employee_id`, then group by `team` to calculate the average workload of each team, and record it in the temporary table `T`.
 

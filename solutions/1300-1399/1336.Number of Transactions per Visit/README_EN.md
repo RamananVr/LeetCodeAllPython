@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/README_EN.md
 tags:
     - Database
 ---
@@ -120,6 +119,14 @@ Transactions table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must count visits by how many transactions they contain, listing every integer from $0$ through the maximum even when a bucket is empty. A recursive CTE builds that axis; visits left-join per-user-date transaction counts (default $0$); grouping by the count yields $\textit{visits\_count}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1885.Count%20Pairs%20in%20Two%20Arrays/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count pairs $i<j$ with $nums1[i]+nums1[j]>nums2[i]+nums2[j]$. This is $a[i]+a[j]>0$ for $a=nums1-nums2$. A nested loop is $O(n^2)$ and too slow for $n\le 10^5$.
+>
+> Sort $a$ and move $r$ from the right: advance $l$ until $a[l]+a[r]>0$, then all indices in $[l,r)$ pair with $r$. Each pointer travels once.
+
+<!-- thinking:end -->
 
 We can transform the inequality in the problem to $\textit{nums1}[i] - \textit{nums2}[i] + \textit{nums1}[j] - \textit{nums2}[j] > 0$, which simplifies to $\textit{nums}[i] + \textit{nums}[j] > 0$, where $\textit{nums}[i] = \textit{nums1}[i] - \textit{nums2}[i]$.
 

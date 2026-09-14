@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0292.Nim%20Game/README_EN.md
 tags:
     - Brainteaser
     - Minimax
@@ -71,6 +70,14 @@ In all outcomes, your friend wins.
 <!-- solution:start -->
 
 ### Solution 1: Finding the Pattern
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each turn takes $1$ to $3$ stones. A multiple of $4$ cannot be cleared in one move, and the opponent can always restore a multiple of $4$. The first player wins iff $n$ is not divisible by $4$.
+
+<!-- thinking:end -->
 
 The first player who gets a multiple of $4$ (i.e., $n$ can be divided by $4$) will lose the game.
 

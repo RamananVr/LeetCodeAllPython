@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0817.Linked%20List%20Components/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -57,6 +56,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A component is a maximal run of $nums$ values on the list. $n\le 10^4$, so a set lookup plus one walk is enough; no graph is required.
+>
+> Skip nodes outside the set. Each time a run inside the set begins, count one component and advance past the whole run.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2889.Reshape%20Data%20Pivot/README_EN.md
 tags:
     - Pandas
 ---
@@ -67,6 +66,14 @@ DataFrame <code>weather</code>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Months should become the index, cities the columns, and temperatures the values. `pivot` reshapes those three fields, each (month, city) holding a unique temperature.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

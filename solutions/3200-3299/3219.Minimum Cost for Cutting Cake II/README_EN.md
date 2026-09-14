@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3219.Minimum%20Cost%20for%20Cutting%20Cake%20II/README_EN.md
 rating: 1789
 source: Weekly Contest 406 Q4
 tags:
@@ -98,6 +97,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The problem matches Cutting Cake I, but $m,n\le 10^5$, so exponential or quadratic DP is gone; we must keep the “cut large costs first” merge.
+>
+> Sort both cost arrays descending and always cut the currently larger side, adding $h$ or $v$ times that cost. Sorting is $O((m+n)\log(m+n))$ and the merge is linear, which matches the limits.
+
+<!-- thinking:end -->
 
 For a given position, the earlier you cut, the fewer cuts are needed, so it is clear that positions with higher costs should be cut earlier.
 

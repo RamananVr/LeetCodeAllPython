@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1834.Single-Threaded%20CPU/README_EN.md
 rating: 1797
 source: Weekly Contest 237 Q3
 tags:
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An idle CPU picks the arrived task with the shortest processing time (then smallest index). Scanning every task each time is $O(n^2)$. With $n\le 10^5$ this will not pass.
+>
+> Sort by enqueue time and keep arrived tasks in a min-heap of $(\textit{processingTime},\textit{index})$. Advance time to the next arrival or to the finish of the heap top, then push newly available tasks. The heap implements the scheduling rule directly.
+
+<!-- thinking:end -->
 
 First, we sort the tasks by `enqueueTime` in ascending order. Next, we use a priority queue (min heap) to maintain the currently executable tasks. The elements in the queue are `(processingTime, index)`, which represent the execution time and the index of the task. We also use a variable $t$ to represent the current time, initially set to $0$.
 

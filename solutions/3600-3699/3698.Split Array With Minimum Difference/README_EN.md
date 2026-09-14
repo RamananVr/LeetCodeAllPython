@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README_EN.md
 rating: 1648
 source: Weekly Contest 469 Q2
 tags:
@@ -152,6 +151,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Two Arrays to Record Monotonicity
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cut after $i$ needs a strictly increasing left half and a strictly decreasing right half, minimizing the absolute difference of sums. $n\le 10^5$ forbids rechecking monotonicity at every cut.
+>
+> Prefix sums give the two sums. $f[i]$ is whether $[0,i]$ is strictly increasing and $g[i]$ whether $[i,n-1]$ is strictly decreasing; each array is filled in one scan.
+>
+> A cut is legal only when $f[i]$ and $g[i+1]$ both hold; update $|s[i]-(s[n-1]-s[i])|$. If none exist, return $-1$.
+
+<!-- thinking:end -->
 
 We use a prefix sum array $s$ to record the prefix sum of the array, where $s[i]$ represents the sum of the array $[0,..i]$. Then we use two boolean arrays $f$ and $g$ to record the monotonicity of prefixes and suffixes respectively, where $f[i]$ indicates whether the array $[0,..i]$ is strictly increasing, and $g[i]$ indicates whether the array $[i,..n-1]$ is strictly decreasing.
 

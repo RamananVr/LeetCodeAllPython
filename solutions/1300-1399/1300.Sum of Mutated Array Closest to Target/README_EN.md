@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README_EN.md
 rating: 1606
 source: Biweekly Contest 16 Q2
 tags:
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning the array for every candidate $\textit{value}$ costs $O(n \times M)$. With $n \le 10^4$ and $M \le 10^5$, that is too slow.
+>
+> The mutated sum depends only on keeping values at most $\textit{value}$ and replacing the rest by $\textit{value}$. After sorting, that split is a prefix: binary search finds the cut, and a prefix-sum array evaluates the kept part. Enumerating $\textit{value}$ from $0$ to $\max(\textit{arr})$ then costs $O(\log n)$ per candidate; we keep the value whose mutated sum is closest to $\textit{target}$, breaking ties toward the smaller value.
+
+<!-- thinking:end -->
 
 We notice that the problem requires changing all values greater than `value` to `value` and then summing them up. Therefore, we can consider sorting the array `arr` first, and then calculating the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array.
 

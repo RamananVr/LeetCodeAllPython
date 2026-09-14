@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README_EN.md
 rating: 1494
 source: Biweekly Contest 92 Q3
 tags:
@@ -80,6 +79,14 @@ Closing the shop at 2<sup>nd</sup> or 4<sup>th</sup> hour gives a minimum penalt
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Closing at hour $j$ costs one per earlier `N` and one per later `Y`. At $n\le 10^5$, start from closing at $0$ (all `Y`s). Moving the close one hour later adds $1$ on `N` and subtracts $1$ on `Y`. Keep the earliest $j$ with minimum cost.
+
+<!-- thinking:end -->
 
 If the shop closes at hour $0$, then the cost is the number of character `'Y'` in $\textit{customers}$. We initialize the answer variable $\textit{ans}$ to $0$, and the cost variable $\textit{cost}$ to the number of character `'Y'` in $\textit{customers}$.
 

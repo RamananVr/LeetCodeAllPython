@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README_EN.md
 rating: 1854
 source: Weekly Contest 503 Q3
 tags:
@@ -90,6 +89,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The allowed operations are combinations of rotate and reverse, not arbitrary permutations. If the array can be sorted, the cyclic order starting at $0$ must be increasing in one direction or the other.
+>
+> Locate $0$ at $\textit{zero}$ and test step $+1$ and step $-1$. For each valid direction the rotate count and the “reverse–rotate–reverse” count follow from $\textit{zero}$ and $n$; take the minimum, or report impossible if neither direction is sorted.
+>
+> The check is $O(n)$ and never simulates the operations step by step.
+
+<!-- thinking:end -->
 
 We first find the position of `0` in the array, denoted as $\textit{zero}$.
 

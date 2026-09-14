@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README_EN.md
 tags:
     - Database
 ---
@@ -97,6 +96,14 @@ The unique ID of Jonathan is 1.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Attach each employee's name to their $\textit{unique\_id}$, or null if none exists. A left join keeps employees without an id, leaving $\textit{unique\_id}$ null.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

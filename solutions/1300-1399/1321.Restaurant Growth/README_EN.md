@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1321.Restaurant%20Growth/README_EN.md
 tags:
     - Database
 ---
@@ -86,6 +85,14 @@ Customer table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each date needs the sum and daily average over the inclusive $7$-day window ending that day, and the window must be full. Aggregate amount by day, then a $\mathrm{ROWS}\,6\,\mathrm{PRECEDING}$ window sum along the ordered dates, dropping the first six ranks, yields every valid seven-day average.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -123,6 +130,14 @@ WHERE rk > 6;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Window functions are not required. Distinct dates $a$ joined to detail rows $b$ whose date difference lies in $[0,6]$, restricted to $a$ at least six days after the minimum date, produce the same full seven-day sums without window syntax.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3628.Maximum%20Number%20of%20Subsequences%20After%20One%20Inserting/README_EN.md
 rating: 1753
 source: Weekly Contest 460 Q2
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> "LCT" subsequences are counted by multiplying left-hand $L$s and right-hand $T$s at each $C$. One optional insertion and $n\le 10^5$ forbid recomputing every site.
+>
+> Inserting $L$ adds the number of "CT" pairs, inserting $T$ adds "LC", and inserting $C$ adds some $l\cdot r$. The last is available in the same scan; the first two are two-letter subsequence counts.
+>
+> While walking, maintain $l,r$ and the maximum $l\cdot r$, then take the max with $\textit{calc}(\text{LC})$ and $\textit{calc}(\text{CT})$ and add it to the original "LCT" count.
+
+<!-- thinking:end -->
 
 We can first calculate the number of "LCT" subsequences in the original string, then consider the case of inserting one letter.
 

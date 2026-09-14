@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README_EN.md
 rating: 2610
 source: Biweekly Contest 41 Q4
 tags:
@@ -96,7 +95,17 @@ So the total number of trips is 2 + 2 + 2 = 6.
 
 <!-- solution:start -->
 
-### Solution 1: Dynamic Programming + Monotonic Queue Optimization
+### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boxes must be taken in contiguous prefix segments with count and weight caps. A trip includes the warehouse round-trip plus jumps between distinct adjacent ports. $f[i]$ is the fewest trips to finish $i$ boxes, enumerating the previous cut $j$.
+>
+> Port jumps are a prefix $cs$ plus $2$ for the round-trip. At $n=10^5$ this $O(n^2)$ transition is only a correct baseline.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the minimum number of trips required to transport the first $i$ boxes from the warehouse to the corresponding docks, so the answer is $f[n]$.
 
@@ -117,10 +126,13 @@ Where $\sum_{k = j + 1}^i \textit{cost}(k)$ represents the number of trips requi
 
 For example, suppose we take out boxes $1, 2, 3$ and need to deliver them to docks $4, 4, 5$. We first go from the warehouse to dock $4$, then from dock $4$ to dock $5$, and finally from dock $5$ back to the warehouse. It can be seen that it takes $2$ trips to go from the warehouse to the dock and from the dock back to the warehouse. The number of trips from dock to dock depends on whether the two adjacent docks are the same. If they are not the same, the number of trips will increase by $1$, otherwise it remains the same. Therefore, we can calculate the number of trips between docks using prefix sums, and add two trips for the start and end, to calculate the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks.
 
-The code implementation is as follows:
+The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the number of boxes. This approach exceeds the time limit under the given constraints.
+
+<!-- tabs:start -->
+
+#### Python3
 
 ```python
-# 33/39
 class Solution:
     def boxDelivering(
         self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
@@ -138,95 +150,25 @@ class Solution:
         return f[n]
 ```
 
-```java
-// 35/39
-class Solution {
-    public int boxDelivering(int[][] boxes, int portsCount, int maxBoxes, int maxWeight) {
-        int n = boxes.length;
-        long[] ws = new long[n + 1];
-        int[] cs = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int p = boxes[i][0], w = boxes[i][1];
-            ws[i + 1] = ws[i] + w;
-            if (i < n - 1) {
-                cs[i + 1] = cs[i] + (p != boxes[i + 1][0] ? 1 : 0);
-            }
-        }
-        int[] f = new int[n + 1];
-        Arrays.fill(f, 1 << 30);
-        f[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = Math.max(0, i - maxBoxes); j < i; ++j) {
-                if (ws[i] - ws[j] <= maxWeight) {
-                    f[i] = Math.min(f[i], f[j] + cs[i - 1] - cs[j] + 2);
-                }
-            }
-        }
-        return f[n];
-    }
-}
-```
+<!-- tabs:end -->
 
-```cpp
-// 35/39
-class Solution {
-public:
-    int boxDelivering(vector<vector<int>>& boxes, int portsCount, int maxBoxes, int maxWeight) {
-        int n = boxes.size();
-        long ws[n + 1];
-        int cs[n];
-        ws[0] = cs[0] = 0;
-        for (int i = 0; i < n; ++i) {
-            int p = boxes[i][0], w = boxes[i][1];
-            ws[i + 1] = ws[i] + w;
-            if (i < n - 1) cs[i + 1] = cs[i] + (p != boxes[i + 1][0]);
-        }
-        int f[n + 1];
-        memset(f, 0x3f, sizeof f);
-        f[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = max(0, i - maxBoxes); j < i; ++j) {
-                if (ws[i] - ws[j] <= maxWeight) {
-                    f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2);
-                }
-            }
-        }
-        return f[n];
-    }
-};
-```
+<!-- solution:end -->
 
-```go
-// 35/39
-func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
-	n := len(boxes)
-	ws := make([]int, n+1)
-	cs := make([]int, n)
-	for i, box := range boxes {
-		p, w := box[0], box[1]
-		ws[i+1] = ws[i] + w
-		if i < n-1 {
-			t := 0
-			if p != boxes[i+1][0] {
-				t++
-			}
-			cs[i+1] = cs[i] + t
-		}
-	}
-	f := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		f[i] = 1 << 30
-		for j := max(0, i-maxBoxes); j < i; j++ {
-			if ws[i]-ws[j] <= maxWeight {
-				f[i] = min(f[i], f[j]+cs[i-1]-cs[j]+2)
-			}
-		}
-	}
-	return f[n]
-}
-```
+<!-- solution:start -->
 
-The data scale of this problem reaches $10^5$, and the time complexity of the above code is $O(n^2)$, which will exceed the time limit. If we observe carefully:
+### Solution 2: Dynamic Programming + Monotonic Queue Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 seeks the minimum $f[j]-cs[j]$ in $[i-\textit{maxBoxes},i)$ under a weight prefix constraint. A monotone queue holds candidate $j$ so each transfer is amortized $O(1)$.
+>
+> Pop the front when count or weight is violated and keep $f-cs$ increasing at the back, for $O(n)$ total time.
+
+<!-- thinking:end -->
+
+The data scale of this problem reaches $10^5$, and the time complexity of Solution 1 is $O(n^2)$, which exceeds the time limit. If we observe carefully:
 
 $$
 f[i] = \min(f[i], f[j] + cs[i - 1] - cs[j] + 2)

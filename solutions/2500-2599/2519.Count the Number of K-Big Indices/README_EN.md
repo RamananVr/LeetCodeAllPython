@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README_EN.md
 tags:
     - Binary Indexed Tree
     - Segment Tree
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Index $i$ is $k$-big iff at least $k$ strictly smaller values lie to its left and the same holds on the right. Scanning both sides for every $i$ is quadratic at $n\le 10^5$.
+>
+> Values can be treated as up to $n$. Two Fenwick trees store frequencies. Insert every value into the right tree first; when scanning left to right, remove the current value from the right, query how many stored values are $<v$ on each side, then insert $v$ on the left. Each index costs $O(\log n)$.
+
+<!-- thinking:end -->
 
 We maintain two binary indexed trees, one records the number of elements smaller than the current position on the left, and the other records the number of elements smaller than the current position on the right.
 

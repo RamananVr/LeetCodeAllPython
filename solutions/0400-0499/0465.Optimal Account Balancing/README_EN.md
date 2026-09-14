@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0465.Optimal%20Account%20Balancing/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -65,6 +64,18 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the fewest transfers that zero every balance. People already at $0$ drop out. Searching transfer orders among the remaining $m\le 12$ people is still large; subset DP is the right grain.
+>
+> A subset whose balances sum to $0$ needs at most $|S|-1$ transfers. $f[i]$ is that minimum for mask $i$: only a zero-sum mask is feasible, starting from $|i|-1$ and trying $f[j]+f[i\oplus j]$ over nonempty proper subsets.
+>
+> Subset enumeration is $O(3^m)$. Collapse transactions into nonzero balances first, and transfer only on zero-sum masks.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

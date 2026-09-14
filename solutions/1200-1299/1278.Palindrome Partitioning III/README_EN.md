@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1278.Palindrome%20Partitioning%20III/README_EN.md
 rating: 1979
 source: Weekly Contest 165 Q4
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the string into $k$ palindromes with the fewest changes. $n \le 100$ suits DP. The cost to make a segment a palindrome is precomputed: one if the ends differ, plus the inner cost.
+>
+> $f[i][j]$ is the fewest changes to split the first $i$ characters into $j$ parts; we try the previous part's end $h$ and add $g[h][i-1]$. Precompute in $O(n^2)$; transitions in $O(n^2 k)$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the minimum number of changes needed to partition the first $i$ characters of the string $s$ into $j$ palindromic substrings. We assume the index $i$ starts from 1, and the answer is $f[n][k]$.
 

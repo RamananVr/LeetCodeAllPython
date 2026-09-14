@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3623.Count%20Number%20of%20Trapezoids%20I/README_EN.md
 rating: 1579
 source: Weekly Contest 459 Q2
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only trapezoids with two horizontal sides are counted, so a horizontal side is a pair of points sharing a $y$. Four-point enumeration fails at $n\le 10^5$.
+>
+> Group by $y$; a group of $v$ points contributes $\binom{v}{2}$ horizontal sides. Any two such sides on distinct $y$ determine one trapezoid.
+>
+> Scan groups, let $s$ be the number of horizontal sides already seen, add $s\cdot t$ for the current group of $t$ sides, then add $t$ into $s$. Reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 According to the problem description, horizontal edges have the same $y$ coordinate. Therefore, we can group points by their $y$ coordinates and count the number of points for each $y$ coordinate.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ask whether $subRoot$ equals some subtree of $root$. Comparing at every node is $O(mn)$ in the worst case and fits the limits.
+>
+> `same` walks two trees together. The outer DFS invokes `same` at each node and returns on the first hit. Compare the root first so mismatches exit early.
+
+<!-- thinking:end -->
 
 We define a helper function $\textit{same}(p, q)$ to determine whether the tree rooted at $p$ and the tree rooted at $q$ are identical. If the root values of the two trees are equal, and their left and right subtrees are also respectively equal, then the two trees are identical.
 

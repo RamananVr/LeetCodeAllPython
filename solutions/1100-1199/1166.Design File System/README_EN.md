@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1166.Design%20File%20System/README_EN.md
 rating: 1479
 source: Biweekly Contest 7 Q2
 tags:
@@ -81,6 +80,14 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 <!-- solution:start -->
 
 ### Solution 1: Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths split on `/`. Create requires the parent to exist and the path to be new; get walks the segments. A trie stores segments as edges: insert demands every prefix child except the last, and rejects a duplicate last segment; get returns $-1$ if any segment is missing. Hash children make each hop expected constant time.
+
+<!-- thinking:end -->
 
 We can use a trie to store the paths, where each node stores a value, representing the value of the path corresponding to the node.
 

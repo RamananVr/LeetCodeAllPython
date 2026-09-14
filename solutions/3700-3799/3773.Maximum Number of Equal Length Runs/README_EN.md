@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3773.Maximum%20Number%20of%20Equal%20Length%20Runs/README_EN.md
 tags:
     - Hash Table
     - String
@@ -64,6 +63,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may keep only runs of one common length, so the answer is the most frequent run length. One `groupby` pass counts lengths and we take the maximum frequency.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to record the number of occurrences of each run length. We traverse the string $s$, and for each run, we calculate its length $m$ and increment $\textit{cnt}[m]$ by $1$. Finally, the answer is the maximum value in $\textit{cnt}$.
 

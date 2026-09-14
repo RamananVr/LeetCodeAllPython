@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3931.Check%20Adjacent%20Digit%20Differences/README_EN.md
 rating: 1165
 source: Weekly Contest 502 Q1
 tags:
@@ -70,6 +69,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string is at most length $100$; we only need every pair of adjacent digits to differ by at most $2$. Map characters to integers and test $\textit{pairwise}$ absolute differences.
+>
+> No extra structure is required beyond one linear scan.
+
+<!-- thinking:end -->
 
 We can simulate the process described in the problem: iterate through each pair of adjacent digits in the string and compute their absolute difference. If any pair has an absolute difference greater than 2, return $\text{false}$. If no such pair is found after the traversal, return $\text{true}$.
 

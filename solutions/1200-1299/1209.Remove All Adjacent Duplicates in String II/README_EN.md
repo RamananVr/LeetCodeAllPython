@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1209.Remove%20All%20Adjacent%20Duplicates%20in%20String%20II/README_EN.md
 rating: 1541
 source: Weekly Contest 156 Q3
 tags:
@@ -64,6 +63,18 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly scanning and deleting $k$ equal characters can rescan the string many times when $n \le 10^5$. Deletion is local: only adjacent runs merge, and the two sides may meet again after a deletion.
+>
+> A stack keeps surviving characters and their run lengths in left-to-right order. Matching the top increments the count; reaching $k$ pops the run, i.e. one erasure.
+>
+> We store $(char, count)$ and take the count modulo $k$ so a full run pops immediately. After one pass the stack is the final string.
+
+<!-- thinking:end -->
 
 We can traverse the string $s$, maintaining a stack that stores the characters and their occurrence counts. When traversing to character $c$, if the character at the top of the stack is the same as $c$, we increment the count of the top element by one; otherwise, we push the character $c$ and count $1$ into the stack. When the count of the top element equals $k$, we pop the top element from the stack.
 

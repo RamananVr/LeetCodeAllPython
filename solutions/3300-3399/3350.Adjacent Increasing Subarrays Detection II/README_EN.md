@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README_EN.md
 rating: 1600
 source: Weekly Contest 423 Q2
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Part I only tested a given $k$; here we need the maximum $k$. With $n \le 2 \times 10^5$ the same break scan must keep the answer.
+>
+> The candidates remain “split one run in half” and “take the shorter of two neighboring runs”.
+>
+> The running maximum at the end is the largest feasible $k$.
+
+<!-- thinking:end -->
 
 We can use a single pass to calculate the maximum length of adjacent increasing subarrays $\textit{ans}$. Specifically, we maintain three variables: $\textit{cur}$ and $\textit{pre}$ represent the length of the current increasing subarray and the previous increasing subarray respectively, while $\textit{ans}$ represents the maximum length of adjacent increasing subarrays.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README_EN.md
 tags:
     - Database
 ---
@@ -107,6 +106,16 @@ Result table is ordered by product_id in ascending order.</div>
 <!-- solution:start -->
 
 ### Solution 1: Left Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The final price is the list price times $(100-\textit{discount})/100$, missing discounts treated as $0$. A left join on category keeps products without a discount.
+>
+> Left-join `Discounts` onto `Products`, fill null discounts with $0$, compute `final_price`, and sort by `product_id`.
+
+<!-- thinking:end -->
 
 We can perform a left join between the `Products` table and the `Discounts` table on the `category` column, then calculate the final price. If a product's category does not have an associated discount, its price remains unchanged.
 

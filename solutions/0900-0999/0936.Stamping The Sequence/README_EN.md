@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0936.Stamping%20The%20Sequence/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Thinking + Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Forward stamping overwrites earlier marks, so it is hard to know when a stamp is legal. Work backward from $target$ toward question marks: a window can be “unstamped” once every still-visible letter matches the stamp.
+>
+> The in-degree of a window is the number of mismatched letters; each position points at the windows that still need it. Windows of degree $0$ enter a queue; unstamping them notifies neighbors. If every cell is covered, reverse the order to obtain a forward sequence.
+
+<!-- thinking:end -->
 
 If we operate on the sequence in a forward manner, it would be quite complicated because subsequent operations would overwrite previous ones. Therefore, we consider operating on the sequence in a reverse manner, i.e., starting from the target string $target$ and considering the process of turning $target$ into $?????$.
 

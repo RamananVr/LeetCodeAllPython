@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3531.Count%20Covered%20Buildings/README_EN.md
 rating: 1518
 source: Weekly Contest 447 Q1
 tags:
@@ -111,6 +110,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A building is covered when others stand to its left and right on the same row and above and below on the same column. Scanning a whole row and column per building is slow.
+>
+> Group by $x$ and by $y$ and sort each group. $(x,y)$ is covered iff $y$ lies strictly between the column extrema and $x$ lies strictly between the row extrema.
+
+<!-- thinking:end -->
 
 We can group the buildings by their x-coordinates and y-coordinates, storing them in hash tables $\text{g1}$ and $\text{g2}$, respectively. Here, $\text{g1[x]}$ represents all y-coordinates for buildings with x-coordinate $x$, and $\text{g2[y]}$ represents all x-coordinates for buildings with y-coordinate $y$. Then, we sort these lists.
 

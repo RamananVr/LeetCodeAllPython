@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md
 rating: 1348
 source: Weekly Contest 133 Q1
 tags:
@@ -70,6 +69,18 @@ The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interv
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Choosing which $n$ of $2n$ people fly to $A$ is exponential if done by subsets. Sending everyone to $B$ and then switching $n$ people to $A$ changes the cost by $aCost-bCost$.
+>
+> The people with the smallest (most negative) differences save the most when switched. Sorting by $aCost-bCost$ and sending the first half to $A$ and the rest to $B$ is optimal.
+>
+> The answer is the corresponding half-and-half sum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

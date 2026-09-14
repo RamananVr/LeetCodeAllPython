@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0755.Pour%20Water/README_EN.md
 tags:
     - Array
     - Simulation
@@ -79,6 +78,18 @@ Finally, the fourth droplet falls at index k = 3. Since moving left would not ev
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Drop water at index $k$, one unit at a time: flow left to a lower valley if possible, else right, else stay. Heights and volume are small.
+>
+> A walk in direction $d$ may continue while the next bar is not higher, remembering the last strictly lower index—the valley floor.
+>
+> Try $d=-1$ then $d=1$; increment that $j$ if it moved, otherwise increment $k$.
+
+<!-- thinking:end -->
 
 We can simulate the process of each unit of water dropping. Each time a drop falls, we first try to move left. If it can move to a lower height, it moves to the lowest height; if it cannot move to a lower height, we try to move right. If it can move to a lower height, it moves to the lowest height; if it cannot move to a lower height, it rises at the current position.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1405.Longest%20Happy%20String/README_EN.md
 rating: 1820
 source: Weekly Contest 183 Q3
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a+b+c\le 300$ would allow search, but the optimum follows a local rule: always spend the letter that remains most often, without three identical characters in a row.
+>
+> If the last two characters are already that letter, take the second-most instead. A max-heap by remaining count implements this: pop, append if legal, otherwise pop the next, then push leftovers back.
+>
+> Stop when no letter can be appended, which yields the longest happy string.
+
+<!-- thinking:end -->
 
 The greedy strategy is to prioritize the selection of characters with the most remaining occurrences. By using a priority queue or sorting, we ensure that the character selected each time is the one with the most remaining occurrences (to avoid having three consecutive identical characters, in some cases, we need to select the character with the second most remaining occurrences).
 

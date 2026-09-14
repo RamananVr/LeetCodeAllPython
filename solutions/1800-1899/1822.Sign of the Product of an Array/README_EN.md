@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README_EN.md
 rating: 1209
 source: Weekly Contest 236 Q1
 tags:
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Direct Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sign of the product depends only on zeros and the number of negatives. Computing the full product can overflow.
+>
+> Keep a running sign $ans$, return $0$ on a zero, and flip $ans$ on a negative. The scan yields the sign without multiplying the values themselves.
+
+<!-- thinking:end -->
 
 The problem requires us to return the sign of the product of the array elements, i.e., return $1$ for positive numbers, $-1$ for negative numbers, and $0$ if it equals $0$.
 

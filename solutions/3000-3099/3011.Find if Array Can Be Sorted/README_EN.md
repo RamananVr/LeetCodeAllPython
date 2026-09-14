@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md
 rating: 1496
 source: Biweekly Contest 122 Q2
 tags:
@@ -71,6 +70,18 @@ Note that there may be other sequences of operations which also sort the array.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$. Two values may be swapped iff they have the same popcount, so each equal-popcount run can be freely reordered.
+>
+> The array is sortable iff the sorted runs concatenate, i.e. the minimum of the current run is at least the maximum of the previous one.
+>
+> Two pointers cut the array by popcount, track each run’s extrema, and compare against the previous maximum.
+
+<!-- thinking:end -->
 
 We can use two pointers to divide the array $\textit{nums}$ into several subarrays, each subarray containing elements with the same number of $1$s in their binary representation. For each subarray, we only need to focus on its maximum and minimum values. If the minimum value is less than the maximum value of the previous subarray, then it is impossible to make the array ordered by swapping.
 

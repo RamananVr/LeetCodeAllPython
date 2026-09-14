@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README_EN.md
 rating: 1439
 source: Weekly Contest 464 Q2
 tags:
@@ -97,6 +96,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must partition into groups of $k$ distinct values. If $k$ does not divide $n$, the number of groups is not an integer.
+>
+> There are $m=n/k$ groups. A value cannot appear twice in one group, so no frequency may exceed $m$.
+>
+> The bound is also sufficient: frequencies at most $m$ can be rotated across the $m$ groups. Compare the maximum count with $m$.
+
+<!-- thinking:end -->
 
 We denote the length of the array as $n$. If $n$ is not divisible by $k$, then we cannot partition the array into groups where each group contains $k$ elements, so we directly return $\text{false}$.
 

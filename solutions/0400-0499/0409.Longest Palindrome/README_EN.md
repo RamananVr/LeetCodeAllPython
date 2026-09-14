@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0409.Longest%20Palindrome/README_EN.md
 tags:
     - Greedy
     - Hash Table
@@ -53,6 +52,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindrome allows at most one odd-count character; the rest must pair. We do not need to try permutations, only how many pairs each character can give.
+>
+> After counting, add $v//2\times 2$ for every frequency $v$. If the total is still shorter than $|s|$, one leftover character can sit in the center.
+>
+> Taking pairs first, then the optional center, yields a maximum feasible length.
+
+<!-- thinking:end -->
+
 A valid palindrome string can have at most one character that appears an odd number of times, and the rest of the characters appear an even number of times.
 
 Therefore, we can first traverse the string $s$, count the number of occurrences of each character, and record it in an array or hash table $cnt$.
@@ -83,6 +94,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 counts, then sums. XORing a parity flag while scanning and tracking the number of odd characters $\textit{cnt}$ gives $n-\textit{cnt}+1$ (keep one center) or $n$.
+>
+> The second pass over the frequency table disappears; space is still the alphabet size.
+
+<!-- thinking:end -->
 
 We can use an array or hash table $odd$ to record whether each character in string $s$ appears an odd number of times, and an integer variable $cnt$ to record the number of characters that appear an odd number of times.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md
 rating: 1793
 source: Biweekly Contest 85 Q3
 tags:
@@ -61,6 +60,16 @@ Finally, shift the characters from index 1 to index 1 forward. Now s = &quot;cat
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many range shifts of $\pm 1$ wrap around the alphabet. Both $n$ and the number of operations reach $5 \times 10^4$, so we cannot rewrite a range each time.
+>
+> A difference array adds the direction at $l$ and subtracts it at $r+1$. The prefix is the net shift; reduce modulo $26$ and write the letter.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

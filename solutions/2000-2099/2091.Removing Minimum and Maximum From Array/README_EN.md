@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README_EN.md
 rating: 1384
 source: Weekly Contest 269 Q3
 tags:
@@ -76,6 +75,16 @@ We can remove it with 1 deletion.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deletions happen only at the ends; both the minimum and maximum indices must go. Three plans: delete from the left through the righter index, from the right through the lefter, or from both ends.
+>
+> Locate $mi,mx$, order them, and take $\min(mx+1,\,n-mi,\,mi+1+n-mx)$. One scan finds the extrema.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

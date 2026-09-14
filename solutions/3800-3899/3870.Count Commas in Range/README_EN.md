@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3870.Count%20Commas%20in%20Range/README_EN.md
 rating: 1149
 source: Weekly Contest 493 Q1
 tags:
@@ -66,6 +65,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count thousands-separator commas used when writing $[1,n]$. $n \le 10^5$, so numbers have at most six digits and at most one comma each.
+>
+> $1$ through $999$ have none; each integer from $1000$ to $n$ has exactly one.
+>
+> The answer is $\max(0,n-999)$.
+>
+> Constant time, no enumeration.
+
+<!-- thinking:end -->
 
 Numbers from 1 to 999 contain no commas, so when $n$ is less than or equal to 999, the answer is 0.
 

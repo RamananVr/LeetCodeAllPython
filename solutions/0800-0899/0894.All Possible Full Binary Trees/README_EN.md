@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README_EN.md
 tags:
     - Tree
     - Recursion
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A full binary tree has $0$ or $2$ children per node, and $n\le 20$. Even $n$ is impossible; for odd $n$ we enumerate the left subtree’s size.
+>
+> Memoize $dfs(n)$: the root takes one node, the rest split between left and right. Every Cartesian pair of subtrees hangs under a new root. $n=1$ is a single node.
+
+<!-- thinking:end -->
 
 If $n=1$, return a list with a single node directly.
 

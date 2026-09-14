@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README_EN.md
 rating: 1645
 source: Weekly Contest 398 Q3
 tags:
@@ -68,6 +67,18 @@ All the integers in the array are the same. So the total sum of digit difference
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum digit-wise mismatches over every pair. Pairwise comparison is $O(n^2m)$ and $n$ can be $10^5$.
+>
+> Digits are independent. In one place, $v$ copies of a digit mismatch the other $n-v$ numbers; divide by two to uncount pairs twice.
+>
+> Peel the last digit of every value, count $0..9$, and add $v(n-v)/2$. There are only a few digit places.
+
+<!-- thinking:end -->
 
 First, we get the number of digits $m$ in the array. Then for each digit, we count the occurrence of each number at this digit in the array `nums`, denoted as `cnt`. Therefore, the sum of the digit differences of all number pairs at this digit is:
 

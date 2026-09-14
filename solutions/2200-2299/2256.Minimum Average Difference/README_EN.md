@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2256.Minimum%20Average%20Difference/README_EN.md
 rating: 1394
 source: Biweekly Contest 77 Q2
 tags:
@@ -72,6 +71,16 @@ The average difference of index 0 is: |0 / 1 - 0| = |0 - 0| = 0.
 <!-- solution:start -->
 
 ### Solution 1: Traverse
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each split, compare the integer averages of the two sides and take the leftmost minimum. $n \le 10^5$ forbids summing from scratch. Both side sums can be maintained while scanning.
+>
+> Start with total $suf$, move $x$ into $pre$, and treat an empty right side as average $0$. Record the index of the smallest absolute difference.
+
+<!-- thinking:end -->
 
 We directly traverse the array $nums$. For each index $i$, we maintain the sum of the first $i+1$ elements $pre$ and the sum of the last $n-i-1$ elements $suf$. We calculate the absolute difference of the average of the first $i+1$ elements and the average of the last $n-i-1$ elements, denoted as $t$. If $t$ is less than the current minimum value $mi$, we update the answer $ans=i$ and the minimum value $mi=t$.
 

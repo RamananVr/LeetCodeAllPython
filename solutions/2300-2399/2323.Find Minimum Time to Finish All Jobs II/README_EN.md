@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README_EN.md
 tags:
     - Greedy
     - Array
@@ -66,6 +65,16 @@ It can be proven that 3 days is the minimum number of days needed.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each worker takes exactly one job; the time is the max of $\lceil jobs_i / workers_j \rceil$. Counts are equal, so only the matching matters.
+>
+> Pairing a heavy job with a slow worker raises the maximum. Sort both arrays and match by index so stronger workers take heavier jobs, then take the max of the ceilings.
+
+<!-- thinking:end -->
 
 To minimize the number of days required to complete all jobs, we can try to assign longer jobs to workers who can work longer hours.
 

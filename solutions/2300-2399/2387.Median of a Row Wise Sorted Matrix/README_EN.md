@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Binary Searches
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is sorted; we need the median of the whole matrix without flattening. It is the $\lceil mn/2 \rceil$-th value, so we binary-search the value domain.
+>
+> To test $x$, $bisect$ each row for the count of entries $\le x$. If that count meets the target, the median is at most $x$. An outer search on the domain finishes it.
+
+<!-- thinking:end -->
 
 The median is actually the $target = \left \lceil \frac{m \times n}{2} \right \rceil$-th number after sorting.
 

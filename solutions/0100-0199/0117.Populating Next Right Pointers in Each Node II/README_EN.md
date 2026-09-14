@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -73,6 +72,14 @@ struct Node {
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the previous problem, the tree need not be perfect, so a left child does not always connect to a right child. Level-order is still correct: dequeue a level and link neighbors. $n \le 6000$.
+
+<!-- thinking:end -->
+
 We use a queue $q$ for level order traversal. Each time we traverse a level, we connect the nodes of the current level in order.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
@@ -118,6 +125,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Space Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1's queue is as wide as a level; the follow-up wants $O(1)$ space. The current level is already a $\textit{next}$ list. While walking it we chain the next level's non-null children in order and remember that level's head, then step onto the new list. No queue.
+
+<!-- thinking:end -->
 
 The space complexity of Solution 1 is relatively high because it requires a queue to store the nodes of each level. We can implement it with constant space.
 

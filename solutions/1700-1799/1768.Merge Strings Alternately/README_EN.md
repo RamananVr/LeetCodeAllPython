@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1768.Merge%20Strings%20Alternately/README_EN.md
 rating: 1166
 source: Weekly Contest 229 Q1
 tags:
@@ -70,6 +69,16 @@ merged: a p b q c   d
 <!-- solution:start -->
 
 ### Solution 1: Direct Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merge by alternating characters and append the leftover of the longer string. One paired walk is enough.
+>
+> $\textit{zip\_longest}$ yields corresponding characters (empty when missing); joining them is the merge.
+
+<!-- thinking:end -->
 
 We traverse the two strings `word1` and `word2`, take out the characters one by one, and append them to the result string. The Python code can be simplified into one line.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0687.Longest%20Univalue%20Path/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A univalue path may bend at a node and is counted in edges. Root-to-leaf walks miss a left-plus-right combination.
+>
+> DFS returns the longest same-value downward run: increment only if the child matches. Update the answer with $l+r$ and return $\max(l,r)$.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}(root)$, which represents the longest univalue path length extending downward with the $\textit{root}$ node as one endpoint of the path.
 

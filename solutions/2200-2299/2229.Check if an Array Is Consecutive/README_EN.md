@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -69,6 +68,16 @@ Therefore, nums is consecutive.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether the array is a permutation of some contiguous range. Sorting and checking adjacent gaps is $O(n\log n)$ and would pass, but a cheaper criterion exists: all values are distinct and $\max-\min+1$ equals the length.
+>
+> A set gives uniqueness; together with the min and max this is necessary and sufficient.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{s}$ to store all the elements in the array $\textit{nums}$, and use two variables $\textit{mi}$ and $\textit{mx}$ to represent the minimum and maximum values in the array, respectively.
 

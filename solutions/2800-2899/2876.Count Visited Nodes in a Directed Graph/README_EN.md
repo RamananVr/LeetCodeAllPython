@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md
 rating: 2209
 source: Weekly Contest 365 Q4
 tags:
@@ -72,6 +71,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Basic Tree + Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every node has out-degree one, so the graph is a cycle with trees feeding into it. Walking the unique edge, a return to the current path discovers a cycle (cycle nodes get the cycle length; nodes outside add their distance), while hitting an already solved node reuses that answer.
+
+<!-- thinking:end -->
 
 We can use an array $ans$ to record the answer for each node, and an array $vis$ to record the visit order for each node.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README_EN.md
 rating: 1495
 source: Biweekly Contest 41 Q2
 tags:
@@ -58,6 +57,16 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 <!-- solution:start -->
 
 ### Solution 1: Summation + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is sorted, so $\lvert x-y \rvert$ is $x-y$ on the left and $y-x$ on the right. Each $i$'s sum of absolute differences is $O(1)$ from the left and right sums.
+>
+> With total sum $s$ and scanned sum $t$, $\textit{ans}[i]=x\cdot i-t+(s-t)-x\cdot(n-i)$, then add $x$ into $t$.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of all elements in the array $nums$, denoted as $s$. We use a variable $t$ to record the sum of the elements that have been enumerated so far.
 

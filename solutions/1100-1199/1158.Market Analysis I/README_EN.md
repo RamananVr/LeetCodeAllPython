@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1158.Market%20Analysis%20I/README_EN.md
 tags:
     - Database
 ---
@@ -122,6 +121,14 @@ Items table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every user must appear, even with no $2019$ orders. Left-join `Orders` restricted to buyer and year $2019$, then `COUNT` per user; unmatched users stay at $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -145,6 +152,14 @@ GROUP BY user_id;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 puts the year in the join predicate. Method 2 joins all orders and `SUM(YEAR(order_date)=2019)`; other years add $0$, and `IFNULL` covers users with no orders.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

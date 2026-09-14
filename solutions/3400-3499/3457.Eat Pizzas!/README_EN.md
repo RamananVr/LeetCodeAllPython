@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3457.Eat%20Pizzas%21/README_EN.md
 rating: 1704
 source: Weekly Contest 437 Q2
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each day we eat four pizzas: the max on odd days, the second max on even days. $n$ is a multiple of $4$ up to $2\times 10^5$, so groupings cannot be searched.
+>
+> Odd days should claim the largest pizzas; even days must “waste” one larger pizza to take the second largest. After sorting, those contributions sit at fixed indices.
+>
+> Let $\textit{odd}=\lceil\textit{days}/2\rceil$. Add the largest $\textit{odd}$ pizzas, then from the remainder take every other pizza as an even-day second maximum.
+
+<!-- thinking:end -->
 
 According to the problem description, we can eat $4$ pizzas each day. On odd days, we get the maximum value among these $4$ pizzas, and on even days, we get the second largest value among these $4$ pizzas.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README_EN.md
 tags:
     - String
 ---
@@ -59,6 +58,16 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence is formed by deletions. If the two strings are equal, each remains a subsequence of the other, so no uncommon subsequence exists.
+>
+> If they differ, the longer string cannot be a subsequence of the shorter one, so its length is the answer. Equality and length suffice; there is no need to enumerate subsequences.
+
+<!-- thinking:end -->
 
 If strings `a` and `b` are equal, then they have no special sequences, return `-1`; otherwise, return the length of the longer string.
 

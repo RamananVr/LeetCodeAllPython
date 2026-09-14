@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3986.Number%20of%20Elapsed%20Seconds%20Between%20Two%20Times/README_EN.md
 rating: 1205
 source: Weekly Contest 510 Q1
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{endTime}$ is never earlier than $\textit{startTime}$, so convert both to seconds from midnight and subtract. Each string is $HH\cdot 3600+MM\cdot 60+SS$.
+>
+> No wrap across midnight is required.
+
+<!-- thinking:end -->
 
 Convert each time string into the number of seconds elapsed since $00$:$00$:$00$, i.e. $HH \times 3600 + MM \times 60 + SS$, then return the difference between the two values.
 

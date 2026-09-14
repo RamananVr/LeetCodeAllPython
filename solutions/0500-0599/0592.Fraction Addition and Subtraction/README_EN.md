@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README_EN.md
 tags:
     - Math
     - String
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add and subtract fractions with denominators from $2$ to $10$. A common denominator plus a gcd is enough; a fraction type is unnecessary.
+>
+> Use $y = \mathrm{lcm}(2,\ldots,10)$ as the denominator and scan signed $a/b$ terms into the numerator $x$. Reduce by $\gcd(x,y)$. Prefix a `+` when the expression starts with a digit so parsing is uniform.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

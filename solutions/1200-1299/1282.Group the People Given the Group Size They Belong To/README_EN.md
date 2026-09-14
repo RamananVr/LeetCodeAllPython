@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1282.Group%20the%20People%20Given%20the%20Group%20Size%20They%20Belong%20To/README_EN.md
 rating: 1267
 source: Weekly Contest 166 Q2
 tags:
@@ -62,6 +61,14 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> People sharing a group size must fill complete groups of that size. $n \le 500$: bucket indices by $groupSize$, then slice each bucket into contiguous chunks of that length. A solution is guaranteed, so the slices are the groups.
+
+<!-- thinking:end -->
 
 We use a hash table $g$ to store which people are in each group size $groupSize$. Then we partition each group size into $k$ equal parts, with each part containing $groupSize$ people.
 

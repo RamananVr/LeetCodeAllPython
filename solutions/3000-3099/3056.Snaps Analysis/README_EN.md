@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md
 tags:
     - Database
 ---
@@ -109,6 +108,18 @@ All percentages in output table rounded to the two decimal places.
 <!-- solution:start -->
 
 ### Solution 1: Equi-Join + Group By Summation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want send/open time shares per age bucket. Activity and age live in two tables, so users must be joined first.
+>
+> Summing by $(\textit{age\_bucket}, \textit{activity\_type})$ and pivoting to two columns avoids separate conditional aggregates.
+>
+> After the merge, group, and pivot, each percentage uses the sum of the two columns as the denominator.
+
+<!-- thinking:end -->
 
 We can perform an equi-join to connect the `Activities` table and the `Age` table based on `user_id`. Then, group by `age_bucket` and finally calculate the percentage of sends and opens for each age group.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,14 @@ For 2020-06-02, the Sold item is (Mask), we just return it.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per day we need the number of distinct products and a sorted name list. `GROUP BY sell_date` with `COUNT(DISTINCT product)` and `GROUP_CONCAT(DISTINCT product)` produces both.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

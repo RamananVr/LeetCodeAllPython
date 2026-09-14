@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README_EN.md
 rating: 1913
 source: Weekly Contest 424 Q3
 tags:
@@ -106,6 +105,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Difference Array + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Queries now have weights and must be taken as a prefix. Longer prefixes are easier, so the feasible length is monotone.
+>
+> A check for $k$ writes the first $k$ weighted ranges into a difference array and tests whether every index is covered.
+>
+> Binary search yields the smallest feasible $k$, or $-1$ if even $m$ queries are not enough.
+
+<!-- thinking:end -->
 
 We notice that the more queries we use, the easier it is to turn the array into a zero array, which shows monotonicity. Therefore, we can use binary search to enumerate the number of queries and check whether the array can be turned into a zero array after the first $k$ queries.
 

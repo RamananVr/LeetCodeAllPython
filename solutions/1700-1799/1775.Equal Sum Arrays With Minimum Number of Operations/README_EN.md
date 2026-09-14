@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README_EN.md
 rating: 1850
 source: Weekly Contest 230 Q3
 tags:
@@ -72,6 +71,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values may only change inside $[1,6]$. We want equal sums with the fewest changes. $n\le 10^5$, so greedily spend the change that shrinks the gap most.
+>
+> Assume $s_1<s_2$. Each small-array entry can grow to $6$ and each large-array entry can shrink to $1$. Sort those deltas descending and subtract from the gap until it is nonpositive.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -100,6 +109,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deltas lie in $0..5$, so sorting is unnecessary. A size-$6$ bucket from $5$ down to $1$ spends the gap in linear time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

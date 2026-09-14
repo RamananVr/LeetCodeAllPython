@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README_EN.md
 rating: 1407
 source: Weekly Contest 497 Q2
 tags:
@@ -66,6 +65,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether three sides form a positive-area triangle; if so, return the interior angles in degrees, nondecreasing.
+>
+> After sorting, $a+b \le c$ fails. Otherwise the law of cosines gives two angles and the third is $180^\circ$ minus those.
+>
+> Sorting the sides also orders the opposite angles, so the triple is already nondecreasing.
+>
+> Inverse cosine converted to degrees stays within the allowed error.
+
+<!-- thinking:end -->
 
 We first sort the array $\textit{sides}$ in non-decreasing order, and denote the three side lengths as $a$, $b$, and $c$, where $a \le b \le c$.
 

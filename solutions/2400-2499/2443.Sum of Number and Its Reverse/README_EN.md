@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md
 rating: 1376
 source: Weekly Contest 315 Q3
 tags:
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $num\le 10^5$, try every $k\in[0,num]$ and test $k+reverse(k)=num$. The range is small enough; reverse via the decimal string.
+
+<!-- thinking:end -->
 
 Enumerate $k$ in the range $[0,.., num]$, and check whether $k + reverse(k)$ equals $num$.
 

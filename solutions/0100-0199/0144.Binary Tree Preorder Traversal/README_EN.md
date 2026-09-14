@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md
 tags:
     - Stack
     - Tree
@@ -79,6 +78,14 @@ tags:
 
 ### Solution 1: Recursive Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Preorder is root, left, right. A tree is recursive, so record the root and recurse on both children. $n\le 100$, so the call stack is fine. The follow-up asks for iteration.
+
+<!-- thinking:end -->
+
 We first visit the root node, then recursively traverse the left and right subtrees.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree. The space complexity mainly depends on the stack space used for recursive calls.
@@ -115,6 +122,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Stack Implementation for Non-Recursive Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already correct; the follow-up drops the call stack. An explicit stack pushes right then left, so popping visits root first. Same order, still $O(n)$ space.
+
+<!-- thinking:end -->
 
 The idea of using a stack to implement non-recursive traversal is as follows:
 
@@ -161,6 +176,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Morris Preorder Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 still uses $O(h)$ space. Morris temporarily links the rightmost node of the left subtree to the current root, emits the root on the first visit, and clears the link on return. The tree's null pointers act as the stack, $O(1)$ space.
+
+<!-- thinking:end -->
 
 Morris traversal does not require a stack, and its space complexity is $O(1)$. The core idea is:
 

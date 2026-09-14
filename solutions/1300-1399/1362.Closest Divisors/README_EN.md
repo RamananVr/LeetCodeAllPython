@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1362.Closest%20Divisors/README_EN.md
 rating: 1533
 source: Weekly Contest 177 Q3
 tags:
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find a factor pair of $num+1$ or $num+2$ with the smallest gap. $num \le 10^9$ forbids scanning up to $x$. The closest pair sits near $\sqrt{x}$, so we walk downward from $\lfloor\sqrt{x}\rfloor$ until a divisor appears. Do this for both $num+1$ and $num+2$ and keep the tighter pair.
+
+<!-- thinking:end -->
 
 We design a function $f(x)$ that returns two numbers whose product equals $x$ and the absolute difference between these two numbers is the smallest. We can start enumerating $i$ from $\sqrt{x}$. If $x$ can be divided by $i$, then $\frac{x}{i}$ is another factor. At this point, we have found two factors whose product equals $x$. We can return them directly. Otherwise, we decrease the value of $i$ and continue to enumerate.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2989.Class%20Performance/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,16 @@ student_id 321 has the highest score of 230, while student_id 896 has the lowest
 <!-- solution:start -->
 
 ### Solution 1: Maximum and Minimum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The spread is the range of the three-assignment totals. $MAX$ and $MIN$ of the same sum, subtracted, need one scan.
+>
+> No per-student group is required.
+
+<!-- thinking:end -->
 
 We can use the `MAX` and `MIN` functions to get the maximum and minimum sums of `assignment1`, `assignment2`, and `assignment3`, respectively. Then, subtract the minimum from the maximum.
 

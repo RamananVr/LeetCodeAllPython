@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md
 rating: 1808
 source: Biweekly Contest 11 Q3
 tags:
@@ -49,6 +48,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coins have distinct heads probabilities; we want exactly $target$ heads. $n \le 1000$ rules out subset enumeration. The probability of $j$ heads among the first $i$ coins depends only on the first $i-1$: tails keeps $j$, heads comes from $j-1$.
+>
+> Let $f[i][j]$ be that probability, with $f[0][0]=1$. Filling in coin order yields $f[n][target]$. The table unrolls the convolution of independent trials.
+
+<!-- thinking:end -->
+
 Let $f[i][j]$ represent the probability of having $j$ coins facing up in the first $i$ coins, and initially $f[0][0]=1$. The answer is $f[n][target]$.
 
 Consider $f[i][j]$, where $i \geq 1$. If the current coin is facing down, then $f[i][j] = (1 - p) \times f[i - 1][j]$; If the current coin is facing up and $j \gt 0$, then $f[i][j] = p \times f[i - 1][j - 1]$. Therefore, the state transition equation is:
@@ -62,9 +71,7 @@ $$
 
 where $p$ represents the probability of the $i$-th coin facing up.
 
-We note that the state $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i - 1][j - 1]$, so we can optimize the two-dimensional space into one-dimensional space.
-
-The time complexity is $O(n \times target)$, and the space complexity is $O(target)$. Where $n$ is the number of coins.
+The time complexity is $O(n \times target)$, and the space complexity is $O(n \times target)$. Where $n$ is the number of coins.
 
 <!-- tabs:start -->
 
@@ -90,7 +97,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In Solution 1, row $i$ reads only the previous row. A one-dimensional array updated from large $j$ to small avoids overwriting $f[j-1]$ still needed for the heads transition. Space becomes $O(target)$; the recurrence is unchanged.
+
+<!-- thinking:end -->
+
+$f[i][j]$ depends only on the previous row. Update $j$ from large to small so the space complexity becomes $O(target)$.
 
 <!-- tabs:start -->
 

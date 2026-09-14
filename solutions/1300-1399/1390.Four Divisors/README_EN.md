@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1390.Four%20Divisors/README_EN.md
 rating: 1478
 source: Weekly Contest 181 Q2
 tags:
@@ -63,6 +62,14 @@ The answer is the sum of divisors of 21 only.
 <!-- solution:start -->
 
 ### Solution 1: Factor Decomposition
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum the divisors of every integer that has exactly four divisors. Values are at most $10^5$, so trial division up to $\sqrt{x}$ lists them all. We count and sum together and keep the sum only when the count is $4$.
+
+<!-- thinking:end -->
 
 We can perform factor decomposition on each number. If the number of factors is $4$, then this number meets the requirements of the problem, and we can add its factors to the answer.
 

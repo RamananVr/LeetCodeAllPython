@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README_EN.md
 tags:
     - Array
     - Simulation
@@ -59,6 +58,14 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After adding $v$ to one entry, report the sum of evens. Rescanning the array every time is too slow. Keep the even sum $s$: subtract the old value if it was even, apply the update, then add the new value if it is even.
+
+<!-- thinking:end -->
 
 We use an integer variable $\textit{s}$ to record the sum of all even numbers in the array $\textit{nums}$. Initially, $\textit{s}$ is the sum of all even numbers in the array $\textit{nums}$.
 

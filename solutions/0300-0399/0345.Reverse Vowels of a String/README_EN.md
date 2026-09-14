@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse only vowels; consonants stay. Extracting vowels uses extra memory. The same two-pointer swap applies, but only on vowels.
+>
+> Skip non-vowels from both ends, swap while $i<j$, and shrink. A small vowel set handles case.
+
+<!-- thinking:end -->
 
 We can use two pointers $i$ and $j$, initially pointing to the start and end of the string respectively.
 

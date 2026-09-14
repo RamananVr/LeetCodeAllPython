@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md
 rating: 2005
 source: Weekly Contest 244 Q3
 tags:
@@ -74,6 +73,16 @@ Then, use the second operation on the third and sixth elements to make s = &quot
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Type 1 makes the string circular; type 2 flips bits to an alternating pattern. Comparing every rotation bit by bit is $O(n^2)$ and too slow for $n\le 10^5$.
+>
+> Only two targets exist, and their costs sum to $n$. A window of length $n$ on the circular string is one rotation; slide it while updating the mismatch count and keep $\min(cnt,n-cnt)$.
+
+<!-- thinking:end -->
 
 We notice that operation $1$ effectively turns the string into a cycle, and operation $2$ makes a substring of length $n$ within the cycle into an alternating binary string.
 

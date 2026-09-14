@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,16 @@ User 14 did not login in 2020, so we do not include them in the result table.
 <!-- solution:start -->
 
 ### Solution 1: Group By + Max Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each user's last login in $2020$. Filter the year, then take a per-user maximum timestamp.
+>
+> $\textit{WHERE YEAR}(time\_stamp)=2020$, $\textit{GROUP BY}$ $user\_id$, and $MAX(time\_stamp)$.
+
+<!-- thinking:end -->
 
 We can first filter out the login records in 2020, and then group by `user_id`, and use the `max` function to calculate the maximum login time for each user.
 

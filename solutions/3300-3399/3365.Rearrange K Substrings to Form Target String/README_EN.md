@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README_EN.md
 rating: 1513
 source: Weekly Contest 425 Q2
 tags:
@@ -92,6 +91,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $s$ and $t$ into $k$ equal blocks and ask whether the multisets match. With $n \le 2 \times 10^5$ a counter is enough.
+>
+> Add one for each block of $s$ and subtract one for each block of $t$; all counts must finish at $0$.
+>
+> The input already makes $s$ and $t$ anagrams, so only the block multisets matter.
+
+<!-- thinking:end -->
 
 Let the length of the string $s$ be $n$, then the length of each substring is $m = n / k$.
 

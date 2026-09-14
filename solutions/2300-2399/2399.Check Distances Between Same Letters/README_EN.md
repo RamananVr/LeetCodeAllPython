@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README_EN.md
 rating: 1243
 source: Weekly Contest 309 Q1
 tags:
@@ -68,6 +67,16 @@ Because distance[0] = 1, s is not a well-spaced string.
 <!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each letter appears twice; the gap must match $distance$. $|s| \le 52$, so storing the previous index is enough.
+>
+> Record the first index; on the second occurrence compare the gap and fail on a mismatch. Letters that never appear need no check.
+
+<!-- thinking:end -->
 
 We can use a hash table $d$ to record the indices of each letter's occurrences. Then, traverse the hash table and check if the difference between the indices of each letter equals the corresponding value in the `distance` array. If any discrepancy is found, return `false`. If the traversal completes without discrepancies, return `true`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README_EN.md
 rating: 1825
 source: Weekly Contest 237 Q4
 tags:
@@ -63,6 +62,16 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 <!-- solution:start -->
 
 ### Solution 1: Bitwise Operation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $\bigoplus_{i,j}(arr1[i]\wedge arr2[j])$. Enumerating pairs is impossible for lengths up to $10^5$.
+>
+> Bitwise, AND behaves like multiplication and XOR like addition without carry, so the expression equals $(\bigoplus arr1)\wedge(\bigoplus arr2)$. XOR each array and AND the two results.
+
+<!-- thinking:end -->
 
 Assume that the elements of array $arr1$ are $a_1, a_2, ..., a_n$, and the elements of array $arr2$ are $b_1, b_2, ..., b_m$. Then, the answer to the problem is:
 

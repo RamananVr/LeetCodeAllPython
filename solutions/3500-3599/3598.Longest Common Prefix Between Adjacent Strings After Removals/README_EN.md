@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md
 rating: 1655
 source: Weekly Contest 456 Q2
 tags:
@@ -101,6 +100,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting $words[i]$ drops the pairs $(i-1,i)$ and $(i,i+1)$ and may add $(i-1,i+1)$. The global maximum adjacent LCP can be stored in an ordered multiset.
+>
+> Precompute every adjacent LCP. For each $i$, remove the affected pairs, insert the bridge pair, read the maximum, then roll back. Skip out-of-range indices at the ends.
+
+<!-- thinking:end -->
 
 We define a function $\textit{calc}(s, t)$, which calculates the length of the longest common prefix between strings $s$ and $t$. We can use an ordered set to maintain the longest common prefix lengths of all adjacent string pairs.
 

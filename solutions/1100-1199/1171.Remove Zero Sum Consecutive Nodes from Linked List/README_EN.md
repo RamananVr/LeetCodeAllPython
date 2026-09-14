@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1171.Remove%20Zero%20Sum%20Consecutive%20Nodes%20from%20Linked%20List/README_EN.md
 rating: 1782
 source: Weekly Contest 151 Q3
 tags:
@@ -61,6 +60,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zero-sum stretch is two equal prefix sums. Deleting one stretch and rescanning can walk the list many times. A first pass stores the last node of each prefix sum; a second pass sets $cur.next$ to that last node's successor, dropping the middle in one go. A dummy covers a zero-sum prefix at the head.
+
+<!-- thinking:end -->
 
 If two prefix sums of the linked list are equal, it means that the sum of the continuous node sequence between the two prefix sums is $0$, so we can remove this part of the continuous nodes.
 

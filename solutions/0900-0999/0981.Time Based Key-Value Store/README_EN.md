@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README_EN.md
 tags:
     - Design
     - Hash Table
@@ -65,6 +64,14 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered Set (or Binary Search)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `set` timestamps are strictly increasing, so each key's history is already sorted. `get` wants the latest value at a time $\le$ the query. A linear scan is too slow over $2\times 10^5$ calls. Store $(timestamp,value)$ lists per key and binary-search the upper bound.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{kvt}$ to record key-value pairs, where the key is the string $\textit{key}$ and the value is an ordered set. Each element in the set is a tuple $(\textit{timestamp}, \textit{value})$, representing the value $\textit{value}$ corresponding to the key $\textit{key}$ at the timestamp $\textit{timestamp}$.
 

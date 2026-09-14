@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md
 rating: 2432
 source: Weekly Contest 330 Q4
 tags:
@@ -65,6 +64,16 @@ There are no other quadruplets, so we return 2.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Preprocessing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count quadruples $i<j<k<l$ with $nums[i]<nums[k]<nums[j]<nums[l]$. A four-fold loop fails at $n\le 4000$, and naive side counts for each $(j,k)$ can still be cubic.
+>
+> Fix $j$ and sweep $k$ rightward while decrementing the number of later values $>nums[j]$, storing $f[j][k]$. Symmetrically sweep $j$ left of each $k$ for $g[j][k]$. Multiply the two only when $nums[j]>nums[k]$. The whole pass is $O(n^2)$.
+
+<!-- thinking:end -->
 
 We can enumerate $j$ and $k$ in the quadruplet, then the problem is transformed into, for the current $j$ and $k$:
 

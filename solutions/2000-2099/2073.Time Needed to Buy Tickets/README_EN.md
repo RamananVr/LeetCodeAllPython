@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README_EN.md
 rating: 1325
 source: Weekly Contest 267 Q1
 tags:
@@ -81,6 +80,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Naively simulating the queue costs $O(\sum tickets)$. When person $k$ finishes, everyone ahead bought at most $tickets[k]$ tickets and everyone behind at most $tickets[k]-1$.
+>
+> Sum $\min$ of that cap and each person's demand in one pass.
+
+<!-- thinking:end -->
 
 According to the problem description, when the $k^{th}$ person finishes buying tickets, all the people in front of the $k^{th}$ person will not buy more tickets than the $k^{th}$ person, and all the people behind the $k^{th}$ person will not buy more tickets than the $k^{th}$ person minus $1$.
 

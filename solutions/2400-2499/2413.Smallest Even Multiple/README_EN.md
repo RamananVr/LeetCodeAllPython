@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2413.Smallest%20Even%20Multiple/README_EN.md
 rating: 1144
 source: Weekly Contest 311 Q1
 tags:
@@ -49,6 +48,14 @@ Given a <strong>positive</strong> integer <code>n</code>, return <em>the smalles
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 150$ we need $\mathrm{lcm}(2,n)$. An even $n$ is already a multiple of $2$; otherwise multiply by $2$. The result is $O(1)$.
+
+<!-- thinking:end -->
 
 If $n$ is even, then the least common multiple (LCM) of $2$ and $n$ is $n$ itself. Otherwise, the LCM of $2$ and $n$ is $n \times 2$.
 

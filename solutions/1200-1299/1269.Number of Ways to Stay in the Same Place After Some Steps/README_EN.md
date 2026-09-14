@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1269.Number%20of%20Ways%20to%20Stay%20in%20the%20Same%20Place%20After%20Some%20Steps/README_EN.md
 rating: 1854
 source: Weekly Contest 164 Q4
 tags:
@@ -65,6 +64,16 @@ Stay, Stay
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk $steps$ steps on an array of length $arrLen$ and return to the origin. $arrLen$ may be $10^6$, but $steps \le 500$, so reachable cells are at most $steps$. The count depends on position and remaining steps.
+>
+> $dfs(i,j)$ is the number of ways from index $i$ with $j$ steps left to finish at $0$; we may go left, right, or stay. If $i>j$ we cannot return. Memoized states are $O(steps^2)$.
+
+<!-- thinking:end -->
 
 We observe the data range of the problem and find that $steps$ does not exceed $500$, which means that we can only go to the right for up to $500$ steps.
 

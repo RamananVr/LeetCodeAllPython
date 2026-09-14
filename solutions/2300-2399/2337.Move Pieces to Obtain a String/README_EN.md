@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README_EN.md
 rating: 1693
 source: Weekly Contest 301 Q3
 tags:
@@ -72,6 +71,16 @@ After that, no pieces can move anymore, so it is impossible to obtain the string
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `L` moves only left, `R` only right, and they cannot pass. $n \le 10^5$ rules out step-by-step simulation. After dropping blanks, the letter sequences must match.
+>
+> Extract non-`_` characters with indices. Mismatched letters fail; an `L` cannot start to the right of its target, nor an `R` to the left.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -100,6 +109,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 materializes two position lists. Two pointers skip `_` on the original strings and apply the same index tests, avoiding extra arrays.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

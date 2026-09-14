@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README_EN.md
 tags:
     - JavaScript
 ---
@@ -98,6 +97,16 @@ The returned promise resolves within 100 milliseconds. Since promise from the ar
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Implement $allSettled$: every success or failure becomes a status object, the outer promise waits for all of them, and the order matches the input. $Promise.all$ would reject on the first failure.
+>
+> Start every factory in parallel, write a $fulfilled$ or $rejected$ record at its index, and $resolve$ the array when a counter shows that every slot has settled.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

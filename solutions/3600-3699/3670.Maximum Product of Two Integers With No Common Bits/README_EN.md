@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README_EN.md
 rating: 2233
 source: Weekly Contest 465 Q3
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick two numbers with AND zero and maximize their product. Pair enumeration is quadratic; the bit width is small enough for a subset DP.
+>
+> Let $f[s]$ be the largest input that is a subset of $s$. For each $x$, query the complement mask in $f$ and update the product.
+>
+> Seed $f[x]$ from the input, then SOS-max over bits so $f[s]$ absorbs every submask. A complement query guarantees disjoint ones.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

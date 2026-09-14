@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1037.Valid%20Boomerang/README_EN.md
 rating: 1255
 source: Weekly Contest 135 Q1
 tags:
@@ -46,6 +45,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Slope Comparison
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three points form a boomerang iff they are distinct and not collinear. Subtracting slopes hits vertical edges and floating-point noise.
+>
+> Unequal slopes become the cross product $(y_2-y_1)(x_3-x_2)\neq(y_3-y_2)(x_2-x_1)$, which also covers vertical sides and coincident points.
+>
+> One multiplication check on the three coordinates is enough.
+
+<!-- thinking:end -->
 
 Let the three points be $(x_1, y_1)$, $(x_2, y_2)$, and $(x_3, y_3)$. The formula for calculating the slope between two points is $\frac{y_2 - y_1}{x_2 - x_1}$.
 

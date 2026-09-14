@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1418.Display%20Table%20of%20Food%20Orders%20in%20a%20Restaurant/README_EN.md
 rating: 1485
 source: Weekly Contest 185 Q2
 tags:
@@ -76,6 +75,16 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Orders arrive as triples, but the output is a table sorted by table number and dish name. $n\le 5\times 10^4$, so aggregate first and sort once.
+>
+> Map each table to its dishes and collect the global dish set. Sort dish names for the header, then for each table emit counts aligned to that header.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{tables}$ to store the dishes ordered at each table, and a set $\textit{items}$ to store all the dishes.
 

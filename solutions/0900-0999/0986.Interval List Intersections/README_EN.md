@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two lists of closed intervals are each sorted and internally disjoint; we want every intersection. Two pointers hold the current intervals. Their overlap is $[\max(s_1,s_2),\min(e_1,e_2)]$ and is recorded when nonempty. Advance the pointer whose interval ends first.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1459.Rectangles%20Area/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,14 @@ Note that the rectangle formed by p1 = 1 and p2 = 3 is invalid because the area 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Any two points with distinct $x$ and distinct $y$ determine a positive-area axis-aligned rectangle. Self-join with $p1.id<p2.id$, drop collinear pairs, and emit $|\Delta x|\cdot|\Delta y|$ ordered by area then ids.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

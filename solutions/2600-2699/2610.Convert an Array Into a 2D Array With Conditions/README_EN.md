@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md
 rating: 1373
 source: Weekly Contest 339 Q2
 tags:
@@ -65,6 +64,16 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> No row may repeat a value, and we want as few rows as possible. The highest frequency is the minimum row count. Placing greedily row by row would rescan occupancy; $n \le 200$ allows it, but frequencies already tell us the layout.
+>
+> A value $x$ with frequency $v$ must occupy the first $v$ rows once each. Writing $x$ into rows $0,\ldots,v-1$ meets both constraints without search.
+
+<!-- thinking:end -->
 
 We first use an array or hash table $\textit{cnt}$ to count the frequency of each element in the array $\textit{nums}$.
 

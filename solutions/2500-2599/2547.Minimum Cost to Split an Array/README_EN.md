@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md
 rating: 2019
 source: Weekly Contest 329 Q4
 tags:
@@ -97,6 +96,16 @@ The cost of the split is 10. It can be shown that this is the minimum possible c
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each piece costs $k$ plus the number of values that occur more than once (length minus the singleton count). $n\le 10^3$ makes listing partitions heavy, but there are only $n$ cut positions.
+>
+> Let $\textit{dfs}(i)$ be the minimum cost from $i$ to the end. Enumerate the piece end $j$, track how many values occur once, and add $k+(j-i+1)-\textit{one}$ to $\textit{dfs}(j+1)$. Memoization is $O(n)$ states and $O(n)$ transitions.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i)$, which represents the minimum cost of splitting from index $i$. So the answer is $dfs(0)$.
 

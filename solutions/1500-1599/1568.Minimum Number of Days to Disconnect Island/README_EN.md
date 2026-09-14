@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README_EN.md
 rating: 2208
 source: Weekly Contest 204 Q3
 tags:
@@ -65,6 +64,16 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each day one land cell may turn to water; we want the grid to stop containing exactly one island. The grid is small, and a stronger fact holds: any island can be split by removing at most two cells (for example two adjacent corner lands).
+>
+> Hence the answer is $0$, $1$, or $2$. A DFS count that is not exactly one returns $0$. Temporarily deleting each land cell and recounting returns $1$ as soon as the island splits. Otherwise two deletions are required.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

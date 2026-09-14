@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md
 rating: 1324
 source: Biweekly Contest 36 Q1
 tags:
@@ -61,6 +60,18 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only three car types and at most $1000$ calls to $\texttt{addCar}$, so three remaining-slot counters decide each request in $O(1)$.
+>
+> On arrival, reject if that type has no slot left; otherwise decrement and accept.
+>
+> An array $\textit{cnt}$ of length $4$ stores the three remainders at indices $1,2,3$, avoiding duplicated branches.
+
+<!-- thinking:end -->
 
 We use an array $\textit{cnt}$ of length 4 to represent the number of parking spaces for each type of car, where $\textit{cnt}[1]$, $\textit{cnt}[2]$, and $\textit{cnt}[3]$ represent the number of large, medium, and small parking spaces, respectively.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README_EN.md
 rating: 2449
 source: Weekly Contest 274 Q4
 tags:
@@ -84,6 +83,18 @@ The maximum number of employees that can be invited to the meeting is 4.
 <!-- solution:start -->
 
 ### Solution 1: Maximum Cycle in Graph + Longest Chain
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each employee likes exactly one other person, so the graph is a disjoint union of inward rooted cycle-trees. A circular table requires mutual likes between neighbors: either a single cycle, or length-$2$ mutual pairs with incoming chains attached. Distinct cycles cannot be mixed.
+>
+> A cycle of length at least $3$ can contribute only itself, so one candidate is the longest cycle. All $2$-cycles may sit together, each extended by the longest incoming chain, which topological peeling computes as distances.
+>
+> We therefore take the maximum of the longest cycle and the sum of distances on all mutual pairs.
+
+<!-- thinking:end -->
 
 We observe that the employee's preference relationship in the problem can be regarded as a directed graph, which can be divided into multiple "base cycle inward trees". Each structure contains a cycle, and each node on the cycle is connected to a tree.
 

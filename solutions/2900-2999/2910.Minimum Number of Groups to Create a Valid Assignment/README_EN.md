@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README_EN.md
 rating: 2132
 source: Weekly Contest 368 Q3
 tags:
@@ -86,6 +85,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal values must occupy groups whose sizes differ by at most one, so every group has size $k$ or $k+1$. Minimizing the number of groups pushes $k$ upward, and $k$ cannot exceed the smallest frequency.
+>
+> Enumerate $k$ downward from $min(cnt.values())$. A frequency $v$ is impossible when $\lfloor v/k \rfloor < v \bmod k$; otherwise it needs $\lceil v/(k+1) \rceil$ groups. The first fully feasible $k$ is optimal.
+
+<!-- thinking:end -->
 
 We use a hash table $cnt$ to count the number of occurrences of each number in the array $nums$. Let $k$ be the minimum value of the number of occurrences, and then we can enumerate the size of the groups in the range $[k,..1]$. Since the difference in size between each group is not more than $1$, the group size can be either $k$ or $k+1$.
 

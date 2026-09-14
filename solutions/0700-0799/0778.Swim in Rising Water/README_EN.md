@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -70,6 +69,18 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 <!-- solution:start -->
 
 ### Solution 1: Union Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At time $t$ we may walk cells $\le t$. Heights are a permutation of $0..n^2-1$, so add cells in height order.
+>
+> When the cell of height $t$ is unioned with already-present neighbors, the first time start meets end is the answer.
+>
+> Map height to id, then union as $t$ grows. $O(n^2\alpha)$.
+
+<!-- thinking:end -->
 
 We can map each position $(i, j)$ to an ID $id = i \times n + j$, and use a union-find data structure to maintain connected components.
 

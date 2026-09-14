@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/README_EN.md
 rating: 1633
 source: Weekly Contest 171 Q3
 tags:
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may move existing cables so $n$ machines become one network. With $n,m$ up to $10^5$, rebuilding the graph is the wrong tool. $k$ components need at least $k-1$ spare edges to become a tree.
+>
+> Union-find over the edges: a link inside one component is redundant, otherwise we merge and decrease $k$. If the spare count is below $k-1$ the answer is $-1$; otherwise it is $k-1$.
+
+<!-- thinking:end -->
 
 We can use a union-find data structure to maintain the connectivity between computers. Traverse all connections, and for each connection $(a, b)$, if $a$ and $b$ are already connected, then this connection is redundant, and we increment the count of redundant connections. Otherwise, we connect $a$ and $b$, and decrement the number of connected components.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README_EN.md
 rating: 1624
 source: Weekly Contest 484 Q3
 tags:
@@ -90,6 +89,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: String Transformation + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two strings are similar if a cyclic Caesar shift can make them equal. $n \cdot m \le 10^5$ forbids pairwise shift checks.
+>
+> Strings in one class differ by a common offset. Translating each so its first letter becomes $\texttt{z}$ sends a class to one canonical string.
+>
+> We normalize every word once and count; pairs inside a class contribute $\binom{v}{2}$.
+>
+> A hash map keyed by the canonical form, then summing those binomials, is enough.
+
+<!-- thinking:end -->
 
 We can transform each string into a unified form. Specifically, we convert the first character of the string to `'z'`, and then transform the other characters in the string with the same offset. This way, all similar strings will be transformed into the same form. We use a hash table $\textit{cnt}$ to record the number of occurrences of each transformed string.
 

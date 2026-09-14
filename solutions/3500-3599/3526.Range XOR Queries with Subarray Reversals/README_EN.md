@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3526.Range%20XOR%20Queries%20with%20Subarray%20Reversals/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -113,6 +112,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need point assignment, range XOR, and range reverse at $n,q \le 10^5$. A plain array cannot do reverse and XOR in logarithmic time together.
+>
+> Build a balanced tree (FHQ Treap) on the sequence. Each node stores its value and the XOR of its subtree; reverse is a lazy swap of children. Split, tag, and merge implement the three operations.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2933.High-Access%20Employees/README_EN.md
 rating: 1536
 source: Weekly Contest 371 Q2
 tags:
@@ -79,6 +78,16 @@ So the answer is [&quot;ab&quot;,&quot;cd&quot;].</pre>
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> High access means at least three visits in one hour. After grouping by name, convert $HHMM$ to minutes and sort; three consecutive times lie in a $60$-minute window iff $t[i]-t[i-2] < 60$.
+>
+> A hash map stores the timestamps, then one linear pass after sorting decides. $n \le 100$ makes grouping and sorting cheap.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to store all access times of each employee, where the key is the employee's name, and the value is an integer array, representing all access times of the employee, which are the number of minutes from the start of the day at 00:00.
 

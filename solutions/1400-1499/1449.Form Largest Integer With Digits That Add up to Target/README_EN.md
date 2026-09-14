@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1449.Form%20Largest%20Integer%20With%20Digits%20That%20Add%20up%20to%20Target/README_EN.md
 rating: 1927
 source: Biweekly Contest 26 Q4
 tags:
@@ -79,6 +78,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digits $1$–$9$ have costs and may be reused to reach `target`. The lexicographically largest integer first maximizes length, then prefers larger digits.
+>
+> $f[i][j]$ is the maximum length using the first $i$ digits and exact cost $j$ (unbounded knapsack). $g[i][j]$ records whether digit $i$ was taken so we can reconstruct from $9$ downward. Impossible yields `0`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

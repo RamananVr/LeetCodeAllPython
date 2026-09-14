@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md
 rating: 2126
 source: Weekly Contest 289 Q4
 tags:
@@ -64,6 +63,16 @@ It can be proven that there is no longer path that satisfies the conditions.
 <!-- solution:start -->
 
 ### Solution 1: Tree-shaped DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest tree path whose adjacent labels differ. $n \le 10^5$ forbids pairing endpoints. A path either stays in one subtree or is the join of two downward chains at a vertex.
+>
+> DFS returns the longest downward chain whose first step has a different character. For each child, join the current best chain with the new one when labels differ, and keep the best downward length. Adding one at the end counts the node itself.
+
+<!-- thinking:end -->
 
 First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README_EN.md
 rating: 1356
 source: Biweekly Contest 99 Q2
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Minute $1$ paints one cell; each later minute paints the uncolored neighbours of the current shape. Simulating $n\le 10^5$ minutes would materialize a quadratic number of cells.
+>
+> After $n$ minutes the figure is a diamond: $n$ cells along each axis, with area $1+4(1+2+\cdots+(n-1))=2n(n-1)+1$.
+
+<!-- thinking:end -->
 
 We find that after the $n$th minute, there are a total of $2 \times n - 1$ columns in the grid, and the numbers on each column are respectively $1, 3, 5, \cdots, 2 \times n - 1, 2 \times n - 3, \cdots, 3, 1$. The left and right parts are both arithmetic progressions, and the sum can be obtained by $2 \times n \times (n - 1) + 1$.
 

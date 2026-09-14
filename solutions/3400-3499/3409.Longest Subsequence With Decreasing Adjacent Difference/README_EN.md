@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3409.Longest%20Subsequence%20With%20Decreasing%20Adjacent%20Difference/README_EN.md
 rating: 2500
 source: Biweekly Contest 147 Q3
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent absolute differences in the subsequence must strictly decrease. $n\le 10^4$ rules out subset enumeration, but values lie in $[1,300]$, so differences are at most $299$.
+>
+> A state only needs the last value and the last difference; transitions can run over that small domain.
+>
+> Let $f[v][d]$ be the longest subsequence ending with value $v$ whose last difference is $d$. When inserting $x$, we enumerate a previous value $y$ and a larger difference $d>|x-y|$, and update $f[x][|x-y|]$ from $f[y][d]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README_EN.md
 rating: 1577
 source: Weekly Contest 295 Q2
 tags:
@@ -71,6 +70,16 @@ Each of them is replaced by &quot;$0.00&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A token that is $\texttt{\$}$ followed by a positive integer is a price and should be discounted to two decimals. The sentence length is $10^5$; splitting on spaces is enough.
+>
+> Rewrite a token when it starts with $\texttt{\$}$ and the rest is digits, then join the tokens back.
+
+<!-- thinking:end -->
 
 We can split the sentence into an array of words by spaces, then iterate through the array of words. For each word, if it represents a price, we update it to the price after applying the discount. Finally, we concatenate the updated array of words into a space-separated string.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1327.List%20the%20Products%20Ordered%20in%20a%20Period/README_EN.md
 tags:
     - Database
 ---
@@ -107,6 +106,14 @@ Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need product names whose February $2020$ order units are at least $100$. Join orders to products, keep that month with a date format filter, sum $\textit{unit}$ per product, and retain rows whose total meets the threshold via $\mathrm{HAVING}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

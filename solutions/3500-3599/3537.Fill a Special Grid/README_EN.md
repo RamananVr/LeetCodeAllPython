@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README_EN.md
 rating: 1541
 source: Weekly Contest 448 Q2
 tags:
@@ -105,6 +104,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursive Divide and Conquer
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special grid requires the four quadrants to satisfy upper-right $<$ lower-right $<$ lower-left $<$ upper-left, and each quadrant is itself special. Filling row by row does not enforce both local and global order.
+>
+> Recurse on a block of side $k$ in the order upper-right, lower-right, lower-left, upper-left; write the running value when $k=1$. Start at the upper-right corner $(0, 2^n-1)$.
+
+<!-- thinking:end -->
 
 A special grid requires that in each quadrant, numbers satisfy: top-right < bottom-right < bottom-left < top-left, and each quadrant is also a special grid. We can construct it recursively: for a subgrid of size $k$, fill the four quadrants in order "top-right → bottom-right → bottom-left → top-left", ensuring smaller numbers are placed in the top-right quadrant first and larger numbers in the top-left quadrant last.
 

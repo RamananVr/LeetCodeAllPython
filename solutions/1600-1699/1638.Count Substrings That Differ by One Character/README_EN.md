@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md
 rating: 1744
 source: Biweekly Contest 38 Q3
 tags:
@@ -71,6 +70,16 @@ The underlined portions are the substrings that are chosen from s and t.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both strings have length at most $100$. A valid pair differs in exactly one position; extending from that mismatch, the runs of equal characters on each side determine how many cuts work.
+>
+> Enumerate $(i,j)$ with $s[i]\ne t[j]$, measure equal spans $l$ and $r$, and add $(l+1)(r+1)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -101,6 +110,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 extends from every mismatch and repeats comparisons. Precompute the longest equal suffix $f$ ending at $(i,j)$ and the longest equal prefix $g$ starting there.
+>
+> Each mismatch then contributes $(f[i][j]+1)(g[i+1][j+1]+1)$ in $O(mn)$ total time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/README_EN.md
 tags:
     - Stack
     - Tree
@@ -75,6 +74,16 @@ The third tree below is also not valid. Although it produces the same result and
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build an expression tree from an infix string, honoring parentheses and precedence, so that an inorder walk (without parentheses) reproduces $s$. The length is at most $100$, so one precedence parse with stacks is enough.
+>
+> Keep an operand stack and an operator stack: digits become leaves; an operator pops while it has lower-or-equal precedence and builds an internal node from two operands; parentheses control when to pop. After the scan, flush remaining operators; the last node is the root.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

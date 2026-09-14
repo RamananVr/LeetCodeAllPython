@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README_EN.md
 tags:
     - Stack
     - Tree
@@ -50,6 +49,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS In-order Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flatten a BST into a right-only increasing list. Inorder is already sorted, and there are at most $100$ nodes, so we can rewire pointers during the walk.
+>
+> A dummy heads the list. Visiting a node appends it to $\textit{prev}$, clears its left child, then continues inorder. The answer is the dummy’s right child.
+
+<!-- thinking:end -->
 
 We define a virtual node $dummy$, initially the right child of $dummy$ points to the root node $root$, and a pointer $prev$ points to $dummy$.
 

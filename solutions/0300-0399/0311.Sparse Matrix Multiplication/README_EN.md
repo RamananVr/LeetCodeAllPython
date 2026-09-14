@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -53,6 +52,16 @@ tags:
 
 ### Solution 1: Direct Multiplication
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> By definition each $(i,j)$ is a $k$-fold inner product; $O(mnk)$ is acceptable under the limits. Zeros still participate in the triple loop.
+>
+> Write the three loops first so the product is correct, then skip zeros in the next method.
+
+<!-- thinking:end -->
+
 We can directly calculate each element in the result matrix according to the definition of matrix multiplication.
 
 The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows of matrix $mat1$ and the number of columns of matrix $mat2$ respectively, and $k$ is the number of columns of matrix $mat1$ or the number of rows of matrix $mat2$.
@@ -80,6 +89,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Preprocessing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 still multiplies zeros. Compress each matrix to per-row lists of nonzero $(column,value)$, and accumulate $ans[i][j]\mathrel{+}=x\cdot y$ only for those pairs. Zeros never enter the inner loop; the worst case remains $O(mnk)$.
+
+<!-- thinking:end -->
 
 We can preprocess the sparse representation of the two matrices, i.e., $g1[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat1$, and $g2[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat2$.
 

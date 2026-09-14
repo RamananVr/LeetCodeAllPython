@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README_EN.md
 tags:
     - Database
 ---
@@ -92,6 +91,18 @@ Each row contains server access log information including IP address and HTTP st
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count invalid IPv4 addresses in the logs. A valid address has four octets, each a $0..255$ integer with no leading zeros.
+>
+> A SQL regex can express this, but leading zeros plus ranges are awkward; splitting in Pandas is clearer.
+>
+> Split on `.`, check that each piece is a digit string in range and equals $\textit{str}(\textit{int})$. Count invalid IPs and sort by count then address, both descending.
+
+<!-- thinking:end -->
 
 We can determine if an IP address is invalid based on the following conditions:
 

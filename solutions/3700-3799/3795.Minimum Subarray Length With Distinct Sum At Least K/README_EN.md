@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3795.Minimum%20Subarray%20Length%20With%20Distinct%20Sum%20At%20Least%20K/README_EN.md
 rating: 1504
 source: Biweekly Contest 173 Q2
 tags:
@@ -75,6 +74,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sum of distinct values is monotone in the window, so two pointers apply. A frequency map adds a value to the sum only when its count rises from $0$ to $1$; once the sum reaches $k$ we shrink the left end and record the shortest length.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{cnt}$ to record the occurrence count of each element in the current window, and a variable $\textit{s}$ to record the sum of distinct elements in the current window. We use two pointers $l$ and $r$ to represent the left and right boundaries of the current window, both initially pointing to the beginning of the array. We initialize a variable $\textit{ans}$ to record the minimum length of a window that satisfies the condition, with an initial value of $n + 1$, where $n$ is the length of the array.
 

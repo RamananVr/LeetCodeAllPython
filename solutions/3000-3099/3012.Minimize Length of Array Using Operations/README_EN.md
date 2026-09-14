@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md
 rating: 1832
 source: Biweekly Contest 122 Q3
 tags:
@@ -90,6 +89,18 @@ It can be shown that 1 is the minimum achievable length.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Case Discussion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation replaces two positives by a remainder and shortens the array. With $n \le 10^5$ we cannot simulate down to a few elements.
+>
+> A remainder is strictly smaller than the larger operand. If some value is not a multiple of the global minimum $\textit{mi}$, we can create a positive smaller than $\textit{mi}$ and then erase everything else, leaving length $1$.
+>
+> If every value is a multiple of $\textit{mi}$, no smaller positive appears. Only copies of $\textit{mi}$ remain, and pairing them leaves $\lceil \textit{cnt}/2 \rceil$ elements.
+
+<!-- thinking:end -->
 
 Let's denote the smallest element in the array $nums$ as $mi$.
 

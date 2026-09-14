@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0875.Koko%20Eating%20Bananas/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A larger speed $k$ finishes sooner; we want the smallest $k$ that finishes within $h$ hours. $h$ and pile sizes reach $10^9$, so we binary-search the monotone predicate “can finish in $h$ hours”.
+>
+> Search $[1,\max piles]$; the check sums $\lceil x/k\rceil$ over piles. The first feasible speed is the answer.
+
+<!-- thinking:end -->
 
 We notice that if Koko can eat all the bananas at a speed of $k$ within $h$ hours, then she can also eat all the bananas at a speed of $k' > k$ within $h$ hours. This shows monotonicity, so we can use binary search to find the smallest $k$ that satisfies the condition.
 

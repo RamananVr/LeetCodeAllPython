@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/README_EN.md
 rating: 2610
 source: Biweekly Contest 64 Q4
 tags:
@@ -86,6 +85,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most four pieces on an $8 \times 8$ board, each with $\le 8$ directions. The tree is large but DFS works: assign each piece a ray and a stop time, then reject collisions with earlier pieces.
+>
+> `dist[i][x][y]` is the transit time and `end` the stop. A stop needs earlier pieces gone; a pass forbids the same time-cell or a finished piece sitting there.
+>
+> Each complete assignment increments the answer.
+
+<!-- thinking:end -->
 
 The problem has at most $4$ pieces, and each piece can move in up to $8$ directions. We can consider using DFS to search all possible move combinations.
 

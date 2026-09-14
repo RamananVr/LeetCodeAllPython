@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README_EN.md
 rating: 1248
 source: Biweekly Contest 53 Q1
 tags:
@@ -61,6 +60,16 @@ The good substrings are &quot;abc&quot;, &quot;bca&quot;, &quot;cab&quot;, and &
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count length-$3$ substrings with distinct characters. Checking every triple works; a sliding window generalizes to any $k$.
+>
+> Keep a duplicate-free window: $mask$ marks letters inside it, and the left end advances on a repeat. When the window is at least length $3$, the triple ending at the right end is distinct and we add one.
+
+<!-- thinking:end -->
 
 We can maintain a sliding window such that the characters within the window are not repeated. Initially, we use a binary integer $\textit{mask}$ of length $26$ to represent the characters within the window, where the $i$-th bit being $1$ indicates that character $i$ has appeared in the window, otherwise it indicates that character $i$ has not appeared in the window.
 

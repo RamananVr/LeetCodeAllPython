@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md
 tags:
     - JavaScript
 ---
@@ -53,6 +52,16 @@ Three values were passed to the function so it should return 3.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The task is only to report how many arguments were passed; their types and values do not matter. Copying them into a new array just to read the length adds an allocation.
+>
+> A rest parameter is already an array, so its $length$ is the answer.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

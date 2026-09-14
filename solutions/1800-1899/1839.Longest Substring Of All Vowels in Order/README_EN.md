@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README_EN.md
 rating: 1580
 source: Weekly Contest 238 Q3
 tags:
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful substring must contain $a,e,i,o,u$ in order, each at least once, with no regression. Checking every interval is $O(n^2)$ and too slow for $n\le 10^5$.
+>
+> Compress equal-letter runs into $(\textit{letter},\textit{length})$ pairs. A beautiful string is exactly five consecutive runs spelling $\textit{aeiou}$; their length sum is a candidate. One scan over the runs is enough.
+
+<!-- thinking:end -->
 
 We can first transform the string `word`. For example, for `word="aaaeiouu"`, we can transform it into data items `('a', 3)`, `('e', 1)`, `('i', 1)`, `('o', 1)`, `('u', 2)` and store them in an array `arr`. Each data item's first element represents a vowel, and the second element represents the number of times the vowel appears consecutively. This transformation can be implemented using two pointers.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Breadth-First Search
@@ -52,6 +51,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a complete tree, no non-null node may follow a null in level order. Enqueue null children as well; after the first null is popped, the rest of the queue must be null. The tree has at most $100$ nodes, so one BFS decides it.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

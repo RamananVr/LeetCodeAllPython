@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2264.Largest%203-Same-Digit%20Number%20in%20String/README_EN.md
 rating: 1308
 source: Weekly Contest 292 Q1
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the largest three-equal-digit substring of $num$. The length is $10^3$, so testing $999,\ldots,000$ from large to small finds the maximum as soon as one occurs.
+>
+> For $i$ from $9$ down to $0$, check whether $\texttt{str}(i)*3$ is a substring; otherwise return empty.
+
+<!-- thinking:end -->
 
 We can enumerate each digit $i$ from large to small, where $0 \le i \le 9$, and then check whether the string $s$ consisting of three consecutive $i$ is a substring of $num$. If it is, we directly return $s$.
 

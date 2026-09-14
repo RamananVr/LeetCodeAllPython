@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1231.Divide%20Chocolate/README_EN.md
 rating: 2029
 source: Biweekly Contest 11 Q4
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the bar into $k+1$ pieces and maximize the minimum sweetness of our piece. $n \le 10^4$ forbids enumerating cuts. If a minimum $x$ is feasible, every smaller threshold is too, so the answer is monotone.
+>
+> The check accumulates from the left and cuts whenever the running sum reaches $x$; more than $k$ pieces (us plus $k$ friends) means $x$ works. We binary-search the largest feasible $x$ on $[0,\sum sweetness]$. Cutting as soon as a piece fills can only leave more remainder for later pieces.
+
+<!-- thinking:end -->
 
 We notice that if we can eat a piece of chocolate with sweetness $x$, then we can also eat all chocolates with sweetness less than or equal to $x$. This shows monotonicity, therefore, we can use binary search to find the maximum $x$ that satisfies the condition.
 

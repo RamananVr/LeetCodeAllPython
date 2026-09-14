@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A split with equal averages is a nonempty proper subset whose average matches the rest. $n\le 30$ makes a full $2^n$ scan heavy, but each half has about $15$ numbers, so meet-in-the-middle is fine.
+>
+> Replace $a_i$ by $n\cdot a_i-S$ so we only need a nonempty proper subset summing to $0$. Store left-half sums; a right-half sum of $0$, or a complementary sum already seen (excluding the full/full pair), is a yes.
+
+<!-- thinking:end -->
 
 According to the problem requirements, we need to determine if the array $\textit{nums}$ can be divided into two subarrays $A$ and $B$ such that the average values of the two subarrays are equal.
 

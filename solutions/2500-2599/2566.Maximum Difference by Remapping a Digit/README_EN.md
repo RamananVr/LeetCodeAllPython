@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md
 rating: 1396
 source: Biweekly Contest 98 Q1
 tags:
@@ -65,6 +64,16 @@ Thus, we return 99.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Remap one digit throughout the number to maximize one value and minimize the other, then subtract. Few digits would allow enumerating pairs, but the optimal remaps are unique.
+>
+> The minimum replaces every copy of the leading digit by $0$. The maximum replaces every copy of the leftmost non-$9$ by $9$. An all-$9$ number is already maximal.
+
+<!-- thinking:end -->
 
 First, we convert the number to a string $s$.
 

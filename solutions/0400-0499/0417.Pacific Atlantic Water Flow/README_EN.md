@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0417.Pacific%20Atlantic%20Water%20Flow/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -74,6 +73,18 @@ Note that there are other possible paths for these cells to flow to the Pacific 
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walking downhill from every cell toward an ocean revisits the same cells. With $m,n\le 200$ that duplication is costly.
+>
+> The reverse of flowing down is climbing to a neighbor that is at least as high. BFS from the Pacific border and from the Atlantic border; the intersection can reach both oceans.
+>
+> A neighbor is admissible only when $\textit{heights}[nx][ny]\ge \textit{heights}[x][y]$. Starting at a border guarantees a path back to that ocean.
+
+<!-- thinking:end -->
 
 We can start from the boundaries of the Pacific and Atlantic oceans and perform breadth-first search (BFS) respectively to find all cells that can flow to the Pacific and Atlantic oceans. Finally, we take the intersection of the two results, which represents cells that can flow to both the Pacific and Atlantic oceans.
 

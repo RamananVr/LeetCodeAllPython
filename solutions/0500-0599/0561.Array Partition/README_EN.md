@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0561.Array%20Partition/README_EN.md
 tags:
     - Greedy
     - Array
@@ -55,6 +54,16 @@ So the maximum possible sum is 4.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pair numbers and sum the smaller of each pair; maximize that sum. The larger value in a pair is discarded, so it should be as small as possible — pair close values.
+>
+> Sort and pair adjacent elements; the sum of every other number is optimal. Any crossing pair can be uncrossed without decreasing the sum.
+
+<!-- thinking:end -->
 
 For a pair of numbers $(a, b)$, we can assume $a \leq b$, then $\min(a, b) = a$. In order to make the sum as large as possible, the $b$ we choose should be as close to $a$ as possible, so as to retain a larger number.
 

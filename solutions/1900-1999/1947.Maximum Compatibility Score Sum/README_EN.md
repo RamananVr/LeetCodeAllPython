@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README_EN.md
 rating: 1704
 source: Weekly Contest 251 Q3
 tags:
@@ -80,6 +79,18 @@ The compatibility score sum is 3 + 2 + 3 = 8.
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students and mentors form a bijection maximizing the sum of scores. $m\le 8$ so $8!$ permutations are fine.
+>
+> Precompute the number of equal answers $g[i][j]$, then backtrack over unused mentors and keep the best sum.
+>
+> A $\textit{vis}$ array prevents double booking; finishing $m$ students updates the answer.
+
+<!-- thinking:end -->
 
 We can first preprocess the compatibility score $g[i][j]$ between each student $i$ and mentor $j$, and then use a backtracking algorithm to solve the problem.
 

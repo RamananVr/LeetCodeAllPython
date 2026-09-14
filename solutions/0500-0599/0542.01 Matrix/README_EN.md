@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0542.01%20Matrix/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $1$ needs its distance to the nearest $0$. A separate BFS from every $1$ repeats $O(mn)$ searches.
+>
+> Multi-source BFS: enqueue every $0$ at distance $0$ and expand to unseen neighbors. The first visit is the nearest $0$. One queue pass covers the grid.
+
+<!-- thinking:end -->
 
 We create a matrix $\textit{ans}$ of the same size as $\textit{mat}$ and initialize all elements to $-1$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README_EN.md
 rating: 1973
 source: Weekly Contest 194 Q3
 tags:
@@ -92,6 +91,16 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$. A lake that rains a second time must have been dried after the previous rain. A dry day should be spent on the lake that will rain again soonest among those still full.
+>
+> Store dry days in a sorted list and the last rain day of each lake in a map. On a repeat rain, binary-search the first dry day after that last rain; if none exists, fail. Unused dry days become $1$.
+
+<!-- thinking:end -->
 
 We store all sunny days in the $sunny$ array or a sorted set, and use the hash table $rainy$ to record the last rainy day for each lake. We initialize the answer array $ans$ with each element set to $-1$.
 

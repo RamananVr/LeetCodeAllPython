@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README_EN.md
 rating: 1328
 source: Biweekly Contest 86 Q2
 tags:
@@ -60,6 +59,16 @@ Therefore, we return false.
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ must be a palindrome in every base from $2$ to $n-2$. $n \ge 4$, so inspect particular bases instead of converting all of them.
+>
+> For $n=4$ the binary form is $100$; for $n>4$ the base $n-2$ form is $12$. Neither is a palindrome, so the answer is always false.
+
+<!-- thinking:end -->
 
 When $n = 4$, its binary representation is $100$, which is not a palindrome;
 

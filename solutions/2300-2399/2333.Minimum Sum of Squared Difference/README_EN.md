@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README_EN.md
 rating: 2011
 source: Biweekly Contest 82 Q3
 tags:
@@ -69,6 +68,16 @@ Note that, there are other ways to obtain the minimum of the sum of square diffe
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move decreases some $|nums1_i-nums2_i|$ by one, $k_1+k_2$ times in total, minimizing the sum of squares. $n \le 10^5$ and up to $2 \times 10^9$ moves forbid stepping one by one.
+>
+> Squares are convex, so large diffs should be flattened first. Binary-search a cap $x$ that $k$ moves can enforce, then spend leftovers on entries still equal to $x$. If the total diff is already $\le k$, the answer is $0$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

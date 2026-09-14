@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0544.Output%20Contest%20Matches/README_EN.md
 tags:
     - Recursion
     - String
@@ -63,6 +62,16 @@ Since the third round will generate the final winner, you need to output the ans
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairings are $1$ vs $n$, $2$ vs $n-1$, and so on, nested recursively. $n$ is a power of two, so direct simulation works.
+>
+> Store the current teams (or already built strings). Each round wraps $i$ with $n-1-i$ as `(a,b)` into the first half and halves the length until one string remains.
+
+<!-- thinking:end -->
 
 We can use an array $s$ of length $n$ to store the ID of each team, and then simulate the process of the matches.
 

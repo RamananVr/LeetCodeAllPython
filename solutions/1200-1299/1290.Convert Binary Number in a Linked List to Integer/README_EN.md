@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/README_EN.md
 rating: 1151
 source: Weekly Contest 167 Q1
 tags:
@@ -55,6 +54,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traverse the Linked List
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list is a binary number from high bit to low. Shifting the running value left and ORing the current bit accumulates the integer. Length is at most $30$, so it fits. We need not collect bits first.
+
+<!-- thinking:end -->
 
 We use a variable $\textit{ans}$ to record the current decimal value, with an initial value of $0$.
 

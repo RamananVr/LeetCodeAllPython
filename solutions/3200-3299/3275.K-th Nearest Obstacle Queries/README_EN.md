@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README_EN.md
 rating: 1419
 source: Weekly Contest 413 Q2
 tags:
@@ -85,6 +84,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Obstacles arrive one by one; after each we want the current $k$-th nearest Manhattan distance. $q\le 2\times 10^5$ forbids sorting every time. We only need the $k$ smallest distances; the largest among them is the $k$-th.
+>
+> A max-heap stores those $k$ distances (as negatives). Before $k$ points the answer is $-1$; afterwards the heap top is the answer. Each update is $O(\log k)$.
+
+<!-- thinking:end -->
 
 We can use a priority queue (max-heap) to maintain the $k$ obstacles closest to the origin.
 

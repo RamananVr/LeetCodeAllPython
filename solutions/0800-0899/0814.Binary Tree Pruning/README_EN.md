@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0814.Binary%20Tree%20Pruning/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -60,6 +59,16 @@ The diagram on the right represents the answer.
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every subtree that contains no $1$ must be removed. A preorder walk cannot decide before seeing the children, so we prune left and right first, then drop the node if it became empty.
+>
+> After the recursive calls, a $0$ with both children gone is deleted. The tree has at most $200$ nodes, so one DFS suffices.
+
+<!-- thinking:end -->
 
 First, we check if the current node is null. If it is, we directly return the null node.
 

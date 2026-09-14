@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2637.Promise%20Time%20Limit/README_EN.md
 tags:
     - JavaScript
 ---
@@ -109,6 +108,16 @@ The function immediately throws an error.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The wrapper must reject if the original function exceeds $t$ milliseconds. A bare `await fn` cannot time out.
+>
+> `Promise.race` pits the function against a rejecting timer; the first to settle wins. The rejection text is the required literal.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

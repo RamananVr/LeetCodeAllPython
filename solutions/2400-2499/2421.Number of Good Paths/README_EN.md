@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md
 rating: 2444
 source: Weekly Contest 312 Q4
 tags:
@@ -86,6 +85,16 @@ There are 2 additional good paths: 0 -&gt; 1 and 2 -&gt; 3.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Union Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good path has endpoints no smaller than every node on it. Listing paths fails at $n\le 3\times 10^4$. Adding nodes in increasing value makes the new node a maximum in its component, so paths whose both ends equal that value are exactly the good ones created now.
+>
+> Sort by $vals$ and union-find: merge only neighbors whose values are at most the current one; add the product of the counts of value $v$ in the two components. Start from $n$ single-node paths.
+
+<!-- thinking:end -->
 
 To ensure that the starting point (or endpoint) of the path is greater than or equal to all points on the path, we can consider sorting all points from small to large first, then traverse and add them to the connected component, specifically as follows:
 

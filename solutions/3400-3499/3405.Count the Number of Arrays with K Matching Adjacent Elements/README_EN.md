@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3405.Count%20the%20Number%20of%20Arrays%20with%20K%20Matching%20Adjacent%20Elements/README_EN.md
 rating: 2309
 source: Weekly Contest 430 Q4
 tags:
@@ -90,6 +89,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Combinatorics + Fast Power
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n,m\le 10^5$ we cannot enumerate arrays. An array of length $n$ has $n-1$ adjacent pairs; exactly $k$ of them are equal and the rest must differ.
+>
+> The equal pairs split the array into $n-k$ constant blocks. Choosing which $k$ of the $n-1$ joints stay uncut is $C_{n-1}^{k}$.
+>
+> The first block has $m$ choices; each later block only needs to differ from the previous one, hence $m-1$ choices. The answer is $C_{n-1}^{k}\cdot m\cdot(m-1)^{n-k-1}$. After factorial and inverse tables, a combination and a modular power suffice.
+
+<!-- thinking:end -->
 
 For an array of length $n$, there are $n - 1$ pairs of adjacent elements. We need to select $k$ of these $n - 1$ adjacent pairs such that the two elements in each of these $k$ pairs are equal, and the remaining $n - 1 - k$ adjacent pairs have different elements.
 

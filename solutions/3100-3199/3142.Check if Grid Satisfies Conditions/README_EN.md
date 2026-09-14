@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3142.Check%20if%20Grid%20Satisfies%20Conditions/README_EN.md
 rating: 1303
 source: Biweekly Contest 130 Q1
 tags:
@@ -84,6 +83,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells must equal the one below and differ from the one to the right. The definition is already a local check.
+>
+> A single violation rejects the grid, so the scan may exit early.
+>
+> Walk every cell, compare it with its bottom and right neighbors, and return true only if all pairs obey the rule.
+
+<!-- thinking:end -->
 
 We can iterate through each cell and determine whether it meets the conditions specified in the problem. If there is a cell that does not meet the conditions, we return `false`, otherwise, we return `true`.
 

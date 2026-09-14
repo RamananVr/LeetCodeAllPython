@@ -1,7 +1,8 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4044.Count%20Good%20Cyclic%20Rotations/README_EN.md
+rating: 1417
+source: Weekly Contest 518 Q2
 ---
 
 <!-- problem:start -->
@@ -139,6 +140,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4044.Co
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rotation is good only when the first half-sum is strictly larger than the second. Resumming both halves every time would be quadratic.
+>
+> A left shift drops $\textit{nums}[i]$ from the first half and receives $\textit{nums}[(i+m)\bmod n]$; the second half does the opposite. Both sums therefore update in $O(1)$.
+>
+> Starting from the original array we rotate $n$ times and count how often $l>r$.
+
+<!-- thinking:end -->
 
 Let $n$ be the length of the array and $m = n / 2$. First compute the sum $l$ of the first $m$ elements of the original array and the sum $r$ of the last $m$ elements. If $l > r$, increment the answer by $1$.
 

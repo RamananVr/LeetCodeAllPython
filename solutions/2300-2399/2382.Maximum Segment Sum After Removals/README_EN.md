@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README_EN.md
 rating: 2136
 source: Biweekly Contest 85 Q4
 tags:
@@ -72,6 +71,16 @@ Finally, we return [16,5,3,0].
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete indices in a given order and report the maximum remaining segment sum. $n \le 10^5$; deleting forward keeps splitting segments. Inserting backward is a merge.
+>
+> Reinsert deleted indices from the end, union with already-present neighbors, and maintain segment sums. The maximum after an insertion is the answer just before that deletion.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

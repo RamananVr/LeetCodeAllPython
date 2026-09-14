@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0286.Walls%20and%20Gates/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each empty room wants the distance to the nearest gate. A BFS from every room repeats work. A multi-source BFS from all gates reaches each room first at its shortest distance.
+>
+> Enqueue every gate and expand level by level, writing only into rooms that are still empty.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

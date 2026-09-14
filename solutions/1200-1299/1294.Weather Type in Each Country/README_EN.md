@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README_EN.md
 tags:
     - Database
 ---
@@ -123,6 +122,14 @@ We know nothing about the average weather_state in Spain in November so we do no
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want each country's November $2019$ average temperature as Cold/Warm/Hot. Join weather to countries, filter that month, $AVG$ by country, and bin with $CASE$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

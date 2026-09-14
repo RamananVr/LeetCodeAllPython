@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0980.Unique%20Paths%20III/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -80,6 +79,14 @@ Note that the starting and ending square can be anywhere in the grid.
 <!-- solution:start -->
 
 ### Solution 1: Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walk from start to end visiting every empty cell exactly once. At most $20$ cells, so backtracking fits. Count empties and find the start, then DFS in four directions with a visited set. A path that lands on the end counts only when the step count equals the number of empties plus one.
+
+<!-- thinking:end -->
 
 We can first traverse the entire grid, find the starting point $(x, y)$, and count the number of blank spaces $cnt$.
 

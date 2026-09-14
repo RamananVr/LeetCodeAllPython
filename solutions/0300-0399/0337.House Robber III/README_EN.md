@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0337.House%20Robber%20III/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent nodes cannot both be robbed. Computing steal/skip separately and walking each subtree twice repeats work.
+>
+> Postorder returns (rob root, skip root). Robbing the root forces both children to skip; skipping takes the better of each child. The answer is the max at the root. Each node is visited once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

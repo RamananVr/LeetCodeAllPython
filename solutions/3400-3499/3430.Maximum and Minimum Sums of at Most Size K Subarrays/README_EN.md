@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README_EN.md
 rating: 2644
 source: Weekly Contest 433 Q4
 tags:
@@ -159,7 +158,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Monotonic Deques for Maximums and Minimums
+### Solution 1: Monotonic Stack (Contribution Counting)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the subsequence version, we sum maxima and minima of contiguous subarrays of length at most $k$. Recomputing extrema per subarray is too slow.
+>
+> For a right end $i$, the max (min) over legal left ends transfers its occurrence count to the new element when the monotonic stack pops.
+>
+> We keep monotonic stacks with a $\textit{shares}$ field, and subtract expired contribution when the window start passes $i-k$. Adding $\textit{MaxSum}_i+\textit{MinSum}_i$ over $i$ is the answer.
+
+<!-- thinking:end -->
 
 The goal is to calculate total sum $S = \sum_i (\text{MaxSum}_i + \text{MinSum}_i)$, where:
 

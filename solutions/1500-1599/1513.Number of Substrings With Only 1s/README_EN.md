@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README_EN.md
 rating: 1351
 source: Weekly Contest 197 Q2
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count substrings that contain only ones. $n\le 10^5$, so we cannot list all $O(n^2)$ substrings. Runs of ones separated by zeros are independent.
+>
+> A run of length $k$ contributes $k(k+1)/2$ substrings, which is the same as maintaining the current run length $cur$: each extra $1$ increments $cur$ and adds $cur$ to the answer; a $0$ resets it. No explicit segmentation is required.
+
+<!-- thinking:end -->
 
 We traverse the string $s$, using a variable $\textit{cur}$ to record the current count of consecutive 1s, and a variable $\textit{ans}$ to record the answer. When we traverse to character $s[i]$, if $s[i] = 0$, then set $\textit{cur}$ to 0; otherwise, increment $\textit{cur}$ by 1, then add $\textit{cur}$ to $\textit{ans}$, and take modulo $10^9 + 7$.
 

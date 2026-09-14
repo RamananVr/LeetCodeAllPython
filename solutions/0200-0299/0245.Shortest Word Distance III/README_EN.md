@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0245.Shortest%20Word%20Distance%20III/README_EN.md
 tags:
     - Array
     - String
@@ -44,6 +43,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $word1$ may equal $word2$, in which case the answer is the gap between consecutive occurrences of that word; otherwise it is the usual two-word gap.
+>
+> Track the last index accordingly: one pointer when the words coincide, two pointers when they differ.
+
+<!-- thinking:end -->
 
 First, we check whether $\textit{word1}$ and $\textit{word2}$ are equal:
 

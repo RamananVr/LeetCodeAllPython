@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest strictly increasing four-direction path. Plain DFS restarts from the same cell many times. Strict increase makes the graph acyclic.
+>
+> $dfs(i,j)$ is one plus the best neighbor with a larger value. Memoization evaluates each cell once; the answer is the max over all starts.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i, j)$, which represents the length of the longest increasing path that can be obtained starting from the coordinate $(i, j)$ in the matrix. The answer is $\max_{i, j} \textit{dfs}(i, j)$.
 

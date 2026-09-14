@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README_EN.md
 tags:
     - Tree
     - Design
@@ -84,6 +83,18 @@ kthLargest.add(9); // return 8</div>
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We insert into a stream and must report the $k$-th largest after each add. Sorting or scanning the whole history on every query is too heavy when both $n$ and the query count reach $10^4$.
+>
+> Only the current top $k$ values matter; anything smaller can never be the answer. In a size-$k$ min-heap the top is the smallest of those $k$, i.e. the $k$-th largest overall.
+>
+> Push each new value and pop if the heap grows past $k$. Seeding from $\textit{nums}$ uses the same $\textit{add}$. Each update is $O(\log k)$.
+
+<!-- thinking:end -->
 
 We maintain a priority queue (min heap) $\textit{minQ}$.
 

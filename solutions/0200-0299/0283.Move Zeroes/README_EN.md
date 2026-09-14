@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0283.Move%20Zeroes/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -45,6 +44,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Zeros must go to the end while nonzeros keep their order. Let $k$ be the next slot for a nonzero.
+>
+> Each nonzero is swapped with $nums[k]$ and $k$ advances, so the prefix of length $k$ is the original nonzero sequence.
+
+<!-- thinking:end -->
 
 We use a pointer $k$ to record the current position to insert, initially $k = 0$.
 

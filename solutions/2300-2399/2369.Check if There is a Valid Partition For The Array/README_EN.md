@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README_EN.md
 rating: 1779
 source: Weekly Contest 305 Q3
 tags:
@@ -63,6 +62,16 @@ This partition is valid, so we return true.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A partition uses two equals, three equals, or three consecutive increases. $n \le 10^5$ makes naive recursion overlap. Validity from index $i$ depends only on the suffix.
+>
+> Memoize $dfs(i)$: try a legal block of length $2$ or $3$ and jump to its end. Past $n$ is success.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which represents whether there is a valid partition starting from index $i$. So the answer is $dfs(0)$.
 
 The execution process of the function $dfs(i)$ is as follows:
@@ -120,6 +129,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization still recurses. Let $f[i]$ mean the prefix of length $i$ is valid, and transfer from $f[i-2]$ and $f[i-3]$ with the same three blocks.
+
+<!-- thinking:end -->
 
 We can convert the memoization search in Solution 1 into dynamic programming.
 

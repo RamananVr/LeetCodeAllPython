@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,16 @@ For Department 2:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The percentage is $(\textit{rank}-1)$ over $(\textit{size}-1)$. A singleton department has a zero denominator.
+>
+> $RANK$ by mark descending gives the rank; a $COUNT$ window gives department size. $IFNULL$ yields $0$ for a single student, otherwise two decimal places.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

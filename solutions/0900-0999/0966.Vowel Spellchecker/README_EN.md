@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0966.Vowel%20Spellchecker/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -74,6 +73,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query maps to the word list by exact match, then case-insensitive match, then vowel-insensitive match, taking the earliest word at that level. Build three tables: the original set, the first lowercase occurrence, and the first occurrence after vowels become `*`. Each query probes the tables in that order.
+
+<!-- thinking:end -->
 
 We traverse the $\textit{wordlist}$ and store the words in hash tables $\textit{low}$ and $\textit{pat}$ according to case-insensitive and vowel-insensitive rules, respectively. The key of $\textit{low}$ is the lowercase form of the word, and the key of $\textit{pat}$ is the string obtained by replacing the vowels of the word with `*`, with the value being the word itself. We use the hash table $\textit{s}$ to store the words in $\textit{wordlist}$.
 

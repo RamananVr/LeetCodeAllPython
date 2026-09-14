@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README_EN.md
 rating: 3018
 source: Biweekly Contest 43 Q4
 tags:
@@ -89,6 +88,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs encode ancestry: an edge exists iff one node is an ancestor of the other. We must report whether $0$, $1$, or more than one rooted tree fits.
+>
+> Larger pair-degree means closer to the root. Sort nodes by degree; a node's parent candidate is a neighbour of no-smaller degree.
+>
+> The candidate must be adjacent to every neighbour of the node. More than one node without a parent is impossible. Equal degrees on a parent-child pair yield multiple trees; otherwise exactly one.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

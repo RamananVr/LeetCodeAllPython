@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README_EN.md
 rating: 1411
 source: Weekly Contest 394 Q2
 tags:
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Here every lowercase occurrence must also precede the first uppercase of that letter. Existence alone would accept a late lowercase.
+>
+> It suffices to compare the last lowercase index with the first uppercase index, both obtainable in one scan.
+>
+> Record $first$ and $last$ while walking $word$, then count letters whose last lower index is strictly left of the first upper index.
+
+<!-- thinking:end -->
 
 We define two hash tables or arrays `first` and `last` to store the positions where each letter first appears and last appears respectively.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0671.Second%20Minimum%20Node%20In%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -57,6 +56,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every internal node equals the smaller child, so the root is the global minimum. We only need the strict second minimum.
+>
+> DFS and keep the smallest value strictly larger than the root; return $-1$ if none exists.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

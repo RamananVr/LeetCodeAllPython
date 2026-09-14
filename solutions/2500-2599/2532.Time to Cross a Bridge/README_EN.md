@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md
 rating: 2588
 source: Weekly Contest 327 Q4
 tags:
@@ -98,6 +97,16 @@ The whole process ends after 7 minutes. We return 6 because the problem asks for
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max-Heap and Min-Heap) + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only one worker may cross at a time; the right bank has priority, and on the same bank the slower crosser goes first. Advancing second by second is impossible when times reach $10^9$.
+>
+> Sort workers by the sum of crossing times so larger indices are slower, and store waiting workers in max-heaps. Finish times of loading/unloading sit in min-heaps and return to the corresponding wait heap. If nobody can cross now, jump the clock to the next finish. A waiter on the right crosses back first; otherwise the next left-bank worker takes a box. The time the last box returns is the answer.
+
+<!-- thinking:end -->
 
 First, we sort the workers by efficiency in descending order, so the worker with the highest index has the lowest efficiency.
 

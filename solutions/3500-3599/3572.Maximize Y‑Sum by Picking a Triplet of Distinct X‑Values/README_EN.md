@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README_EN.md
 rating: 1319
 source: Biweekly Contest 158 Q1
 tags:
@@ -78,6 +77,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three $x$ values must be distinct and the objective is the sum of their $y$’s, so each chosen $x$ should contribute its best $y$. Sort pairs by $y$ descending, record used $x$ in a set, and add the first three new $x$ values.
+>
+> If fewer than three distinct $x$ appear, return $-1$. One sort and one scan suffice.
+
+<!-- thinking:end -->
 
 We pair the elements of arrays $x$ and $y$ into a 2D array $\textit{arr}$, and then sort $\textit{arr}$ in descending order by the value of $y$. Next, we use a hash table to record the $x$ values that have already been selected, and iterate through $\textit{arr}$, each time selecting an $x$ value and its corresponding $y$ value that has not been chosen yet, until we have selected three distinct $x$ values.
 

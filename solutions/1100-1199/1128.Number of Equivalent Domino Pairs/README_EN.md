@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1128.Number%20of%20Equivalent%20Domino%20Pairs/README_EN.md
 rating: 1332
 source: Weekly Contest 146 Q1
 tags:
@@ -53,6 +52,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs treat $[a,b]$ and $[b,a]$ as the same. Scanning all earlier tiles for each new one is quadratic. Pack $\min(a,b)$ in the tens digit and $\max(a,b)$ in the ones, a key in $0..99$. Add the current count of that key to the answer, then increment, so each tile pairs only with equivalents already seen.
+
+<!-- thinking:end -->
 
 We can concatenate the two numbers of each domino in order of size to form a two-digit number, so that equivalent dominoes can be concatenated into the same two-digit number. For example, both `[1, 2]` and `[2, 1]` are concatenated into the two-digit number `12`, and both `[3, 4]` and `[4, 3]` are concatenated into the two-digit number `34`.
 

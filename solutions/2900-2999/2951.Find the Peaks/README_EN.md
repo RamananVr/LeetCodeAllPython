@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md
 rating: 1189
 source: Weekly Contest 374 Q1
 tags:
@@ -65,6 +64,16 @@ So the answer is [1,3].
 <!-- solution:start -->
 
 ### Solution 1: Direct Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A peak is an interior index strictly larger than both neighbors. $n \le 100$, so a scan from $1$ to $n-2$ comparing triples suffices.
+>
+> The endpoints are never peaks by definition.
+
+<!-- thinking:end -->
 
 We directly traverse the index $i \in [1, n-2]$. For each index $i$, if $mountain[i-1] < mountain[i]$ and $mountain[i + 1] < mountain[i]$, then $mountain[i]$ is a peak, and we add index $i$ to the answer array.
 

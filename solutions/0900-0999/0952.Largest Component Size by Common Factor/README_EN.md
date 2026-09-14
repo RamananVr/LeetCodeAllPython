@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README_EN.md
 tags:
     - Union Find
     - Array
@@ -66,6 +65,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Numbers sharing a factor greater than $1$ are connected; we want the largest component. Pairwise $\gcd$ is quadratic and too slow for $n\le 2\times 10^4$. Union each value with all of its factors so numbers that share a factor meet. The answer is the highest frequency among the roots of the input values.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

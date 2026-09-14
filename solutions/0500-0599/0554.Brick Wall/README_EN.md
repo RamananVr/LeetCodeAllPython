@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0554.Brick%20Wall/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A vertical line that never cuts a brick's interior crosses $(\text{rows} - \text{rows aligned on that gap})$ bricks. Recounting rows per gap repeats work.
+>
+> Prefix-sum each row except the last brick and count gap positions. The most frequent gap is crossed least often; the answer is rows minus that frequency. The wall's edges are excluded, or the line would cross zero bricks.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to record the prefix sum of each row except for the last brick. The key is the value of the prefix sum, and the value is the number of times the prefix sum appears.
 

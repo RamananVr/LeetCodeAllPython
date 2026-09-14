@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README_EN.md
 tags:
     - Database
 ---
@@ -89,6 +88,14 @@ Orders table:
 
 ### Solution 1: NOT IN
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers with no orders are those whose $\textit{id}$ is outside the $\textit{customerId}$ set. $\textit{NOT IN}$ is that set difference. Watch the empty-list semantics of $\textit{NOT IN}$ on some engines.
+
+<!-- thinking:end -->
+
 List all customer IDs of existing orders, and use `NOT IN` to find customers who are not in the list.
 
 <!-- tabs:start -->
@@ -128,6 +135,14 @@ WHERE
 <!-- solution:start -->
 
 ### Solution 2: LEFT JOIN
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is awkward on a large subquery. A left join to orders, keeping rows whose $\textit{customerId}$ is null, avoids the $\textit{NOT IN}$/$\textit{NULL}$ trap and can use a join plan.
+
+<!-- thinking:end -->
 
 Use `LEFT JOIN` to join the tables and return the data where `CustomerId` is `NULL`.
 

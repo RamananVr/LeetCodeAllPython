@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README_EN.md
 tags:
     - Stack
     - Array
@@ -65,6 +64,14 @@ For nums[4] the longest subarray in which 6 is the maximum is nums[0..4] so ans[
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest range where $nums[i]$ is the maximum is bounded by the nearest strictly larger elements on both sides. Two monotonic-stack passes produce those bounds; the length is $right[i]-left[i]-1$.
+
+<!-- thinking:end -->
 
 This problem is a template for monotonic stack. We only need to use the monotonic stack to find the position of the first element larger than $nums[i]$ on the left and right, denoted as $left[i]$ and $right[i]$. Then, the interval length with $nums[i]$ as the maximum value is $right[i] - left[i] - 1$.
 

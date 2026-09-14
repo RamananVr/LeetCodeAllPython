@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2772.Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero/README_EN.md
 rating: 2029
 source: Weekly Contest 353 Q4
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Difference Array + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation subtracts one from a window of length $k$; we ask whether the array can become all zeros. Subtracting one at a time is too slow, and the number of hits at each index is forced from the left.
+>
+> The leftmost nonzero index $i$ can be cleared only by windows that cover $i$, exactly equal to its current value. A difference array records that range decrement; a prefix sum restores the live value. A negative value or a window past the end fails.
+
+<!-- thinking:end -->
 
 First, let's consider the first element of $nums$, $nums[0]$:
 

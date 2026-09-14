@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0135.Candy/README_EN.md
 tags:
     - Greedy
     - Array
@@ -61,6 +60,14 @@ The third child gets 1 candy because it satisfies the above two conditions.
 <!-- solution:start -->
 
 ### Solution 1: Two traversals
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A higher-rated child must get more candy than a neighbor; minimize the total. $n\le 5\times 10^4$. Sorting by rating can work but equal ratings are fiddly. The left and right constraints are independent: a left-to-right pass enforces “more than the left neighbor”, a right-to-left pass enforces the right, and each child takes the max. Both increasing chains survive.
+
+<!-- thinking:end -->
 
 We initialize two arrays $left$ and $right$, where $left[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the left child's score, and $right[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the right child's score. Initially, $left[i]=1$, $right[i]=1$.
 

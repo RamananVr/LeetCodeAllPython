@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/README_EN.md
 tags:
     - Recursion
     - Array
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $6 \times 6$ and we need a Hamiltonian path that visits the special values in order $1,2,\ldots$. A bit mask can store the visited set.
+>
+> DFS from every cell that is $0$ or $1$. A neighbor is legal if it is unvisited and equal to $0$ or the expected $v$; hitting $v$ increments $v$. Backtrack and try every start.
+
+<!-- thinking:end -->
 
 Note that the matrix size does not exceed $6 \times 6$, so we can use state compression to represent the visited cells. We can use an integer $\textit{st}$ to represent the visited cells, where the $i$-th bit being 1 means cell $i$ has been visited, and 0 means it has not been visited.
 

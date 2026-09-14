@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3483.Unique%203-Digit%20Even%20Numbers/README_EN.md
 rating: 1323
 source: Biweekly Contest 152 Q1
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Set + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We form three-digit even numbers from at most $10$ digits with distinct indices, and count distinct values. $n^3\le 10^3$, so a triple loop is enough.
+>
+> The ones digit must be even, the hundreds digit cannot be $0$, and the three indices are distinct. A set collapses different index triples that yield the same number.
+>
+> Enumerate an even ones digit $a$, then tens $b$ and hundreds $c$, and insert $100c+10b+a$.
+
+<!-- thinking:end -->
 
 We use a hash set $\textit{s}$ to record all distinct three-digit even numbers, and then enumerate all possible three-digit even numbers to add them to the hash set.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3202.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20II/README_EN.md
 rating: 1973
 source: Weekly Contest 404 Q3
 tags:
@@ -65,6 +64,16 @@ Return the length of the <strong>longest</strong> <strong>valid</strong> subsequ
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The modulus is now an arbitrary $k\le 10^3$ with $n\le 10^3$. Subsequence enumeration is still infeasible, but equal adjacent sums still force odd positions to share one residue and even positions another, so the state remains the last two residues.
+>
+> $n\times k\le 10^6$ lets us, for each value, enumerate the target pair-sum $j\in[0,k)$, recover $y=(j-x+k)\bmod k$, and set $f[x][y]=f[y][x]+1$. The recurrence is the same as in the $k=2$ case; only the table side length changes.
+
+<!-- thinking:end -->
 
 Based on the problem description, we know that for a subsequence $a_1, a_2, a_3, \cdots, a_x$, if it satisfies $(a_1 + a_2) \bmod k = (a_2 + a_3) \bmod k$, then $a_1 \bmod k = a_3 \bmod k$. This means that the result of taking modulo $k$ for all odd-indexed elements is the same, and the result for all even-indexed elements is the same as well.
 

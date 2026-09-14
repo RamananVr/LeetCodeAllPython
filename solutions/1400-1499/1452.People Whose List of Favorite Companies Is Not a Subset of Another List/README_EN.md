@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1452.People%20Whose%20List%20of%20Favorite%20Companies%20Is%20Not%20a%20Subset%20of%20Another%20List/README_EN.md
 rating: 1562
 source: Weekly Contest 189 Q3
 tags:
@@ -68,6 +67,16 @@ Other lists of favorite companies are not a subset of another list, therefore, t
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and each list has at most $500$ names. Map company names to integers, store each list as a set, and test subset relations in a double loop.
+>
+> Lists are unique, so person $i$ stays if no $j\neq i$ satisfies $\textit{nums}[i]\subseteq\textit{nums}[j]$.
+
+<!-- thinking:end -->
 
 We can map each company to a unique integer. Then, for each person, we convert their favorite companies into a set of integers. Finally, we check if the favorite companies of one person are a subset of another person's favorite companies.
 

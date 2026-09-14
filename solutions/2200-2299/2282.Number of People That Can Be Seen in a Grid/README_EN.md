@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README_EN.md
 tags:
     - Stack
     - Array
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person looks right and down; a strictly taller person blocks the rest, and an equal person is visible only as the nearest one. Rows and columns are independent, the same as counting visible people in a queue. A decreasing stack from the right (or bottom) solves one line.
+>
+> Pop shorter people and count them; if the stack is non-empty add one more; then pop equals. Run the helper on every row and every column and add.
+
+<!-- thinking:end -->
 
 We observe that for the $i$-th person, the people he can see must have heights that are strictly monotonically increasing from left to right (or from top to bottom).
 

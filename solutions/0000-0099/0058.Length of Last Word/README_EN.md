@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md
 tags:
     - String
 ---
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Traversal + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to split on spaces and take the last token. $n \le 10^4$ would pass, but we scan the whole string and allocate substrings.
+>
+> The waste is every earlier word. The last word sits at the end (possibly behind trailing spaces).
+>
+> So scan from the right: skip trailing spaces to get $i$, then walk to the word's left edge $j$; the length is $i-j$.
+
+<!-- thinking:end -->
 
 We start traversing from the end of the string $s$, find the first character that is not a space, which is the last character of the last word, and mark the index as $i$. Then continue to traverse forward, find the first character that is a space, which is the character before the first character of the last word, and mark it as $j$. Then the length of the last word is $i - j$.
 

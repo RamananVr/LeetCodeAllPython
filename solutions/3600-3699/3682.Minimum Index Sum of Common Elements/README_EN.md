@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3682.Minimum%20Index%20Sum%20of%20Common%20Elements/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -85,6 +84,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Map
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the minimum index sum over shared values. Scanning $\textit{nums2}$ for every entry of $\textit{nums1}$ fails at $n\le 10^5$.
+>
+> Store the first index of each value in $\textit{nums2}$, then walk $\textit{nums1}$ and update with $i+d[x]$.
+>
+> Keeping only the first occurrence minimizes the $\textit{nums2}$ side. If nothing is shared, return $-1$.
+
+<!-- thinking:end -->
 
 We initialize a variable $\textit{ans}$ as infinity, representing the current minimum index sum, and use a hash map $\textit{d}$ to store the first occurrence index of each element in array $\textit{nums2}$.
 

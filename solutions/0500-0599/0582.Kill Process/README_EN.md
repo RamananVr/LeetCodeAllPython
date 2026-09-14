@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0582.Kill%20Process/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Killing a process kills its whole descendant tree. The parent arrays should become an adjacency list first.
+>
+> $g[p]$ stores children of $p$. DFS or BFS from `kill` gathers every reachable id. Each process is entered once.
+
+<!-- thinking:end -->
 
 We first construct a graph $g$ based on $pid$ and $ppid$, where $g[i]$ represents all child processes of process $i$. Then, starting from the process $kill$, we perform depth-first search to obtain all killed processes.
 

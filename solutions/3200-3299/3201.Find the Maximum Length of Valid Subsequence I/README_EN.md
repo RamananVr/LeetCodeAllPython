@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README_EN.md
 rating: 1663
 source: Weekly Contest 404 Q2
 tags:
@@ -78,6 +77,16 @@ You are given an integer array <code>nums</code>.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Validity only constrains consecutive pair-sums modulo $k$. Here $k=2$ and $n\le 2\times 10^5$, so enumerating subsequences or rescanning every predecessor is too slow.
+>
+> $(a+b)\equiv(b+c)\pmod 2$ implies $a\equiv c\pmod 2$: odd positions share one residue and even positions share another. The shape of a valid sequence is therefore captured by the last two residues $(x,y)$. Maintain $f[x][y]$ as the longest length ending with residue $x$ after a previous residue $y$. On each $x$, enumerate the target pair-sum $j$, recover $y=(j-x)\bmod 2$, and transfer from $f[y][x]$. One linear pass suffices.
+
+<!-- thinking:end -->
 
 We set $k = 2$.
 

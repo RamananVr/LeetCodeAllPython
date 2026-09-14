@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3222.Find%20the%20Winning%20Player%20in%20Coin%20Game/README_EN.md
 rating: 1269
 source: Biweekly Contest 135 Q1
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each turn spends $2$ coins of $75$ and $8$ of $10$. $x,y\le 100$ would allow simulating turns, but the number of full turns is just the min of the two quotients.
+>
+> Set $k=\min(\lfloor x/2\rfloor,\lfloor y/8\rfloor)$, subtract, then test whether one more half-turn remains (a $75$ and at least four $10$s). If so Alice takes it; otherwise Bob wins. The test is $O(1)$.
+
+<!-- thinking:end -->
 
 Since each round of operation consumes $2$ coins valued at $75$ and $8$ coins valued at $10$, we can calculate the number of rounds $k = \min(x / 2, y / 8)$, and then update the values of $x$ and $y$, where $x$ and $y$ are the remaining number of coins after $k$ rounds of operations.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README_EN.md
 rating: 1308
 source: Weekly Contest 302 Q2
 tags:
@@ -58,6 +57,16 @@ So the maximum sum that we can obtain is 54.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum sum of two numbers with the same digit sum. $n \le 10^5$ forbids pairwise checks. Each digit sum only needs the best value seen so far.
+>
+> On value $v$ with digit sum $x$, if $x$ is known, update the answer with that record plus $v$, then store $\max(record, v)$. Digit sums are at most $81$, so an array may replace the map.
+
+<!-- thinking:end -->
 
 We can use a hash table $d$ to record the maximum value corresponding to each digit sum, and initialize an answer variable $ans = -1$.
 

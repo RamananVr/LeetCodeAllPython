@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README_EN.md
 rating: 1207
 source: Weekly Contest 221 Q1
 tags:
@@ -57,6 +56,16 @@ Notice that the vowel o is counted twice.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need to know whether the two halves contain the same number of vowels. The length is at most $1000$, so a single scan is enough.
+>
+> Keep vowels of both cases in a set and walk the two halves together: increment on a vowel in the left half and decrement on one in the right. The halves match if and only if the counter ends at zero.
+
+<!-- thinking:end -->
 
 Traverse the string. If the number of vowels in the first half of the string is equal to the number of vowels in the second half, return `true`. Otherwise, return `false`.
 

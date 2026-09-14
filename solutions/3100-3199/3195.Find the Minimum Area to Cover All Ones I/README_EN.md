@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3195.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20I/README_EN.md
 rating: 1348
 source: Weekly Contest 403 Q2
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Find Minimum and Maximum Boundaries
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One axis-aligned rectangle must cover every $1$. Trying every rectangle is $O(m^2n^2)$.
+>
+> The optimum is the bounding box of all ones, fixed by the extreme rows and columns.
+>
+> One scan tracks $x_1,y_1,x_2,y_2$; the area is $(x_2-x_1+1)(y_2-y_1+1)$.
+
+<!-- thinking:end -->
 
 We can traverse `grid`, finding the minimum boundary of all `1`s, denoted as $(x_1, y_1)$, and the maximum boundary, denoted as $(x_2, y_2)$. Then, the area of the minimum rectangle is $(x_2 - x_1 + 1) \times (y_2 - y_1 + 1)$.
 

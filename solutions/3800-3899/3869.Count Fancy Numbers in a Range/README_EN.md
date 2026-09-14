@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3869.Count%20Fancy%20Numbers%20in%20a%20Range/README_EN.md
 rating: 2254
 source: Biweekly Contest 178 Q4
 tags:
@@ -108,6 +107,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A fancy number is strictly monotone in its digits, or its digit sum is a good number. $r \le 10^{15}$ forbids enumerating the range.
+>
+> Digit DP with a prefix difference counts such integers in $[l,r]$.
+>
+> A state stores position, digit sum, previous digit, monotonicity (unset / increasing / decreasing / broken), and the upper-bound flag. At a leaf, a still-monotone number counts; otherwise we test whether the digit sum is good.
+>
+> Goodness of a digit sum (at most $9 \times 16$) is a small check. Subtract the count to $l-1$ from the count to $r$.
+
+<!-- thinking:end -->
 
 We first define a function $\text{check}(s)$ to determine whether an integer $s$ is a good number. For $s < 100$, we only need to check whether $s$ is a multiple of 11; if so, $s$ is not a good number. For $s \geq 100$, we need to check whether the digits of $s$ form a strictly monotonic sequence, i.e., strictly increasing or strictly decreasing. Since the range of digit sums is small, when the digit sum exceeds $100$, we only need to check the relationship between the tens digit and the units digit of the digit sum.
 

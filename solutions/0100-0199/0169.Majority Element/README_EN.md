@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0169.Majority%20Element/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Moore Voting Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The majority value appears more than $\lfloor n/2\rfloor$ times and is guaranteed. Counting or sorting works; the follow-up wants $O(n)$ time and $O(1)$ space. $n\le 5\times 10^4$.
+>
+> Boyer–Moore cancels distinct values in pairs. When the counter hits zero we change candidate. The majority cannot be fully cancelled, so the candidate after one pass is the answer; a second pass is unnecessary.
+
+<!-- thinking:end -->
 
 The basic steps of the Moore voting algorithm are as follows:
 

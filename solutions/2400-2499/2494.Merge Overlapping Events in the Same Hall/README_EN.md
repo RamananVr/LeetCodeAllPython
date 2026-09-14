@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,16 @@ Hall 3:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per hall, merge events that overlap or touch after ordering by start day. A running $\textit{MAX}(\textit{end_day})$ is the latest end so far; if the next start is still $\le$ that value, it belongs to the same run.
+>
+> $\textit{LAG}$ flags a new run, $\textit{SUM}$ assigns a group id, then $\textit{MIN}$/$\textit{MAX}$ close each group.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

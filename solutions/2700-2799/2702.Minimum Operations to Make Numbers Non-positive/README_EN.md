@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -61,6 +60,16 @@ Now, all the numbers in nums are non-positive. Therefore, we return 3.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation subtracts $x$ from one index and $y$ from the rest. Enumerating which index is hit each time grows with the number of operations, and both values and the answer can reach $10^9$, so a direct simulation is not viable.
+>
+> The feasible operation count $t$ is monotonic: if $t$ works, any larger count also works, so we binary-search $t$. To test a candidate, give every element $t$ global subtractions of $y$; whatever remains positive must be finished by extra $x-y$ hits. Sum those extras and compare with $t$.
+
+<!-- thinking:end -->
 
 We notice that if an operation count $t$ can make all numbers less than or equal to $0$, then for any $t' > t$, the operation count $t'$ can also make all numbers less than or equal to $0$. Therefore, we can use binary search to find the minimum operation count.
 

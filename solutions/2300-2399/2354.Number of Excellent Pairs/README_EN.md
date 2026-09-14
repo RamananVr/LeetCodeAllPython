@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md
 rating: 2075
 source: Weekly Contest 303 Q4
 tags:
@@ -70,6 +69,16 @@ So the number of excellent pairs is 5.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair is excellent iff $\mathrm{popcount}(a\land b)+\mathrm{popcount}(a\lor b)\ge k$, which equals $\mathrm{popcount}(a)+\mathrm{popcount}(b)$. $n \le 10^5$, and pairs depend on the set of values, so we unique them first.
+>
+> Count uniques by bit count. For each $v$ with $t$ bits, add every frequency $i$ with $t+i\ge k$. Each ordered pair, including equals, is counted once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

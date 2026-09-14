@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md
 rating: 2020
 source: Biweekly Contest 123 Q4
 tags:
@@ -84,6 +83,18 @@ Note that it does not matter if the fence encloses any area, the first and secon
 <!-- solution:start -->
 
 ### Solution 1: Sorting and Classification
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 1000$, so an $O(n^3)$ interior check would time out.
+>
+> The observation that a sorted scan needs a strictly increasing $y$ does not depend on $n$. Pair enumeration is $O(n^2)$ and fits the new limit.
+>
+> We keep the same sort and $\textit{maxY}$ scan and never test other points inside the rectangle.
+
+<!-- thinking:end -->
 
 First, we sort the array. Then, we can classify the results based on the properties of a triangle.
 

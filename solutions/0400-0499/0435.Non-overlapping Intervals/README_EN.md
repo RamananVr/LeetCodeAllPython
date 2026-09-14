@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0435.Non-overlapping%20Intervals/README_EN.md
 tags:
     - Greedy
     - Array
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Removing the fewest intervals so the rest are disjoint is the same as keeping the largest set of non-overlapping intervals. Subset search is too large.
+>
+> Sort by right endpoint and keep an interval when it starts at or after the last kept end. The earliest finish leaves the most room, which is why we sort by the right end.
+>
+> The answer starts at $n$ and decreases once per kept interval: total minus the size of a maximum compatible set.
+
+<!-- thinking:end -->
 
 We first sort the intervals in ascending order by their right boundary. We use a variable $\textit{pre}$ to record the right boundary of the previous interval and a variable $\textit{ans}$ to record the number of intervals that need to be removed. Initially, $\textit{ans} = \textit{intervals.length}$.
 

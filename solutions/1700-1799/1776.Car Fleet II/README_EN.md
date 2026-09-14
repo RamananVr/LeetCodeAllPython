@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1776.Car%20Fleet%20II/README_EN.md
 rating: 2530
 source: Weekly Contest 230 Q4
 tags:
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cars drive right and join a slower fleet on collision. Who a car hits depends only on cars to its right. $n$ is large, so we need a linear structure.
+>
+> Walk right to left with a stack of candidates not yet absorbed by a still-slower car. The top can be caught only if it is slower; if the meeting time is after the top's own collision, that car vanishes first and is popped.
+>
+> An empty stack means no collision; otherwise record the time with the new top and push the current car.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

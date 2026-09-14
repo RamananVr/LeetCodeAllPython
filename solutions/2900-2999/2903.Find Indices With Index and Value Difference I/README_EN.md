@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2903.Find%20Indices%20With%20Index%20and%20Value%20Difference%20I/README_EN.md
 rating: 1157
 source: Weekly Contest 367 Q1
 tags:
@@ -78,6 +77,16 @@ Hence, [-1,-1] is returned.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers + Maintaining Maximum and Minimum Values
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$ allows checking every index pair. A valid pair needs $|i-j| \ge indexDifference$, so for each right endpoint $i$ it suffices to search $[0, i-indexDifference]$ for a value far enough from $nums[i]$.
+>
+> That prefix is fully described by the indices $mi$ and $mx$ of its minimum and maximum. After folding in the newly eligible $nums[j]$, test $nums[i]-nums[mi]$ and $nums[mx]-nums[i]$. One scan yields any valid pair.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $indexDifference$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $indexDifference$, and $j` points to $0$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md
 rating: 1411
 source: Weekly Contest 449 Q2
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A single horizontal or vertical cut must split the grid into two blocks of equal sum. An odd total is impossible.
+>
+> Scan row prefix sums; a cut after a row is legal when the prefix is half the total and the row is not the last. Repeat on columns. A running sum is enough — no full prefix matrix is required.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of all elements in the matrix, denoted as $s$. If $s$ is odd, it is impossible to divide the matrix into two parts with equal sums, so we directly return `false`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README_EN.md
 tags:
     - Brainteaser
     - Math
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ reaches $10^5$, so we cannot simulate each passenger. The probability that passenger $n$ sits in seat $n$ is $1$ when $n=1$; afterwards passenger $1$ either sits correctly, takes seat $n$, or takes some middle seat and reduces the problem to a smaller isomorphic instance.
+>
+> The recurrence collapses to $1/2$ for every $n\ge 2$. We return $1$ or $0.5$ according as $n=1$, with no iteration.
+
+<!-- thinking:end -->
 
 Let $f(n)$ represent the probability that the $n$th passenger will sit in their own seat when there are $n$ passengers boarding. Consider from the simplest case:
 

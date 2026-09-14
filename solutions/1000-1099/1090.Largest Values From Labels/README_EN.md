@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README_EN.md
 rating: 1501
 source: Weekly Contest 141 Q2
 tags:
@@ -85,6 +84,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subset of size at most $\textit{numWanted}$ may take a label at most $\textit{useLimit}$ times and should maximize the value sum. Larger values come first; a counter enforces the per-label cap. $n\le 2\times 10^4$ allows a sort then a linear pick.
+>
+> Sort $(value,label)$ descending and take an item when its label is still under the limit, until $\textit{numWanted}$ items are chosen.
+>
+> $cnt$ stores how often each label has been used.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

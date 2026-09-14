@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README_EN.md
 tags:
     - Stack
     - Tree
@@ -73,6 +72,16 @@ return res
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flatten nested integers into an iterator. Searching for the next leaf on every `next` complicates the cursor. Depth is bounded, so we can flatten in the constructor.
+>
+> DFS appends integers and recurses into lists. `next`/`hasNext` only move an index. Extra space buys $O(1)$ per call.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README_EN.md
 rating: 1307
 source: Biweekly Contest 62 Q1
 tags:
@@ -69,6 +68,16 @@ It is impossible to fit 2 elements in a 1x1 2D array, so return an empty 2D arra
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reshaping is possible iff $mn$ equals the source length. With length $\le 5 \times 10^4$, slicing by rows is enough.
+>
+> Return empty on mismatch; otherwise take slices of width $n$.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that to construct an $m$-row and $n$-column two-dimensional array, it needs to satisfy that $m \times n$ equals the length of the original array. If it does not satisfy, return an empty array directly.
 

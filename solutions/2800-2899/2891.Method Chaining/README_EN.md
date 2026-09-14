@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2891.Method%20Chaining/README_EN.md
 tags:
     - Pandas
 ---
@@ -74,6 +73,14 @@ The results should be sorted in descending order of weight.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep animals heavier than $100$, sort by weight descending, and project the name column. Method chaining performs the filter, sort, and projection in one expression.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

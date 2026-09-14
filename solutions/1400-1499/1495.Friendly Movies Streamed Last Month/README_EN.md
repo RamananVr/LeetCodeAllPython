@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README_EN.md
 tags:
     - Database
 ---
@@ -102,6 +101,14 @@ Content table:
 <!-- solution:start -->
 
 ### Solution 1: Equi-Join + Conditional Filtering
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Join `TVProgram` to `Content` on `content_id`, keep June $2020$ kids movies, and `DISTINCT` the titles.
+
+<!-- thinking:end -->
 
 We can first use an equi-join to join the two tables based on the `content_id` field, and then use conditional filtering to select the child-friendly movies that were played in June 2020.
 

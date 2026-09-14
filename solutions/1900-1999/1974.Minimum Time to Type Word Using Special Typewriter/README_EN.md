@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1974.Minimum%20Time%20to%20Type%20Word%20Using%20Special%20Typewriter/README_EN.md
 rating: 1364
 source: Biweekly Contest 59 Q1
 tags:
@@ -90,6 +89,16 @@ The characters are printed as follows:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pointer moves on a circular alphabet and each letter still costs one second to type. The shorter arc is always better.
+>
+> From `'a'`, add $\min(|c-a|,26-|c-a|)$ between successive letters, then add the word length.
+
+<!-- thinking:end -->
 
 We initialize the answer variable $\textit{ans}$ to the length of the string, indicating that we need at least $\textit{ans}$ seconds to type the string.
 

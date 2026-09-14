@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0880.Decoded%20String%20at%20Index/README_EN.md
 tags:
     - Stack
     - String
@@ -71,6 +70,16 @@ The 1<sup>st</sup> letter is &quot;a&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Reverse Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The decoded tape is built from letters and repeat digits and can be far longer than $10^{18}$; $k$ is up to $10^9$, so we must not materialize it. The $k$-th character is fixed by the last operation whose length covers $k$.
+>
+> Accumulate the decoded length $m$ forward, then walk backward: a digit reduces $k$ modulo the current length, and a letter with $k\equiv 0$ is the answer. Two passes over $s$ suffice.
+
+<!-- thinking:end -->
 
 We can first calculate the total length $m$ of the decoded string, then traverse the string from back to front. Each time, we update $k$ to be $k \bmod m$, until $k$ is $0$ and the current character is a letter, then we return the current character. Otherwise, if the current character is a number, we divide $m$ by this number. If the current character is a letter, we subtract $1$ from $m$.
 

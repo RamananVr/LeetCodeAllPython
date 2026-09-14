@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -73,6 +72,16 @@ So return 7.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find an empty cell minimizing the sum of distances to every building, without crossing buildings or obstacles. BFS from every empty cell repeats work when buildings are few and empties are many.
+>
+> BFS from each building instead, adding the distance into $dist$ and incrementing $cnt$. Among empties with $cnt$ equal to the building total, take the smallest $dist$; if none is reached by every building, return $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

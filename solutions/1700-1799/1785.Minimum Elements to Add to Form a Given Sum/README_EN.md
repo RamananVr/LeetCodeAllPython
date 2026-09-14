@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README_EN.md
 rating: 1432
 source: Weekly Contest 231 Q2
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may append integers of absolute value at most $\textit{limit}$ so the sum becomes $\textit{goal}$, using as few appends as possible.
+>
+> The gap $d=|\sum nums-\textit{goal}|$ shrinks by at most $\textit{limit}$ each time, so the fewest appends are $\lceil d/\textit{limit}\rceil$.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of the array elements $s$, and then calculate the difference $d$ between $s$ and $goal$.
 

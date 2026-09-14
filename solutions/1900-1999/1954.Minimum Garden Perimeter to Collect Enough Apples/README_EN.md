@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1954.Minimum%20Garden%20Perimeter%20to%20Collect%20Enough%20Apples/README_EN.md
 rating: 1758
 source: Weekly Contest 252 Q3
 tags:
@@ -70,6 +69,16 @@ The perimeter is 2 * 4 = 8.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square with corner $(x,x)$ contains $2x(x+1)(2x+1)$ apples and has perimeter $8x$. $x$ is on the order of a cube root.
+>
+> Increment $x$ from $1$ until the formula meets the demand and return $8x$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -90,6 +99,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The linear search still walks a cube-root number of steps. The formula is monotone, so we binary-search the least $x$ in $[1,10^5]$ and multiply by $8$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

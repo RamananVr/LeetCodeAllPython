@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README_EN.md
 rating: 1860
 source: Weekly Contest 257 Q2
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A character is weak if another beats it in both attack and defense. Pairwise checks are quadratic. Sort by attack descending and defense ascending so earlier characters have strictly larger attack, or equal attack that cannot be a strict win.
+>
+> Track the maximum defense seen; a smaller current defense is weak.
+
+<!-- thinking:end -->
 
 We can sort all characters in descending order of attack power and ascending order of defense power.
 

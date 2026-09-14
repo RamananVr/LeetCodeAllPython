@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README_EN.md
 rating: 2307
 source: Biweekly Contest 39 Q4
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming + Subset Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $10$ customers, and each value's stock must be given entirely to some of them. A bit mask records who is already served.
+>
+> Collect frequencies into $arr$ and precompute subset sums $s[j]$ of $\textit{quantity}$. $f[i][j]$ is whether the first $i$ values can serve customer set $j$.
+>
+> Give a subset $k$ of $j$ to value $i$ when $s[k]\le arr[i]$ and the rest was already feasible. The answer is $f[n-1][2^m-1]$.
+
+<!-- thinking:end -->
 
 First, we count the occurrence of each number in the array `nums`, and record it in the hash table `cnt`. Then we store the values in the hash table into the array `arr`. We denote the length of the array `arr` as `n`.
 

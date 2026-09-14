@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README_EN.md
 rating: 1279
 source: Biweekly Contest 110 Q2
 tags:
@@ -63,6 +62,14 @@ There are no pairs of adjacent nodes, so we return the initial linked list.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need to insert $\gcd(pre,cur)$ between every adjacent pair, which a single scan can do. Keep two pointers, splice in a new node, then advance $pre$ to the original $cur$ until the list ends.
+
+<!-- thinking:end -->
 
 We use two pointers $pre$ and $cur$ to point to the current node and the next node respectively. We only need to insert a new node between $pre$ and $cur$. Therefore, each time we calculate the greatest common divisor $x$ of $pre$ and $cur$, we insert a new node with value $x$ between $pre$ and $cur$. Then we update $pre = cur$ and $cur = cur.next$, and continue to traverse the linked list until $cur$ is null.
 

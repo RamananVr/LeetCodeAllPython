@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sleep/README_EN.md
 tags:
     - JavaScript
 ---
@@ -53,6 +52,18 @@ sleep(100).then(() =&gt; {
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need an awaitable delay; `setTimeout` is not a Promise. A busy loop would block the event loop.
+>
+> Wrapping the timer in a Promise resolves when it fires, so callers continue asynchronously.
+>
+> Hence `sleep` returns `new Promise(r => setTimeout(r, millis))`.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

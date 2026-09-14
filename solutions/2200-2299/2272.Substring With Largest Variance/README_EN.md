@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README_EN.md
 rating: 2515
 source: Biweekly Contest 78 Q4
 tags:
@@ -64,6 +63,16 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Variance of a substring is the gap between its most and least frequent letters. $n \le 10^4$ makes enumerating all substrings tight. Only $26$ letters exist, so variance depends on a pair $(a,b)$: treat $a$ as $+1$ and $b$ as $-1$ and take a maximum subarray that contains both.
+>
+> $f[0]$ is a tail of only $a$; $f[1]$ is the best difference that already saw both. An $a$ increments both; a $b$ sets $f[1]=\max(f[1],f[0])-1$ and clears $f[0]$. $f[1]$ starts at $-\infty$ so we never report a stretch without $b$.
+
+<!-- thinking:end -->
 
 Since the character set only contains lowercase letters, we can consider enumerating the most frequent character $a$ and the least frequent character $b$. For a substring, the difference in the number of occurrences of these two characters is the variance of the substring.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1946.Largest%20Number%20After%20Mutating%20Substring/README_EN.md
 rating: 1445
 source: Weekly Contest 251 Q2
 tags:
@@ -76,6 +75,18 @@ Thus, &quot;<u>021</u>&quot; becomes &quot;<u>934</u>&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may mutate one contiguous substring and want the lexicographically largest result. From the high digits we should start replacing as soon as a digit grows, and stop at the first decrease.
+>
+> Before the mutation starts, skip digits that do not grow. After it starts, a mapped digit that is smaller must end the interval; equal digits may continue.
+>
+> One left-to-right pass selects that unique interval.
+
+<!-- thinking:end -->
 
 According to the problem description, we can start from the highest digit of the string and greedily perform continuous replacement operations until we encounter a digit smaller than the current digit.
 

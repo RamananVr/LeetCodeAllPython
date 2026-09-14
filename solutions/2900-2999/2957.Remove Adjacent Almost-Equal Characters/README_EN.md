@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README_EN.md
 rating: 1429
 source: Biweekly Contest 119 Q2
 tags:
@@ -68,6 +67,16 @@ It can be shown that the minimum number of operations needed to remove all adjac
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent letters whose codes differ by less than $2$ force a change. Changing the current index isolates it from the next, so incrementing at $i$ and skipping $i+1$ is optimal. $n \le 100$; start at index $1$.
+>
+> The string need not be rewritten; only the count matters.
+
+<!-- thinking:end -->
 
 We start traversing the string `word` from index $1$. If `word[i]` and `word[i - 1]` are approximately equal, we greedily replace `word[i]` with a character that is not equal to both `word[i - 1]` and `word[i + 1]` (we can choose not to perform the replacement operation, just record the number of operations). Then, we skip `word[i + 1]` and continue to traverse the string `word`.
 

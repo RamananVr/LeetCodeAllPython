@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README_EN.md
 rating: 1948
 source: Weekly Contest 324 Q4
 tags:
@@ -85,6 +84,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Finding the Lowest Common Ancestor
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a perfect binary tree the cycle created by edge $(a,b)$ has length equal to the path $a$–$b$ plus one. Building the tree for $n$ up to $30$ would materialize $2^n-1$ nodes.
+>
+> A parent is $\lfloor x/2\rfloor$, i.e. a right shift. Walk both nodes upward, always moving the larger label, until they meet; the number of steps plus one is the cycle length. That walk is exactly the LCA computation on this numbering.
+
+<!-- thinking:end -->
 
 For each query, we find the lowest common ancestor of the two nodes $a$ and $b$, and record the number of steps taken upwards. The answer to the query is the number of steps plus one.
 

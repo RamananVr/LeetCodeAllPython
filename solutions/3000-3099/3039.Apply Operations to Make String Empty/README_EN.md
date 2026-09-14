@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README_EN.md
 rating: 1423
 source: Biweekly Contest 124 Q2
 tags:
@@ -71,6 +70,18 @@ The string just before the last operation is &quot;abcd&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each round deletes the first remaining occurrence of every character. We want the characters removed in the last round, in original order. $n \le 5 \times 10^5$.
+>
+> The last round removes exactly the characters whose frequency equals the global maximum, at their last occurrences.
+>
+> After counting frequencies and last positions, we keep those characters that attain the maximum frequency and sit at that last index.
+
+<!-- thinking:end -->
 
 We use a hash table or array $cnt$ to record the occurrence times of each character in string $s$, and use another hash table or array $last$ to record the last occurrence position of each character in string $s$. The maximum occurrence times of characters in string $s$ is denoted as $mx$.
 

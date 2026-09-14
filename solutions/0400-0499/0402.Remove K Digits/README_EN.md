@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deleting $k$ digits we want the smallest remaining number. Equal-length integers are compared from the first differing digit, so larger digits on the left should be removed first.
+>
+> A non-decreasing stack from left to right pops the top whenever the current digit is smaller, spending one deletion. Then keep the leftover length and strip leading zeros.
+>
+> The scan has to go left to right: a smaller digit can occupy a higher place only after a larger left digit is gone.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

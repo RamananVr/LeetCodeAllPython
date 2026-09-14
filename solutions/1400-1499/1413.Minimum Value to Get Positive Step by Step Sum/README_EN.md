@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README_EN.md
 rating: 1212
 source: Biweekly Contest 24 Q1
 tags:
@@ -70,6 +69,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every running sum must stay at least $1$. If the start value is $x$, then $x$ plus every prefix is $\ge 1$, so $x\ge 1-\min\textit{prefix}$. Also $x\ge 1$.
+>
+> $n\le 100$. One pass tracks the prefix and its minimum $t$; the answer is $\max(1,1-t)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -91,6 +100,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 tracks the minimum on the fly. Building all prefixes with `accumulate` and then taking $\min$ uses the same formula, only with an explicit prefix array.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

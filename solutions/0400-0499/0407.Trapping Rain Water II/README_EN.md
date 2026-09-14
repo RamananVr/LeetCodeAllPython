@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -54,6 +53,18 @@ The total volume of water trapped is 4.
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The 1-D two-pointer argument does not extend to a matrix. Water escapes over the boundary, so a cell's water level is the lowest bottleneck on a path from the border.
+>
+> Push every border height into a min-heap and grow inward. Pop the lowest wall $h$; a shorter neighbor traps $h-\textit{height}$ and re-enters with wall $\max(h,\textit{height})$.
+>
+> The heap always expands from the current lowest rim, so water levels never decrease and each cell is pushed once.
+
+<!-- thinking:end -->
 
 This is a variant of the trapping rain water problem. Since the heights on the matrix boundaries are fixed, we can add these boundary heights to a priority queue. Then, we repeatedly take out the minimum height from the priority queue and compare it with the heights of its four adjacent cells. If an adjacent cell's height is less than the current height, we can trap water there. The volume of trapped water is the difference between the current height and the adjacent height. We then add the larger height back to the priority queue and repeat this process until the priority queue is empty.
 

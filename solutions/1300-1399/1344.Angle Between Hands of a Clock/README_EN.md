@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README_EN.md
 rating: 1324
 source: Biweekly Contest 19 Q3
 tags:
@@ -57,6 +56,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The smaller angle between the hour and minute hands. The hour hand moves $30^\circ$ per hour and an extra $0.5^\circ$ per minute; the minute hand moves $6^\circ$ per minute. The answer is the minimum of the absolute difference and $360^\circ$ minus that difference.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

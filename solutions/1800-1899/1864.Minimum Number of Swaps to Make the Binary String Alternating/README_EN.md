@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1864.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md
 rating: 1600
 source: Weekly Contest 241 Q2
 tags:
@@ -63,6 +62,16 @@ The string is now alternating.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap bits to reach $0101\ldots$ or $1010\ldots$. The two targets demand different $0/1$ counts, so a mismatch of more than one is impossible.
+>
+> Compare $n_0$ and $n_1$: if they differ by more than $1$, return $-1$; if equal, try both starting bits; otherwise start with the majority bit. Each swap fixes two mismatches, so the answer is half the number of wrong positions.
+
+<!-- thinking:end -->
 
 First, we count the number of characters $0$ and $1$ in the string $\textit{s}$, denoted as $n_0$ and $n_1$ respectively.
 

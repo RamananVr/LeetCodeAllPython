@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README_EN.md
 rating: 1502
 source: Weekly Contest 304 Q2
 tags:
@@ -64,6 +63,16 @@ It can be shown that it is not possible to form more than 3 groups.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Group sizes and score sums must both strictly increase. $n \le 10^5$ rules out searching partitions. After sorting grades, sizes $1,2,\ldots,k$ automatically increase the sums.
+>
+> Only $\frac{k(k+1)}{2}\le n$ remains. Binary-search $k$ (via $bisect$ on $x^2+x$ versus $2n$) for the largest feasible count.
+
+<!-- thinking:end -->
 
 Observing the conditions in the problem, the number of students in the $i$-th group must be less than that in the $(i+1)$-th group, and the total score of students in the $i$-th group must be less than that in the $(i+1)$-th group. We only need to sort the students by their scores in ascending order, and then assign $1$, $2$, ..., $k$ students to each group in order. If the last group does not have enough students for $k$, we can distribute these students to the previous last group.
 

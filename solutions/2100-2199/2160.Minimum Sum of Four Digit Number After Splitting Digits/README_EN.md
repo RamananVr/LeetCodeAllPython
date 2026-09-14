@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2160.Minimum%20Sum%20of%20Four%20Digit%20Number%20After%20Splitting%20Digits/README_EN.md
 rating: 1314
 source: Biweekly Contest 71 Q1
 tags:
@@ -59,6 +58,18 @@ The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split four digits into two integers with minimum sum. Leading zeros are allowed. Trying all partitions is possible, but the optimum uses the two smallest digits as tens.
+>
+> Extract and sort the four digits; tens come from the two smallest, units from the rest.
+>
+> The sum is $10(a+b)+c+d$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

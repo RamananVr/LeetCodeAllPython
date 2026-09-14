@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0419.Battleships%20in%20a%20Board/README_EN.md
 tags:
     - Depth-First Search
     - Array
@@ -55,6 +54,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Direct Iteration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ships are horizontal or vertical and never touch. A flood fill can mark a whole ship, but it writes the board or needs extra flags. The follow-up asks for one pass and constant extra memory.
+>
+> Each ship has a unique top-left $\texttt{X}$: the cell above and the cell to the left are not $\texttt{X}$. Count those corners.
+>
+> Because ships do not touch, that corner is unique, so there is neither under-count nor double-count.
+
+<!-- thinking:end -->
 
 We can iterate through the matrix, find the top-left corner of each battleship, i.e., the position where the current position is `X` and both the top and left are not `X`, and increment the answer by one.
 

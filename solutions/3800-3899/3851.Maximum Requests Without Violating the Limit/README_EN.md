@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3851.Maximum%20Requests%20Without%20Violating%20the%20Limit/README_EN.md
 tags:
     - Greedy
     - Array
@@ -95,6 +94,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window + Deque
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> No user may have more than $k$ requests in any closed interval of length $\textit{window}$; we may drop requests. Users are independent, and $n \le 10^5$.
+>
+> Sort one user's times and greedily keep a request when the window still has room, dropping the current time when it is full so discards happen at the right end.
+>
+> A deque stores kept times; pop the front when it is more than $\textit{window}$ before $t$. If the deque already has $k$ entries, drop $t$.
+>
+> Start from the total number of requests and subtract one per drop.
+
+<!-- thinking:end -->
 
 We can group the requests by user and store them in a hash table $g$, where $g[u]$ is the list of request times for user $u$. For each user, we need to remove some requests from the request time list so that within any interval of length $window$, the number of remaining requests does not exceed $k$.
 

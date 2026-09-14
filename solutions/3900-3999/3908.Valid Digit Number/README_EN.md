@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3908.Valid%20Digit%20Number/README_EN.md
 rating: 1319
 source: Biweekly Contest 181 Q1
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Converting $n$ to a string and checking the leading digit plus occurrence of $x$ works for $n\le 10^5$, but we only need “$x$ appears and the leading digit is not $x$”.
+>
+> Peeling the last digit and dividing by $10$ walks the digits in arithmetic: remember if any equals $x$, and stop at the leading digit. Validity is then exactly “$x$ was seen and the leftover leading digit is not $x$”.
+>
+> The loop condition $n>9$ leaves $n$ equal to that leading digit.
+
+<!-- thinking:end -->
 
 We use a boolean variable $\textit{hasX}$ to record whether the digit $x$ appears in $n$.
 

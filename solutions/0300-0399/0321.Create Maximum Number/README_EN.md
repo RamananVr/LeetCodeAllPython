@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0321.Create%20Maximum%20Number/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick a total of $k$ digits from two arrays, preserving order in each. One monotone stack cannot split the quota across both.
+>
+> Enumerate taking $x$ digits from $nums1$ (in the feasible range), extract the best subsequences of lengths $x$ and $k-x$ with monotone stacks, and merge by lexicographic compare. Keep the best merge. Equal prefixes must look ahead so the merge is not locally greedy.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

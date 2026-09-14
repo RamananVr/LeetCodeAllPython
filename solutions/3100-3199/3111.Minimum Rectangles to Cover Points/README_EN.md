@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README_EN.md
 rating: 1401
 source: Biweekly Contest 128 Q2
 tags:
@@ -151,6 +150,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rectangle height is unlimited, so coverage depends only on $x$-coordinates and width $w$. Assigning points to rectangles by search grows exponentially.
+>
+> After sorting by $x$, each rectangle should extend as far right as $w$ allows. A point beyond the current cover forces a new rectangle whose left side is that point.
+>
+> Sort, keep the current right border $x_1$, and when $x>x_1$ start a new rectangle at $x$ with $x_1=x+w$. The number of starts is the minimum rectangle count.
+
+<!-- thinking:end -->
 
 According to the problem description, we do not need to consider the height of the rectangles, only the width.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1731.The%20Number%20of%20Employees%20Which%20Report%20to%20Each%20Employee/README_EN.md
 tags:
     - Database
 ---
@@ -97,6 +96,16 @@ Employees table:
 <!-- solution:start -->
 
 ### Solution 1: Self-Join + Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Employees point to a manager via $\textit{reports\_to}$. We need each manager's report count and average age.
+>
+> Self-join reports to managers, then $\mathrm{COUNT}$ and $\mathrm{ROUND}(\mathrm{AVG}(\textit{age}))$ grouped by the manager.
+
+<!-- thinking:end -->
 
 We can use self-join to connect the information of each employee's superior manager to the information of each employee, and then use grouping and aggregation to count the number of subordinates and the average age of each manager.
 

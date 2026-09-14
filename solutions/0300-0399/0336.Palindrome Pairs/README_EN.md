@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md
 tags:
     - Trie
     - Array
@@ -74,6 +73,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two words should concatenate to a palindrome. Testing every ordered pair is too slow. Split a word: if one side is already a palindrome, the reverse of the other side, if present, completes a pair.
+>
+> Index every word in a hash map. For each cut of $w$, a palindromic prefix looks up the reversed suffix, and a palindromic suffix looks up the reversed prefix. The empty cut is used on only one side. The code checks both sides at every cut.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -101,6 +110,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 builds a reversed string for every cut. Inserting words into a trie lets us walk the other word backwards and read an index at a node, without allocating the reverse. When the remaining side is a palindrome we take the stored index; the matches are the same.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md
 rating: 2344
 source: Weekly Contest 320 Q4
 tags:
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each part starts with a prime digit and ends with a composite digit, length at least $\textit{minLength}$, $k$ parts. With $n\le 1000$, $f[i][j]$ is ways to split the first $i$ characters into $j$ parts. A position is a legal end only if it is composite and the next start is prime (or the string ends).
+>
+> Prefix sums $g$ collapse the previous ends to $g[i-\textit{minLength}][j-1]$. If the first digit is composite or the last is prime, the answer is $0$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the number of schemes for dividing the first $i$ characters into $j$ sections. Initialize $f[0][0] = 1$, and the rest $f[i][j] = 0$.
 

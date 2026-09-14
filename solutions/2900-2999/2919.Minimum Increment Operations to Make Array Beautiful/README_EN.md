@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README_EN.md
 rating: 2030
 source: Weekly Contest 369 Q3
 tags:
@@ -87,6 +86,16 @@ Hence, the answer is 0.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every window of length $3$ must have a maximum of at least $k$. $n \le 10^5$ forbids charging each window separately. Incrementing index $i$ by $\max(k-nums[i],0)$ covers every window that contains $i$, and each window needs only one such cover.
+>
+> The state therefore tracks the cheapest way to cover using one of the last three positions. Rolling $f,g,h$ store those three optima; reading $x$ advances them by $\min(f,g,h)+\max(k-x,0)$. The answer is the minimum of the three.
+
+<!-- thinking:end -->
 
 We define $f$, $g$, and $h$ as the minimum number of increment operations needed to get the maximum value from the last three items in the first $i$ items, initially $f = 0$, $g = 0$, $h = 0$.
 

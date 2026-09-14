@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking only “left < root < right” is not enough: the maximum in the left subtree must also be less than the root. We can pass an allowed range, or use the BST fact that inorder is strictly increasing.
+>
+> During inorder, remember the previous value; the current one must be larger. Recurse left, compare, recurse right — one pass finds a violation. An empty tree is valid.
+
+<!-- thinking:end -->
 
 We can perform a recursive in-order traversal on the binary tree. If the result of the traversal is strictly ascending, then this tree is a binary search tree.
 

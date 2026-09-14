@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0888.Fair%20Candy%20Swap/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each gives one box so totals become equal. If Alice gives $a$ and Bob $b$, then $a-b$ is half the total difference. $n\le 10^4$, so scanning Bob for every $a$ is quadratic.
+>
+> Put Bob’s sizes in a set and, for each $a$, test whether $a-\textit{diff}$ exists. A solution is guaranteed.
+
+<!-- thinking:end -->
 
 We can first calculate the difference in the total number of candies between Alice and Bob, divide it by two to get the difference in the number of candies to be exchanged $\textit{diff}$, and use a hash table $\textit{s}$ to store the number of candies in Bob's candy boxes. Then, we traverse Alice's candy boxes, and for each candy count $\textit{a}$, we check if $\textit{a} - \textit{diff}$ is in the hash table $\textit{s}$. If it exists, it means we have found a valid answer, and we return it.
 

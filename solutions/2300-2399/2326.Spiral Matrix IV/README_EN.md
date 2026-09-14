@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2326.Spiral%20Matrix%20IV/README_EN.md
 rating: 1421
 source: Weekly Contest 300 Q2
 tags:
@@ -62,6 +61,16 @@ The last space in the matrix is set to -1.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Fill a $m \times n$ matrix in spiral order from a list, leaving $-1$ elsewhere. At most $10^5$ cells, so a walk is enough.
+>
+> Prefill $-1$, then step right, down, left, up. Turn when the next cell is out of range or already written. Stop when the list ends; untouched cells stay $-1$.
+
+<!-- thinking:end -->
 
 We define a two-dimensional array $\textit{ans}$ to store the elements in the linked list, initially all filled with $-1$. We define three variables $i, j, k$, representing the current row, column, and direction respectively. We define an array $\textit{dirs}$ to represent the offsets of the four directions.
 

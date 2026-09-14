@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2025.Maximum%20Number%20of%20Ways%20to%20Partition%20an%20Array/README_EN.md
 rating: 2217
 source: Biweekly Contest 62 Q4
 tags:
@@ -78,6 +77,18 @@ There are four ways to partition the array.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid cut has equal halves, i.e. a prefix equal to half the total. With $n \le 10^5$ and one optional replacement by $k$, rescanning prefixes per edit is too slow.
+>
+> Without edit, if the sum is even, count prefixes equal to the half-sum (excluding the end). Replacing $nums[i]$ by $k$ leaves left prefixes unchanged and shifts right ones by $d=k-nums[i]$, giving two target keys.
+>
+> Maps $left$ and $right$ track those frequencies as the cut pointer moves, so the maximum is obtained in linear time.
+
+<!-- thinking:end -->
 
 We can preprocess to get the prefix sum array $s$ corresponding to the array $nums$, where $s[i]$ represents the sum of the array $nums[0,...i-1]$. Therefore, the sum of all elements in the array is $s[n - 1]$.
 

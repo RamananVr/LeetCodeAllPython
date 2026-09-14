@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1995.Count%20Special%20Quadruplets/README_EN.md
 rating: 1352
 source: Weekly Contest 257 Q1
 tags:
@@ -68,7 +67,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brute Force
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 50$, so four nested loops over $a<b<c<d$ checking the sum are acceptable.
+
+<!-- thinking:end -->
+
+Enumerate $a < b < c < d$ with four nested loops.
 
 <!-- tabs:start -->
 
@@ -93,7 +102,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The quartic constant is large. Fix $c$ from the right, count values of $d$ in a map, and query $nums[a]+nums[b]+nums[c]$ for $a,b<c$, which is $O(n^3)$.
+
+<!-- thinking:end -->
+
+Scan $c$ from the right and count values of $d$, then enumerate $a,b$.
 
 <!-- tabs:start -->
 
@@ -118,7 +137,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Hash Table (Optimized)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One more reduction: walk $b$ from the right, insert every $d-c$ with $c=b+1$ into a map, then query $nums[a]+nums[b]$ for $a<b$, in $O(n^2)$.
+
+<!-- thinking:end -->
+
+Enumerate $b$ while counting $nums[d]-nums[c]$.
 
 <!-- tabs:start -->
 

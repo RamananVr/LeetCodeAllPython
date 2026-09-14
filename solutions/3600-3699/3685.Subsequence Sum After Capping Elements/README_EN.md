@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README_EN.md
 rating: 2073
 source: Weekly Contest 467 Q3
 tags:
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every cap $x=1\ldots n$, treat larger entries as $x$ and ask whether some subsequence sums to $k$. A fresh knapsack per $x$ is $O(n^2k)$ and too slow for $n\le 4000$.
+>
+> Values already $\le x$ form a $0$-$1$ knapsack; the $c$ values above $x$ become $c$ copies of $x$. Increase $x$ and insert each newly uncapped value once.
+>
+> On the current reachable set, test whether some $t\le k$ leaves $k-t$ writable as at most $c$ copies of $x$. A bitset makes each $x$ an $O(k/w)$ query.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

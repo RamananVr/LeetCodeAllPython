@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3485.Longest%20Common%20Prefix%20of%20K%20Strings%20After%20Removal/README_EN.md
 rating: 2289
 source: Biweekly Contest 152 Q3
 tags:
@@ -96,6 +95,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each deleted word we want the LCP of any $k$ remaining strings. The total length is $\le 10^5$, so each query cannot rebuild the trie.
+>
+> The maximum depth of a trie node with count $\ge k$ is the global answer. Deleting a word only hurts ancestors whose count is exactly $k$.
+>
+> A segment tree keyed by depth stores how many nodes still have count $\ge k$. We decrement the fragile depths of the deleted word, query the max surviving depth, and roll back. If $n-1<k$, every answer is $0$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

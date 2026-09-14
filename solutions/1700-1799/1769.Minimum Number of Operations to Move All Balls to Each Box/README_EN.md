@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1769.Minimum%20Number%20of%20Operations%20to%20Move%20All%20Balls%20to%20Each%20Box/README_EN.md
 rating: 1294
 source: Weekly Contest 229 Q2
 tags:
@@ -59,7 +58,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sums
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cost of gathering every ball at box $i$ is the sum of index distances. $n\le 2000$ allows a double loop, but a linear recurrence exists.
+>
+> The left (right) cost follows from the neighbour: one more ball on that side increases the cost by the ball count. Precompute $left[i]$ and $right[i]$ and add them.
+
+<!-- thinking:end -->
+
+Precompute $\textit{left}[i]$ as the cost of moving all balls on the left of $i$ to position $i$, and $\textit{right}[i]$ as the cost of moving all balls on the right of $i$ to position $i$. The answer at $i$ is $\textit{left}[i] + \textit{right}[i]$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{boxes}$.
 
 <!-- tabs:start -->
 
@@ -90,7 +103,19 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Prefix Sums (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two arrays in Solution 1 depend only on the previous cell. Accumulate the same recurrences into $ans$ left-to-right and right-to-left, using constant extra space.
+
+<!-- thinking:end -->
+
+$\textit{left}[i]$ and $\textit{right}[i]$ in Solution 1 depend only on the previous position, so we can drop those arrays and accumulate into $\textit{ans}$ with one left-to-right pass and one right-to-left pass.
+
+The time complexity is $O(n)$. Ignoring the answer array, the extra space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -121,7 +146,19 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A direct implementation stores every ball index and, for each box, sums $|i-j|$. It passes for this $n$, at a worse constant than the prefix recurrences.
+
+<!-- thinking:end -->
+
+Collect every ball position, then for each box $i$ add $|i - j|$ for every ball $j$.
+
+The time complexity is $O(n \times m)$ and the space complexity is $O(m)$, where $n$ is the length of $\textit{boxes}$ and $m$ is the number of balls.
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0421.Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array/README_EN.md
 tags:
     - Bit Manipulation
     - Trie
@@ -50,6 +49,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every pair is $O(n^2)$ and $n$ can be $2\times 10^5$. A large XOR wants the opposite bit as early as possible.
+>
+> Insert each number into a binary trie from the high bit. When querying $x$, prefer the child with the flipped bit so that bit of the answer becomes $1$. Thirty-one bits cover the value range.
+>
+> Each query walks the trie once and is equivalent to choosing the best partner among the inserted numbers.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

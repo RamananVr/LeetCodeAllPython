@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README_EN.md
 tags:
     - Stack
     - Tree
@@ -66,6 +65,16 @@ tags:
 
 ### Solution 1: Find Predecessor Node
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A preorder flatten can build a new list with recursion or a stack, but the follow-up asks for $O(1)$ extra space in place. $n \le 2000$.
+>
+> After the left subtree in preorder comes the original right subtree. The rightmost node of the left subtree is that predecessor: splice the old right onto it, move the left subtree to `right`, and clear `left`. Walk the right spine; no recursion stack is needed.
+
+<!-- thinking:end -->
+
 The visit order of preorder traversal is "root, left subtree, right subtree". After the last node of the left subtree is visited, the right subtree node of the root node will be visited next.
 
 Therefore, for the current node, if its left child node is not null, we find the rightmost node of the left subtree as the predecessor node, and then assign the right child node of the current node to the right child node of the predecessor node. Then assign the left child node of the current node to the right child node of the current node, and set the left child node of the current node to null. Then take the right child node of the current node as the next node and continue processing until all nodes are processed.
@@ -106,6 +115,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already splices predecessors in $O(1)$ space. This is the same idea with a different write-up: save both children, hang the left subtree on the right, attach the old right to its rightmost node, and step along `right`.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

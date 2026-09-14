@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/README_EN.md
 rating: 1405
 source: Weekly Contest 190 Q3
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path is pseudo-palindromic iff at most one value occurs an odd number of times. Values are $1$–$9$ and $n\le 10^5$, so XOR a 10-bit mask along the path.
+>
+> At a leaf, count the path when $mask$ has at most one bit set. Recurse with the updated mask and sum both children.
+
+<!-- thinking:end -->
 
 A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.
 

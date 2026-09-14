@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0282.Expression%20Add%20Operators/README_EN.md
 tags:
     - Math
     - String
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We insert $+$, $-$, $*$ or concatenate digits. Multiplication binds tighter than addition, and concatenated numbers may not have leading zeros.
+>
+> DFS keeps the last operand $prev$ and the value $curr$. Plus and minus update $curr$ directly; multiply rewinds the last term via $curr-prev+prev\times\textit{next}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README_EN.md
 tags:
     - Graph
     - Shortest Path
@@ -72,6 +71,16 @@ The nodes that are reachable are highlighted in yellow.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each original edge is subdivided into $\textit{cnt}$ nodes; we count how many nodes are reachable from $0$ within $\textit{maxMoves}$. The subdivided graph is too large to build.
+>
+> Treat an edge as weight $\textit{cnt}+1$ and Dijkstra on the original vertices. Reachable original nodes count as one each; subdivided nodes on an edge are the leftover steps from both ends, capped by $\textit{cnt}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

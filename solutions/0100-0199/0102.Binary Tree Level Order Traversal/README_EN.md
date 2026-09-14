@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md
 tags:
     - Tree
     - Breadth-First Search
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must emit values level by level. DFS can record depth and group later, but then left-to-right order needs extra work. $n \le 2000$, and a level holds at most $O(n)$ nodes.
+>
+> BFS expands by level: the nodes currently in the queue are exactly one level. Dequeue them, collect values, and enqueue children to form the next level from left to right.
+
+<!-- thinking:end -->
 
 We can use the BFS method to solve this problem. First, enqueue the root node, then continuously perform the following operations until the queue is empty:
 

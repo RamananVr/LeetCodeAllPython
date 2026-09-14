@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README_EN.md
 ---
 
 <!-- problem:start -->
@@ -90,6 +89,20 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3893.Ma
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid team has one member who overlaps every other member. We want the largest such team. $n \le 10^5$.
+>
+> People who overlap $i$ form a team centered at $i$, whose size is the number of intervals overlapping $i$ (including $i$).
+>
+> Sort all left and right endpoints. For $[l,r]$, binary search how many end before $l$ and how many start after $r$; the difference is the overlap count.
+>
+> Take the maximum over employees. An optimal team always has such a center.
+
+<!-- thinking:end -->
 
 We first combine each employee's start and end times into an interval array, $\textit{intervals}$, and sort all start times and end times separately.
 

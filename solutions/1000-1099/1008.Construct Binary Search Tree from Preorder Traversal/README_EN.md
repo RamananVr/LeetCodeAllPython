@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README_EN.md
 rating: 1562
 source: Weekly Contest 127 Q4
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first preorder value is the root; a linear scan finds the first larger key and splits the left and right subtrees. $n\le 100$ makes $O(n^2)$ acceptable, yet each split walks the same ranges again.
+>
+> A BST preorder segment still has every left-subtree key below the root and every right-subtree key above it, so the first index greater than the root can be found by binary search.
+>
+> $\textit{dfs}(i,j)$ builds a node from $\textit{preorder}[i]$, bisects to the right-subtree start, and recurses on both sides in $O(n\log n)$.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}(i, j)$ to construct a binary search tree from the nodes $\textit{preorder}[i]$ to $\textit{preorder}[j]$. The answer is $\textit{dfs}(0, n - 1)$.
 

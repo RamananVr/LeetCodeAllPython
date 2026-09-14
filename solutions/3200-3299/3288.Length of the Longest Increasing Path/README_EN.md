@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3288.Length%20of%20the%20Longest%20Increasing%20Path/README_EN.md
 rating: 2449
 source: Biweekly Contest 139 Q4
 tags:
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Points must increase in both $x$ and $y$ and the path must contain $\textit{coordinates}[k]$. $n\le 10^5$ forbids an $O(n^2)$ LIS. The answer is the LIS to the left of $k$ plus the LIS to the right, minus one.
+>
+> Sort by $x$ and maintain LIS on $y$ with a Fenwick tree or binary search; the left side only uses points strictly below $k$, the right side strictly above. There is no implementation in the tree yet; the reasoning is this split two-dimensional LIS.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md
 rating: 1454
 source: Weekly Contest 270 Q1
 tags:
@@ -76,6 +75,16 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Form distinct three-digit even numbers from `digits` without a leading zero. There are only $450$ such evens, so enumerate them and test frequencies rather than permuting the input.
+>
+> Count digits $0..9$, then split each even in $[100,998]$ and compare counts.
+
+<!-- thinking:end -->
 
 First, we count the occurrence of each digit in $\textit{digits}$, recording it in an array or hash table $\textit{cnt}$.
 

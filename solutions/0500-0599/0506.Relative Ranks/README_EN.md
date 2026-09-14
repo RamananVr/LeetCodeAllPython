@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0506.Relative%20Ranks/README_EN.md
 tags:
     - Array
     - Sorting
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ranks follow scores from high to low, with the top three shown as medals. Sorting the scores themselves drops the original indices.
+>
+> Sort the indices by descending score, then write medals for the first three places and numeric ranks for the rest. One sort recovers both rank and position.
+
+<!-- thinking:end -->
 
 We use an array $\textit{idx}$ to store the indices from $0$ to $n-1$, then sort $\textit{idx}$ based on the values in $\textit{score}$ in descending order.
 

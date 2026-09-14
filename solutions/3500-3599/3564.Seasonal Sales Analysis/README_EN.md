@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md
 tags:
     - Database
 ---
@@ -166,6 +165,16 @@ Each row contains information about a product including its name and category.
 <!-- solution:start -->
 
 ### Solution 1: Equi Join + Group Aggregation + Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Join sales to products, map months to the four seasons, and aggregate quantity and revenue by $(\textit{season},\textit{category})$.
+>
+> Rank categories inside each season by quantity then revenue, keep rank $1$, and order the rows by season. A window rank replaces a correlated subquery.
+
+<!-- thinking:end -->
 
 We can perform an equi join between the `sales` table and the `products` table to obtain the product category for each sales record. Next, we determine the season based on the month of the sales date, and then group by season and category to calculate the total quantity sold and total revenue. Finally, we use a window function to rank the categories within each season and select the top-ranked category.
 

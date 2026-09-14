@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -73,6 +72,16 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides left and right there is a $\textit{random}$ pointer that may form cycles, so a naive recursion can loop or copy a node twice.
+>
+> Map each original node to its copy: create the copy first, then recurse on left, right, and $\textit{random}$. A hit in the map returns the existing copy.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

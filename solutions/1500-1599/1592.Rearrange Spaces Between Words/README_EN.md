@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README_EN.md
 rating: 1362
 source: Weekly Contest 207 Q1
 tags:
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: String Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Redistribute the original spaces evenly between words and dump the remainder at the end. Both the word list and the space count come from one scan.
+>
+> Count spaces and $split$ out the words. A single word takes every space as a suffix; otherwise $divmod$ yields the gap size and the leftover, which we join and then append.
+
+<!-- thinking:end -->
 
 First, we count the number of spaces in the string $\textit{text}$, denoted as $\textit{spaces}$. Then, we split $\textit{text}$ by spaces into an array of strings $\textit{words}$. Next, we calculate the number of spaces that need to be inserted between adjacent words and perform the concatenation. Finally, we append the remaining spaces to the end.
 

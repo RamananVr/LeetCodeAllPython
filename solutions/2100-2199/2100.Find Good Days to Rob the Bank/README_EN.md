@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README_EN.md
 rating: 1702
 source: Biweekly Contest 67 Q2
 tags:
@@ -78,6 +77,18 @@ Thus, no day is a good day to rob the bank, so return an empty list.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking each candidate day $i$ by scanning $\textit{time}$ days to the left and right costs $O(\textit{time})$ per index. With $n$ and $\textit{time}$ both up to $10^5$, that approach does not pass.
+>
+> The required non-increasing / non-decreasing runs can be accumulated along the array: if $\textit{security}[i]\le \textit{security}[i-1]$, the leftward non-increasing length at $i$ is one more than at $i-1$; otherwise it resets. The rightward non-decreasing length is symmetric. Thus both sides can be obtained in two linear passes.
+>
+> We therefore keep arrays $\textit{left}$ and $\textit{right}$, then collect indices with $\min(\textit{left}[i],\textit{right}[i])\ge \textit{time}$. If $n\le 2\cdot\textit{time}$, no day can have $\textit{time}$ neighbors on both sides, so the answer is empty.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md
 rating: 1355
 source: Weekly Contest 310 Q2
 tags:
@@ -59,6 +58,16 @@ It can be shown that 4 is the minimum number of substrings needed.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of partitions grows exponentially; $n\le 10^5$ forbids search. Minimum parts with distinct characters in each part means each part should be as long as possible: cut only when the next letter would repeat.
+>
+> Twenty-six lowercase letters fit in an integer $\textit{mask}$. On a conflict, increment the part count and clear the mask, then add the current letter. One scan suffices.
+
+<!-- thinking:end -->
 
 According to the problem description, each substring should be as long as possible and contain unique characters. Therefore, we can greedily partition the string.
 

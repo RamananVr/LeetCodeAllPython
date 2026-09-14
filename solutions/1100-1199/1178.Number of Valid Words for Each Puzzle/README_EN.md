@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md
 rating: 2233
 source: Weekly Contest 152 Q4
 tags:
@@ -72,6 +71,14 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 <!-- solution:start -->
 
 ### Solution 1: State Compression + Hash Table + Subset Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid word's letter set is a subset of the puzzle and must contain the first puzzle letter. Short strings over a tiny alphabet compress to bit masks. Count word masks, then enumerate the $2^7$ subsets of each puzzle and add counts whose masks include the first letter. Testing every word against every puzzle is larger.
+
+<!-- thinking:end -->
 
 According to the problem description, for each puzzle $p$ in the puzzle array $puzzles$, we need to count how many words $w$ contain the first letter of the puzzle $p$, and every letter in $w$ can be found in $p$.
 

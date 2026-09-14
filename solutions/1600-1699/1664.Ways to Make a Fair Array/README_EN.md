@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md
 rating: 1590
 source: Weekly Contest 216 Q3
 tags:
@@ -76,6 +75,16 @@ There is 1 index that you can remove to make nums fair.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count indices whose removal equalizes even- and odd-position sums. $n$ is $10^5$; deletion swaps parity on the right, so prefix/suffix even-odd sums decide each index in $O(1)$.
+>
+> Precompute even sum $s_1$ and odd sum $s_2$. While scanning, $t_1,t_2$ are the left-hand even/odd sums; plug the current index's parity into the post-deletion identities.
+
+<!-- thinking:end -->
 
 First, we preprocess to get the sum $s_1$ of the elements at even indices and the sum $s_2$ of the elements at odd indices in the array `nums`.
 

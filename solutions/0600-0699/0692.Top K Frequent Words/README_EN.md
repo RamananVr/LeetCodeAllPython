@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md
 tags:
     - Trie
     - Array
@@ -63,6 +62,16 @@ Note that &quot;i&quot; comes before &quot;love&quot; due to a lower alphabetica
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the $k$ most frequent words, breaking ties lexicographically. A heap is $O(n\log k)$, but a full sort is fine here.
+>
+> Count, sort keys by $(-count, word)$, and take the first $k$.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to record the frequency of each word. Then, we sort the key-value pairs in the hash table by value, and if the values are the same, we sort by key.
 

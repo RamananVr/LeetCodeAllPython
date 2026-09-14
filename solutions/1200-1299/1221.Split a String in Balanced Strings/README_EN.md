@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md
 rating: 1219
 source: Weekly Contest 158 Q1
 tags:
@@ -69,6 +68,16 @@ Note that s cannot be split into &quot;RL&quot;, &quot;RR&quot;, &quot;RL&quot;,
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The whole string is balanced; we want as many balanced pieces as possible. Cutting as soon as a prefix balances never blocks later cuts: each cut adds one to the answer and leaves a balanced suffix.
+>
+> A counter tracks the $L$/$R$ difference and hits zero on each balanced prefix. We increment the answer and continue. The greedy cuts stay in lockstep with the counter in one linear pass.
+
+<!-- thinking:end -->
 
 We use a variable $l$ to maintain the current balance of the string, i.e., the value of $l$ is the number of 'L's minus the number of 'R's in the current string. When the value of $l$ is 0, we have found a balanced string.
 

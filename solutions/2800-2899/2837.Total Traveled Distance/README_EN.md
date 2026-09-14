@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2837.Total%20Traveled%20Distance/README_EN.md
 tags:
     - Database
 ---
@@ -99,6 +98,14 @@ Returning the table orderd by user_id in ascending order.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Left Join + Group By Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each user's total ride distance, counting users with no rides as $0$. A left join keeps every user; `SUM(distance)` grouped by `user_id` with `IFNULL` turns a null sum into zero.
+
+<!-- thinking:end -->
 
 We can use a left join to connect the two tables, and then use group by sum to calculate the total distance for each user. Note that if a user has not completed any rides, their distance should be considered as $0$.
 

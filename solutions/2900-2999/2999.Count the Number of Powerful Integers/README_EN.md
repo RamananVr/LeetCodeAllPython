@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md
 rating: 2351
 source: Biweekly Contest 121 Q4
 tags:
@@ -71,6 +70,16 @@ It can be shown that there are only 2 powerful integers in this range.
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count integers in $[start,finish]$ whose digits are at most $limit$ and that end with $s$. The range is $f(finish)-f(start-1)$. Digit DP fills from the left: high digits respect $limit$ and a tight upper bound; the last $|s|$ digits must equal $s$ (and $s$ may not exceed the remaining bound when tight).
+>
+> If $t$ is shorter than $s$ the count is $0$. Memoize $(pos,lim)$; the bound has at most $16$ digits.
+
+<!-- thinking:end -->
 
 This problem is essentially about finding the count of numbers in the given range $[l, .., r]$ that satisfy the conditions. The count depends on the number of digits and the value of each digit. We can solve this problem using the Digit DP approach, where the size of the number has minimal impact on the complexity.
 

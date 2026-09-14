@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README_EN.md
 rating: 1556
 source: Weekly Contest 463 Q2
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n,q\le 10^3$, each query multiplies every $k$-stride index in $[l,r]$ by $v$. Direct simulation costs about $O(q\,n/k)$ and fits the limits.
+>
+> Apply $\textit{nums}[\textit{idx}]=\textit{nums}[\textit{idx}]\cdot v\bmod (10^9+7)$ per query, then XOR the array.
+>
+> This smaller variant needs no blocking; the follow-up II classifies queries by stride.
+
+<!-- thinking:end -->
 
 We can directly simulate the operations described in the problem by iterating through each query and updating the corresponding elements in the array $\textit{nums}$. Finally, we calculate the bitwise XOR of all elements in the array and return the result.
 

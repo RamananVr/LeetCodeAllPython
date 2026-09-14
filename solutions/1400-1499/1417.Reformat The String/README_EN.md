@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md
 rating: 1241
 source: Weekly Contest 185 Q1
 tags:
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters and digits must alternate. Split the two kinds; if their counts differ by more than $1$, no layout exists.
+>
+> Put the longer kind first, zip the two lists, and append the leftover character. $n\le 500$, so a linear scan suffices.
+
+<!-- thinking:end -->
 
 We classify all characters in string $s$ into two categories: "digits" and "letters", and put them into arrays $a$ and $b$ respectively.
 

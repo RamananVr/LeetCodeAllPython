@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1699.Number%20of%20Calls%20Between%20Two%20Persons/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,16 @@ Users 3 and 4 had 4 calls and the total duration is 999 (100 + 200 + 200 + 499).
 <!-- solution:start -->
 
 ### Solution 1: Grouping and Summing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Calls are undirected, so $(a,b)$ and $(b,a)$ are one pair. Normalize the smaller id as $\texttt{person1}$ and the larger as $\texttt{person2}$, then group.
+>
+> $\texttt{IF}$ canonicalizes the endpoints; $\texttt{GROUP BY}$ those two columns yields the count and total duration.
+
+<!-- thinking:end -->
 
 We can use the `if` function or the `least` and `greatest` functions to convert `from_id` and `to_id` into `person1` and `person2`, and then group by `person1` and `person2` and sum the values.
 

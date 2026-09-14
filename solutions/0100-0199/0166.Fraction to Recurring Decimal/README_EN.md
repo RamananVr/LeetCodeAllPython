@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README_EN.md
 tags:
     - Hash Table
     - Math
@@ -63,6 +62,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Write a fraction as a decimal and wrap the repeating part. Long division repeats iff a remainder repeats. Handle the sign and the integer part first. During the fraction, map each remainder to the first index it appeared; a repeat inserts parentheses there. Remainder $0$ is a terminating decimal.
+
+<!-- thinking:end -->
 
 First, we check if the $numerator$ is $0$. If it is, we return `"0"` directly.
 

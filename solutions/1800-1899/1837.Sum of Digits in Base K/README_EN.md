@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README_EN.md
 rating: 1282
 source: Weekly Contest 238 Q1
 tags:
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the sum of digits of $n$ in base $k$. Materializing the digit string is unnecessary.
+>
+> Repeatedly add $n\bmod k$ and replace $n$ by $n/k$ until $n=0$. That is the base-$k$ expansion.
+
+<!-- thinking:end -->
 
 We divide $n$ by $k$ and take the remainder until it is $0$. The sum of the remainders gives the result.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README_EN.md
 tags:
     - Recursion
     - Array
@@ -45,6 +44,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Testing every integer in the range is slow. As in the previous problem, generate all strobogrammatic numbers by length and keep those inside $[\textit{low},\textit{high}]$.
+>
+> Enumerate lengths from $|\textit{low}|$ to $|\textit{high}|$ and compare the integers.
+
+<!-- thinking:end -->
 
 If the length is $1$, then the strobogrammatic numbers are only $0, 1, 8$; if the length is $2$, then the strobogrammatic numbers are only $11, 69, 88, 96$.
 

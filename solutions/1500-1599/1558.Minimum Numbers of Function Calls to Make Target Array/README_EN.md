@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README_EN.md
 rating: 1637
 source: Biweekly Contest 33 Q3
 tags:
@@ -71,6 +70,16 @@ Total of operations: 2 + 1 = 3.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Start from zeros; an operation either increments one entry or doubles the whole array. $n\le 10^5$ and $nums[i]\le 10^9$, so we cannot simulate values. Doubling is a simultaneous left shift; an increment writes one $1$-bit of some number.
+>
+> Each $v$ needs $v.\mathrm{bit\_count}()$ increments, and the shared doublings equal the bit length of the maximum minus one. Their sum is the minimum number of calls.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

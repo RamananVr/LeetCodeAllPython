@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2004.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company/README_EN.md
 tags:
     - Database
 ---
@@ -106,6 +105,18 @@ We can hire all three juniors with the remaining budget.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The budget is fixed at $70000$ and Seniors are hired before Juniors. Subset enumeration does not scale. Within each class, hiring in increasing salary order maximizes headcount.
+>
+> A window prefix $cur$ is the cumulative cost of hiring through that employee. Seniors with $cur \le 70000$ are accepted; Junior prefixes add the Senior spend first.
+>
+> Two CTEs compute those running sums, then `UNION ALL` counts rows still within budget.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

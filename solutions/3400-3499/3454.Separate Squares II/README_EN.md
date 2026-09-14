@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3454.Separate%20Squares%20II/README_EN.md
 rating: 2671
 source: Biweekly Contest 150 Q3
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sweep Line
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We still bisect area, but squares may overlap, so summing clipped areas double-counts. The area bound rises to $10^{15}$.
+>
+> The union area needs a sweep line: horizontal edges sorted by $y$, and a segment tree of covered $x$-length.
+>
+> Each slab between consecutive sweep lines contributes height times the covered length. We then search those slabs for the height where the prefix union reaches half.
+
+<!-- thinking:end -->
 
 This problem can be solved using the sweep line algorithm to calculate the total area of all squares.
 

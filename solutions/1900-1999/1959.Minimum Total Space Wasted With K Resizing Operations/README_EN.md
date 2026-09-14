@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1959.Minimum%20Total%20Space%20Wasted%20With%20K%20Resizing%20Operations/README_EN.md
 rating: 2310
 source: Biweekly Contest 58 Q3
 tags:
@@ -73,6 +72,18 @@ The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k$ resizes split the array into $k+1$ segments; each wastes $\textit{max}\cdot\textit{len}-\textit{sum}$. Exponential cuts are replaced by DP since $n\le 200$.
+>
+> Precompute every segment waste $g[i][j]$ in $O(n^2)$, then let $f[i][j]$ be the min waste of the first $i$ elements in $j$ segments, enumerating the previous cut.
+>
+> The answer is $f[n][k+1]$.
+
+<!-- thinking:end -->
 
 The problem is equivalent to dividing the array $\textit{nums}$ into $k + 1$ segments. The wasted space for each segment is the maximum value of that segment multiplied by the length of the segment minus the sum of the elements in that segment. By summing the wasted space of each segment, we get the total wasted space. By adding 1 to $k$, we are effectively dividing the array into $k$ segments.
 

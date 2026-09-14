@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README_EN.md
 tags:
     - Hash Table
     - String
@@ -83,6 +82,20 @@ The substring starting at 12 is <code>&quot;thefoobar&quot;</code>. It is the co
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to try every start and test whether the length-$n\cdot k$ window is some permutation of $words$. With $m \le 10^4$, $n \le 5000$, $k \le 30$, slicing $n$ words per start is worst-case $O(mnk)$ and will not pass.
+>
+> The bottleneck is recounting heavily overlapping windows from scratch. Words share one length $k$, so the window slides in steps of $k$ and frequencies can be maintained incrementally in a hash map.
+>
+> There are only $k$ alignments (starts $0,1,\ldots,k-1$). In each, the right end eats a length-$k$ token: a word outside $cnt$ resets the window; an over-used word is spat out from the left until counts are legal; exactly $n$ words means we record the left index.
+>
+> Each character enters and leaves a window a constant number of times, so the total is $O(mk)$.
+
+<!-- thinking:end -->
 
 We use a hash table $cnt$ to count the number of times each word appears in $words$, and use a hash table $cnt1$ to count the number of times each word appears in the current sliding window. We denote the length of the string $s$ as $m$, the number of words in the string array $words$ as $n$, and the length of each word as $k$.
 

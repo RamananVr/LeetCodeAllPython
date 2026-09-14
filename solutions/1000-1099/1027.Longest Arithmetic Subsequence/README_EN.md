@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md
 rating: 1758
 source: Weekly Contest 132 Q3
 tags:
@@ -68,6 +67,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every difference and scanning for a subsequence is viable: $n\le 1000$ and values lie in $[0,500]$, so differences are a few thousand. The subsequence need not be contiguous, so the state should be “ending at index $i$ with difference $j$”.
+>
+> $f[i][j]$ is that length. Shifting $j$ by $500$ maps differences into $[0,1000]$. A transition enumerates $k<i$ and sets $f[i][j]=\max(f[i][j],f[k][j]+1)$.
+>
+> Every pair of indices updates once; the answer is the maximum over the table.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the maximum length of the arithmetic sequence ending with $nums[i]$ and having a common difference of $j$. Initially, $f[i][j]=1$, that is, each element itself is an arithmetic sequence of length $1$.
 

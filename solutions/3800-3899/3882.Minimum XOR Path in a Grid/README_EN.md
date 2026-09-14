@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README_EN.md
 rating: 1770
 source: Biweekly Contest 179 Q3
 tags:
@@ -104,6 +103,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Move only right or down and minimize the path XOR. At most $1000$ cells, values below $2^{10}$.
+>
+> A usual shortest path fails: the next cost depends on the current XOR, so comparison optimality does not hold.
+>
+> A state is $(\textit{cell},\textit{xor})$. The XOR universe is $1024$, about $10^6$ states, enough for BFS or DP to the lower-right minimum.
+>
+> Transitions are only right and down.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

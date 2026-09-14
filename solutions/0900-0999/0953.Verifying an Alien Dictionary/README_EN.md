@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check that the words are nondecreasing in an alien alphabet. Adjacent pairwise compares work; a column scan also decides it: position $i$ must be nondecreasing in alien order, treating a missing letter as smaller. If every adjacent pair already differs at this column, later columns can be ignored.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

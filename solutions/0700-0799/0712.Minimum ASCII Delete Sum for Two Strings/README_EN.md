@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -56,6 +55,18 @@ If instead we turned both strings into &quot;lee&quot; or &quot;eet&quot;, we wo
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equalize two strings by deletions whose cost is the ASCII sum of removed characters. Lengths are $\le 1000$, so a naive recursion over alignments repeats work.
+>
+> This is edit distance with delete-only: matching last characters cost nothing; otherwise we must drop one side's last character and add its code. An empty prefix costs the whole other string.
+>
+> Let $f[i][j]$ be the min cost for the two prefixes. Fill by that transition; the answer is $f[m][n]$. Time and space $O(mn)$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum sum of ASCII values of deleted characters required to make the first $i$ characters of $s_1$ equal to the first $j$ characters of $s_2$. The answer is $f[m][n]$.
 

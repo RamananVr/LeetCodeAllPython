@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3404.Count%20Special%20Subsequences/README_EN.md
 rating: 2445
 source: Weekly Contest 430 Q3
 tags:
@@ -108,6 +107,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special subsequence needs spaced indices and $a/b=c/d$. A four-fold enumeration is $O(n^4)$ for $n\le 1000$. Even pairing the two ends twice still needs a cheap equality test for ratios.
+>
+> Equal ratios mean the reduced ordered pairs coincide. If we index every valid right pair $(c,d)$ by its reduced key, a left pair $(a,b)$ can be queried in $O(1)$.
+>
+> We first count all legal $(r,s)$ under the key $(\lfloor d/g\rfloor,\lfloor c/g\rfloor)$. Then we scan $q$ from left to right: answer queries that use this $q$ as the second term, and remove $(c,d)$ pairs that would violate $p<q<r<s$ after $q$ advances.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

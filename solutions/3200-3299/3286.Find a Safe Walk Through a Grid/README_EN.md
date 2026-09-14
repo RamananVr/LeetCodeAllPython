@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3286.Find%20a%20Safe%20Walk%20Through%20a%20Grid/README_EN.md
 rating: 1607
 source: Biweekly Contest 139 Q2
 tags:
@@ -91,6 +90,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $1$-cell costs one health; we must reach the end with health left. $m,n\le 50$. A visited-only BFS is not enough, because a cheaper path may arrive later.
+>
+> $dist[i][j]$ is the least cost to that cell; a successful relaxation enqueues. Weights are $0/1$, so the queue BFS is valid. The end is safe iff that cost is strictly below $\textit{health}$.
+
+<!-- thinking:end -->
 
 We define a 2D array $\textit{dist}$, where $\textit{dist}[i][j]$ represents the minimum health value required to reach position $(i, j)$ from the top-left corner. Initially, we set $\textit{dist}[0][0]$ to $\textit{grid}[0][0]$ and add $(0, 0)$ to the queue $\textit{q}$.
 

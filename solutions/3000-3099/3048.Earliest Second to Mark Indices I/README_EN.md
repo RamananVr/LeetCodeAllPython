@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md
 rating: 2262
 source: Weekly Contest 386 Q3
 tags:
@@ -94,6 +93,18 @@ Hence, the answer is -1.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Second $s$ may decrement $\textit{changeIndices}[s]$ or mark it once it is $0$. $n,m \le 2000$. Feasibility is monotone in $t$.
+>
+> Each index should be marked at its last occurrence among the first $t$ seconds, so earlier seconds can decrement other values.
+>
+> We binary-search $t$ and simulate with those last-occurrence times: other seconds become decrement tokens, and a last occurrence must have enough tokens for $nums[i]$.
+
+<!-- thinking:end -->
 
 We notice that if we can mark all indices within $t$ seconds, then we can also mark all indices within $t' \geq t$ seconds. Therefore, we can use binary search to find the earliest seconds.
 

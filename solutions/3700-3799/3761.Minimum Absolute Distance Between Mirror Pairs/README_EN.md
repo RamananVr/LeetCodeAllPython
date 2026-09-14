@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README_EN.md
 rating: 1668
 source: Weekly Contest 478 Q3
 tags:
@@ -92,6 +91,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mirror pair satisfies $\mathrm{reverse}(nums[i])=nums[j]$. The closest $j$ is the latest previous index of that reversed value, so a left-to-right scan with a map from $\mathrm{reverse}(x)$ to its last index suffices.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{pos}$ to record the last occurrence position of each reversed number.
 

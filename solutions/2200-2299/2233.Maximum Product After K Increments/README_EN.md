@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README_EN.md
 rating: 1685
 source: Weekly Contest 288 Q3
 tags:
@@ -60,6 +59,16 @@ Note that there may be other ways to increment nums to have the maximum product.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may increment one element per operation, $k$ times, and want the maximum product. $n$ and $k$ are up to $10^5$. For a positive $x$, the relative gain $\frac{x+1}{x}$ shrinks as $x$ grows, so each increment should hit the current minimum.
+>
+> A min-heap stores the array; $k$ times we replace the top $x$ by $x+1$. The product of the heap, taken modulo, is the answer. Zeros are incremented first, so the product does not stay zero.
+
+<!-- thinking:end -->
 
 According to the problem description, to maximize the product, we need to increase the smaller numbers as much as possible. Therefore, we can use a min-heap to maintain the array $\textit{nums}$. Each time, we take the smallest number from the min-heap, increase it by $1$, and then put it back into the min-heap. After repeating this process $k$ times, we multiply all the numbers currently in the min-heap to get the answer.
 

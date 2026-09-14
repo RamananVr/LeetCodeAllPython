@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README_EN.md
 rating: 2489
 source: Weekly Contest 262 Q4
 tags:
@@ -72,6 +71,18 @@ The absolute difference between the sums of the arrays is abs((2 + 4 + -9) - (-1
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split $2n \le 30$ elements into equal halves minimizing the sum gap. Full $C(30,15)$ is tight; meet-in-the-middle leaves $n \le 15$ per half.
+>
+> For each half, group by chosen count the signed sums (chosen minus unchosen). Left count $i$ pairs with right count $n-i$, aiming for opposite sums.
+>
+> Sort both groups and binary-search partners to minimize $|a+b|$. The $2^{15}$ enumeration fits.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

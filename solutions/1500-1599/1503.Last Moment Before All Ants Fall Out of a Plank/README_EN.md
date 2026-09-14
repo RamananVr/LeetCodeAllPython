@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README_EN.md
 rating: 1618
 source: Weekly Contest 196 Q2
 tags:
@@ -76,6 +75,16 @@ The last moment when an ant was on the plank is t = 4 seconds. After that, it fa
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Simulating every second and reversing on collisions costs time proportional to the plank length times the number of ants. That can pass for $n\le 10^4$, yet it is clumsy and unnecessary.
+>
+> When two ants meet and turn around, their later positions coincide with the paths they would take if they passed through each other. Collisions can therefore be ignored, and the answer is the maximum time for a left-going ant to reach $0$ or a right-going ant to reach $n$.
+
+<!-- thinking:end -->
 
 The key point of the problem is that when two ants meet and then turn around, it is equivalent to the two ants continuing to move in their original directions. Therefore, we only need to find the maximum distance moved by any ant.
 

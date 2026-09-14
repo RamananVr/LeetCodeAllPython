@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README_EN.md
 rating: 1943
 source: Weekly Contest 427 Q3
 tags:
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray length is a multiple of $k$ iff the two prefix indices share a residue modulo $k$. With $n \le 2 \times 10^5$ we keep the minimum prefix of each residue.
+>
+> $f[r]$ is the smallest prefix whose index is $r$ modulo $k$. At $j$ we update the answer by $s-f[j \bmod k]$, then write $s$ into that slot.
+>
+> The sentinel $f[k-1]=0$ stands for the empty prefix at index $-1$.
+
+<!-- thinking:end -->
 
 According to the problem description, for a subarray's length to be divisible by $k$, it is equivalent to requiring that for subarray $\textit{nums}[i+1 \ldots j]$, we have $i \bmod k = j \bmod k$.
 

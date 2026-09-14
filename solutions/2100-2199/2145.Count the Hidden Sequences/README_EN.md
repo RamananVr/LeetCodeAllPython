@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README_EN.md
 rating: 1614
 source: Biweekly Contest 70 Q2
 tags:
@@ -85,6 +84,18 @@ Thus, we return 4.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The adjacent differences fix the hidden array up to a translation; the start must keep every value inside $[\textit{lower},\textit{upper}]$. Trying every start and replaying the differences is unnecessary.
+>
+> Build prefix sums from a dummy start of $0$ and record $\textit{mi}$ and $\textit{mx}$. A real start $x$ must satisfy $\textit{lower}-\textit{mi}\le x\le \textit{upper}-\textit{mx}$; the count is that length, or zero if empty.
+>
+> One pass maintains the prefix extrema.
+
+<!-- thinking:end -->
 
 Since the array $\textit{differences}$ is already determined, the difference between the maximum and minimum values of the elements in the array $\textit{hidden}$ is also fixed. We just need to ensure that this difference does not exceed $\textit{upper} - \textit{lower}$.
 

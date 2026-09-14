@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README_EN.md
 rating: 1651
 source: Weekly Contest 302 Q3
 tags:
@@ -90,6 +89,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query keeps the rightmost $trim$ digits and asks for the $k$-th smallest original index. The input is small enough to sort per query.
+>
+> For $(k, trim)$, sort the suffixes with their indices; the answer is the $k$-th index. String order handles leading zeros.
+
+<!-- thinking:end -->
 
 According to the problem description, we can simulate the cropping process, then sort the cropped strings, and finally find the corresponding number based on the index.
 

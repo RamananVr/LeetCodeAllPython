@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,18 @@ Output table is ordered by the total cost in descending order.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Window Function + Conditional Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every three-topping combination and its cost, with names concatenated in lexicographic order. A plain triple self-join would emit permutations.
+>
+> Ranking names and joining on $r_1<r_2<r_3$ yields each combination once, already in name order.
+>
+> A window rank plus two inequality joins, then sort by cost descending and name ascending.
+
+<!-- thinking:end -->
 
 First, we use a window function to sort the table by the `topping_name` field and add a `rk` field to each row, representing the ranking of the current row.
 

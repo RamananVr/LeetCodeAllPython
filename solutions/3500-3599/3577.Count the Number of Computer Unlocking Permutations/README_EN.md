@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README_EN.md
 rating: 1749
 source: Weekly Contest 453 Q2
 tags:
@@ -93,6 +92,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Computer $0$ starts unlocked; every other machine opens only from a strictly easier unlocked one. If some $i>0$ has $\textit{complexity}[i] \le \textit{complexity}[0]$, that machine can never open.
+>
+> Otherwise $0$ can unlock everyone else, and the remaining order is any permutation of $\{1,\ldots,n-1\}$, i.e. $(n-1)!$. Multiply while scanning.
+
+<!-- thinking:end -->
 
 Since the password for computer number $0$ is already unlocked, for any other computer $i$, if $\text{complexity}[i] \leq \text{complexity}[0]$, it is impossible to unlock computer $i$, so we return $0$. Otherwise, any permutation is valid, and there are exactly $(n - 1)!$ possible permutations.
 

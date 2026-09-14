@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -81,6 +80,18 @@ The distance from 8 to 2 is 2.
 <!-- solution:start -->
 
 ### Solution 1: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The graph is one cycle with trees attached. BFS from every vertex to find the cycle would be $O(n^2)$. Cycle vertices have distance $0$; a tree vertex's distance is the unique path length to the cycle.
+>
+> Degree-$1$ vertices are never on the cycle, so they can be peeled like leaves. Collect them in a queue, record the parent $f[i]$ when a vertex is removed, and decrease neighbor degrees. What remains is the cycle.
+>
+> Fill distances in reverse deletion order: cycle vertices stay $0$, and a removed vertex $i$ gets $ans[f[i]]+1$.
+
+<!-- thinking:end -->
 
 We can first convert the edges in $edges$ into an adjacency list $g$, where $g[i]$ represents all adjacent nodes of node $i$, represented as a set.
 

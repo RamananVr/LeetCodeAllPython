@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md
 tags:
     - Greedy
     - Array
@@ -65,6 +64,18 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may trade many times and pay $fee$ on each completed sale. $n \le 5\times 10^4$, so an unmemoized search over days repeats states.
+>
+> A day has two modes: flat or holding. From flat we buy or skip; from holding we sell (minus $fee$) or hold. The optimum from day $i$ in mode $j$ depends only on those two successors.
+>
+> Memoize $dfs(i,j)$; past the last day the profit is $0$. The answer is $dfs(0,0)$. There are $O(n)$ states.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$, which represents the maximum profit that can be obtained starting from day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. The answer is $dfs(0, 0)$.
 
 The execution logic of the function $dfs(i, j)$ is as follows:
@@ -108,13 +119,21 @@ class Solution:
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already linear, but the recursion still uses an $O(n)$ stack and table. The same transitions can be written forward by day.
+>
+> Let $f[i][0/1]$ be the best profit after day $i$ flat or holding. Each row comes from the previous one; the answer is $f[n-1][0]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the maximum profit that can be obtained up to day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. We initialize $f[0][0] = 0$ and $f[0][1] = -prices[0]$.
 
 When $i \geq 1$, if we do not hold a stock at the current day, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + prices[i] - fee$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + prices[i] - fee)$. If we hold a stock at the current day, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 1][0] - prices[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 1][0] - prices[i])$. The final answer is $f[n - 1][0]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $prices$.
-
-We notice that the transition of the state $f[i][]$ only depends on $f[i - 1][]$ and $f[i - 2][]$. Therefore, we can use two variables $f_0$ and $f_1$ to replace the array $f$, reducing the space complexity to $O(1)$.
 
 <!-- tabs:start -->
 
@@ -138,7 +157,19 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Day $i$ in Solution 2 reads only day $i-1$, so the full table is unnecessary.
+>
+> Roll two scalars $f_0,f_1$. Parallel assignment keeps the previous pair while both updates run, so the new holding state still sees the old flat profit. Space is $O(1)$.
+
+<!-- thinking:end -->
+
+The transition only needs the previous day, so two variables are enough and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

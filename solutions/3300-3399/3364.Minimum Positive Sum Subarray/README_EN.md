@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README_EN.md
 rating: 1300
 source: Weekly Contest 425 Q1
 tags:
@@ -86,6 +85,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the minimum positive sum among subarrays whose length lies in $[l,r]$. With $n \le 100$ we may enumerate both ends.
+>
+> Fix the left end and accumulate $s$ to the right; update the answer when the length is allowed and $s>0$.
+>
+> If no positive sum appears, return $-1$.
+
+<!-- thinking:end -->
 
 We can enumerate the left endpoint $i$ of the subarray, then enumerate the right endpoint $j$ from $i$ to $n$ within the interval $[i, n)$. We calculate the sum $s$ of the interval $[i, j]$. If $s$ is greater than $0$ and the interval length is between $[l, r]$, we update the answer.
 

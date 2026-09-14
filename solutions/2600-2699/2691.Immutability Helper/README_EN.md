@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2691.Immutability%20Helper/README_EN.md
 tags:
     - JavaScript
 ---
@@ -118,6 +117,16 @@ mutators = [
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mutations should look in-place yet produce a new object without touching the original. Deep-cloning the whole tree on every `produce` wastes unchanged branches under $10^5$ calls and large payloads.
+>
+> A proxy records written paths and copy-on-writes those spines, sharing untouched subtrees. The mutator never deletes keys, calls methods, or assigns objects, so the proxy only traps reads and writes.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

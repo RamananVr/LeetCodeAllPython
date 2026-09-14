@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -57,6 +56,16 @@ Note that we do not consider the subarrays of length &lt; 4.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum average over subarrays of length at least $k$ is quadratic to enumerate. Feasibility of average $\ge v$ is monotone in $v$.
+>
+> Binary-search $v$, subtract $v$ from every element, and test for a length-$\ge k$ subarray with nonnegative sum via prefix minima.
+
+<!-- thinking:end -->
 
 We note that if the average value of a subarray with length greater than or equal to $k$ is $v$, then the maximum average number must be greater than or equal to $v$, otherwise the maximum average number must be less than $v$. Therefore, we can use binary search to find the maximum average number.
 

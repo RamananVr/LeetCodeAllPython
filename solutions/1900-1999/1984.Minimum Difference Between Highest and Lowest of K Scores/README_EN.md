@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1984.Minimum%20Difference%20Between%20Highest%20and%20Lowest%20of%20K%20Scores/README_EN.md
 rating: 1306
 source: Weekly Contest 256 Q1
 tags:
@@ -64,6 +63,16 @@ The minimum possible difference is 2.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We choose $k$ scores minimizing max minus min. After sorting, an optimal $k$-set is contiguous; skipping values only widens the ends.
+>
+> The answer is the minimum of $\textit{nums}[i+k-1]-\textit{nums}[i]$.
+
+<!-- thinking:end -->
 
 We can sort the students' scores in ascending order, then use a sliding window of size $k$ to calculate the difference between the maximum and minimum values in the window, and finally take the minimum of the differences of all windows.
 

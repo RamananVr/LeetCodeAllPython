@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1779.Find%20Nearest%20Point%20That%20Has%20the%20Same%20X%20or%20Y%20Coordinate/README_EN.md
 rating: 1259
 source: Biweekly Contest 47 Q1
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid point shares the $x$ or the $y$ coordinate. We want the smallest index among those with minimal Manhattan distance. $n\le 10^4$ allows one scan.
+>
+> For each valid point compute $|a-x|+|b-y|$ and keep the best distance and index.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

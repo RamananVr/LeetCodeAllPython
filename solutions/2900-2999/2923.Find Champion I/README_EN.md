@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2923.Find%20Champion%20I/README_EN.md
 rating: 1235
 source: Weekly Contest 370 Q1
 tags:
@@ -66,6 +65,16 @@ So team 1 will be the champion.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $grid$ is a complete, transitive comparison; the champion is the team that beats every other. $n \le 100$, so it suffices to test whether each row is all ones off the diagonal.
+>
+> The input contains a unique champion, so the first such team may be returned. No graph or in-degree array is required.
+
+<!-- thinking:end -->
 
 We can enumerate each team $i$. If team $i$ has won every match, then team $i$ is the champion, and we can directly return $i$.
 

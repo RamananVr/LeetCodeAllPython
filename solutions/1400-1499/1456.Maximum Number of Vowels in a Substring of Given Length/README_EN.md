@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1456.Maximum%20Number%20of%20Vowels%20in%20a%20Substring%20of%20Given%20Length/README_EN.md
 rating: 1263
 source: Weekly Contest 190 Q2
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the most vowels in any length-$k$ window. $n\le 10^5$, so count the first $k$ characters, then add/remove one character as the window slides.
+
+<!-- thinking:end -->
 
 First, we count the number of vowels in the first $k$ characters, denoted as $cnt$, and initialize the answer $ans$ as $cnt$.
 

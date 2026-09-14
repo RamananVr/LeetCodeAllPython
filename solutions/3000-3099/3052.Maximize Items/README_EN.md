@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3052.Maximize%20Items/README_EN.md
 tags:
     - Database
 ---
@@ -83,6 +82,18 @@ Output table is ordered by item count in descending order.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Join Query + Union All
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The warehouse holds $500000$ and must be filled with complete prime sets first, then leftover space with non-prime sets. A set is one copy of every item of that type.
+>
+> A prime set has area $s$, the sum of prime items, so we store $\lfloor 500000/s \rfloor$ sets; the remainder is filled by the non-prime total area.
+>
+> Compute $s$, multiply each type’s item count by the number of sets, and return the two rows with $\texttt{UNION ALL}$.
+
+<!-- thinking:end -->
 
 First, we calculate the total area of all items of type `prime_eligible` and record it in the `s` field of table `T`.
 

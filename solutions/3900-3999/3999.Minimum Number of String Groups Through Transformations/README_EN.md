@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README_EN.md
 rating: 2161
 source: Weekly Contest 511 Q4
 tags:
@@ -115,6 +114,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One transform rotates the even-index subsequence and the odd-index subsequence independently. Two strings are equivalent only if those two multisets match — rotation preserves the multiset, and a rotation can realize any cyclic shift.
+>
+> If comparing the sorted even and odd strings is sufficient, each class is a pair of sorted tuples and the number of groups is the number of distinct pairs. This directory has no implemented solution yet; the walkthrough stops at that even/odd rotation invariant.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

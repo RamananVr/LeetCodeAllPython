@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3917.Count%20Indices%20With%20Opposite%20Parity/README_EN.md
 rating: 1198
 source: Weekly Contest 500 Q1
 tags:
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rescanning the rest of the array for opposite parity at every index is $O(n^2)$. That fits $n\le 100$, but the answer depends only on the global odd/even counts.
+>
+> Count evens and odds first as $\textit{cnt}[0]$ and $\textit{cnt}[1]$. When visiting $x$, decrement its own bucket, then write the remaining opposite-parity count.
+>
+> Each index is answered in constant time without a second nested scan.
+
+<!-- thinking:end -->
 
 We first count the number of even and odd elements in the array $\textit{nums}$, denoted as $cnt[0]$ and $cnt[1]$ respectively.
 

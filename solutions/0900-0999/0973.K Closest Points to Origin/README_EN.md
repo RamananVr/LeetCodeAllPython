@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md
 tags:
     - Geometry
     - Array
@@ -64,6 +63,14 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 
 ### Solution 1: Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the $k$ points closest to the origin. Sorting by Euclidean distance and taking the first $k$ is $O(n\log n)$, which is fine for $n\le 10^4$.
+
+<!-- thinking:end -->
+
 We sort all points by their distance from the origin in ascending order, and then take the first $k$ points.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{points}$.
@@ -86,6 +93,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A full sort also orders the farthest $n-k$ points. A max-heap of size $k$ keeps only the current closest $k$, in $O(n\log k)$ time.
+
+<!-- thinking:end -->
 
 We can use a priority queue (max heap) to maintain the $k$ closest points to the origin.
 
@@ -114,6 +129,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The heap still pays a logarithm. The number of points is monotone in the distance, so binary-search a threshold until at least $k$ points lie inside, then collect every point whose distance is at most that critical value.
+
+<!-- thinking:end -->
 
 We notice that as the distance increases, the number of points increases as well. There exists a critical value such that the number of points before this value is less than or equal to $k$, and the number of points after this value is greater than $k$.
 

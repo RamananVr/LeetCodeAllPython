@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README_EN.md
 tags:
     - Graph
     - Array
@@ -85,6 +84,16 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find a walk of the same length as $targetPath$ whose city names differ in as few positions as possible. Enumerating walks is impossible for the given $m$ and $n$.
+>
+> Let $f[i][j]$ be the min edit distance after $i$ steps, ending in city $j$. Transitions come only from neighbors $k$ of $j$, plus a mismatch cost on the current name. Store predecessors and walk backward from the best final city to rebuild the path.
+
+<!-- thinking:end -->
 
 We first build an adjacency list $g$ based on the given roads, where $g[i]$ represents the list of cities directly connected to city $i$.
 

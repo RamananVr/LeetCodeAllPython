@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0391.Perfect%20Rectangle/README_EN.md
 tags:
     - Geometry
     - Array
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Can the small rectangles tile a large one without gaps or overlaps? Sweep lines are heavy. A perfect cover has equal area, and every vertex except the four outer corners appears an even number of times ($2$ or $4$).
+>
+> Sum areas and count vertices. The bounding-box corners must appear once; every other vertex $2$ or $4$ times; area equals the bounding box.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

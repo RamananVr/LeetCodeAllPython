@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0747.Largest%20Number%20At%20Least%20Twice%20of%20Others/README_EN.md
 tags:
     - Array
     - Sorting
@@ -54,6 +53,16 @@ The index of value 6 is 1, so we return 1.
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the unique maximum is at least twice every other value. $n\le 50$; compare the top two.
+>
+> The maximum is unique, so $x\ge 2y$ suffices. `nlargest(2)` then `index` of $x$.
+
+<!-- thinking:end -->
 
 We can traverse the array $nums$ to find the maximum value $x$ and the second largest value $y$ in the array. If $x \ge 2y$, then return the index of $x$, otherwise return $-1$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README_EN.md
 rating: 1317
 source: Biweekly Contest 75 Q2
 tags:
@@ -65,6 +64,16 @@ Since there is only one element in nums, the triangular sum is the value of that
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each round replaces the array with adjacent sums modulo $10$ until one value remains. $n \le 10^3$, so $O(n^2)$ simulation is fine. A closed form is unnecessary.
+>
+> For remaining length $k = n-1,\ldots,1$, write $nums[i] = (nums[i]+nums[i+1]) \bmod 10$. The surviving $nums[0]$ is the triangular sum.
+
+<!-- thinking:end -->
 
 We can directly simulate the operations described in the problem. Perform $n - 1$ rounds of operations on the array $\textit{nums}$, updating the array $\textit{nums}$ according to the rules described in the problem for each round. Finally, return the only remaining element in the array $\textit{nums}$.
 

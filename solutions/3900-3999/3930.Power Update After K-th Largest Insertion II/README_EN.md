@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3930.Power%20Update%20After%20K-th%20Largest%20Insertion%20II/README_EN.md
 tags:
     - Segment Tree
     - Array
@@ -148,6 +147,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorted List
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting after every insertion to read the $k$-th largest is $O(n\log n)$ per query and is awkward at total length $2\times 10^4$. We need a structure that inserts and then selects by rank.
+>
+> A sorted list holds every current value; after inserting $val$, $sl[-k]$ is the $k$-th largest, and $p$ becomes $p^x\bmod(10^9+7)$.
+>
+> Insertions and modular exponentiation are logarithmic, for a total of $O((n+m)\log(n+m))$.
+
+<!-- thinking:end -->
 
 We use a sorted list $\textit{sl}$ to maintain the current array $nums$. For each query, we insert $val_i$ into $\textit{sl}$, then find the $k_i$-th largest element $x$ in $\textit{sl}$. Using fast exponentiation, we update $p$ to $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
 

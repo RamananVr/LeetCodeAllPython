@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0277.Find%20the%20Celebrity/README_EN.md
 tags:
     - Graph
     - Two Pointers
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Querying $knows$ for every pair is quadratic. There is at most one celebrity: if $a$ knows $b$, then $a$ is not it and $b$ becomes the candidate.
+>
+> A linear pass leaves one candidate; a second pass checks that they know nobody and everybody knows them.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2758.Next%20Day/README_EN.md
 tags:
     - JavaScript
 ---
@@ -49,6 +48,16 @@ date.nextDay(); // &quot;2014-06-21&quot;
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Extend $Date$ with a method that returns the next calendar day as $YYYY\text{-}MM\text{-}DD$. Hand-rolled month lengths and leap years are easy to get wrong.
+>
+> Copy the timestamp, $setDate(getDate()+1)$, and slice the ISO date so the original instance is left unchanged.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

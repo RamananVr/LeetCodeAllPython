@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README_EN.md
 tags:
     - Greedy
     - Array
@@ -69,6 +68,18 @@ There are no people who are not &quot;it&quot; to catch.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each ghost catches at most one uncaught person within $\textit{dist}$. A left-to-right two-pointer matching is optimal.
+>
+> $i$ walks ghosts and $j$ walks the next catchable person, advancing $j$ while it is a ghost or too far left. A legal pair increments the answer.
+>
+> Each index is considered once.
+
+<!-- thinking:end -->
 
 We can use two pointers $i$ and $j$ to point to the ghost and non-ghost people, initially $i=0$, $j=0$.
 

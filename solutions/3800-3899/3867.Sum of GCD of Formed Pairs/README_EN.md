@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3867.Sum%20of%20GCD%20of%20Formed%20Pairs/README_EN.md
 rating: 1406
 source: Biweekly Contest 178 Q2
 tags:
@@ -158,6 +157,20 @@ The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</str
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build $\textit{prefixGcd}$ from prefix maxima, sort, and sum $\gcd$ of min-max pairs. $n \le 10^5$, so follow the definition.
+>
+> A prefix maximum is maintained in one scan while computing $\gcd(nums[i],mx)$.
+>
+> After sorting, pair the $i$-th smallest with the $i$-th largest; the middle element is dropped when $n$ is odd.
+>
+> There are $\lfloor n/2 \rfloor$ pairs.
+
+<!-- thinking:end -->
 
 We simulate according to the problem description.
 

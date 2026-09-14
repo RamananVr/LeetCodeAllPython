@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md
 rating: 2380
 source: Weekly Contest 336 Q4
 tags:
@@ -68,6 +67,16 @@ The computer will be on for a total of 4 seconds.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each task needs $\textit{duration}$ integer times inside its closed interval, and the computer runs one task at a time. The timeline is only $2000$ long, but the assignments are many.
+>
+> Sort by end time and occupy the rightmost still-free instants, which later tasks are more likely to reuse. Subtract already taken points in the interval, then fill the remainder from the right.
+
+<!-- thinking:end -->
 
 We observe that the problem is equivalent to selecting $duration$ integer time points in each interval $[start,..,end]$, so that the total number of selected integer time points is minimized.
 

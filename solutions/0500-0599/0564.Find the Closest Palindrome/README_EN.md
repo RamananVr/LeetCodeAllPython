@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README_EN.md
 tags:
     - Math
     - String
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the closest palindrome, not equal to $n$. Scanning nearby integers has no clear bound.
+>
+> The nearest palindromes come from mirroring the prefix and that prefix $\pm 1$, plus the length-change sentinels $99\ldots9$ and $100\ldots001$. Mirror each candidate, drop $n$ itself, and pick by distance then by value. Only a constant number of candidates exist.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

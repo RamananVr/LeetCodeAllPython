@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3620.Network%20Recovery%20Pathways/README_EN.md
 rating: 1998
 source: Biweekly Contest 161 Q3
 tags:
@@ -168,6 +167,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Heap-optimized Dijkstra
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path's score is its lightest edge. We maximize that minimum under a total-cost cap $k$ and online vertices only. Enumerating paths is impossible.
+>
+> A larger threshold leaves fewer edges and feasibility is monotone, so binary-search the minimum edge weight. For $\textit{mid}$, drop edges lighter than $\textit{mid}$ and run heap Dijkstra from $0$ to $n-1$, comparing the distance with $k$.
+>
+> Skip any edge whose endpoint is offline. If even the smallest candidate fails, return $-1$.
+
+<!-- thinking:end -->
 
 The path score is defined as the minimum edge cost along the path. We seek the maximum score among all valid paths.
 

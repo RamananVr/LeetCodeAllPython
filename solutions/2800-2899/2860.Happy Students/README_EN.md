@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2860.Happy%20Students/README_EN.md
 rating: 1625
 source: Weekly Contest 363 Q2
 tags:
@@ -69,6 +68,14 @@ The class teacher selects all the students to form the group.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A group of size $k$ exists only if every selected student has $nums[i]<k$ and every unselected one has $nums[i]>k$; a value equal to $k$ forbids that $k$. After sorting, the selected students are a prefix, so we test each $k\in[0,n]$ at the cut.
+
+<!-- thinking:end -->
 
 Assume that $k$ students are selected, then the following conditions hold:
 

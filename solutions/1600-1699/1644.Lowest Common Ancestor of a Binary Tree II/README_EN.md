@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1644.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20II/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the usual LCA, $p$ or $q$ may be absent, so we may return a node only after both are found.
+>
+> A postorder walk reports whether a subtree contains a target. If both sides do, or one side does and the current node is the other target, the current node is the LCA.
+>
+> The recursion returns a boolean; the real answer is stored in $\textit{ans}$, so “found one node” is not mistaken for an ancestor.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

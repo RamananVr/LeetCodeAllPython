@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1066.Campus%20Bikes%20II/README_EN.md
 rating: 1885
 source: Biweekly Contest 1 Q3
 tags:
@@ -80,6 +79,18 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most ten workers and bikes; listing assignments is $P(m,n)$. The set of used bikes is an $m$-bit mask, so $n\cdot 2^m$ states fit.
+>
+> $f[i][j]$ is the least total distance after $i$ workers using mask $j$. For each bit $k$ set in $j$ we come from $f[i-1][j\oplus 2^k]$ plus that pair’s Manhattan distance.
+>
+> The answer is the minimum of row $n$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

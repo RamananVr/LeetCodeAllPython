@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3136.Valid%20Word/README_EN.md
 rating: 1249
 source: Weekly Contest 396 Q1
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid word has length at least $3$, only alphanumerics, and at least one vowel and one consonant. The checks are independent and fit in one scan.
+>
+> No automaton is required. A non-alphanumeric character fails immediately; letters are classified by a vowel set.
+>
+> Reject short strings, then track $has\_vowel$ and $has\_consonant$. Both flags must be true at the end.
+
+<!-- thinking:end -->
 
 First, we check if the length of the string is less than 3. If it is, we return `false`.
 

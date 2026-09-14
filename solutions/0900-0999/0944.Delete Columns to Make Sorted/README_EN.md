@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0944.Delete%20Columns%20to%20Make%20Sorted/README_EN.md
 tags:
     - Array
     - String
@@ -87,6 +86,14 @@ All 3 columns are not sorted, so you will delete all 3.
 <!-- solution:start -->
 
 ### Solution 1: Compare Column by Column
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete the fewest columns so each remaining column is nondecreasing top to bottom. Columns are independent: any adjacent inversion forces a deletion. Scan each column and count it as soon as a descent appears.
+
+<!-- thinking:end -->
 
 We denote the number of rows in the string array $\textit{strs}$ as $n$, and the number of columns as $m$.
 

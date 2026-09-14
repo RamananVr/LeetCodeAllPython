@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md
 rating: 2454
 source: Weekly Contest 245 Q4
 tags:
@@ -81,6 +80,18 @@ There is no way to make them compete in any other round.
 <!-- solution:start -->
 
 ### Solution 1: Memoization + Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Simulating every remaining pairing each round branches on $\lfloor n/2\rfloor$ matches. With $n\le 28$ the raw tree is huge and many prefixes share the same leftover order.
+>
+> Only the two designated players matter for the answer: other outcomes merely change their next-round ranks and the leftover size. The state therefore collapses to $(l,r,n)$.
+>
+> We binary-enumerate winners in the first half, force $l$ and $r$ to advance, remap survivors in order, and recurse. Memoizing the triple yields the earliest and latest meeting rounds by taking min and max plus one.
+
+<!-- thinking:end -->
 
 We define a function $\text{dfs}(l, r, n)$, which represents the earliest and latest rounds where players numbered $l$ and $r$ compete among $n$ players in the current round.
 

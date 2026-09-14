@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README_EN.md
 rating: 1509
 source: Weekly Contest 214 Q2
 tags:
@@ -67,6 +66,18 @@ Note that we only care about characters that are still in the string at the end 
 
 ### Solution 1: Array + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Frequencies must become unique and we may only delete characters. With $26$ letters, sort frequencies decreasingly so each value occupies at most one integer slot.
+>
+> Keep the next free upper bound $\textit{pre}$. If $v \ge \textit{pre}$, delete down to $\textit{pre}-1$ (or delete all once $\textit{pre}$ is $0$).
+>
+> Otherwise keep $v$ and set $\textit{pre}=v$.
+
+<!-- thinking:end -->
+
 First, we use an array $\textit{cnt}$ of length $26$ to count the occurrences of each letter in the string $s$.
 
 Then, we sort the array $\textit{cnt}$ in descending order. We define a variable $\textit{pre}$ to record the current number of occurrences of the letter.
@@ -103,7 +114,21 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Greedy (Adjacent Decrement)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 enforces a global upper bound. Equivalently, after sorting, force adjacent frequencies to decrease: while the next is not smaller, decrement it and count deletions.
+>
+> The implementation matches “neighbors differ” and has the same complexity.
+
+<!-- thinking:end -->
+
+Count frequencies and sort them in descending order. Walking adjacent frequencies, decrement the current one until it is strictly smaller than the previous.
+
+The time complexity is $O(n + |\Sigma| \times \log |\Sigma| + n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README_EN.md
 rating: 2042
 source: Weekly Contest 442 Q3
 tags:
@@ -125,6 +124,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Wizards brew in a pipeline; a potion is handed on immediately. $n,m\le 5000$. The state is each wizard’s finish time for the previous potion.
+>
+> The current potion cannot start before this wizard finished the last one, nor before the previous wizard finished this one. A forward scan yields the bottle’s completion time.
+>
+> No idle gaps means finish times roll back from the last wizard: $f[i]=f[i+1]-\textit{skill}[i+1]\cdot x$. After every bottle, $f[n-1]$ is the answer.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the time when wizard $i$ completes the previous potion.
 

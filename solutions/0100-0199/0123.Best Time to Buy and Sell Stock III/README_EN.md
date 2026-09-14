@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0123.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -62,6 +61,14 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most two transactions, so the unlimited-trade state of the previous problem is not enough. A 3D DP over day, trades finished, and hold is heavier than we need. The legal order is buy1, sell1, buy2, sell2. Four variables update in that order, each day using the previous stage. Buying and selling on the same day yields $0$ and does not hurt the optimum.
+
+<!-- thinking:end -->
 
 We define the following variables:
 

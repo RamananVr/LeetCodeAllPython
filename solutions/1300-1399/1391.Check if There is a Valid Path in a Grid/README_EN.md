@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/README_EN.md
 rating: 1745
 source: Weekly Contest 181 Q3
 tags:
@@ -79,6 +78,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of six street types links a specific pair of sides; we ask whether the top-left cell reaches the bottom-right. Cells are nodes, joined only when both streets open toward each other. Union-find merges those legal neighbors; the start and end must share a component.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

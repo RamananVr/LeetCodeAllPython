@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The depth of an $N$-ary tree is one plus the deepest child. The same recurrence as a binary tree applies.
+>
+> An empty node has depth $0$. Recurse on every child and take a maximum. Each node is visited once.
+
+<!-- thinking:end -->
 
 First, we check if $\textit{root}$ is null. If it is, we return 0. Otherwise, we initialize a variable $\textit{mx}$ to record the maximum depth of the child nodes, then traverse all the child nodes of $\textit{root}$, recursively call the $\text{maxDepth}$ function, and update the value of $\textit{mx}$. Finally, we return $\textit{mx} + 1$.
 

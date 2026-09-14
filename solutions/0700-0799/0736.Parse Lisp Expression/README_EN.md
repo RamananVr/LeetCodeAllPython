@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0736.Parse%20Lisp%20Expression/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -77,6 +76,18 @@ The second (add x y) evaluates as 3+2 = 5.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The language has integers, $\textit{let}$, $\textit{add}$, $\textit{mult}$, and nested scopes. Length $2000$. Tokenizing first works; so does advancing an index on the raw string.
+>
+> $\textit{let}$ binds names and inner scopes shadow outer ones, so each variable keeps a stack of values that must be popped after the form. $\textit{add}$/$\textit{mult}$ just evaluate two subexpressions.
+>
+> $\textit{eval}$ branches on the current token: a bare name or integer, or a parenthesized `let`/`add`/`mult`. Bindings go through $\textit{scope}$ as push/pop. One scan evaluates the expression.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2232.Minimize%20Result%20by%20Adding%20Parentheses%20to%20Expression/README_EN.md
 rating: 1611
 source: Weekly Contest 288 Q2
 tags:
@@ -70,6 +69,16 @@ It can be shown that 170 is the smallest possible value.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expression is $A{+}B$. We insert one pair of parentheses to minimize $a(c)b$, where $c$ is the inner sum. The string has length at most $10$, so there are only $O(|A|\cdot|B|)$ placements.
+>
+> The left parenthesis sits before index $i$ of $A$, the right after index $j$ of $B$. The inside is $l[i:]+r[:j+1]$; an empty side contributes a factor of $1$. Keep the placement with the smallest product.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

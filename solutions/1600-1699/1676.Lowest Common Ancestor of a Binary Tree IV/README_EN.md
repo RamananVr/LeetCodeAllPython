@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1676.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20IV/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the LCA of a whole set of nodes, all present in the tree. After putting targets in a set, the usual tree-LCA recursion still works: a subtree returns a hit or an already computed ancestor.
+>
+> Return immediately if the current node is a target; if both sides are nonempty the current node is the ancestor, otherwise pass the nonempty side up.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{s}$ to record the values of all nodes in the array $\textit{nodes}$, and then use depth-first search. When the node being traversed is null or its value is in the hash table $\textit{s}$, we return the current node. Otherwise, we recursively traverse the left and right subtrees. If the return values of both the left and right subtrees are not null, it means the current node is the lowest common ancestor. Otherwise, we return the non-null subtree's return value.
 

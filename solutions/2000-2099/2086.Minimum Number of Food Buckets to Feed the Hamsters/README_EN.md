@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2086.Minimum%20Number%20of%20Food%20Buckets%20to%20Feed%20the%20Hamsters/README_EN.md
 rating: 1622
 source: Biweekly Contest 66 Q2
 tags:
@@ -70,6 +69,16 @@ It can be shown that if we place only one food bucket, one of the hamsters will 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each hamster needs an adjacent bucket on an empty cell. A left-to-right greedy prefers the right empty cell, which may feed the next hamster; else the left; else fail.
+>
+> Placing on the right skips one extra index so the bucket is not reused incorrectly. One linear scan.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README_EN.md
 rating: 2450
 source: Weekly Contest 423 Q4
 tags:
@@ -89,6 +88,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation replaces $x$ by its popcount. We count values less than $n$ that reach $1$ in at most $k$ operations. With $|s| \le 800$ this is a digit DP.
+>
+> For $x>1$, $k$-reducibility depends only on $\operatorname{popcount}(x)$, so we precompute how many steps $1..800$ need to reach $1$.
+>
+> A binary digit DP then counts numbers smaller than $n$ with exactly $c$ ones; such a number is valid when $c$ itself is $(k-1)$-reducible. Since $k \le 5$, the precompute is shallow.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

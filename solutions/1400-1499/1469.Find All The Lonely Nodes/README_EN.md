@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -66,6 +65,14 @@ All other nodes are lonely.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A lonely node is an only child. $n\le 1000$. In DFS, if exactly one child exists, record its value, then recurse. Leaves and nulls return immediately.
+
+<!-- thinking:end -->
 
 We can use Depth-First Search (DFS) to traverse the entire tree. We design a function $\textit{dfs}$, which traverses each node in the tree. If the current node is a lone child, we add its value to the answer array. The execution process of the function $\textit{dfs}$ is as follows:
 

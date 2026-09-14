@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3945.Digit%20Frequency%20Score/README_EN.md
 rating: 1201
 source: Weekly Contest 504 Q1
 tags:
@@ -70,6 +69,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is the sum of decimal digits. Repeatedly take $n\bmod 10$ and divide by $10$ until $n$ becomes $0$.
+>
+> That is $O(\log n)$ and needs no string conversion.
+
+<!-- thinking:end -->
 
 The problem is equivalent to finding the sum of each digit of a number. We can obtain each digit by repeatedly taking the modulus and dividing by 10, and accumulate the result.
 

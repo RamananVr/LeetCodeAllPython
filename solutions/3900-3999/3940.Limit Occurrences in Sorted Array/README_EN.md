@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README_EN.md
 rating: 1201
 source: Weekly Contest 503 Q1
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is already sorted, so equal values form runs. Each run must be clipped to length $k$ and written back as a prefix.
+>
+> A slow pointer $l$ marks the next write, a fast pointer $r$ scans. A value change resets the counter to $1$, otherwise it grows; a write happens only while the counter is at most $k$.
+>
+> $n\le 100$, so one linear scan is enough.
+
+<!-- thinking:end -->
 
 We define two pointers, $l$ and $r$, where $l$ is the write position and $r$ is the current read position. We also use a counter $cnt$ to record how many times the current value has appeared. Initially, both $l$ and $cnt$ are set to 1.
 

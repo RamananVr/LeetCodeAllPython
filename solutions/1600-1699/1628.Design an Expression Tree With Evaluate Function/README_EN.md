@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1628.Design%20an%20Expression%20Tree%20With%20Evaluate%20Function/README_EN.md
 tags:
     - Stack
     - Tree
@@ -68,6 +67,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The input is postfix, so an operator always follows its two operands and a stack rebuilds the tree.
+>
+> Digits are pushed; an operator pops the right then left child, attaches them, and pushes the new node. The remaining node is the root.
+>
+> Evaluation returns the integer at a leaf and applies the operator to the two children, using integer division.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

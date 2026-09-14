@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README_EN.md
 rating: 2435
 source: Weekly Contest 469 Q4
 ---
@@ -85,6 +84,14 @@ source: Weekly Contest 469 Q4
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can reach $10^9$, so a length-by-length DP is impossible; the value range has length $m=r-l+1\le 75$, which keeps the state space small. A zigzag array forbids equal neighbors and any strictly monotone triple, which means the comparison direction must flip at every step. We therefore encode a state by the last value and last direction ($2m$ states). The transition is independent of the remaining length, so we build a $2m\times 2m$ matrix, raise it to the $(n-1)$-st power, and multiply by the length-$1$ initial vector.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

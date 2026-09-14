@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md
 rating: 3039
 source: Weekly Contest 379 Q4
 tags:
@@ -97,6 +96,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10^4$ and we may change one character. Trying every change and resimulating partitions is about $O(n^2 |\Sigma|)$, which is tight.
+>
+> A cut happens only when the current segment’s distinct-letter set exceeds $k$. That set is a $26$-bit mask and the remaining change is $0$ or $1$, so memoization is feasible.
+>
+> We therefore search $\textit{dfs}(i, \textit{cur}, t)$: index $i$, segment mask $\textit{cur}$, $t$ changes left. Adding $s[i]$ opens a new segment when the popcount exceeds $k$; if a change remains, we also try every replacement letter.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}(i, \textit{cur}, t)$ that represents the maximum number of partitions we can obtain when currently processing index $i$ of string $s$, the current prefix already contains the character set $\textit{cur}$, and we can still modify $t$ characters. Then the answer is $\textit{dfs}(0, 0, 1)$.
 

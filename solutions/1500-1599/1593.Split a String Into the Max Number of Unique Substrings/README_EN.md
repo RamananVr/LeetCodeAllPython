@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1593.Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings/README_EN.md
 rating: 1739
 source: Weekly Contest 207 Q2
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Backtracking + Pruning
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the string into as many distinct pieces as possible. $n\le 16$ allows full backtracking, yet if the pieces so far plus the leftover characters cannot beat the best answer, the branch is useless.
+>
+> From index $i$ try every end $j$, accept $s[i:j]$ only when it is new, and recurse. A set tests uniqueness; $len(st)+n-i\le ans$ prunes hopeless prefixes.
+
+<!-- thinking:end -->
 
 We define a hash table $\textit{st}$ to store the currently split substrings. Then we use a depth-first search approach to try to split the string $\textit{s}$ into several unique substrings.
 

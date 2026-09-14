@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README_EN.md
 rating: 1607
 source: Biweekly Contest 126 Q2
 tags:
@@ -83,6 +82,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query marks a given index, then the $k$ currently unmarked smallest values (ties by index). $n \le 10^5$, so we cannot reselect minima each time.
+>
+> The unmarked-minimum order is fixed and can be pre-sorted by $(\textit{value},\textit{index})$, with a pointer that only moves forward.
+>
+> We keep the total sum and a mark array. A query marks the given index, then pops $k$ further unmarked values from the sorted list.
+
+<!-- thinking:end -->
 
 First, we calculate the sum $s$ of the array $nums$. We define an array $mark$ to indicate whether the elements in the array have been marked, initializing all elements as unmarked.
 

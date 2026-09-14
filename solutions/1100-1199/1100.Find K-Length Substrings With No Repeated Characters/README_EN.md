@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README_EN.md
 rating: 1348
 source: Biweekly Contest 3 Q2
 tags:
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every substring of length $k$ for uniqueness costs $O(nk)$. With $n,k\le 10^4$ this can pass, yet adjacent windows differ by only one character entering and one leaving.
+>
+> Maintain a window of length $k$ and a frequency map: add $s[i]$, drop $s[i-k]$, and remove a key when its count hits zero. The map has exactly $k$ keys if and only if every character in the window appears once, so that test increments the answer.
+
+<!-- thinking:end -->
 
 We maintain a sliding window of length $k$, and use a hash table $cnt$ to count the occurrences of each character in the window.
 

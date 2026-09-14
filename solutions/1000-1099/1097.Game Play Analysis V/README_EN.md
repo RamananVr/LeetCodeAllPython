@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1097.Game%20Play%20Analysis%20V/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,18 @@ Player 2 installed the game on 2017-06-25 but didn&#39;t log back in on 2017-06-
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The install date is each player’s earliest `event_date`. Day-1 retention is the share of those players who also log in the next day, grouped by install date.
+>
+> `MIN(event_date) OVER (PARTITION BY player_id)` tags every row. The outer query counts distinct players per install date and divides `SUM(datediff = 1)` by that count.
+>
+> `ROUND(..., 2)` keeps two decimals.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

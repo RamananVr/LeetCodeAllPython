@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md
 rating: 2540
 source: Biweekly Contest 122 Q4
 tags:
@@ -74,6 +73,18 @@ It can be shown that there is no possible way to divide nums into 3 subarrays at
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, $k$ and $\textit{dist}$ vary and $n \le 10^5$. The first subarray still costs $\textit{nums}[0]$; the other $k-1$ starts must lie in a window of length $\textit{dist}+1$.
+>
+> Each window needs the sum of its $k-1$ smallest values. Sorting every window is too slow.
+>
+> Two sorted lists keep the $k-1$ smallest window values and the rest, together with the sum of the former. A slide inserts into the left or right list by magnitude and rebalances the sizes.
+
+<!-- thinking:end -->
 
 The problem requires us to divide the array $\textit{nums}$ into $k$ consecutive and non-overlapping subarrays, and the distance between the first element of the second subarray and the first element of the $k$-th subarray should not exceed $\textit{dist}$. This is equivalent to finding a subarray of size $\textit{dist}+1$ starting from the element at index $1$ in $\textit{nums}$, and calculating the sum of the smallest $k-1$ elements in it. We subtract $1$ from $k$, so we only need to find the sum of the smallest $k$ elements and add $\textit{nums}[0]$ to it.
 

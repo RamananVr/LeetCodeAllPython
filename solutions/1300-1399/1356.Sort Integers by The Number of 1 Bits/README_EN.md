@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README_EN.md
 rating: 1257
 source: Biweekly Contest 20 Q1
 tags:
@@ -59,6 +58,14 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 <!-- solution:start -->
 
 ### Solution 1: Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Order by the number of one-bits, then by the integer itself. The key $(x.\mathrm{bit\_count}(), x)$ encodes both levels in one comparison.
+
+<!-- thinking:end -->
 
 We sort the array $arr$ according to the requirements of the problem, that is, sort in ascending order according to the number of $1$s in the binary representation. If there are multiple numbers with the same number of $1$s in the binary representation, they must be sorted in ascending order by numerical value.
 

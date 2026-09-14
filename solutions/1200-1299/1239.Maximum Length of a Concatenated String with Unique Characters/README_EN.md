@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1239.Maximum%20Length%20of%20a%20Concatenated%20String%20with%20Unique%20Characters/README_EN.md
 rating: 1719
 source: Weekly Contest 160 Q3
 tags:
@@ -73,6 +72,16 @@ Maximum length is 4.
 <!-- solution:start -->
 
 ### Solution 1: State Compression + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Concatenated subsequences must have unique letters. $|arr|\le 16$, so $2^{16}$ subsets are enumerable. Twenty-six letters fit in one integer mask.
+>
+> Starting from the empty mask, each internally unique string is merged with an existing mask only when their bitwise AND is zero. The answer is the maximum popcount among reachable masks. Bit operations make set algebra constant-time.
+
+<!-- thinking:end -->
 
 Since the problem requires that the characters in the subsequence must not be repeated and all characters are lowercase letters, we can use a binary integer of length $26$ to represent a subsequence. The $i$-th bit being $1$ indicates that the subsequence contains the $i$-th character, and $0$ indicates that it does not contain the $i$-th character.
 

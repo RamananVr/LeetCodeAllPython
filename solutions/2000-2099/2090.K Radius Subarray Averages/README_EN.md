@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README_EN.md
 rating: 1358
 source: Weekly Contest 269 Q2
 tags:
@@ -79,6 +78,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Windows have fixed length $2k+1$; incomplete edges stay $-1$. For $n \le 10^5$, slide a running sum.
+>
+> Add the right, drop the left, write the average at center $i-k$.
+
+<!-- thinking:end -->
 
 The length of a subarray with radius $k$ is $k \times 2 + 1$, so we can maintain a window of size $k \times 2 + 1$ and denote the sum of all elements in the window as $s$.
 

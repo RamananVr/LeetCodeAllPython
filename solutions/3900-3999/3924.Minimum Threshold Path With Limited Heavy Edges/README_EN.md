@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README_EN.md
 rating: 2079
 source: Biweekly Contest 182 Q4
 ---
@@ -111,6 +110,18 @@ source: Biweekly Contest 182 Q4
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n,m\le 10^3$, so trying every edge weight as a threshold and running a shortest path is in range, but the decision is cleaner. Relative to a threshold an edge is light or heavy, and a valid path uses at most $k$ heavy edges.
+>
+> Fix $T$, treat $w\le T$ as cost $0$ and $w>T$ as cost $1$: a valid path exists iff the $0$–$1$ shortest path is at most $k$. That predicate is monotone in $T$, so we can binary-search the edge weights.
+>
+> This directory has no implemented solution yet; the walkthrough stops at “binary search plus a heavy-edge shortest path”.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

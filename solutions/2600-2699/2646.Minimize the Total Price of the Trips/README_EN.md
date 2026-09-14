@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md
 rating: 2238
 source: Weekly Contest 341 Q4
 tags:
@@ -78,6 +77,16 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trip nodes are priced, and adjacent nodes cannot both be halved. Searching the half-price set after listing paths is exponential; $n \le 50$ allows counting visits, then a tree DP decides the halves.
+>
+> DFS each trip into $cnt$. The DP returns (full price, half price) at a node: children may take either min if this node stays full, and must stay full if this node is halved. The root takes the better of the two.
+
+<!-- thinking:end -->
 
 We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
 

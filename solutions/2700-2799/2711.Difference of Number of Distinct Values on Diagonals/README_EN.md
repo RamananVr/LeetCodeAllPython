@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md
 rating: 1428
 source: Weekly Contest 347 Q2
 tags:
@@ -169,6 +168,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer at a cell is the absolute difference between the numbers of distinct values on its top-left and bottom-right diagonals. With sides at most $50$, walking both diagonals from every cell into a set costs $O(mn\min(m,n))$ and fits.
+>
+> We need not precompute whole diagonals: from $(i,j)$ walk toward the top-left and the bottom-right, take set sizes, and subtract.
+
+<!-- thinking:end -->
 
 We can simulate the process described in the problem statement, calculating the number of distinct values on the top-left diagonal $tl$ and the bottom-right diagonal $br$ for each cell, then compute their difference $|tl - br|$.
 

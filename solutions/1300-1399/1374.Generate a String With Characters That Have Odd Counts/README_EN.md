@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1374.Generate%20a%20String%20With%20Characters%20That%20Have%20Odd%20Counts/README_EN.md
 rating: 1164
 source: Weekly Contest 179 Q1
 tags:
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build a string of length $n$ in which every used letter occurs an odd number of times. Odd $n$ is $n$ copies of `'a'`. Even $n$ is $n-1$ `'a'`s plus one `'b'`, so both counts stay odd.
+
+<!-- thinking:end -->
 
 If $n$ is odd, then we can directly construct a string with $n$ `'a'` characters.
 

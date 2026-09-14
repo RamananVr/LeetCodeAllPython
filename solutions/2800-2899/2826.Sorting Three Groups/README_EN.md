@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md
 rating: 1721
 source: Biweekly Contest 111 Q3
 tags:
@@ -75,6 +74,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful array is nondecreasing over $\{1,2,3\}$. Assigning a final value to each position must keep the sequence nondecreasing. $f[j]$ is the minimum cost for the current prefix to end with $j+1$, taking a previous state at most $j$, and only three states are kept.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum number of operations to turn the first $i$ numbers into a beautiful array, and the $i$th number is changed to $j+1$. The answer is $\min(f[n][0], f[n][1], f[n][2])$.
 

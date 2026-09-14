@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md
 rating: 1864
 source: Biweekly Contest 108 Q3
 tags:
@@ -77,6 +76,16 @@ It can be shown that 3 is the minimum number of beautiful substrings that s can 
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split a binary string into as few pieces as possible, each without a leading zero and equal to a power of $5$. Enumeration is feasible for $n\le 15$, but prefixes with a leading zero should be rejected at once.
+>
+> Precompute powers of $5$ that fit the length. $dfs(i)$ is the fewest pieces from index $i$: $s[i]=0$ is illegal; otherwise grow the integer and try $1+dfs(j+1)$ when it is a power of $5$. If the memoized value stays infinite, return $-1$.
+
+<!-- thinking:end -->
 
 Since the problem requires us to judge whether a string is the binary representation of a power of $5$, we might as well first preprocess all the powers of $5$ and record them in a hash table $ss$.
 

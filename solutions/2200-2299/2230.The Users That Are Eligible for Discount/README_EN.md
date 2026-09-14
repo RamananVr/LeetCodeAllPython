@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,16 @@ Out of the three users, only User 3 is eligible for a discount.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The procedure must list users who have a purchase in the closed time window with amount at least the threshold, unique and sorted by $\textit{user\_id}$. Aggregation by user would mix several small orders; the filter is per row.
+>
+> $\textit{WHERE}$ restricts $\textit{amount}$ and $\textit{time\_stamp}$, then $\textit{DISTINCT}$ and $\textit{ORDER BY}$ produce the list.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

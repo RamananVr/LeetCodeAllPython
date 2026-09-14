@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2650.Design%20Cancellable%20Function/README_EN.md
 tags:
     - JavaScript
 ---
@@ -157,6 +156,18 @@ The first yielded promise immediately rejects. This error is caught. Because the
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The generator yields Promises and must be cancellable. Awaiting the next Promise alone cannot inject cancellation.
+>
+> A second Promise rejects with `Cancelled` and races the yielded value: the winner is passed to `next` or `throw`. The cancel function rejects that race.
+>
+> When the generator finishes, its final value is returned.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

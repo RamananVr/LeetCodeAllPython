@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README_EN.md
 rating: 1763
 source: Weekly Contest 454 Q3
 tags:
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Maintaining Prefix Extremes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence of length $m$ has product equal to its first times its last. Fix the right end $i$; the left end lies at or before $i-m+1$, so the extreme products use the prefix minimum and maximum.
+>
+> While scanning, fold $nums[i-m+1]$ into those extrema and multiply the current $x$ by both. A negative value can make either extremum optimal.
+
+<!-- thinking:end -->
 
 We can enumerate the last element of the subsequence, assuming it is $\textit{nums}[i]$. Then the first element of the subsequence can be $\textit{nums}[j]$, where $j \leq i - m + 1$. Therefore, we use two variables $\textit{mi}$ and $\textit{mx}$ to maintain the prefix minimum and maximum values respectively. When traversing to $\textit{nums}[i]$, we update $\textit{mi}$ and $\textit{mx}$, then calculate the products of $\textit{nums}[i]$ with $\textit{mi}$ and $\textit{mx}$, taking the maximum value.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2137.Pour%20Water%20Between%20Buckets%20to%20Make%20Water%20Levels%20Equal/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -69,6 +68,18 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search for Floating-Point Numbers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pouring loses water, so a higher common level is harder; the feasible region is a prefix of the real line. The level is continuous, so it cannot be enumerated, and an explicit pour sequence is awkward to keep precise.
+>
+> For a candidate $v$, surplus water sums to $a$ and the deficit side, after loss, sums to $b$. The level is feasible iff $a\ge b$. Binary search $v$ in $[0,\max\textit{buckets}]$.
+>
+> $\texttt{check}$ scans every bucket; stop when the search width is below $10^{-5}$.
+
+<!-- thinking:end -->
 
 We notice that if a water volume $x$ meets the condition, then all water volumes less than $x$ also meet the condition. Therefore, we can use binary search to find the maximum water volume that satisfies the condition.
 

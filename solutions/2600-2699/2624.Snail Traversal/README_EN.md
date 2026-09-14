@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2624.Snail%20Traversal/README_EN.md
 tags:
     - JavaScript
 ---
@@ -80,6 +79,16 @@ colsCount = 2
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A 1-D array must fill a matrix column-wise, alternating up and down. If the length is not $rows \times cols$, the input is invalid. One pass writes every cell.
+>
+> Keep a vertical step $k=\pm 1$; reverse and move to the next column at either boundary, writing elements along that path.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

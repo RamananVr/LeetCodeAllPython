@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README_EN.md
 rating: 2366
 source: Biweekly Contest 8 Q4
 tags:
@@ -64,6 +63,14 @@ The best solution that has 4 ones is:
 <!-- solution:start -->
 
 ### Solution 1: Count Equivalent Positions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The matrix tiles a $sideLength\times sideLength$ motif that holds at most $maxOnes$ ones. Cell $(i,j)$ is tied to $(i\bmod x,j\bmod x)$; that residual's frequency is the payoff of placing a one there. Count the $x^2$ residuals and sum the largest $maxOnes$.
+
+<!-- thinking:end -->
 
 For convenience, let's denote $x = sideLength$.
 

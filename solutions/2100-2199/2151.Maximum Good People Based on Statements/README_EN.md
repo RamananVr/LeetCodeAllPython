@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2151.Maximum%20Good%20People%20Based%20on%20Statements/README_EN.md
 rating: 1979
 source: Weekly Contest 277 Q4
 tags:
@@ -106,6 +105,18 @@ Note that there is more than one way to arrive at this conclusion.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person is good or bad; a good person’s statements must match the hypothesis, a bad person’s may not. With $n\le 15$ we may enumerate $2^n$ subsets of good people.
+>
+> For every bit set in a mask, check that each $0/1$ statement about others agrees with the mask; a contradiction rejects the mask, otherwise its popcount is a candidate.
+>
+> Take the maximum popcount over all masks.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

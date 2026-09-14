@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -72,6 +71,16 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among common strings, keep those with the smallest index sum. Scanning the other list for every common string is $O(nm)$.
+>
+> Map `list2` from string to index, then scan `list1` for sums. Keep the current minimum: append on a tie, reset on a smaller sum. One hash build and one linear scan.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{d}$ to record the strings in $\textit{list2}$ and their indices, and a variable $\textit{mi}$ to record the minimum index sum.
 

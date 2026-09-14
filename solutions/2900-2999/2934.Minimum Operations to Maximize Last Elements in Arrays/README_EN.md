@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README_EN.md
 rating: 1802
 source: Weekly Contest 371 Q3
 tags:
@@ -85,6 +84,16 @@ So, the answer is -1.
 <!-- solution:start -->
 
 ### Solution 1: Case Discussion + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maxima of $nums1$ and $nums2$ must sit at the ends, and only same-index swaps are allowed. The last pair is either left or swapped once; that choice fixes how every earlier pair must be oriented.
+>
+> $f(x,y)$ assumes the ends are $(x,y)$. Each previous pair stays, swaps, or is impossible. The answer is the better of “do not swap the ends” and “swap them and add one”.
+
+<!-- thinking:end -->
 
 We can discuss two cases:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3110.Score%20of%20a%20String/README_EN.md
 rating: 1152
 source: Biweekly Contest 128 Q1
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is the sum of absolute ASCII differences of adjacent characters, which is already a single linear scan.
+>
+> No preprocessing is needed at the given length. Adjacent pairs are independent.
+>
+> Map $s$ to code points, take absolute differences of neighbors, and sum them. Time is linear and extra space is constant.
+
+<!-- thinking:end -->
 
 We directly traverse the string $s$, calculating the sum of the absolute differences of the ASCII codes of adjacent characters.
 

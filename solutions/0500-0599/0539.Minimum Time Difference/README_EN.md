@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0539.Minimum%20Time%20Difference/README_EN.md
 tags:
     - Array
     - Math
@@ -41,6 +40,16 @@ Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> 
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The minimum gap is between adjacent times after sorting, plus the wrap from last to first across midnight. Only $1440$ distinct minutes exist, so more than $1440$ points imply a duplicate and answer $0$.
+>
+> Convert to minutes, sort, append the first value plus $1440$, and take the minimum adjacent difference.
+
+<!-- thinking:end -->
 
 We notice that there can be at most $24 \times 60 = 1440$ distinct time points. Therefore, if the length of $timePoints$ exceeds $1440$, it implies there are duplicate time points, and we can return $0$ early.
 

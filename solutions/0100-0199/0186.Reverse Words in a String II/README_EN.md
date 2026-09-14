@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -47,6 +46,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse the word order in a character array in place; words are separated by a single space. $n\le 10^5$, $O(1)$ extra space. Reverse each word, then reverse the whole array: word order flips and letters inside a word return to normal. Two pointers mark each word.
+
+<!-- thinking:end -->
 
 We can iterate through the character array $s$, using two pointers $i$ and $j$ to find the start and end positions of each word, then reverse each word, and finally reverse the entire character array.
 

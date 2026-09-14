@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README_EN.md
 tags:
     - Math
     - String
@@ -68,6 +67,14 @@ AB -&gt; 28
 <!-- solution:start -->
 
 ### Solution 1: Base Conversion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Title to number is the inverse of problem $168$: each letter is a digit in $1\ldots 26$. Fold left to right with $\textit{ans}=\textit{ans}\times 26 + (c-'A'+1)$, the same pattern as parsing a decimal string.
+
+<!-- thinking:end -->
 
 The column name in Excel is a representation in base 26. For example, "AB" represents the column number $1 \times 26 + 2 = 28$.
 

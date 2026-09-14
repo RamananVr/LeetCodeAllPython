@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0970.Powerful%20Integers/README_EN.md
 tags:
     - Hash Table
     - Math
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A powerful integer is $x^i+y^j\le bound$. $bound\le 10^6$, so a base of at least $2$ needs an exponent of at most about $20$. Nested loops enumerate the powers and insert sums into a set; when $x=1$ or $y=1$ the power never grows and that loop runs once.
+
+<!-- thinking:end -->
 
 According to the description of the problem, a powerful integer can be represented as $x^i + y^j$, where $i \geq 0$, $j \geq 0$.
 

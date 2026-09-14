@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README_EN.md
 rating: 1234
 source: Weekly Contest 455 Q1
 tags:
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Prime Check
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need whether some value’s frequency is prime. Count first, then trial-divide each frequency.
+>
+> A frequency is at most $n$, so testing up to its square root is enough. Return true on the first prime frequency.
+
+<!-- thinking:end -->
 
 We use a hash table $\text{cnt}$ to count the frequency of each element. Then, we iterate through the values in $\text{cnt}$ and check if any of them is a prime number. If there is a prime, return `true`; otherwise, return `false`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1399.Count%20Largest%20Group/README_EN.md
 rating: 1341
 source: Biweekly Contest 23 Q1
 tags:
@@ -57,6 +56,14 @@ There are 4 groups with largest size.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Group $1..n$ by digit sum and count how many groups share the maximum size. $n \le 10^4$, so digit sums are at most $36$. Sum digits for each integer, tally group sizes, and track the current maximum size together with how many groups attain it.
+
+<!-- thinking:end -->
 
 We note that the number does not exceed $10^4$, so the sum of the digits also does not exceed $9 \times 4 = 36$. Therefore, we can use a hash table or an array of length $40$, denoted as $cnt$, to count the number of each sum of digits, and use a variable $mx$ to represent the maximum count of the sum of digits.
 

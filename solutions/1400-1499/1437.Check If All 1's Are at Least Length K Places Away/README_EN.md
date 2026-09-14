@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1437.Check%20If%20All%201%27s%20Are%20at%20Least%20Length%20K%20Places%20Away/README_EN.md
 rating: 1193
 source: Weekly Contest 187 Q2
 tags:
@@ -51,6 +50,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$. Remember the previous $1$ at index $j$. On a new $1$, the gap is $i-j-1$; reject if it is less than $k$. One pass suffices.
+
+<!-- thinking:end -->
 
 We can iterate through the array $\textit{nums}$ and use a variable $j$ to record the index of the previous $1$. When the element at the current position $i$ is $1$, we just need to check if $i - j - 1$ is less than $k$. If it is less than $k$, it means there exists a pair of $1$s with fewer than $k$ zeros between them, so we return $\text{false}$. Otherwise, we update $j$ to $i$ and continue iterating through the array.
 

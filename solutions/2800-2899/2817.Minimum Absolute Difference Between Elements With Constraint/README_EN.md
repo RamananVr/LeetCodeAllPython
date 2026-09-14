@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README_EN.md
 rating: 1889
 source: Weekly Contest 358 Q3
 tags:
@@ -73,6 +72,14 @@ It can be shown that 3 is the optimal answer.
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the minimum $|nums[i]-nums[j]|$ over pairs with $|i-j|\ge x$. Scanning the prefix of length $i-x$ for every $i$ is too slow. An ordered set stores values that are already at least $x$ behind; predecessor and successor queries give the closest value in logarithmic time.
+
+<!-- thinking:end -->
 
 We create an ordered set to store the elements whose distance to the current index is at least $x$.
 

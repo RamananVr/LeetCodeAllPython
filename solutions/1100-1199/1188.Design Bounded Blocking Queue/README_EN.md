@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README_EN.md
 tags:
     - Concurrency
 ---
@@ -105,6 +104,14 @@ Since the number of threads for producer/consumer is greater than 1, we do not k
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bounded queue must block producers when full and consumers when empty under concurrency. A capacity semaphore gates `enqueue` and an item semaphore gates `dequeue`: enqueue acquires a slot then releases an item, dequeue the reverse. The deque is touched only after the matching permit, so capacity and FIFO hold.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

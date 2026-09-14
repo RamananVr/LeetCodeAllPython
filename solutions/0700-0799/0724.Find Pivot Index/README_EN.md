@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md
 tags:
     - Array
     - Prefix Sum
@@ -72,6 +71,18 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find an index whose left sum equals its right sum. Recomputing both sides at every $i$ is $O(n^2)$ for $n\le 10^4$.
+>
+> The two sides plus $nums[i]$ make the total $S$, so $2\cdot\textit{left}+nums[i]=S$. One left-to-right pass suffices.
+>
+> Start $\textit{right}$ at the total, subtract $x$ before comparing with $\textit{left}$, then add $x$ to the left. Extra space $O(1)$.
+
+<!-- thinking:end -->
 
 We define a variable $left$ to represent the sum of elements to the left of index $i$ in the array $\textit{nums}$, and a variable $right$ to represent the sum of elements to the right of index $i$ in the array $\textit{nums}$. Initially, $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$.
 

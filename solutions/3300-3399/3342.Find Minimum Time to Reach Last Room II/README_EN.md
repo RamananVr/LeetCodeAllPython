@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3342.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20II/README_EN.md
 rating: 1861
 source: Weekly Contest 422 Q3
 tags:
@@ -89,6 +88,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dijkstra's Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compared with part I, odd and even steps cost $1$ and $2$, and the grid is larger. The shortest-path model is unchanged; the edge weight is $\max(\textit{moveTime}[x][y],d)+(i+j)\bmod 2+1$.
+>
+> $(i+j)\bmod 2$ is the parity of the next step after arriving at $(i,j)$: from $(0,0)$ the first step costs $1$ and the next costs $2$.
+>
+> Dijkstra still relaxes on time; the first pop of the destination is the answer.
+
+<!-- thinking:end -->
 
 We define a two-dimensional array $\textit{dist}$, where $\textit{dist}[i][j]$ represents the minimum time required to reach room $(i, j)$ from the starting point. Initially, we set all elements in the $\textit{dist}$ array to infinity, and then set the $\textit{dist}$ value of the starting point $(0, 0)$ to $0$.
 

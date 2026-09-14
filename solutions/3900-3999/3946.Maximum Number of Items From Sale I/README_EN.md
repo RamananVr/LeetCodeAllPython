@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README_EN.md
 rating: 1728
 source: Weekly Contest 504 Q2
 tags:
@@ -84,6 +83,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (0-1 Knapsack)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ and the budget are at most $1500$. The first purchase grants free items by divisibility; later purchases just spend leftover money on the cheapest price. Those two phases must be separated.
+>
+> A $0$-$1$ knapsack models the first purchase: item $i$ costs $\textit{price}$ and yields $1$ plus the number of types it divides. Then for each knapsack spend $i$ we add $\lfloor(\textit{budget}-i)/\textit{mn}\rfloor$ cheapest items.
+>
+> The maximum of those sums is the answer.
+
+<!-- thinking:end -->
 
 Since buying the first item of a type is special and yields free items, we consider the first purchased item separately from the later purchases.
 

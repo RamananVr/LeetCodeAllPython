@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Copying values into an array works, but we want constant extra space. A palindrome is symmetric about the midpoint, so we find the middle, reverse the second half, and compare.
+>
+> Slow/fast pointers locate the mid; the second half is reversed in place and compared with the first half.
+
+<!-- thinking:end -->
 
 We can use fast and slow pointers to find the middle of the linked list, then reverse the right half of the list. After that, we traverse both halves simultaneously, checking if the corresponding node values are equal. If any pair of values is unequal, it's not a palindrome linked list; otherwise, it is a palindrome linked list.
 

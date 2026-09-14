@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1953.Maximum%20Number%20of%20Weeks%20for%20Which%20You%20Can%20Work/README_EN.md
 rating: 1803
 source: Weekly Contest 252 Q2
 tags:
@@ -80,6 +79,18 @@ Thus, one milestone in project 0 will remain unfinished.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Consecutive weeks cannot share a project. If one project exceeds the sum of the others plus one, the surplus can never be scheduled.
+>
+> Let $s$ be the total, $mx$ the largest, and $rest=s-mx$. If $mx>rest+1$ the limit is $2\cdot rest+1$; otherwise all $s$ weeks are feasible.
+>
+> One pass for the max and the sum decides the answer without simulating weeks.
+
+<!-- thinking:end -->
 
 We consider under what circumstances we cannot complete all stage tasks. If there is a project $i$ whose number of stage tasks is greater than the sum of the number of stage tasks of all other projects plus $1$, then we cannot complete all stage tasks. Otherwise, we can definitely complete all stage tasks by interlacing between different projects.
 

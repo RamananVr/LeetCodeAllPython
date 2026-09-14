@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0444.Sequence%20Reconstruction/README_EN.md
 tags:
     - Graph
     - Topological Sort
@@ -86,6 +85,18 @@ Since nums is the only shortest supersequence, we return true.
 <!-- solution:start -->
 
 ### Solution 1: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must decide whether $nums$ is the unique shortest supersequence of the given sequences. Several topological orders would mean several supersequences.
+>
+> Turn consecutive pairs in each $\textit{seq}$ into directed edges and record indegrees. The queue may hold only one zero-indegree node at a time—two candidates mean the order is not unique.
+>
+> An empty queue at the end means every node was forced. We need not compare against $nums$ position-wise: if a unique order exists, it has to be $nums$.
+
+<!-- thinking:end -->
 
 We can first traverse each subsequence `seq`. For each pair of adjacent elements $a$ and $b$, we establish a directed edge $a \to b$. At the same time, we count the in-degree of each node, and finally add all nodes with an in-degree of $0$ to the queue.
 

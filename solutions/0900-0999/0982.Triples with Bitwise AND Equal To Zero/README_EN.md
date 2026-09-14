@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -70,6 +69,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count triples with $x\& y\& z=0$. $n\le 1000$, so three nested loops are tight. Enumerate the first two values and count each $x\& y$, then pair that mask with every $z$ and add the frequency when the AND is zero. The universe is smaller than $2^{16}$, so the table is affordable.
+
+<!-- thinking:end -->
 
 First, we enumerate any two numbers $x$ and $y$, and use a hash table or array $cnt$ to count the occurrences of their bitwise AND result $x \& y$.
 

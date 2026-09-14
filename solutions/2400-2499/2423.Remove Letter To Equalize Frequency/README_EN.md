@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README_EN.md
 rating: 1648
 source: Biweekly Contest 88 Q1
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $|word|\le 100$, we can try deleting each distinct letter. Equality of remaining frequencies depends only on $26$ counts.
+>
+> Count letters, then for each key decrement once and test whether the positive frequencies form a singleton set. Restore and try the next letter.
+
+<!-- thinking:end -->
 
 First, we use a hash table or an array of length $26$ named $cnt$ to count the number of occurrences of each letter in the string.
 

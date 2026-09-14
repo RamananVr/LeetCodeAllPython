@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2365.Task%20Scheduler%20II/README_EN.md
 rating: 1622
 source: Biweekly Contest 84 Q3
 tags:
@@ -83,6 +82,16 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal tasks need at least $space$ days between them and must run in the given order. $n \le 10^5$, so we should not insert idle days on an explicit calendar.
+>
+> A map stores the next allowed day of each task. Advance one day, take the max with that allowed day, then write the next allowed time as $ans+space+1$.
+
+<!-- thinking:end -->
 
 We can use a hash table $day$ to record the next time each task can be executed. Initially, all values in $day$ are $0$. We use a variable $ans$ to record the current time.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0280.Wiggle%20Sort/README_EN.md
 tags:
     - Greedy
     - Array
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A wiggle only needs $a_0\le a_1\ge a_2\le a_3\cdots$, not a full sort. Scan left to right and swap a pair that violates the local inequality.
+>
+> Odd indices should be $\ge$ the previous value and even indices $\le$; a local swap does not break earlier pairs.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

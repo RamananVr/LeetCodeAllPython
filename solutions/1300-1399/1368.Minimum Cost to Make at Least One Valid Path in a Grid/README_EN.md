@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md
 rating: 2068
 source: Weekly Contest 178 Q4
 tags:
@@ -83,6 +82,14 @@ The total cost = 3.
 <!-- solution:start -->
 
 ### Solution 1: Double-ended Queue BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cell points to a neighbor; changing an arrow costs $1$. We want the fewest changes to the bottom-right. Dijkstra is $O(mn\log)$. Weights are only $0$ (follow the arrow) and $1$ (change it), so 0-1 BFS applies: an aligned neighbor goes to the front at the same cost, a changed one to the back at cost plus one. The first visit to the target is optimal.
+
+<!-- thinking:end -->
 
 This problem is essentially a shortest path model, but what we are looking for is the minimum number of direction changes.
 

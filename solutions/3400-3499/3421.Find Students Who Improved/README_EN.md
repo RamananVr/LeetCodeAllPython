@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README_EN.md
 tags:
     - Database
 ---
@@ -96,6 +95,18 @@ Each row contains information about a student&#39;s score in a specific subject 
 <!-- solution:start -->
 
 ### Solution 1: Window Function + Subquery + Conditional Filtering
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need students whose latest score in a subject exceeds their first score. Aggregating $\textit{MIN}/\textit{MAX}(\textit{exam\_date})$ and joining back can attach the wrong score to a date.
+>
+> Window functions mark both the earliest and the latest exam in one pass.
+>
+> We compute $\textit{ROW\_NUMBER}()$ partitioned by $(\textit{student\_id},\textit{subject})$ in both date orders, self-join the two ranks, keep rows with $\textit{latest\_score}>\textit{first\_score}$, and sort as required.
+
+<!-- thinking:end -->
 
 First, we use the window function `ROW_NUMBER()` to calculate the ranking of each student's exam date in each subject, separately calculating the first and most recent exam rankings for each student in each subject.
 

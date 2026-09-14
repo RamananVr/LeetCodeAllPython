@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0159.Longest%20Substring%20with%20At%20Most%20Two%20Distinct%20Characters/README_EN.md
 tags:
     - Hash Table
     - String
@@ -50,6 +49,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest substring with at most two distinct characters. $n\le 10^5$, so enumerating endpoints is $O(n^2)$. The distinct count grows with the right end and shrinks with the left. Extend right while counting; when there are more than two kinds, move left. Update the answer on a valid window.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

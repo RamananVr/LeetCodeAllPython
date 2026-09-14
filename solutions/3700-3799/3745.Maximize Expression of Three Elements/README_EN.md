@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README_EN.md
 rating: 1218
 source: Weekly Contest 476 Q1
 tags:
@@ -65,6 +64,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Find Maximum, Second Maximum, and Minimum Values
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a+b-c$ is maximized by the two largest values as $a,b$ and the smallest as $c$. One scan that tracks the maximum, second maximum, and minimum is enough; sorting is unnecessary.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to choose three elements $a$, $b$, and $c$ at distinct indices such that the value of the expression $a + b - c$ is maximized.
 

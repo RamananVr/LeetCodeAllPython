@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md
 rating: 2205
 source: Weekly Contest 149 Q4
 tags:
@@ -69,6 +68,14 @@ majorityChecker.query(2, 3, 2); // return 2
 <!-- solution:start -->
 
 ### Solution 1: Segment Tree + Boyer-Moore Voting Algorithm + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many subarray majority queries make a linear scan per query too slow. Boyer–Moore candidates merge on a segment tree: each node stores a candidate and its remaining count. After the tree returns $x$, binary search $x$'s index list to count hits in $[left,right]$ and compare with $threshold$.
+
+<!-- thinking:end -->
 
 We notice that the problem requires us to find the possible majority element in a specific interval, so we consider using a segment tree to maintain the candidate majority element and its occurrence in each interval.
 

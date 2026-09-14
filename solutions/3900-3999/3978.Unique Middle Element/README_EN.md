@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3978.Unique%20Middle%20Element/README_EN.md
 rating: 1180
 source: Biweekly Contest 186 Q1
 tags:
@@ -66,6 +65,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The length is odd, so the middle index is unique. The middle value is unique in the whole array iff $\textit{count}$ returns $1$.
+>
+> $n\le 100$, so one linear tally suffices.
+
+<!-- thinking:end -->
 
 We take the element at the middle index of the array and count how many times it appears. If the count is $1$, return $\textit{true}$; otherwise return $\textit{false}$.
 

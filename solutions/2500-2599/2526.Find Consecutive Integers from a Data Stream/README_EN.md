@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README_EN.md
 rating: 1444
 source: Biweekly Contest 95 Q2
 tags:
@@ -65,6 +64,16 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks whether the last $k$ integers all equal a fixed $\textit{value}$. Storing the whole stream and slicing it on every call grows with the number of calls.
+>
+> Only the run length of $\textit{value}$ matters. Increment a counter when the next number matches, reset it otherwise, and compare with $k$. Each call is $O(1)$.
+
+<!-- thinking:end -->
 
 We can maintain a counter $\textit{cnt}$ to record the current number of consecutive integers equal to $\textit{value}$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README_EN.md
 rating: 1235
 source: Biweekly Contest 143 Q1
 tags:
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the smallest integer at least $n$ whose digit product is divisible by $t$. With $n \le 100$ and $t \le 10$, a number containing $0$ appears within ten candidates, and its product $0$ is always divisible by $t$.
+>
+> So a linear scan from $n$ is bounded by a constant; we need not construct a special number.
+>
+> For each candidate we multiply digits and return the first $p$ with $p \bmod t = 0$.
+
+<!-- thinking:end -->
 
 We note that within every $10$ numbers, there will definitely be an integer whose digit product is $0$. Therefore, we can directly enumerate integers greater than or equal to $n$ until we find an integer whose digit product is divisible by $t$.
 

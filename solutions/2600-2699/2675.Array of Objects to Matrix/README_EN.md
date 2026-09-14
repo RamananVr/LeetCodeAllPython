@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md
 tags:
     - JavaScript
 ---
@@ -148,6 +147,16 @@ There are no keys so every row is an empty array.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An object array must become a matrix whose columns are dotted paths, with blanks for missing keys. Manual layering misses nested fields. DFS collects leaves as `{path: value}`, then unique sorted paths become the header.
+>
+> Each row looks up those paths and writes an empty string when absent.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

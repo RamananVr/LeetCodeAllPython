@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README_EN.md
 tags:
     - Queue
     - Array
@@ -75,6 +74,14 @@ Since all the cards revealed are in increasing order, the answer is correct.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Revealing takes the front card and moves the new front to the back. Simulating forward needs the unknown start order, while the reveal should be increasing. Invert the process: from large to small, rotate the current back to the front (if the queue is nonempty) and insert the card at the front. The queue is the initial deck.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

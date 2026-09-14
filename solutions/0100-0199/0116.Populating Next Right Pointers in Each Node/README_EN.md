@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -73,6 +72,14 @@ struct Node {
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tree is perfect, so every level is full. BFS can wire $\textit{next}$ across each level. $n < 2^{12}$, and the queue is as wide as a level. The follow-up wants constant extra space; this method first gets the level-order linking right.
+
+<!-- thinking:end -->
+
 Use a queue for level order traversal, and each time you traverse a level, connect the nodes of the current level in order.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
@@ -118,6 +125,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores a whole level in a queue. In a perfect tree, a node's two children are adjacent, and the right child is followed by the sibling's left child. Once the parent level is linked, those $\textit{next}$ pointers walk the next level, so recursion can wire children without a queue.
+
+<!-- thinking:end -->
 
 Use recursion for preorder traversal, and each time you traverse to a node, connect its left and right child nodes in order.
 

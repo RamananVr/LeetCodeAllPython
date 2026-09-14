@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md
 rating: 1242
 source: Weekly Contest 348 Q1
 tags:
@@ -97,6 +96,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation deletes occurrences of a character on both sides of a chosen copy. Simulating the deletions would rescan the string, yet a character never disappears entirely.
+>
+> Each distinct character survives exactly once, so the answer is the number of unique characters — the size of a set built from $s$.
+
+<!-- thinking:end -->
 
 The problem can actually be transformed into finding the number of distinct characters in the string. Therefore, we only need to count the number of distinct characters in the string.
 

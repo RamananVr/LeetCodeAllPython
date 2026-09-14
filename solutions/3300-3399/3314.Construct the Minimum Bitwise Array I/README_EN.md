@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3314.Construct%20the%20Minimum%20Bitwise%20Array%20I/README_EN.md
 rating: 1378
 source: Biweekly Contest 141 Q1
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a \lor (a+1)$ always turns on the lowest zero of $a$, so the result is odd. The only even prime here is $2$, which has no solution.
+>
+> For an odd $x$, the smallest $a$ is obtained by turning off the one just below $x$'s lowest zero, which still satisfies $a \lor (a+1)=x$.
+>
+> Scan bits from low to high, take the first zero at position $i$, and set $a = x \oplus 2^{i-1}$. The constraints make a 32-bit scan cheap.
+
+<!-- thinking:end -->
 
 For an integer $a$, the result of $a \lor (a + 1)$ is always odd. Therefore, if $\text{nums[i]}$ is even, then $\text{ans}[i]$ does not exist, and we directly return $-1$. In this problem, $\textit{nums}[i]$ is a prime number, so to check if it is even, we only need to check if it equals $2$.
 

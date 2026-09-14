@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README_EN.md
 rating: 2559
 source: Biweekly Contest 49 Q4
 tags:
@@ -59,6 +58,16 @@ tags:
 
 ### Solution 1: Greedy + State Compression + Memorized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A group is happy iff the leftover donuts are $0$ when it is served, i.e. the prefix sum of people is a multiple of $\textit{batchSize}$. There are at most $30$ groups, so $30!$ permutations are impossible.
+>
+> Groups whose size is already a multiple of $\textit{batchSize}$ never affect later groups and can be counted immediately. The rest are reduced to residues; each residue appears at most $30$ times, so five bits suffice and all counts fit in one integer $state$. Memoized $dfs(state,mod)$ tries one more residue and awards a point when $mod=0$.
+
+<!-- thinking:end -->
+
 The problem actually asks us to find an arrangement order that maximizes the number of groups whose prefix sum (referring to "number of people" here) modulo $batchSize$ equals $0$. Therefore, we can divide all customers into two categories:
 
 - Customers whose number is a multiple of $batchSize$. These customers will not affect the donuts of the next group of customers. We can greedily arrange these groups of customers first, so these groups of customers will be happy. The "initial answer" is the number of these groups.
@@ -107,7 +116,21 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Memorized Search (Group Permutation)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 packs residue frequencies into bit fields. We can instead mask the remaining groups directly: if $m$ is the number of nonzero-residue groups, $dfs(state,x)$ enumerates unused groups (deduplicating equal residues) and scores a point when the prefix residue is $0$. The state space is $O(2^m)$, which is clearer when $m$ is small.
+
+<!-- thinking:end -->
+
+First count the groups whose sizes are multiples of $batchSize$, then keep only the remainders of the other groups.
+
+Use a bitmask for the set of placed groups, and let $dfs(state, x)$ be the number of additional happy groups when the placed set is $state$ and the current prefix remainder is $x$. Enumerate unused groups, skip duplicate remainders, and recurse. If $x = 0$, the current step makes one group happy.
+
+The time complexity is $O(2^m \times m)$, and the space complexity is $O(2^m)$, where $m$ is the number of groups whose remainder is nonzero.
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README_EN.md
 tags:
     - Database
 ---
@@ -154,6 +153,16 @@ Each row represents a COVID test result. The result can be Positive, Negative, o
 <!-- solution:start -->
 
 ### Solution 1: Group Statistics + Equi-join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recovery time is the day count from the first positive test to the first later negative. Take the minimum positive date per patient, then the minimum negative date after it.
+>
+> Inner-join those two dates, compute the difference, join patient info, and sort by recovery time and name.
+
+<!-- thinking:end -->
 
 We can first find the date of the first positive test for each patient and record this in table first_positive. Next, we can find the date of the first negative test for each patient after their first positive test in the covid_tests table, and record this in table first_negative_after_positive. Finally, we join these two tables with the patients table, calculate the recovery time, and sort according to requirements.
 

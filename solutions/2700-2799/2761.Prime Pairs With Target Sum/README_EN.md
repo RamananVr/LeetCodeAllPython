@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README_EN.md
 rating: 1504
 source: Weekly Contest 352 Q2
 tags:
@@ -63,6 +62,16 @@ These pairs are [3,7] and [5,5], and we return them in the sorted order as descr
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find pairs of primes $x\le y$ with $x+y=n$. Trial division for every $x$ is slow at $n\le 10^6$.
+>
+> Sieve primality on $[2,n)$, then enumerate $x\in[2,n/2]$ and emit the pair when both $x$ and $n-x$ are prime.
+
+<!-- thinking:end -->
 
 First, we pre-process all the prime numbers within the range of $n$, and record them in the array $primes$, where $primes[i]$ is `true` if $i$ is a prime number.
 

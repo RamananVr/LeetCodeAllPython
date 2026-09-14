@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum XOR of two non-overlapping subtree sums; $n\le 5\times 10^4$. First DFS computes $s[i]$. A second walk queries the trie before inserting: the query sees only finished subtrees that do not overlap the current one; the current sum is inserted after the children return.
+>
+> Sums reach about $10^{14}$, so a $48$-bit binary trie greedy-picks the opposite bit.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0009.Palindrome%20Number/README_EN.md
 tags:
     - Math
 ---
@@ -58,6 +57,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Half of the Number
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Converting to a string and comparing with its reverse is the obvious idea; the follow-up asks us not to. Reversing the whole $x$ and comparing would also overflow 32-bit integers.
+>
+> We only need half: keep appending $x$’s last digit onto $y$ until $y$ is no longer smaller than the remaining prefix. A negative number cannot be a palindrome; a nonzero number ending in $0$ would drop that zero when reversed, so those are false as well.
+>
+> The loop stops when the two halves have the same length. Even length compares $x$ with $y$; odd length leaves the middle digit on $y$, so we compare $x$ with $y/10$.
+
+<!-- thinking:end -->
 
 First, we determine special cases:
 

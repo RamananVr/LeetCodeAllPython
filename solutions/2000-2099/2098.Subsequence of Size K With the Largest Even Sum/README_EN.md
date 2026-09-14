@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2098.Subsequence%20of%20Size%20K%20With%20the%20Largest%20Even%20Sum/README_EN.md
 tags:
     - Greedy
     - Array
@@ -66,6 +65,16 @@ No subsequence of nums with length 1 has an even sum.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Order does not matter; parity of the sum is the number of odds. Take the $k$ largest numbers; if even, stop. Otherwise swap one value to flip parity with minimal loss.
+>
+> Either replace the smallest chosen even by the largest leftover odd, or the smallest chosen odd by the largest leftover even. Keep the better; if neither works, return $-1$.
+
+<!-- thinking:end -->
 
 We notice that the problem involves selecting a subsequence, so we can consider sorting the array first.
 

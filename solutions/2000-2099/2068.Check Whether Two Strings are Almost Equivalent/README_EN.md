@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README_EN.md
 rating: 1273
 source: Biweekly Contest 65 Q1
 tags:
@@ -76,6 +75,14 @@ The difference is 4, which is more than the allowed 3.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal-length strings with $n \le 100$: every letter's frequency gap must be at most $3$. One counter adds $word1$ and subtracts $word2$; then inspect absolute values.
+
+<!-- thinking:end -->
 
 We can create an array $cnt$ of length $26$ to record the difference in the number of times each letter appears in the two strings. Then we traverse $cnt$, if any letter appears the difference in the number of times greater than $3$, then return `false`, otherwise return `true`.
 

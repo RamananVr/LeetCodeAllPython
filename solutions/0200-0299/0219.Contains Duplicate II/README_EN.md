@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0219.Contains%20Duplicate%20II/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need equal values whose indices differ by at most $k$. Sorting would scramble indices.
+>
+> A hash map stores the last index of each value; on a repeat we only check the gap.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{d}$ to store the recently traversed numbers and their corresponding indices.
 

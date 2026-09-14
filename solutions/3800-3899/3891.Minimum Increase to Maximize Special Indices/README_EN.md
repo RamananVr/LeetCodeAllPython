@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md
 rating: 1952
 source: Weekly Contest 496 Q3
 tags:
@@ -99,6 +98,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special index is a strict peak. We may only add $1$, first maximizing the number of peaks then minimizing the total added. $n \le 10^5$.
+>
+> Peaks cannot be adjacent. An odd-length array can take every odd index; an even-length array must skip one index in $[1,n-2]$.
+>
+> Raising $i$ above both neighbors costs $\max(0,\max(nums[i-1],nums[i+1])+1-nums[i])$. Memoized $\mathrm{dfs}(i,j)$ starts at $i$ with $j$ skips left.
+>
+> Raising jumps to $i+2$; a remaining skip may instead go to $i+1$ and spend it. The search starts at $1$ with $j$ opposite $n \bmod 2$.
+
+<!-- thinking:end -->
 
 We observe that if the array length is odd, then increasing all elements at odd indices so that each is $1$ greater than both adjacent elements yields the maximum possible number of special indices. If the array length is even, then among indices in the range $[1, n - 2]$, we skip exactly one index, and for the remaining indices, increase every other element so that each is $1$ greater than both adjacent elements; this also yields the maximum possible number of special indices.
 

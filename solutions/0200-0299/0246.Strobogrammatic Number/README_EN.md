@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0246.Strobogrammatic%20Number/README_EN.md
 tags:
     - Hash Table
     - Two Pointers
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A strobogrammatic number reads the same after a $180^\circ$ turn: $0,1,8$ stay, and $6$ swaps with $9$. Two pointers check that each pair matches this map.
+
+<!-- thinking:end -->
 
 We define an array $d$, where $d[i]$ represents the number after rotating the digit $i$ by 180°. If $d[i]$ is $-1$, it means that the digit $i$ cannot be rotated 180° to get a valid digit.
 

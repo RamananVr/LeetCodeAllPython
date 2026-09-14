@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,14 @@ For session_id 5 has a duration greater than or equal to 15 minutes.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sessions must be binned into four half-open intervals, including empty bins. A single `GROUP BY` on a `CASE` can drop empty bins, so we `UNION` four `COUNT` queries, one per range.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

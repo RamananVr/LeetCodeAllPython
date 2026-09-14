@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README_EN.md
 rating: 1450
 source: Weekly Contest 373 Q2
 tags:
@@ -90,6 +89,16 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful substring has equally many vowels and consonants and a product divisible by $k$. $n \le 1000$ lets us enumerate endpoints while counting vowels; consonants are length minus vowels.
+>
+> Both predicates are $O(1)$ per pair, totaling $O(n^2)$. Prefix hashes are unnecessary.
+
+<!-- thinking:end -->
 
 We enumerate the starting position $i$ of the substring in the range $[0, n)$, and the ending position $j$ in the range $[i, n)$, count the number of vowels and consonants in the substring $s[i \dots j]$, and check whether it is a beautiful substring. If so, we increment the answer by $1$.
 

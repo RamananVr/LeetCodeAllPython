@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1929.Concatenation%20of%20Array/README_EN.md
 rating: 1132
 source: Weekly Contest 249 Q1
 tags:
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The result is two copies of $\textit{nums}$ concatenated. Appending the array to itself realizes the required index mapping.
+
+<!-- thinking:end -->
 
 We directly simulate according to the problem description by adding the elements of $\textit{nums}$ to the answer array one by one, and then adding the elements of $\textit{nums}$ to the answer array again.
 

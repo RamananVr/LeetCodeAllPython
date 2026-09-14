@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md
 rating: 2507
 source: Weekly Contest 361 Q4
 tags:
@@ -80,6 +79,14 @@ For each queries[i], it can be shown that answer[i] is the minimum number of ope
 <!-- solution:start -->
 
 ### Solution 1: Binary Lifting for LCA
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equalizing weights on a path costs its length minus the most frequent weight. Binary lifting stores the LCA and root-to-node weight counts; the path count is the two endpoints minus the LCA, so each query is logarithmic.
+
+<!-- thinking:end -->
 
 The problem asks for the minimum number of operations to make all edge weights the same on the path between any two points. This is essentially the length of the path between these two points, minus the number of times the most frequently occurring edge appears on the path.
 

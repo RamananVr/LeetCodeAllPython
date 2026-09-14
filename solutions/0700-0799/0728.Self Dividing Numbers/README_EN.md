@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0728.Self%20Dividing%20Numbers/README_EN.md
 tags:
     - Math
 ---
@@ -46,6 +45,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The range is at most $10^4$, and testing a number against its own digits is a few divisions. Enumerating the interval is fine.
+>
+> A zero digit cannot divide, so those numbers fail immediately; otherwise $x$ must be divisible by each digit.
+>
+> Walk digits of $y=x$; reject on a $0$ or a failed modulo, otherwise keep $x$.
+
+<!-- thinking:end -->
 
 We define a function $\textit{check}(x)$ to determine whether $x$ is a self-dividing number. The implementation idea of the function is as follows:
 

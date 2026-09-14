@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README_EN.md
 rating: 1395
 source: Biweekly Contest 163 Q1
 tags:
@@ -65,6 +64,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sensor covers a Chebyshev ball of radius $k$. Covering an $n\times m$ grid is tiling it by squares of side $2k+1$.
+>
+> One sensor spans $2k+1$ consecutive rows and the same number of columns, clipped at the border.
+>
+> The count is $\lceil n/(2k+1)\rceil\cdot\lceil m/(2k+1)\rceil$. When $k=0$ every cell needs its own sensor.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

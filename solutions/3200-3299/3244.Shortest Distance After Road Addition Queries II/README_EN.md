@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3244.Shortest%20Distance%20After%20Road%20Addition%20Queries%20II/README_EN.md
 rating: 2270
 source: Weekly Contest 409 Q3
 tags:
@@ -90,6 +89,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Recording Jump Positions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same setting as the previous problem, but new edges do not nest across one another and the limits rule out BFS per query. An edge $u\to v$ swallows the cities that had to be visited in between, so the distance drops by the number of covered nodes.
+>
+> $\textit{nxt}[i]$ is the city currently reached from $i$. If the new edge actually shortens, walk $\textit{nxt}$ through $[u,v)$, clear those jumps, and decrease $\textit{cnt}$. Each index is deleted at most once, so the total time is linear.
+
+<!-- thinking:end -->
 
 We define an array $\textit{nxt}$ of length $n - 1$, where $\textit{nxt}[i]$ represents the next city that can be reached from city $i$. Initially, $\textit{nxt}[i] = i + 1$.
 

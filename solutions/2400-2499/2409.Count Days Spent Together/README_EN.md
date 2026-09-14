@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README_EN.md
 rating: 1562
 source: Biweekly Contest 87 Q1
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Days together are the length of the intersection of two date intervals. Dates are $\texttt{MM-DD}$, so string order matches calendar order: the intersection starts at the later arrival and ends at the earlier departure.
+>
+> The year is not a leap year. Convert each date to a day-of-year with the month-length table, then subtract and add one. An empty intersection yields zero.
+
+<!-- thinking:end -->
 
 We convert the dates into days, and then calculate the number of days both people are in Rome.
 

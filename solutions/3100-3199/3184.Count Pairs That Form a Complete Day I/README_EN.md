@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3184.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20I/README_EN.md
 rating: 1149
 source: Weekly Contest 402 Q1
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair sums to a multiple of $24$. A double loop works for part I, but residues live in only $24$ buckets.
+>
+> When $x$ arrives, pairs come from the already-seen remainder $(24-x\bmod 24)\bmod 24$.
+>
+> Add that count first, then increment $x\bmod 24$, so only pairs with $i<j$ are taken.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $\textit{cnt}$ of length $24$ to record the occurrence count of each hour modulo $24$.
 

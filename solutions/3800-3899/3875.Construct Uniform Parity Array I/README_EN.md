@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README_EN.md
 rating: 1199
 source: Weekly Contest 494 Q1
 tags:
@@ -79,6 +78,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums2[i]$ may be $nums1[i]$ or $nums1[i]-nums1[j]$ with no positivity constraint, and $nums2$ must be all odd or all even.
+>
+> If every entry already shares a parity, copy $nums1$. If both parities appear, subtract an opposite-parity value; the difference is always odd, yielding an all-odd array.
+>
+> Both cases are constructible, so the answer is always true.
+>
+> The concrete values need not be inspected.
+
+<!-- thinking:end -->
 
 If all elements in $\textit{nums1}$ are either all odd or all even, we can directly set $\textit{nums2}$ equal to $\textit{nums1}$, which satisfies the condition.
 

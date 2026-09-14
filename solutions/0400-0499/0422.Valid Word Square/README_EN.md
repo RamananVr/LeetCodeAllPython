@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0422.Valid%20Word%20Square/README_EN.md
 tags:
     - Array
     - Matrix
@@ -72,6 +71,18 @@ Therefore, it is NOT a valid word square.
 <!-- solution:start -->
 
 ### Solution 1: Iterative Check
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word square needs $words[i][j]=words[j][i]$. Rows may have unequal lengths, so building a transpose first trips over missing columns.
+>
+> Check each character against $words[j][i]$; any out-of-range index or mismatch fails.
+>
+> A missing $words[j][i]$ is a failure: that is exactly a column that does not spell the same word.
+
+<!-- thinking:end -->
 
 We observe that if $words[i][j] \neq words[j][i]$, we can directly return `false`.
 

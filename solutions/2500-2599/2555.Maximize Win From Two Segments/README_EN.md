@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md
 rating: 2080
 source: Biweekly Contest 97 Q3
 tags:
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two segments of length at most $k$ cover prize positions; they may overlap. Enumerating both endpoints is too slow.
+>
+> Positions are sorted. Fix the second segment's right end at prize $i$; binary search gives the leftmost prize still inside length $k$, covering $i-j$ prizes. The first segment must lie entirely among the first $j$ prizes, whose best is the prefix DP $f[j]$. While scanning, $f[i]$ stores the best single segment whose right end is at most $i$.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the maximum number of prizes that can be obtained by selecting a segment of length $k$ from the first $i$ prizes. Initially, $f[0] = 0$. We define the answer variable as $ans = 0$.
 

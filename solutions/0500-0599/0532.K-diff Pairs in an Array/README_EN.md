@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -72,6 +71,16 @@ Although we have two 1s in the input, we should only return the number of <stron
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct value-pairs with $|a-b|=k$. Checking all index pairs is $O(n^2)$.
+>
+> Scan once and store seen values: if $x-k$ or $x+k$ was seen, add the smaller endpoint to an answer set so each pair is stored once. Lookups are expected constant time.
+
+<!-- thinking:end -->
 
 Since $k$ is a fixed value, we can use a hash table $\textit{ans}$ to record the smaller value of the pairs, which allows us to determine the larger value. Finally, we return the size of $\textit{ans}$ as the answer.
 

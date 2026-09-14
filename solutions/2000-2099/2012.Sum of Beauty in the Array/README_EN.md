@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README_EN.md
 rating: 1467
 source: Weekly Contest 259 Q2
 tags:
@@ -70,6 +69,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing Right Minimum + Traversing to Maintain Left Maximum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 10^5$, rescanning left/right extrema per $i$ is quadratic. Beauty $2$ needs $nums[i]$ strictly above every left value and below every right value; beauty $1$ only looks at neighbors.
+>
+> Suffix minima $right[i]$ are precomputed; a running $l$ tracks the left maximum.
+>
+> Each middle index first tests $l < nums[i] < right[i+1]$ for $2$, else the adjacent triple for $1$.
+
+<!-- thinking:end -->
 
 We can preprocess the right minimum array $right$, where $right[i]$ represents the minimum value in $nums[i..n-1]$.
 

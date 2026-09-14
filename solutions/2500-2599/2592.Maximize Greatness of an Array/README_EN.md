@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README_EN.md
 rating: 1569
 source: Biweekly Contest 100 Q2
 tags:
@@ -58,6 +57,16 @@ At indices = 0, 1, and 2, perm[i] &gt; nums[i]. Hence, we return 3.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Greatness is how many positions satisfy $perm[i]>nums[i]$; $perm$ is a rearrangement of $nums$. The same multiset should pair larger values against as many smaller ones as possible.
+>
+> After sorting, scan candidates $x$ from the left and pair $x$ with the next unmatched $nums[i]$ whenever $x$ is strictly larger. The number of successful pairs is the answer.
+
+<!-- thinking:end -->
 
 We can sort the array $nums$ first.
 

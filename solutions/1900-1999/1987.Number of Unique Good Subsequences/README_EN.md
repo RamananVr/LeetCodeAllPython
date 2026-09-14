@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md
 rating: 2422
 source: Weekly Contest 256 Q4
 tags:
@@ -71,6 +70,18 @@ The unique good subsequences are &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Good subsequences do not start with $0$, except the singleton $0$. Counting distinct ones must not double-count appends.
+>
+> $f$ is the number ending with $1$; $g$ those that start with $1$ and end with $0$. A $0$ appends to both; a $1$ appends to both or starts a new sequence.
+>
+> If a $0$ ever appears we add the singleton $0$.
+
+<!-- thinking:end -->
 
 We define $f$ as the number of distinct good subsequences ending with $1$, and $g$ as the number of distinct good subsequences ending with $0$ and starting with $1$. Initially, $f = g = 0$.
 

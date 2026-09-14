@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0399.Evaluate%20Division/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -80,6 +79,16 @@ note: x is undefined =&gt; -1.0</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Given $a/b$ values, answer other ratios. Graph search multiplies along a path; weighted union-find is lighter with many variables.
+>
+> $w[x]$ is $x$ relative to its root. `find` multiplies weights on compression. Union of $a/b=v$ sets $w[pa]=w[b]\cdot v/w[a]$. A query is $-1$ if the variables are missing or in different components, else $w[c]/w[d]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

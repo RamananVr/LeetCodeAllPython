@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1309.Decrypt%20String%20from%20Alphabet%20to%20Integer%20Mapping/README_EN.md
 rating: 1257
 source: Weekly Contest 170 Q1
 tags:
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mapping has two widths: a single digit for $1$–$9$, and three characters with `#` for $10$–$26$. Reading every token as one digit splits `10#` incorrectly. At each index we look two steps ahead: a `#` consumes two digits, otherwise one digit, and the cursor advances by $3$ or $1$.
+
+<!-- thinking:end -->
 
 We can directly simulate the process.
 

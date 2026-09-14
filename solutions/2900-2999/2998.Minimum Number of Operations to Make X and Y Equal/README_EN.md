@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md
 rating: 1794
 source: Biweekly Contest 121 Q3
 tags:
@@ -85,6 +84,16 @@ It can be shown that 5 is the minimum number of operations required to make 25 e
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Operations are $\pm 1$ and, when divisible, division by $5$ or $11$. $x,y \le 10^4$. If $y \ge x$ only decrements remain, costing $y-x$. Otherwise division can jump, but $x$ may need $\pm$ to the next multiple first.
+>
+> $dfs(x)$ compares walking down to $y$ with the four “align then divide by $5$ or $11$” tails. Memoization reuses states; the search only shrinks $x$, so it terminates.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

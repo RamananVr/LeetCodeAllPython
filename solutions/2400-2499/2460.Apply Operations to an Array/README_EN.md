@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README_EN.md
 rating: 1223
 source: Weekly Contest 318 Q1
 tags:
@@ -74,6 +73,14 @@ After that, we shift the 0&#39;s to the end, which gives the array [1,4,2,0,0,0]
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 2000$, walk left to right: equal neighbors double the left and zero the right. Then stable-pack nonzero values to the front. Two linear passes.
+
+<!-- thinking:end -->
 
 We can directly simulate according to the problem description.
 

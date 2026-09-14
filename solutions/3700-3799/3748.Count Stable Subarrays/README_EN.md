@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md
 rating: 2209
 source: Weekly Contest 476 Q4
 tags:
@@ -110,6 +109,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Segmented Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Stable subarrays are the nondecreasing ones, so the array splits into monotone runs. Many queries need a fast answer. We store each run's start and a prefix of in-run subarray counts: a query inside one run uses a triangular number; a query spanning several runs uses the prefix for whole runs and triangles for the two stubs.
+
+<!-- thinking:end -->
 
 According to the problem description, a stable subarray is defined as a subarray without inversion pairs, meaning the elements in the subarray are arranged in non-decreasing order. Therefore, we can divide the array into several non-decreasing segments, using an array $\text{seg}$ to record the starting position of each segment. At the same time, we need a prefix sum array $\text{s}$ to record the number of stable subarrays within each segment.
 

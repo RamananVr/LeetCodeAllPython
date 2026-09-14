@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md
 tags:
     - Queue
     - Array
@@ -65,6 +64,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Maintain Prefix Maximum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular maximum subarray is either a normal Kadane segment, or the total sum minus a minimum segment that wraps around. One scan maintains the prefix minimum and prefix maximum to obtain both quantities, then returns the larger of $ans$ and $s-smi$.
+
+<!-- thinking:end -->
 
 The maximum sum of a circular subarray can be divided into two cases:
 

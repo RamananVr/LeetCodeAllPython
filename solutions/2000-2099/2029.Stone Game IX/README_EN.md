@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md
 rating: 2277
 source: Weekly Contest 261 Q3
 tags:
@@ -80,6 +79,18 @@ Alice loses the game because the sum of the removed stones (15) is divisible by 
 
 ### Solution 1: Greedy + Case Discussion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only residues modulo $3$ matter; $n \le 10^5$ forbids full play. Residue $0$ does not change the running sum and can be inserted; Alice cannot open with $0$.
+>
+> Opening with $1$ yields the optimal stream $1,1,2,1,2,\ldots$ (symmetric for $2$). After folding in the zeros, Alice wins if the length is odd and the two nonzero piles are not tied empty.
+>
+> Test $cnt$ and the swapped $(cnt[0],cnt[2],cnt[1])$; either opening suffices.
+
+<!-- thinking:end -->
+
 Since the player's goal is to ensure the total value of the removed stones is not divisible by $3$, we only need to consider the remainder of each stone's value when divided by $3$.
 
 We use an array $\textit{cnt}$ of length $3$ to maintain the count of the current remaining stones' values modulo $3$, where $\textit{cnt}[0]$ represents the count of stones with a remainder of $0$, and $\textit{cnt}[1]$ and $\textit{cnt}[2]$ respectively represent the counts of stones with remainders of $1$ and $2$.
@@ -123,6 +134,24 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a closed-form parity test. The same counts can instead decrement along the residue sequence and, when the needed residue runs out, ask whether zeros make the turn index odd.
+>
+> It remains an $O(n)$ count plus a constant simulation, easier to check at the boundaries.
+
+<!-- thinking:end -->
+
+As in Solution 1, count the residues of stone values modulo $3$. Alice's first move can only take a residue-$1$ or residue-$2$ stone.
+
+For each opening, both players follow the optimal residue sequence: starting with $1$ gives $1, 1, 2, 1, 2, \ldots$; starting with $2$ is symmetric. When the required residue runs out, Alice wins if the remaining residue-$0$ stones make the current turn count odd.
+
+Return $\text{true}$ if either opening lets Alice win.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{stones}$.
 
 <!-- solution:end -->
 

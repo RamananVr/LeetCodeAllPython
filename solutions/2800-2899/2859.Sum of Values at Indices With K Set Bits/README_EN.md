@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md
 rating: 1218
 source: Weekly Contest 363 Q1
 tags:
@@ -72,6 +71,14 @@ Hence, the answer is nums[3] = 1.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is small enough that we can test `bit_count` of every index against $k$ and sum the matching values.
+
+<!-- thinking:end -->
 
 We directly traverse each index $i$, and check whether the number of $1$s in its binary representation is equal to $k$. If it is, we add the corresponding element to the answer $ans$.
 

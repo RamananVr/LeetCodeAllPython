@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README_EN.md
 rating: 1317
 source: Biweekly Contest 17 Q1
 tags:
@@ -56,6 +55,14 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The encoding is pairs $(\textit{freq},\textit{val})$; expanding them is the statement itself. There is no overlap. Walking the array two at a time and repeating $\textit{val}$ $\textit{freq}$ times builds the answer.
+
+<!-- thinking:end -->
 
 We can directly simulate the process described in the problem. Traverse the array $\textit{nums}$ from left to right, each time taking out two numbers $\textit{freq}$ and $\textit{val}$, then repeat $\textit{val}$ $\textit{freq}$ times, and add these $\textit{freq}$ $\textit{val}$s to the answer array.
 

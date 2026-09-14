@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md
 tags:
     - Design
     - Hash Table
@@ -102,6 +101,16 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The platform must hand out the smallest free $\textit{videoId}$ and recycle ids on delete; watch, like, and counters are random-access by id. $10^5$ calls make a linear scan for a free id too slow.
+>
+> A min-heap holds recycled ids, plus a next-new-id counter. Content and statistics live in hash maps; delete pushes the id back. Watch returns the slice $[\textit{start},\min(\textit{end},|v|-1)]$. The tabs have no implementation; a heap plus maps meet the limits.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

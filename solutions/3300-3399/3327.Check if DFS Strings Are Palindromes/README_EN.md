@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md
 rating: 2454
 source: Weekly Contest 420 Q4
 tags:
@@ -94,6 +93,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + String Hashing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $\textit{dfsStr}$ of a subtree is a contiguous segment, and we must test whether it is a palindrome. With $n \le 10^5$ we cannot rescan the string at every node.
+>
+> One DFS writes the whole-tree $\textit{dfsStr}$ and records the interval $[l, r]$ of each node.
+>
+> Hashes of the string and of its reverse let us compare the first half of $[l, r]$ with the corresponding half of the reverse in $O(1)$, which decides palindromicity.
+
+<!-- thinking:end -->
 
 We can use Depth-First Search (DFS) to traverse the tree and compute the entire $\textit{dfsStr}$, while also determining the interval $[l, r]$ for each node.
 

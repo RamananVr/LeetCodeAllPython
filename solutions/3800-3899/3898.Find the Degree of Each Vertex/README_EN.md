@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README_EN.md
 rating: 1202
 source: Weekly Contest 497 Q1
 tags:
@@ -99,6 +98,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The graph is an adjacency matrix; degree is the number of $1$s in a row. $n \le 100$, so sum each row.
+>
+> There are no loops, the diagonal is $0$, and a plain sum is correct.
+>
+> Symmetry already encodes the undirected edges; the lower triangle need not be read separately.
+>
+> $O(n^2)$ reads the whole matrix.
+
+<!-- thinking:end -->
 
 We can directly simulate the process of computing the degree of each vertex.
 

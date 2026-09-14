@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0194.Transpose%20File/README_EN.md
 tags:
     - Shell
 ---
@@ -42,6 +41,14 @@ age 21 30
 <!-- solution:start -->
 
 ### Solution 1: awk
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Transpose whitespace-separated text. While reading a row, append field $i$ to result string $i$; after the file, print those strings. $\textit{awk}$'s $\textit{NF}/\textit{NR}$ give the column index and whether this is the first row, so we know when to insert a space.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

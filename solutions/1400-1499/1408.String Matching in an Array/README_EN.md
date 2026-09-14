@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README_EN.md
 rating: 1223
 source: Weekly Contest 184 Q1
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and each word has length at most $30$, so testing whether each word occurs in another is about $O(n^2\cdot L^2)$ and fits the limits.
+>
+> Words are unique, so a double loop with a substring test is enough; a trie or KMP is unnecessary.
+
+<!-- thinking:end -->
 
 We directly enumerate all strings $words[i]$, and check whether it is a substring of other strings. If it is, we add it to the answer.
 

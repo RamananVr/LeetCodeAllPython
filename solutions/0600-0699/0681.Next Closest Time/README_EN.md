@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0681.Next%20Closest%20Time/README_EN.md
 tags:
     - Hash Table
     - String
@@ -57,6 +56,16 @@ It may be assumed that the returned time is next day&#39;s time since it is smal
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reuse the digits of the current time to form the next valid clock, wrapping past midnight. There are only $4^4$ candidates.
+>
+> DFS four digits, accept valid hours and minutes, and keep the smallest time strictly after now. If none exists, repeat the smallest digit for the next day.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

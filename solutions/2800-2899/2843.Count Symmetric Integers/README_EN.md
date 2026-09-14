@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md
 rating: 1269
 source: Weekly Contest 361 Q1
 tags:
@@ -54,6 +53,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $high\le 10^4$, every integer in the range can be tested: even length and equal digit sums on the two halves. Digit DP is unnecessary.
+
+<!-- thinking:end -->
 
 We enumerate each integer $x$ in the range $[low, high]$, and check whether it is a palindromic number. If it is, then the answer $ans$ is increased by $1$.
 

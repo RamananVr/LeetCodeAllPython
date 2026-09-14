@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1096.Brace%20Expansion%20II/README_EN.md
 rating: 2348
 source: Weekly Contest 142 Q4
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expression mixes union, concatenation, and nested braces. Length $\le 60$ lets us expand the innermost brace, splice, and recurse.
+>
+> Find the first `}` and its matching `{`. Prefix $a$, each alternative $b_i$, and suffix $c$ become $a+b_i+c$. A brace-free string is inserted into a set.
+>
+> The set is sorted for the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

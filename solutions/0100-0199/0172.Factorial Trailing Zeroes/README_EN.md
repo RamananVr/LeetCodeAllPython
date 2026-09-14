@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README_EN.md
 tags:
     - Math
 ---
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trailing zeros of $n!$ come from factors $10=2\times 5$. There are always more twos than fives, so the count is the number of factors $5$ in $[1,n]$. Computing $n!$ overflows even at $n\le 10^4$. The follow-up wants logarithmic time: repeatedly replace $n$ by $\lfloor n/5\rfloor$ to add the contributions of $5,5^2,5^3,\ldots$.
+
+<!-- thinking:end -->
 
 The problem is actually asking how many factors of $5$ are there in $[1,n]$.
 

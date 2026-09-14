@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3921.Score%20Validator/README_EN.md
 rating: 1262
 source: Biweekly Contest 182 Q1
 ---
@@ -161,6 +160,18 @@ source: Biweekly Contest 182 Q1
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only a few event kinds and the list is at most length $1000$, so a direct simulation is enough.
+>
+> A digit string adds to the score; `W` increments the counter and stops at $10$; `WD` and `NB` each add one to the score. One scan yields the final pair.
+>
+> $\textit{isdigit}$ separates scoring events; the remaining branches handle the wicket counter and extras.
+
+<!-- thinking:end -->
 
 We can directly simulate the process described in the problem to calculate the final score and counter value.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README_EN.md
 rating: 1294
 source: Biweekly Contest 43 Q1
 tags:
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Week $k$ deposits one more each day than the previous week. Full weeks and the leftover days are arithmetic series. $n\le 1000$ allows a loop, but a closed form is immediate.
+>
+> There are $k=\lfloor n/7\rfloor$ full weeks starting from sum $28$ with difference $7$, and $b=n\bmod 7$ leftover days starting at $k+1$.
+>
+> Sum both arithmetic series.
+
+<!-- thinking:end -->
 
 According to the problem description, the deposit situation for each week is as follows:
 

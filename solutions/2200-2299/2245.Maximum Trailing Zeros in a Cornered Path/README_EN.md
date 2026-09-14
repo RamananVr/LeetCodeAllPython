@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README_EN.md
 rating: 2036
 source: Weekly Contest 289 Q3
 tags:
@@ -74,6 +73,16 @@ There are no cornered paths in the grid that result in a product with a trailing
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumerate Turning Point
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path goes horizontally then vertically (or vice versa). Trailing zeros equal $\min(\#2,\#5)$ on the path. $mn \le 10^5$, so walking every path is too slow. Once the corner is fixed, the path is a prefix or suffix of that row plus a prefix or suffix of that column.
+>
+> Prefix-sum the $2$s and $5$s on every row and column. Enumerate the corner $(i,j)$ and assemble the four left/right plus up/down combinations, counting the corner once, then take the best $\min(\#2,\#5)$.
+
+<!-- thinking:end -->
 
 Firstly, we need to understand that for a product, the number of trailing zeros depends on the smaller count of $2$ and $5$ in its factors. Also, each corner path should cover as many numbers as possible, so it must start from a boundary, reach a turning point, and then reach another boundary.
 

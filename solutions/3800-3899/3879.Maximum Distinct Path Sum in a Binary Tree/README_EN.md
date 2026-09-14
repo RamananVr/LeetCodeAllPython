@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -96,6 +95,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path may start and end anywhere and must have distinct values; we want the maximum value sum. At most $1000$ nodes, values may repeat.
+>
+> Paths need not go through the root, so treat the tree as an undirected graph. DFS from every start, using a set to keep values unique.
+>
+> Build adjacency (parent, left, right), search from each node, and undo the visit on backtrack.
+>
+> $O(n^2)$ starts are acceptable for $n \le 1000$.
+
+<!-- thinking:end -->
 
 We can treat the tree as an undirected graph, using a hash table $g$ to store the adjacent nodes of each node, where $g[node]$ contains the parent node, left child node, and right child node of $node$.
 

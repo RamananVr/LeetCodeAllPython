@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README_EN.md
 rating: 1421
 source: Weekly Contest 177 Q1
 tags:
@@ -43,6 +42,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of days between two valid dates. Adding month lengths by hand misses leap years. Convert each date to days since $1971$-$01$-$01$: add $365$ or $366$ per year, then a month table (February depends on the leap rule), then the day of month. The absolute difference is the answer.
+
+<!-- thinking:end -->
 
 First, we define a function `isLeapYear(year)` to determine whether the given year `year` is a leap year. If it is a leap year, return `true`, otherwise return `false`.
 

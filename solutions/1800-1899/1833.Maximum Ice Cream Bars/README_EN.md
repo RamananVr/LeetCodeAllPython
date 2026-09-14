@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README_EN.md
 rating: 1252
 source: Weekly Contest 237 Q2
 tags:
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The budget is fixed and we may buy in any order. Buying expensive bars first cannot increase the count.
+>
+> Sort by price and buy from cheapest to dearest until the next bar exceeds the remaining coins. One pass after sorting yields the maximum count.
+
+<!-- thinking:end -->
 
 To buy as many ice creams as possible, and they can be purchased in any order, we should prioritize choosing ice creams with lower prices.
 

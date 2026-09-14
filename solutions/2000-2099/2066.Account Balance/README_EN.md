@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2066.Account%20Balance/README_EN.md
 tags:
     - Database
 ---
@@ -82,6 +81,16 @@ Account 2:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Transactions need the end-of-day balance per account in date order. Deposits add and withdrawals subtract, a prefix inside each account.
+>
+> A window partitioned by `account_id` and ordered by `day` sums the signed amounts.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

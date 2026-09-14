@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md
 rating: 1796
 source: Weekly Contest 379 Q2
 tags:
@@ -73,6 +72,18 @@ It is impossible to capture the black queen in less than two moves since it is n
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is $8 \times 8$, so simulating rook and bishop paths is constant time. Each piece can reach any aligned square in at most one move, so the answer is at most $2$.
+>
+> The only one-move cases are a clear rook file/rank or a clear bishop diagonal to the queen.
+>
+> Products such as $(d-b)(d-f)>0$ test that the blocking piece lies outside the open segment. If none of the four alignments is free, the rook captures in two moves.
+
+<!-- thinking:end -->
 
 According to the problem description, we can categorize the scenarios for capturing the black queen as follows:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README_EN.md
 tags:
     - JavaScript
 ---
@@ -62,6 +61,18 @@ Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must decide whether an object lies on a constructor's prototype chain, including boxed primitives and `null`/`undefined`. Native `instanceof` fails on primitives and does not guard an invalid constructor.
+>
+> Walking `Object.getPrototypeOf` reproduces the check: equality with `classFunction.prototype` is success. A missing constructor is immediately false.
+>
+> Reject a nullish `classFunction`, then climb prototypes until the chain ends.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

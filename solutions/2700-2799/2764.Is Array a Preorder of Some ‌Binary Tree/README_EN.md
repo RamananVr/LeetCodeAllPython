@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2764.Is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README_EN.md
 tags:
     - Stack
     - Tree
@@ -66,6 +65,16 @@ For the preorder traversal, first we visit node 0, then we do the preorder trave
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Given nodes with parent pointers, decide whether the list is a preorder of some binary tree. Rebuilding and walking the tree would check the same fact with extra structure.
+>
+> Build child lists from the parents, then DFS from the root: the current node must equal item $k$ of the list, then recurse in child order. At the end $k$ must equal the number of nodes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

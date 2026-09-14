@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README_EN.md
 rating: 2013
 source: Weekly Contest 510 Q4
 tags:
@@ -94,6 +93,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deletions, every pair of neighboring kept columns must differ by at most $\textit{limit}$ in every row. Order is fixed, so we want the longest column subsequence meeting that adjacent constraint.
+>
+> When the number of columns is moderate, a LIS-style DP works: $\textit{dp}[j]$ is the longest consistent sequence ending at $j$, and $i\to j$ is legal only if every row satisfies the limit.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that column DP.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

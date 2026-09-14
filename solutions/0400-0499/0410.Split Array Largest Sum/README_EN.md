@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README_EN.md
 tags:
     - Greedy
     - Array
@@ -59,6 +58,18 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every way to place $k-1$ cuts is too large. A larger cap on a subarray sum only makes a feasible split easier, so feasibility is monotone in the cap.
+>
+> Binary-search the cap $\textit{mid}$. A greedy left-to-right accumulation starts a new piece whenever adding the next value would exceed $\textit{mid}$, and we ask whether at most $k$ pieces suffice. The search range is $[\max(\textit{nums}),\sum \textit{nums}]$.
+>
+> The minimum feasible cap is the answer; combinatorial search becomes a linear check.
+
+<!-- thinking:end -->
 
 We notice that the larger the maximum sum of the subarrays, the fewer the number of subarrays. When there is a maximum sum of the subarrays that meets the condition, then a larger maximum sum of the subarrays will definitely meet the condition. This means that we can perform a binary search for the maximum sum of the subarrays to find the smallest value that meets the condition.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md
 rating: 2137
 source: Weekly Contest 295 Q4
 tags:
@@ -72,6 +71,16 @@ Note that there may be other ways to remove 2 obstacles to create a path.
 <!-- solution:start -->
 
 ### Solution 1: Double-Ended Queue BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk from the top-left to the bottom-right; entering an obstacle costs one removal. $mn \le 10^5$ forbids searching subsets. Empty cells have weight $0$ and obstacles weight $1$, so this is a $0$-$1$ shortest path for a deque BFS.
+>
+> Push a neighbor to the front when the cell is empty, and to the back when it is an obstacle. The first time we reach the exit is the minimum number of removals.
+
+<!-- thinking:end -->
 
 This problem is essentially a shortest path model, but we need to find the minimum number of obstacles to remove.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README_EN.md
 rating: 2036
 source: Weekly Contest 175 Q3
 tags:
@@ -85,6 +84,14 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Record tweet times per user and count them in minute/hour/day buckets over $[\textit{start},\textit{end}]$. Both operations can happen $10^4$ times, so scanning every tweet per query is heavy. A sorted list per user inserts in $O(\log n)$; each bucket is two bisections into $[t,\min(t+f,\textit{end}+1))$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

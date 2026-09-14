@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README_EN.md
 tags:
     - Tree
     - Binary Tree
@@ -53,6 +52,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tree has exactly three nodes. Compare the root with the sum of its two children; no traversal is needed.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

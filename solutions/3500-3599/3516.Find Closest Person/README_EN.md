@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3516.Find%20Closest%20Person/README_EN.md
 rating: 1164
 source: Weekly Contest 445 Q1
 tags:
@@ -102,6 +101,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three people move at the same speed on the number line, so the first to reach $z$ is decided by distance. Compare $|x-z|$ and $|y-z|$.
+>
+> No timeline simulation is required; the answer is $0$, $1$, or $2$ in constant time.
+
+<!-- thinking:end -->
 
 We calculate the distance $a$ between the 1st person and the 3rd person, and the distance $b$ between the 2nd person and the 3rd person.
 

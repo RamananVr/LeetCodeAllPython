@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README_EN.md
 rating: 1677
 source: Biweekly Contest 118 Q2
 tags:
@@ -89,6 +88,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The square hole is limited by the longest run of consecutive removable horizontal bars and of vertical bars; the side is one plus the shorter of those runs. $n$ and $m$ may be $10^9$, so the grid cannot be simulated; at most $100$ bars are removable.
+>
+> Sort $hBars$ and $vBars$, scan the longest adjacent-difference-$1$ run, add one, take the minimum of the two sides, and square it.
+
+<!-- thinking:end -->
 
 The problem essentially asks us to find the length of the longest consecutive increasing subsequence in the array, and then add $1$.
 

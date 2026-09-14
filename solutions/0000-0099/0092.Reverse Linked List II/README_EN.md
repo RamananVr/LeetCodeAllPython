@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md
 tags:
     - Linked List
 ---
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We could cut out $[left,right]$, reverse it, and splice it back, but $left=1$ replaces the head and we have to remember several cut points. The follow-up asks for one pass.
+>
+> The key: head-insert each node of the range right after the predecessor of $left$. That reverses in place. A dummy node covers $left=1$. Walk to $left-1$, then head-insert $right-left+1$ times.
+
+<!-- thinking:end -->
 
 Define a dummy head node `dummy`, pointing to the head node `head` of the linked list. Then define a pointer `pre` pointing to `dummy`. Start traversing the linked list from the dummy head node. When you traverse to the `left` node, point `pre` to this node. Then start traversing `right - left + 1` times from this node, and insert the nodes you traverse into the back of `pre`. Finally, return `dummy.next`.
 

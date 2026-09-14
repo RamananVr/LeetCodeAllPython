@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README_EN.md
 tags:
     - Graph
     - Array
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Heap-optimized Dijkstra's Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Apples may be bought in any city; travel is charged $(k+1)$ times the distance (the extra $k$ is the return). From each start, Dijkstra updates $\textit{appleCost}[u]+dist[u]\cdot(k+1)$ along the way.
+>
+> Heap Dijkstra is $O(m\log n)$ per source on a sparse graph.
+
+<!-- thinking:end -->
 
 We enumerate the starting point, and for each starting point, we use Dijkstra's algorithm to find the shortest distance to all other points, and update the minimum value accordingly.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README_EN.md
 rating: 1323
 source: Biweekly Contest 56 Q1
 tags:
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most a few hundred, so enumerating $a,b$ and testing whether $a^2+b^2$ is a perfect square $\le n$ is $O(n^2)$ and acceptable.
+>
+> Take $c=\lfloor\sqrt{a^2+b^2}\rfloor$ and accept when $c^2$ matches and $c\le n$. Independent loops count both $(a,b,c)$ and $(b,a,c)$.
+
+<!-- thinking:end -->
 
 We enumerate $a$ and $b$ in the range $[1, n)$, then calculate $c = \sqrt{a^2 + b^2}$. If $c$ is an integer and $c \leq n$, then we have found a Pythagorean triplet, and we increment the answer by one.
 

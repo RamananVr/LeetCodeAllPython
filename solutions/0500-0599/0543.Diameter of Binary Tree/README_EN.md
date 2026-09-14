@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The diameter is the longest number of edges between any two nodes. Pairwise paths are unrealistic. Any diameter passes through some node as the sum of that node's two subtree heights.
+>
+> DFS returns height and, on the way up, updates a global answer with $l+r$, then returns $1+\max(l,r)$ to the parent. Each node is visited once.
+
+<!-- thinking:end -->
 
 We can enumerate each node of the binary tree, and for each node, calculate the maximum depth of its left and right subtrees, $\textit{l}$ and $\textit{r}$, respectively. The diameter of the node is $\textit{l} + \textit{r}$. The maximum diameter among all nodes is the diameter of the binary tree.
 

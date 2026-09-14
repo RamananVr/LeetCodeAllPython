@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README_EN.md
 rating: 1760
 source: Weekly Contest 273 Q3
 tags:
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each $i$ we need $\sum_j |i-j|$ over indices with the same value. Grouping by value and summing pairs is $O(n^2)$ and fails for $n\le 10^5$.
+>
+> Indices of one value are sorted, $v_0,\ldots,v_{m-1}$. Moving from $v_{i-1}$ to $v_i$ by $\Delta$ increases the $i$ left positions by $\Delta$ and decreases the $m-i$ right positions by $\Delta$, so the all-pairs distance can be rolled from the sum relative to $v_0$.
+>
+> Collect indices by value, start from $\sum v-v_0\cdot m$, then sweep the group with that recurrence.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

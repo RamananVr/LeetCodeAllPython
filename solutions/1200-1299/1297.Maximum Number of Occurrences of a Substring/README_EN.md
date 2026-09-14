@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README_EN.md
 rating: 1748
 source: Weekly Contest 168 Q3
 tags:
@@ -61,6 +60,16 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among substrings that obey the letter-count and length bounds, we want the maximum frequency. If a longer legal string occurs $t$ times, each of its $minSize$ prefixes occurs at least $t$ times, so we only count windows of length $minSize$ with at most $maxLetters$ distinct letters.
+>
+> $n \le 10^5$ and $minSize \le 26$: enumerate those windows, test the alphabet with a set, and take the maximum hash-map count.
+
+<!-- thinking:end -->
+
 According to the problem description, if a long string meets the condition, then its substring of length $\textit{minSize}$ must also meet the condition. Therefore, we only need to enumerate all substrings of length $\textit{minSize}$ in $s$, then use a hash table to record the occurrence frequency of all substrings, and find the maximum frequency as the answer.
 
 The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of the string $s$ and $\textit{minSize}$, respectively. In this problem, $m$ does not exceed $26$.
@@ -90,6 +99,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window + String Hashing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 keys on raw strings and builds each window in $O(minSize)$. A sliding window maintains the distinct-letter count, and a string hash turns the window into an $O(1)$ integer key, for linear time.
+
+<!-- thinking:end -->
 
 We can use a sliding window to maintain the number of distinct letters in the current substring, while using string hashing to efficiently calculate the hash value of substrings, thereby avoiding using strings as hash table keys and improving performance.
 

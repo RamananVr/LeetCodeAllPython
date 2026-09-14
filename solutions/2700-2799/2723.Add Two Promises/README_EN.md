@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2723.Add%20Two%20Promises/README_EN.md
 tags:
     - JavaScript
 ---
@@ -50,6 +49,16 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After both promises fulfill, return the sum of their numbers. $Promise.all$ plus a sum is correct but wraps an extra array.
+>
+> Awaiting the two promises in turn and adding the values is enough; the second is already in flight, so the wait is still the slower of the two.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

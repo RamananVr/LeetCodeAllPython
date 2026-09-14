@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md
 rating: 1322
 source: Weekly Contest 491 Q2
 tags:
@@ -136,6 +135,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $n$ into $a+b=n$ at cost $a \cdot b$ until everything is $1$, minimizing total cost. $n \le 500$ allows DP, but the optimum is closed-form.
+>
+> The product $a(n-a)$ is minimized at $a=1$. Always peel off a $1$, leaving $n-1,n-2,\ldots,2$.
+>
+> The total is $1+2+\cdots+(n-1)=n(n-1)/2$.
+>
+> Other splits need not be searched.
+
+<!-- thinking:end -->
 
 To minimize the total cost, we first split $n$ into $1$ and $n-1$, with a cost of $1 \cdot (n-1) = n-1$. Next, we split $n-1$ into $1$ and $n-2$, with a cost of $1 \cdot (n-2) = n-2$.
 

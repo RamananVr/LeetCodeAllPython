@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is%20Object%20Empty/README_EN.md
 tags:
     - JavaScript
 ---
@@ -67,11 +66,29 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether an object or array has no enumerable keys. $Object.keys$ plus a length check is correct but materializes every key.
+>
+> A $for\cdots in$ loop returns $false$ at the first enumerable key and $true$ otherwise. For JSON objects and arrays that is exactly emptiness.
+
+<!-- thinking:end -->
+
 <!-- solution:end -->
 
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 relies on a short-circuiting walk. Comparing $Object.keys(obj).length$ with $0$ states the same test more directly, at the cost of collecting the keys first.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

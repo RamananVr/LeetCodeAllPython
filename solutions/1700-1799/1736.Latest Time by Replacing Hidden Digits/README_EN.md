@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README_EN.md
 rating: 1264
 source: Weekly Contest 225 Q1
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid time lies in $00$:$00$–$23$:$59$. Hidden digits should be filled to make the latest such time. Constraints are local, so take the largest feasible digit from the left.
+>
+> The hour tens digit depends on whether the units digit is already $4$–$9$; the hour units digit depends on whether the tens digit is $2$; the minute digits max out at $5$ and $9$.
+
+<!-- thinking:end -->
 
 We process each digit of the string in order, following these rules:
 

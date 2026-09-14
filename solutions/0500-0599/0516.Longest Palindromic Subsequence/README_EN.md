@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindromic subsequence need not be contiguous, so center expansion is not enough, and listing all subsequences is too many.
+>
+> Let $f[i][j]$ be the LPS length of $s[i..j]$. Equal ends add $2$ to the inner interval; otherwise drop one end. Fill by increasing interval length ($i$ right to left, $j$ to the right) so dependencies are ready. $f[0][n-1]$ is the answer.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the length of the longest palindromic subsequence from the $i$-th character to the $j$-th character in string $s$. Initially, $f[i][i] = 1$, and the values of other positions are all $0$.
 

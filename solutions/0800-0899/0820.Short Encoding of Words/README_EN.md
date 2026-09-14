@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README_EN.md
 tags:
     - Trie
     - Array
@@ -64,6 +63,16 @@ words[2] = &quot;bell&quot;, the substring of s starting from indices[2] = 5 to 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The encoding concatenates words with `#`. A shorter word that is a suffix of a longer one is already covered. Pairwise suffix checks waste work.
+>
+> Insert the reversed words into a trie so shared suffixes share a path. Only leaves need their own encoding (length plus one); internal nodes are covered by a longer word.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -103,6 +112,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 builds the full trie, then DFS-counts leaves. Inserting reversed words from long to short lets longer words occupy paths first. If a later word’s path already exists, it is a suffix of a longer word and contributes $0$; otherwise it contributes length plus one.
+>
+> The answer is accumulated during insertion, so the second DFS is dropped.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

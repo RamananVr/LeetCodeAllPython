@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II/README_EN.md
 rating: 2085
 source: Weekly Contest 459 Q3
 tags:
@@ -304,6 +303,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Point updates and range counts of a given popcount-depth, with $n,q\le 10^5$ and $k\le 5$, cannot rescan the interval.
+>
+> The depth range is tiny, so one Fenwick tree or segment tree per $k$ stores that depth's occurrences. A query $[l,r]$ is a prefix difference on tree $k$.
+>
+> An update subtracts the old depth and adds the new one. Values reach $10^{15}$, so depth is computed by a short popcount loop.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

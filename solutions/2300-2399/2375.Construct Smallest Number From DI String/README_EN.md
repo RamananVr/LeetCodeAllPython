@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md
 rating: 1641
 source: Weekly Contest 306 Q3
 tags:
@@ -69,6 +68,16 @@ It can be proven that &quot;4321&quot; is the smallest possible num that meets t
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must use digits $1..9$ at most once, obey $I/D$, and take the lexicographically smallest string. $|pattern| \le 8$, so $9!$ permutations are searchable in increasing order.
+>
+> DFS tries unused digits; an existing prefix applies the last $I$ or $D$. Smaller digits first, so the first complete string is optimal and the search stops.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

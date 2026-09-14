@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README_EN.md
 rating: 1404
 source: Weekly Contest 391 Q3
 tags:
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating subarray has distinct adjacent values. Enumerating all $O(n^2)$ intervals and scanning each one repeats the same neighbor checks.
+>
+> Subarrays ending at $i$ are either the singleton $nums[i]$, or an extension of those ending at $i-1$ when $nums[i] \neq nums[i-1]$. Equality cuts every longer alternating run.
+>
+> Keep the alternating length $s$ ending at the current index, increment it on a change and reset it to $1$ otherwise, then add $s$ to the answer. One pass counts every valid subarray.
+
+<!-- thinking:end -->
 
 We can enumerate the subarrays ending at each position, calculate the number of subarrays that meet the conditions, and sum up the number of subarrays that meet the conditions at all positions.
 

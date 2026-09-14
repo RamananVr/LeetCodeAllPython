@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README_EN.md
 rating: 2502
 source: Weekly Contest 441 Q4
 tags:
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful number has digit-product divisible by digit-sum. The range is large, so we count with digit DP.
+>
+> The product’s primes are only $2,3,5,7$; the sum is at most $9$ times the length. A state stores position, tight flag, leading-zero flag, current sum, and product (or prime exponents).
+>
+> Subtract the count on $[1,l-1]$ from $[1,r]$. Leading zeros keep product $1$ and add nothing to the sum, so a $0$ is not multiplied in too early.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

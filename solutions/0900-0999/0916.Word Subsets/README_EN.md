@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0916.Word%20Subsets/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -70,6 +69,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a$ must cover every word of $words2$. Checking each $b$ against each $a$ works, but the constraints merge: for every letter take the maximum demand over $words2$, then compare that single counter $\textit{cnt}$ with the count of $a$.
+
+<!-- thinking:end -->
 
 Traverse each word `b` in `words2`, count the maximum occurrence of each letter, and record it as `cnt`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README_EN.md
 rating: 2028
 source: Weekly Contest 433 Q2
 tags:
@@ -132,6 +131,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the sum of maxima plus the sum of minima over subsequences of length at most $k$. $n\le 10^5$ and $k\le 100$ rule out listing subsequences.
+>
+> After sorting, the number of times $a_i$ is a maximum (minimum) equals the number of ways to pick at most $k-1$ elements from its left (right).
+>
+> We therefore add $a_i\cdot\sum_{j=0}^{\min(i,k-1)}C(i,j)$ as a max contribution, and the symmetric min contribution. Binomial coefficients are built row-wise because $k$ is only $100$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

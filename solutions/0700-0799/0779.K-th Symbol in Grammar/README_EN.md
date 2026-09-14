@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README_EN.md
 tags:
     - Bit Manipulation
     - Recursion
@@ -69,6 +68,16 @@ row 2: 0<u>1</u>
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $n$ replaces $0\to 01$ and $1\to 10$. We cannot build the $2^{n-1}$ bits.
+>
+> The first half copies row $n-1$; the second is that row flipped. Recurse on the half that contains $k$, xor $1$ in the second half.
+
+<!-- thinking:end -->
+
 Let's first observe the pattern of the first few rows:
 
 ```
@@ -109,6 +118,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation + Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 still walks $n$ levels. On the $0$-based index $k-1$, each odd child flips the bit, so the parity of the number of $1$-bits is the answer.
+>
+> $(k-1).\textit{bit\_count}\bmod 2$, independent of $n$ once the row is long enough.
+
+<!-- thinking:end -->
 
 In the problem, the index starts from $1$. We will change $k$ to $k-1$, converting the index to start from $0$. In the following discussion, all indices start from $0$.
 

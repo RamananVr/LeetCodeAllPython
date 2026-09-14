@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1084.Sales%20Analysis%20III/README_EN.md
 tags:
     - Database
 ---
@@ -96,6 +95,18 @@ We return only product 1 as it is the product that was only sold in the spring o
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A product must have been sold in 2019 Q1 and nowhere else. All of its sale dates must lie in that window.
+>
+> After joining the name, the group is valid iff its size equals the number of rows whose date is in $[2019\text{-}01\text{-}01,2019\text{-}03\text{-}31]$.
+>
+> `COUNT(1) = SUM(sale_date BETWEEN ...)` drops both unsold products and any extra-window sale.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

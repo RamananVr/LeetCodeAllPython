@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3511.Make%20a%20Positive%20Array/README_EN.md
 tags:
     - Greedy
     - Array
@@ -113,6 +112,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every subarray of length at least $3$ is $O(n^2)$, and $n \le 10^5$. Replacing a value with an arbitrary integer cuts the prefix constraint at that index.
+>
+> Scan prefix sums from the left, keeping the window start and $\textit{pre\_mx}$, the maximum prefix sum of length at least $2$ inside the window. If the current prefix is at most $\textit{pre\_mx}$, a non-positive subarray appeared: count one replacement and reset the window. Cutting at the conflict minimizes operations.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

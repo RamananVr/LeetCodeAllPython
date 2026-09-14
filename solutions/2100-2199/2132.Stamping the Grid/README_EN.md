@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md
 rating: 2364
 source: Biweekly Contest 69 Q4
 tags:
@@ -70,6 +69,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two-Dimensional Prefix Sum + Two-Dimensional Difference
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every stamp must sit on empty cells only, and every empty cell must be covered at least once. Marking each legal placement cell by cell is $O(mn\cdot hw)$ and too slow.
+>
+> A 2-D prefix sum tests an $h\times w$ block in $O(1)$; successful placements are recorded in a 2-D difference array, which is then reconstructed to test coverage of every empty cell.
+>
+> Build the occupied prefix $s$, increment the difference $d$ for each valid top-left, reconstruct $d$, and reject an empty cell whose coverage is still $0$.
+
+<!-- thinking:end -->
 
 According to the problem description, every empty cell must be covered by a stamp, and no occupied cell can be covered. Therefore, we can traverse the two-dimensional matrix, and for each cell, if all cells in the area of $stampHeight \times stampWidth$ with this cell as the upper left corner are empty (i.e., not occupied), then we can place a stamp at this cell.
 

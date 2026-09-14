@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1292.Maximum%20Side%20Length%20of%20a%20Square%20with%20Sum%20Less%20than%20or%20Equal%20to%20Threshold/README_EN.md
 rating: 1734
 source: Weekly Contest 167 Q3
 tags:
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: 2D Prefix Sum + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square's sum grows with its side (entries are non-negative), so feasibility is monotone. $m,n \le 300$; enumerating sides and corners with an $O(k^2)$ sum is too slow. A 2-D prefix makes every square $O(1)$, and we binary-search the side.
+>
+> The check scans top-left corners and compares the prefix sum to the threshold. The search returns the largest feasible side.
+
+<!-- thinking:end -->
 
 We can precompute a 2D prefix sum array $s$, where $s[i + 1][j + 1]$ represents the sum of elements in the matrix $mat$ from $(0, 0)$ to $(i, j)$. With this, we can calculate the sum of elements in any square region in $O(1)$ time.
 

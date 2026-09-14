@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -64,6 +63,18 @@ The third fraction is 2/5.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$-th smallest proper fraction $arr[i]/arr[j]$ over a sorted prime list. $n\le 1000$; listing all pairs is $O(n^2\log n)$.
+>
+> For fixed $j$ the fractions increase with $i$. A min-heap merges these $n-1$ chains.
+>
+> Start with $1/arr[j]$ for each $j$, pop $k-1$ times while pushing the next numerator. The heap top is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

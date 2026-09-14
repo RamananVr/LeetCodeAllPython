@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md
 tags:
     - Database
 ---
@@ -79,6 +78,16 @@ Only Chicago and Los Angeles have average home prices exceeding the national ave
 <!-- solution:start -->
 
 ### Solution 1: Grouping Aggregation + Subquery
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A city qualifies when its average price exceeds the national average. Group by $city$ and compare $HAVING AVG(price)$ with a scalar subquery $AVG(price)$ computed once on the whole table.
+>
+> Sort by city name.
+
+<!-- thinking:end -->
 
 We group the `Listings` table by `city`, then calculate the average house price for each city, and finally filter out the cities where the average house price is greater than the national average house price.
 

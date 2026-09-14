@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README_EN.md
 rating: 1678
 source: Biweekly Contest 68 Q2
 tags:
@@ -80,6 +79,18 @@ We can create &quot;burger&quot; since we have the ingredient &quot;meat&quot; a
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A recipe is cookable once every ingredient is available from the initial supplies or from already cooked recipes, which is a directed dependency graph. Rechecking ingredients per recipe repeats work and mishandles chains.
+>
+> Point each ingredient to recipes that need it, with in-degree equal to the number of ingredients. Supplies are the sources; a recipe whose in-degree falls to zero can be cooked and used to unlock others.
+>
+> We build that graph and run Kahn’s algorithm from $\textit{supplies}$, appending a recipe when its in-degree hits zero.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

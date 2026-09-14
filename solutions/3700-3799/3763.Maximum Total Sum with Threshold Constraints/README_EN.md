@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README_EN.md
 tags:
     - Greedy
     - Array
@@ -100,6 +99,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At step $t$ we may pick an unused index whose threshold is at most $t$, and we want the largest $nums[i]$. Sorting indices by threshold, we insert newly unlocked values into an ordered set as $t$ grows and always take the current maximum; an empty set ends the process.
+
+<!-- thinking:end -->
 
 We observe that at each step, we want to select the largest number among those that satisfy the condition to add to the total sum. Therefore, we can use a greedy approach to solve this problem.
 

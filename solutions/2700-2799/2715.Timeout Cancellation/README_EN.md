@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2715.Timeout%20Cancellation/README_EN.md
 tags:
     - JavaScript
 ---
@@ -84,6 +83,16 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), w
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must invoke $fn$ after $t$ milliseconds and allow a cancel before it fires. A polled flag would still let the timer expire.
+>
+> $setTimeout$ schedules the call; the returned cancel function $clearTimeout$s the same handle. A cancel after firing is a no-op, as required.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

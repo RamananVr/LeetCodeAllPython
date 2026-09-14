@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README_EN.md
 tags:
     - Greedy
     - Array
@@ -67,6 +66,16 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 <!-- solution:start -->
 
 ### Solution 1: Maintain Index of Extremes + Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need the leftmost global minimum at the front and the rightmost global maximum at the back. One scan records those two indices.
+>
+> If they do not cross, add the two distances; if the minimum sits to the right of the maximum, the paths share one swap, so subtract one.
+
+<!-- thinking:end -->
 
 We can use indices $i$ and $j$ to record the index of the first minimum value and the last maximum value in the array $\textit{nums}$, respectively. Traverse the array $\textit{nums}$ to update the values of $i$ and $j$.
 

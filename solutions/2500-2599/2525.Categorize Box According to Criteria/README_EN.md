@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md
 rating: 1301
 source: Biweekly Contest 95 Q1
 tags:
@@ -75,6 +74,16 @@ Since its neither of the two above categories, we return &quot;Neither&quot;.</p
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A box is classified by whether any dimension or the volume is bulky and whether the mass is heavy — four labels in all. Each test is a constant-time comparison.
+>
+> Store $\textit{bulky}$ and $\textit{heavy}$ as $0/1$ and index $[\textit{Neither},\textit{Bulky},\textit{Heavy},\textit{Both}]$ by $\textit{heavy}\ll 1\mid \textit{bulky}$, avoiding nested branches.
+
+<!-- thinking:end -->
+
 We can simulate according to the problem description.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
@@ -101,6 +110,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 packs the two flags into an index. The same four cases can be written as sequential predicates — both, bulky only, heavy only, neither — with identical results.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

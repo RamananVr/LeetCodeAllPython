@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README_EN.md
 rating: 1818
 source: Biweekly Contest 159 Q2
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Hash Map
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One side must be axis-aligned; twice the area is base times height. For a vertical base, the span of $y$ at a fixed $x$ is the base, and the height is the horizontal distance to the global minimum or maximum $x$.
+>
+> Hash maps store the $y$ extrema per $x$. Swap coordinates and repeat for horizontal bases. Return $-1$ when the area stays $0$.
+
+<!-- thinking:end -->
 
 The problem asks for twice the area of the triangle, so we can directly calculate the product of the base and height of the triangle.
 

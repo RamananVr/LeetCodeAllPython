@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every right child is a leaf with a left sibling, so the tree is a left spine plus right leaves. $n\le 10$. After the flip the leftmost leaf is the new root, the old root becomes its right child, and the old right child becomes the left. Recurse down the left spine, rewire on the way back, and clear the old root's children.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0394.Decode%20String/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decode nested $k[encoded]$ repeats. Recursion works; a stack can store the multiplier and the outer string together.
+>
+> Digits build `num`; `[` pushes the count and the current result; `]` pops and concatenates the repeated segment; letters append. The stack expands inside-out.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

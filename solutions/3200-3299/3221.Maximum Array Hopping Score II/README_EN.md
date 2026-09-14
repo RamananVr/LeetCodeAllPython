@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The jump score is the same as Maximum Array Hopping Score I, but the limits rule out quadratic DP. The optimum is still to jump to the next value no smaller than the current one.
+>
+> A decreasing stack extracts that index chain; from $0$, add $\textit{nums}[j]\times(j-i)$ along the stack. The time is linear and needs no memoization.
+
+<!-- thinking:end -->
 
 We observe that for the current position $i$, we should jump to the next position $j$ with the maximum value to obtain the maximum score.
 

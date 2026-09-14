@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2033.Minimum%20Operations%20to%20Make%20a%20Uni-Value%20Grid/README_EN.md
 rating: 1671
 source: Weekly Contest 262 Q2
 tags:
@@ -72,6 +71,16 @@ A total of 4 operations were used.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only $\pm x$ is allowed, so all cells must share a residue modulo $x$. With up to $10^5$ cells, the cost of target $t$ is $\sum |a_i-t|/x$.
+>
+> That sum is minimized at the median. Flatten, sort, take the middle, and add absolute deviations over $x$.
+
+<!-- thinking:end -->
 
 Firstly, to make the grid a single-value grid, the remainder of all elements of the grid with $x$ must be the same.
 

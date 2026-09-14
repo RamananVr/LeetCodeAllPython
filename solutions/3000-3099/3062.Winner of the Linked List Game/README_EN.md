@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md
 tags:
     - Linked List
 ---
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On an even-length list, adjacent odd/even nodes score a point for the larger value. Length is at most $100$, so we walk by pairs.
+>
+> Each pair awards the odd or even side, and we compare the two totals.
+>
+> One pass with a two-node stride is enough.
+
+<!-- thinking:end -->
 
 Traverse the linked list, each time taking out two nodes, compare their values, and then update the scores of odd and even numbers based on the comparison results. Finally, compare the scores of odd and even numbers and return the result.
 

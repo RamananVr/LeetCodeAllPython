@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1243.Array%20Transformation/README_EN.md
 rating: 1558
 source: Biweekly Contest 12 Q2
 tags:
@@ -66,6 +65,16 @@ No more operations can be done to this array.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule looks only at neighbors, and the ends never change. Both $n$ and the values are at most $100$, so we may simulate until a fixpoint. A day's updates must read the old array, or a left cell would see a already-updated right neighbor.
+>
+> Each round copies a snapshot $t$, writes $arr$ from $t$'s adjacencies, and continues if anything changed. The simulation matches simultaneous updates.
+
+<!-- thinking:end -->
 
 Simulate each day. For each element, if it is greater than its left and right neighbors, it decreases by 1, otherwise, it increases by 1. If the array no longer changes on a certain day, return that array.
 

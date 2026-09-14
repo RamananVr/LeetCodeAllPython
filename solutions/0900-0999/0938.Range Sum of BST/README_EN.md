@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0938.Range%20Sum%20of%20BST/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -53,6 +52,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum BST nodes whose values lie in $[low,high]$. A full traversal works, but the search-tree order prunes: skip the left subtree when the current value is already $\le low$, and skip the right when it is already $\ge high$. Recurse and add nodes that fall inside the interval.
+
+<!-- thinking:end -->
 
 We design a function $dfs(root)$, which represents the sum of the values of all nodes in the subtree with $root$ as the root, and the values are within the range $[low, high]$. The answer is $dfs(root)$.
 

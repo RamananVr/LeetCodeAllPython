@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README_EN.md
 rating: 1295
 source: Weekly Contest 358 Q1
 tags:
@@ -77,6 +76,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$, every pair can be enumerated and accepted when the two numbers share the same maximum decimal digit. Grouping by that digit is unnecessary under this constraint.
+
+<!-- thinking:end -->
 
 First, we initialize the answer variable $ans=-1$. Next, we directly enumerate all pairs $(nums[i], nums[j])$ where $i \lt j$, and calculate their sum $v=nums[i] + nums[j]$. If $v$ is greater than $ans$ and the largest digit of $nums[i]$ and $nums[j]$ are the same, then we update $ans$ with $v$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2958.Length%20of%20Longest%20Subarray%20With%20at%20Most%20K%20Frequency/README_EN.md
 rating: 1535
 source: Biweekly Contest 119 Q3
 tags:
@@ -72,6 +71,16 @@ It can be shown that there are no good subarrays with length more than 4.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest subarray in which no value occurs more than $k$ times. $n \le 10^5$ forbids enumerating ends. The constraint is monotone: moving $r$ can only break it, moving $l$ can only restore it.
+>
+> A hash map counts frequencies; after inserting $x$, shrink $l$ while $cnt[x]>k$. Update the length on a valid window.
+
+<!-- thinking:end -->
 
 We can use two pointers $l$ and $r$ to represent the left and right endpoints of the subarray, initially both pointers point to the first element of the array.
 

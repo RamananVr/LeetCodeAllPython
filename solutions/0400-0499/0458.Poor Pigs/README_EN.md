@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0458.Poor%20Pigs/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -73,6 +72,18 @@ At time 30, one of the two pigs must die, and the poisonous bucket is the one it
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pig may drink several times; the time of death is a base-$b$ digit, not a single dead/alive bit.
+>
+> One test window distinguishes $\textit{minutesToTest}/\textit{minutesToDie}+1$ states (including survival). $x$ pigs distinguish $\textit{base}^x$ buckets; we want the smallest such $x$.
+>
+> Multiply $\textit{base}$ onto $1$ until the product covers the bucket count: a ceiling log in that base.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

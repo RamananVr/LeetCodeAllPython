@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md
 rating: 1626
 source: Biweekly Contest 8 Q3
 tags:
@@ -61,6 +60,14 @@ The nearest 1 from index 6 is at index 3 (3 steps away).
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walking left and right from $i$ for every query costs time proportional to queries times $n$. There are only three colors, so precompute the nearest index of each color on both sides. A query is the min of the two distances; $\pm\infty$ sentinels make a missing color larger than $n$.
+
+<!-- thinking:end -->
 
 We can preprocess the distance from each position to the nearest color $1$, $2$, $3$ on the left, and the distance from each position to the nearest color $1$, $2$, $3$ on the right, and record them in the arrays $left$ and $right$. Initially, $left[0][0] = left[0][1] = left[0][2] = -\infty$, and $right[n][0] = right[n][1] = right[n][2] = \infty$, where $n$ is the length of the array `colors`.
 

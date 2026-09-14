@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md
 rating: 2276
 source: Biweekly Contest 120 Q4
 tags:
@@ -83,6 +82,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree with fewer than three nodes places $1$; otherwise it places the maximum product of three costs, or $0$ if that product is negative. The maximum is either the three largest values or the two smallest (negative) times the largest. A subtree may have $n$ nodes, so the full list cannot be sent upward.
+>
+> DFS returns a sorted list keeping the two smallest and three largest values. After merging children, trim, then compute the node’s answer.
+
+<!-- thinking:end -->
 
 According to the problem description, there are two situations for the number of coins placed at each node $a$:
 

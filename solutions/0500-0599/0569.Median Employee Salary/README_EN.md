@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0569.Median%20Employee%20Salary/README_EN.md
 tags:
     - Database
 ---
@@ -118,6 +117,16 @@ For company C, the rows sorted are as follows:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The company median is the middle salary, or the two middle ones when the count is even. Row numbers after sorting line up with those positions.
+>
+> `ROW_NUMBER()` ranks salaries inside a company and `COUNT` gives $n$. Keep rows whose rank lies in $[n/2,\ n/2+1]$: one row when $n$ is odd, two when even. No self-join.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

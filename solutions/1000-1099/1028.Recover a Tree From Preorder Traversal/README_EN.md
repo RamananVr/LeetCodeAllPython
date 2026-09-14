@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README_EN.md
 rating: 1797
 source: Weekly Contest 132 Q4
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Splitting the traversal by depth and recursively attaching children builds the tree for $n\le 1000$, but the string is carved many times. In a depth-annotated preorder the parent of a new node is the nearest node whose depth is one smaller — the stack top after popping deeper nodes.
+>
+> We parse runs of `-` as depth and digits as values. Before pushing, nodes whose depth is not smaller are popped; the new node becomes the left or right child of the new top.
+>
+> The bottom of the stack is the root. Stack size is used as the current depth, matching the dashes in the string.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

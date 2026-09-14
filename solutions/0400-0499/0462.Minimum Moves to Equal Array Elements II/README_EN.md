@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md
 tags:
     - Array
     - Math
@@ -56,6 +55,18 @@ Only two moves are needed (remember each move increments or decrements one eleme
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Median
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move changes one element by $1$; we want everyone equal. Meeting at either extreme only increases the total distance.
+>
+> The sum of distances on a line is minimized at a median: the two endpoints contribute a constant, and the problem reduces to the inner points. Sort, pick the middle value, and sum absolute deviations.
+>
+> For an even length either of the two central values works; the sums coincide.
+
+<!-- thinking:end -->
 
 This problem can be abstracted to finding a point on a number line such that the sum of distances from $n$ points to this point is minimized. The answer is the median of the $n$ points.
 

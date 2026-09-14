@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3190.Find%20Minimum%20Operations%20to%20Make%20All%20Elements%20Divisible%20by%20Three/README_EN.md
 rating: 1139
 source: Biweekly Contest 133 Q1
 tags:
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation adds or subtracts one from a single value. Remainder $1$ needs a decrement, remainder $2$ an increment, remainder $0$ nothing.
+>
+> Elements never interact, so the answer is the count of non-multiples of $3$.
+>
+> Sum the predicate $x\bmod 3\neq 0$.
+
+<!-- thinking:end -->
 
 We directly iterate through the array $\textit{nums}$. For each element $x$, if $x \bmod 3 \neq 0$, there are two cases:
 

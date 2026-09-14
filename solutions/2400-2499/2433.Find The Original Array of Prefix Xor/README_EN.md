@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md
 rating: 1366
 source: Weekly Contest 314 Q2
 tags:
@@ -64,6 +63,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $pref[i]$ is the XOR of $arr[0..i]$. Then $pref[i]\oplus pref[i-1]=arr[i]$ with $pref[-1]=0$, so the original array is the adjacent-prefix XOR. One linear pass at $n\le 10^5$.
+
+<!-- thinking:end -->
 
 According to the problem statement, we have equation one:
 

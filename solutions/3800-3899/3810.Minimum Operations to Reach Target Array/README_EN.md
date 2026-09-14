@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md
 rating: 1492
 source: Biweekly Contest 174 Q2
 tags:
@@ -97,6 +96,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation replaces every maximal run of a value $x$ with the corresponding $\textit{target}$ entries. $n \le 10^5$, so simulating rewrites would rescan the array.
+>
+> All runs of $x$ change together, so each mismatched $x$ needs one operation regardless of how many runs it has.
+>
+> Already matching positions do not count. The answer is the number of distinct $nums[i]$ that still differ from the target.
+>
+> A set of those original values has size equal to the minimum number of operations.
+
+<!-- thinking:end -->
 
 According to the problem description, we only need to count the number of distinct $\text{nums}[i]$ where $\text{nums}[i] \ne \text{target}[i]$. Therefore, we can use a hash table to store these distinct $\text{nums}[i]$ and finally return the size of the hash table.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README_EN.md
 rating: 2207
 source: Weekly Contest 360 Q3
 tags:
@@ -78,6 +77,14 @@ It can be shown that there is no shorter sequence of operations that results in 
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation splits a power of two into two equal smaller ones and leaves the total sum unchanged. If the sum is below $target$, there is no answer. After counting bits, we satisfy each $1$ of $target$ from low to high, splitting a higher bit when the current bit is short, and charge one operation per split.
+
+<!-- thinking:end -->
 
 Observing the operation in the problem, we find that each operation actually splits a number greater than $1$ into two equal numbers, which means that the sum of the elements in the array will not change after the operation. Therefore, if the sum of the elements in the array $s$ is less than $target$, it is impossible to obtain a subsequence with a sum of $target$ through the operation described in the problem, and we can directly return $-1$. Otherwise, we can definitely make the sum of some subsequences in the array equal to $target$ through the split operation.
 

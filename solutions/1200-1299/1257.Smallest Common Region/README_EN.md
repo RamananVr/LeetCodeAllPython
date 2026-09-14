@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1257.Smallest%20Common%20Region/README_EN.md
 rating: 1654
 source: Biweekly Contest 13 Q2
 tags:
@@ -75,6 +74,16 @@ region2 = &quot;New York&quot;
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Regions form a tree; we want the LCA of two regions. $n \le 10^4$ allows walking to the root. The parent of each child is the first name in its region list.
+>
+> Walk from $region1$ to the root into a set; walk from $region2$ until the first hit. The map stores parents; the set detects the first intersection.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{g}$ to store the parent region of each region. Then, starting from $\textit{region1}$, we keep moving upwards to find all its parent regions until the root region, and store these regions in the set $\textit{s}$. Next, starting from $\textit{region2}$, we keep moving upwards to find the first region that is in the set $\textit{s}$, which is the smallest common region.
 

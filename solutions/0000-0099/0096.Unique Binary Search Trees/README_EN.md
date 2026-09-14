@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -49,6 +48,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous problem lists every tree; here we only need the count. The structure is the same: pick a root, multiply left and right counts, sum over roots. Shapes collapse to “how many nodes”: any $i$ consecutive integers yield the same number of BSTs. Let $f[i]$ be the number of trees with $i$ nodes, $f[0]=1$, and build from small $i$ so each size is computed once.
+
+<!-- thinking:end -->
 
 We define $f[i]$ to represent the number of binary search trees that can be generated from $[1, i]$. Initially, $f[0] = 1$, and the answer is $f[n]$.
 

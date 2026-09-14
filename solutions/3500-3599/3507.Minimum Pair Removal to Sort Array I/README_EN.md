@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README_EN.md
 rating: 1348
 source: Weekly Contest 444 Q1
 tags:
@@ -78,6 +77,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$, and each step merges the adjacent pair with the smallest sum. At most $n-1$ merges occur, so a direct simulation — scan adjacent sums, replace the left value, delete the right — is enough.
+>
+> Richer data structures are unnecessary; the quadratic scan fits the limits.
+
+<!-- thinking:end -->
 
 We define a function $\text{is\_non\_decreasing}(a)$ to determine whether the array $a$ is a non-decreasing array.
 

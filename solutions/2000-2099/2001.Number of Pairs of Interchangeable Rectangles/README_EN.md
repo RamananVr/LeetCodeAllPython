@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README_EN.md
 rating: 1435
 source: Weekly Contest 258 Q2
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two rectangles are interchangeable iff they share a width-to-height ratio. With $n \le 10^5$, pairwise comparison is quadratic.
+>
+> Floating-point $w/h$ is unsafe as a key. Dividing $(w,h)$ by $\gcd(w,h)$ maps each ratio to a unique integer pair.
+>
+> A hash table therefore counts each reduced pair; for every rectangle we add the current count, then increment, so combinations accumulate in one pass.
+
+<!-- thinking:end -->
 
 In order to uniquely represent a rectangle, we need to simplify the width-to-height ratio of the rectangle to a simplest fraction. Therefore, we can find the greatest common divisor of the width-to-height ratio of each rectangle, and then simplify the width-to-height ratio to the simplest fraction. Next, we use a hash table to count the number of rectangles for each simplest fraction, and then calculate the combination of the number of rectangles for each simplest fraction to get the answer.
 

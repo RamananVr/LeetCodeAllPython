@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README_EN.md
 rating: 1364
 source: Weekly Contest 291 Q2
 tags:
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the shortest subarray that contains some value twice. $n \le 10^5$ rules out checking every interval. The shortest such subarray is always the gap between two consecutive occurrences of the same value.
+>
+> A map stores the last index of each value; a repeat updates the answer by $i-\textit{last}[x]+1$. If none exists, return $-1$.
+
+<!-- thinking:end -->
 
 We initialize the answer as $+\infty$. We traverse the array, and for each number $x$, if $\textit{last}[x]$ exists, it means $x$ has a matching pair of cards. In this case, we update the answer to $\textit{ans} = \min(\textit{ans}, i - \textit{last}[x] + 1)$. Finally, if the answer is $+\infty$, we return $-1$; otherwise, we return the answer.
 

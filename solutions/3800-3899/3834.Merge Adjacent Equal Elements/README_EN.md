@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README_EN.md
 rating: 1428
 source: Weekly Contest 488 Q2
 tags:
@@ -89,6 +88,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly replace the leftmost adjacent equal pair by their sum. $n \le 10^5$, so rescanning from the left each time is quadratic.
+>
+> A merge only interacts with the new sum's left neighbor; the unprocessed right side is untouched. A stack holds the already-stable prefix.
+>
+> Push left to right; while the top two are equal, pop them and push the sum.
+>
+> Always merging the leftmost pair is equivalent to this left-to-right process, and each value enters and leaves the stack a constant number of times.
+
+<!-- thinking:end -->
 
 We can use a stack to simulate the process of merging adjacent equal elements.
 

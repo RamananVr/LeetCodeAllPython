@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README_EN.md
 rating: 1361
 source: Weekly Contest 279 Q2
 tags:
@@ -56,6 +55,18 @@ The arrangement with the smallest value that does not contain any leading zeros 
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We rearrange digits: a negative number should be as small as possible (digits descending), a positive number as small as possible without a leading zero. Full permutations are unnecessary.
+>
+> Count digits $0$–$9$. For a negative value emit $9$ down to $0$; for a positive value place the smallest nonzero digit first, then the rest ascending (including zeros).
+>
+> Count on the absolute value and restore the sign.
+
+<!-- thinking:end -->
 
 We first use an array $\textit{cnt}$ to record the number of occurrences of each digit in $\textit{num}$.
 

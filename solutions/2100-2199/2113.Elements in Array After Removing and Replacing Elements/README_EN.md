@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2113.Elements%20in%20Array%20After%20Removing%20and%20Replacing%20Elements/README_EN.md
 tags:
     - Array
 ---
@@ -85,6 +84,18 @@ At minute 3, nums[0] does not exist.
 <!-- solution:start -->
 
 ### Solution 1: Direct Calculation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array repeats every $2n$ seconds: the first $n$ seconds delete from the left, the next $n$ restore from the left. Up to $10^5$ queries make materializing each timestamp impossible.
+>
+> After $t\bmod 2n$, we only distinguish the deleting half from the restoring half and map the query index back to $\textit{nums}$. While deleting, length is $n-t$ and index $i$ is original $i+t$; while restoring, length is $t-n$ and index $i$ is $\textit{nums}[i]$.
+>
+> Each query is answered in $O(1)$; out-of-range indices stay $-1$.
+
+<!-- thinking:end -->
 
 First, we initialize an array $ans$ with length $m$ to store the answers, initializing all elements to $-1$.
 

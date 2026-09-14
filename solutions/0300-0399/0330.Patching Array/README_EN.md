@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0330.Patching%20Array/README_EN.md
 tags:
     - Greedy
     - Array
@@ -64,6 +63,16 @@ Explanation: The two patches can be [2, 4].
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Given a sorted array, insert as few positives as needed so every integer in $[1,n]$ is a subset sum. Searching every gap is too large.
+>
+> Suppose $[1,x)$ is already covered. If the next $nums[i]\le x$, merge it and extend to $[1,x+nums[i])$; otherwise insert $x$ itself and double the range. A smaller insert covers less, so filling the current gap is optimal. Stop when $x>n$.
+
+<!-- thinking:end -->
 
 Let's assume that the number $x$ is the smallest positive integer that cannot be represented. Then all the numbers in $[1,..x-1]$ can be represented. In order to represent the number $x$, we need to add a number that is less than or equal to $x$:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md
 rating: 1917
 source: Weekly Contest 344 Q4
 tags:
@@ -73,6 +72,16 @@ It can be shown that this is the minimum answer we can achieve.
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only increase values so every root-to-leaf path sums to the same number. Top-down cannot see how much a subtree still needs; equal path sums hold iff every internal node has equal leaf-path sums in both children.
+>
+> Bottom-up, the absolute difference of the two children must be added on the smaller side; the parent then absorbs the larger child as that subtree's common leaf sum. A perfect binary tree is indexed directly.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to calculate the minimum number of increments to make the path values from the root node to each leaf node equal.
 

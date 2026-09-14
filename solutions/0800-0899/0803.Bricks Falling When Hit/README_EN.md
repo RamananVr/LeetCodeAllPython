@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md
 tags:
     - Union Find
     - Array
@@ -90,6 +89,16 @@ Hence the result is [0,0].
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flood-filling after every hit is too slow for $4\cdot 10^4$ hits on a $200\times 200$ grid. A brick falls exactly when it loses connectivity to the top row.
+>
+> Erase every hit first, union remaining bricks to a virtual roof, then restore hits in reverse. The increase in the roof component minus one is the number of bricks that would have fallen; a hit on an empty cell contributes zero.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

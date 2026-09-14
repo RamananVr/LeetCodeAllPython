@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3127.Make%20a%20Square%20with%20the%20Same%20Color/README_EN.md
 rating: 1337
 source: Biweekly Contest 129 Q1
 tags:
@@ -155,6 +154,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is $3\times 3$ and one recolor should create a monochrome $2\times 2$. Trying every cell to flip is possible but less direct than inspecting each window.
+>
+> A $2\times 2$ that is already unbalanced (three of one color) becomes solid after one change; a solid window needs none. Both cases are exactly “black count $\neq$ white count”.
+>
+> Enumerate the four windows, count `W` and `B`, and return true on the first imbalance. The board size is constant.
+
+<!-- thinking:end -->
 
 We can enumerate each $2 \times 2$ square, count the number of black and white cells. If the counts are not equal, then we can construct a square of the same color, and return `true`.
 

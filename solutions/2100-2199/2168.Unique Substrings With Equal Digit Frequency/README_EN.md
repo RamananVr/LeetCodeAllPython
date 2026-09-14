@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2168.Unique%20Substrings%20With%20Equal%20Digit%20Frequency/README_EN.md
 tags:
     - Hash Table
     - String
@@ -52,6 +51,18 @@ Note that although the substring &quot;12&quot; appears twice, it is only counte
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct substrings whose present digits all share one frequency. $n\le 1000$ gives $O(n^2)$ substrings; scanning each from scratch is cubic.
+>
+> Prefix counts of the ten digits give a frequency vector in $O(1)$; we then check that the nonempty frequencies form a singleton. A set stores the substrings themselves.
+>
+> Enumerate $[i,j]$ and insert $s[i:j+1]$ when the prefix-difference test passes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

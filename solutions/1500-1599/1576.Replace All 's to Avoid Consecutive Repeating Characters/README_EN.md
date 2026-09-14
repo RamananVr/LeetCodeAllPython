@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1576.Replace%20All%20%27s%20to%20Avoid%20Consecutive%20Repeating%20Characters/README_EN.md
 rating: 1368
 source: Weekly Contest 205 Q1
 tags:
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace every question mark by a lowercase letter so that no two adjacent characters are equal. A hole has at most two distinct neighbors, so one of $\texttt{a},\texttt{b},\texttt{c}$ always works.
+>
+> Fill left to right: try the three candidates and skip any that equals $s[i-1]$ or the still-unreplaced $s[i+1]$. Writing the left side first makes the next hole see a determined neighbor.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

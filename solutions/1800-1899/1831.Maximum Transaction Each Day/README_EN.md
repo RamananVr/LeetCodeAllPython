@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,16 @@ We order the result table by transaction_id after collecting these IDs.
 <!-- solution:start -->
 
 ### Solution 1: Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every transaction that ties for the maximum amount on its day. A self-join works, but a window function states the ranking directly.
+>
+> Partition by $DAY(day)$, rank by $amount$ descending, keep rank $1$, and sort by $transaction\_id$.
+
+<!-- thinking:end -->
 
 We can use the window function `RANK()`, which assigns a rank to each transaction based on its amount in descending order, and then select the transactions with a rank of $1$.
 

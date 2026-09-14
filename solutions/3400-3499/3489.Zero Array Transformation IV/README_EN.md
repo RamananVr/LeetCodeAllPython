@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3489.Zero%20Array%20Transformation%20IV/README_EN.md
 rating: 2068
 source: Weekly Contest 441 Q3
 tags:
@@ -136,6 +135,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query may subtract $val$ from any subset of $[l,r]$. $n\le 10$ and at most $1000$ queries, so each index is its own knapsack.
+>
+> Index $i$ must form $\textit{nums}[i]$ from the $val$s that cover it. Queries are prefix-closed: we want the shortest prefix that works for every index.
+>
+> A boolean reachability array per index absorbs each covering $val$ in order. The first prefix that can form every target is the answer; otherwise $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

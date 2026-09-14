@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README_EN.md
 tags:
     - Hash Table
     - Math
@@ -69,6 +68,16 @@ The substring of length 1 that starts and ends with the same letter is: &quot;a&
 <!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Substrings whose ends share a letter. Pair enumeration is quadratic for $n \le 10^5$. Those ending at a given $c$ equal the number of $c$s seen so far (including now).
+>
+> Increment the counter for $c$ and add the new frequency to the answer.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $\textit{cnt}$ of length $26$ to record the occurrences of each character.
 

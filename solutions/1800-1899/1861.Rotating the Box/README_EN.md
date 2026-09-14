@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1861.Rotating%20the%20Box/README_EN.md
 rating: 1536
 source: Biweekly Contest 52 Q3
 tags:
@@ -90,6 +89,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Queue Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rotate $90^\circ$ clockwise, then let stones fall until they hit an obstacle or the floor. Moving each stone step by step can revisit the same cells.
+>
+> After the rotation, scan each column from the bottom: enqueue empty rows, swap a stone with the first empty slot, and clear the queue at an obstacle. Each cell is handled once and stones settle in the lowest reachable empties.
+
+<!-- thinking:end -->
 
 We first rotate the matrix 90 degrees clockwise, then simulate the falling process of stones in each column.
 

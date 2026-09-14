@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README_EN.md
 rating: 1657
 source: Weekly Contest 161 Q3
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We delete the fewest parentheses to make the string valid, $n \le 10^5$. A stack can mark illegal brackets; a counter also works: left to right we drop unmatched $)$, then right to left we drop extra $($.
+>
+> The first pass keeps every prefix from having more rights than lefts; the second pass is symmetric for lefts. Remaining brackets match; letters stay.
+
+<!-- thinking:end -->
 
 First, we scan from left to right and remove the extra right parentheses. Then, we scan from right to left and remove the extra left parentheses.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md
 tags:
     - Stack
     - Design
@@ -72,6 +71,16 @@ myStack.empty(); // return False
 <!-- solution:start -->
 
 ### Solution 1: Two Queues
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A queue inserts at the back and removes from the front, while a stack is LIFO. If each push rotates the new value to the front, pop and top become a dequeue.
+>
+> We enqueue $x$ into $q_2$, move everything from $q_1$ behind it, and swap, so the front of $q_1$ is always the stack top.
+
+<!-- thinking:end -->
 
 We use two queues $q_1$ and $q_2$, where $q_1$ is used to store the elements in the stack, and $q_2$ is used to assist in implementing the stack operations.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md
 rating: 2619
 source: Weekly Contest 355 Q3
 tags:
@@ -84,7 +83,21 @@ So, the output is 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Group $k$ needs $k$ distinct numbers, and number $i$ may be used at most $usageLimits[i]$ times; we want the most groups. Trying every group count and matching quotas is heavy.
+>
+> Sort the limits and consume from the left: whenever the running remainder can open group $k+1$, do so and subtract $k+1$, rolling the rest into the next limit. Using smaller quotas first maximizes the number of groups.
+
+<!-- thinking:end -->
+
+Sort the limits in increasing order and accumulate them. Each extra unit of remaining quota is used to try opening one more group; if it succeeds, subtract that group's cost from the running sum. The final group count is the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -101,31 +114,6 @@ class Solution:
                 usageLimits[i] -= k
             if i + 1 < n:
                 usageLimits[i + 1] += usageLimits[i]
-        return k
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
-        usageLimits.sort()
-        k = s = 0
-        for x in usageLimits:
-            s += x
-            if s > k:
-                k += 1
-                s -= k
         return k
 ```
 

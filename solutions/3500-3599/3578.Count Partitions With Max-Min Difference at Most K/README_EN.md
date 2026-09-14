@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README_EN.md
 rating: 2032
 source: Weekly Contest 453 Q3
 tags:
@@ -82,6 +81,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Two Pointers + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every part of a partition must have $\max-\min \le k$. $f[r]$ is the number of ways to partition the prefix of length $r$; the last part is some $[l,r]$, so $f[r]$ sums $f[j]$ over legal last parts.
+>
+> The legal left end only moves right: an ordered set stores the window extrema and advances $l$ when the gap exceeds $k$. A prefix sum $g$ evaluates the range sum in $O(1)$.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the number of ways to partition the first $i$ elements. If an array satisfies that the difference between its maximum and minimum values does not exceed $k$, then any of its subarrays also satisfies this condition. Therefore, we can use two pointers to maintain a sliding window representing the current subarray.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README_EN.md
 rating: 1181
 source: Biweekly Contest 140 Q1
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We replace each element by the sum of its digits and then take the minimum. With $n \le 100$ and $M \le 10^4$, splitting digits costs only $O(\log M)$ per value, which is acceptable.
+>
+> Digit sums are independent, so there is no need to sort or tabulate. A single scan that keeps the running minimum suffices.
+>
+> For each $x$ we accumulate its decimal digits and return the minimum among those sums.
+
+<!-- thinking:end -->
 
 We can traverse the array $\textit{nums}$. For each number $x$, we calculate the sum of its digits $y$. The minimum value among all $y$ is the answer.
 

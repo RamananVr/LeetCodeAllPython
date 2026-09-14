@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md
 tags:
     - Hash Table
     - Math
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subsequence is nonempty and every letter that appears does so equally often. There are $2^n$ subsequences, but only $26$ letters, so frequencies decide everything.
+>
+> Enumerate the common frequency $i=1,\ldots,mx$. A letter with count $v\ge i$ may contribute $\binom{v}{i}$ choices or be omitted, i.e. $\binom{v}{i}+1$ options; letters with $v<i$ must stay out. Multiply over letters, subtract the empty choice, and sum over $i$. Factorials and inverses precompute the binomials.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

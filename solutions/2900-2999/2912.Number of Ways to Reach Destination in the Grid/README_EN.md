@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2912.Number%20of%20Ways%20to%20Reach%20Destination%20in%20the%20Grid/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -76,6 +75,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step changes the row or the column, and we want to sit at $dest$ after $k$ steps. The grid can be $10^9$ on a side, so per-cell states are impossible. Relative to $source$ there are only four kinds of cells: itself, same column, same row, or neither.
+>
+> A four-vector $f$ stores the number of ways to each kind; one step mixes only these four kinds, with coefficients from $n$ and $m$. After $k$ iterations, pick the component that matches how $dest$ sits relative to $source$.
+
+<!-- thinking:end -->
+
 We define the following states:
 
 - $f[0]$ represents the number of ways to move from `source` to `source` itself;
@@ -101,26 +110,6 @@ We loop $k$ times, and finally check whether `source` and `dest` are in the same
 The time complexity is $O(k)$, where $k$ is the number of moves. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def numberOfWays(
-        self, n: int, m: int, k: int, source: List[int], dest: List[int]
-    ) -> int:
-        mod = 10**9 + 7
-        a, b, c, d = 1, 0, 0, 0
-        for _ in range(k):
-            aa = ((n - 1) * b + (m - 1) * c) % mod
-            bb = (a + (n - 2) * b + (m - 1) * d) % mod
-            cc = (a + (m - 2) * c + (n - 1) * d) % mod
-            dd = (b + c + (n - 2) * d + (m - 2) * d) % mod
-            a, b, c, d = aa, bb, cc, dd
-        if source[0] == dest[0]:
-            return a if source[1] == dest[1] else c
-        return b if source[1] == dest[1] else d
-```
 
 #### Python3
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README_EN.md
 rating: 1862
 source: Weekly Contest 511 Q3
 ---
@@ -183,6 +182,16 @@ source: Weekly Contest 511 Q3
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting a subsequence of a binary string only left-shifts $0$s among the chosen positions. A `?` in the pattern is free, so each pattern is feasible iff some filling can be reached by repeatedly left-shifting $0$s in $s$.
+>
+> The number of $0$s must match (with `?` flexible), and no $1$ in $s$ may sit too far right of its counterpart. This directory has no implemented solution yet; the walkthrough stops at “subsequence sort = move zeros left, then match the pattern”.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

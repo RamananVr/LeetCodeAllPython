@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README_EN.md
 rating: 1351
 source: Weekly Contest 498 Q2
 tags:
@@ -96,6 +95,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The definition matches Smallest Stable Index I, but now $n\le 10^5$, so recomputing both extrema at every index is too slow.
+>
+> Instability is still determined by a prefix maximum and a suffix minimum, both of which admit linear recurrences. Build $\textit{right}[i]$ from the right, then walk left-to-right with a running $\textit{left}$ and return the first index where $\textit{left}-\textit{right}[i]\le k$.
+
+<!-- thinking:end -->
 
 First, we preprocess an array $\textit{right}$, where $\textit{right}[i]$ represents the minimum value among the elements in $nums$ from index $i$ to index $n - 1$. We can compute the $\textit{right}$ array by traversing $nums$ from back to front.
 

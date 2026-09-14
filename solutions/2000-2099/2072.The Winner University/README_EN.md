@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2072.The%20Winner%20University/README_EN.md
 tags:
     - Database
 ---
@@ -150,6 +149,16 @@ Both New York University and California University have 1 excellent student.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compare how many scores are $\ge 90$ at each university. Two identical tables: `COUNT` each, then `CASE` on which count is larger (or a tie).
+>
+> No join; a two-row Cartesian product of the aggregates is enough.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

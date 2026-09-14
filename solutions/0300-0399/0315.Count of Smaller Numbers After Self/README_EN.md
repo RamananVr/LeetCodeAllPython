@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README_EN.md
 tags:
     - Binary Indexed Tree
     - Segment Tree
@@ -66,6 +65,16 @@ To the right of 1 there is <b>0</b> smaller element.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many later elements are smaller. A nested scan is $O(n^2)$. The count is a prefix frequency over values already seen to the right.
+>
+> Walk right to left: discretize, insert the current rank into a Fenwick tree, then query ranks strictly below it. Insert-then-query $x-1$ still ignores equals. Reverse the answers to restore order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -112,6 +121,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The Fenwick tree is a prefix sum on the value domain. A segment tree splits that domain, supports point increment and range $[1,x-1]$, and matches Method 1 with explicit interval nodes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -183,6 +200,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Merge Sort
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first two methods need discretization and an extra tree. During merge, when a left value is $\le$ the current right value, exactly $j$ consumed right elements are smaller and later; add $j$ to that index. No value tree is required; time stays $O(n\log n)$.
+
+<!-- thinking:end -->
 
 During the merge phase of merge sort, when a left element $\textit{left}[i] \leq \textit{right}[j]$,
 it means exactly $j$ elements on the right side are smaller than $\textit{left}[i]$,

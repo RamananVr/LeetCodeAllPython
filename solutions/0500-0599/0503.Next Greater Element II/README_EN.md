@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0503.Next%20Greater%20Element%20II/README_EN.md
 tags:
     - Stack
     - Array
@@ -53,6 +52,16 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A naive rightward scan for the next greater value is $O(n^2)$, tight for a circular array with $n \le 10^4$. Indices wrap after $n$.
+>
+> Walk right to left with a decreasing stack of candidates that have not yet been beaten. Two passes unroll the circle; modulo maps back to the original index. Each value enters and leaves the stack at most once.
+
+<!-- thinking:end -->
 
 The problem requires us to find the next greater element for each element. Therefore, we can traverse the array from back to front, which effectively turns the problem into finding the previous greater element. Additionally, since the array is circular, we can traverse the array twice.
 

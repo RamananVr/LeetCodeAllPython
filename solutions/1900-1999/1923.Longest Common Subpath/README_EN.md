@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md
 rating: 2661
 source: Weekly Contest 248 Q4
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A longer common subpath is harder to realize, so the feasible length is monotone. Comparing raw segments for every length is too slow on total length $10^5$.
+>
+> Binary-search $k$ and rolling-hash every window of length $k$ on each path. If some hash appears in all $m$ paths, a longer $k$ may exist.
+>
+> Prefix hashes and powers make each check nearly linear, times a logarithmic number of searches.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README_EN.md
 rating: 1725
 source: Weekly Contest 486 Q3
 tags:
@@ -120,6 +119,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every $u$ we ask whether distances to $x,y,z$ form a Pythagorean triple. $n \le 10^5$ forbids a search from each $u$.
+>
+> Tree distances from a fixed source are one BFS. Only three sources $x,y,z$ are needed.
+>
+> Run BFS from each, then at every node sort the three distances and test $a^2+b^2=c^2$.
+>
+> Three linear traversals plus one $O(n)$ check suffice.
+
+<!-- thinking:end -->
 
 We first construct an adjacency list $g$ based on the edges given in the problem, where $g[u]$ stores all nodes adjacent to node $u$.
 

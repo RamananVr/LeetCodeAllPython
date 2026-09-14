@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -62,6 +61,16 @@ tags:
 
 ### Solution 1: Array Mark
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Zeroing a whole row and column as soon as we see a $0$ wipes zeros we have not scanned yet, and we cannot tell original zeros from new ones. Copying an $O(mn)$ matrix works, but the follow-up rejects that space. $m,n \le 200$, so two scans are fine.
+>
+> Record which rows and columns must be zeroed, then rewrite. An $m$-length row mark and an $n$-length column mark suffice: first pass only flags, second pass writes zeros. Extra space drops from $O(mn)$ to $O(m+n)$, still not the constant-space follow-up.
+
+<!-- thinking:end -->
+
 We use arrays `rows` and `cols` to mark the rows and columns to be cleared.
 
 Then traverse the matrix again, and clear the elements in the rows and columns marked in `rows` and `cols`.
@@ -95,6 +104,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Mark in Place
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 still spends $O(m+n)$ on mark arrays. The follow-up wants $O(1)$ extra space, and the first row and first column can play the role of $\textit{row}$ and $\textit{col}$. Those strips are both data and marks, so we save with $i0$, $j0$ whether they themselves must be zeroed, update the interior, and only then clear the first row and column — otherwise the marks get overwritten too early.
+
+<!-- thinking:end -->
 
 In the first method, we use an additional array to mark the rows and columns to be cleared. In fact, we can also use the first row and first column of the matrix to mark them, without creating an additional array.
 

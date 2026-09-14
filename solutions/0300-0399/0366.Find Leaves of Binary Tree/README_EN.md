@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -57,6 +56,16 @@ Explanation:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly strip current leaves and group by round. Simulating deletions walks the tree many times. A node’s round is its height from a leaf.
+>
+> Postorder height $h=\max(left,right)$ places the node in $ans[h]$ and returns $h+1$. Equal heights fall in the same round.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

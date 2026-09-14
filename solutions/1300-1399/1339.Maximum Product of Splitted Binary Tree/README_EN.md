@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/README_EN.md
 rating: 1674
 source: Weekly Contest 174 Q3
 tags:
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting one edge splits the tree; we want the maximum product of the two subtree sums. Recomputing both sides per edge is quadratic. With the total sum $s$ fixed, an edge yields $t \times (s-t)$ for a subtree sum $t$. One DFS computes $s$, a second enumerates every $t$ and updates the product.
+
+<!-- thinking:end -->
 
 We can solve this problem with two DFS traversals.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README_EN.md
 rating: 2104
 source: Biweekly Contest 57 Q4
 tags:
@@ -65,6 +64,18 @@ Person 5 can see no one since nobody is to the right of them.
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Person $i$ sees $j$ iff everyone in between is shorter. A rightward scan per $i$ is $O(n^2)$.
+>
+> Visible heights to the right of $i$ are strictly increasing. A stack increasing from top to bottom pops every shorter person (each counts) and, if someone remains, adds one more blocked by a taller person.
+>
+> Each height enters and leaves the stack once.
+
+<!-- thinking:end -->
 
 We observe that for the $i$-th person, the people he can see must be strictly increasing in height from left to right.
 

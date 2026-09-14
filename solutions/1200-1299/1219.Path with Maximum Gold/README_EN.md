@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md
 rating: 1663
 source: Weekly Contest 157 Q3
 tags:
@@ -75,6 +74,16 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $15\times 15$ with at most $25$ gold cells, so all simple paths are enumerable. Paths cannot revisit a cell; we may start at any gold cell and want the maximum sum.
+>
+> DFS zeros a cell on entry to mark it used, recurses to four neighbors, then restores on backtrack. Starting from every cell and taking the global maximum uses the grid itself as the visited mark.
+
+<!-- thinking:end -->
 
 We can enumerate each cell as the starting point, and then start a depth-first search from the starting point. During the search process, whenever we encounter a non-zero cell, we turn it into zero and continue the search. When we can no longer continue the search, we calculate the total amount of gold in the current path, then turn the current cell back into a non-zero cell, thus performing backtracking.
 

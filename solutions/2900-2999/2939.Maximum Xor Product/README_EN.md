@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md
 rating: 2127
 source: Weekly Contest 372 Q3
 tags:
@@ -66,6 +65,16 @@ It can be shown that 12 is the maximum value of (a XOR x) * (b XOR x) for all 0 
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Bitwise Operation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may XOR both $a$ and $b$ with an $x$ on bits $[0,n)$. Bits above $n$ stay fixed and are peeled off as $ax,bx$. Where $a$ and $b$ already agree, set the bit in both to grow the product.
+>
+> Where they differ, $x$ can give the $1$ to only one side. The product is larger when the factors stay close, so give the bit to the currently smaller one. Greedy from high bits to low, then reduce modulo the given modulus.
+
+<!-- thinking:end -->
 
 According to the problem description, we can assign a number to the $[0..n)$ bits of $a$ and $b$ in binary at the same time, so that the product of $a$ and $b$ is maximized.
 

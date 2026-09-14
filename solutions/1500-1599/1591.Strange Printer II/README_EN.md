@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1591.Strange%20Printer%20II/README_EN.md
 rating: 2290
 source: Biweekly Contest 35 Q4
 tags:
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each print lays down a fresh color as a rectangle that cannot be reused. The same color must occupy its bounding box, and later colors overwrite cells inside that box.
+>
+> For every color take the min/max row and column. Any other color $c'$ inside that rectangle must have been printed later, so we add an edge $c\to c'$. The instance is printable iff this constraint graph is acyclic, which a topological sort decides.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

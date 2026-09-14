@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0997.Find%20the%20Town%20Judge/README_EN.md
 tags:
     - Graph
     - Array
@@ -71,6 +70,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The judge trusts nobody and is trusted by the other $n-1$ people. That is the unique node with out-degree $0$ and in-degree $n-1$. Two count arrays record trusts and trusted-by; after one pass over $trust$, scan every label.
+
+<!-- thinking:end -->
 
 We create two arrays $cnt1$ and $cnt2$ of length $n + 1$, representing the number of people each person trusts and the number of people who trust each person, respectively.
 

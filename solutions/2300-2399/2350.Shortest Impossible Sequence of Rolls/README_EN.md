@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README_EN.md
 rating: 1960
 source: Biweekly Contest 83 Q4
 tags:
@@ -70,6 +69,16 @@ Note that there are other sequences that cannot be taken from rolls but [4] is t
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sequence of length $L$ is a subsequence of $rolls$ iff we can pick $L$ successive covers of $1..k$. $n \le 10^5$ forbids listing sequences.
+>
+> Scan left to right and collect unseen faces. When the set reaches size $k$, one more “any next face” is possible: increment the answer and clear. The answer is completed rounds plus one — the first length we cannot finish.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1098.Unpopular%20Books/README_EN.md
 tags:
     - Database
 ---
@@ -96,6 +95,18 @@ Orders table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Drop books listed for under a month and keep those with fewer than $10$ copies sold in the past year. Books without orders count as zero, so the join must be a left join.
+>
+> Filter `available_from < '2019-05-23'`, left-join `Orders`, and sum `quantity` only when `dispatch_date` lies in the one-year window.
+>
+> `HAVING` keeps a sum below $10$. Orders outside the window contribute $0$ in the `SUM(IF(...))`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

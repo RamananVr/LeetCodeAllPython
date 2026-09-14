@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README_EN.md
 tags:
     - Hash Table
     - Math
@@ -72,6 +71,16 @@ It can be shown that there are no more ratio substrings.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring has $0$/$1$ ratio $num1:num2$ iff $n_1\cdot num1-n_0\cdot num2$ matches at both ends. Equal prefix values of that form give a pair.
+>
+> Count those prefix values, starting from $(0,1)$ for the empty prefix. Add then increment at each index.
+
+<!-- thinking:end -->
 
 We use $one[i]$ to represent the number of $1$s in the substring $s[0,..i]$, and $zero[i]$ to represent the number of $0$s in the substring $s[0,..i]$. A substring meets the condition if
 

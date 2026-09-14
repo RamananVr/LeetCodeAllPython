@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README_EN.md
 tags:
     - JavaScript
 ---
@@ -77,6 +76,16 @@ The maximum depth of any subarray is 1. Thus, all of them are flattened.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flatten at most $n$ levels; deeper arrays stay nested. `flat(Infinity)` would overshoot. Bounded depth makes recursion natural.
+>
+> If $n=0$, return the array unchanged; otherwise recurse into each child with $n-1$ and append non-arrays as-is.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

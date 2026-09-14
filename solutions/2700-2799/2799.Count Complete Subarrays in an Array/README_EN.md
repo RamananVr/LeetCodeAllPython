@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README_EN.md
 rating: 1397
 source: Weekly Contest 356 Q2
 tags:
@@ -63,6 +62,16 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A complete subarray contains every distinct value of the original array. Building a set for every pair of ends is acceptable at $n\le 1000$.
+>
+> Compute the global number of distinct values $cnt$, then for each left end grow a set rightward and count a complete subarray whenever the set size reaches $cnt$.
+
+<!-- thinking:end -->
+
 First, we use a hash table to count the number of distinct elements in the array, denoted as $cnt$.
 
 Next, we enumerate the left endpoint index $i$ of the subarray and maintain a set $s$ to store the elements in the subarray. Each time we move the right endpoint index $j$ to the right, we add $nums[j]$ to the set $s$ and check whether the size of the set $s$ equals $cnt$. If it equals $cnt$, it means the current subarray is a complete subarray, and we increment the answer by $1$.
@@ -96,6 +105,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rebuilds a set from each left end. The number of distinct values is monotone in the right end: once the window is complete, every subarray that keeps this right end and a left end at most $i$ is complete, which adds $n-j$. Then advance the left end while updating the counts.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we can use a hash table to count the number of distinct elements in the array, denoted as $cnt$.
 

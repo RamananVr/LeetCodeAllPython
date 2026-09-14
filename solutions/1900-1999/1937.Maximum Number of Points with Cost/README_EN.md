@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README_EN.md
 rating: 2105
 source: Weekly Contest 250 Q3
 tags:
@@ -76,6 +75,18 @@ Your final score is 12 - 1 = 11.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One cell per row with an absolute-column penalty. Trying every previous column is $O(n^2)$ per row and fails when $mn\le 10^5$.
+>
+> The $k\le j$ part depends on $\max(f[k]+k)$ and the $k\ge j$ part on $\max(f[k]-k)$. A left-to-right prefix max and a right-to-left suffix max evaluate each cell in $O(1)$.
+>
+> Rolling one row of DP uses $O(n)$ extra space and linear time in the number of cells.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

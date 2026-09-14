@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3248.Snake%20in%20Matrix/README_EN.md
 rating: 1171
 source: Weekly Contest 410 Q1
 tags:
@@ -187,6 +186,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A snake moves on an $n\times n$ grid by commands and never leaves the board. $n\le 10$ and at most $100$ commands, so a direct simulation is enough.
+>
+> Keep $(x,y)$, update a row or column from the first letter of each command, and return $x\times n+y$. The board need not be allocated.
+
+<!-- thinking:end -->
 
 We can use two variables $x$ and $y$ to represent the position of the snake. Initially, $x = y = 0$. Then, we traverse $\textit{commands}$ and update the values of $x$ and $y$ based on the current command. Finally, we return $x \times n + y$.
 

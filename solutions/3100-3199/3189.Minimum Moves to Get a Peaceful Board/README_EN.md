@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3189.Minimum%20Moves%20to%20Get%20a%20Peaceful%20Board/README_EN.md
 tags:
     - Greedy
     - Array
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rooks move in four directions and must occupy distinct rows and columns. Row conflicts never interact with column conflicts.
+>
+> After sorting by row, the $i$-th rook should go to row $i$, and likewise for columns. Swapping two targets never decreases the total.
+>
+> Two sorts accumulate $|x-i|$ and $|y-j|$. Manhattan steps add across the two axes.
+
+<!-- thinking:end -->
 
 We can sort all the cars by their x-coordinates, and then allocate the cars to each row in order, calculating the sum of distances from each car to its target position. Then, sort all the cars by their y-coordinates and use the same method to calculate the sum of distances from each car to its target position. Finally, the sum of these two distances is the answer.
 

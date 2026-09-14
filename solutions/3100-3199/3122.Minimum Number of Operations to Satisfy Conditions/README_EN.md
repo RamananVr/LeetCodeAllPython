@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README_EN.md
 rating: 1904
 source: Weekly Contest 394 Q3
 tags:
@@ -91,6 +90,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each column must become a single digit and adjacent columns must differ. Recursing over a digit per column yields $10^n$ states.
+>
+> Only the previous column's digit matters, and values lie in $0..9$. After counting the current column, changing it to $j$ costs $m-cnt[j]$.
+>
+> Let $f[i][j]$ be the minimum cost for the first $i$ columns with column $i$ equal to $j$, taking $\min_{k\neq j} f[i-1][k]$ plus that cost. The answer is $\min f[n-1]$.
+
+<!-- thinking:end -->
 
 We notice that the values in the cells of the matrix only have 10 possibilities. The problem requires us to find the minimum number of operations for each column to have the same number, and the numbers in adjacent columns are different. Therefore, we only need to consider the case of modifying the number to 0 to 9.
 

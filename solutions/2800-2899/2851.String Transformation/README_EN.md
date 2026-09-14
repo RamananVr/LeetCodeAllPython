@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2851.String%20Transformation/README_EN.md
 rating: 2857
 source: Weekly Contest 362 Q4
 tags:
@@ -76,6 +75,14 @@ Choose suffix from index = 4, so resulting s = &quot;ababab&quot;.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation rotates $s$ by one, so a string is identified by the new index of $s[0]$. The Z-array of $s+t+t$ lists the rotations that equal $t$. After $k$ moves we only distinguish the original rotation from the others; that two-state recurrence is a matrix power, after which we add the matching offsets.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

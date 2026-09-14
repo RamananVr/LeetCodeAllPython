@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README_EN.md
 rating: 1372
 source: Weekly Contest 478 Q1
 tags:
@@ -68,6 +67,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An element qualifies iff at least $k$ values are strictly larger. If $k=0$ every element qualifies; otherwise, after sorting, the value at index $n-k$ is the threshold, and only strictly smaller entries to its left count.
+
+<!-- thinking:end -->
 
 If $k = 0$, then all elements in the array are qualified elements, and we can directly return the length of the array.
 

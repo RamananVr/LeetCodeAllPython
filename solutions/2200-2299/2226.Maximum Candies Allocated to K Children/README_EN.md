@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README_EN.md
 rating: 1646
 source: Weekly Contest 287 Q3
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every child gets the same positive count, each portion cut from a single pile. $k$ can be $10^{12}$, so we cannot simulate children. Feasibility is monotone in $v$: if $v$ works, every smaller positive $v$ works.
+>
+> Binary-search $v$ in $[0, \max(\textit{candies})]$. A pile of size $x$ yields $\lfloor x/v \rfloor$ portions; the allocation is valid when the sum is at least $k$. The lower bound $0$ covers the empty assignment.
+
+<!-- thinking:end -->
 
 We notice that if each child can receive $v$ candies, then for any $v' \lt v$, each child can also receive $v'$ candies. Therefore, we can use binary search to find the maximum $v$ such that each child can receive $v$ candies.
 

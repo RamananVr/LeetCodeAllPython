@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -66,6 +65,14 @@ tags:
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Slashes cut the grid into regions, $n\le 30$. Split each cell into four triangles. Merge pieces that share an open edge: inside a cell according to `'/'`, `'\\'`, or a blank, and between cells along the shared side. Union-find starts at $4n^2$ pieces and decreases on each successful union.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -115,6 +122,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Union-find treats a region as a set. We can instead refine each cell into a $2\times 2$ and DFS the empty squares; slashes become walls, and diagonal empties are entered only through a slash opening. The number of components is the answer.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README_EN.md
 rating: 1414
 source: Weekly Contest 256 Q2
 tags:
@@ -75,6 +74,16 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Sorting or Quickselect
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The entries are decimal strings and must not be compared lexicographically. After parsing as integers we want the $k$-th largest; a heap selection is enough.
+>
+> $\texttt{nlargest}(k,\cdot)$ keyed by $\texttt{int}$ returns that element at position $k-1$.
+
+<!-- thinking:end -->
 
 We can sort the strings in the $\textit{nums}$ array in descending order as integers, and then take the $k$-th element. Alternatively, we can use the quickselect algorithm to find the $k$-th largest integer.
 

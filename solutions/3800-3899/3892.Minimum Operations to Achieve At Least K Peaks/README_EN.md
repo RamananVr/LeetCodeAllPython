@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README_EN.md
 rating: 2280
 source: Weekly Contest 496 Q4
 tags:
@@ -97,6 +96,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On a circular array we may only add $1$, and we want at least $k$ peaks. $n \le 5000$.
+>
+> Circular peaks cannot be adjacent, so large $k$ is impossible. Each peak means raising that index strictly above both neighbors.
+>
+> $n$ allows $O(n^2)$ or a parity-based greedy: choose a non-adjacent set of peak indices; costs interact because neighboring candidates share sides.
+>
+> One approach is to break the circle at a skipped index and DP on the resulting chain for the cheapest way to take at least $k$ peaks.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

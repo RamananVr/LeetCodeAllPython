@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README_EN.md
 rating: 2301
 source: Weekly Contest 366 Q4
 tags:
@@ -71,6 +70,14 @@ It can be shown that this is the maximum value we can get.
 <!-- solution:start -->
 
 ### Solution 1: Bitwise Operation + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation moves a $1$ onto the same bit of another number; the sum of squares grows when ones concentrate. After counting ones per bit, greedily build the $k$ largest constructible integers (take a bit whenever a one remains) and add their squares.
+
+<!-- thinking:end -->
 
 According to the problem description, for an operation, we can change $nums[i]$ to $nums[i] \textit{ AND } nums[j]$, and change $nums[j]$ to $nums[i] \textit{ OR } nums[j]$. Let's consider the bits of the numbers. If two bits are both $1$ or both $0$, the result of the operation will not change the bits. If two bits are different, the result of the operation will change the bits to $0$ and $1$, respectively. Therefore, we can move $1$ bits to $0$ bits, but not vice versa.
 

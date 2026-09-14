@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README_EN.md
 tags:
     - Database
 ---
@@ -73,6 +72,16 @@ Output table is ordered by peak_calling_hour and city in descending order.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each city needs the hour(s) with the most calls, keeping ties. Group by city and $HOUR(call_time)$, then $RANK$ by count descending and keep $rk=1$.
+>
+> Order by hour and city descending. A self-join for the maximum is unnecessary.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

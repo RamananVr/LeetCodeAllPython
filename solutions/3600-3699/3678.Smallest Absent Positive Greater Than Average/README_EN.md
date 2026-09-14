@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README_EN.md
 rating: 1306
 source: Biweekly Contest 165 Q1
 tags:
@@ -82,6 +81,18 @@ The <strong>average</strong> of an array is defined as the sum of all its elemen
 <!-- solution:start -->
 
 ### Solution 1: Hash Map
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the least positive integer absent from the array and strictly above the average. Starting at $\max(1,\lfloor\textit{avg}\rfloor+1)$ is enough: a missing positive cannot lie far away.
+>
+> Store the array in a set and take the integer average as a lower bound. Increment the candidate while it remains in the set.
+>
+> The walk along the value axis is short and still linear in $n$.
+
+<!-- thinking:end -->
 
 We use a hash map $\textit{s}$ to record the elements that appear in the array $\textit{nums}$.
 

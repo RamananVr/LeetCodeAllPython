@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0934.Shortest%20Bridge/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -64,6 +63,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are exactly two islands; the fewest flips equal the shortest distance between them. DFS dumps one island into a queue and marks it visited, then BFS expands over water. The first time the other island is reached, the layer count is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

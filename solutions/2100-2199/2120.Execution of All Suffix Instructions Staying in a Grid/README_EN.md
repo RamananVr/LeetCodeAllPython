@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2120.Execution%20of%20All%20Suffix%20Instructions%20Staying%20in%20a%20Grid/README_EN.md
 rating: 1379
 source: Weekly Contest 273 Q2
 tags:
@@ -83,6 +82,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each start index $i$ we execute the suffix $s[i:]$ from $\textit{startPos}$ until we leave the grid or run out of instructions. With $m\le 500$, simulating every suffix is $O(m^2)$ and acceptable.
+>
+> Moves are determined by the next character; leaving the $n\times n$ board stops the walk. Suffixes share a start cell but not a path, so there is little shared state to reuse.
+>
+> The outer loop picks $i$, the inner loop walks from $i$ to the end and counts in-bound steps.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

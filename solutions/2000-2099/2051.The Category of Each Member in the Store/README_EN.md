@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2051.The%20Category%20of%20Each%20Member%20in%20the%20Store/README_EN.md
 tags:
     - Database
 ---
@@ -139,6 +138,16 @@ Purchases table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tier is paid visits over all visits; no visit means Bronze. Three tables, and members without visits must remain.
+>
+> Left-join `Visits` and `Purchases`, group by member: zero visits $\to$ Bronze, otherwise Diamond / Gold / Silver by conversion thresholds. `COUNT(charged_amount)` counts only matched purchases.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

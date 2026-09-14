@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The distinct intersection of two arrays. Nested loops are $O(nm)$. A set (or a small table) answers membership in $O(1)$.
+>
+> Load one side into a set, scan the other, and remove on a hit to avoid duplicates. The code is simply the set intersection.
+
+<!-- thinking:end -->
 
 First, we use a hash table or an array $s$ of length $1001$ to record the elements that appear in the array $nums1$. Then, we iterate through each element in the array $nums2$. If an element $x$ is in $s$, we add $x$ to the answer and remove $x$ from $s$.
 

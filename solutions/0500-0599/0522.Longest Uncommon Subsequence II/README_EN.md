@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Subsequence Judgment
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With many strings, a longer string may still be a subsequence of another, so length alone is not enough. $n \le 50$ and short strings make it feasible to test each string against the others.
+>
+> A two-pointer scan checks whether $s$ is a subsequence of $t$. If $s$ is not a subsequence of any other string, it is uncommon and its length updates the answer. If none survive, return $-1$.
+
+<!-- thinking:end -->
 
 We define a function $check(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
 

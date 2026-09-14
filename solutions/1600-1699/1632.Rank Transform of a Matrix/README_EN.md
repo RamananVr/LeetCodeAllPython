@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md
 rating: 2529
 source: Weekly Contest 212 Q4
 tags:
@@ -83,6 +82,18 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rank is one more than the largest rank already used in its row or column, and equal values must share a rank. Without ties, scan values in order. With ties and $m,n \le 500$, equal cells can chain through shared rows or columns.
+>
+> Union those cells by row and by column (shift column ids by $m$); each component gets one plus the max row/column rank inside it.
+>
+> Process values in sorted order, write ranks, then reset the disjoint-set so later values do not stick to earlier ones.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

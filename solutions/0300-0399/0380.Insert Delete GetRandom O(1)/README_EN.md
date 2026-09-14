@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README_EN.md
 tags:
     - Design
     - Array
@@ -66,6 +65,16 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Dynamic List
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A set with insert, delete, and uniform random, all $O(1)$. A hash map alone has no index; an array alone deletes in $O(n)$.
+>
+> The array holds values, the map holds indices. Insert appends; delete swaps with the last element, pops, and repairs that index. Random is `choice` on the array.
+
+<!-- thinking:end -->
 
 We define a dynamic list $q$ to store the elements in the set, and a hash table $d$ to store the index of each element in $q$.
 

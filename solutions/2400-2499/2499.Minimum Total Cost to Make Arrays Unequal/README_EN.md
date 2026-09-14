@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README_EN.md
 rating: 2633
 source: Biweekly Contest 93 Q4
 tags:
@@ -80,6 +79,16 @@ Hence, we return -1.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Positions where the two arrays already match must be swapped away; their indices are paid first. If one value occupies more than half of those positions, they cannot pair among themselves and extra swaps with other indices are required.
+>
+> Count equal positions. If the leading frequency $v$ has $2v>same$, $2v-same$ extras must go outside. Then take $a\ne b$ positions that avoid that leading value. Leftover extras mean impossible.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

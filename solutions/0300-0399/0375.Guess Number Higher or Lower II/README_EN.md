@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README_EN.md
 tags:
     - Minimax
     - Math
@@ -88,6 +87,16 @@ The worst case is that you pay $1.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A wrong guess costs that number; we want the min-max cost to guarantee a win. Searching guess orders is a game tree. The optimum on $[i,j]$ depends only on shorter intervals.
+>
+> $f[i][j]$ is that min-max cost. Guessing $k$ costs $k+\max(left,right)$; minimize over $k$. Fill by interval length; the answer is $f[1][n]$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum cost required to guess any number in the interval $[i, j]$. Initially, $f[i][i] = 0$ because there is no cost to guess the only number, and for $i > j$, we also have $f[i][j] = 0$. The answer is $f[1][n]$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md
 tags:
     - Array
     - Math
@@ -85,6 +84,16 @@ and so on.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must sample index $i$ with probability proportional to $w[i]$, many times, so a linear scan per call is wasteful.
+>
+> Prefix sums turn weights into intervals on $[1, S]$. Draw a uniform integer and binary-search the interval. Build is $O(n)$ and each pick is $O(\log n)$. Subtract one because the prefix array is padded with a leading $0$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

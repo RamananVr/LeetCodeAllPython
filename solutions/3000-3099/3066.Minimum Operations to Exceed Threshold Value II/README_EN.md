@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md
 rating: 1399
 source: Biweekly Contest 125 Q2
 tags:
@@ -90,6 +89,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step replaces the two smallest $x \le y$ by $2x+y$ until the minimum is at least $k$. $n \le 2 \times 10^5$, so linear scans for the minima are too slow.
+>
+> The operation always uses the current two smallest, which a min-heap maintains.
+>
+> After heapifying we pop two, push $2x+y$, and stop when the top is at least $k$.
+
+<!-- thinking:end -->
 
 We can use a priority queue (min heap) to simulate this process.
 

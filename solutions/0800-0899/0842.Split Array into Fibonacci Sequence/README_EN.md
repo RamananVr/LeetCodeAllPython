@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README_EN.md
 tags:
     - String
     - Backtracking
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the digit string into a Fibonacci sequence of at least three 32-bit integers. Length $\le 200$: the first two terms determine the rest, so backtracking is natural.
+>
+> Try each end of the next term, forbid leading zeros, and prune when the value exceeds the 32-bit limit or the previous sum. With two terms already chosen, the next must match their sum. Success is reaching the end with more than two terms.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

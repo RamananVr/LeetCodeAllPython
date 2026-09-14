@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0816.Ambiguous%20Coordinates/README_EN.md
 tags:
     - String
     - Backtracking
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We insert a comma and optional decimal points inside the parentheses. The string length is at most $12$, so trying every comma position and every decimal placement is enough.
+>
+> A piece is valid iff the integer part has no leading zero (except a lone $0$) and the fraction has no trailing zero. Generate both sides independently and pair them.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

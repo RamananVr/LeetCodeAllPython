@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0249.Group%20Shifted%20Strings/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strings in one shift group share the same sequence of letter gaps. Translating each string so that it starts with $a$ yields a grouping key.
+>
+> A hash map buckets by that canonical form, and the buckets are the answer.
+
+<!-- thinking:end -->
 
 We use a hash table $g$ to store each string after shifting and with the first character as '`a`'. That is, $g[t]$ represents the set of all strings that become $t$ after shifting.
 

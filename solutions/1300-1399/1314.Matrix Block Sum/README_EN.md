@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md
 rating: 1483
 source: Biweekly Contest 17 Q2
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two-Dimensional Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cell asks for the sum of a square neighborhood. Summing on the fly is $O(mnk^2)$ when $k$ is large. The same rectangles are requested many times; a 2D prefix reduces any rectangle to four corners.
+>
+> Build $s[i][j]$ as the sum of the top-left $i \times j$ block, clamp each window to the matrix, and evaluate $s[x_2+1][y_2+1]-s[x_1][y_2+1]-s[x_2+1][y_1]+s[x_1][y_1]$.
+
+<!-- thinking:end -->
 
 This problem is a template for two-dimensional prefix sum.
 

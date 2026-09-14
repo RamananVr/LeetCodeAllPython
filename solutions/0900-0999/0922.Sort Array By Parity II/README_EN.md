@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even indices must hold evens and odd indices odds, and the two kinds are equally many. An extra array would work, but we can swap in place. $i$ walks even indices; when that slot is odd, $j$ walks odd indices until an even is found and they swap. $j$ only increases, so the pass is linear.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$ to point to even and odd indices, respectively. Initially, $i = 0$ and $j = 1$.
 

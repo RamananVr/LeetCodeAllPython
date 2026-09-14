@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3825.Longest%20Strictly%20Increasing%20Subsequence%20With%20Non-Zero%20Bitwise%20AND/README_EN.md
 rating: 1845
 source: Biweekly Contest 175 Q3
 ---
@@ -70,6 +69,20 @@ source: Biweekly Contest 175 Q3
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Longest Increasing Subsequence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest strictly increasing subsequence whose AND is nonzero. $n \le 10^5$, and a plain LIS ignores the AND.
+>
+> A nonzero AND means some bit is $1$ in every chosen value.
+>
+> Enumerate that bit, keep numbers with the bit set, and run LIS on the filtered sequence.
+>
+> About $30$ bits, each an $O(n \log n)$ LIS, and we take the maximum.
+
+<!-- thinking:end -->
 
 A non-zero bitwise AND result means that all numbers in the subsequence have a $1$ at a certain bit position. We can enumerate that bit position, then find the longest strictly increasing subsequence among all numbers that have a $1$ at that bit position, and take the maximum value across all enumerations as the answer.
 

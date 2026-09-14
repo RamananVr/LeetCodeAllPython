@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2890.Reshape%20Data%20Melt/README_EN.md
 tags:
     - Pandas
 ---
@@ -66,6 +65,14 @@ The DataFrame is reshaped from wide to long format. Each row represents the sale
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Quarter columns should collapse into a quarter name and a sales value. `melt` keeps `product` as the identifier and unpivots the rest.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

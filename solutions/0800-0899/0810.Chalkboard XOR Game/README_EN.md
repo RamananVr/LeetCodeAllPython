@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md
 tags:
     - Bit Manipulation
     - Brainteaser
@@ -69,6 +68,16 @@ If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elem
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A player loses if the remaining XOR is already $0$ after the opponent’s move. Searching the game tree is too deep for $n\le 1000$. If the current XOR is $0$, the starter wins immediately; otherwise, when $n$ is even, there is always a move that leaves an even-length nonzero-XOR position, so the starter still wins.
+>
+> The answer is therefore “even length or total XOR is $0$”, which is one XOR scan.
+
+<!-- thinking:end -->
 
 According to the game rules, if the XOR result of all numbers on the blackboard is $0$ when it is a player's turn, that player wins. Since Alice goes first, if the XOR result of all numbers in $\textit{nums}$ is $0$, Alice can win.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README_EN.md
 rating: 1867
 source: Biweekly Contest 36 Q3
 tags:
@@ -67,6 +66,18 @@ Another possible matrix is: [[1,2],
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must fill a nonnegative matrix whose row and column sums match the given arrays, with $\sum \textit{rowSum} = \sum \textit{colSum}$. Searching cell by cell is impossible for $m,n \le 500$.
+>
+> Putting $x=\min(\textit{rowSum}[i],\textit{colSum}[j])$ at $(i,j)$ and subtracting from both remainders leaves a smaller instance that is still consistent, so the greedy choice is safe.
+>
+> A single row-major scan constructs a valid matrix without backtracking.
+
+<!-- thinking:end -->
 
 We can first initialize an $m$ by $n$ answer matrix $ans$.
 

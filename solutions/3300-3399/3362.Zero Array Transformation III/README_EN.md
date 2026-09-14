@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README_EN.md
 rating: 2423
 source: Biweekly Contest 144 Q3
 tags:
@@ -94,6 +93,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Difference Array + Priority Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the first two problems, we may pick any subset of queries and want as many unused as possible. Index $i$ needs at least $\textit{nums}[i]$ coverings.
+>
+> Sort by left end and scan $i$, pushing started right ends into a max-heap. Only when coverage is short do we take the latest-ending interval that still covers $i$.
+>
+> Late endings help later indices, so we keep them until they are necessary. A difference array drops coverage at $r+1$. Whatever remains in the heap is unused.
+
+<!-- thinking:end -->
 
 We want to "remove" as many interval queries as possible, while ensuring that for each position $i$, the number of selected queries covering it, $s(i)$, is at least the original array value $\textit{nums}[i]$, so that the value at that position can be reduced to 0 or below. If for some position $i$ we cannot satisfy $s(i) \ge \textit{nums}[i]$, it means that no matter how many more queries we select, it is impossible to make that position zero, so we return $-1$.
 

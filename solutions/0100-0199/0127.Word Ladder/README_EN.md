@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0127.Word%20Ladder/README_EN.md
 tags:
     - Breadth-First Search
     - Hash Table
@@ -64,6 +63,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the shortest transformation; each step changes one letter and must stay in the word list. With up to $5000$ words of length $10$, enumerating paths is impossible. Unweighted shortest paths are BFS: try $26$ letters at each position, enqueue hits, and remove them from the set so they are not visited twice.
+
+<!-- thinking:end -->
 
 BFS minimum step model. This problem can be solved with naive BFS, or it can be optimized with bidirectional BFS to reduce the search space and improve efficiency.
 
@@ -134,7 +141,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bidirectional BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1's frontier can grow wide on a large list. Expanding from both ends and always growing the smaller side meets in the middle at the shortest length, and the search is usually smaller.
+
+<!-- thinking:end -->
+
+Search from both ends until the two sides meet.
 
 <!-- tabs:start -->
 

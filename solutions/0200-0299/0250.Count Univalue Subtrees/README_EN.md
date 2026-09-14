@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree is univalue iff both children are univalue and the root equals those children. One bottom-up walk can count them.
+>
+> $dfs$ reports whether the subtree is univalue: if both sides succeed and the (possibly missing) child values equal the root, increment and return true.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

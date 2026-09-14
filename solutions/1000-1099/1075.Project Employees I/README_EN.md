@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1075.Project%20Employees%20I/README_EN.md
 tags:
     - Database
 ---
@@ -93,6 +92,18 @@ Employee table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Average years per project come from `experience_years` of its members. The tables join on `employee_id`.
+>
+> After an inner join, group by `project_id` and average the years, rounded to two decimals.
+>
+> `ROUND(AVG(...), 2)` matches the required format.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0874.Walking%20Robot%20Simulation/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -120,6 +119,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The robot turns or walks; an obstacle blocks a step. Both commands and obstacles are $\le 10^4$, so simulation is fine if obstacle tests are $O(1)$.
+>
+> Store obstacles in a set and cycle the direction array. Each step peeks at the next cell; the answer is the maximum squared Euclidean distance.
+
+<!-- thinking:end -->
 
 We define a direction array $dirs = [0, 1, 0, -1, 0]$ of length $5$, where each pair of adjacent elements represents a direction. That is, $(dirs[0], dirs[1])$ represents north, $(dirs[1], dirs[2])$ represents east, and so on.
 

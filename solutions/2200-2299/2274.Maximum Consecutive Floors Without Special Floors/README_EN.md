@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2274.Maximum%20Consecutive%20Floors%20Without%20Special%20Floors/README_EN.md
 rating: 1332
 source: Weekly Contest 293 Q2
 tags:
@@ -60,6 +59,16 @@ Therefore, we return the maximum number which is 3 floors.
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Special floors split $[\textit{bottom},\textit{top}]$ into empty runs; we want the longest. Floor numbers reach $10^9$, so we cannot walk them. Empty runs sit between adjacent specials and at the two ends.
+>
+> Sort the specials; the answer is the max of $special[0]-bottom$, $top-special[-1]$, and $y-x-1$ for adjacent pairs.
+
+<!-- thinking:end -->
 
 We can sort the special floors in ascending order, then calculate the number of floors between each pair of adjacent special floors. Finally, we calculate the number of floors between the first special floor and $\textit{bottom}$, as well as the number of floors between the last special floor and $\textit{top}$. The maximum of these floor counts is the answer.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md
 rating: 1759
 source: Weekly Contest 267 Q3
 tags:
@@ -79,6 +78,16 @@ The blue arrows show how we can find originalText from encodedText.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The plaintext was written by rows and read along diagonals. The column count follows from the length and `rows`, so we replay those diagonals. Each character is visited once for $n \le 10^6$.
+>
+> Start at every top-row column, walk down-right, then `rstrip` the guaranteed trailing spaces.
+
+<!-- thinking:end -->
 
 First, we calculate the number of columns in the matrix $cols = \textit{len}(encodedText) / rows$. Then, following the rules described in the problem, we start traversing the matrix from the top left corner, adding characters to the answer.
 

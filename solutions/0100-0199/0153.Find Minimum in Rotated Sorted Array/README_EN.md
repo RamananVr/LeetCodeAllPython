@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -71,6 +70,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rotated sorted array with distinct values; a linear scan is $O(n)$ and $n\le 5000$ is fine, but order allows $\log n$. The minimum splits the array into two increasing runs. Compare the mid to the last value: larger means the min is on the right, otherwise on the left (including mid). Shrink to one index.
+
+<!-- thinking:end -->
 
 We can use binary search to solve this problem.
 

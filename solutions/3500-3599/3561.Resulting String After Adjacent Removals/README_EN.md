@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README_EN.md
 rating: 1397
 source: Weekly Contest 451 Q2
 tags:
@@ -93,6 +92,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent letters that are consecutive in the alphabet (including `a`/`z`) vanish in pairs and may cascade, as in bracket matching. A stack holds the suffix that has not yet been cancelled.
+>
+> For each character, pop if it is $1$ or $25$ away from the top; otherwise push. The stack is the string that remains.
+
+<!-- thinking:end -->
 
 We can use a stack to simulate the process of removing adjacent characters. Iterate through each character in the string. If the character at the top of the stack and the current character are consecutive (i.e., their ASCII values differ by 1 or 25), pop the top character from the stack; otherwise, push the current character onto the stack. Finally, the characters remaining in the stack are those that can no longer be removed. Join the characters in the stack into a string and return it.
 

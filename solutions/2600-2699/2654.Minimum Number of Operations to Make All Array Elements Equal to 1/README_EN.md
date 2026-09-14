@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README_EN.md
 rating: 1928
 source: Weekly Contest 342 Q4
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation overwrites a neighbor with their gcd. If a $1$ already exists, the remaining $n-cnt$ positions each need one overwrite. Otherwise a $1$ must be created first.
+>
+> Gcds drop on longer intervals; the shortest interval whose gcd is $1$ costs $mi-1$ operations, then $n-1$ more spread that $1$.
+>
+> $n \le 50$ lets us scan every interval; if the global gcd exceeds $1$, no solution exists.
+
+<!-- thinking:end -->
 
 We first count the number of $1$s in the array $nums$ as $cnt$. If $cnt \gt 0$, then we only need $n - cnt$ operations to turn the entire array into $1$s.
 

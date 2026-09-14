@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README_EN.md
 rating: 1227
 source: Biweekly Contest 4 Q1
 tags:
@@ -44,6 +43,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Determine Leap Year
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Month lengths are fixed except February. The usual leap-year rule ($\div 4$ but not $\div 100$, or $\div 400$) sets February to $29$ or $28$; a table lookup then returns $days[month]$ without enumerating the month.
+
+<!-- thinking:end -->
 
 We can first determine whether the given year is a leap year. If the year can be divided by $4$ but not by $100$, or can be divided by $400$, then this year is a leap year.
 

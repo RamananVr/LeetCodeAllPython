@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2176.Count%20Equal%20and%20Divisible%20Pairs%20in%20an%20Array/README_EN.md
 rating: 1215
 source: Biweekly Contest 72 Q1
 tags:
@@ -54,6 +53,18 @@ There are 4 pairs that meet all the requirements:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count pairs $i<j$ with equal values and $i\cdot j$ divisible by $k$. $n\le 100$ allows a double loop.
+>
+> Fix $j$ and scan earlier $i$, testing equality and the modular product.
+>
+> No extra index structure is required.
+
+<!-- thinking:end -->
 
 We first enumerate the index $j$ in the range $[0, n)$, and then enumerate the index $i$ in the range $[0, j)$. We count the number of pairs that satisfy $\textit{nums}[i] = \textit{nums}[j]$ and $(i \times j) \bmod k = 0$.
 

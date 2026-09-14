@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1320.Minimum%20Distance%20to%20Type%20a%20Word%20Using%20Two%20Fingers/README_EN.md
 rating: 2027
 source: Weekly Contest 171 Q4
 tags:
@@ -73,6 +72,16 @@ Total distance = 6
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two fingers type $\textit{word}$ on a $6\times 5$ keyboard; each move costs Manhattan distance, and the first letter is free. Searching every fingering for $n \le 300$ grows exponentially. After letter $i$ we only need where the two fingers rest.
+>
+> Let $f[i][j][k]$ be the min cost after typing $\textit{word}[i]$ with fingers on $j$ and $k$. The first letter sits under one finger at cost $0$. Later we move exactly one finger onto the next letter and add the keyboard distance. The answer is the minimum on the last layer.
+
+<!-- thinking:end -->
 
 We define $f[i][j][k]$ to represent the minimum distance after typing $\textit{word}[i]$, with finger 1 at position $j$ and finger 2 at position $k$. Here, positions $j$ and $k$ represent the numbers corresponding to the letters, ranging from $[0,..25]$. Initially, $f[i][j][k] = \infty$.
 

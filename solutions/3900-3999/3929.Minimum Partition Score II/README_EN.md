@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3929.Minimum%20Partition%20Score%20II/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -91,6 +90,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A segment’s value is $\mathrm{sum}(\mathrm{sum}+1)/2$, so the partition score is quadratic in segment sums. A naïve DP over split points is $O(n^2k)$, which fails for $n\le 5\times 10^4$.
+>
+> Quadratic cost suggests a $k$-partition DP accelerated by convex hull or quadrangle inequality. With prefix sums $s_i$, $f[i][t]$ is the minimum cost of the first $i$ elements in $t$ segments, transferring as $f[j][t-1]+(s_i-s_j)(s_i-s_j+1)/2$.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that $k$-partition DP.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

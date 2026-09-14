@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3340.Check%20Balanced%20String/README_EN.md
 rating: 1190
 source: Weekly Contest 422 Q1
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced string has equal digit sums on even and odd indices. With $n \le 100$, one scan is enough.
+>
+> A two-cell array accumulates by $i \bmod 2$; the string is balanced iff the cells are equal.
+>
+> We never materialize the two subsequences; parity of the index is sufficient.
+
+<!-- thinking:end -->
 
 We can use an array $f$ of length $2$ to record the sum of numbers at even indices and odd indices. Then, we traverse the string $\textit{nums}$ and add the numbers to the corresponding positions based on the parity of the indices. Finally, we check whether $f[0]$ is equal to $f[1]$.
 

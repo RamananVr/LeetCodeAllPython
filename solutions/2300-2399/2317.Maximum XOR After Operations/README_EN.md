@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md
 rating: 1678
 source: Biweekly Contest 81 Q3
 tags:
@@ -59,6 +58,16 @@ It can be shown that 11 is the maximum possible bitwise XOR.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation may turn some $1$-bits of $nums[i]$ into $0$, but cannot create a $1$. $n \le 10^5$ calls for a linear observation.
+>
+> The maximum XOR has a bit set if and only if some element already has that bit (we can keep exactly one). The answer is therefore the bitwise OR of the whole array.
+
+<!-- thinking:end -->
 
 In one operation, we can update $\textit{nums}[i]$ to $\textit{nums}[i] \text{ AND } (\textit{nums}[i] \text{ XOR } x)$. Since $x$ is any non-negative integer, the result of $\textit{nums}[i] \oplus x$ can be any value. By performing a bitwise AND operation with $\textit{nums}[i]$, we can change some of the $1$ bits in the binary representation of $\textit{nums}[i]$ to $0$.
 

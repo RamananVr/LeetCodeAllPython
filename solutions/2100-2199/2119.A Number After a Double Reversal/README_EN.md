@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2119.A%20Number%20After%20a%20Double%20Reversal/README_EN.md
 rating: 1187
 source: Weekly Contest 273 Q1
 tags:
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reversing an integer drops leading zeros, so a second reverse returns the original number iff the first reverse did not drop trailing zeros. Performing both reversals works, but the digit rule is immediate.
+>
+> Zero stays zero. Otherwise the first reverse loses trailing zeros iff $num$ is divisible by $10$, i.e., its last digit is $0$.
+>
+> Hence the answer is true iff $num=0$ or $num\bmod 10\neq 0$.
+
+<!-- thinking:end -->
 
 If the number is $0$, or the last digit of the number is not $0$, then the number after reversing twice will be the same as the original number.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1816.Truncate%20Sentence/README_EN.md
 rating: 1235
 source: Weekly Contest 235 Q1
 tags:
@@ -71,13 +70,21 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 
 <!-- solution:start -->
 
-### Solution 1: Simulation
+### Solution 1: String Split
 
-We traverse the string $s$ from the beginning. For the current character $s[i]$, if it is a space, we decrement $k$. When $k$ becomes $0$, it means that we have extracted $k$ words, so we return the substring $s[0..i)$.
+<!-- thinking:start -->
 
-After the traversal, we return $s$.
+> **Thinking**
+>
+> We must keep the first $k$ words of a sentence. Splitting on spaces and joining them back is direct, at the cost of an intermediate word list.
+>
+> The language's $\textit{split}$ already tokenizes on whitespace; taking the first $k$ tokens and joining with spaces matches the statement exactly.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space complexity of the answer, the space complexity is $O(1)$.
+<!-- thinking:end -->
+
+Split the sentence by spaces, then join the first $k$ words.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 
@@ -95,7 +102,21 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 allocates an intermediate array. If we only need the cut position, scan left to right and decrement $k$ on each space; when $k$ hits $0$ the current index is the space after the $k$-th word. If the scan ends with $k>0$, the sentence has fewer than $k$ words and we return it unchanged. Extra space drops to $O(1)$.
+
+<!-- thinking:end -->
+
+We traverse the string $s$ from the beginning. For the current character $s[i]$, if it is a space, we decrement $k$. When $k$ becomes $0$, it means that we have extracted $k$ words, so we return the substring $s[0..i)$.
+
+After the traversal, we return $s$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space complexity of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

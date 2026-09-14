@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README_EN.md
 rating: 2184
 source: Weekly Contest 140 Q4
 tags:
@@ -55,6 +54,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each distinct letter once, in the smallest subsequence that preserves order. $n\le 1000$ fits a monotonic stack: a larger top that still appears later can be popped.
+>
+> Record the last index of every letter. Skip a letter already on the stack; otherwise pop tops that are greater and still occur later, then push.
+>
+> A set tracks membership. The stack order is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -82,6 +93,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a hash set for membership. Twenty-six letters fit in a bit mask, flipped when a letter is pushed or popped.
+>
+> Last-occurrence indices and the monotonic pops stay the same.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

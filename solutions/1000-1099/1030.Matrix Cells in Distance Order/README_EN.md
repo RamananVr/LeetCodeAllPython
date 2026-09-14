@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README_EN.md
 rating: 1585
 source: Weekly Contest 133 Q2
 tags:
@@ -69,6 +68,18 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting all $rows\times cols$ cells by Manhattan distance works for $r,c\le 100$. Cells at distance $d$ form a diamond, so a layer-by-layer walk already yields the order.
+>
+> BFS from $(rCenter,cCenter)$ visits distance $d+1$ only after distance $d$, which is the required order.
+>
+> A queue and a visited grid prevent duplicates; the dequeue sequence is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

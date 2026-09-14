@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README_EN.md
 tags:
     - Stack
     - Array
@@ -72,6 +71,14 @@ It can be shown that there aren&#39;t any subarrays with the given condition wit
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A semi-decreasing subarray only needs its first element larger than its last. Scanning values from large to small and keeping the smallest index $k$ seen so far, the rightmost occurrence of the current value together with $k$ is a candidate length.
+
+<!-- thinking:end -->
 
 The problem is essentially finding the maximum length of the inverse pairs. We can use a hash table $d$ to record the index $i$ corresponding to each number $x$ in the array.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0591.Tag%20Validator/README_EN.md
 tags:
     - Stack
     - String
@@ -83,6 +82,16 @@ The reason why cdata is NOT <b>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&qu
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tags must nest, CDATA is opaque, and the whole string must be one closed tree. Regular expressions struggle with nesting and CDATA.
+>
+> A stack holds open tag names. `<![CDATA[` skips through `]]>`; a closing tag must match the top; an opening name is one to nine uppercase letters. An empty stack in the middle means extra text. The stack must be empty at the end.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

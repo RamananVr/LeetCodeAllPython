@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0948.Bag%20of%20Tokens/README_EN.md
 tags:
     - Greedy
     - Array
@@ -130,6 +129,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cheap tokens buy score, expensive tokens buy energy; we want the peak score. Spend the least energy for a point, and when needed cash a point for the most energy. After sorting, the left pointer buys the cheapest, and if power is short but score remains, the right pointer sells the dearest, tracking the maximum score.
+
+<!-- thinking:end -->
 
 There are two ways to use tokens: one is to consume energy to gain points, and the other is to consume points to gain energy. Obviously, we should consume as little energy as possible to gain as many points as possible.
 

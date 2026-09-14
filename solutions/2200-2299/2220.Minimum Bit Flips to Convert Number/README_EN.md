@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2220.Minimum%20Bit%20Flips%20to%20Convert%20Number/README_EN.md
 rating: 1282
 source: Biweekly Contest 75 Q1
 tags:
@@ -65,6 +64,16 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each flip changes one bit of $start$ so that it becomes $goal$. The integers have only about $30$ bits, but the bits are independent: only positions where $start$ and $goal$ differ need to flip.
+>
+> $start \oplus goal$ has a $1$ exactly on those bits; the pop-count is the minimum number of flips.
+
+<!-- thinking:end -->
 
 According to the problem description, we only need to count the number of 1s in the binary representation of $\textit{start} \oplus \textit{goal}$.
 

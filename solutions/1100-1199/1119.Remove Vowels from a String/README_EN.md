@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README_EN.md
 rating: 1232
 source: Biweekly Contest 4 Q2
 tags:
@@ -48,6 +47,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Dropping vowels is a per-character test: one scan that skips `aeiou` builds the answer. Repeated replace calls would walk the string several times for no gain.
+
+<!-- thinking:end -->
 
 We can directly traverse the string according to the requirements of the problem, and append characters that are not vowels to the result string.
 

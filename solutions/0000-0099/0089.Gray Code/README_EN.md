@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0089.Gray%20Code/README_EN.md
 tags:
     - Bit Manipulation
     - Math
@@ -68,6 +67,18 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 <!-- solution:start -->
 
 ### Solution 1: Binary to Gray Code Conversion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is backtrack: start at $0$, flip an unused bit each time, until $2^n$ numbers. Correct, and $n \le 16$ would pass, but we must dedup and also make first and last differ by one bit.
+>
+> The bottleneck is maintaining “adjacent codes differ by one bit” by hand. Binary-reflected Gray code has a closed form: $i$ maps to $i \oplus (i \gg 1)$.
+>
+> That formula already guarantees adjacent integers differ by one bit, and $0$ versus $2^n - 1$ differs only in the top bit. So just map $[0, 2^n)$ — no search.
+
+<!-- thinking:end -->
 
 Gray code is a type of encoding method that we often encounter in engineering. Its basic feature is that only one bit of binary number is different between any two adjacent codes.
 

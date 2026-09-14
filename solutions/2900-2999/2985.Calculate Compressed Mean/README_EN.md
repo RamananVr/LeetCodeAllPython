@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md
 tags:
     - Database
 ---
@@ -67,6 +66,16 @@ The calculation is as follows:
 <!-- solution:start -->
 
 ### Solution 1: Summation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The table already stores item counts times their frequencies, so the mean is the weighted ratio of those two sums. One $SUM$ pair and $ROUND$ to two decimals suffice.
+>
+> Orders need not be unnested.
+
+<!-- thinking:end -->
 
 We use the `SUM` function to calculate the total quantity of products and the total number of orders, then divide the total quantity by the total number of orders to get the average. Finally, we use the `ROUND` function to round the result to two decimal places.
 

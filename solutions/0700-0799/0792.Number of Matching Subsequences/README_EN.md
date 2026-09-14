@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README_EN.md
 tags:
     - Trie
     - Array
@@ -60,7 +59,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bucketing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $|s|\le 5\times 10^4$; a pointer scan per word rereads $s$. Bucket words by their next needed letter and, while scanning $s$, advance only that bucket.
+>
+> A finished word counts; otherwise the remainder goes to the bucket of its new head. Each character of each word is handled once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -89,7 +98,15 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bucketing (Index Pointers)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 slices leftover strings. Store $(word\_index, matched\_len)$ instead; same buckets, less allocation.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -119,7 +136,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bucketing keeps all words live. Alternatively, store every index of each letter in $s$ and binary-search the next position for each character of $w$.
+>
+> A test is $O(|w|\log n)$ and needs no queues.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

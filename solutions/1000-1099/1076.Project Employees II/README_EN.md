@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1076.Project%20Employees%20II/README_EN.md
 tags:
     - Database
 ---
@@ -93,6 +92,18 @@ Employee table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Several projects may share the largest headcount. After counting per project, keep every `project_id` whose count is not below any other group.
+>
+> `HAVING COUNT(1) >= ALL (grouped counts)` selects all maxima.
+>
+> The subquery only counts; the outer query filters.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -117,6 +128,16 @@ HAVING
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The `ALL` subquery aggregates a second time. `RANK()` ordered by headcount descending marks every maximum as $1$, including ties.
+>
+> A CTE computes `rk`; the outer query keeps `rk = 1`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

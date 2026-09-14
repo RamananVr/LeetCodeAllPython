@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0398.Random%20Pick%20Index/README_EN.md
 tags:
     - Reservoir Sampling
     - Hash Table
@@ -60,6 +59,16 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return a uniform random index of $target$. Storing all indices uses $O(n)$ space. Reservoir sampling streams them.
+>
+> On the $n$-th match replace the answer with probability $1/n$. No index list is stored.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

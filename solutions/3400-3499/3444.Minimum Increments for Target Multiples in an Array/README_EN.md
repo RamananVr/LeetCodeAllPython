@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README_EN.md
 rating: 2336
 source: Weekly Contest 435 Q3
 tags:
@@ -89,6 +88,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every target must divide at least one array element; we may only increment. There are few targets and up to $10^5$ elements.
+>
+> One element may cover several targets by rising to a multiple of their LCM. We compute that increment per subset, then cover the targets across elements.
+>
+> Bitmask DP: $f[s]$ is the minimum increment to cover set $s$. Each element offers a cost for every subset $t$ and relaxes $f$. This is practical for $|target|\le 4$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

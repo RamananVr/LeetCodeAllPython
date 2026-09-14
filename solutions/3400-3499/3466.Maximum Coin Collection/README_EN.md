@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Maximum%20Coin%20Collection/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -130,6 +129,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two lanes, at most two switches, start anywhere and exit anytime. $n\le 10^5$ forbids listing paths.
+>
+> A state stores the index, the lane, and remaining switches. The start index is enumerated outside so “not yet entered” is not a state.
+>
+> $\textit{dfs}(i,j,k)$ may stop here, continue on the same lane, or spend a switch (after a step or in place). The answer is the max of $\textit{dfs}(i,0,2)$ over starts.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}(i, j, k)$, which represents the maximum number of coins Mario can collect starting from position $i$, currently on lane $j$, with $k$ lane changes remaining. The answer is the maximum value of $\textit{dfs}(i, 0, 2)$ for all $i$.
 

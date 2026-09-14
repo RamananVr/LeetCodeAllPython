@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README_EN.md
 rating: 1369
 source: Weekly Contest 466 Q1
 tags:
@@ -64,6 +63,18 @@ A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of element
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation replaces a subarray by its $\gcd$. If every entry is already equal, no operation is needed; otherwise one operation on the whole array equalizes it.
+>
+> The answer is therefore $0$ or $1$. A scan that looks for a value different from the first element decides which.
+>
+> $n\le 100$ is a single pass.
+
+<!-- thinking:end -->
 
 If all elements in $\textit{nums}$ are equal, no operations are needed; otherwise, we can select the entire array as a subarray and perform one operation.
 

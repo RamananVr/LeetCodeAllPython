@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README_EN.md
 rating: 1360
 source: Biweekly Contest 85 Q1
 tags:
@@ -65,6 +64,16 @@ Therefore, we return 0.
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Painting a window of length $k$ all black costs its number of whites. We only need every window, not a search over colorings.
+>
+> Count whites in the first $k$ cells, then slide, adding and removing the ends, and keep the minimum.
+
+<!-- thinking:end -->
 
 We observe that what the problem actually asks for is the minimum number of white blocks in a sliding window of size $k$.
 

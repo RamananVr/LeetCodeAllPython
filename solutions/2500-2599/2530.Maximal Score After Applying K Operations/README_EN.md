@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md
 rating: 1386
 source: Weekly Contest 327 Q2
 tags:
@@ -68,6 +67,16 @@ The final score is 10 + 4 + 3 = 17.
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step adds the current maximum $v$ to the score and replaces it with $\lceil v/3\rceil$, for $k$ steps. Scanning for the max each time is quadratic when $k$ and $n$ reach $10^5$.
+>
+> A max-heap always yields the current largest: pop $v$, add it, and push $\lceil v/3\rceil$. Python stores negations. The loop is $k$ logarithmic operations.
+
+<!-- thinking:end -->
 
 To maximize the sum of scores, we need to select the element with the maximum value at each step. Therefore, we can use a priority queue (max heap) to maintain the element with the maximum value.
 

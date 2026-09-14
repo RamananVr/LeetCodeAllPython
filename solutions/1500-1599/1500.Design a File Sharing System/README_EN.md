@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md
 tags:
     - Design
     - Hash Table
@@ -96,6 +95,16 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each join must receive the smallest unused positive id, and a left id must become reusable at once; we also track which chunks each user holds and, on request, return every user who currently owns that chunk. Scanning from $1$ on every join would cost linear time in the number of historical users, which is unattractive when there are up to $10^4$ calls and $m \le 10^5$.
+>
+> While no id has been recycled, new ids increase monotonically; freed ids form a reusable pool. An incrementing counter issues fresh ids and a min-heap stores released ones, so the smallest free id is available in logarithmic time. A hash map stores user $\to$ chunk set. A request scans currently online users, which is acceptable under the call limit; if the result is nonempty, the requester also receives that chunk.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

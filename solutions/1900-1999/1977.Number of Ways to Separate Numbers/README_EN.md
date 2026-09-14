@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README_EN.md
 rating: 2817
 source: Biweekly Contest 59 Q4
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the digit string into non-decreasing integers without leading zeros. Exponential cuts become an $O(n^2)$ DP for $n\le 3500$.
+>
+> $dp[i][j]$ is the number of ways for the first $i$ digits whose last part has length $j$. A shorter previous part is always smaller and is added via a prefix sum; equal lengths use an LCP table to compare.
+>
+> $dp[i][j]$ also stores that prefix, so the answer is $dp[n][n]$.
+
+<!-- thinking:end -->
 
 Define $dp[i][j]$ to represent the number of ways to partition the first $i$ characters of the string `num` such that the length of the last number is $j$. Clearly, the answer is $\sum_{j=0}^{n} dp[n][j]$. The initial value is $dp[0][0] = 1$.
 

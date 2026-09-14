@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1541.Minimum%20Insertions%20to%20Balance%20a%20Parentheses%20String/README_EN.md
 rating: 1759
 source: Biweekly Contest 32 Q3
 tags:
@@ -76,6 +75,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid string pairs each '(' with two consecutive ')' . $n\le 10^5$, so repeatedly rescanning insertion sites is the wrong tool; one greedy pass is enough.
+>
+> Keep $x$, the number of unmatched left parentheses. A '(' increments $x$. On a ')', insert a mate if the next character is not also ')' . Then either insert a '(' when $x=0$, or consume one pending left. After the scan, each leftover left needs two right parentheses.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

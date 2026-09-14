@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md
 rating: 1626
 source: Weekly Contest 178 Q2
 tags:
@@ -77,6 +76,14 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 <!-- solution:start -->
 
 ### Solution 1: Counting + Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Teams are ranked by votes at each position, then by letter. Pairwise scans of every ballot are $O(m^2 n)$. Count, for each team, the vote vector over positions, and sort by that vector together with the negated letter so the larger vector comes first.
+
+<!-- thinking:end -->
 
 For each candidate, we can count the number of votes they receive at each rank, then compare the vote counts for different ranks in order. If the vote counts are the same, we compare the letters.
 

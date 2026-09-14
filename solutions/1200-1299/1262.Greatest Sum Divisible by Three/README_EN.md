@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README_EN.md
 rating: 1762
 source: Weekly Contest 163 Q3
 tags:
@@ -61,6 +60,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum subsequence sum divisible by $3$. $n \le 4\times 10^4$ forbids subsets. A sum has only three remainders modulo $3$, and taking or skipping the current value moves among those three.
+>
+> $f[i][j]$ is the best sum of the first $i$ numbers with remainder $j$. Skip inherits; take adds $x$ from remainder $j-x$. The answer is $f[n][0]$. Remainders collapse the constraint to a constant number of states.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the maximum sum of several numbers selected from the first $i$ numbers, such that the sum modulo $3$ equals $j$. Initially, $f[0][0]=0$, and the rest are $-\infty$.
 
 For $f[i][j]$, we can consider the state of the $i$th number $x$:
@@ -77,8 +86,6 @@ $$
 The final answer is $f[n][0]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
-
-Note that the value of $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][(j-x \bmod 3 + 3)\bmod 3]$, so we can use a rolling array to optimize the space complexity, reducing the space complexity to $O(1)$.
 
 <!-- tabs:start -->
 
@@ -102,7 +109,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Rolling Array)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores $O(n)$ rows. Row $i$ reads only three previous values, so a length-$3$ rolling array suffices. Extra space is constant; the transition is unchanged.
+
+<!-- thinking:end -->
+
+$f[i][j]$ depends only on the previous row's three residues, so an array of length $3$ is enough. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

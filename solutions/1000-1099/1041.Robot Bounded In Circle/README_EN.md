@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README_EN.md
 rating: 1521
 source: Weekly Contest 136 Q1
 tags:
@@ -101,6 +100,18 @@ Based on that, we return true.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The program repeats forever, so we cannot simulate infinitely many steps. One cycle’s net displacement and heading decide boundedness: back at the origin, or no longer facing north, later cycles stay in a loop.
+>
+> $k\in[0,3]$ is the heading and $\textit{dist}$ counts steps on the four axes. Left adds one, right adds three, and a go increments the current axis.
+>
+> After one cycle we accept if north equals south and east equals west, or if $k\neq 0$.
+
+<!-- thinking:end -->
 
 We can simulate the robot's movement. Use a variable $k$ to represent the robot's direction, initialized to $0$, which means the robot is facing north. The variable $k$ can take values in the range $[0, 3]$, representing the robot facing north, west, south, and east, respectively. Additionally, we use an array $dist$ of length $4$ to record the distance the robot travels in the four directions, initialized to $[0, 0, 0, 0]$.
 

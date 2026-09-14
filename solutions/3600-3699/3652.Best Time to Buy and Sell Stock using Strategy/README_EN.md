@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README_EN.md
 rating: 1556
 source: Weekly Contest 463 Q1
 tags:
@@ -152,6 +151,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The baseline profit is $\sum \textit{prices}[i]\cdot\textit{strategy}[i]$. One edit rewrites a window of length $k$ into $k/2$ zeros followed by $k/2$ ones. Recomputing each window from scratch is too slow.
+>
+> Let $s$ be the prefix of strategy profits and $t$ the prefix of prices. Editing $[i-k,i)$ subtracts the old window profit and adds the last $k/2$ prices.
+>
+> For each right end $i\ge k$, update with $s[n]-(s[i]-s[i-k])+(t[i]-t[i-k/2])$. The unedited profit is $s[n]$.
+
+<!-- thinking:end -->
 
 We use an array $\textit{s}$ to represent the prefix sum, where $\textit{s}[i]$ is the total profit for the first $i$ days, i.e., $\textit{s}[i] = \sum_{j=0}^{i-1} \textit{prices}[j] \times \textit{strategy}[j]$. We also use an array $\textit{t}$ to represent the prefix sum of stock prices, where $\textit{t}[i] = \sum_{j=0}^{i-1} \textit{prices}[j]$.
 

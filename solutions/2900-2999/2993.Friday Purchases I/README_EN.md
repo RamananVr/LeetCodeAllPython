@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,16 @@ Output table is ordered by week_of_month in ascending order.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Date Functions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only Fridays in November 2023, rolled up by week-of-month. $DATE_FORMAT$ pins the month, $DAYOFWEEK=6$ selects Friday, and $CEIL(DAYOFMONTH/7)$ is the week index.
+>
+> Group by date, sum, and order by week. Fridays absent from the table do not appear.
+
+<!-- thinking:end -->
 
 The date functions we use include:
 

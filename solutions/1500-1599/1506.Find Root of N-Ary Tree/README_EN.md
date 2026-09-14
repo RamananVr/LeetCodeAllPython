@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1506.Find%20Root%20of%20N-Ary%20Tree/README_EN.md
 tags:
     - Bit Manipulation
     - Tree
@@ -84,6 +83,16 @@ The input data and serialized Node(1) are the same, so the test passes.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Given every node of an $N$-ary tree, we must recover the root. The root appears once in the list; every other node also appears as someone's child. Recording all children in a hash set and taking the node absent from that set works, but uses linear extra space.
+>
+> Non-root values occur an even number of times and the root an odd number of times, so XOR cancels the pairs. XOR every node value with all of its children's values, then look up the node whose value equals that XOR. The extra space is constant.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

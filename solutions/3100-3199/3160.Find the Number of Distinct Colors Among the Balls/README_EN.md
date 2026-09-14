@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3160.Find%20the%20Number%20of%20Distinct%20Colors%20Among%20the%20Balls/README_EN.md
 rating: 1517
 source: Biweekly Contest 131 Q3
 tags:
@@ -84,6 +83,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Double Hash Tables
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each update paints one ball and asks how many distinct colors exist. $limit$ may be $10^9$, so an array of balls is impossible, and rescanning after every paint is too slow.
+>
+> Only the painted ball changes: increment the new color, decrement the old one and drop it at zero. The number of keys is the answer.
+>
+> Map balls to colors in $g$ and colors to counts in $cnt$. After each query append $len(cnt)$.
+
+<!-- thinking:end -->
 
 We use a hash table `g` to record the color of each ball, and another hash table `cnt` to record the count of each color.
 

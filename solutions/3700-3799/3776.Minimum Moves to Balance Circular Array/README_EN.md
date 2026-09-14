@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README_EN.md
 rating: 1739
 source: Weekly Contest 480 Q3
 tags:
@@ -99,6 +98,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most one balance is negative, and a unit transfer on the ring costs its circular distance. A negative total is impossible; otherwise we fill the unique deficit from the nearest positive neighbors outward, adding $\textit{amount}\times\textit{distance}$ each time.
+
+<!-- thinking:end -->
 
 We first calculate the sum of the array $\textit{balance}$. If the sum is less than $0$, it is impossible to make all balances non-negative, so we directly return $-1$. Then we find the minimum balance in the array and its index. If the minimum balance is greater than or equal to $0$, all balances are already non-negative, so we directly return $0$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md
 tags:
     - Recursion
     - Linked List
@@ -60,6 +59,20 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to dump both lists into an array, sort, and rebuild. Total length is at most $100$, so it would pass, but it throws away the fact that both lists are already sorted.
+>
+> The bottleneck is unnecessary reordering: each step only needs the smaller of the two heads. After taking it, what remains is still two sorted lists — the same problem, one node smaller.
+>
+> Compare the heads of $l_1$ and $l_2$; keep the smaller one and hang the merge of the rest on its $\textit{next}$. When one list is empty, the other is the answer as-is.
+>
+> Recursion depth equals the number of nodes. Lengths here are tiny, so $O(m+n)$ stack space is fine.
+
+<!-- thinking:end -->
+
 First, we judge whether the linked lists $l_1$ and $l_2$ are empty. If one of them is empty, we return the other linked list. Otherwise, we compare the head nodes of $l_1$ and $l_2$:
 
 - If the value of the head node of $l_1$ is less than or equal to the value of the head node of $l_2$, we recursively call the function $mergeTwoLists(l_1.next, l_2)$, and connect the head node of $l_1$ with the returned linked list head node, and return the head node of $l_1$.
@@ -98,6 +111,18 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Iteration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is correct, but the recursion stack is linear in the number of nodes. The lists here are short, yet the same choice can be made with constant extra space.
+>
+> The observation is unchanged: each step still compares the two heads and appends the smaller. A dummy $dummy$ plus a tail pointer $curr$ do that in a loop; when one list runs out, splice the other on.
+>
+> Time matches the recursive version; extra space drops to $O(1)$.
+
+<!-- thinking:end -->
 
 We can also use iteration to implement the merging of two sorted linked lists.
 

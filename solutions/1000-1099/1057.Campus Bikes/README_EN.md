@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1057.Campus%20Bikes/README_EN.md
 tags:
     - Array
     - Sorting
@@ -65,6 +64,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each worker gets the closest unused bike, breaking ties by smaller worker index then smaller bike index. $n,m\le 1000$, so all $nm$ pairs can be sorted and assigned in that order.
+>
+> Triples $(\textit{dist},i,j)$ are sorted; the first time both sides are free they are matched.
+>
+> Two visited arrays ensure each worker and bike is used once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

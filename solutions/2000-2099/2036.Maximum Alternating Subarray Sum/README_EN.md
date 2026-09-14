@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -69,6 +68,18 @@ The alternating subarray sum is 1.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum alternating subarray sum; $n \le 10^5$ forbids interval enumeration. Classify by the last sign: the new state depends only on the opposite state of the previous index.
+>
+> $f$ ends with $+nums[i]$, $g$ with $-nums[i]$. New $f$ continues $g$ or starts fresh; $g$ continues the just-updated $f$.
+>
+> Roll both in $O(1)$ space and take the global max.
+
+<!-- thinking:end -->
 
 We define $f$ as the maximum sum of the alternating subarray ending with $nums[i]$, and define $g$ as the maximum sum of the alternating subarray ending with $-nums[i]$. Initially, both $f$ and $g$ are $-\infty$.
 

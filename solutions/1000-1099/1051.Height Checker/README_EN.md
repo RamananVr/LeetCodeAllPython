@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1051.Height%20Checker/README_EN.md
 rating: 1303
 source: Weekly Contest 138 Q1
 tags:
@@ -75,6 +74,16 @@ All indices match.
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of misplaced students is the number of positions where the array differs from its nondecreasing version. $n\le 100$, so sort and compare.
+>
+> A sorted copy $\textit{expected}$ is zipped with $\textit{heights}$ and mismatches are counted.
+
+<!-- thinking:end -->
+
 We can first sort the heights of the students, then compare the sorted heights with the original heights, and count the positions that are different.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of students.
@@ -97,6 +106,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Counting Sort
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Comparison sort uses $O(n\log n)$ and an extra array. Heights lie in $1..100$, so counting sort builds the expected order in linear time.
+>
+> Tally each height, then expand heights from $1$ to $100$ against the original array and count disagreements.
+
+<!-- thinking:end -->
 
 Since the height of the students in the problem does not exceed $100$, we can use counting sort. Here we use an array $cnt$ of length $101$ to count the number of times each height $h_i$ appears.
 

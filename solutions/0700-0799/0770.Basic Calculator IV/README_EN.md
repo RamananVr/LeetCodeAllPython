@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0770.Basic%20Calculator%20IV/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -100,6 +99,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Expand an expression with variables, $+/-/*$, and parentheses into a polynomial, combining like terms. The language tabs here are empty; the usual model is polynomial arithmetic.
+>
+> Numbers and variables are monomials; addition merges coefficients; multiplication concatenates variable multisets. A stack or recursive descent respects precedence, substituting known variables.
+>
+> Emit nonzero terms by descending degree, then lexicographic variable lists.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

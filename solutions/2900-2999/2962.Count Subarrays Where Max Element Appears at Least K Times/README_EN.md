@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2962.Count%20Subarrays%20Where%20Max%20Element%20Appears%20at%20Least%20K%20Times/README_EN.md
 rating: 1700
 source: Weekly Contest 375 Q3
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray must contain the global maximum at least $k$ times. $n \le 10^5$ forbids enumeration. For a fixed left end, the earliest right end that gathers $k$ copies of $mx$ is monotone, and every later right end stays valid.
+>
+> Two pointers maintain $cnt$. After each left step, advance $j$ as needed, add $n-j+1$, then drop the leaving $mx$.
+
+<!-- thinking:end -->
 
 Let's denote the maximum value in the array as $mx$.
 

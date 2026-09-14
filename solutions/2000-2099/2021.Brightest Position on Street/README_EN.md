@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README_EN.md
 tags:
     - Array
     - Ordered Set
@@ -81,6 +80,18 @@ Out of all these positions, -1 is the smallest, so return it.
 <!-- solution:start -->
 
 ### Solution 1: Difference Array + Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each light covers $[pos-r, pos+r]$; we want the leftmost brightest coordinate. Coordinates are huge, so only the $O(n)$ change points matter.
+>
+> Difference $+1$ at $l$ and $-1$ at $r+1$, sort keys, and scan with running sum $s$ and maximum $mx$.
+>
+> When $s$ sets a new maximum, record that position.
+
+<!-- thinking:end -->
 
 We can consider the range illuminated by each street light as an interval, with the left endpoint $l = position_i - range_i$ and the right endpoint $r = position_i + range_i$. We can use the idea of a difference array. For each interval $[l, r]$, we add $1$ to the value at position $l$ and subtract $1$ from the value at position $r + 1$. We use a hash table to maintain the change value at each position.
 

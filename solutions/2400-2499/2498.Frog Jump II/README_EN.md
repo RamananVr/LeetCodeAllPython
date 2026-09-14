@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md
 rating: 1759
 source: Biweekly Contest 93 Q3
 tags:
@@ -71,6 +70,14 @@ It can be shown that this is the minimum achievable cost.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The frog must visit every stone forth and back, minimizing the longest jump. At $n\le 10^5$, the optimum is to skip one stone each time: even indices one way, odd the other. The longest span is a gap of two steps, including the first $stones[1]-stones[0]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

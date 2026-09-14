@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0809.Expressive%20Words/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -67,6 +66,16 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 <!-- solution:start -->
 
 ### Solution 1: Traversal Counting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Stretching may only lengthen a run, and a lengthened run must have length at least $3$; letters cannot change. Both $s$ and the query words are short, so one two-pointer scan per word is enough.
+>
+> Align consecutive runs: letters must match, and a longer target run, or a run shorter than $3$ that is not equal, is illegal. Both strings must be consumed together.
+
+<!-- thinking:end -->
 
 We can traverse the array $\textit{words}$, and for each word $t$ in the array, check if $t$ can be expanded to obtain $s$. If it can, increment the answer by one.
 

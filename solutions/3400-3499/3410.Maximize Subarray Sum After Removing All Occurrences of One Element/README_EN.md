@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3410.Maximize%20Subarray%20Sum%20After%20Removing%20All%20Occurrences%20of%20One%20Element/README_EN.md
 rating: 2843
 source: Biweekly Contest 147 Q4
 tags:
@@ -82,6 +81,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ordinary maximum subarray sum is linear via Kadane. Here we may delete every occurrence of one value, i.e. pretend those positions are gone and then take a maximum subarray.
+>
+> With $n\le 10^5$ we cannot rebuild the array for every distinct value. Deleting $x$ must be expressed as a modification of the original contributions.
+>
+> Deleting a nonnegative $x$ cannot help. Deleting a negative $x$ removes several negative contributions. Group indices by value and merge the Kadane segments that $x$ used to split, then take the best over all choices of $x$ (including deleting nothing).
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

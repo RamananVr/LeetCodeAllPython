@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -77,6 +76,16 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trees must be cut in increasing unique height. The total walk is the sum of shortest paths between consecutive targets.
+>
+> Sort trees by height, then A* each pair: heap key is distance plus Manhattan estimate. The first time the target pops is optimal; unreachable yields $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

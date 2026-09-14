@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README_EN.md
 rating: 1222
 source: Weekly Contest 328 Q1
 tags:
@@ -66,6 +65,16 @@ The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The absolute difference between the sum of the numbers and the sum of all their digits. Splitting each value is enough.
+>
+> Accumulate each value into $x$ and its digits into $y$. The element sum is never smaller than the digit sum, so return $x-y$.
+
+<!-- thinking:end -->
 
 We traverse the array $\textit{nums}$, calculate the sum of the elements $x$ and the sum of the digits $y$, and finally return $|x - y|$. Since $x$ is always greater than or equal to $y$, we can directly return $x - y$.
 

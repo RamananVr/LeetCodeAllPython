@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README_EN.md
 tags:
     - Stack
     - Array
@@ -52,6 +51,18 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is enumerate every interval $[l, r]$, take the min height, area $(r - l + 1) \times \min$. Correct, but $O(n^2)$. $n \le 10^5$ will time out.
+>
+> The bottleneck is recomputing the min over every range. Flip the enumeration: let bar $i$ be the shortest bar of the rectangle; the width is the span to the nearest strictly shorter bars on both sides.
+>
+> “Nearest smaller on left/right” is the monotonic-stack model. Indices in the stack have increasing heights; a shorter bar pops others and becomes their right bound, while the new top is the left bound. Each bar enters and leaves once, so one linear pass.
+
+<!-- thinking:end -->
+
 We can enumerate the height $h$ of each bar as the height of the rectangle. Using a monotonic stack, we find the index $left_i$, $right_i$ of the first bar with a height less than $h$ to the left and right. The area of the rectangle at this time is $h \times (right_i-left_i-1)$. We can find the maximum value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of $heights$.
@@ -83,42 +94,6 @@ class Solution:
                 stk.pop()
             if stk:
                 left[i] = stk[-1]
-            stk.append(i)
-        return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
-        n = len(heights)
-        stk = []
-        left = [-1] * n
-        right = [n] * n
-        for i, h in enumerate(heights):
-            while stk and heights[stk[-1]] >= h:
-                stk.pop()
-            if stk:
-                left[i] = stk[-1]
-            stk.append(i)
-        stk = []
-        for i in range(n - 1, -1, -1):
-            h = heights[i]
-            while stk and heights[stk[-1]] >= h:
-                stk.pop()
-            if stk:
-                right[i] = stk[-1]
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```

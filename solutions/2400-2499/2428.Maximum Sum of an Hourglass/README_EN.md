@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md
 rating: 1289
 source: Weekly Contest 313 Q2
 tags:
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An hourglass is a $3\times 3$ block minus the two side cells of the middle row. The grid is at most $150\times 150$, so enumerate every center $(i,j)$ and sum the seven cells in $O(mn)$.
+
+<!-- thinking:end -->
 
 We observe from the problem statement that each hourglass is a $3 \times 3$ matrix with the first and last elements of the middle row removed. Therefore, we can start from the top left corner, enumerate the middle coordinate $(i, j)$ of each hourglass, then calculate the sum of the elements in the hourglass, and take the maximum value.
 

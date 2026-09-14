@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md
 rating: 1439
 source: Biweekly Contest 157 Q1
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A string of modest length has $O(n^2)$ substring integers, so we can enumerate them and test primality. The answer is the sum of the three largest distinct primes.
+>
+> Store primes in a set, sort, and add the last three (or all of them if fewer). Grow the integer from each start by $x = 10x + \textit{digit}$ instead of reparsing strings.
+
+<!-- thinking:end -->
 
 We can enumerate all substrings and check whether they are prime numbers. Since the problem requires us to return the sum of the largest 3 distinct primes, we can use a hash table to store all the primes.
 

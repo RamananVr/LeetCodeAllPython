@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3866.First%20Unique%20Even%20Element/README_EN.md
 rating: 1209
 source: Biweekly Contest 178 Q1
 tags:
@@ -64,6 +63,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the first even value that occurs exactly once. Length $\le 100$, two passes.
+>
+> Count first, then scan in original order so the earliest index wins.
+>
+> The predicate is even and frequency $1$.
+>
+> If none exists, return $-1$.
+
+<!-- thinking:end -->
 
 We can use a hash table or array $\textit{cnt}$ to count the number of occurrences of each integer in the array. Then we traverse the array again to find and return the first even number that satisfies the condition. If no such even number exists, we return -1.
 

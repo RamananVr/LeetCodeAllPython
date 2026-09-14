@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md
 rating: 1954
 source: Weekly Contest 456 Q3
 tags:
@@ -100,6 +99,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into exactly $k$ subarrays and minimize the maximum subarray XOR. $n$ and $k$ are modest, so $f[i][j]$ — the best max-XOR using the first $i$ values and $j$ parts — is feasible.
+>
+> Prefix XORs $g[i]$ evaluate a piece $[h+1,i]$ as $g[i]\oplus g[h]$. Enumerate the previous cut $h$ and take $\min_h \max(f[h][j-1], g[i]\oplus g[h])$. The answer is $f[n][k]$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum possible value of the maximum XOR among all ways to partition the first $i$ elements into $j$ subarrays. Initially, set $f[0][0] = 0$, and all other $f[i][j] = +\infty$.
 

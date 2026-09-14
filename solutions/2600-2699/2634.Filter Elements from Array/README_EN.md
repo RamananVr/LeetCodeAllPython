@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README_EN.md
 tags:
     - JavaScript
 ---
@@ -71,6 +70,14 @@ Falsey values such as 0 should be filtered out
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `Array.filter` is disallowed. One sequential scan keeps elements for which $fn(arr[i],i)$ is truthy, preserving order.
+
+<!-- thinking:end -->
 
 We traverse the array $arr$ and for each element $arr[i]$, if $fn(arr[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Maintaining Left Maximum and Right Minimum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every window of length $k$ we need the shortest subarray whose sort makes the window non-decreasing — the same task as the shortest unsorted subarray. Inside a window, a left-to-right maximum and a right-to-left minimum locate the two ends.
+>
+> When $n \cdot k$ is acceptable, scan each window in $O(k)$. If the window is already sorted the ends stay $-1$ and the answer is $0$.
+
+<!-- thinking:end -->
 
 We can enumerate every subarray of length $k$. For each subarray $nums[i...i + k - 1]$, we need to find the smallest continuous segment such that, after sorting it, the entire subarray becomes non-decreasing.
 

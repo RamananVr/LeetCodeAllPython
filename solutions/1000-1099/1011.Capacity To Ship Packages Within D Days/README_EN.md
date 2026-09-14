@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1011.Capacity%20To%20Ship%20Packages%20Within%20D%20Days/README_EN.md
 rating: 1725
 source: Weekly Contest 128 Q3
 tags:
@@ -77,6 +76,18 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Capacity is at least the heaviest package and at most the total weight. Testing every value in that range is too slow: $n\le 5\times 10^4$ and the sum can be in the millions.
+>
+> Larger capacity never increases the number of days, so feasibility is monotonic and the least valid capacity can be found by binary search.
+>
+> For a candidate $x$ we pack left to right and start a new day when $x$ is exceeded. We bisect the first true value of this check on $[\max w_i,\sum w_i]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

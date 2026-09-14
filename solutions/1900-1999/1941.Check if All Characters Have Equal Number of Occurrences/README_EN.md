@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1941.Check%20if%20All%20Characters%20Have%20Equal%20Number%20of%20Occurrences/README_EN.md
 rating: 1242
 source: Biweekly Contest 57 Q1
 tags:
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need all letter frequencies equal. After counting, the set of frequencies should be a singleton.
+>
+> One pass over lowercase letters suffices.
+
+<!-- thinking:end -->
 
 We use a hash table or an array of length $26$ called $\textit{cnt}$ to record the number of occurrences of each character in the string $s$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,14 @@ Returning output in order by the bike that were most recently used.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bike may have many rentals; only the latest return time is needed. `GROUP BY bike_number` with `MAX(end_time)`, then order that time descending.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

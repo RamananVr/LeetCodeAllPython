@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md
 rating: 2457
 source: Biweekly Contest 47 Q4
 tags:
@@ -75,6 +74,16 @@ The answers for each of the queries are as follows:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The incident-edge count of $(a,b)$ is $\deg(a)+\deg(b)$ minus the multiplicity between them. Many queries and a mid-sized $n$ forbid enumerating every pair per query.
+>
+> Sort degrees and, for each $a$, binary-search how many $b$ have $\deg(a)+\deg(b)>q$. Then subtract pairs whose degree sum clears $q$ only before removing the shared edges.
+
+<!-- thinking:end -->
 
 From the problem, we know that the number of edges connected to the point pair $(a, b)$ is equal to the "number of edges connected to $a$" plus the "number of edges connected to $b$", minus the number of edges connected to both $a$ and $b$.
 

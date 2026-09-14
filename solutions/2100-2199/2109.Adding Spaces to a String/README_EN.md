@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md
 rating: 1315
 source: Weekly Contest 272 Q2
 tags:
@@ -75,6 +74,18 @@ We are also able to place spaces before the first character of the string.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Spaces must be inserted at given indices without changing the relative order of $s$. Inserting into a string in place would shift the suffix repeatedly and can become quadratic.
+>
+> $\textit{spaces}$ is increasing, so it can be consumed in lockstep with the indices of $s$ in linear time.
+>
+> A pointer $j$ marks the next space. While scanning $s$, if the current index equals $\textit{spaces}[j]$ we append a space first, then the character, and finally join the buffer.
+
+<!-- thinking:end -->
 
 We can use two pointers $i$ and $j$ to point to the beginning of the string $s$ and the array $\textit{spaces}$, respectively. Then, we iterate through the string $s$ from the beginning to the end. When $i$ equals $\textit{spaces}[j]$, we add a space to the result string, and then increment $j$ by $1$. Next, we add $s[i]$ to the result string, and then increment $i$ by $1$. We continue this process until we have iterated through the entire string $s$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3783.Mirror%20Distance%20of%20an%20Integer/README_EN.md
 rating: 1170
 source: Weekly Contest 481 Q1
 tags:
@@ -84,6 +83,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mirror distance is the absolute difference between $n$ and the integer obtained by reversing its digits (leading zeros vanish). Reversing the decimal string, or peeling the lowest digit into a new integer, both implement that reverse.
+
+<!-- thinking:end -->
 
 We define a function $\text{reverse}(x)$ to reverse the digits of integer $x$. Specifically, we initialize a variable $y$ to $0$, then repeatedly append the last digit of $x$ to the end of $y$, and remove the last digit from $x$, until $x$ becomes $0$. Finally, $y$ is the reversed integer.
 

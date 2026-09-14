@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README_EN.md
 rating: 1915
 source: Biweekly Contest 100 Q4
 tags:
@@ -67,6 +66,16 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mechanic $i$ repairs $x$ cars in $r_i x^2$ minutes; they work in parallel. Assignments are many and the time horizon is $r\cdot cars^2$.
+>
+> More time only repairs more cars, so binary-search $t$. At time $t$ mechanic $r$ finishes $\lfloor\sqrt{t/r}\rfloor$ cars; feasibility is their sum versus $\textit{cars}$. $\textit{bisect\_left}$ returns the minimal $t$.
+
+<!-- thinking:end -->
 
 We notice that the longer the repair time, the more cars are repaired. Therefore, we can use the repair time as the target of binary search, and binary search for the minimum repair time.
 

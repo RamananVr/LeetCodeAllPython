@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README_EN.md
 rating: 1420
 source: Weekly Contest 490 Q2
 tags:
@@ -71,6 +70,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether some leading-zero-free permutation of $n$ equals the sum of its digits' factorials. $n \le 10^9$ forbids listing permutations.
+>
+> The factorial sum depends only on the digit multiset. After computing that sum $x$, compare the multisets of $x$ and $n$.
+>
+> Precompute $0..9$ factorials, sum the digits of $n$, and sort both decimal strings.
+>
+> Equality means a permutation of the same digits exists; a leading-zero writing would not match $n$'s digit collection as a number.
+
+<!-- thinking:end -->
 
 According to the problem description, no matter how the digits of number $n$ are rearranged, the sum of factorials of the digitorial number remains unchanged. Therefore, we only need to calculate the sum of factorials of each digit of number $n$, and check whether the permutation of digits of this sum equals the permutation of digits of $n$.
 

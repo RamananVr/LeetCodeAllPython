@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README_EN.md
 rating: 1449
 source: Weekly Contest 475 Q2
 tags:
@@ -81,6 +80,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same distance formula applies, now with $n\le 10^5$. Consecutive triples remain optimal, so grouping indices by value and scanning each list is linear and avoids enumerating all triples.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{g}$ to store the list of indices for each number in the array. While traversing the array, we add each number's index to its corresponding list in the hash table. Define a variable $\textit{ans}$ to store the answer, with an initial value of infinity $\infty$.
 

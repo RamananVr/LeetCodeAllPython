@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README_EN.md
 rating: 1533
 source: Weekly Contest 381 Q3
 tags:
@@ -94,6 +93,18 @@ It can be shown that no other mapping can provide a lower cost.
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, letters may repeat and $n \le 10^5$. A letter occupies one key, and its cost is frequency times that key’s press rank.
+>
+> High frequencies should take earlier ranks. After sorting the $26$ counts decreasingly, the letter at position $i$ has rank $\lfloor i/8 \rfloor + 1$.
+>
+> A weighted sum with that formula is the answer.
+
+<!-- thinking:end -->
 
 We use a hash table or array $cnt$ to count the number of occurrences of each letter in the string $word$. Next, we sort the letters in descending order of their counts, and then group every $8$ letters together, assigning each group to the $8$ keys.
 

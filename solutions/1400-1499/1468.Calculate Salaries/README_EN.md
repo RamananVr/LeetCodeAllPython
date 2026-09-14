@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1468.Calculate%20Salaries/README_EN.md
 tags:
     - Database
 ---
@@ -95,6 +94,14 @@ For example, Salary for Morninngcat (3, 15) after taxes = 7777 - 7777 * (24 / 10
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tax rate depends on the company's maximum salary. Aggregate `MAX(salary)` per company, join it back, and apply the $1000$/$10000$ brackets with `CASE` and `ROUND`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README_EN.md
 rating: 1553
 source: Biweekly Contest 144 Q2
 tags:
@@ -83,6 +82,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each letter may move forward or backward around the alphabet with costs $\textit{nextCost}$ and $\textit{previousCost}$. With $n \le 10^5$ both directions must be $O(1)$ per character.
+>
+> Duplicating the cost arrays and taking prefix sums lets us read any circular arc.
+>
+> The forward cost is $s1[y]-s1[x]$ (adding $26$ to $y$ when needed); the backward cost is symmetric. We add the smaller of the two.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

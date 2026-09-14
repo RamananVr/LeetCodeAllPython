@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1009.Complement%20of%20Base%2010%20Integer/README_EN.md
 rating: 1234
 source: Weekly Contest 128 Q1
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Writing the binary form and flipping bits yields the complement, but $n$ can be $10^9$, leading zeros must not be flipped, and $n=0$ is defined to be $1$.
+>
+> Processing from low to high only inverts bits that actually appear in $n$. When $n$ becomes $0$ we stop, so higher zero bits stay untouched.
+>
+> Index $i$ marks the current bit; we OR the flipped low bit of $n$ into $\textit{ans}$ and shift $n$ until it vanishes.
+
+<!-- thinking:end -->
 
 First, we check if $n$ is $0$. If it is, we return $1$.
 

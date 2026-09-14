@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md
 rating: 3111
 source: Weekly Contest 386 Q4
 tags:
@@ -96,6 +95,18 @@ Hence, the answer is -1.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On top of part I we may set an index to zero in one second, and $n,m \le 5000$. Feasibility stays monotone, but each index may be cleared either by a reset or by ordinary decrements.
+>
+> A reset is better for a large $nums[i]$, and each index uses at most its earliest reset slot. Checking a candidate $t$ needs a heap to trade “saved decrements” against “seconds spent on resets”.
+>
+> We binary-search $t$ and scan the first $t$ seconds backward. The first occurrence of a positive $nums[i]$ enters the heap; we pop the heap when we would rather decrement, so that the remaining seconds can mark every index.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

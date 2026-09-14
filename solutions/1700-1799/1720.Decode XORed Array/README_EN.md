@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md
 rating: 1284
 source: Weekly Contest 223 Q1
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{encoded}[i]=\textit{arr}[i]\oplus\textit{arr}[i+1]$ and the first value is given. XORing both sides with $\textit{arr}[i]$ recovers the next entry.
+>
+> Start from $\textit{first}$ and apply $\textit{arr}[i+1]=\textit{arr}[i]\oplus\textit{encoded}[i]$ along the array.
+
+<!-- thinking:end -->
 
 Based on the problem description, we have:
 

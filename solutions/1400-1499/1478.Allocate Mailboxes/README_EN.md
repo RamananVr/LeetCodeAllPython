@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1478.Allocate%20Mailboxes/README_EN.md
 rating: 2190
 source: Biweekly Contest 28 Q4
 tags:
@@ -60,6 +59,16 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ houses and $k$ mailboxes. One mailbox on a contiguous segment sits at the median; after sorting, the cost satisfies $g[i][j]=g[i+1][j-1]+houses[j]-houses[i]$.
+>
+> $f[i][j]$ is the min cost for the first $i+1$ houses with $j$ mailboxes, enumerating the previous cut $p$ and adding $g[p+1][i]$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the minimum total distance between the houses and their nearest mailbox, when placing $j$ mailboxes among the first $i+1$ houses. Initially, $f[i][j] = \infty$, and the final answer will be $f[n-1][k]$.
 

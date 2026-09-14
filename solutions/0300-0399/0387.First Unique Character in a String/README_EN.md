@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README_EN.md
 tags:
     - Queue
     - Hash Table
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Index of the first unique character. One left-to-right pass cannot know about later repeats.
+>
+> Count, then scan for frequency $1$; else $-1$. Two linear passes, alphabet space.
+
+<!-- thinking:end -->
 
 We use a hash table or an array of length $26$ $\text{cnt}$ to store the frequency of each character. Then, we traverse each character $\text{s[i]}$ from the beginning. If $\text{cnt[s[i]]}$ is $1$, we return $i$.
 

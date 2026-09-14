@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1169.Invalid%20Transactions/README_EN.md
 rating: 1658
 source: Weekly Contest 151 Q1
 tags:
@@ -70,6 +69,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A transaction is invalid iff the amount exceeds $1000$, or the same name appears in another city within $60$ minutes. Group $(\textit{time},\textit{city},\textit{index})$ by name and compare a new row with the group to mark both sides. The amount rule is separate. $n$ is small enough for pairwise checks inside a name.
+
+<!-- thinking:end -->
 
 We traverse the transaction list. For each transaction, if the amount is greater than 1000, or if the transaction has the same name but different cities and the time interval does not exceed 60 minutes, then add it to the answer.
 

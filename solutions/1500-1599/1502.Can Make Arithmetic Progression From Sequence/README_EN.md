@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1502.Can%20Make%20Arithmetic%20Progression%20From%20Sequence/README_EN.md
 rating: 1154
 source: Weekly Contest 196 Q1
 tags:
@@ -54,6 +53,16 @@ tags:
 
 ### Solution 1: Sorting + Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> To decide whether the array can be rearranged into an arithmetic progression, trying every permutation is $n!$, which is impossible even for $n$ around a thousand. After a valid rearrangement every adjacent difference equals the same $d$, so one canonical order suffices.
+>
+> Sorting forces that order: the common difference must be the gap between consecutive sorted values. Checking that every adjacent pair matches the first gap is then a linear scan, and the sort is cheap enough for the given $n$.
+
+<!-- thinking:end -->
+
 We can first sort the array $\textit{arr}$, then traverse the array, and check whether the difference between adjacent items is equal.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{arr}$.
@@ -77,6 +86,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 spends $O(n\log n)$ on sorting. If an arithmetic progression exists, its difference is fixed by the minimum $a$ and maximum $b$ as $d=(b-a)/(n-1)$, which must be an integer. After placing the values in a hash set, it is enough to test that $a, a+d, \ldots, a+(n-1)d$ all appear, which is linear time.
+
+<!-- thinking:end -->
 
 We first find the minimum value $a$ and the maximum value $b$ in the array $\textit{arr}$. If the array $\textit{arr}$ can be rearranged into an arithmetic sequence, then the common difference $d = \frac{b - a}{n - 1}$ must be an integer.
 

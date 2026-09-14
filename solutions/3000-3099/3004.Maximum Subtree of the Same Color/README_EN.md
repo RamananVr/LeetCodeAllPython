@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tree has $n \le 5 \times 10^4$ nodes, so rechecking every subtree for a single color would repeat work.
+>
+> A subtree is monochromatic iff the root matches every child and every child’s subtree is itself monochromatic. Sizes add up in post-order.
+>
+> One DFS therefore returns a boolean and maintains $\textit{size}$. Only a fully monochromatic subtree updates the answer with its size.
+
+<!-- thinking:end -->
 
 First, according to the edge information given in the problem, we construct an adjacency list $g$, where $g[a]$ represents all adjacent nodes of node $a$. Then we create an array $size$ of length $n$, where $size[a]$ represents the number of nodes in the subtree with node $a$ as the root.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README_EN.md
 tags:
     - Design
     - Hash Table
@@ -69,6 +68,18 @@ allOne.getMinKey(); // return &quot;leet&quot;
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{inc}$, $\textit{dec}$, $\textit{getMaxKey}$ and $\textit{getMinKey}$ all need amortized $O(1)$. A hash map updates a count in $O(1)$ but cannot report the extremes; an ordered set would take logarithmic time.
+>
+> Keys that share a count sit in one doubly linked bucket, and buckets form a ring ordered by count. A map sends each key to its bucket. Increment and decrement move a key only to an adjacent count, inserting or deleting an empty bucket when needed.
+>
+> The ring's successor and predecessor are the min and max counts. Keys never jump over buckets, so the list is never scanned.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

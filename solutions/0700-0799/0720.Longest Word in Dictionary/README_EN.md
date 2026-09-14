@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README_EN.md
 tags:
     - Trie
     - Array
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest word that can be built by adding one letter at a time from other dictionary words, breaking ties lexicographically. The input is small, but checking every prefix in a set is easy to get messy.
+>
+> That condition is exactly: every prefix of the word is itself in the dictionary. After inserting all words into a trie, a walk that requires every node to be a word-end decides it in one pass.
+>
+> Build the trie, then scan each word with $\textit{search}$, keeping the longer word or the lexicographically smaller one of equal length. Time is linear in the total number of characters.
+
+<!-- thinking:end -->
 
 We can use a trie to store all the words, then traverse all the words to determine if the current word can be formed by adding one letter at a time from other words in the trie. Find the longest word that meets the condition and has the smallest lexicographical order.
 

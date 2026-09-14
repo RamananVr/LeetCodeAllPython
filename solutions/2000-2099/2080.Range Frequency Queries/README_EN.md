@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md
 rating: 1702
 source: Weekly Contest 268 Q3
 tags:
@@ -66,6 +65,16 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many range frequency queries on a static array. $n$ and the query count are $10^5$; a segment tree works, but one value only needs its index list.
+>
+> A hash map stores increasing indices; two binary searches on $[left,right]$ yield the count.
+
+<!-- thinking:end -->
 
 We use a hash table $g$ to store the array of indices corresponding to each value. In the constructor, we traverse the array $\textit{arr}$, adding the index corresponding to each value to the hash table.
 

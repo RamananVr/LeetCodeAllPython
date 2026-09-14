@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md
 rating: 1084
 source: Weekly Contest 144 Q1
 tags:
@@ -42,6 +41,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Direct Replacement
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The task is only to replace every `.` with `[.]`; the address need not be parsed or validated. A single linear `replace` suffices and runs in time proportional to the string length.
+
+<!-- thinking:end -->
 
 We can directly replace the `'.'` in the string with `'[.]'`.
 

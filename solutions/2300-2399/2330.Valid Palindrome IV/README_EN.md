@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2330.Valid%20Palindrome%20IV/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -64,6 +63,16 @@ Two operations could be performed to make s a palindrome so return true.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may change at most two characters to make a palindrome. $n \le 10^5$, so we cannot try edit positions. One edit fixes at most one mirrored pair.
+>
+> Two pointers count pairs with $s[i] \ne s[j]$. At most two mismatches can be fixed in two operations.
+
+<!-- thinking:end -->
 
 We can use two pointers $i$ and $j$, pointing to the beginning and end of the string, respectively, and then move towards the center, counting the number of different characters. If the number of different characters is greater than $2$, return $\textit{false}$; otherwise, return $\textit{true}$.
 

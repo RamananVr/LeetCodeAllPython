@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2619.Array%20Prototype%20Last/README_EN.md
 tags:
     - JavaScript
 ---
@@ -50,6 +49,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arrays need a last-element accessor; the empty case returns $-1$. Copying and popping is wasteful and mutates.
+>
+> The last index is $n-1$, so `at(-1)` reads it; the empty array uses the sentinel.
+>
+> Attaching the method to `Array.prototype` makes it available on every instance.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

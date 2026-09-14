@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1896.Minimum%20Cost%20to%20Change%20the%20Final%20Value%20of%20Expression/README_EN.md
 rating: 2531
 source: Biweekly Contest 54 Q4
 tags:
@@ -86,6 +85,16 @@ The new expression evaluates to 0.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid boolean expression uses $0/1$, $\&$, $|$, and parentheses. One edit flips a digit or an operator. The expression can have length $10^5$, so reevaluating every edit is impossible.
+>
+> Each subexpression only needs its current value and the cost of flipping it. A leaf costs $1$ to flip. When two sides are joined by $\&$ or $|$, the flip cost follows from changing the operator, one child, or both. A stack parses parentheses and operators and merges these pairs from the bottom up.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

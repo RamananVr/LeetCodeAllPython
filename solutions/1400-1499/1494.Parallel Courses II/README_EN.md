@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1494.Parallel%20Courses%20II/README_EN.md
 rating: 2081
 source: Biweekly Contest 29 Q4
 tags:
@@ -71,6 +70,16 @@ In the fourth semester, you can take course 5.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 15$. At most $k$ courses per term, prerequisites respected. A bit mask is the set of finished courses; BFS gives the fewest terms.
+>
+> A course is ready when all its prerequisite bits are on. If at most $k$ are ready, take them all; otherwise enqueue every $k$-subset. The target is all courses bits set.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

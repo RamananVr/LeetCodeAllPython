@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md
 rating: 1768
 source: Weekly Contest 348 Q3
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We apply row and column assignments on an $n\times n$ matrix and want the final sum. $n$ can be $10^4$, so the matrix cannot be materialized; only the last write to a row or column survives.
+>
+> Scan queries backward. The first time a row (column) appears it is the live write, and it covers the cells not yet claimed by a later column (row). Two sets remember settled rows and columns; add $v$ times the remaining width.
+
+<!-- thinking:end -->
 
 Since the value of each row and column depends on the last modification, we can traverse all queries in reverse order and use hash tables $row$ and $col$ to record which rows and columns have been modified.
 

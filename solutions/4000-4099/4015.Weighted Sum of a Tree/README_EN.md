@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README_EN.md
 rating: 1534
 source: Weekly Contest 514 Q2
 tags:
@@ -166,6 +165,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The weight of node $i$ is $\textit{nums}[i]\times(h-d_i+1)$. Computing the height first and then summing by definition needs two traversals and stored depths.
+>
+> Splitting the sum into $h\sum\textit{nums}[i]+\sum\textit{nums}[i](1-d_i)$ lets one BFS accumulate the second term while it walks; the number of layers at the end is $h$.
+>
+> The adjacency lists keep only parent-to-child edges, so the level order matches the depth definition.
+
+<!-- thinking:end -->
 
 The weight of node $i$ is $\textit{nums}[i] \times (h - d_i + 1)$, where $d_i$ is the depth of node $i$ and $h$ is the height of the tree. Therefore, the sum of the weights of all nodes is:
 

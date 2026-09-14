@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README_EN.md
 rating: 1951
 source: Weekly Contest 314 Q4
 tags:
@@ -68,6 +67,16 @@ The second path highlighted in blue has a sum of 5 + 3 + 0 + 5 + 2 = 15 which is
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves are only right or down. The grid has $mn\le 5\times 10^4$ and $k\le 50$. We need the number of paths whose sum is $0$ modulo $k$, so the remainder is part of the state.
+>
+> Let $f[i][j][r]$ be ways to reach $(i,j)$ with sum $r\bmod K$, coming from the cell above or to the left with remainder $r-grid[i][j]$. Seed the start with $1$.
+
+<!-- thinking:end -->
 
 We denote the $k$ in the problem as $K$, and let $m$ and $n$ be the number of rows and columns of the matrix $\textit{grid}$, respectively.
 

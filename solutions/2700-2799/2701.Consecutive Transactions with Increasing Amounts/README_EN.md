@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README_EN.md
 tags:
     - Database
 ---
@@ -82,6 +81,16 @@ customer_id is sorted in ascending order.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid streak needs strictly increasing amounts on consecutive days for the same customer, and at least three days. Scanning each customer after a sort works, but a self-join that marks “yesterday exists with a smaller amount” turns breaks into one window aggregation.
+>
+> Left-join each row to a predecessor one day earlier with a smaller amount; a miss starts a new segment. A prefix sum of those breaks, ordered by customer and date, yields a segment id $s$. Group by $(customer\_id, s)$ and keep groups of length at least $3$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

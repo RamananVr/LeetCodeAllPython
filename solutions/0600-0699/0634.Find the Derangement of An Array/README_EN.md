@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -51,6 +50,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The derangement count $!n$ has an inclusion-exclusion formula, but modular inversion is awkward. A recurrence is cleaner.
+>
+> After placing $1$ at $j$, either $j$ swaps back or not, giving $f[i]=(i-1)(f[i-1]+f[i-2])$. Fill the table up to $n$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the number of derangement of an array of length $i$. Initially, $f[0] = 1$, $f[1] = 0$. The answer is $f[n]$.
 
 For an array of length $i$, we consider where to place the number $1$. Suppose it is placed in the $j$-th position, where there are $i-1$ choices. Then, the number $j$ has two choices:
@@ -89,6 +98,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the previous two values are needed, so two scalars replace the array.
+
+<!-- thinking:end -->
 
 We notice that the state transition equation only relates to $f[i - 1]$ and $f[i - 2]$. Therefore, we can use two variables $a$ and $b$ to represent $f[i - 1]$ and $f[i - 2]$ respectively, thereby reducing the space complexity to $O(1)$.
 

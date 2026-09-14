@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README_EN.md
 tags:
     - Hash Table
     - String
@@ -71,6 +70,18 @@ Let&#39;s check the substring <code>&quot;<span class="example-io">abac</span>&q
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A self-contained substring must contain every occurrence of each of its characters and cannot be the whole string. Checking every interval against $26$ first/last positions is $O(n^2|\Sigma|)$ and too heavy.
+>
+> A valid left endpoint must be some character's first occurrence: extending further left only adds a new character or an earlier copy. With at most $26$ letters the candidate starts are few.
+>
+> Record each character's first and last index, enumerate left endpoint $i$, and walk $j$ rightward while tracking the farthest cover $mx$. Stop if a character first appears before $i$; when $mx=j$ and the interval is proper, update the longest length.
+
+<!-- thinking:end -->
 
 We notice that the start of a substring that meets the conditions must be the position where a character appears for the first time.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -51,6 +50,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even numbers should precede odds; relative order is free. An extra array would work, but the permutation can be done in place. Two pointers move inward: advance the left on an even, the right on an odd, otherwise swap. Each index is visited a constant number of times.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$ to point to the beginning and end of the array respectively. When $i < j$, we perform the following operations.
 

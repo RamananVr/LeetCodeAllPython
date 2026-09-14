@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md
 rating: 1880
 source: Biweekly Contest 67 Q3
 tags:
@@ -80,6 +79,18 @@ Thus all 5 bombs are detonated.
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Detonation propagates along the “inside radius” relation, so we need the largest reachable set starting from one bomb. Treating the relation as undirected would miss one-way reachability when radii differ; rescanning all bombs on every detonation repeats the same distance work.
+>
+> With $n\le 100$, building a directed graph $g$ from every pair costs $O(n^2)$. A chain detonation is then a reachability search, which BFS solves in $O(n^2)$ per source.
+>
+> We therefore add edges by pairwise distance checks, then BFS from each bomb, returning $n$ as soon as some search visits every vertex.
+
+<!-- thinking:end -->
 
 We define an array $g$ of length $n$, where $g[i]$ represents the indices of all bombs that can be triggered by bomb $i$ within its explosion range.
 

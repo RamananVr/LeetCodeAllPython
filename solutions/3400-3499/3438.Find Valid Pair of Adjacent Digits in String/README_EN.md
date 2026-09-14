@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README_EN.md
 rating: 1225
 source: Biweekly Contest 149 Q1
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid pair uses two distinct digits whose global frequencies equal the digits themselves. $|s|\le 100$, so a count plus one adjacent scan is enough.
+>
+> Counting while scanning would miss occurrences to the right of the pair.
+>
+> We fill a length-$10$ frequency array first, then return the leftmost adjacent pair with $x\neq y$, $cnt[x]=x$ and $cnt[y]=y$.
+
+<!-- thinking:end -->
 
 We can use an array $\textit{cnt}$ of length $10$ to record the occurrences of each digit in the string $\textit{s}$.
 

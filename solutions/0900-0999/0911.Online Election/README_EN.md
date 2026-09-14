@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0911.Online%20Election/README_EN.md
 tags:
     - Design
     - Array
@@ -69,6 +68,16 @@ topVotedCandidate.q(8); // return 1
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks who is leading at time $t$. Scanning the votes up to $t$ is linear and too slow over many queries. $times$ is strictly increasing, so we can precompute the winner after every vote, breaking ties in favor of the most recent person.
+>
+> A query binary-searches the last vote at time $\le t$ and returns the stored winner.
+
+<!-- thinking:end -->
 
 We can record the winner at each moment during initialization, and then use binary search to find the largest moment less than or equal to $t$ during the query, and return the winner at that moment.
 

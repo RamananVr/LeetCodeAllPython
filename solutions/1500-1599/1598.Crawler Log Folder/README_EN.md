@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1598.Crawler%20Log%20Folder/README_EN.md
 rating: 1297
 source: Weekly Contest 208 Q1
 tags:
@@ -79,6 +78,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Logs move into a folder, stay, or go up one level; we want the fewest $\texttt{../}$ steps back to the root. At most $10^3$ logs, so tracking depth is enough—no real path stack is required.
+>
+> A real folder name increments the depth; $\texttt{../}$ decrements it but not below zero. The final depth is the number of ups still needed.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

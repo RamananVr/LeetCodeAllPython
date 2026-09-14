@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3318.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20I/README_EN.md
 rating: 1457
 source: Weekly Contest 419 Q1
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 50$ we could rebuild frequencies in every window. To share the structure with part II, two ordered sets keep the current top-$x$ values and the rest.
+>
+> A frequency change moves a value between the sets. We delete the old pair, update the count, then insert the new pair so order stays correct.
+>
+> $s$ tracks the weighted sum of the top-$x$ set. Whenever $|l| \ne x$ we pull from or push to the other set, which yields that window's $x$-sum.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{cnt}$ to count the occurrences of each element in the window, an ordered set $\textit{l}$ to store the $x$ elements with the highest occurrences in the window, and another ordered set $\textit{r}$ to store the remaining elements.
 

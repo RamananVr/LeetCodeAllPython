@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0483.Smallest%20Good%20Base/README_EN.md
 tags:
     - Math
     - Binary Search
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The smallest base $k\ge 2$ in which $n$ is all ones. $k=n-1$ always works ($11_k$), but $n$ can be $10^{18}$, so scanning $k$ is impossible.
+>
+> The number of ones $m+1$ satisfies $m<60$. Try $m$ from large to small and binary-search $k$ so that $1+k+\cdots+k^m=n$. A larger $m$ yields a smaller $k$, so going downward finds the smallest base first.
+>
+> The geometric sum is monotone in $k$, so the binary search is valid. If none hits, fall back to $n-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

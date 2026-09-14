@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1315.Sum%20of%20Nodes%20with%20Even-Valued%20Grandparent/README_EN.md
 rating: 1426
 source: Biweekly Contest 17 Q3
 tags:
@@ -54,6 +53,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We sum nodes whose grandparent is even. Walking up from a child needs parent pointers. Passing the parent's value downward is enough: when that value is even, the current node's children are exactly the nodes with an even grandparent, so we add them and recurse with the current value. The root has no grandparent; an odd placeholder is fine.
+
+<!-- thinking:end -->
 
 We design a function $dfs(root, x)$, which represents the sum of the values of the nodes that meet the conditions in the subtree with $root$ as the root node and $x$ as the value of the parent node of $root$. The answer is $dfs(root, 1)$.
 

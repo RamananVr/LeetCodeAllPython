@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README_EN.md
 rating: 1967
 source: Weekly Contest 167 Q4
 tags:
@@ -60,6 +59,16 @@ The shortest path with one obstacle elimination at position (3,2) is 6. Such pat
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Shortest path on a grid, with at most $k$ obstacles removable. $m,n \le 40$, so a state includes remaining removals. BFS layers are steps; if $k$ already covers the Manhattan detour we return that length.
+>
+> The queue stores $(i,j,k\text{ left})$. Empty cells keep $k$; obstacles use $k-1$. The same cell with different remaining $k$ is another state. The first time we reach the end is shortest.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md
 tags:
     - Database
 ---
@@ -94,6 +93,14 @@ Steps table:
 <!-- solution:start -->
 
 ### Solution 1: Window Functions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rolling average needs three consecutive days for the same user. After ordering by user and date, a `ROWS 2 PRECEDING` average is the three-day mean, and `LAG(...,2)` being exactly two days apart certifies consecutiveness.
+
+<!-- thinking:end -->
 
 We can use the window function `LAG() OVER()` to calculate the difference in days between the current date and the date before the last date for each user. If the difference is $2$, it means that there are continuous data for $3$ days between these two dates. We can use the window function `AVG() OVER()` to calculate the average of these $3$ data.
 

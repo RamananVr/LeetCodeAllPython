@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1210.Minimum%20Moves%20to%20Reach%20Target%20with%20Rotations/README_EN.md
 rating: 2022
 source: Weekly Contest 156 Q4
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The snake translates and rotates; a state is the tail cell plus orientation. $n \le 100$ gives $O(n^2)$ states, so shortest path is a BFS.
+>
+> Each step may shift right or down (both ends move, stay in bounds, and avoid walls). A horizontal snake may stand up clockwise; a vertical one may lie down counterclockwise, provided the swept cell is empty. Flattening coordinates, we mark $(tail, orientation)$ visited.
+>
+> The queue stores $(tail, head)$ and expands by layers. The layer that first reaches $(n^2-2, n^2-1)$ is the answer. BFS yields the shortest path.
+
+<!-- thinking:end -->
 
 The problem asks for the minimum number of moves for the snake to reach the target position from the starting position. We consider using Breadth-First Search (BFS) to solve it.
 

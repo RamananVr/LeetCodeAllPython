@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -83,6 +82,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list is immutable: only $getNext$ and $printValue$, length at most $1000$. Reverse order means we must visit the successor before printing the current node. Recursing and printing after the call emits tail-to-head; the stack holds the prefix.
+
+<!-- thinking:end -->
 
 We can use recursion to implement reverse printing of a linked list. In the function, we check whether the current node is null. If it is not null, we get the next node, then recursively call the function itself, and finally print the value of the current node.
 

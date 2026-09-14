@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3216.Lexicographically%20Smallest%20String%20After%20a%20Swap/README_EN.md
 rating: 1242
 source: Weekly Contest 406 Q1
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap adjacent same-parity digits at most once. $n\le 100$ would allow trying every legal swap, but the lexicographically best swap is the leftmost one.
+>
+> Scan left to right for the first adjacent pair with the same parity and a larger left digit, then swap and stop: a later swap cannot improve an already better prefix. If no such pair exists, the string is already minimal.
+
+<!-- thinking:end -->
 
 We can traverse the string $\textit{s}$ from left to right. For each pair of adjacent digits, if they have the same parity and the previous digit is greater than the next digit, then we swap these two digits to make the lexicographical order of the string $\textit{s}$ smaller, and then return the swapped string.
 

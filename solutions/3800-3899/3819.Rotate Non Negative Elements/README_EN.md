@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README_EN.md
 rating: 1381
 source: Weekly Contest 486 Q2
 ---
@@ -93,6 +92,20 @@ source: Weekly Contest 486 Q2
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Non-negative values rotate left by $k$; negatives stay put. $n \le 10^5$, and in-place interleaving is error-prone and unnecessary.
+>
+> Non-negatives form their own sequence; negatives are only placeholders. Extract, rotate that sequence, then write it back into the old non-negative slots.
+>
+> The new index is $((i-k)\bmod m+m)\bmod m$ for $m$ non-negative entries.
+>
+> A second scan fills only those slots; negatives keep their original values.
+
+<!-- thinking:end -->
 
 We first extract all non-negative elements from the array and store them in a new array $t$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README_EN.md
 tags:
     - Pandas
 ---
@@ -66,6 +65,14 @@ Alic (customer_id = 4) and Finn (customer_id = 5) both use john@example.com, so 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicates are defined by `email`. `drop_duplicates(subset=['email'])` keeps the first occurrence of each address.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

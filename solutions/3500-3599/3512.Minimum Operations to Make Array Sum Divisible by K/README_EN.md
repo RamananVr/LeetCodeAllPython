@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README_EN.md
 rating: 1228
 source: Biweekly Contest 154 Q1
 tags:
@@ -86,6 +85,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sum and Modulo
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation decreases one element by $1$, hence the total sum by $1$. The sum is divisible by $k$ after exactly $S \bmod k$ operations.
+>
+> A single pass that sums and reduces modulo $k$ is enough; there is no need to simulate each decrement.
+
+<!-- thinking:end -->
 
 The problem essentially asks for the result of the sum of the array elements modulo $k$. Therefore, we only need to iterate through the array, calculate the sum of all elements, and then take the modulo $k$. Finally, return this result.
 

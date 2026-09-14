@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README_EN.md
 tags:
     - Array
     - Interactive
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pattern may be as long as $10^4$, so packing it into two $64$-bit words as in part I no longer works. The stream is still read-only.
+>
+> This is ordinary streaming pattern matching: KMP’s failure function depends only on the pattern, so each bit advances the state without rewinding the stream.
+>
+> We build the prefix function of $\textit{pattern}$ and keep the current match length; when it reaches the pattern length we return the start index.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0447.Number%20of%20Boomerangs/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -62,6 +61,18 @@ tags:
 
 ### Solution 1: Enumeration + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A boomerang is an ordered triple; enumerating three points is $O(n^3)$. After fixing $i$, points at the same distance from $i$ may be paired as $(j,k)$ in any order.
+>
+> For each center $p_1$, count distances to the others. Seeing a distance already stored $x$ times creates $x$ ordered pairs; doubling accounts for both directions.
+>
+> Accumulate while inserting so the hash map is not scanned again.
+
+<!-- thinking:end -->
+
 We can enumerate each point in `points` as the boomerang's point $i$, and then use a hash table $cnt$ to record the number of times the distance from other points to $i$ appears.
 
 If there are $x$ points with equal distance to $i$, then we can arbitrarily select two of them as the boomerang's $j$ and $k$. The number of schemes is $A_x^2 = x \times (x - 1)$. Therefore, for each value $x$ in the hash table, we calculate and accumulate $A_x^2$, which gives us the total number of boomerangs that meet the problem's requirements.
@@ -92,6 +103,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 adds on the fly. Completing the counts first and summing $x(x-1)$ for each frequency is $A_x^2$ written out. Same asymptotics, slightly more direct.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

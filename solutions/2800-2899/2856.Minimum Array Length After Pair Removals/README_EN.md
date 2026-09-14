@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md
 rating: 1749
 source: Biweekly Contest 113 Q2
 tags:
@@ -97,6 +96,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move removes two distinct values. The leftover length is governed by the most frequent value: if it exceeds half the array, it survives after everything else is paired. A max-heap that repeatedly decrements the two largest frequencies implements that pairing.
+
+<!-- thinking:end -->
 
 We use a hash table $cnt$ to count the occurrence of each element in the array $nums$, then add each value in $cnt$ to a priority queue (max heap) $pq$. Each time we take out two elements $x$ and $y$ from $pq$, decrease their values by one. If the value after decrement is still greater than $0$, we add the decremented value back to $pq$. Each time we take out two elements from $pq$, it means we delete a pair of numbers from the array, so the length of the array decreases by $2$. When the size of $pq$ is less than $2$, we stop the deletion operation.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0143.Reorder%20List/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -61,6 +60,16 @@ L<sub>0</sub> &rarr; L<sub>n</sub> &rarr; L<sub>1</sub> &rarr; L<sub>n - 1</sub>
 <!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers + Reverse List + Merge Lists
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reorder as $L_0\to L_n\to L_1\to L_{n-1}\cdots$. An array of pointers is $O(n)$ space. $n\le 5\times 10^4$.
+>
+> The second half must be reversed and woven into the first: find the midpoint with two pointers, cut, reverse the second half, and merge alternately. Three linear passes, in place.
+
+<!-- thinking:end -->
 
 We first use fast and slow pointers to find the midpoint of the linked list, then reverse the second half of the list, and finally merge the two halves.
 

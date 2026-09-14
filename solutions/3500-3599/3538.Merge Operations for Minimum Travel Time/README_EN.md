@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README_EN.md
 rating: 2461
 source: Weekly Contest 448 Q3
 tags:
@@ -160,6 +159,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$ and we must merge exactly $k \le 10$ times, so the merge order cannot be enumerated. After a merge the speed of a segment is the sum of the merged $\textit{time}$ values, and distance is the gap between surviving $\textit{position}$s.
+>
+> DP on the last kept landmark, the number of merges used, and the speed inherited from a contiguous $\textit{time}$ sum. Enumerate how many landmarks the current segment swallows. The three dimensions fit.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

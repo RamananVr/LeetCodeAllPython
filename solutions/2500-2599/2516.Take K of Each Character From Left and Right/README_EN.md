@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md
 rating: 1947
 source: Weekly Contest 325 Q2
 tags:
@@ -59,6 +58,16 @@ It can be proven that 8 is the minimum number of minutes needed.
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters may be taken only from the current left or right end. We need at least $k$ of each of $a,b,c$ and want the fewest takes. Enumerating prefix and suffix lengths is quadratic at $n\le 10^5$.
+>
+> What is taken is a prefix plus a suffix, so the remainder is a middle window. Equivalently, maximize a window such that every letter still occurs at least $k$ times outside it. If the global counts are already short, there is no answer. Otherwise slide the window: extend the right end and shrink the left whenever some count falls below $k$. The longest valid window yields the fewest deletions.
+
+<!-- thinking:end -->
 
 First, we use a hash table or an array of length $3$, denoted as $cnt$, to count the number of each character in string $s$. If any character appears less than $k$ times, it cannot be obtained, so we return $-1$ in advance.
 

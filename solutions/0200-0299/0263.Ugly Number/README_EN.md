@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0263.Ugly%20Number/README_EN.md
 tags:
     - Math
 ---
@@ -57,6 +56,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An ugly number’s prime factors are only $2,3,5$. Reject non-positives; otherwise divide out those three primes and test whether $1$ remains.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

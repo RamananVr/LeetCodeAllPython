@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md
 rating: 1873
 source: Weekly Contest 377 Q2
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square needs two horizontal fences (including the borders $1$ and $m$) whose gap equals a vertical gap (including $1$ and $n$). At most $600$ fences, so all pairs of each orientation fit. Put every horizontal gap and every vertical gap in a set and take the maximum of the intersection.
+>
+> $m$ and $n$ may be $10^9$, so the field is never materialized. No common gap yields $-1$; otherwise square modulo the prime.
+
+<!-- thinking:end -->
 
 We can enumerate any two horizontal fences $a$ and $b$ in $\textit{hFences}$, calculate the distance $d$ between $a$ and $b$, and record it in the hash table $hs$. Then, we enumerate any two vertical fences $c$ and $d$ in $\textit{vFences}$, calculate the distance $d$ between $c$ and $d$, and record it in the hash table $vs$. Finally, we traverse the hash table $hs$. If a certain distance $d$ in $hs$ also exists in the hash table $vs$, it indicates that there exists a square field with a side length of $d$, and the area is $d^2$. We just need to take the largest $d$ and calculate $d^2 \bmod 10^9 + 7$.
 

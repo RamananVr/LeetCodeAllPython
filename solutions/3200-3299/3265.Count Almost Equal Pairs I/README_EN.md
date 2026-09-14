@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README_EN.md
 rating: 1661
 source: Weekly Contest 412 Q2
 tags:
@@ -89,6 +88,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair counts if the numbers become equal after at most one digit swap. $n\le 100$ and $M\le 10^6$ would allow checking every pair, but a smaller number cannot grow leading zeros by swapping, so a one-way enum misses pairs.
+>
+> Sort first. For each value generate all numbers after at most one swap and query the counts of earlier values. Smaller numbers sit in the table; larger ones swap down to match them.
+
+<!-- thinking:end -->
 
 We can enumerate each number, and for each number, we can enumerate each pair of different digits, then swap these two digits to get a new number. We record this new number in a hash table $s$, representing all possible numbers after at most one swap. Then, we count how many numbers previously enumerated are in the hash table $s$ and add this count to the answer. Next, we add the currently enumerated number to the hash table $\textit{cnt}$, representing the count of the current number.
 

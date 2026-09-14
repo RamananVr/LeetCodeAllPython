@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0682.Baseball%20Game/README_EN.md
 tags:
     - Stack
     - Array
@@ -109,6 +108,16 @@ Since the record is empty, the total sum is 0.
 <!-- solution:start -->
 
 ### Solution 1: Stack + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation refers to the last score, the last two, or an undo, so recent values must stay accessible.
+>
+> A stack stores rounds: `+` sums the top two, `D` doubles the top, `C` pops, a number pushes. Sum the stack at the end.
+
+<!-- thinking:end -->
 
 We can use a stack to simulate this process.
 

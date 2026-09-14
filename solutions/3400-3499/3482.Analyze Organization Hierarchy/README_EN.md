@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md
 tags:
     - Database
 ---
@@ -143,6 +142,18 @@ manager_id is null for the top-level manager (CEO).
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Manager pointers form a tree; we need each person's level, team size, and team salary sum. The CEO has a null $\textit{manager\_id}$.
+>
+> Levels expand top-down from the current manager set. Team size and budget must wait until children are done, so we fold in reverse id (or postorder).
+>
+> Mark the CEO as level $1$, recurse to tag direct reports as $level+1$, accumulate $\textit{team\_size}$ and $\textit{budget}$, and sort by level, budget descending, then name.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

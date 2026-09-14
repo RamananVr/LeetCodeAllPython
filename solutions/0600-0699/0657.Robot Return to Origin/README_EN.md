@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0657.Robot%20Return%20to%20Origin/README_EN.md
 tags:
     - String
     - Simulation
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Maintain Coordinates
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The robot returns iff the net displacement is zero.
+>
+> Update $(x,y)$ for `UDLR` and test both coordinates at the end.
+
+<!-- thinking:end -->
 
 We can maintain a coordinate $(x, y)$ to represent the robot's movement in the horizontal and vertical directions.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md
 rating: 1658
 source: Weekly Contest 206 Q2
 tags:
@@ -88,6 +87,16 @@ Friends 0 and 2 are happy.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After pairing, $x$ is unhappy if some $u$ is preferred to $x$'s partner and $u$ also prefers $x$ to $u$'s partner. $n\le 500$, so we may scan each $x$ and those better-liked friends.
+>
+> Build a closeness map and a partner table. For each $x$, inspect only friends ranked above partner $y$. The first $u$ who ranks $x$ above $u$'s own partner makes $x$ unhappy, and the inner loop can stop.
+
+<!-- thinking:end -->
 
 We use an array $\textit{d}$ to record the closeness between each pair of friends, where $\textit{d}[i][j]$ represents the closeness of friend $i$ to friend $j$ (the smaller the value, the closer they are). Additionally, we use an array $\textit{p}$ to record the paired friend for each friend.
 

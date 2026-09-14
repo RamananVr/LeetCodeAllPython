@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README_EN.md
 rating: 1306
 source: Weekly Contest 482 Q1
 tags:
@@ -86,6 +85,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is a prefix sum minus a suffix minimum. Prefix sums accumulate while we scan split points from the left; suffix minima are precomputed from the right, and a linear pass takes the maximum.
+
+<!-- thinking:end -->
 
 We first define an array $\textit{suf}$ of length $n$, where $\textit{suf}[i]$ represents the minimum value of the array $\textit{nums}$ from index $i$ to index $n - 1$. We can traverse the array $\textit{nums}$ from back to front to compute the array $\textit{suf}$.
 

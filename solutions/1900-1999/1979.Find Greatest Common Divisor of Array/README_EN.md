@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README_EN.md
 rating: 1184
 source: Weekly Contest 255 Q1
 tags:
@@ -73,6 +72,14 @@ The greatest common divisor of 3 and 3 is 3.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The GCD of the whole array equals the GCD of its maximum and minimum. One pass finds both ends, then $\gcd$ finishes.
+
+<!-- thinking:end -->
 
 We can simulate according to the problem description. First, find the maximum and minimum values in the array $\textit{nums}$, then find the greatest common divisor of the maximum and minimum values.
 

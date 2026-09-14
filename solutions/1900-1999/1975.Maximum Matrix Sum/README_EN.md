@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README_EN.md
 rating: 1648
 source: Biweekly Contest 59 Q2
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping two adjacent signs moves a minus around the grid. A zero or an even number of minuses can be cleared; an odd count leaves exactly one.
+>
+> The answer is the sum of absolute values, minus twice the smallest absolute value when the minus count is odd.
+
+<!-- thinking:end -->
 
 If there is a zero in the matrix, or the number of negative numbers in the matrix is even, then the maximum sum is the sum of the absolute values of all elements in the matrix.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README_EN.md
 tags:
     - Hash Table
     - String
@@ -56,6 +55,18 @@ The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &qu
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An anagram is a same-length substring with the same letter counts. Sorting every window is too slow.
+>
+> Keep a window of length $n=|p|$ and compare its counter with $p$'s. Prefill $n-1$ characters, then on each step add the right character, compare, and drop the left one.
+>
+> The window length stays $n$, so only two $26$-slot counters are compared.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -84,6 +95,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 compares the whole counter each time. After adding the right character, shrink the left end while any letter exceeds $p$'s quota. When every letter is within quota and the length equals $n$, the window is an anagram.
+>
+> The $O(|\Sigma|)$ equality test becomes a length check; the scan is still linear.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

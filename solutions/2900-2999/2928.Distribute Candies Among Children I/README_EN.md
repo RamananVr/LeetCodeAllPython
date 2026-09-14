@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README_EN.md
 rating: 1393
 source: Biweekly Contest 117 Q1
 tags:
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same three-way split as part III, with $n,limit \le 50$. A triple loop would pass, yet stars and bars plus inclusion-exclusion still give a closed form: $C_{n+2}^{2}$ minus the three overflow cases, plus the two-variable overflows.
+>
+> There is no solution when $n>3\cdot limit$. The tiny bounds still share the same formula as the large-data variants.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, limit]$ candies.
 

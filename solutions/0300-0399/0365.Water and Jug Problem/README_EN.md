@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -85,6 +84,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two jugs of capacities $x,y$; can we measure $z$? Bézout’s identity says $z$ must be a multiple of $\gcd(x,y)$. A state search also decides it. There are $O(xy)$ states.
+>
+> $dfs(i,j)$ is the current pair. A seen state fails; a jug or their sum equal to $z$ succeeds. Otherwise fill, empty, or pour. Start from $(0,0)$.
+
+<!-- thinking:end -->
 
 Let's denote $jug1Capacity$ as $x$, $jug2Capacity$ as $y$, and $targetCapacity$ as $z$.
 

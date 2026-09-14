@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0133.Clone%20Graph/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -87,6 +86,16 @@ class Node {
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deep-copy a connected undirected graph; values are unique and $n\le 100$. Copying values is not enough: neighbor pointers must refer to the new nodes, and cycles would loop if we recurse blindly.
+>
+> A map from original node to clone does it. On the first visit we create the clone and recurse on neighbors; a later visit returns the existing clone, which cuts cycles.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{g}$ to record the correspondence between each node in the original graph and its copy, and then perform depth-first search.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0265.Paint%20House%20II/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -64,6 +63,16 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent houses cannot share a color, and $k$ colors make listing paintings infeasible. The best cost of color $j$ on house $i$ is $costs[i][j]$ plus the best of the other colors on house $i-1$.
+>
+> A rolling array $f$ stores the previous row; for each house and color we scan the other previous colors.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

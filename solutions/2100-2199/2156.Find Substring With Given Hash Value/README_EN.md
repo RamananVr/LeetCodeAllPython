@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README_EN.md
 rating: 2062
 source: Weekly Contest 278 Q3
 tags:
@@ -72,6 +71,18 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window + Reverse Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the rightmost length-$k$ substring whose hash equals the given value. Sliding forward requires dividing by $p$ modulo $m$, which needs an inverse. $n\le 10^5$ demands a linear window.
+>
+> A reverse Rabin–Karp drops the old high digit, multiplies by $p$, and adds the new low digit — only multiplications and mods.
+>
+> Hash the last $k$ characters, keep $p^{k-1}$, slide left, and update the start on every hit.
+
+<!-- thinking:end -->
 
 We can maintain a sliding window of length $k$ to calculate the hash value of the substring. Considering that if we traverse the string in the forward order, the calculation of the hash value involves division and modulo operations, which are relatively complicated to handle. Therefore, we can traverse the string in reverse order, so that when calculating the hash value, only multiplication and modulo operations are needed.
 

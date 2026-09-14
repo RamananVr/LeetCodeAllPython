@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README_EN.md
 tags:
     - Database
 ---
@@ -167,6 +166,18 @@ By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one acc
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need active drivers and accepted rides for every month of $2020$. Months without rides must still appear, so we materialize all twelve months first.
+>
+> A recursive CTE builds $1..12$, left-joins drivers whose join date is on or before that month (including pre-$2020$ hires), and left-joins monthly accepted-ride counts.
+>
+> Group by month to count drivers and fill missing ride counts with $\texttt{IFNULL}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

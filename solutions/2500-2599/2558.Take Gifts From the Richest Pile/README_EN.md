@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md
 rating: 1276
 source: Weekly Contest 331 Q1
 tags:
@@ -70,6 +69,16 @@ So, the total gifts remaining are 4.
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step replaces the richest pile with $\lfloor\sqrt{\,\cdot\,}\rfloor$, $k$ times, then sums what remains. Scanning for the max each time works for the limits, but a heap yields it directly.
+>
+> A max-heap pops the top and pushes its integer square root, $k$ times, then sums the heap. Python stores negations.
+
+<!-- thinking:end -->
 
 We can store the array $gifts$ in a max heap, and then loop $k$ times, each time taking out the top element of the heap, taking the square root of it, and putting the result back into the heap.
 

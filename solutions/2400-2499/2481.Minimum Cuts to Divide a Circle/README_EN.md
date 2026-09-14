@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README_EN.md
 rating: 1246
 source: Biweekly Contest 92 Q1
 tags:
@@ -63,6 +62,14 @@ Also note that the first cut will not divide the circle into distinct parts.
 <!-- solution:start -->
 
 ### Solution 1: Case Discussion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cut is a line through the center. One piece needs none. An odd $n$ has no collinear opposite radii, so $n$ cuts; an even $n$ pairs them, so $n/2$. Branch on parity.
+
+<!-- thinking:end -->
 
 - When $n=1$, no cutting is needed, so the number of cuts is $0$;
 - When $n$ is odd, there is no collinear situation, and at least $n$ cuts are needed;

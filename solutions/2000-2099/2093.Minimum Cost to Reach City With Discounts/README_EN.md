@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README_EN.md
 tags:
     - Graph
     - Shortest Path
@@ -80,6 +79,16 @@ It is impossible to go from 0 to 3 so return -1.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An undirected weighted graph allows at most $discounts$ half-price uses. The state is (node, discounts used); dropping the second coordinate loses optimality. Nonnegative weights let a heap pop by cost.
+>
+> Relax two edges: full price with the same $k$, or half price with $k+1$. The first time the sink is popped is optimal. `dist[i][k]` blocks worse revisits.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

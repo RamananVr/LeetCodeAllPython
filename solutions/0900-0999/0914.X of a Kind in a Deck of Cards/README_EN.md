@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -63,6 +62,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greatest Common Divisor
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The deck must split into groups of equal size $X\ge 2$, each group a single value. $X$ has to divide every frequency, so it is a common divisor of those counts. Compute their $\gcd$ and check that it is at least $2$.
+
+<!-- thinking:end -->
 
 First, we use an array or hash table `cnt` to count the occurrence of each number. Only when $X$ is a divisor of the greatest common divisor of all `cnt[i]`, can it satisfy the problem's requirement.
 

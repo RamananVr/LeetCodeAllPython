@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README_EN.md
 tags:
     - Dynamic Programming
 ---
@@ -50,6 +49,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tile a $2\times n$ board with dominos and L-trominos. $n\le 1000$; enumerating placements repeats columns.
+>
+> A column is full, top-only, bottom-only, or empty. Those four states at $i-1$ determine $i$ after placing a vertical, two horizontals, or an L.
+>
+> Roll four integers; $f[0]$ is a fully covered prefix. The empty board starts at $1$.
+
+<!-- thinking:end -->
 
 First, we need to understand the problem. The problem is essentially asking us to find the number of ways to tile a $2 \times n$ board, where each square on the board can only be covered by one tile.
 

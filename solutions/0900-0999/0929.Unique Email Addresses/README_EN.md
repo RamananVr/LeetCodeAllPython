@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0929.Unique%20Email%20Addresses/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -75,6 +74,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the local part is rewritten: dots are dropped, and everything from the first `+` onward is ignored. Addresses that become identical after this rule should count once. Normalize each email into a set; the set size is the answer.
+
+<!-- thinking:end -->
 
 We can use a hash table $s$ to store all unique email addresses. Then, we traverse the array $\textit{emails}$. For each email address, we split it into the local part and the domain part. We process the local part by removing all dots and ignoring characters after a plus sign. Finally, we concatenate the processed local part with the domain part and add it to the hash table $s$.
 

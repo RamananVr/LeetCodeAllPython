@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README_EN.md
 rating: 2110
 source: Biweekly Contest 156 Q3
 tags:
@@ -118,6 +117,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want a $k$-edge path in a DAG whose weight sum is maximized but strictly less than $t$. With $n,k \le 300$ and $t \le 600$, a state of (vertex, edges used, sum) is small enough.
+>
+> DFS or iterate from every start. Among states with $e=k$ and $s<t$, take the largest $s$, or $-1$ if none exist.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

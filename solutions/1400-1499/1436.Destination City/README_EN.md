@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1436.Destination%20City/README_EN.md
 rating: 1192
 source: Weekly Contest 187 Q1
 tags:
@@ -69,6 +68,14 @@ Clearly the destination city is &quot;A&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The paths form a chain that ends at a city with out-degree zero. $n\le 100$. Put every start city in a set and return the unique end city that is not in the set.
+
+<!-- thinking:end -->
 
 According to the problem description, the destination city will not appear in any of the $\textit{cityA}$. Therefore, we can first traverse the $\textit{paths}$ and put all $\textit{cityA}$ into a set $\textit{s}$. Then, we traverse the $\textit{paths}$ again to find the $\textit{cityB}$ that is not in $\textit{s}$.
 

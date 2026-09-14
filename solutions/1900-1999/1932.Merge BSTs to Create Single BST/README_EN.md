@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README_EN.md
 rating: 2483
 source: Weekly Contest 249 Q4
 tags:
@@ -95,6 +94,18 @@ The resulting tree is shown above. This is the only valid operation that can be 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each tree has at most three nodes and a merge attaches a root to a leaf. Trying all pairings is impossible for $n\le 5\times 10^4$.
+>
+> A leaf whose value equals some other root must receive that tree. Exactly one root should remain (its value is never a leaf). After that unique assembly we inorder-check a valid BST.
+>
+> A hash maps roots; we attach at matching leaves and reject if the root is not unique, an attach fails, or the inorder sequence is not strictly increasing.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

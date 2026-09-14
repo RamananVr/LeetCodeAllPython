@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0908.Smallest%20Range%20I/README_EN.md
 tags:
     - Array
     - Math
@@ -64,6 +63,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value may move by at most $k$, and the final score is the gap between the new maximum and minimum. A uniform shift does not change the gap. The best we can do is decrease the max and increase the min, which yields $\max(0,\max(nums)-\min(nums)-2k)$.
+
+<!-- thinking:end -->
 
 According to the problem description, we can subtract $k$ from the maximum value in the array and add $k$ to the minimum value in the array, which can reduce the difference between the maximum and minimum values in the array.
 

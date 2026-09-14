@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word matches the pattern iff there is a bijection between letters. Words are few and short, so one mapping check per word is enough.
+>
+> Scan both strings and store the first-binding index of each letter in two arrays; unequal indices mean the mapping disagrees. Recording both directions blocks many-to-one maps.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

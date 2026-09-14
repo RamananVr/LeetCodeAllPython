@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README_EN.md
 rating: 1293
 source: Weekly Contest 202 Q2
 tags:
@@ -54,6 +53,16 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is $1,3,5,\ldots,2n-1$. Each move increments one entry and decrements another until all values are equal. Simulating moves is wasteful for $n\le 10^4$, and the sum is invariant, so the target is known.
+>
+> The sum is $n^2$, hence the common value is $n$. Only the smaller half needs to grow: the $i$-th odd number $2i+1$ lacks $n-(2i+1)$. Summing those gaps is the minimum number of operations.
+
+<!-- thinking:end -->
 
 According to the problem description, the array $arr$ is an arithmetic sequence with the first term as $1$ and the common difference as $2$. Therefore, the sum of the first $n$ terms of the array is:
 

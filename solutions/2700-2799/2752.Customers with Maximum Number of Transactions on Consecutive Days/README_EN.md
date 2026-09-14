@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,16 @@ In total, the highest number of consecutive transactions is 3, achieved by custo
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each customer find the longest run of consecutive transaction days, then keep those who attain the global maximum. Scanning sorted dates per customer works; subtracting the row number from the date collapses a run into one key.
+>
+> Number rows per customer by date, subtract that index from the date to tag the run, group by customer and tag, and keep customers whose count equals the global maximum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

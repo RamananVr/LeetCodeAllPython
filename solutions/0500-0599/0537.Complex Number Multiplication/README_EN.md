@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0537.Complex%20Number%20Multiplication/README_EN.md
 tags:
     - Math
     - String
@@ -57,6 +56,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Complex multiplication is $(a+bi)(c+di)=(ac-bd)+(ad+bc)i$. The input is already `a+bi`, so four integers suffice.
+>
+> Strip the trailing `i`, split on `+`, apply the formula, and format. No polynomial expansion is required.
+
+<!-- thinking:end -->
 
 We can convert the complex number string into its real part $a$ and imaginary part $b$, and then use the formula for complex number multiplication $(a_1 + b_1i) \times (a_2 + b_2i) = (a_1a_2 - b_1b_2) + (a_1b_2 + a_2b_1)i$ to calculate the result.
 

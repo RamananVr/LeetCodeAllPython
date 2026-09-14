@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README_EN.md
 rating: 1368
 source: Biweekly Contest 127 Q1
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the shortest subarray whose bitwise OR is at least $k$. $n \le 50$ would allow a triple loop, but OR grows monotonically with the right end, so two pointers apply.
+>
+> The right end can only turn bits on; the left end may turn a bit off only when its count drops to $0$.
+>
+> We keep $32$ bit counts and the current OR $s$, expand and shrink, and record the shortest window with $s \ge k$.
+
+<!-- thinking:end -->
 
 We can observe that if we fix the left endpoint of the subarray, as the right endpoint moves to the right, the bitwise OR value of the subarray will only increase, not decrease. Therefore, we can use the double pointers method to maintain a subarray that meets the conditions.
 

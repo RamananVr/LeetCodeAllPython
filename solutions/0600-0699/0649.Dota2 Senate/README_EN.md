@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0649.Dota2%20Senate/README_EN.md
 tags:
     - Greedy
     - Queue
@@ -71,6 +70,16 @@ And in round 2, the third senator can just announce the victory since he is the 
 <!-- solution:start -->
 
 ### Solution 1: Queue + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Senators ban the next opponent in order until one party is gone. Repeatedly deleting from the string is quadratic.
+>
+> Queue indices of each party. The smaller front acts first, pops the other, and re-enters at $i+n$ for the next round. An empty queue loses.
+
+<!-- thinking:end -->
 
 We create two queues $qr$ and $qd$ to record the indices of the Radiant and Dire senators, respectively. Then we start the simulation, where in each round we dequeue one senator from each queue and perform different operations based on their factions:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/README_EN.md
 rating: 1336
 source: Weekly Contest 165 Q1
 tags:
@@ -77,6 +76,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Determine if the last player to move can win
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves are legal and play stops at a win, so we only test whether the last player already has three in a row. Walking backward every other move, we tally that player's rows, columns, and diagonals; a $3$ is a win. Otherwise nine moves is a draw, fewer is pending.
+
+<!-- thinking:end -->
 
 Since all `moves` are valid, that is, there is no situation where a person continues to play after someone has won. Therefore, we only need to determine whether the last player to move can win.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0456.132%20Pattern/README_EN.md
 tags:
     - Stack
     - Array
@@ -64,6 +63,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $i<j<k$ with $nums[i]<nums[k]<nums[j]$. Triple loops are $O(n^3)$; fixing $j$ and scanning both sides is still $O(n^2)$.
+>
+> Walk right to left with a decreasing stack. $vk$ is the largest value popped (a candidate $nums[k]$ below the current peak). If the current value is less than $vk$, it can be $nums[i]$.
+>
+> The stack holds candidate peaks $nums[j]$. Update $vk$ before pushing so $k$ stays to the right of $j$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -89,6 +100,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is linear but tied to a right-to-left stack. We can also store the prefix minimum and, from the right, ask a Fenwick tree whether a value in $(\textit{left}[i],nums[i])$ has been seen.
+>
+> After discretization the tree counts values already scanned on the right. A logarithmic factor appears; the structure is an interval counter rather than a monotone stack.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

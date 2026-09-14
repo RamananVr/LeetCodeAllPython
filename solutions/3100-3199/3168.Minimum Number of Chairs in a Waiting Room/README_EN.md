@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3168.Minimum%20Number%20of%20Chairs%20in%20a%20Waiting%20Room/README_EN.md
 rating: 1211
 source: Weekly Contest 400 Q1
 tags:
@@ -203,6 +202,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `E` arrives and `L` leaves; chairs are bought only when none are free and never discarded. The peak occupancy is the answer.
+>
+> A free chair is reused immediately: an arrival takes one if available, otherwise $cnt$ grows; a leaving increments free chairs.
+>
+> Track $cnt$ and $left$ across $s$. The final $cnt$ is the minimum number of chairs.
+
+<!-- thinking:end -->
 
 We use a variable `cnt` to record the current number of chairs needed, and a variable `left` to record the current number of remaining empty chairs. We traverse the string `s`. If the current character is 'E', then if there are remaining empty chairs, we directly use one empty chair, otherwise we need to add a chair; if the current character is 'L', then the number of remaining empty chairs increases by one.
 

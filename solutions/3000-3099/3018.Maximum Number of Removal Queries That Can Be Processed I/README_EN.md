@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -91,6 +90,18 @@ It can be shown that we can&#39;t process more than 2 queries.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each deletion takes an endpoint of the remaining array, and $n,m \le 1000$. Greedy left/right choices need not be optimal.
+>
+> The remainder is always a contiguous interval $[i,j]$, and the number of processed queries is a function of that interval. There are $O(n^2)$ states.
+>
+> $f[i][j]$ is the number processed while $[i,j]$ is still present. It grows from deleting $i-1$ or $j+1$, and the last singleton may process one more query.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the maximum number of queries we can handle when the numbers in the interval $[i, j]$ have not been deleted yet.
 

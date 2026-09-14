@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md
 rating: 2032
 source: Weekly Contest 492 Q4
 tags:
@@ -97,6 +96,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An even-length segment may split in half at cost equal to the two halves; otherwise we pay by sensitive count. $n \le 10^5$, yet the split tree is binary-halving, so there are linearly many intervals.
+>
+> The no-split cost of a segment depends only on length and sensitive count, available from a prefix sum in $O(1)$.
+>
+> Recurse by comparing no-split against the two halves. Halving determines each interval uniquely and they do not overlap, so $O(n)$ states.
+>
+> The answer is the value of $[0,n)$.
+
+<!-- thinking:end -->
 
 We define a function $\text{dfs}(l, r)$ that represents the minimum cost for the interval $[l, r)$ of string $s$. We can use the prefix sum array $\text{pre}$ to calculate the number of sensitive elements $x$ in the interval $[l, r)$, thereby computing the cost without splitting.
 

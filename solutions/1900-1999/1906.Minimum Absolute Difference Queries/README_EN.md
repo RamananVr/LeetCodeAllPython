@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README_EN.md
 rating: 2146
 source: Weekly Contest 246 Q4
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting a query range to scan adjacent gaps costs $O((r-l)\log(r-l))$. With $n\le 10^5$ and $q\le 2\times 10^4$ that is too slow.
+>
+> Values lie in $[1,100]$, so the minimum distinct gap is the difference of two consecutive values that actually appear in $[l,r]$. We only need presence of each of the $100$ numbers.
+>
+> Prefix counts of every value answer presence in $O(1)$ per value; a query then walks $1\ldots 100$ and records the minimum gap between successive present numbers.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

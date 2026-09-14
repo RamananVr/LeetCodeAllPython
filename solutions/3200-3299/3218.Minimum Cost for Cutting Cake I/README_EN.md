@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README_EN.md
 rating: 1654
 source: Weekly Contest 406 Q3
 tags:
@@ -100,6 +99,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cut is multiplied by how many pieces already exist in the other direction, so later cuts cost more. $m,n\le 20$ would allow DP, but the optimum has a simple order.
+>
+> Expensive cuts should happen early, while the multiplier is still small. Sort both cost arrays descending and always take the currently larger cut: a horizontal cut multiplies by the vertical piece count $v$, a vertical cut by $h$, then update that count. The greedy order matches the simulation.
+
+<!-- thinking:end -->
 
 For a given position, the earlier you cut, the fewer cuts are needed, so it is clear that positions with higher costs should be cut earlier.
 

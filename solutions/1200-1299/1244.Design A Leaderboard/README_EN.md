@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1244.Design%20A%20Leaderboard/README_EN.md
 rating: 1354
 source: Biweekly Contest 12 Q1
 tags:
@@ -69,6 +68,16 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered List
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We update and reset a player's score and sum the top $K$ scores. A thousand calls make a linear scan of all players unattractive. A hash map stores the score by $playerId$; a sorted list holds the multiset of scores.
+>
+> Adding a score removes the old value then inserts the new one; reset deletes symmetrically; $top(K)$ sums the last $K$ entries. The map locates a player in $O(1)$; the sorted list updates in logarithmic time and exposes an ordered suffix.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to record the scores of each player, and an ordered list $rank$ to record the scores of all players.
 

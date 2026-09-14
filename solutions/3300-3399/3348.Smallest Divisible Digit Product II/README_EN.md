@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README_EN.md
 rating: 3101
 source: Biweekly Contest 143 Q4
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the smallest zero-free integer that is at least $\textit{num}$ and whose digit product is divisible by $t$. With $|\textit{num}| \le 2 \times 10^5$ we cannot increment from $n$.
+>
+> If $t$ has a prime factor other than $2,3,5,7$, there is no answer. Otherwise we pack the remaining primes into digits $8,9,6,4$ so the length is minimized.
+>
+> From the right we try to raise one digit and fill the suffix with ones plus those packed digits; if the current length is too short we prepend ones. That yields the lexicographically smallest valid number.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

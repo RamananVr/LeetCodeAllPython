@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README_EN.md
 rating: 1557
 source: Biweekly Contest 61 Q2
 tags:
@@ -67,6 +66,18 @@ Other original arrays could be [4,3,1] or [3,1,4].
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 10^5$ we cannot search for each double linearly. If `changed` is a doubled array, its minimum must belong to the original: no smaller half exists.
+>
+> After sorting, consume from small to large, matching each $x$ to a remaining $2x$. A counter tracks leftovers and skips already used $x$.
+>
+> If $2x$ is missing, reconstruction fails. Zeros and duplicates are handled by the same counts.
+
+<!-- thinking:end -->
 
 We notice that if the array `changed` is a double array, then the smallest element in the array `changed` must also be an element in the original array. Therefore, we can first sort the array `changed`, and then start from the first element to traverse the array `changed` in ascending order.
 

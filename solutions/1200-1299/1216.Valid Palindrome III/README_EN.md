@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1216.Valid%20Palindrome%20III/README_EN.md
 rating: 1753
 source: Biweekly Contest 10 Q4
 tags:
@@ -53,6 +52,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every way to delete $k$ characters is intractable for $n \le 1000$. Being a palindrome after at most $k$ deletions is equivalent to an LPS of length at least $n-k$.
+>
+> Interval DP: $f[i][j]$ is the LPS of $s[i..j]$. Equal ends add $2$ after shrinking; otherwise take the better one-end deletion. We may return as soon as $f[i][j]+k \ge n$.
+>
+> Filling by increasing interval length (here, decreasing $i$) makes shorter intervals ready for the transition.
+
+<!-- thinking:end -->
 
 The problem requires us to remove at most $k$ characters to make the remaining string a palindrome. This can be transformed into finding the longest palindromic subsequence.
 

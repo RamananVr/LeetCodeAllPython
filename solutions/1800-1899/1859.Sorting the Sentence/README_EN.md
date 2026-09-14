@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md
 rating: 1290
 source: Biweekly Contest 52 Q1
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: String Splitting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Shuffled words carry their original index as a trailing digit. The indices form a permutation of $1..n$, so one placement suffices.
+>
+> Split on spaces, write each word (without the digit) to index $\textit{digit}-1$, then join in order.
+
+<!-- thinking:end -->
 
 First, we split the string $s$ by spaces to get the array of strings $\textit{ws}$. Then, we iterate through the array $\textit{ws}$, subtracting the character '1' from the last character of each word to get the result as the index of the word. We take the prefix of the word as the content of the word. Finally, we concatenate the words in index order.
 

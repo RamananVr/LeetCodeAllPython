@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0782.Transform%20to%20Chessboard/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -67,6 +66,18 @@ The second move swaps the second and third row.
 <!-- solution:start -->
 
 ### Solution 1: Pattern Observation + State Compression
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only full row/column swaps are allowed. $n\le 30$. A chessboard has two complementary row patterns (and likewise for columns) and a balanced number of $0/1$.
+>
+> The first row and column masks are those two patterns; every other line must match one of them.
+>
+> $f(\textit{mask},\textit{cnt})$ counts swaps onto $0101\ldots$ or $1010\ldots$ according to parity. Add the row and column answers.
+
+<!-- thinking:end -->
 
 In a valid chessboard, there are exactly two types of "rows".
 

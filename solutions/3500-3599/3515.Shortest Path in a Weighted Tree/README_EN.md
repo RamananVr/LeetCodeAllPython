@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README_EN.md
 rating: 2312
 source: Biweekly Contest 154 Q4
 tags:
@@ -119,6 +118,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Root-to-node distances change with edge updates, and $n,q \le 10^5$ forbid recomputing from the root. The path is unique, so $\textit{dist}(x)$ is the sum of edge weights on the root-to-$x$ path.
+>
+> On the Euler tour, updating an edge adds a value to a contiguous range; a query is a point read. A Fenwick tree or segment tree maintains it.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

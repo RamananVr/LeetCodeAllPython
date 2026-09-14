@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2695.Array%20Wrapper/README_EN.md
 tags:
     - JavaScript
 ---
@@ -70,6 +69,14 @@ obj1 + obj2; // 0
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Addition should yield the element sum and stringification the form `[a,b,...]`. Default object addition does not sum the array. `valueOf` returns a precomputed sum and `toString` joins inside brackets, so the operators take those two paths.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

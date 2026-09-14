@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0217.Contains%20Duplicate/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -67,6 +66,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Comparing every pair works but is slow for large $n$. Equal values become adjacent after sorting.
+>
+> Sort the array, then check whether any two neighbors are equal.
+
+<!-- thinking:end -->
+
 First, we sort the array `nums`.
 
 Then, we traverse the array. If there are two adjacent elements that are the same, it means that there are duplicate elements in the array, and we directly return `true`.
@@ -92,6 +101,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting is $O(n\log n)$ and reorders the array. Membership alone can be tracked with a hash set in one pass.
+>
+> A value that is already in the set is a duplicate.
+
+<!-- thinking:end -->
 
 We traverse the array and record the elements that have appeared in the hash table $s$. If an element appears for the second time, it means that there are duplicate elements in the array, and we directly return `true`.
 

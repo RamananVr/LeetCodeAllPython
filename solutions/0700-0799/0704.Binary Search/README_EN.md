@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0704.Binary%20Search/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -53,6 +52,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Search $\textit{target}$ in a strictly increasing array. $n \le 10^4$ would allow a scan, but each comparison can discard half of a sorted range.
+>
+> If $\textit{nums}[\textit{mid}] \ge \textit{target}$, the answer is not to the right, so $r$ moves to $\textit{mid}$; otherwise it lies past $\textit{mid}$, so $l$ becomes $\textit{mid}+1$.
+>
+> When $l=r$ we sit on the first value that is not smaller than the target, then compare once. Time $O(\log n)$, extra space $O(1)$.
+
+<!-- thinking:end -->
 
 We define the left boundary $l=0$ and the right boundary $r=n-1$ for binary search.
 

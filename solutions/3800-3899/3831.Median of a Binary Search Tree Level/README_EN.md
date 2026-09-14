@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -85,6 +84,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the median of a given BST level, taking the upper middle on even counts. A level may hold $O(n)$ nodes with $n \le 2 \times 10^5$.
+>
+> Collecting then sorting is unnecessary: inorder of a BST is sorted, so the inorder subsequence of that level is already ordered.
+>
+> An inorder DFS appends a value only when the depth equals $\textit{level}$.
+>
+> The median is $\textit{nums}[\lfloor |\textit{nums}|/2 \rfloor]$; an empty level yields $-1$.
+
+<!-- thinking:end -->
 
 We notice that the problem requires us to find the median of node values at a certain level in a binary search tree. Since the definition of median is to sort the node values and take the middle value, and the in-order traversal of a binary search tree is inherently sorted, we can collect the node values at the specified level through in-order traversal.
 

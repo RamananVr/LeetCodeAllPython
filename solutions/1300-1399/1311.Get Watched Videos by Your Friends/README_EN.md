@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README_EN.md
 rating: 1652
 source: Weekly Contest 170 Q3
 tags:
@@ -74,6 +73,16 @@ You have id = 0 (green color in the figure) and the only friend of your friends 
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need videos watched by friends exactly $\textit{level}$ hops away, ordered by frequency then name. Unbounded DFS does not stop on a precise layer and revisits people. $\textit{level}$ rounds of BFS from $\textit{id}$ leave exactly that layer in the queue.
+>
+> A counter tallies their videos; sorting by $(\textit{cnt}[v], v)$ produces the names. A visited set keeps a person from entering more than once.
+
+<!-- thinking:end -->
 
 We can use the Breadth-First Search (BFS) method to start from $\textit{id}$ and find all friends at a distance of $\textit{level}$, then count the videos watched by these friends.
 

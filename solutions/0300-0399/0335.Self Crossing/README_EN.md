@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0335.Self%20Crossing/README_EN.md
 tags:
     - Geometry
     - Array
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walk north, west, south, east in turn and decide whether the polyline crosses itself. Storing coordinates and testing segments is $O(n^2)$ for $n\le 5\times 10^4$.
+>
+> A crossing involves only the last few sides: the fourth meets the first, the fifth meets the second, or the sixth meets the third and first. Check these three local patterns for $i\ge 3$; the full path is unnecessary.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

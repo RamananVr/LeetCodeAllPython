@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README_EN.md
 rating: 1204
 source: Weekly Contest 468 Q1
 tags:
@@ -76,6 +75,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bitwise-OR the even numbers. If none exist the answer is $0$, the identity of OR.
+>
+> Filter evens and $\textit{reduce}$ with initial $0$. $n\le 100$ is one pass.
+
+<!-- thinking:end -->
 
 We define a variable $\textit{ans}$ with an initial value of 0. Then, we iterate through each element $x$ in the array $\textit{nums}$; if $x$ is even, we update $\textit{ans}$ with the bitwise OR of $\textit{ans}$ and $x$.
 

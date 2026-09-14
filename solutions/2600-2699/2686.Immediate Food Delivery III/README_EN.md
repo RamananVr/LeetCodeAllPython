@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md
 tags:
     - Database
 ---
@@ -81,6 +80,14 @@ order_date is sorted in ascending order.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the daily share of immediate orders, i.e. rows with `customer_pref_delivery_date = order_date`. Group by `order_date`, divide the conditional count by the group size, round to two decimals, and sort by date.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

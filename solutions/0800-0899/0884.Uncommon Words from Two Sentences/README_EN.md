@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README_EN.md
 tags:
     - Hash Table
     - String
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word is uncommon if it appears once across both sentences. The sentences are short, so a combined counter is enough.
+>
+> Split both sentences into one counter; keys with count $1$ are the answer.
+
+<!-- thinking:end -->
 
 According to the problem description, as long as a word appears once, it meets the requirements of the problem. Therefore, we use a hash table `cnt` to record all words and their occurrence counts.
 

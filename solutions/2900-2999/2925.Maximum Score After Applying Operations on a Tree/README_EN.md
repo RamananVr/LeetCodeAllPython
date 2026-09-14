@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README_EN.md
 rating: 1939
 source: Weekly Contest 370 Q3
 tags:
@@ -79,6 +78,16 @@ It can be shown that 40 is the maximum score obtainable after any number of oper
 <!-- solution:start -->
 
 ### Solution 1: Tree DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every root-to-leaf path must keep at least one unselected node; the rest may add to the score. Enumerating select/skip at each vertex while enforcing every path explodes. Tree DP localizes the constraint: skip the root and take whole subtrees, or take the root and leave each subtree still valid.
+>
+> $dfs$ returns the subtree sum and the best valid selection. A leaf can only leave itself unselected, so the second value is $0$. An internal node takes $\max(values[i]+b, a)$. The answer is the second value at the root.
+
+<!-- thinking:end -->
 
 The problem is actually asking us to select some nodes from all nodes of the tree so that the sum of these nodes' values is maximized, and there is one node on each path from the root node to the leaf node that is not selected.
 

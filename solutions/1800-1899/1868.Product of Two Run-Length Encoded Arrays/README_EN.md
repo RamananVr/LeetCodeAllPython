@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -73,6 +72,16 @@ prodNums = [2,2,2,6,9,9], which is compressed into the run-length encoded array 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two run-length encodings represent equal-length arrays; we need the encoded product. Expanding them can create $10^9$ entries.
+>
+> Two pointers align the runs: take $f=\min$ of the remaining frequencies, emit product $v$, and merge it into the last answer run when possible. Decrease both frequencies and advance a pointer when a run is exhausted. Only the compressed form is scanned.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

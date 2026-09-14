@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An envelope nests only if both width and height increase; we want the longest chain. A 2D $O(n^2)$ LIS fails for $n\le 10^5$. After sorting by width, LIS on height is the answer; equal widths must not nest.
+>
+> Sort by width ascending and height descending, then greedy LIS on heights: append if larger than the tail, else binary-replace. Descending heights keep at most one envelope per width.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

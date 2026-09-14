@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest superstring is a Hamiltonian path on the words that maximizes overlap. $n\le 12$, so subsets fit. Precompute $g[i][j]$, the longest suffix-prefix overlap from $i$ to $j$, then DP: $dp[S][j]$ is the best overlap after visiting $S$ and ending at $j$. Reconstruct via predecessors and append any leftover words.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

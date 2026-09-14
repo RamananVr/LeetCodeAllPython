@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md
 rating: 2153
 source: Weekly Contest 343 Q3
 tags:
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dijkstra
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may walk Manhattan distance freely or use given special roads. Treating every lattice point as a state is infinite. An optimum only turns at the start, the target, and special-road endpoints.
+>
+> Dijkstra from the start: at $(x,y)$ we may pay Manhattan distance to the target, or walk to a special-road entrance and jump to its exit. Visited points are not expanded again.
+>
+> At most $200$ special roads, so the heap stays manageable.
+
+<!-- thinking:end -->
 
 We can find that for each coordinate $(x, y)$ we visit, suppose the minimum cost from the start point to $(x, y)$ is $d$. If we choose to move directly to $(targetX, targetY)$, then the total cost is $d + |x - targetX| + |y - targetY|$. If we choose to go through a special path $(x_1, y_1) \rightarrow (x_2, y_2)$, then we need to spend $|x - x_1| + |y - y_1| + cost$ to move from $(x, y)$ to $(x_2, y_2)$.
 

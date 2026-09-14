@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README_EN.md
 rating: 1408
 source: Weekly Contest 272 Q3
 tags:
@@ -69,6 +68,18 @@ Note that [8,6] is not a smooth descent period as 8 - 6 &ne; 1.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A smooth descent is a contiguous index range whose adjacent values differ by exactly $1$. A run of length $L$ contains $L(L+1)/2$ nonempty subarrays. Checking every subarray is $O(n^2)$ and fails for $n\le 10^5$.
+>
+> Maximal smooth runs are disjoint and can be cut greedily: extend right while the adjacent difference stays $1$, then add the triangular count for that run.
+>
+> Pointers $i$ and $j$ mark each run; after adding $\textit{cnt}(\textit{cnt}+1)/2$ we restart from $j$.
+
+<!-- thinking:end -->
 
 We define an answer variable $\textit{ans}$ with an initial value of $0$.
 

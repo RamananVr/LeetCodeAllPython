@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md
 rating: 2621
 source: Weekly Contest 294 Q4
 tags:
@@ -82,6 +81,16 @@ The sum of all the total strengths is 25 + 16 + 36 + 36 + 40 + 60 = 213.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray's strength is its minimum times its sum; we want the total. $n \le 10^5$ forbids enumerating subarrays. Charge each index $i$ as the minimum on the range where it is the leftmost minimum: $[left[i]+1, right[i]-1]$.
+>
+> Monotonic stacks give those bounds. The sum of subarray sums over that rectangle is a combination of prefix-of-prefix sums $ss$, computed in constant time, then multiplied by $strength[i]$ modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

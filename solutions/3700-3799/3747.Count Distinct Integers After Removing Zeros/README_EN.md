@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md
 rating: 1848
 source: Weekly Contest 476 Q3
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^{15}$ forbids stripping zeros from every $x$. After zeros are removed the result contains no $0$ and is at most the original number, so the distinct images in $[1,n]$ are exactly the zero-free integers in that range, which a digit DP counts.
+
+<!-- thinking:end -->
 
 The problem essentially asks us to count the number of integers in the range $[1, n]$ that do not contain the digit 0. We can solve this problem using digit DP.
 

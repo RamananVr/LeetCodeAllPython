@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -70,6 +69,16 @@ After processing the queries, there are one red node (node with value 1): 2.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query flips a node and its whole subtree in a perfect binary heap. Even queries cancel, so keep a node only when it is queried an odd number of times.
+>
+> DFS from each remaining root to flip its subtree, then count ones. Each query root is processed once.
+
+<!-- thinking:end -->
 
 According to the problem description, we can simulate the process of each query, that is, reverse the values of the query node and its subtree nodes. Finally, count the number of nodes with a value of 1.
 

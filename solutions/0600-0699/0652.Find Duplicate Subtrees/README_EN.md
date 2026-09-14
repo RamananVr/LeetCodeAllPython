@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicate subtrees share structure and values. Pairwise comparison is quadratic.
+>
+> Serialize each subtree in postorder and count the strings. When a serialization first reaches $2$, record that root so each shape is reported once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

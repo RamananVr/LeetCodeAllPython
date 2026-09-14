@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README_EN.md
 tags:
     - Tree
     - Divide and Conquer
@@ -95,6 +94,16 @@ The resulting matrix is of size 1*1 with also zero.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bitwise OR of two quad-trees. Expanding to pixels and recompressing throws away structure. Leaves short-circuit: a true leaf dominates; two leaves OR to a leaf.
+>
+> Otherwise recurse on the four children. If all four children are leaves of the same value, merge them back into one leaf so the tree stays canonical.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Block Decomposition
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query sums every $y$-th element starting at $x$. Walking the stride per query is too slow when $q\le 1.5\times 10^5$ and $n\le 5\times 10^4$, especially for small $y$.
+>
+> Large strides are short and can be summed on the fly; small strides are long and should be precomputed. Split at $\sqrt{n}$.
+>
+> $\textit{suf}[i][j]$ is the suffix sum from $j$ with stride $i$. Look it up when $y\le\sqrt{n}$; otherwise scan. The total is $O((n+q)\sqrt{n})$.
+
+<!-- thinking:end -->
 
 This problem is a typical block decomposition problem. For queries with a large step size, we can directly brute force the solution; for queries with a small step size, we can preprocess the suffix sum of each position and then directly query.
 

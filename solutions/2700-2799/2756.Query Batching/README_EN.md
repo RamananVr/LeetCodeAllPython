@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2756.Query%20Batching/README_EN.md
 tags:
     - JavaScript
 ---
@@ -137,6 +136,16 @@ queryMultiple([&#39;f&#39;]) is called at t=350ms, it is resolved at 450ms
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Calls to $getValue$ inside a throttle window $t$ must share one $queryMultiple$, and the first call goes out immediately. One request per key is correct but wasteful; without a throttle, concurrent keys become many round trips.
+>
+> Remember the last flush time. If at least $t$ has elapsed, fire the current key at once; otherwise enqueue the key and its $resolve$, and submit the whole batch when the window ends. Each Promise fulfills with the value at the matching index.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

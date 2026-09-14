@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0443.String%20Compression/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -75,6 +74,18 @@ After modifying the input array in-place, the first 4 characters of <code>chars<
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A run becomes the character plus its count (when the count is greater than $1$), written in place. A second buffer would break the space bound.
+>
+> Read pointer $i$ finds a run; write pointer $k$ stores the character and, if needed, the decimal digits. Then $i$ jumps to the next run.
+>
+> The write pointer never passes the read pointer: a compressed prefix is never longer than the original, so overwriting from the left is safe. Return $k$ as the new length.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

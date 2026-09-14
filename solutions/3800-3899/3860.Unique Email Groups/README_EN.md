@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3860.Unique%20Email%20Groups/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -222,6 +221,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Emails that normalize to the same string form one group. At most $1000$ addresses, so transform and insert into a set.
+>
+> Strip dots from the local part, cut at the first $+$, and lowercase both local and domain.
+>
+> The set size is the number of distinct groups.
+>
+> Each address is processed once, matching the stated rules.
+
+<!-- thinking:end -->
 
 We can use a hash set $\textit{st}$ to store the normalized result of each email address. For each email address, we normalize it according to the problem requirements:
 

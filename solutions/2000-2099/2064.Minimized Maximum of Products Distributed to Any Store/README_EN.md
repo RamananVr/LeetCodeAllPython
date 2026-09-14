@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README_EN.md
 rating: 1885
 source: Weekly Contest 266 Q3
 tags:
@@ -79,6 +78,16 @@ The maximum number of products given to any store is max(100000) = 100000.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distribute each product type to stores while minimizing the per-store cap $x$. Larger $x$ is always easier, so the predicate is monotone. Both $m$ and $n$ reach $10^5$, so a check must be $O(m)$.
+>
+> Type $i$ needs $\lceil q_i/x \rceil$ stores; feasibility is their sum $\le n$. Binary-search the least such $x$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

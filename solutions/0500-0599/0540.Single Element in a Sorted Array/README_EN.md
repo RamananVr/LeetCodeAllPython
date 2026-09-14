@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -44,6 +43,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All elements appear in adjacent pairs except one singleton, and we must find it in $O(\log n)$.
+>
+> Pairs occupy even-odd indices. If `mid` still matches `mid ⊕ 1`, the singleton is to the right; otherwise it lies on the left (including `mid`). XOR avoids separate even/odd cases.
+
+<!-- thinking:end -->
 
 The given array $\textit{nums}$ is sorted, and we need to find the element that appears only once in $\textit{O}(\log n)$ time. Therefore, we consider using binary search to solve this problem.
 

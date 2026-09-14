@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README_EN.md
 tags:
     - Greedy
     - Array
@@ -63,6 +62,18 @@ Use Floor, Ceil and Ceil operations to get (0.7 - 0) + (3 - 2.8) + (5 - 4.9) = 0
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each price floors, or ceils when it has a fraction. The all-floor sum is $\textit{mi}$ and the number of ceilable prices is the count of nonzero fractions; $target$ must lie in that range.
+>
+> Exactly $d=\textit{target}-\textit{mi}$ prices must ceil. Ceil error is $1-\{p\}$ and floor error is $\{p\}$, so the $d$ largest fractional parts should be ceiled.
+>
+> Sorting those fractions descending yields the total error to three decimals.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

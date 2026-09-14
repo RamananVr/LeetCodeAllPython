@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md
 rating: 2241
 source: Weekly Contest 160 Q4
 tags:
@@ -63,6 +62,16 @@ tags:
 
 ### Solution 1: Recursive Backtracking + State Compression
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We tile an $n\times m$ rectangle with as few squares as possible. $n,m \le 13$, so occupancy fits in one bitmask per row. Naive partitions are many, but the tile count prunes.
+>
+> Row-major search finds the first empty cell, tries every feasible side length, writes $filled$, and recurses; XOR undoes the write. We stop when the tile count cannot beat the best known. Bitmasks make occupancy a bitwise test; backtracking covers the rectangle.
+
+<!-- thinking:end -->
+
 We can perform recursive backtracking by position, during which we use a variable $t$ to record the current number of tiles used.
 
 - If $j = m$, i.e., the $i$-th row has been completely filled, then we recurse to the next row, i.e., $(i + 1, 0)$.
@@ -122,6 +131,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 places squares from small to large. Larger tiles shrink the hole sooner, so the $ans$ prune fires earlier. Solution 2 first fills the largest square at the cell, then shrinks the border from large to small. The move set is the same; only the order helps pruning.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

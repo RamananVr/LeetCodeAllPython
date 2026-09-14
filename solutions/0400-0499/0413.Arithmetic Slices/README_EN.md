@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Iteration and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every subarray of length at least $3$ is $O(n^2)$. With $n\le 5000$ that might pass, yet a run with a fixed difference contributes a closed-form count.
+>
+> One scan keeps the current difference and a counter $\textit{cnt}$ of new slices inside the run: grow $\textit{cnt}$ while the difference stays, otherwise reset.
+>
+> A run of length $L$ contributes $1+2+\cdots+(L-2)$ slices; adding $\textit{cnt}$ at each step evaluates that sum.
+
+<!-- thinking:end -->
 
 We use $d$ to represent the current difference between two adjacent elements, and $cnt$ to represent the length of the current arithmetic sequence. Initially, $d = 3000$, $cnt = 2$.
 

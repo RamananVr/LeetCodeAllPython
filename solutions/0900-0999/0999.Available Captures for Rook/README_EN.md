@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README_EN.md
 tags:
     - Array
     - Matrix
@@ -78,6 +77,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One rook on an $8\times 8$ board captures pawns along a ray until a bishop blocks. Find `'R'`, then walk four directions: stop at a bishop, and on a pawn increment and stop that ray. The board is tiny, so simulation is enough.
+
+<!-- thinking:end -->
 
 We first traverse the board to find the position of the rook $(i, j)$. Then, starting from $(i, j)$, we traverse in four directions: up, down, left, and right.
 

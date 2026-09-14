@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2060.Check%20if%20an%20Original%20String%20Exists%20Given%20Two%20Encoded%20Strings/README_EN.md
 rating: 2803
 source: Weekly Contest 265 Q4
 tags:
@@ -96,6 +95,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Encoded strings have length $\le 40$ and runs of at most three digits, each standing for a wildcard block. Expanding every original is hopeless. Alignment is a pair of indices plus a length difference: letters consume the difference, digits add or subtract a block length.
+>
+> A digit run may split into several actual lengths, which DFS must try. The difference is bounded, so the state memoizes.
+>
+> The code tabs are empty; the reasoning follows this difference-guided search.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

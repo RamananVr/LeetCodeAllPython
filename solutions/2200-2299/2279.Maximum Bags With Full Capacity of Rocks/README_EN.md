@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README_EN.md
 rating: 1249
 source: Weekly Contest 294 Q2
 tags:
@@ -69,6 +68,16 @@ Note that we did not use all of the additional rocks.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Extra rocks should fill as many bags as possible. Gaps are independent and $n \le 5\times 10^4$, so smaller gaps should be filled first.
+>
+> Sort $capacity[i]-rocks[i]$ and subtract from $\textit{additionalRocks}$ in increasing order; stop when the next gap does not fit.
+
+<!-- thinking:end -->
 
 First, we calculate the remaining capacity of each bag, then sort the remaining capacities. Next, we traverse the remaining capacities from smallest to largest, putting the extra stones into the bags until the extra stones are used up or the remaining capacities of the bags are exhausted. Finally, we return the number of bags at this point.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -80,6 +79,14 @@ Now let&#39;s jump on the bottom-right grid in the above picture and calculate R
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cell's remoteness is the sum of all non-blocked cells outside its component. Count those cells as $cnt$, then DFS each component for sum $s$ and size $t$; the component contributes $(cnt-t)\times s$.
+
+<!-- thinking:end -->
 
 First, we count the number of non-blocking cells in the matrix, denoted as $cnt$. Then, starting from each non-blocking cell, we use DFS to calculate the sum $s$ of the cells in each connected block and the number of cells $t$. Then, all $(cnt - t)$ cells in other connected blocks can be added with $s$. We sum up the results of all connected blocks.
 

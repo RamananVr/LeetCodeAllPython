@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1798.Maximum%20Number%20of%20Consecutive%20Values%20You%20Can%20Make/README_EN.md
 rating: 1931
 source: Biweekly Contest 48 Q3
 tags:
@@ -73,6 +72,16 @@ You can make 8 consecutive integer values starting from 0.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Subset sums of the coins should cover a prefix of the nonnegative integers. If $[0,ans)$ is already feasible, a coin $v\le ans$ extends it to $[0,ans+v)$.
+>
+> Sort the coins and absorb them from small to large; stop at the first $v>ans$, which would leave a hole. The final $ans$ is the length of the prefix.
+
+<!-- thinking:end -->
 
 First, we sort the array. Then we define $ans$ as the current number of consecutive integers that can be constructed, initialized to $1$.
 

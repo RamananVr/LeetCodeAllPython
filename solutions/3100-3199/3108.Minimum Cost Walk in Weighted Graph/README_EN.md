@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README_EN.md
 rating: 2108
 source: Weekly Contest 392 Q4
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Union Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walk cost is the bitwise AND of edge weights, and revisiting edges can only decrease it. Searching from scratch for every query repeats work inside the same component when $q$ is large.
+>
+> AND of positive integers is monotone decreasing, so the minimum cost inside a component is the AND of every edge in that component. Distinct components have no walk between them.
+>
+> Union all edges, then AND every edge weight into $g[\textit{root}]$ of its component. A query returns that value when the endpoints share a root, $0$ when they coincide, and $-1$ otherwise.
+
+<!-- thinking:end -->
 
 We note that a positive integer performing bitwise AND operation with several other positive integers will only get smaller. Therefore, to minimize the cost of the journey, we should perform bitwise AND operation on the weights of all edges in the same connected component, and then perform the query.
 

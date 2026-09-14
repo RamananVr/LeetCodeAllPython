@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README_EN.md
 tags:
     - Design
     - Two Pointers
@@ -76,6 +75,16 @@ medianFinder.findMedian(); // return 2.0
 <!-- solution:start -->
 
 ### Solution 1: Min Heap and Max Heap (Priority Queue)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting after every insertion is too slow for a running median. A max-heap holds the lower half and a min-heap the upper half; the tops form the median.
+>
+> A new value goes into the max-heap then is moved to the min-heap, keeping the min-heap at most one larger. Even counts average the two tops; odd counts take the min-heap top.
+
+<!-- thinking:end -->
 
 We can use two heaps to maintain all the elements, a min heap $\textit{minQ}$ and a max heap $\textit{maxQ}$, where the min heap $\textit{minQ}$ stores the larger half, and the max heap $\textit{maxQ}$ stores the smaller half.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3957.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20II/README_EN.md
 rating: 2611
 source: Weekly Contest 505 Q4
 tags:
@@ -115,6 +114,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I with tighter limits, so a DP that enumerates segment length is no longer enough. The last segment length in $[l,r]$ must become a sliding-window maximum over prefix sums, making each layer $O(n)$.
+>
+> A monotonic queue of $f[j][t-1]-s_j$ on the legal $j$-window yields $O(nm)$. This directory has no implemented solution yet; the walkthrough stops at accelerating part I’s transfer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

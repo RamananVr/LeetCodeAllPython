@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md
 rating: 1695
 source: Weekly Contest 312 Q3
 tags:
@@ -65,6 +64,16 @@ Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $n\le 10^5$, checking $k$ neighbors on each side per index can reach $O(nk)$. The two sides are independent, so precompute the non-increasing run ending at $i-1$ and the one starting at $i+1$.
+>
+> Fill $\textit{decr}$ left to right and $\textit{incr}$ right to left, then accept $i\in[k,n-k)$ when both runs are at least $k$. Both sides are non-increasing, matching the two $\le$ comparisons in the code.
+
+<!-- thinking:end -->
 
 We define two arrays `decr` and `incr`, which represent the longest non-increasing and non-decreasing subarray lengths from left to right and from right to left, respectively.
 

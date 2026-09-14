@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md
 tags:
     - Array
     - Math
@@ -59,6 +58,16 @@ So return 6.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Manhattan distance splits into a sum of $x$-gaps plus a sum of $y$-gaps. In one dimension the sum of distances is minimized at the median.
+>
+> Collect row indices of every $1$ (already sorted) and column indices (then sort), meet at those medians, and sum absolute deviations.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1427.Perform%20String%20Shifts/README_EN.md
 tags:
     - Array
     - Math
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Left and right shifts cancel. Sum them as a signed offset, reduce modulo $n$, and rotate with one slice. $n,m\le 100$, so even stepwise shifts would pass; combining them is $O(n+m)$.
+
+<!-- thinking:end -->
 
 We can denote the length of the string $s$ as $n$. Next, we traverse the array $shift$, accumulate to get the final offset $x$, then take $x$ modulo $n$, the final result is to move the first $n - x$ characters of $s$ to the end.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md
 rating: 1335
 source: Weekly Contest 324 Q1
 tags:
@@ -76,6 +75,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two strings are similar iff they use the same set of letters. Pairwise set comparison is feasible at $n\le 100$, but building sets repeatedly ignores that equal sets are interchangeable.
+>
+> Twenty-six letters fit in an integer bitmask. While scanning, a hash map stores how many times each mask has occurred; the current string pairs with every previous one that shares its mask, then increments that count.
+
+<!-- thinking:end -->
 
 For each string, we can convert it into a binary number of length $26$, where the $i$-th bit being $1$ indicates that the string contains the $i$-th letter.
 

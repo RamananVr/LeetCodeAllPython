@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README_EN.md
 rating: 1656
 source: Biweekly Contest 75 Q3
 tags:
@@ -73,6 +72,16 @@ No other selection is valid. Thus, there are 6 total ways.
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick three indices whose adjacent chosen colors differ, i.e. subsequences $010$ or $101$. $n \le 10^5$ rules out enumerating triples. Fix the middle building: both sides must be the opposite color, and the product of those two counts is the number of ways.
+>
+> Count both colors as the right-hand histogram $r$, then scan left to right: remove the current $x$ from $r$, add $l[x\oplus 1]\times r[x\oplus 1]$, and increment $l[x]$.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to choose $3$ buildings, and two adjacent buildings cannot be of the same type.
 

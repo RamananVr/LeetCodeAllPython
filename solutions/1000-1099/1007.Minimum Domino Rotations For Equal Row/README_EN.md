@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1007.Minimum%20Domino%20Rotations%20For%20Equal%20Row/README_EN.md
 rating: 1541
 source: Weekly Contest 127 Q3
 tags:
@@ -61,6 +60,18 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Faces are only $1$ through $6$, so trying each candidate against both rows is linear in $n\le 2\times 10^4$. Most candidates fail because some column has neither tile equal to them.
+>
+> If a common value exists, it must be $tops[0]$ or $bottoms[0]$; otherwise the first column cannot become that value.
+>
+> We evaluate $f(x)$ on those two candidates: if any column lacks $x$ it is impossible; otherwise the rotation count is $n$ minus the larger of the two row frequencies. The answer is the better of the two.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that in order to make all values in $tops$ or all values in $bottoms$ the same, the value must be one of $tops[0]$ or $bottoms[0]$.
 

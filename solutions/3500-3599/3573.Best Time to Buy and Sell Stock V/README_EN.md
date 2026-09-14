@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README_EN.md
 rating: 1777
 source: Biweekly Contest 158 Q2
 tags:
@@ -84,6 +83,16 @@ We can make $36 of profit through 3 transactions:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in the stock series we may complete at most $k$ trades, but a trade may be a long or a short. The state must distinguish flat, long, and short.
+>
+> $f[i][j][0/1/2]$ is the best profit after $i$ days, at most $j$ trades, in that holding. Opening spends one trade; closing returns to flat. The answer is $f[n-1][k][0]$.
+
+<!-- thinking:end -->
 
 We define $f[i][j][k]$ to represent the maximum profit on the first $i$ days, with at most $j$ transactions, and the current state $k$. Here, the state $k$ has three possibilities:
 

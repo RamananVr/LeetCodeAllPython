@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README_EN.md
 tags:
     - Stack
     - Array
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Traversal to Find the Maximum on the Right
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A building sees the ocean iff nothing to its right is at least as tall. A right-to-left scan keeping the right-hand maximum decides this.
+>
+> If the height exceeds $mx$, record the index and update $mx$. Reverse the collected indices to left-to-right order.
+
+<!-- thinking:end -->
 
 We traverse the array $\textit{height}$ in reverse order for each element $v$, comparing $v$ with the maximum element $mx$ on the right. If $mx \lt v$, it means all elements to the right are smaller than the current element, so the current position can see the ocean and is added to the result array $\textit{ans}$. Then we update $mx$ to $v$.
 

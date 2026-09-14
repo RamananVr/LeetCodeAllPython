@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README_EN.md
 tags:
     - Binary Indexed Tree
     - Segment Tree
@@ -72,6 +71,18 @@ And <code>[3,1,2]</code> is at index 4.</p>
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The lexicographic index of a permutation is the number of permutations strictly smaller than it. Recursing over unused values at each prefix grows with factorials and cannot pass for moderate $n$.
+>
+> If position $i$ takes an unused value smaller than $perm[i]$, the remaining $n-i-1$ positions may be arbitrary, contributing that count times $(n-i-1)!$. Summing over positions yields the rank.
+>
+> A Fenwick tree stores already seen values, so the number of used values below the current one is a prefix query. Accumulate $(perm[i]-1-\textit{query}(perm[i]))\times(n-i-1)!$ from left to right and mark $perm[i]$, which is $O(n\log n)$.
+
+<!-- thinking:end -->
 
 According to the problem requirements, we need to find out how many permutations are lexicographically smaller than the given permutation.
 

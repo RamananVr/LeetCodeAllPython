@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README_EN.md
 tags:
     - Queue
     - Array
@@ -74,6 +73,16 @@ It can be proven that 2 is the minimum number of coins needed to acquire all the
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recurrence matches “Fruits I”: $f[i]=prices[i-1]+\min_{i+1 \le j \le 2i+1} f[j]$, but $n$ is $10^5$, so a double loop fails. The window’s right end shrinks as $i$ decreases, and a monotonic queue extracts the minimum in amortized $O(1)$.
+>
+> Going backwards, drop indices beyond $2i+1$, add the head into $prices[i-1]$, and keep the queue increasing by cost. After the in-place roll, $prices[0]$ is the answer.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the minimum number of coins needed to buy all fruits starting from the $i$th fruit. So the answer is $f[1]$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2960.Count%20Tested%20Devices%20After%20Test%20Operations/README_EN.md
 rating: 1169
 source: Weekly Contest 375 Q1
 tags:
@@ -79,6 +78,16 @@ So, the answer is 2.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Testing a still-positive device decrements every later battery. The number already tested, $ans$, is exactly the total subtracted before the current device, so it is testable iff $x>ans$.
+>
+> $n \le 100$; accumulate the predicate without rewriting the array.
+
+<!-- thinking:end -->
 
 Assume that the current number of devices we have tested is $ans$. When testing a new device $i$, its remaining battery is $\max(0, batteryPercentages[i] - ans)$. If the remaining battery is greater than $0$, it means this device can be tested, and we need to increase $ans$ by $1$.
 

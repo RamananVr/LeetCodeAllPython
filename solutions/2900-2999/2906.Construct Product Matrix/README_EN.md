@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2906.Construct%20Product%20Matrix/README_EN.md
 rating: 2074
 source: Weekly Contest 367 Q4
 tags:
@@ -65,6 +64,16 @@ So the answer is [[2],[0],[0]].</pre>
 <!-- solution:start -->
 
 ### Solution 1: Prefix and Suffix Decomposition
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cell should store the product of all other entries modulo $12345$. The modulus is not prime, so inverses of $grid[i][j]$ are unavailable, and a multiple of $12345$ would break division. With $n \cdot m \le 10^5$, flattening the matrix reduces to a product-except-self.
+>
+> Sweep from the bottom-right, writing the suffix product $suf$ (excluding self) into $p$, then sweep from the top-left and multiply by the prefix $pre$. Both updates stay in modular arithmetic.
+
+<!-- thinking:end -->
 
 We can preprocess the suffix product (excluding itself) of each element, and then traverse the matrix to calculate the prefix product (excluding itself) of each element. The product of the two gives us the result for each position.
 

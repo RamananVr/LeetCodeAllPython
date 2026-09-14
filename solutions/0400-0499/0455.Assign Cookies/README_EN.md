@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0455.Assign%20Cookies/README_EN.md
 tags:
     - Greedy
     - Array
@@ -62,6 +61,18 @@ You need to output 2.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cookie feeds at most one child; we want as many content children as possible. Small cookies should go to small appetites, otherwise a large cookie is wasted.
+>
+> Sort both arrays. A cookie pointer skips sizes that are too small and advances together with the child when the size is enough. Exhausting the cookies returns how many children were fed.
+>
+> After sorting, the two pointers always try the current cookie on the easiest remaining child.
+
+<!-- thinking:end -->
 
 According to the problem description, we should prioritize giving cookies to children with smaller appetites, so as to satisfy as many children as possible.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README_EN.md
 rating: 1309
 source: Weekly Contest 245 Q1
 tags:
@@ -59,6 +58,16 @@ All the strings are now equal to &quot;abc&quot;, so return <code>true</code>.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters may move freely among the words. The words can become equal iff every character's total count is divisible by the number of words.
+>
+> Count frequencies over the whole list and test that each count is a multiple of $n$.
+
+<!-- thinking:end -->
 
 According to the problem description, as long as the occurrence count of each character can be divided by the length of the string array, it is possible to redistribute the characters to make all strings equal.
 

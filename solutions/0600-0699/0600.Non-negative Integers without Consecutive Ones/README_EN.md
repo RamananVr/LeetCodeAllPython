@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md
 tags:
     - Dynamic Programming
 ---
@@ -61,6 +60,16 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every integer in $[0, n]$ and checking its bits is too slow when $n$ reaches $10^9$. The count of valid numbers depends only on the remaining bits and whether the previous bit is $1$.
+>
+> Fill bits from high to low with state $(i, \textit{pre}, \textit{limit})$: if $\textit{pre}=1$ the current bit cannot be $1$, and $\textit{limit}$ keeps the prefix at most $n$. Memoization makes the cost linear in the bit length.
+
+<!-- thinking:end -->
 
 This problem essentially asks for the number of numbers in the given range $[l, ..r]$ whose binary representation does not contain consecutive $1$s. The count is related to the number of digits and the value of each binary digit. We can use the concept of Digit DP to solve this problem. In Digit DP, the size of the number has little impact on the complexity.
 

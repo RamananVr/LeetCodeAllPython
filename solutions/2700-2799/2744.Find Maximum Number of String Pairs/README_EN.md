@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README_EN.md
 rating: 1405
 source: Biweekly Contest 107 Q1
 tags:
@@ -78,6 +77,16 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two distinct indices form a pair when the strings are reverses of each other, and each string is used at most once. Sorting then matching works, but the strings have length $2$, so an online count is enough.
+>
+> Scan left to right: if the reverse of the current word was already seen, form a pair, then increment the word’s count. Each string is used once, so a positive count is a match.
+
+<!-- thinking:end -->
 
 We can use a hash table $cnt$ to store the number of occurrences of each reversed string in the array $words$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README_EN.md
 rating: 1223
 source: Biweekly Contest 74 Q1
 tags:
@@ -66,6 +65,16 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An array of length $2n$ must split into $n$ equal pairs. The pairing itself is not required. Searching all pairings would be combinatorial even for $n \le 500$.
+>
+> Each pair consumes two copies of a value, so every frequency must be even. Count occurrences and test that every count is even. One pass over a hash map is enough.
+
+<!-- thinking:end -->
 
 According to the problem description, as long as each element in the array appears an even number of times, the array can be divided into $n$ pairs.
 

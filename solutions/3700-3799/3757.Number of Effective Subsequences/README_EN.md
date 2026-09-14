@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README_EN.md
 rating: 2519
 source: Weekly Contest 477 Q4
 tags:
@@ -131,6 +130,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence is effective iff deleting it strictly decreases the array OR, i.e. it covers some bit that nothing outside provides. With $n\le 10^5$ we count how many values supply each bit, then count subsequences whose deletion leaves every bit still covered, and subtract from $2^n-1$. The answer is taken modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$ most frequent values. Full sort is $O(n\log n)$. Only the top $k$ frequencies matter.
+>
+> Count, then select the $k$ largest frequencies. `Counter.most_common(k)` is a heap selection in $O(n\log k)$.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to count the occurrence of each element, and then use a min heap (priority queue) to store the top $k$ frequent elements.
 

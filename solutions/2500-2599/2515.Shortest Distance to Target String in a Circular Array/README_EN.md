@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README_EN.md
 rating: 1367
 source: Weekly Contest 325 Q1
 tags:
@@ -76,6 +75,16 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Single Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is circular; we want the fewest steps from $\textit{startIndex}$ to an index whose word equals $\textit{target}$. Expanding both ways works for $n\le 100$, but the circular distance to each occurrence has a closed form.
+>
+> For every index $i$ with $\textit{words}[i]=\textit{target}$, the distance is $\min(|i-\textit{startIndex}|,\,n-|i-\textit{startIndex}|)$. Take the minimum, or $-1$ if $\textit{target}$ never appears.
+
+<!-- thinking:end -->
 
 We traverse the array $\textit{words}$$,$ find the words equal to $\textit{target}$, and compute their distance $t$ from $\textit{startIndex}$. The shortest distance in this case is $\min(t, n - t)$, so we only need to keep updating the minimum value.
 

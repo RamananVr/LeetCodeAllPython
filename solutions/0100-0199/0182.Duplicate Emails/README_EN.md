@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0182.Duplicate%20Emails/README_EN.md
 tags:
     - Database
 ---
@@ -65,6 +64,14 @@ Person table:
 
 ### Solution 1: Group By + Having
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find emails that occur more than once. Group by $\textit{email}$ and keep groups with $\textit{HAVING}\,\textit{COUNT}>1$. That is exactly “frequency above one”.
+
+<!-- thinking:end -->
+
 We can use the `GROUP BY` statement to group the data by the `email` field, and then use the `HAVING` statement to filter out the `email` addresses that appear more than once.
 
 <!-- tabs:start -->
@@ -99,6 +106,14 @@ HAVING COUNT(1) > 1;
 <!-- solution:start -->
 
 ### Solution 2: Self-Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 aggregates. A self-join on the same email and different $\textit{id}$s also proves the email appears twice; then distinct. No $\textit{GROUP BY}$.
+
+<!-- thinking:end -->
 
 We can use a self-join to join the `Person` table with itself, and then filter out the records where the `id` is different but the `email` is the same.
 

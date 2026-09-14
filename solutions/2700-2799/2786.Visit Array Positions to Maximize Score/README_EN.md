@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md
 rating: 1732
 source: Biweekly Contest 109 Q3
 tags:
@@ -66,6 +65,16 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walk right from index $0$, add the value, and subtract $x$ when parity changes; positions may be skipped. The number of jump sequences is large.
+>
+> The score depends only on the previous parity. $f[0]$ and $f[1]$ are the best scores ending even or odd: stay on the same parity at no extra cost, or switch and pay $x$, then add the current value. The answer is the larger of the two.
+
+<!-- thinking:end -->
 
 Based on the problem description, we can draw the following conclusions:
 

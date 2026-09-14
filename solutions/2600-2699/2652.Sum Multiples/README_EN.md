@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2652.Sum%20Multiples/README_EN.md
 rating: 1182
 source: Weekly Contest 342 Q2
 tags:
@@ -60,6 +59,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum integers in $[1,n]$ divisible by $3$, $5$, or $7$. $n \le 1000$ allows scanning every $x$ and testing those moduli.
+
+<!-- thinking:end -->
+
 We directly enumerate every number $x$ in $[1,..n]$, and if $x$ is divisible by $3$, $5$, and $7$, we add $x$ to the answer.
 
 After the enumeration, we return the answer.
@@ -83,6 +90,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Mathematics (Inclusion-Exclusion Principle)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans $n$ linearly. Multiples of $x$ form an arithmetic series with a closed sum; inclusion-exclusion removes overlaps in $O(1)$.
+>
+> The value is $f(3)+f(5)+f(7)-f(15)-f(21)-f(35)+f(105)$.
+
+<!-- thinking:end -->
 
 We define a function $f(x)$ to represent the sum of numbers in $[1,..n]$ that are divisible by $x$. There are $m = \left\lfloor \frac{n}{x} \right\rfloor$ numbers that are divisible by $x$, which are $x$, $2x$, $3x$, $\cdots$, $mx$, forming an arithmetic sequence with the first term $x$, the last term $mx$, and the number of terms $m$. Therefore, $f(x) = \frac{(x + mx) \times m}{2}$.
 
@@ -115,6 +132,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same inclusion-exclusion formula as Solution 2, rewritten in Rust; the algorithm and constants do not change.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md
 rating: 1303
 source: Weekly Contest 346 Q2
 tags:
@@ -66,6 +65,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only decrease letters, and the result must be a palindrome. Symmetric ends should both become the smaller of the two characters. $n \le 10^5$ allows one two-pointer pass; we need not search which indices to change.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$ to point to the beginning and end of the string, initially $i = 0$, $j = n - 1$.
 

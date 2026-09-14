@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1455.Check%20If%20a%20Word%20Occurs%20As%20a%20Prefix%20of%20Any%20Word%20in%20a%20Sentence/README_EN.md
 rating: 1125
 source: Weekly Contest 190 Q1
 tags:
@@ -66,6 +65,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: String Splitting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sentence is short. Split on spaces and return the 1-based index of the first word that starts with $\textit{searchWord}$.
+
+<!-- thinking:end -->
 
 We split $\textit{sentence}$ by spaces into $\textit{words}$, then iterate through $\textit{words}$ to check if $\textit{words}[i]$ is a prefix of $\textit{searchWord}$. If it is, we return $i+1$. If the iteration completes and no words satisfy the condition, we return $-1$.
 

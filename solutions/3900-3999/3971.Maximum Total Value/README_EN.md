@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3971.Maximum%20Total%20Value/README_EN.md
 rating: 2194
 source: Weekly Contest 507 Q4
 tags:
@@ -108,6 +107,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $t$-th pick of index $i$ yields $\textit{value}[i]-\textit{decay}[i]\cdot(t-1)$, an arithmetic sequence. The $m$ picks should always take the current global next-best term.
+>
+> Each index is one decreasing stream; a heap pops the best next term $m$ times and pushes the following term. A stream that would go non-positive is dropped.
+>
+> This directory has no implemented solution yet; the walkthrough stops at multi-way heap selection.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

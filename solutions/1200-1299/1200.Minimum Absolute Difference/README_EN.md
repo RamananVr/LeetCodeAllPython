@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README_EN.md
 rating: 1198
 source: Weekly Contest 155 Q1
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating all pairs is $O(n^2)$, which is too slow for $n \le 10^5$.
+>
+> After sorting, the gap between any two values is at least the sum of adjacent gaps between them, so the global minimum absolute difference occurs only between neighbors.
+>
+> We therefore sort $arr$, scan adjacent differences for the minimum $mi$, then collect every adjacent pair whose difference equals $mi$. Sorting shrinks the candidate set; the two linear passes compute the extremum and gather the answer.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to find the minimum absolute difference between any two elements in the array $arr$. Therefore, we can first sort the array $arr$, then traverse the adjacent elements to get the minimum absolute difference $mi$.
 

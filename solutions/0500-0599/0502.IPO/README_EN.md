@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0502.IPO/README_EN.md
 tags:
     - Greedy
     - Array
@@ -67,6 +66,16 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of the $k$ choices should take the most profitable project we can afford. Scanning all $n$ projects every time is $O(kn)$, which is heavy for $n,k \le 10^5$.
+>
+> Capital never decreases, so keep locked projects in a min-heap by capital and move those we can afford into a max-heap by profit. Each round pops the best profit and updates capital. Both heaps expose the next unlock and the best pick at the top.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

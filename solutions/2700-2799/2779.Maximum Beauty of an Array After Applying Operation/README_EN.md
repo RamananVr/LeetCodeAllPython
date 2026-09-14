@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md
 rating: 1638
 source: Weekly Contest 354 Q2
 tags:
@@ -73,6 +72,16 @@ The beauty of the array nums is 4 (whole array).
 <!-- solution:start -->
 
 ### Solution 1: Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value may become any integer in $[x-k,x+k]$; beauty is how many elements can share one value. Testing every target against every element is heavy when both the range and $n$ reach $10^5$.
+>
+> After a shift by $k$, an element covers $[x,x+2k]$. A difference array adds $1$ at the left and $-1$ past the right; the maximum prefix sum is the heaviest overlap.
+
+<!-- thinking:end -->
 
 We notice that for each operation, all elements within the interval $[nums[i]-k, nums[i]+k]$ will increase by $1$. Therefore, we can use a difference array to record the contributions of these operations to the beauty value.
 

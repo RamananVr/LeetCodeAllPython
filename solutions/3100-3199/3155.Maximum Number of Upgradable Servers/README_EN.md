@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3155.Maximum%20Number%20of%20Upgradable%20Servers/README_EN.md
 tags:
     - Array
     - Math
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A data center may sell some servers to fund upgrades of the rest. Trying every $x\le count[i]$ works but is unnecessary.
+>
+> Selling $count-x$ servers plus cash must cover $x\cdot upgrade$, which rearranges to $x\le(count\cdot sell+money)/(upgrade+sell)$ and $x\le count$.
+>
+> Take the minimum of that bound and the server count for each center. Integer division floors automatically.
+
+<!-- thinking:end -->
 
 For each data center, we assume that we can upgrade $x$ servers, then $x \times \textit{upgrade[i]} \leq \textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}$. That is, $x \leq \frac{\textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}}{\textit{upgrade[i]} + \textit{sell[i]}}$. Also, $x \leq \textit{count[i]}$, so we can take the minimum of the two.
 

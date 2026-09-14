@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README_EN.md
 rating: 1346
 source: Biweekly Contest 79 Q2
 tags:
@@ -74,6 +73,16 @@ Since there is a tie for the largest word count, we return the sender with the l
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We total words per sender and want the maximum, breaking ties toward the lexicographically larger name. There are $10^4$ messages; splitting on spaces is enough.
+>
+> The word count is the number of spaces plus one. A hash map accumulates totals; a linear scan keeps the current best name.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to record the word count for each sender. Then, we traverse the hash table to find the sender with the highest word count. If there are multiple senders with the highest word count, we return the name that is lexicographically largest.
 

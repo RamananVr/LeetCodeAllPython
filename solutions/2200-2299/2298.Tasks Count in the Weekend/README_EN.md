@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README_EN.md
 tags:
     - Database
 ---
@@ -81,6 +80,16 @@ Task 6 was submitted on Sunday.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count weekend submissions versus weekday submissions. $\textit{WEEKDAY}$ maps Monday through Sunday to $0$ through $6$, so Saturday and Sunday are $5$ and $6$.
+>
+> A single aggregate sums the predicate $\textit{WEEKDAY}(\textit{submit\_date}) \in (5,6)$ as the weekend count and its negation as the weekday count.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

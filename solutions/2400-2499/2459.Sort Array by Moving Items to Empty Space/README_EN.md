@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -80,6 +79,16 @@ It can be proven that 2 is the minimum number of operations needed.
 <!-- solution:start -->
 
 ### Solution 1: Permutation Cycle
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swaps with the blank are permutation-cycle sorting. A cycle of length $m$ costs $m-1$ if it contains the blank and $m+1$ otherwise. The target may be $0,1,\ldots,n-1$ or $1,\ldots,n-1,0$.
+>
+> Walk cycles counting $m+1$ (blank outside), then subtract $2$ if the blank is misplaced. Take the minimum of the two targets.
+
+<!-- thinking:end -->
 
 For a permutation cycle of length $m$, if $0$ is in the cycle, the number of swaps is $m-1$; otherwise, the number of swaps is $m+1$.
 

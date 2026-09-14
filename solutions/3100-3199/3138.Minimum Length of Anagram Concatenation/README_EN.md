@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3138.Minimum%20Length%20of%20Anagram%20Concatenation/README_EN.md
 rating: 1979
 source: Weekly Contest 396 Q3
 tags:
@@ -72,6 +71,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ is a concatenation of equal anagram blocks; we want the shortest block. Its length must divide $n$, so only a handful of candidates exist.
+>
+> A length-$k$ block is valid when each segment's counts times $n/k$ recover the global counts. One $O(n)$ pass verifies a candidate.
+>
+> Count the whole string, then try every divisor $k$ and inspect each segment. The first success is the minimum $t$.
+
+<!-- thinking:end -->
 
 Based on the problem description, the length of string $\textit{t}$ must be a factor of the length of string $\textit{s}$. We can enumerate the length $k$ of string $\textit{t}$ from small to large, and then check if it meets the requirements of the problem. If it does, we return. Thus, the problem is transformed into how to check whether the length $k$ of string $\textit{t}$ meets the requirements.
 

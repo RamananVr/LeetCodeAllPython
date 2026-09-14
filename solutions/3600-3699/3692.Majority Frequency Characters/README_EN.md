@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3692.Majority%20Frequency%20Characters/README_EN.md
 rating: 1384
 source: Biweekly Contest 166 Q1
 ---
@@ -155,6 +154,18 @@ source: Biweekly Contest 166 Q1
 <!-- solution:start -->
 
 ### Solution: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Group characters by frequency, keep the largest group, and on a tie keep the larger frequency. Two maps suffice.
+>
+> $\textit{cnt}$ counts characters; $f[v]$ collects those with count $v$. A scan of $f$ tracks the best group size and its frequency.
+>
+> Concatenate that group. Internal order is irrelevant.
+
+<!-- thinking:end -->
 
 We first use an array or hash table $\textit{cnt}$ to count the frequency of each character in the string. Then, we use another hash table $\textit{f}$ to group characters with the same frequency $k$ into the same list, i.e., $\textit{f}[k]$ stores all characters with frequency $k$.
 

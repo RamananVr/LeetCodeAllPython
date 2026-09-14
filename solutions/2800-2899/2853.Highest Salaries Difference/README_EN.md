@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md
 tags:
     - Database
 ---
@@ -71,6 +70,14 @@ Salaries table:
 <!-- solution:start -->
 
 ### Solution 1: GROUP BY Clause
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The result is the difference of the two departments' maximum salaries. Group by department, take `MAX(salary)`, then subtract the smaller of those two maxima from the larger.
+
+<!-- thinking:end -->
 
 We can first calculate the highest salary for each department, and then calculate the difference between the two highest salaries.
 

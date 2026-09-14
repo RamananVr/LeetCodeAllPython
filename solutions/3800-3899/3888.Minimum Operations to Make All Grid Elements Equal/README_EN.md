@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README_EN.md
 tags:
     - Array
     - Math
@@ -85,6 +84,20 @@ A submatrix <code>(x1, y1, x2, y2)</code> is a matrix that forms by choosing all
 <!-- solution:start -->
 
 ### Solution 1: 2D Difference Array + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation adds $1$ to a $k \times k$ submatrix. We want every cell equal, with as few operations as possible. Operations only increase, so the target $T$ is at least the current maximum.
+>
+> Scan from the top-left: later operations whose top-left is further right or down cannot cover $(i,j)$, so any deficit versus $T$ must be applied now at $(i,j)$.
+>
+> A 2-D difference array records a $k \times k$ increment in $O(1)$ and prefix sums recover the running add. Overflowing $T$ or leaving the grid fails.
+>
+> If both $T=\max$ and $T=\max+1$ fail, the grid cannot be flattened.
+
+<!-- thinking:end -->
 
 Since the operation can only increase the value of elements, all elements in the final grid must be equal to some target value $T$, and $T \ge \max(\textit{grid})$.
 

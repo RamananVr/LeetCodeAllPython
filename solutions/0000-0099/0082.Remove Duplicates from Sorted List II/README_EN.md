@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README_EN.md
 tags:
     - Linked List
     - Two Pointers
@@ -48,6 +47,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is count frequencies, then rebuild a list of values that appear once. Correct, and $n \le 300$ is tiny, but that wastes “already sorted, so duplicates are adjacent” and uses extra $O(n)$ space.
+>
+> The bottleneck is not using adjacency. Equal values form a contiguous run; one pass decides whether the whole run stays.
+>
+> The head may be deleted, so we need a dummy. And when a run is dropped, the predecessor must not advance into it. Keep $pre$ on the last kept node and slide $cur$ over the current value: if $pre.next$ is still $cur$, the run has length one and $pre$ moves; otherwise skip the whole run.
+
+<!-- thinking:end -->
 
 First, we create a dummy head node $dummy$, and set $dummy.next = head$. Then we create a pointer $pre$ pointing to $dummy$, and a pointer $cur$ pointing to $head$, and start traversing the linked list.
 

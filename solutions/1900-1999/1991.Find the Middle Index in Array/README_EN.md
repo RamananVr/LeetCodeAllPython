@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md
 rating: 1302
 source: Biweekly Contest 60 Q1
 tags:
@@ -70,6 +69,16 @@ The sum of the numbers after index 2 is: 0
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A middle index balances left and right sums. After taking the total, walk left to right: subtract the current value from the right, compare, then add it to the left.
+>
+> No prefix array is required.
+
+<!-- thinking:end -->
 
 We define two variables $l$ and $r$, representing the sum of elements to the left and right of index $i$ in the array $\textit{nums}$, respectively. Initially, $l = 0$ and $r = \sum_{i = 0}^{n - 1} \textit{nums}[i]$.
 

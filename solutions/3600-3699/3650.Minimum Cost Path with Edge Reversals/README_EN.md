@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README_EN.md
 rating: 1853
 source: Biweekly Contest 163 Q3
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dijkstra's Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A forward traversal costs $w$ and a reversal costs $2w$. We want the cheapest walk from $0$ to $n-1$. Enumerating which edges to reverse is exponential.
+>
+> Materialize the reverse as an extra arc: keep $(u,v,w)$ and add $(v,u,2w)$. The instance becomes an ordinary nonnegative shortest-path problem.
+>
+> Heap Dijkstra from $0$ returns the first time $n-1$ is popped; an empty heap means unreachable. Each original edge yields two directed arcs, so the complexity tracks $m\log m$.
+
+<!-- thinking:end -->
 
 According to the problem description, we can construct a directed graph $g$ where each edge $(u, v)$ allows for two types of traversal:
 

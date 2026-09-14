@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README_EN.md
 rating: 2143
 source: Weekly Contest 452 Q3
 tags:
@@ -112,6 +111,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is small and there are few litter cells, so a state is (position, remaining energy, mask of uncollected litter). Energy $0$ blocks a step; an $R$ cell refills to the initial energy.
+>
+> A level-order BFS increases the step count; mask $0$ is the answer. Visit each state once.
+
+<!-- thinking:end -->
 
 We can use Breadth-First Search (BFS) to solve this problem. First, we need to find the student's starting position and record the locations of all garbage. Then, we can use BFS to explore all possible paths starting from the initial position, while tracking the current energy and the collected garbage.
 

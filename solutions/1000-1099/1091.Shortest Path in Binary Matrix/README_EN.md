@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README_EN.md
 rating: 1658
 source: Weekly Contest 141 Q3
 tags:
@@ -68,6 +67,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The eight-connected path has unit weights, so BFS by layer is the shortest length. $n\le 100$ lets us mark visited cells in the grid. A blocked origin has no path.
+>
+> Enqueue $(0,0)$ and mark it $1$. Each layer expands the eight neighbors that are still $0$. Reaching $(n-1,n-1)$ yields the current layer index.
+>
+> If the queue empties first, the answer is $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

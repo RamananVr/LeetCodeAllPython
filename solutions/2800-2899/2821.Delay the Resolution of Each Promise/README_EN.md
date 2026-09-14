@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md
 tags:
     - JavaScript
 ---
@@ -79,6 +78,14 @@ ms = 30
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each function should start only after $ms$ milliseconds. Map every function to an async wrapper that awaits a timer and then calls the original, leaving the original body unchanged.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

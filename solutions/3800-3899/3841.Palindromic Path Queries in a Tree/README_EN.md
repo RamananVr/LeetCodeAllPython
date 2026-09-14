@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3841.Palindromic%20Path%20Queries%20in%20a%20Tree/README_EN.md
 rating: 2384
 source: Biweekly Contest 176 Q4
 tags:
@@ -102,6 +101,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path can be rearranged into a palindrome iff at most one character has odd frequency. $n,q \le 5 \times 10^4$ forbids walking each path.
+>
+> Parity of letter counts is a $26$-bit mask. The path mask is the XOR of the two rootward prefixes, cancelling the LCA.
+>
+> Updating a node's character changes rootward masks in a structured way, which a tree difference or Euler-tour structure can maintain.
+>
+> A query fetches the LCA and checks that the path mask has at most one bit set; an update rewrites the character and the masks.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

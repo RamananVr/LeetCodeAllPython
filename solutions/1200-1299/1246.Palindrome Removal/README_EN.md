@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1246.Palindrome%20Removal/README_EN.md
 rating: 2203
 source: Biweekly Contest 12 Q4
 tags:
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Interval DP)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move deletes a palindromic subarray. $n \le 100$. Optimal substructure on intervals suggests DP: $f[i][j]$ is the fewest moves to clear $arr[i..j]$.
+>
+> Equal ends may vanish with the inner interval; otherwise we split at $k$ and clear the two sides separately. Filling by interval length makes shorter intervals ready. $n^3$ is acceptable at $n=100$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum number of operations required to delete all numbers in the index range $[i,..j]$. Initially, $f[i][i] = 1$, which means that when there is only one number, one deletion operation is needed.
 

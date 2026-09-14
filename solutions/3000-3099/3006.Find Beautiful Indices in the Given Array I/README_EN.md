@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md
 rating: 1480
 source: Weekly Contest 380 Q2
 tags:
@@ -80,6 +79,18 @@ Thus we return [0] as the result.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $|s| \le 10^5$ and $|a|,|b| \le 10$, so finding occurrences is cheap, but pairing every $i$ with every $j$ is quadratic.
+>
+> KMP lists all starts of $a$ and $b$ in linear time. Both lists are sorted, so each $i$ only needs a advancing pointer on the $b$ list to find some $j$ with $|i-j| \le k$.
+>
+> The code builds prefix functions, searches, then walks the two occurrence lists with two pointers.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

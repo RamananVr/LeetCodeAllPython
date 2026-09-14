@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README_EN.md
 rating: 2178
 source: Weekly Contest 440 Q3
 tags:
@@ -84,6 +83,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Segment Tree Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part II, but $n$ is larger, so the double loop is gone. We still need the leftmost basket of capacity at least $x$.
+>
+> A segment tree of range maxima can descend left-first and return that index in logarithmic time.
+>
+> The chosen leaf is set to $0$. If the root maximum is already below $x$, the fruit stays unplaced.
+
+<!-- thinking:end -->
 
 We can use a segment tree to maintain the maximum basket capacity in an interval, which allows us to quickly find the first basket with capacity greater than or equal to the fruit quantity through binary search. If no such basket is found, we increment the answer by one; if found, we set that basket's capacity to zero, indicating that the basket has been used.
 

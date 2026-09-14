@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2886.Change%20Data%20Type/README_EN.md
 tags:
     - Pandas
 ---
@@ -60,6 +59,14 @@ The data types of the column grade is converted to int.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `grade` is stored as floats and must become integers. `astype(int)` converts that column without changing the numeric values.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README_EN.md
 rating: 1558
 source: Biweekly Contest 8 Q2
 tags:
@@ -77,6 +76,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two distinct phrases join iff the first's last word equals the second's first word, keeping that word once. $n$ is small: store head/tail words, try pairs $(i,j)$, insert successful joins into a set, and sort.
+
+<!-- thinking:end -->
 
 First, we traverse the `phrases` list, storing the first and last words of each phrase in the array $ps$, where $ps[i][0]$ and $ps[i][1]$ represent the first and last words of the $i$th phrase, respectively.
 

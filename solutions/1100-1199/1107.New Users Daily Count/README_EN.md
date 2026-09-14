@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1107.New%20Users%20Daily%20Count/README_EN.md
 tags:
     - Database
 ---
@@ -80,6 +79,16 @@ The user with id 5 first logged in on 2019-03-01 so he&#39;s not counted on 2019
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A new user is defined by that user's earliest `login` in `Traffic`. `MIN(activity_date) OVER (PARTITION BY user_id)` yields each first login; keep dates within $90$ days of `2019-06-30` and `COUNT(DISTINCT user_id)` per day.
+>
+> Computing the first login before aggregating prevents later logins of the same user from being counted again.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

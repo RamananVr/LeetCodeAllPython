@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3161.Block%20Placement%20Queries/README_EN.md
 rating: 2513
 source: Biweekly Contest 131 Q4
 tags:
@@ -82,6 +81,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Obstacles are inserted only, and a query asks whether a block of size $sz$ fits in $[0,x]$. Scanning gaps online is $O(q^2)$.
+>
+> Reversed time turns insertions into deletions, which only enlarge gaps. A Fenwick tree can store prefix maxima of gap lengths keyed by the right endpoint.
+>
+> Load every obstacle plus sentinels, write gaps, then go backward: a query checks the prefix maximum up to $pre$ and the tail $x-pre$; a deletion updates the successor gap to $nxt-pre$. Reverse the collected answers.
+
+<!-- thinking:end -->
 
 Obstacles are only inserted, so we can process the queries offline in reverse and turn "insert an obstacle" into "delete an obstacle". After a deletion the adjacent gap only grows, and a Fenwick tree can maintain prefix maxima.
 

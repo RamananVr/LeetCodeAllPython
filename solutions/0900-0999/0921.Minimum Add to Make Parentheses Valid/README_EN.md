@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -64,6 +63,14 @@ tags:
 
 ### Solution 1: Greedy + Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must add the fewest parentheses to make the string valid. Whatever remains on a matching stack needs one counterpart each. Push a left parenthesis; a right one pops a matching left if possible, otherwise it stays. The final stack size is the answer.
+
+<!-- thinking:end -->
+
 This problem is a classic parenthesis matching problem, which can be solved using "Greedy + Stack".
 
 Iterate through each character $c$ in the string $s$:
@@ -98,6 +105,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Greedy + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The stack only needs the count of unmatched left parentheses, not the characters. $cnt$ tracks those lefts, unmatched rights go into $ans$, and the leftover $cnt$ is added at the end, using constant extra space.
+
+<!-- thinking:end -->
 
 Solution 1 uses a stack to implement parenthesis matching, but we can also directly implement it through counting.
 
@@ -138,6 +153,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Replace + recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A matched `()` pair does not affect the answer and can be deleted. Repeatedly replace one `()`; if the length does not change, nothing remains to pair and the length is the number of additions; otherwise recurse. $n\le 1000$, so the replacements are affordable.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

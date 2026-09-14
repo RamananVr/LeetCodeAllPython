@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2124.Check%20if%20All%20A%27s%20Appears%20Before%20All%20B%27s/README_EN.md
 rating: 1201
 source: Weekly Contest 274 Q1
 tags:
@@ -63,6 +62,18 @@ There are no &#39;a&#39;s, hence, every &#39;a&#39; appears before every &#39;b&
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string contains only `a` and `b`. All `a`s precede all `b`s iff no `a` appears after a `b`, i.e., the substring `ba` is absent.
+>
+> A linear scan or a substring test decides this in $O(n)$.
+>
+> Return whether `"ba"` does not occur in $s$.
+
+<!-- thinking:end -->
 
 According to the problem statement, the string $s$ consists only of characters `a` and `b`.
 

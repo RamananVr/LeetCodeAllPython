@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -54,6 +53,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inorder on a BST is sorted order. We only need the $k$-th visited node, not the full list.
+>
+> An explicit stack walks left, and each pop decrements $k$; when $k$ hits $0$ we have the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -87,6 +96,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One inorder pass is enough, but repeated queries on a static tree redo the left spine. After storing each subtree size, we compare the left size with $k$ and walk left or right.
+>
+> Each query then follows a root-to-leaf path.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

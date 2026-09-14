@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README_EN.md
 tags:
     - Bit Manipulation
     - Math
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Generating lucky numbers in order until the $k$-th one does not scale. There are exactly $2^n$ lucky numbers with $n$ digits, the same as mapping binary bits onto $4$ and $7$. Subtract the counts of shorter lengths to obtain $n$, then decide each bit from the high end: write $4$ if $k$ lies in the first half of length $2^{n-1}$, otherwise write $7$ and subtract that half.
+
+<!-- thinking:end -->
 
 According to the problem description, a lucky number only contains the digits $4$ and $7$, so the number of $n$-digit lucky numbers is $2^n$.
 

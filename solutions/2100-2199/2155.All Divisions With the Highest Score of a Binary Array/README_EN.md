@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2155.All%20Divisions%20With%20the%20Highest%20Score%20of%20a%20Binary%20Array/README_EN.md
 rating: 1390
 source: Weekly Contest 278 Q2
 tags:
@@ -84,6 +83,18 @@ Only index 0 has the highest possible division score 2.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score at $i$ is zeros on the left plus ones on the right. Rescanning both sides for every $i$ is $O(n^2)$.
+>
+> Moving the cut one step updates those two counts by the current bit. We roll $\textit{l0}$ and $\textit{r1}$ and keep the best score together with its indices.
+>
+> Add $x\oplus 1$ to $\textit{l0}$, subtract $x$ from $\textit{r1}$, and refresh the list when $t$ ties or beats $\textit{mx}$.
+
+<!-- thinking:end -->
 
 We start from $i = 0$, using two variables $\textit{l0}$ and $\textit{r1}$ to respectively record the number of $1$s to the left and right of $i$. Initially, $\textit{l0} = 0$, while $\textit{r1} = \sum \textit{nums}$.
 

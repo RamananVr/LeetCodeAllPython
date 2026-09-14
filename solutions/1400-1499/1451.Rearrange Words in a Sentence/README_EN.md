@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README_EN.md
 rating: 1309
 source: Weekly Contest 189 Q2
 tags:
@@ -73,6 +72,14 @@ Output is ordered by length and the new first word starts with capital letter.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort words by length, keep equal lengths in original order, and recapitalize the sentence. Split, lowercase the first word, stable-sort by `len`, then title-case the new first word.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

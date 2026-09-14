@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md
 rating: 1430
 source: Weekly Contest 370 Q2
 tags:
@@ -76,6 +75,16 @@ tags:
 
 ### Solution 1: Counting In-degrees
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges now form a DAG from the stronger team to the weaker. The champion is the unique vertex of in-degree $0$; otherwise none exists. $n \le 100$, so one pass over the edges builds the in-degree array.
+>
+> Return $-1$ unless exactly one zero appears, in which case return that index.
+
+<!-- thinking:end -->
+
 Based on the problem description, we only need to count the in-degrees of each node and record them in an array $indeg$. If only one node has an in-degree of $0$, then this node is the champion; otherwise, there is no unique champion.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
@@ -100,6 +109,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores every in-degree. Equivalently, the champion is the unique vertex that never appears as an edge head. Put $0 \ldots n-1$ in a set, delete each head, and if one vertex remains, return it. The meaning matches in-degrees; the set only records teams that have not lost.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

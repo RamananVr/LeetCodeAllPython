@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0348.Design%20Tic-Tac-Toe/README_EN.md
 tags:
     - Design
     - Array
@@ -109,6 +108,16 @@ ticTacToe.move(2, 1, 1); // return 1&nbsp;(player 1 wins)
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After each move, decide if someone won. Scanning the board is $O(n^2)$. A win is $n$ in one row, column, or diagonal, so those counters suffice.
+>
+> Each player stores counts for rows, columns, and both diagonals. Increment on a move; any count reaching $n$ wins. $O(1)$ per move.
+
+<!-- thinking:end -->
 
 We can use an array of length $n \times 2 + 2$ to record the number of pieces each player has in each row, each column, and the two diagonals. We need two such arrays to record the number of pieces for the two players respectively.
 

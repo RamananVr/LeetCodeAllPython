@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md
 rating: 1517
 source: Weekly Contest 345 Q2
 tags:
@@ -80,6 +79,16 @@ derived[1] = original[1] &oplus; original[0] = 1
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $derived[i]=a[i]\oplus a[i+1]$ may or may not come from some $a$. Reconstructing from $a[0]$ would pass for $n \le 10^5$, yet every $a_i$ appears twice in the XOR of $derived$, so $\bigoplus derived=0$ is necessary and sufficient.
+>
+> One XOR fold decides it.
+
+<!-- thinking:end -->
 
 Let's assume the original binary array is $a$, and the derived array is $b$. Then, we have:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2108.Find%20First%20Palindromic%20String%20in%20the%20Array/README_EN.md
 rating: 1215
 source: Weekly Contest 272 Q1
 tags:
@@ -64,6 +63,18 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the first palindrome in the array. The total length of the words is modest, so a left-to-right check is enough.
+>
+> A word is a palindrome if it equals its reverse, or if two pointers from the ends always match.
+>
+> We scan $\textit{words}$ and return the first $w$ with $w=w[::-1]$, or an empty string if none exists.
+
+<!-- thinking:end -->
 
 We iterate through the array `words`, for each string `w`, we determine if it is a palindrome. If it is, then we return `w`; otherwise, we continue to iterate.
 

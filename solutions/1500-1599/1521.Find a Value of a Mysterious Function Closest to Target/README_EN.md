@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README_EN.md
 rating: 2383
 source: Weekly Contest 198 Q4
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $func$ is the bitwise AND of a subarray; we want it as close as possible to $target$. There are $O(n^2)$ subarrays and $n\le 10^5$, so we cannot materialize them all.
+>
+> As the left end moves left from a fixed right end, the AND is monotone and takes at most $O(\log A)$ distinct values, since each change clears at least one bit. A set stores every AND ending at the current index, derived from the previous set by AND-ing $arr[i]$, and we track the minimum deviation from $target$.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that the function $func(arr, l, r)$ is actually the bitwise AND result of the elements in the array $arr$ from index $l$ to $r$, i.e., $arr[l] \& arr[l + 1] \& \cdots \& arr[r]$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md
 rating: 1280
 source: Biweekly Contest 34 Q1
 tags:
@@ -66,6 +65,16 @@ Notice that element mat[1][1] = 5 is counted only once.
 <!-- solution:start -->
 
 ### Solution 1: Row-by-Row Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum both diagonals of a square matrix; the center of an odd order would be counted twice. $n$ is small: take the two diagonal entries per row and skip the duplicate center.
+>
+> Row $i$ contributes $row[i]$ and $row[n-i-1]$. When those indices coincide, add once; otherwise add both. A single row scan finishes the sum.
+
+<!-- thinking:end -->
 
 We can traverse each row $\textit{row}[i]$ of the matrix. For each row, we calculate the elements on the two diagonals, i.e., $\textit{row}[i][i]$ and $\textit{row}[i][n - i - 1]$, where $n$ is the number of rows in the matrix. If $i = n - i - 1$, it means there is only one element on the diagonals of the current row; otherwise, there are two elements. We add these elements to the answer.
 

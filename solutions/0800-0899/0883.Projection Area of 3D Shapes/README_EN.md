@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README_EN.md
 tags:
     - Geometry
     - Array
@@ -66,6 +65,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three projections are the number of nonzero cells, the sum of row maxima, and the sum of column maxima. $n\le 50$, so one pass computes all three.
+>
+> Count $v>0$ for the top view, take $\max$ per row and per column for the other two views, and add them.
+
+<!-- thinking:end -->
 
 We can calculate the area of the three projections separately.
 

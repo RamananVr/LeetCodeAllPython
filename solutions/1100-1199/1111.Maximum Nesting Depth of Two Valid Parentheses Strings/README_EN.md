@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/README_EN.md
 rating: 1749
 source: Weekly Contest 144 Q4
 tags:
@@ -84,6 +83,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Splitting a valid parenthesis string into two valid strings while minimizing the larger depth means sharing nesting as evenly as possible. A balance $x$ tracks the current depth: on `'('` assign by the parity of $x$ then increment; on `')'` decrement first, then assign by the new parity.
+>
+> Adjacent levels go to different groups, so each group's depth is about half of the original, and each group stays a valid matching.
+
+<!-- thinking:end -->
 
 We use a variable $x$ to maintain the current balance of parentheses, which is the number of left parentheses minus the number of right parentheses.
 

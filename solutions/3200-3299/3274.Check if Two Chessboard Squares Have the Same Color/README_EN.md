@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README_EN.md
 rating: 1162
 source: Weekly Contest 413 Q1
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A chessboard alternates colors; the color of $(c,r)$ is the parity of column plus row. Two squares match iff those parities match.
+>
+> If the sum of the file difference and the rank difference is even, the colors are the same. Two characters minus, then modulo $2$, in constant time.
+
+<!-- thinking:end -->
 
 We calculate the differences in the x-coordinates and y-coordinates of the two points. If the sum of these differences is even, then the colors of the squares at these two coordinates are the same; otherwise, they are different.
 

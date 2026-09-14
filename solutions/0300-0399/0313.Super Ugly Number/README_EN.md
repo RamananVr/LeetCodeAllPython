@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0313.Super%20Ugly%20Number/README_EN.md
 tags:
     - Array
     - Math
@@ -58,6 +57,16 @@ tags:
 
 ### Solution 1: Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A super ugly number uses only the given primes. Trial-dividing every integer is too slow for large $n$.
+>
+> Start from $1$, pop the heap minimum $x$, and push $x\times p$ when it does not overflow. If $x$ is divisible by the current prime, skip later primes (Euler-sieve style). The $n$-th pop is the answer.
+
+<!-- thinking:end -->
+
 We use a priority queue (min heap) to maintain all possible super ugly numbers, initially putting $1$ into the queue.
 
 Each time we take the smallest super ugly number $x$ from the queue, multiply $x$ by each number in the array `primes`, and put the product into the queue. Repeat the above operation $n$ times to get the $n$th super ugly number.
@@ -92,7 +101,21 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming + Multi-pointer Heap
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 fans each ugly number across every prime and the heap grows large. Keep one pointer per prime: the heap top is the next candidate; after writing it, push that prime's next multiple. The heap stays $O(m)$ and the time is $O(n\log m)$.
+
+<!-- thinking:end -->
+
+Store the first $n$ super ugly numbers in $ugly[1..n]$, and keep a min-heap. Each heap entry belongs to one prime $p$ and records the next candidate $p \times ugly[\textit{index}]$.
+
+Initialize $ugly[1] = 1$ and push $(p, p, 2)$ for every prime. Repeatedly pop the heap minimum into $ugly$, then advance that prime's pointer and push it back. Each prime keeps a single pointer, so we do not expand every generated ugly number against the whole prime list.
+
+The time complexity is $O(n \times \log m)$, and the space complexity is $O(n + m)$, where $m$ is the length of $\textit{primes}$.
 
 <!-- solution:end -->
 

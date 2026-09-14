@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README_EN.md
 rating: 1235
 source: Weekly Contest 278 Q1
 tags:
@@ -68,6 +67,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> While $\textit{original}$ occurs in the array, replace it by twice itself. The value grows quickly, so only a few multiplications occur. A hash set makes each membership test expected $O(1)$.
+>
+> Insert $\textit{nums}$ into a set and left-shift $\textit{original}$ until it is absent.
+>
+> That final value is the answer.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{s}$ to record all the numbers in the array $\textit{nums}$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README_EN.md
 rating: 1802
 source: Weekly Contest 470 Q3
 tags:
@@ -162,6 +161,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly searching for and deleting $k$-balanced runs would rescan the same region many times. Consecutive equal characters can be compressed, so the stack stores only a character and its count. Whenever the top holds exactly $k$ closing parentheses and the run beneath it has at least $k$ opening ones, we cancel them immediately, so cascading deletions finish in one pass.
+
+<!-- thinking:end -->
 
 We use a stack to maintain the current state of the string. Each element in the stack is a pair representing a character and its consecutive count.
 

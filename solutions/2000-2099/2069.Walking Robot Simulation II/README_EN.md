@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README_EN.md
 rating: 1918
 source: Biweekly Contest 65 Q2
 tags:
@@ -80,6 +79,16 @@ robot.getDir(); // return &quot;West&quot;
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `num` and the call count are large, so stepping cell by cell is too slow. The robot loops the rectangle boundary of length $p=2(w+h-2)$. Position modulo $p$ falls on one of four sides.
+>
+> Map the distance to coordinates and facing. Before any move face East; after moving, the origin faces South (end of the last edge).
+
+<!-- thinking:end -->
 
 Let $mx = width - 1$ and $my = height - 1$. The robot's trajectory forms the boundary of a rectangle with $(0, 0)$ as the bottom-left corner and $(mx, my)$ as the top-right corner. We can divide the robot's trajectory into four segments:
 

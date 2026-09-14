@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README_EN.md
 tags:
     - Array
     - Math
@@ -83,6 +82,16 @@ Index 2, 4, 6, 7 is also a correct answer.
 <!-- solution:start -->
 
 ### Solution 1: Brainteaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The hidden array is bits; a query on four distinct indices returns a code for how many zeros versus ones they contain. We must return an index of the majority value with a tight query budget, so we cannot read the array.
+>
+> Let $x=query(0,1,2,3)$. For each $i\ge 4$, $query(0,1,2,i)=x$ means $i$ matches index $3$; otherwise it does not. Three further queries compare $0,1,2$ with $3$. The larger class is the majority; a tie returns $-1$. Besides index $3$, a dissenting index is remembered in $k$ for the answer.
+
+<!-- thinking:end -->
 
 We first call `reader.query(0, 1, 2, 3)` and record the result as $x$.
 

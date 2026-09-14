@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README_EN.md
 rating: 1226
 source: Weekly Contest 250 Q1
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Array or Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word is typable iff it contains no broken letter. Put broken letters in a set and split $\textit{text}$ on spaces.
+>
+> Count words whose every character misses the set. The alphabet is constant, so the pass is linear in the text length.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $s$ of length $26$ to record all the broken letter keys.
 

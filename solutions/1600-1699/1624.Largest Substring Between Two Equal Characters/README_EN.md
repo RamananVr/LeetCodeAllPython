@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README_EN.md
 rating: 1281
 source: Weekly Contest 211 Q1
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The length between two equal letters is the gap between that letter's first and a later occurrence. The string is short, but keeping only the first index of each letter already yields a linear solution.
+>
+> On seeing $c$ again, update the answer with $i - d[c] - 1$ and do not overwrite the first index, so the span stays maximal.
+>
+> A hash table (or a length-$26$ array) stores first positions; if nothing pairs, the answer stays $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

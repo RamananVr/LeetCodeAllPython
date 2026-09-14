@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0272.Closest%20Binary%20Search%20Tree%20Value%20II/README_EN.md
 tags:
     - Stack
     - Tree
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BST inorder is sorted, so the $k$ closest values form a window on that sequence. Fill a deque of size $k$ during inorder.
+>
+> Once the window is full and the current value is no closer, the right side only gets farther and we can stop.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

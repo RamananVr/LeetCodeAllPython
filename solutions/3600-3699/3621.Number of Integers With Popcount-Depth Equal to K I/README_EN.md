@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3621.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20I/README_EN.md
 rating: 2330
 source: Biweekly Contest 161 Q4
 tags:
@@ -131,6 +130,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Popcount-depth is the number of times $x$ is replaced by $\mathrm{popcount}(x)$ until it becomes $1$. $n$ is too large to iterate $[1,n]$.
+>
+> The depth is tiny because one popcount collapses $x$ to its bit length. Digit DP counts integers $\le n$ with a given number $c$ of ones; those $c$ are then matched against $k$.
+>
+> Precompute $\textit{depth}(c)$ for every feasible popcount. Handle $k=0$ as the singleton $1$. A binary digit DP over $n$ sums every $c$ with $\textit{depth}(c)=k-1$, since one more popcount raises the depth by one.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

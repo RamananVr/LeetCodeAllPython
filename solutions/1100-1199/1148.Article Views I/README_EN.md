@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1148.Article%20Views%20I/README_EN.md
 tags:
     - Database
 ---
@@ -71,6 +70,14 @@ Views table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Self-views are rows with `author_id = viewer_id`. Filter them, `DISTINCT` the author ids, and sort.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

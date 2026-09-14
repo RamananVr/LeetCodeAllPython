@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README_EN.md
 rating: 2011
 source: Weekly Contest 320 Q3
 tags:
@@ -88,6 +87,16 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Everyone reaches the capital and cars only move toward the root. At $n\le 10^5$, $sz$ people leaving a child need $\lceil sz/seats\rceil$ liters on that edge, after carpooling inside the subtree.
+>
+> DFS bottom-up: a child of size $t$ costs $\lceil t/seats\rceil$ on the parent edge and adds $t$ to the current size. The root has no outgoing edge.
+
+<!-- thinking:end -->
 
 According to the problem description, we can find that all cars will only drive towards the capital (node $0$).
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1149.Article%20Views%20II/README_EN.md
 tags:
     - Database
 ---
@@ -71,6 +70,14 @@ Views table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need viewers who read at least two distinct articles on one day. `GROUP BY viewer_id, view_date` with `HAVING COUNT(DISTINCT article_id) > 1`, then `DISTINCT` the viewer so multi-day hits appear once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

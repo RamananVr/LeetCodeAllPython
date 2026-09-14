@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3149.Find%20the%20Minimum%20Cost%20Array%20Permutation/README_EN.md
 rating: 2641
 source: Weekly Contest 397 Q4
 tags:
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score sums $|perm[i]-nums[perm[i+1]]|$ around the cycle and the permutation must be lexicographically smallest. $n\le 14$ makes $14!$ impossible.
+>
+> A rotation leaves the score unchanged, so the first value can be fixed as $0$. The rest is DP on the used subset $mask$ and the previous value $pre$.
+>
+> Memoize $dfs(mask,pre)$ over unused $cur$, adding $|pre-nums[cur]|$, and close the cycle to $0$. Reconstruct the lexicographically smallest path from the same optima.
+
+<!-- thinking:end -->
 
 We notice that for any permutation $\textit{perm}$, if we cyclically shift it to the left any number of times, the score of the permutation remains the same. Since the problem requires returning the lexicographically smallest permutation, we can determine that the first element of the permutation must be $0$.
 

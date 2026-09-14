@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README_EN.md
 tags:
     - Array
     - Math
@@ -65,6 +64,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add $k$ to an integer stored as an array of digits, including carries. From the least digit, add $k$ into the current place, keep the carry by division, and continue until both the array and $k$ are exhausted. Digits come out low to high and are reversed at the end.
+
+<!-- thinking:end -->
 
 We can start from the last digit of the array and add each digit of the array to $k$. Then, divide $k$ by $10$, and use the remainder as the current digit's value, with the quotient as the carry. Continue this process until the array is fully traversed and $k = 0$. Finally, reverse the answer array.
 

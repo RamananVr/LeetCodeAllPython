@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3332.Maximum%20Points%20Tourist%20Can%20Earn/README_EN.md
 rating: 1827
 source: Biweekly Contest 142 Q3
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Over $k$ days we may stay or travel, scoring stay points or travel points. With $n,k \le 200$ the state space is $O(nk)$ and each transition enumerates the previous city.
+>
+> $f[i][j]$ is the best score after day $i$ in city $j$. Staying from $h=j$ adds $\textit{stayScore}[i-1][j]$; travelling from $h$ adds $\textit{travelScore}[h][j]$.
+>
+> Day $0$ has score $0$ in every city. The answer is the maximum of $f[k]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

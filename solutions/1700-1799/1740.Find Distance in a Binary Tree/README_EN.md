@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1740.Find%20Distance%20in%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The distance between two nodes is the sum of their depths from the LCA. Values are unique, so find the LCA then measure depths.
+>
+> $\textit{lca}$ returns on $p$, $q$, or null; both children nonempty marks the fork. DFS from that node to $p$ and to $q$ and add the depths.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

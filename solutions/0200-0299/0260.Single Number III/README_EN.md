@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0260.Single%20Number%20III/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -59,6 +58,16 @@ tags:
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All but two values appear twice, so the XOR of the array is the XOR $xs$ of those two. They differ, so $xs$ has a $1$ bit.
+>
+> Group by the $\mathrm{lowbit}$ of $xs$; the two targets land in different groups. XOR the group that has that bit to get $a$, then $b=xs\oplus a$.
+
+<!-- thinking:end -->
+
 The XOR operation has the following properties:
 
 - Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
@@ -96,6 +105,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bit method is constant-space. With linear extra memory, a set toggles membership: insert on the first sighting, delete on the second. The remainder is the pair of unique numbers.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

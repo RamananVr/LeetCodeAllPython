@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md
 rating: 1787
 source: Weekly Contest 149 Q3
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With one swap, the longest run is either a block extended by a distant same character, or two same-character blocks separated by one other character. Two pointers take each run length $l$ and the run $r$ after one skip; the candidate is $\min(l+r+1,\textit{global count of that character})$ so we never invent a character.
+
+<!-- thinking:end -->
 
 First, we use a hash table or array $cnt$ to count the occurrence of each character in the string $text$.
 

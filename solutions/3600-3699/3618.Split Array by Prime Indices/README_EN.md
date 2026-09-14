@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3618.Split%20Array%20by%20Prime%20Indices/README_EN.md
 rating: 1227
 source: Biweekly Contest 161 Q1
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sieve of Eratosthenes + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer is the absolute difference between the sum at prime indices and the sum at composite indices, i.e. a signed sum over $i$. Indices reach $10^5$, so trial division per index is wasteful.
+>
+> The sieve of Eratosthenes marks primality on $[0,10^5]$. Walk the array, add $x$ at a prime index and $-x$ otherwise, then take the absolute value.
+>
+> The sieve can be reused; each query is a single linear scan.
+
+<!-- thinking:end -->
 
 We can use the Sieve of Eratosthenes to preprocess all prime numbers in the range $[0, 10^5]$. Then we iterate through the array $\textit{nums}$. For $\textit{nums}[i]$, if $i$ is a prime number, we add $\textit{nums}[i]$ to the answer; otherwise, we add $-\textit{nums}[i]$ to the answer. Finally, we return the absolute value of the answer.
 

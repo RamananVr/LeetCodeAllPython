@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1160.Find%20Words%20That%20Can%20Be%20Formed%20by%20Characters/README_EN.md
 rating: 1205
 source: Weekly Contest 150 Q1
 tags:
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word is formable iff no letter exceeds the supply in $chars$. Recounting $chars$ for every word repeats work. Count $chars$ once, then compare each word's frequencies: reject if any letter overflows, otherwise add the word length. The alphabet is constant, so each comparison is linear in the word.
+
+<!-- thinking:end -->
 
 We can use an array $cnt$ of length $26$ to count the occurrence of each letter in the string $chars$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README_EN.md
 rating: 2396
 source: Weekly Contest 358 Q4
 tags:
@@ -79,6 +78,14 @@ It can be proven that 4788 is the highest score one can obtain.
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray's prime score is that of its leftmost maximum-score element. Monotonic stacks give the span where $nums[i]$ is that maximum, contributing $(i-l)\times(r-i)$ operations. With at most $k$ operations, we raise the largest values to those powers first until $k$ is exhausted.
+
+<!-- thinking:end -->
 
 It is not difficult to see that the number of subarrays with the highest prime score of an element $nums[i]$ is $cnt = (i - l) \times (r - i)$, where $l$ is the leftmost index such that $primeScore(nums[l]) \ge primeScore(nums[i])$, and $r$ is the rightmost index such that $primeScore(nums[r]) \ge primeScore(nums[i])$.
 

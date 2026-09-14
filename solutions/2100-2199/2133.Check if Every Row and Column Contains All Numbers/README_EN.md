@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2133.Check%20if%20Every%20Row%20and%20Column%20Contains%20All%20Numbers/README_EN.md
 rating: 1264
 source: Weekly Contest 275 Q1
 tags:
@@ -57,6 +56,18 @@ Hence, we return false.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every row and column must contain $1\ldots n$ exactly once. With $n\le 100$, checking that each line’s set has size $n$ is enough.
+>
+> Rows are the matrix itself; columns come from the transpose. A set of size $n$ means no duplicates, hence a permutation of $1\ldots n$ given the value range.
+>
+> Validate every sequence in $\texttt{chain}(\textit{matrix},\texttt{zip}(*\textit{matrix}))$.
+
+<!-- thinking:end -->
 
 Traverse each row and column of the matrix, using a hash table to record whether each number has appeared. If any number appears more than once in a row or column, return `false`; otherwise, return `true`
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README_EN.md
 tags:
     - Database
 ---
@@ -71,6 +70,16 @@ Product 1 price&#39;s are 70 for store1, 80 for store3 and, it&#39;s not sold in
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows are $(\textit{product},\textit{store},\textit{price})$; we need one row per product with three store columns, null if missing.
+>
+> Group by $\textit{product\_id}$ and conditionally sum each store into its column; $\mathrm{IF}$ yields $\mathrm{NULL}$ when the store does not match.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1220.Count%20Vowels%20Permutation/README_EN.md
 rating: 1729
 source: Weekly Contest 157 Q4
 tags:
@@ -66,6 +65,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Vowel strings of length $n$ obey adjacency rules. $n$ reaches $2\times 10^4$, so we cannot list strings. It suffices to count strings by last vowel: each letter has a fixed set of legal predecessors.
+>
+> An array $f$ of length $5$ stores counts by ending letter; we roll it $n-1$ times by those predecessors. Only the previous length is needed. We reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 Based on the problem description, we can list the possible subsequent vowels for each vowel:
 
@@ -133,6 +142,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Matrix Exponentiation to Accelerate Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 spends $O(n)$ constant-size updates. The five-state recurrence is a linear map. Encoded as a $5\times 5$ matrix, exponentiation by squaring yields the $n$-th vector in $O(\log n)$ multiplications, which helps for larger $n$.
+
+<!-- thinking:end -->
 
 The time complexity is $O(C^3 \times \log n)$, and the space complexity is $O(C^2)$. Here, $C$ is the number of vowels. In this problem, $C=5$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README_EN.md
 rating: 2647
 source: Weekly Contest 465 Q4
 tags:
@@ -191,6 +190,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence's beauty is typically a function of its $\gcd$. With $n\le 10^4$ and values up to $7\times 10^4$, count by $\gcd=d$ and apply inclusion.
+>
+> For each $d$, run a Fenwick DP on the multiples of $d$ to obtain $g[d]$, the total of subsequences whose $\gcd$ is a multiple of $d$.
+>
+> Set $f[d]=g[d]-\sum_{t>1}f[td]$ so $f[d]$ is the exact-$\gcd$ contribution. The answer is $\sum d\cdot f[d]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md
 rating: 2628
 source: Weekly Contest 285 Q4
 tags:
@@ -69,6 +68,18 @@ Thus, we return [2,3].
 <!-- solution:start -->
 
 ### Solution 1: Segment Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After each single-character update we must report the longest run of the same letter. Both $|s|$ and the query count are $10^5$, so rescan or rebuild runs every time is too slow. An update only changes nearby runs; we need to merge left and right information in logarithmic time.
+>
+> Each segment-tree node stores the longest prefix run $lmx$, suffix run $rmx$, and interior run $mx$. When the characters at the middle seam match, a new run can cross the midpoint, and a fully uniform child can extend the parent's prefix or suffix.
+>
+> An update writes the leaf and $\textit{pushup}$ along the path; the answer is the root's $mx$. Each operation is $O(\log n)$.
+
+<!-- thinking:end -->
 
 The segment tree divides the entire interval into multiple non-continuous sub-intervals, and the number of sub-intervals does not exceed $\log(\textit{width})$. To update the value of an element, you only need to update $\log(\textit{width})$ intervals, and these intervals are all contained in a large interval that contains the element. When modifying the interval, you need to use **lazy tags** to ensure efficiency.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README_EN.md
 rating: 1708
 source: Biweekly Contest 124 Q3
 tags:
@@ -71,6 +70,18 @@ It can be proven that we can perform at most 2 operations.
 <!-- solution:start -->
 
 ### Solution 1: Memorization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, an operation may delete two from the front, two from the back, or one from each end, but the score must stay constant. $n \le 2000$.
+>
+> The first operation has three choices and therefore three possible scores $s$. After that, the best number of operations on $[i,j]$ depends only on $s$.
+>
+> For each $s$ we memoize $\textit{dfs}(i,j)$ over the three deletions that match $s$. The answer is $1$ plus the best of the three first moves.
+
+<!-- thinking:end -->
 
 There are three possible values for the score $s$, which are $s = nums[0] + nums[1]$, $s = nums[0] + nums[n-1]$, and $s = nums[n-1] + nums[n-2]$. We can perform memorization search for these three cases separately.
 

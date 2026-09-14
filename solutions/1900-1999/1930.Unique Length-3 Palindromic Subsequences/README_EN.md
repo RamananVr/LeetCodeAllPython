@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README_EN.md
 rating: 1533
 source: Weekly Contest 249 Q2
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Both End Characters + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$3$ palindromic subsequence has the form $c\_c$. Enumerating triples is impossible for $n\le 10^5$.
+>
+> There are only $26$ letters, so we enumerate the two ends. For a fixed $c$, the number of distinct characters strictly between its first and last occurrence is the number of distinct palindromes with those ends.
+>
+> $\texttt{find}/\texttt{rfind}$ locate the ends and a set counts the middle, in $O(n|\Sigma|)$ time.
+
+<!-- thinking:end -->
 
 Since the string contains only lowercase letters, we can directly enumerate all pairs of end characters. For each pair of end characters $c$, we find their first and last occurrence positions $l$ and $r$ in the string. If $r - l > 1$, it means we have found a palindromic subsequence that meets the conditions. We then count the number of unique characters between $[l+1,..r-1]$, which gives the number of palindromic subsequences with $c$ as the end characters, and add it to the answer.
 

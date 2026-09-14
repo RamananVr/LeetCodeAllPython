@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths from the top-left to the bottom-right only move right or down, so their length is $m+n-1$. An odd length cannot split equally between $0$s and $1$s. Full path enumeration is too large for $m,n\le 100$.
+>
+> The target is $s=(m+n-1)/2$ ones (and the same number of zeros). State $(i,j,k)$ is position $(i,j)$ with $k$ ones so far; prune when $k$ or the zero count already exceeds $s$. Memoization yields $O(mn(m+n))$ states.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that the number of 0s and 1s on the path from the top-left corner to the bottom-right corner is equal, and the total number is $m + n - 1$, which means the number of 0s and 1s are both $(m + n - 1) / 2$.
 

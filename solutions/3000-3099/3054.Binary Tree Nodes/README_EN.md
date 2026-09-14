@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md
 tags:
     - Database
 ---
@@ -84,6 +83,18 @@ Tree table:
 <!-- solution:start -->
 
 ### Solution 1: Left Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node’s role depends on having a parent and having a child. The parent is column $P$; children are other rows that point at this node.
+>
+> A left self-join on $t_1.N=t_2.P$ distinguishes a null $t_1.P$ (root) from a null $t_2$ (leaf) from an inner node.
+>
+> The join can duplicate nodes, so we take distinct $N$ and sort.
+
+<!-- thinking:end -->
 
 If a node's parent is null, then it is a root node; if a node is not the parent of any node, then it is a leaf node; otherwise, it is an internal node.
 

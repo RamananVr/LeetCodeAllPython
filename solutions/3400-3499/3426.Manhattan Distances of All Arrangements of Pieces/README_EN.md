@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3426.Manhattan%20Distances%20of%20All%20Arrangements%20of%20Pieces/README_EN.md
 rating: 2443
 source: Biweekly Contest 148 Q4
 tags:
@@ -86,6 +85,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We place $k$ pieces on an $m\times n$ board and sum Manhattan distances over all placements. Both the number of cells and $k$ can reach $10^5$, so combinations cannot be listed.
+>
+> Manhattan distance splits into row and column parts. Contribution inside a row (column) depends only on how many cells of that line are chosen; contribution between lines depends on the index gap and the ways to finish the remaining pieces.
+>
+> For rows $i<j$ the term is $(j-i)$ times $n^2\,C_{mn-2}^{k-2}$ with the usual pair multiplicity; columns are symmetric. After combination tables the sum is $O(m+n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md
 rating: 1804
 source: Weekly Contest 475 Q3
 tags:
@@ -119,6 +118,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only move right or down, the budget is $k$, and cell values are tiny. Searching backward from the end to $(0,0)$, a nonzero cell costs $1$ and adds its value. The state $(i,j,k)$ memoizes well; stepping out of bounds or running out of budget is impossible.
+
+<!-- thinking:end -->
 
 We define a function $\textit{dfs}(i, j, k)$ that represents the maximum score achievable when starting from position $(i, j)$ and reaching the endpoint $(0, 0)$ with remaining cost not exceeding $k$. We use memoization search to avoid redundant calculations.
 

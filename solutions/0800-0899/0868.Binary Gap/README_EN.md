@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0868.Binary%20Gap/README_EN.md
 tags:
     - Bit Manipulation
 ---
@@ -62,6 +61,16 @@ There are not any adjacent pairs of 1&#39;s in the binary representation of 8, s
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the largest distance between adjacent ones in the binary form. $n\le 10^9$, so a bit scan is enough; no string conversion.
+>
+> Remember the previous $1$’s index and update the gap when the next $1$ appears. If there are fewer than two ones, the answer stays $0$.
+
+<!-- thinking:end -->
 
 We use two pointers $\textit{pre}$ and $\textit{cur}$ to represent the positions of the previous and current $1$ bits, respectively. Initially, $\textit{pre} = 100$ and $\textit{cur} = 0$. Then, we traverse the binary representation of $n$. When we encounter a $1$, we calculate the distance between the current position and the previous $1$ position and update the answer.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path may start anywhere, need not pass the root, and may bend at a node to take both children. Enumerating paths is impossible at $n \le 3\times 10^4$.
+>
+> The value a node can pass upward is its value plus the better non-negative child chain. The sum that uses both children only updates the global answer and cannot propagate. Negative contributions are dropped by taking $\max(0,\cdot)$ before returning.
+
+<!-- thinking:end -->
 
 When thinking about the classic routine of recursion problems in binary trees, we consider:
 

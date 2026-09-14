@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0575.Distribute%20Candies/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice receives half the candies and wants as many types as possible. Extra types beyond $n/2$ cannot be taken.
+>
+> The number of distinct types is the set size; the answer is $\min(\textit{types},\ n/2)$. No need to simulate the split.
+
+<!-- thinking:end -->
 
 We use a hash table to store the types of candies. If the number of candy types is less than $n / 2$, then the maximum number of candy types that Alice can eat is the number of candy types. Otherwise, the maximum number of candy types that Alice can eat is $n / 2$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README_EN.md
 tags:
     - Stack
     - Depth-First Search
@@ -86,6 +85,16 @@ We return 32 since it is the longest absolute path to a file.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A tab-indented tree; find the longest absolute file path. Simulating `cd` by line avoids building the tree.
+>
+> A stack stores path lengths per depth. Pop while the indent is shallower. A directory pushes parent length plus one plus its name; a file updates the answer. A dot marks a file.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

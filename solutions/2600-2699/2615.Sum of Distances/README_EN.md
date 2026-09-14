@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md
 rating: 1793
 source: Weekly Contest 340 Q2
 tags:
@@ -65,6 +64,18 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 <!-- solution:start -->
 
 ### Solution 1: Hash Map + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index needs the sum of distances to all equal values. Scanning every peer from every position is quadratic when $n \le 10^5$.
+>
+> Indices of one value are already sorted. When we move to the next index, the left contribution grows by the left count times the gap, and the right contribution shrinks by the right count; two running totals scan the group in linear time.
+>
+> Group indices by value, then apply that prefix transfer on each group.
+
+<!-- thinking:end -->
 
 First, use a hash map $d$ to record the list of indices for each element in the array $nums$, that is, $d[x]$ represents the list of all indices in $nums$ where the value is $x$.
 

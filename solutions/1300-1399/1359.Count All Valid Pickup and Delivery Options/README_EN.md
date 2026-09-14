@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README_EN.md
 rating: 1722
 source: Biweekly Contest 20 Q4
 tags:
@@ -64,6 +63,14 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of $n$ orders has a pickup before its delivery. $n \le 500$ forbids listing $(2n)!$ sequences. Treat the last delivery as belonging to some order $i$: its pickup may sit in any of the previous $2i-1$ slots, times the ways to arrange the other $i-1$ orders, times $i$ choices for which order is last. Rolling $f \leftarrow f \cdot i \cdot (2i-1)$ modulo the prime is enough.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the number of all valid pickup/delivery sequences for $i$ orders. Initially, $f[1] = 1$.
 

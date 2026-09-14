@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README_EN.md
 rating: 1806
 source: Weekly Contest 421 Q2
 tags:
@@ -109,6 +108,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recurrence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step shifts a letter forward, and $\texttt{z}$ becomes $\texttt{ab}$. With $t \le 10^5$ we cannot rewrite the string.
+>
+> Only the $26$ letter counts matter. $f[i][j]$ is the count of letter $j$ after $i$ steps: $\texttt{z}$ feeds $\texttt{a}$ and $\texttt{b}$, and every other letter comes from the previous one.
+>
+> The answer is the sum of $f[t]$, taken modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the count of the $j$-th letter in the alphabet after $i$ transformations. Initially, $f[0][j]$ is the count of the $j$-th letter in the string $s$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0125.Valid%20Palindrome/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -60,6 +59,16 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check whether the string is a palindrome after ignoring case and non-alphanumeric characters. Filtering into a new string and reversing works at $n \le 2\times 10^5$, but uses $O(n)$ extra space.
+>
+> A palindrome only needs matching pairs. Two pointers walk inward: skip illegal characters, compare legal ones case-insensitively. One pass, constant space.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$ to point to the two ends of the string $s$, and then loop through the following process until $i \geq j$:
 

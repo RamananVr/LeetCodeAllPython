@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -63,6 +62,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each node should become the sum of all keys not smaller than itself. In a BST those keys are exactly the nodes already seen in reverse inorder.
+>
+> Walk right-root-left, accumulate into $s$, and write $s$ back. The right subtree is processed first, so larger keys are already included. One traversal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -97,6 +106,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursive reverse inorder uses an $O(h)$ stack. Morris temporarily links a node's inorder predecessor (leftmost of the right subtree) to recover the parent without a stack.
+>
+> Thread when going right, accumulate and write on the return visit, then unthread and go left. The order is still right-root-left, with constant extra space.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

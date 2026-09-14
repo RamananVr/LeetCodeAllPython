@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md
 rating: 1855
 source: Weekly Contest 155 Q3
 tags:
@@ -77,6 +76,18 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying all permutations of each swap is infeasible when both $n$ and $|pairs|$ reach $10^5$.
+>
+> Swaps are transitive: indices form connected components, and characters inside a component may be rearranged freely. The lexicographically smallest string fills each component's indices with its characters in increasing order.
+>
+> Union-find builds the components; we collect characters by root, sort them in reverse, then pop the smallest character back to each index. Union-find identifies the groups; sorting supplies the optimal fill order.
+
+<!-- thinking:end -->
 
 We notice that the index pairs have transitivity, i.e., if $a$ and $b$ can be swapped, and $b$ and $c$ can be swapped, then $a$ and $c$ can also be swapped. Therefore, we can consider using a union-find data structure to maintain the connectivity of these index pairs, and sort the characters belonging to the same connected component in lexicographical order.
 

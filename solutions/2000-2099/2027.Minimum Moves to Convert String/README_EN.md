@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README_EN.md
 rating: 1346
 source: Weekly Contest 261 Q1
 tags:
@@ -65,6 +64,16 @@ Then we select the last 3 characters and convert them so that the final string c
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move covers three consecutive characters. With $n \le 1000$, a scan suffices. To minimize moves, always cover the leftmost remaining `X` together with the next two positions.
+>
+> On `X` increment the answer and skip three indices; on `O` step by one. The blocks are disjoint and optimal.
+
+<!-- thinking:end -->
 
 Traverse the string $s$. Whenever you encounter `'X'`, move the pointer $i$ three steps forward and add $1$ to the answer; otherwise, move the pointer $i$ one step forward.
 

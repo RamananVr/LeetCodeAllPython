@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README_EN.md
 rating: 1476
 source: Biweekly Contest 80 Q2
 tags:
@@ -68,6 +67,16 @@ Thus, [2,0,2] is returned.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning every potion for each spell costs $O(nm)$. With $n, m \le 10^5$, this does not pass.
+>
+> For a fixed spell $v$, success is $potions[j] \ge \frac{success}{v}$, a monotone cutoff on potion strength. Sort the potions, then binary-search the first valid bottle; the whole suffix pairs with $v$. Each spell needs one logarithmic query.
+
+<!-- thinking:end -->
 
 We can sort the potion array, then traverse the spell array. For each spell $v$, we use binary search to find the first potion that is greater than or equal to $\frac{success}{v}$. We mark its index as $i$. The length of the potion array minus $i$ is the number of potions that can successfully combine with this spell.
 

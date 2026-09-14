@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README_EN.md
 rating: 2132
 source: Weekly Contest 482 Q4
 tags:
@@ -78,6 +77,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced integer has at least two digits and equal odd/even place-sums. Range counting is a digit DP $calc(high)-calc(low-1)$ whose state is the position, the running difference, and tightness; numbers shorter than two digits are excluded by raising the lower bound to $11$.
+
+<!-- thinking:end -->
 
 First, if $\textit{high} < 11$, there are no balanced integers in the range, so we directly return $0$. Otherwise, we update $\textit{low}$ to $\max(\textit{low}, 11)$.
 

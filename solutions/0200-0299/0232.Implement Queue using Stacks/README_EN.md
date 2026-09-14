@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md
 tags:
     - Stack
     - Design
@@ -72,6 +71,16 @@ myQueue.empty(); // return false
 <!-- solution:start -->
 
 ### Solution 1: Double Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stack is LIFO and a queue is FIFO, so one stack cannot serve both ends. Push into $stk1$ and pop from $stk2$.
+>
+> When $stk2$ is empty, pour $stk1$ into it so the oldest value sits on top. Each element moves at most once, and dequeue is amortized constant.
+
+<!-- thinking:end -->
 
 We use two stacks, where `stk1` is used for enqueue, and another stack `stk2` is used for dequeue.
 

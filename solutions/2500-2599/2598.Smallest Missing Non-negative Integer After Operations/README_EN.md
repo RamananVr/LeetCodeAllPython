@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README_EN.md
 rating: 1845
 source: Weekly Contest 337 Q4
 tags:
@@ -73,6 +72,16 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adding or subtracting $\textit{value}$ any number of times replaces a number by any integer in its residue class. We want the smallest $mex$ after these operations.
+>
+> Residue $r$ can supply $r,r+\textit{value},r+2\textit{value},\ldots$. From $0$ upward we consume those residues in order; the first exhausted residue is the $mex$. Count residues and scan.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{cnt}$ to count the number of remainders when each number in the array is modulo $\textit{value}$.
 

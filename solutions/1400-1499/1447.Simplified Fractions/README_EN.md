@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1447.Simplified%20Fractions/README_EN.md
 rating: 1268
 source: Biweekly Contest 26 Q2
 tags:
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. Enumerate $1\le i<j\le n$ and keep the pair when $\gcd(i,j)=1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

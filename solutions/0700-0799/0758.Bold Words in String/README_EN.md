@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0758.Bold%20Words%20in%20String/README_EN.md
 tags:
     - Trie
     - Array
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Wrap every occurrence of a dictionary word in bold tags, merging overlaps and adjacent runs. A trie finds all hits in one sweep.
+>
+> From each start, walk the trie and record $[i,j]$ at each word-end. Then merge intervals that touch or overlap.
+>
+> Emit `<b>`/`</b>` around the merged spans while copying $s$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

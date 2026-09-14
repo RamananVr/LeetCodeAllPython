@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0439.Ternary%20Expression%20Parser/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -67,6 +66,18 @@ or &quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(T ? 4 : 5)&quot; --&gt; &quot
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A ternary expression is right-associative: $T?T?1:2:3$ evaluates the inner choice first. A left-to-right scan must read both branches ahead; a recursive descent is heavier than needed.
+>
+> Walk right to left: push ordinary characters, skip colons, and when a question mark appears the next character is the condition—keep one of the two stacked results according to $T/F$.
+>
+> Right-to-left evaluates inner expressions first, so the stack always holds already-reduced leaves and finishes with one character.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -47,6 +46,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need row $r$, not the whole triangle. The follow-up asks for $O(r)$ space. Updating $f[j] += f[j-1]$ from the right keeps the new row on the right and the old row on the left, so one array rolls forward to $\textit{rowIndex}$.
+
+<!-- thinking:end -->
 
 We create an array $f$ of length $rowIndex + 1$, initially all elements are $1$.
 

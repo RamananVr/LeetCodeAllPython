@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README_EN.md
 rating: 2288
 source: Weekly Contest 499 Q4
 tags:
@@ -104,6 +103,18 @@ tags:
 
 ### Solution 1: Dynamic Programming + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence DP that enumerates every predecessor at least $k$ away is $O(n^2)$ and fails for $n\le 10^5$. Transfers also require the predecessor to be larger or smaller.
+>
+> Let $f[i][0]$ be the best alternating subsequence ending at $i$ as a valley, and $f[i][1]$ as a peak. A valley may follow only a larger peak, a peak only a smaller valley, and the indices must differ by at least $k$.
+>
+> Two Fenwick trees store prefix maxima of $f[\cdot][0]$ and suffix maxima of $f[\cdot][1]$ over the value domain. At index $i$ we query states up to $i-k$, then insert the state at $i-k+1$, which enforces the distance constraint.
+
+<!-- thinking:end -->
+
 **State Definition**
 
 Let $f[i][0]$ denote the maximum sum of a valid subsequence ending at index $i$ where the last element is a **valley** (the next element must be larger to maintain alternation), and $f[i][1]$ denote the maximum sum where the last element is a **peak** (the next element must be smaller).
@@ -166,27 +177,27 @@ class Solution:
         fwt1 = FenwickTree(len(stl))
 
         n = len(nums)
-        dp = [[0, 0] for _ in range(n)]
+        f = [[0, 0] for _ in range(n)]
         res = nums[0]
         for i in range(n):
-            dp[i][0] = dp[i][1] = nums[i]
+            f[i][0] = f[i][1] = nums[i]
             if i >= k:
                 indx = rank[nums[i]]  # 找到nums[i]在stl中的索引
-                dp[i][1] = max(
-                    dp[i][1], fwt0.preSum(indx - 1) + nums[i]
+                f[i][1] = max(
+                    f[i][1], fwt0.preSum(indx - 1) + nums[i]
                 )  # indx-1即表示小于nums[i]的部分
-                dp[i][0] = max(
-                    dp[i][0], fwt1.preSum(len(stl) - indx) + nums[i]
+                f[i][0] = max(
+                    f[i][0], fwt1.preSum(len(stl) - indx) + nums[i]
                 )  # len(stl)-indx即表示在倒序列表中大于nums[i]的部分
 
             if i - k + 1 >= 0:
                 indx = rank[nums[i - k + 1]]
-                fwt0.update(indx, dp[i - k + 1][0])  # 在正序列表中更新i-k+1位置的值
+                fwt0.update(indx, f[i - k + 1][0])  # 在正序列表中更新i-k+1位置的值
                 fwt1.update(
-                    len(stl) - indx + 1, dp[i - k + 1][1]
+                    len(stl) - indx + 1, f[i - k + 1][1]
                 )  # 在倒序列表中更新i-k+1位置的值
 
-            res = max(res, dp[i][0], dp[i][1])  # 更新答案
+            res = max(res, f[i][0], f[i][1])  # 更新答案
 
         return res
 ```

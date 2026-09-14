@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1276.Number%20of%20Burgers%20with%20No%20Waste%20of%20Ingredients/README_EN.md
 rating: 1386
 source: Weekly Contest 165 Q2
 tags:
@@ -65,6 +64,14 @@ There will be no remaining ingredients.
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A jumbo takes $4$ tomatoes and $1$ cheese, a small takes $2$ and $1$, and nothing may remain. Two equations in two unknowns; we need a non-negative integer solution. Tomatoes reach $10^7$, so enumerating one burger type is slow; the closed form is $O(1)$.
+
+<!-- thinking:end -->
 
 We set the number of Jumbo Burgers as $x$ and the number of Small Burgers as $y$, then we have:
 

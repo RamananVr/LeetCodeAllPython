@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README_EN.md
 tags:
     - Array
     - Math
@@ -91,6 +90,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: FFT
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A direct convolution is $O(|A|\cdot|B|)$ and becomes slow for long polynomials. The product coefficients are a convolution, which is a pointwise product after a Fourier transform.
+>
+> Pad both sequences to the next power of two that is at least $|A|+|B|-1$, FFT, multiply, invert, and round the real parts.
+
+<!-- thinking:end -->
 
 We can use the Fast Fourier Transform (FFT) to efficiently compute the product of two polynomials. FFT is an efficient algorithm that can compute the product of polynomials in $O(n \log n)$ time complexity.
 

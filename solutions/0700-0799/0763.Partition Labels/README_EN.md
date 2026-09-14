@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0763.Partition%20Labels/README_EN.md
 tags:
     - Greedy
     - Hash Table
@@ -57,6 +56,18 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $s$ into as many parts as possible so no letter appears in two parts. A letter's last index is how far its part must reach.
+>
+> Scan left to right, extending the current end by $last[c]$. When the scan index meets that end, the part is closed.
+>
+> Build $\textit{last}$, then cut in one pass. $O(n)$.
+
+<!-- thinking:end -->
 
 We first use an array or hash table $\textit{last}$ to record the last occurrence of each letter in the string $s$.
 

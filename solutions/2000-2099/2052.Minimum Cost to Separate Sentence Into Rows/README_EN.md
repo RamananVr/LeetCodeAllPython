@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2052.Minimum%20Cost%20to%20Separate%20Sentence%20Into%20Rows/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -86,6 +85,18 @@ The cost of the last row is not included in the total cost, and since there is o
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words are wrapped into lines; every line but the last costs $(k-$width$)^2$. Breaks are exponential, yet the minimum from word $i$ depends only on the suffix.
+>
+> Prefix sums give a range length in $O(1)$. If the rest fits the last line, cost $0$; otherwise try the next break $j$ and add $(k-m)^2+dfs(j)$.
+>
+> Memoization yields $n$ states and $O(n)$ transitions each.
+
+<!-- thinking:end -->
 
 We use an array $\textit{nums}$ to record the length of each word, and let the length of the array be $n$. Then we define a prefix sum array $\textit{s}$ of length $n + 1$, where $\textit{s}[i]$ represents the sum of the lengths of the first $i$ words.
 

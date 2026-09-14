@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md
 rating: 2091
 source: Biweekly Contest 112 Q4
 tags:
@@ -100,6 +99,14 @@ Hence, the answer is 2.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Combinatorial Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Beauty is the sum of frequencies of $k$ distinct characters. The largest frequencies should be chosen. After sorting frequencies decreasingly, every value strictly above the $k$-th must be taken; characters tied at that threshold are chosen by a binomial coefficient and contribute that frequency to the power of the remaining slots.
+
+<!-- thinking:end -->
 
 First, we use a hash table $f$ to count the occurrence of each character in the string $s$, i.e., $f[c]$ represents the number of times character $c$ appears in the string $s$.
 

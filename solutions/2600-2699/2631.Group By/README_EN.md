@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2631.Group%20By/README_EN.md
 tags:
     - JavaScript
 ---
@@ -105,6 +104,16 @@ The selector function splits the array by whether each number is greater than 5.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Elements must be grouped by a callback key. Collecting keys first would take a second pass. One `reduce` computes the key and pushes into that bucket.
+>
+> Create a list on the first sighting of a key and append afterwards.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

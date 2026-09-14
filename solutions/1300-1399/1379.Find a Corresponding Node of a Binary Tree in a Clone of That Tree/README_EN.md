@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1379.Find%20a%20Corresponding%20Node%20of%20a%20Binary%20Tree%20in%20a%20Clone%20of%20That%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the node in a clone that corresponds to $\textit{target}$. Values identify a node only when they are unique; the follow-up allows duplicates. A paired DFS walks both trees and, upon hitting $\textit{target}$ in the original, returns the clone's current node.
+
+<!-- thinking:end -->
 
 We design a function $dfs(root1, root2)$, which performs DFS traversal simultaneously in trees $root1$ and $root2$. When traversing to a node, if this node happens to be $target$, then we return the corresponding node in $root2$. Otherwise, we recursively search for $target$ in the left and right subtrees of $root1$ and $root2$, and return the result that is not empty.
 

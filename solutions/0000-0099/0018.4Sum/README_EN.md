@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0018.4Sum/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Double Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is four nested loops plus a set. With $n\le 200$, $O(n^4)$ is tight, and deduplication is messy.
+>
+> The bottleneck is the same as 3Sum: after fixing two numbers, the rest is two-sum. Brute force is $O(n^2)$; sorted two pointers are $O(n)$. After sorting, duplicates sit together, so skipping equal $i$ and $j$ keeps quadruplets unique.
+>
+> So we enumerate two indices and squeeze the rest with a pair of pointers, $O(n^3)$, with no hash table.
+
+<!-- thinking:end -->
 
 We notice that the problem requires us to find non-repeating quadruplets. Therefore, we can first sort the array, which makes it easy to skip duplicate elements.
 

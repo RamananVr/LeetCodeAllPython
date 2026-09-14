@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0140.Word%20Break%20II/README_EN.md
 tags:
     - Trie
     - Memoization
@@ -66,6 +65,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must list every sentence, not only decide feasibility. $|s|\le 20$, so the number of partitions is manageable. After inserting words into a trie, try every next word ending in the current suffix; on a hit, recurse on the rest and join the pieces. The trie tests prefixes quickly.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

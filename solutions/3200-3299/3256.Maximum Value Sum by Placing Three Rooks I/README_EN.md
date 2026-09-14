@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3256.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20I/README_EN.md
 rating: 2262
 source: Biweekly Contest 137 Q3
 tags:
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Place three rooks on distinct rows and columns to maximize the sum of cell values. $m,n\le 100$, so trying every triple of cells is $O((mn)^3)$. Each row only needs a few largest candidates, then we enumerate row triples and skip column clashes.
+>
+> Keep the top cells of every row and try three rows with those columns. There is no implementation in the tree yet; the reasoning follows this “top-per-row, then enumerate rows” outline.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

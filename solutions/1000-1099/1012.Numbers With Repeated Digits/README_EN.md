@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md
 rating: 2230
 source: Weekly Contest 128 Q4
 tags:
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression + Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning $[1,n]$ for a repeated digit fails at $n\le 10^9$. Counting integers with all distinct digits, $f(n)$, yields the answer $n-f(n)$.
+>
+> When digits are filled from the left, the set of used digits constrains the next choice; leading zeros must not occupy the set, and the prefix is bounded by $n$. Ten digits fit in a bit mask.
+>
+> Memoized $\textit{dfs}(i,\textit{mask},\textit{lead},\textit{limit})$ enumerates digit $i$: a leading zero leaves the mask unchanged; otherwise a unused digit is appended. A completed number counts if it is not leading zeros.
+
+<!-- thinking:end -->
 
 The problem requires counting the number of integers in the range $[1, .., n]$ that have at least one repeated digit. We can approach this by defining a function $f(n)$ that counts the number of integers in the range $[1, .., n]$ with no repeated digits. Then, the answer is $n - f(n)$.
 

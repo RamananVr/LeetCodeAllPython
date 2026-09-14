@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README_EN.md
 rating: 1139
 source: Weekly Contest 168 Q1
 tags:
@@ -58,6 +57,14 @@ Only 1771 contains an even number of digits.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 500$ we convert each number to a decimal string and test the length's parity. Repeated division by $10$ also counts digits; the string form is shorter.
+
+<!-- thinking:end -->
 
 We traverse each element $x$ in the array $\textit{nums}$. For the current element $x$, we directly convert it to a string and then check if its length is even. If it is, we increment the answer by one.
 

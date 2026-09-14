@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README_EN.md
 rating: 1334
 source: Weekly Contest 409 Q1
 tags:
@@ -95,6 +94,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $10\times 10$ and queries are few, so a four-neighbor scan would work, but finding the cell of $\textit{value}$ each time is still linear.
+>
+> Build a value-to-coordinate map at init. Adjacent and diagonal sums share the same helper and differ only by the offset set. A query is $O(1)$ after the lookup, summing at most four neighbors.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{d}$ to store the coordinates of each element. Then, according to the problem description, we separately calculate the sum of adjacent elements and diagonally adjacent elements.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README_EN.md
 tags:
     - Array
     - Math
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray product is even iff it contains an even. For right end $i$, the left end may be any index up to the latest even, i.e. $last+1$ choices ($0$ if none). One pass keeps $last$.
+
+<!-- thinking:end -->
 
 We know that the product of a subarray is even if and only if there is at least one even number in the subarray.
 

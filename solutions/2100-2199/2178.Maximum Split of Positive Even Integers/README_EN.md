@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README_EN.md
 rating: 1538
 source: Biweekly Contest 72 Q3
 tags:
@@ -70,6 +69,18 @@ Note that [10,2,4,12], [6,2,4,16], etc. are also accepted.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split an even total into as many distinct positive evens as possible. An odd total is impossible. Saving large values would reduce the count.
+>
+> Take $2,4,6,\ldots$ until the remainder is smaller than the next even, and add the remainder to the last term. That last term stays distinct because the remainder is less than the next unused even.
+>
+> Return an empty list when the total is odd.
+
+<!-- thinking:end -->
 
 If $\textit{finalSum}$ is odd, it cannot be split into the sum of several distinct positive even integers, so we directly return an empty array.
 

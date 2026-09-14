@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md
 tags:
     - Array
     - Backtracking
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The knight must visit every cell once. Boards are at most $5 \times 5$, so backtracking is feasible. Try the eight unused neighbors and freeze the board when the step number reaches $mn-1$.
+>
+> Failed branches undo the write. The first Hamiltonian path is enough.
+
+<!-- thinking:end -->
 
 We create a two-dimensional array $g$, used to record the knight's movement order, initially $g[r][c] = -1$, and all other positions are set to $-1$ as well. Additionally, we need a variable $ok$ to record whether a solution has been found.
 

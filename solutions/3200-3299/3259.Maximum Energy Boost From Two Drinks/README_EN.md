@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3259.Maximum%20Energy%20Boost%20From%20Two%20Drinks/README_EN.md
 rating: 1483
 source: Weekly Contest 411 Q2
 tags:
@@ -73,6 +72,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each hour we drink A or B, and switching costs a clean hour. $n\le 10^5$ forbids enumerating switch points. The optimum at hour $i$ depends only on which drink was last chosen.
+>
+> $f[i][0]$ / $f[i][1]$ are the best scores ending on A / B: continue the same drink and add today's value, or come from the other drink as a clean gap without adding. The answer is the larger last-row entry.
+
+<!-- thinking:end -->
+
 We define $f[i][0]$ to represent the maximum boost energy obtained by choosing energy drink A at the $i$-th hour, and $f[i][1]$ to represent the maximum boost energy obtained by choosing energy drink B at the $i$-th hour. Initially, $f[0][0] = \textit{energyDrinkA}[0]$, $f[0][1] = \textit{energyDrinkB}[0]$. The answer is $\max(f[n - 1][0], f[n - 1][1])$.
 
 For $i > 0$, we have the following state transition equations:
@@ -112,6 +121,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 reads only $f[i-1]$, so the table collapses to two variables. Rolling $f,g$ store the best scores for A and B; space becomes $O(1)$ at the same time.
+
+<!-- thinking:end -->
 
 We notice that the state $f[i]$ is only related to $f[i - 1]$ and not to $f[i - 2]$. Therefore, we can use only two variables $f$ and $g$ to maintain the state, thus optimizing the space complexity to $O(1)$.
 

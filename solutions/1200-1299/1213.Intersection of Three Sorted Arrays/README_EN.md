@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README_EN.md
 rating: 1259
 source: Biweekly Contest 10 Q1
 tags:
@@ -53,6 +52,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three arrays are sorted, length at most $1000$, and values lie in $[1,2000]$. Counting all three, a value with count $3$ is common; elements are unique inside each array, so one array cannot inflate the count. Emitting in $arr1$ order keeps the result sorted.
+
+<!-- thinking:end -->
+
 Traverse the three arrays, count the occurrence of each number, then traverse any one of the arrays. If the count of a number is $3$, add it to the result array.
 
 The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the length of the array and the range of numbers in the array, respectively.
@@ -77,6 +84,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting needs an array proportional to the value range. The arrays are already sorted, so we binary-search each $arr1$ value in $arr2$ and $arr3$. Extra space becomes constant; time becomes $O(n\log n)$.
+
+<!-- thinking:end -->
 
 Traverse the first array. For each number, use binary search to find this number in the second and third arrays. If found in both, add this number to the result array.
 

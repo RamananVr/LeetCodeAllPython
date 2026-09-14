@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README_EN.md
 tags:
     - JavaScript
 ---
@@ -85,6 +84,16 @@ The error should be thrown because we cannot divide by zero.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The calculator must chain add, subtract, multiply, divide, and power on one instance and expose the result; division by zero throws a fixed error. Returning a new object each time would still chain, but would not keep a single piece of state.
+>
+> Store the running value $x$, update it in each method, and return $this$. $divide$ throws when the divisor is $0$. $getResult$ reads $x$.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

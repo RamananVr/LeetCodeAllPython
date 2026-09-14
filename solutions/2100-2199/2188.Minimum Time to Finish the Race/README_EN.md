@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README_EN.md
 rating: 2315
 source: Weekly Contest 282 Q4
 tags:
@@ -77,6 +76,18 @@ The minimum time to complete the race is 25 seconds.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Using one tire for the $i$-th consecutive lap grows geometrically; once that lap costs more than changing tires, the streak should stop. The useful streak length is therefore tiny (about $17$). With up to $10^3$ laps we DP the change points.
+>
+> Precompute $\textit{cost}[i]$, the best time to run $i$ laps on one tire. Then $f[i]$ is the best time for $i$ laps, with a last streak of $j$: $f[i]=f[i-j]+\textit{cost}[j]+\textit{changeTime}$.
+>
+> $f[0]=-\textit{changeTime}$ cancels a change that does not exist before the first streak.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

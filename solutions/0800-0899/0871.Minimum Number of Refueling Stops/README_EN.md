@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README_EN.md
 tags:
     - Greedy
     - Array
@@ -73,6 +72,16 @@ We made 2 refueling stops along the way, so we return 2.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Max-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Choose refuels to reach the target with as few stops as possible. The target is huge and there are $\le 500$ stations. When the tank cannot reach the next station, we should have refueled at the richest station already passed.
+>
+> Scan by position, pushing passed fuel into a max-heap; while the tank is negative, pop the largest fuel. An empty heap means unreachable. The target is treated as a final station.
+
+<!-- thinking:end -->
 
 We can use a priority queue (max-heap) $\textit{pq}$ to record the fuel amounts of all the gas stations we have passed. Each time the fuel is insufficient, we greedily take out the maximum fuel amount, which is the top element of $\textit{pq}$, and accumulate the number of refuels $\textit{ans}$. If $\textit{pq}$ is empty and the current fuel is still insufficient, it means we cannot reach the destination, and we return $-1$.
 

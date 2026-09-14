@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3995.Minimum%20Cost%20to%20Convert%20String%20III/README_EN.md
 rating: 2100
 source: Biweekly Contest 187 Q4
 tags:
@@ -116,6 +115,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rule covers a slice and used positions cannot be reused, so $\textit{source}$ is partitioned into disjoint matches, each rewritten into the corresponding slice of $\textit{target}$. Each `*` adds one to the cost.
+>
+> From every index, precompute applicable rules and run a shortest path on indices: an edge $i\to i+|\textit{pattern}|$ has weight equal to the rule cost plus the number of stars, and exists only when the pattern matches and the replacement equals the target slice.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that index shortest path.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

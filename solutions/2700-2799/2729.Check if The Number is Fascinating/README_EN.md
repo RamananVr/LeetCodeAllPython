@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md
 rating: 1227
 source: Biweekly Contest 106 Q1
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the concatenation of $n$, $2n$, and $3n$ is a permutation of $1$ through $9$. $n$ is a three-digit number, so the concatenation has fixed length and listing permutations is unnecessary.
+>
+> Sort the concatenated digits and compare with $123456789$, which rejects missing digits, duplicates, and any $0$.
+
+<!-- thinking:end -->
 
 According to the problem description, we concatenate $n$, $2 \times n$, and $3 \times n$ into a string $s$, and then check whether $s$ contains each digit from $1$ to $9$ exactly once and does not contain any $0$.
 

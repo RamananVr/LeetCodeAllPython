@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README_EN.md
 tags:
     - Stack
     - Array
@@ -60,6 +59,16 @@ Both mountains are not visible since their peaks lie within each other.
 <!-- solution:start -->
 
 ### Solution 1: Interval Sorting + Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A peak is visible iff no other peak contains it. Peak $(x,y)$ covers $(x-y,x+y)$. Identical intervals hide each other.
+>
+> Sort by left ascending and right descending, then scan: a right end that does not beat the current maximum is contained. Count an interval only if it is unique and extends that maximum.
+
+<!-- thinking:end -->
 
 We first convert each mountain $(x, y)$ into a horizontal interval $(x - y, x + y)$, then sort the intervals by left endpoint in ascending order and right endpoint in descending order.
 

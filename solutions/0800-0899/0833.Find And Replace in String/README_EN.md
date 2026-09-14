@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replacements apply simultaneously, and only when $\textit{source}$ matches $s$ at the given index. Editing while scanning would shift later indices.
+>
+> Mark successful matches on the original indices, then build the result left to right: a hit writes $\textit{target}$ and skips $\textit{source}$; otherwise copy the character.
+
+<!-- thinking:end -->
 
 We iterate through each replacement operation. For the current $k$-th replacement operation $(i, \text{src})$, if $s[i..i+|\text{src}|-1]$ is equal to $\text{src}$, we record that the string at index $i$ needs to be replaced with the $k$-th string in $\text{targets}$; otherwise, no replacement is needed.
 

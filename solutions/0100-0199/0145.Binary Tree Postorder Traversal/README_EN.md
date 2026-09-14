@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md
 tags:
     - Stack
     - Tree
@@ -79,6 +78,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Postorder is left, right, root. Recurse on both children, then record the root. $n\le 100$, so recursion is fine. The follow-up asks for iteration.
+
+<!-- thinking:end -->
+
 We first recursively traverse the left and right subtrees, then visit the root node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree. The space complexity mainly depends on the stack space used for recursive calls.
@@ -115,6 +122,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Stack Implementation for Postorder Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses the call stack. Root-right-left is preorder with children swapped; reversing it yields left-right-root. Traverse in that order with a stack and reverse the result, with no “second visit” flag.
+
+<!-- thinking:end -->
 
 The order of preorder traversal is: root, left, right. If we change the order of the left and right children, the order becomes: root, right, left. Finally, reversing the result gives us the postorder traversal result.
 
@@ -163,6 +178,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Morris Implementation for Postorder Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 still needs an $O(n)$ stack and a reverse. Morris threads the tree in root-right-left order and reverses the output, so extra space becomes $O(1)$.
+
+<!-- thinking:end -->
 
 Morris traversal does not require a stack, and its space complexity is $O(1)$. The core idea is:
 

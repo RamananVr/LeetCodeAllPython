@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -60,6 +59,14 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row (and column) is sorted, so we can binary-search $target$ in every row. That is $O(m\log n)$ with no extra memory.
+
+<!-- thinking:end -->
+
 Since all elements in each row are sorted in ascending order, for each row, we can use binary search to find the first element greater than or equal to $\textit{target}$, and then check if that element is equal to $\textit{target}$. If it is equal to $\textit{target}$, it means the target value is found, and we return $\text{true}$. If it is not equal to $\textit{target}$, it means all elements in this row are less than $\textit{target}$, and we should continue searching the next row.
 
 If all rows have been searched and the target value is not found, it means the target value does not exist, and we return $\text{false}$.
@@ -87,6 +94,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Search from Bottom-Left or Top-Right
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per-row binary search ignores column order. From the bottom-left, a too-large value moves up (dropping that column above) and a too-small value moves right (dropping that row to the right).
+>
+> Each step discards a row or a column, in $O(m+n)$ time.
+
+<!-- thinking:end -->
 
 We start the search from the bottom-left or top-right corner and move towards the top-right or bottom-left direction. Compare the current element $\textit{matrix}[i][j]$ with $\textit{target}$:
 

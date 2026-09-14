@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README_EN.md
 tags:
     - Greedy
     - Math
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prime Factorization + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digits must multiply to $n$ and form the smallest number. A prime factor larger than $9$ makes this impossible. Factor from $9$ down to $2$ so larger digits are used first, then emit them in increasing order; the case $n=1$ is the single digit $1$.
+
+<!-- thinking:end -->
 
 We consider prime factorizing the number $n$. If there are prime factors greater than $9$ in $n$, then it is impossible to find a number that meets the conditions, because prime factors greater than $9$ cannot be obtained by multiplying numbers from $1$ to $9$. For example, $11$ cannot be obtained by multiplying numbers from $1$ to $9$. Therefore, we only need to consider whether there are prime factors greater than $9$ in $n$. If there are, return $-1$ directly.
 

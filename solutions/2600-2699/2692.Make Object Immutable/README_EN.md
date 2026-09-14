@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md
 tags:
     - JavaScript
 ---
@@ -104,6 +103,16 @@ fn = (obj) =&gt; {
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Objects and arrays must reject assignment, and arrays must also reject mutating methods. `Object.freeze` fails silently and does not wrap `push`.
+>
+> Recursively wrap nested values: object `set` throws, arrays additionally trap `pop`/`push` and kin with `apply`. Children are wrapped first, then the root proxy is returned.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

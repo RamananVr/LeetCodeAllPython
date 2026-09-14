@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0291.Word%20Pattern%20II/README_EN.md
 tags:
     - Hash Table
     - String
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pattern character may match a substring of any length, so we cannot split on spaces. We enumerate those substrings under a bijection.
+>
+> $dfs(i,j)$ tries $s[j..k]$ for $pattern[i]$: reuse an existing mapping if it matches, otherwise bind an unused substring and backtrack on failure.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1795.Rearrange%20Products%20Table/README_EN.md
 tags:
     - Database
 ---
@@ -72,6 +71,16 @@ Product 1 is available in store1 with price 70 and store3 with price 80. The pro
 <!-- solution:start -->
 
 ### Solution 1: Union
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three store-price columns should become long rows $(\textit{product},\textit{store},\textit{price})$. Null prices mean the store does not carry the item.
+>
+> Select the nonempty rows for each store, label the store name, and $\mathrm{UNION}$ them.
+
+<!-- thinking:end -->
 
 We can select the products and prices for each store, and then use the `UNION` operator to combine the results.
 

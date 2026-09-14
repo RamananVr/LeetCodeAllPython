@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md
 rating: 1418
 source: Weekly Contest 138 Q2
 tags:
@@ -67,6 +66,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers in calm minutes always count; the technique covers only a window of $\textit{minutes}$ angry minutes. $n\le 2\times 10^4$ calls for one pass.
+>
+> Sum the calm flow, then take the maximum angry flow over every window of length $\textit{minutes}$.
+>
+> The window adds $customers[i]\cdot grumpy[i]$ and drops the value that leaves. The answer is the calm sum plus that maximum.
+
+<!-- thinking:end -->
 
 According to the problem description, we only need to count the number of customers when the boss is not angry $tot$, and add the maximum number of customers when the boss is angry within a sliding window of size `minutes` $mx$.
 

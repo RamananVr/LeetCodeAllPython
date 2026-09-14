@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md
 tags:
     - Database
     - Polygon
@@ -78,6 +77,18 @@ Triangles table:
 <!-- solution:start -->
 
 ### Solution 1: Using CASE WHEN Statement
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three sides sit on one row. We distinguish impossible, equilateral, isosceles, and scalene with a single prioritized $\texttt{CASE}$.
+>
+> Reject the triangle inequality first, then test three equal sides, then exactly one equal pair.
+>
+> The sum $(A=B)+(B=C)+(A=C)=1$ marks isosceles without catching equilateral.
+
+<!-- thinking:end -->
 
 We can use the `CASE WHEN` statement to determine the type of the triangle.
 

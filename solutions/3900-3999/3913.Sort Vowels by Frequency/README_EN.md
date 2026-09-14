@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README_EN.md
 rating: 1524
 source: Weekly Contest 499 Q2
 ---
@@ -87,6 +86,18 @@ source: Weekly Contest 499 Q2
 <!-- solution:start -->
 
 ### Solution 1: Counting + Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting the whole string would move consonants. Only vowels are rearranged, and ties must keep the relative order of first appearances.
+>
+> A first scan counts vowel frequencies and records each vowel at its first occurrence; that list is then sorted by frequency decreasing. A second scan consumes the sorted list with a pointer, writing the current vowel onto original vowel positions.
+>
+> Consonants stay put; when a vowel's remaining count hits zero the pointer advances, so higher-frequency vowels are written first.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to record the frequency of each vowel. We also need a list $\textit{vowels}$ to store the vowels that appear in the string, ordered by their first occurrence.
 

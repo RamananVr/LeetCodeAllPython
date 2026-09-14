@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1013.Partition%20Array%20Into%20Three%20Parts%20With%20Equal%20Sum/README_EN.md
 rating: 1378
 source: Weekly Contest 129 Q1
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal and Summation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every pair of cuts is $O(n^2)$. Three equal parts exist only when the total is divisible by $3$ and we can form at least three contiguous pieces each summing to $s=\textit{sum}/3$.
+>
+> A left-to-right accumulation that resets at every $s$ counts such pieces. Extra pieces may be absorbed into the last part, so a count of at least $3$ is enough.
+>
+> We reject a nonzero remainder modulo $3$, then maintain the running part sum and the part count in one pass.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of the entire array and check if the sum is divisible by 3. If it is not, we directly return $\textit{false}$.
 

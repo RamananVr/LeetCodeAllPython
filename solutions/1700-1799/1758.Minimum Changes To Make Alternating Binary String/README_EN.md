@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README_EN.md
 rating: 1353
 source: Weekly Contest 228 Q1
 tags:
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only two alternating targets exist: $0101\ldots$ and $1010\ldots$. If one needs $cnt$ flips, the other needs $n-cnt$.
+>
+> Count mismatches against $0101\ldots$ in one pass and return $\min(cnt,n-cnt)$.
+
+<!-- thinking:end -->
 
 According to the problem, if the number of operations needed to obtain the alternating string `01010101...` is $\textit{cnt}$, then the number of operations needed to obtain the alternating string `10101010...` is $n - \textit{cnt}$.
 

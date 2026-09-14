@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md
 tags:
     - JavaScript
 ---
@@ -86,6 +85,14 @@ context = {&quot;context&quot;: 5}
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must implement `forEach` with index order and an optional `this` binding. Iterate $i$ over $[0,n)$ and invoke `callback.call(context, this[i], i, this)` so the value, index, and array are passed as specified.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

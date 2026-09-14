@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README_EN.md
 rating: 2604
 source: Weekly Contest 455 Q4
 tags:
@@ -110,6 +109,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 12$, $k \le 5$, $m \le 5$, a state is (bit mask of people still in camp, which side the boat is on, current phase). Crossing time is the max $\textit{time}$ on board times the phase multiplier; the phase advances by $\lfloor d \rfloor$.
+>
+> Dijkstra computes the earliest time on that graph. When the boat is away, someone must return. If the camp mask can never become empty, return $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

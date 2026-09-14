@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md
 tags:
     - JavaScript
 ---
@@ -101,6 +100,16 @@ arr2 = [
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merge two object arrays on $id$, with $arr2$ winning on conflicts. Nested pairing is slow on large inputs and still needs a sort.
+>
+> Index $arr1$ by $id$, then scan $arr2$: $Object.assign$ into an existing record or insert a new one. $Object.values$ yields the rows; integer keys keep them ordered.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

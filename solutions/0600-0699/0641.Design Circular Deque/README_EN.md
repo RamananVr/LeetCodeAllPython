@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0641.Design%20Circular%20Deque/README_EN.md
 tags:
     - Design
     - Queue
@@ -72,6 +71,16 @@ myCircularDeque.getFront();     // return 4
 <!-- solution:start -->
 
 ### Solution 1: Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bounded deque needs $O(1)$ inserts and deletes at both ends and a clear empty/full test. A linked list wastes pointers.
+>
+> Reuse a ring buffer with $\textit{front}$ and $\textit{size}$: insert-front steps $\textit{front}$ backward, insert-last writes at $(\textit{front}+\textit{size})\bmod k$.
+
+<!-- thinking:end -->
 
 We can use an array to implement the circular deque. We maintain a pointer $\textit{front}$ pointing to the front of the queue, a variable $\textit{size}$ representing the number of elements in the queue, and a variable $\textit{capacity}$ representing the queue's capacity. We use an array $\textit{q}$ to store the elements.
 

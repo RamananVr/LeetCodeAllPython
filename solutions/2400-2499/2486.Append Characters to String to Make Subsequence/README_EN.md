@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md
 rating: 1362
 source: Weekly Contest 321 Q2
 tags:
@@ -68,6 +67,14 @@ It can be shown that appending any 4 characters to the end of s will never make 
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only append to $s$ so that $t$ becomes a subsequence; the extra length is the unmatched suffix of $t$. At $n\le 10^5$, greedily match $t$'s prefix inside $s$ and return $n-j$.
+
+<!-- thinking:end -->
 
 We define two pointers $i$ and $j$, pointing to the first characters of strings $s$ and $t$ respectively. We iterate through string $s$, if $s[i] = t[j]$, then we move $j$ one step forward. Finally, we return $n - j$, where $n$ is the length of string $t$.
 

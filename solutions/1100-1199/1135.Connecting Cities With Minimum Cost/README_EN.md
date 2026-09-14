@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md
 rating: 1752
 source: Biweekly Contest 5 Q3
 tags:
@@ -61,6 +60,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Kruskal's Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cheapest way to connect $n$ cities is a minimum spanning tree. Sort edges by cost and union endpoints that are still apart, adding the cost; when one component remains we have a tree. If edges run out first, the graph is disconnected and the answer is $-1$.
+
+<!-- thinking:end -->
 
 Kruskal's algorithm is a greedy algorithm used to compute the minimum spanning tree.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0942.DI%20String%20Match/README_EN.md
 tags:
     - Greedy
     - Array
@@ -52,6 +51,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build a permutation of $0..n$ whose adjacent rises and falls match `'I'`/`'D'`. $n\le 10^5$, so backtracking is out. Place the current minimum on `'I'` and the current maximum on `'D'`, then append the last leftover; this greedy choice satisfies every neighbor.
+
+<!-- thinking:end -->
 
 We can use two pointers `low` and `high` to represent the current minimum and maximum values, respectively. Then, we traverse the string `s`. If the current character is `I`, we add `low` to the result array, and increment `low` by 1; if the current character is `D`, we add `high` to the result array, and decrement `high` by 1.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README_EN.md
 tags:
     - Database
 ---
@@ -67,6 +66,14 @@ Employee table:
 <!-- solution:start -->
 
 ### Solution 1: Self-Join + Conditional Filtering
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Employees and managers share one table; $\textit{managerId}$ points at the manager row. A self-join lines up each employee with that manager, then we keep names whose salary is strictly larger.
+
+<!-- thinking:end -->
 
 We can find employees' salaries and their managers' salaries by self-joining the `Employee` table, then filter out employees whose salaries are higher than their managers' salaries.
 

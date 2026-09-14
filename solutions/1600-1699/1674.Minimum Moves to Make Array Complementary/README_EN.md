@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README_EN.md
 rating: 2333
 source: Weekly Contest 217 Q3
 tags:
@@ -71,6 +70,18 @@ Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 <!-- solution:start -->
 
 ### Solution 1: Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every pair $\textit{nums}[i]+\textit{nums}[n-1-i]$ must become the same sum $s$, each move changing a value into $[1,\textit{limit}]$. Both $n$ and $\textit{limit}$ can be $10^5$, so we cannot rescan all pairs for every $s$.
+>
+> A pair $(x,y)$ ($x\le y$) costs $2,1,0,1,2$ on successive ranges of $s$. A difference array adds those range updates over $[2,2\cdot\textit{limit}]$.
+>
+> The minimum prefix sum is the fewest moves.
+
+<!-- thinking:end -->
 
 Assume that in the final array, the sum of the pair $\textit{nums}[i]$ and $\textit{nums}[n-i-1]$ is $s$.
 

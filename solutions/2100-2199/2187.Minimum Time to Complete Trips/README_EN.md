@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README_EN.md
 rating: 1640
 source: Weekly Contest 282 Q3
 tags:
@@ -64,6 +63,18 @@ So the minimum time needed to complete 1 trip is 2.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trips finished by time $t$ equal $\sum \lfloor t/\textit{time}_i\rfloor$, which is monotone in $t$. We want the least $t$ that reaches $\textit{totalTrips}$. The upper bound $\min(\textit{time})\times\textit{totalTrips}$ is too large to scan.
+>
+> Binary search that monotone function on $[0,\textit{mx})$; $\texttt{bisect\_left}$ returns the first feasible time.
+>
+> Each probe sums $n$ floors.
+
+<!-- thinking:end -->
 
 We notice that if we can complete at least $totalTrips$ trips in $t$ time, then we can also complete at least $totalTrips$ trips in $t' > t$ time. Therefore, we can use the method of binary search to find the smallest $t$.
 

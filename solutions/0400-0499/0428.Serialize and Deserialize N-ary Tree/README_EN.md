@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0428.Serialize%20and%20Deserialize%20N-ary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Level Order Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An $N$-ary node has a variable number of children, so a value-only preorder cannot tell where a child list ends. A terminator after each list is required.
+>
+> Serialize in level order: write the root, then when a node is popped write its children and enqueue them, and finally write $\#$. Deserialize with the same queue: a node keeps taking the next tokens as children until $\#$.
+>
+> The sentinel lines up with the dequeue order, so every child list can be rebuilt; an empty tree is the empty string.
+
+<!-- thinking:end -->
 
 We can serialize an N-ary tree with level order traversal. Start from the root, append its value, and enqueue it. Each time we dequeue a node, we append the values of all its children and enqueue them, then append a special character `#` to mark the end of that node's children. Finally we join the values with commas.
 

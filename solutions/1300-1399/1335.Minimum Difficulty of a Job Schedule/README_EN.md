@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/README_EN.md
 rating: 2034
 source: Weekly Contest 173 Q4
 tags:
@@ -68,6 +67,16 @@ The difficulty of the schedule = 6 + 1 = 7
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the job sequence into $d$ contiguous days; a day's difficulty is its max job, and the total should be minimal. Jobs stay in order. $n \le 300$, $d \le 10$ still forbids enumerating all cuts. The best way to finish $i$ jobs in $j$ days depends only on the last day covering $[k..i]$.
+>
+> $f[i][j]$ stores that optimum. Enumerating $k$ backward maintains the segment max and transitions from $f[k-1][j-1]$. Fewer jobs than days is impossible.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum difficulty to finish the first $i$ jobs within $j$ days. Initially $f[0][0] = 0$, and all other $f[i][j]$ are $\infty$.
 

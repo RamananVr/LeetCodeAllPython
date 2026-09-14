@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md
 rating: 1487
 source: Weekly Contest 227 Q2
 tags:
@@ -78,6 +77,16 @@ After that, there are fewer than two non-empty piles, so the game ends.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move takes one stone from two nonempty piles. Always reducing the two current largest piles is optimal, and the total number of stones is small enough to simulate.
+>
+> Sort the triple, repeatedly decrement the two largest, and sort again; the number of moves is the score.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -102,6 +111,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 simulates every move. With $a\le b\le c$, if $a+b\le c$ the two small piles empty first and the score is $a+b$; otherwise it is $\lfloor(a+b+c)/2\rfloor$. Constant time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

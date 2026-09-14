@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md
 rating: 1791
 source: Weekly Contest 347 Q3
 tags:
@@ -66,6 +65,16 @@ The total cost to make all characters equal is 9. It can be shown that 9 is the 
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation flips a prefix or a suffix and costs its length. Searching the sequence of flips is impossible at length $10^5$.
+>
+> Each adjacent mismatch must be covered an odd number of times by some prefix or suffix flip. Assigning the cut at $i$ to a prefix costs $i$, to a suffix costs $n-i$. Taking the cheaper option at every cut is optimal because the cuts do not interact.
+
+<!-- thinking:end -->
 
 According to the problem description, if $s[i] \neq s[i - 1]$, an operation must be performed; otherwise, it's impossible to make all characters equal.
 

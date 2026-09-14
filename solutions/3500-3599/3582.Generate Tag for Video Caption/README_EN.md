@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README_EN.md
 rating: 1316
 source: Weekly Contest 454 Q1
 tags:
@@ -87,6 +86,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tag is `#` plus camel case: the first word lowercased, later words capitalized, total length at most $100$. Split on whitespace, `capitalize` each word, lower the first, join, and keep $99$ letters after `#`.
+>
+> An empty caption yields `#` alone. One split is enough.
+
+<!-- thinking:end -->
 
 We first split the title string into words, then process each word. The first word should be all lowercase, while for the subsequent words, the first letter is capitalized and the rest are lowercase. Next, we concatenate all the processed words and add a # symbol at the beginning. Finally, if the generated tag exceeds 100 characters in length, we truncate it to the first 100 characters.
 

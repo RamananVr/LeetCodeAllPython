@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Symmetry means the left subtree mirrors the right, not that each subtree matches itself. The follow-up asks for both recursion and iteration; $n \le 1000$, so one pass is enough.
+>
+> A pair of nodes is symmetric iff their values match and the left child of one mirrors the right child of the other (and vice versa). We therefore start from the root's two children and recurse crosswise.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}(\textit{root1}, \textit{root2})$ to determine whether two binary trees are symmetric. The answer is $\textit{dfs}(\textit{root.left}, \textit{root.right})$.
 

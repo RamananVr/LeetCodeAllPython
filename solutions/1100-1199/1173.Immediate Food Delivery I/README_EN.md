@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README_EN.md
 tags:
     - Database
 ---
@@ -69,6 +68,14 @@ Delivery table:
 <!-- solution:start -->
 
 ### Solution 1: Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An immediate order has `order_date = customer_pref_delivery_date`. That boolean sums as $0/1$; divide by the row count, scale by $100$, and round. No separate filter-then-count is required.
+
+<!-- thinking:end -->
 
 We can use the `sum` function to count the number of instant orders, and then divide it by the total number of orders. Since the problem requires a percentage, we need to multiply by 100. Finally, we can use the `round` function to keep two decimal places.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2106.Maximum%20Fruits%20Harvested%20After%20at%20Most%20K%20Steps/README_EN.md
 rating: 2062
 source: Weekly Contest 271 Q4
 tags:
@@ -81,6 +80,18 @@ You can move at most k = 2 steps and cannot reach any position with fruits.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Fruit positions are sorted, so an optimal walk covers some closed interval $[l,r]$: go to the nearer end, then turn to cover the other. The step count is $r-l+\min(|\textit{startPos}-l|,|r-\textit{startPos}|)$. Enumerating all pairs and summing fruit is $O(n^2)$ and fails for $n\le 10^5$.
+>
+> With the right end fixed, moving the left end right never increases that step count, so two pointers can find every maximal window of cost at most $k$ while the fruit sum is maintained incrementally.
+>
+> We scan $\textit{fruits}$ with $i$ and $j$, add $s$, shrink from the left when the interval exceeds $k$, and record the maximum $s$.
+
+<!-- thinking:end -->
 
 Let's assume the movement range is $[l, r]$ and the starting position is $\textit{startPos}$. We need to calculate the minimum number of steps required. Based on the position of $\textit{startPos}$, we can divide this into three cases:
 

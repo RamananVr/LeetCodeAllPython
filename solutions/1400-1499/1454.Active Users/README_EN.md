@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1454.Active%20Users/README_EN.md
 tags:
     - Database
 ---
@@ -99,6 +98,16 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 <!-- solution:start -->
 
 ### Solution 1: Using Window Functions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An active user logged in on at least five consecutive days; duplicate same-day logins must be removed. Subtracting `ROW_NUMBER()` (per user, by date) from the login date yields a constant $g$ on a consecutive run.
+>
+> Group by $(id,g)$ and keep users with at least five rows, then output distinct ids and names.
+
+<!-- thinking:end -->
 
 First, we join the `Logins` table and the `Accounts` table, and remove duplicates to get the temporary table `T`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README_EN.md
 rating: 1568
 source: Weekly Contest 452 Q2
 tags:
@@ -108,6 +107,16 @@ A submatrix <code>(x1, y1, x2, y2)</code> is a matrix that is formed by choosing
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $k \times k$ window needs the minimum absolute difference between distinct values. After sorting the $k^2$ entries, that minimum is a gap between adjacent unequal values.
+>
+> Enumerate the top-left corner, collect, sort, and scan adjacent pairs. A constant window has difference $0$.
+
+<!-- thinking:end -->
 
 We can enumerate all possible $k \times k$ submatrices by their top-left coordinates $(i, j)$. For each submatrix, we extract all its elements into a list $\textit{nums}$. Then, we sort $\textit{nums}$ and compute the absolute differences between adjacent distinct elements to find the minimum absolute difference. Finally, we store the result in a 2D array.
 

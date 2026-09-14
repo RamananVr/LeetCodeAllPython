@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2122.Recover%20the%20Original%20Array/README_EN.md
 rating: 2158
 source: Weekly Contest 273 Q4
 tags:
@@ -83,6 +82,18 @@ The only possible combination is arr = [220] and k = 215. Using them, we get low
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{nums}$ is the multiset of every original value plus or minus $k$. $k$ is unknown; trying all pairings is too large. The lower and upper halves must match under one common $k$.
+>
+> After sorting, the smallest value is some $a_i-k$, so every candidate $k$ is $(\textit{nums}[i]-\textit{nums}[0])/2$ for a positive even difference. For each such $k$, two pointers greedily pair $x$ with $x+2k$ on the sorted array.
+>
+> The first pairing of $n/2$ pairs yields the original array as the pairwise means.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

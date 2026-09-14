@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README_EN.md
 rating: 1680
 source: Weekly Contest 317 Q3
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 10^{12}$, add the smallest $x$ so the digit sum is $\le target$. Carrying the lowest nonzero digit upward drops the digit sum by turning a suffix into zeros.
+>
+> While $n+x$ is still too large, find the ten-power $p$ of the lowest nonzero digit and set $x$ so that prefix plus one, times $p$, minus $n$. Repeat until the digit sum fits.
+
+<!-- thinking:end -->
 
 We define a function $f(x)$ to represent the sum of the digits of an integer $x$. The problem is to find the minimum non-negative integer $x$ such that $f(n + x) \leq target$.
 

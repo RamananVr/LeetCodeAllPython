@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0956.Tallest%20Billboard/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -66,6 +65,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each rod goes left, right, or is discarded; the two sides should match and be as tall as possible. $3^n$ assignments are too many. The useful state is the largest common height after considering rod $i$ with current difference $j$. Three transitions cover the choices; a difference of $0$ is a feasible height. Memoization cuts repeats.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -91,6 +98,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The search becomes bottom-up: $f[i][j]$ is the best common height using the first $i$ rods with difference $j$. The transitions match the recursion, without call overhead. The answer is $f[n][0]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

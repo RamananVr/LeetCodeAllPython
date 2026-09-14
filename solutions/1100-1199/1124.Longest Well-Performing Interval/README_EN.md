@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README_EN.md
 rating: 1908
 source: Weekly Contest 145 Q3
 tags:
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Map $>8$ to $+1$ and the rest to $-1$. A well-performing interval is a prefix-sum pair with $s_j-s_i>0$. Trying every pair is quadratic.
+>
+> If $s>0$, the whole prefix works. Otherwise we only need an earlier $s-1$, so the segment sums to $1$. A map stores the first index of each prefix sum to keep that segment as long as possible.
+
+<!-- thinking:end -->
 
 We can use the idea of prefix sum, maintaining a variable $s$, which represents the difference between the number of "tiring days" and "non-tiring days" from index $0$ to the current index. If $s$ is greater than $0$, it means that the segment from index $0$ to the current index is a "well-performing time period". In addition, we use a hash table $pos$ to record the first occurrence index of each $s$.
 

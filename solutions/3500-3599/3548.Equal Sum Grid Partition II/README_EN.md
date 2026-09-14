@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md
 rating: 2245
 source: Weekly Contest 449 Q4
 tags:
@@ -112,6 +111,16 @@ tags:
 <!-- solution:start -->
 
 ### Method 1: Enumerate Partition Lines
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous problem required equal sums. Here one cell may be removed, but that half must stay connected. $mn \le 10^5$, so scan cut lines rather than every cell pair.
+>
+> Enumerate horizontal cuts, keeping both sums and value counts. Equal sums succeed; otherwise test whether the difference occurs in the larger half and whether that half’s shape plus the cell’s position keep it connected. Transpose and repeat for vertical cuts.
+
+<!-- thinking:end -->
 
 We can first enumerate horizontal partition lines, compute the element sum of each resulting part, and use hash maps to record the occurrence count of elements in each part.
 

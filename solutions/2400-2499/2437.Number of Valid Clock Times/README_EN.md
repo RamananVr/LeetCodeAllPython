@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md
 rating: 1426
 source: Biweekly Contest 89 Q1
 tags:
@@ -66,6 +65,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only $24\times 60$ valid clocks and at most four wildcards. Enumerate every time and match it against the pattern, treating `?` as free.
+
+<!-- thinking:end -->
+
 We can directly enumerate all times from $00:00$ to $23:59$, then judge whether each time is valid, if so, increment the answer.
 
 After the enumeration ends, return the answer.
@@ -94,6 +101,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Optimized Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already lists every clock. Hours and minutes are independent: count matches in $00..23$ and in $00..59$, then multiply. The loops shrink from $1440$ to $84$.
+
+<!-- thinking:end -->
 
 We can separately enumerate hours and minutes, count how many hours and minutes meet the condition, and then multiply them together.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1370.Increasing%20Decreasing%20String/README_EN.md
 rating: 1369
 source: Biweekly Contest 21 Q1
 tags:
@@ -70,6 +69,14 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 <!-- solution:start -->
 
 ### Solution 1: Counting + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly take one remaining character from $a$ to $z$, then from $z$ to $a$. With a $26$-letter alphabet we count first and walk $a\ldots z$ concatenated with $z\ldots a$, emitting a letter whenever its count is positive, until $n$ characters are used.
+
+<!-- thinking:end -->
 
 First, we use a hash table or an array $cnt$ of length $26$ to count the number of occurrences of each character in the string $s$.
 

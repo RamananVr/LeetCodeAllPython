@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2849.Determine%20if%20a%20Cell%20Is%20Reachable%20at%20a%20Given%20Time/README_EN.md
 rating: 1515
 source: Weekly Contest 362 Q2
 tags:
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Case Discussion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An eight-direction step makes the shortest time the Chebyshev distance $\max(|dx|,|dy|)$. If start equals finish, $t=1$ leaves the cell and cannot return in that single move, so only $t\ne 1$ works; otherwise any $t$ at least that distance is enough, with extra time spent wandering.
+
+<!-- thinking:end -->
 
 If the starting point and the destination are the same, then we can only reach the destination within the given time if $t \neq 1$.
 

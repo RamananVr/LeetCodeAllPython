@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1086.High%20Five/README_EN.md
 rating: 1327
 source: Biweekly Contest 2 Q2
 tags:
@@ -61,6 +60,18 @@ The student with ID = 2 got scores 93, 97, 77, 100, and 76. Their top five avera
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each student has at least five scores; we need the integer average of the top five, ordered by id. Collect scores per student and take the five largest.
+>
+> A map stores the lists and $m$ is the largest id seen. For each existing id in $1..m$, `nlargest(5)` is summed and divided by $5$.
+>
+> Missing ids are skipped, so the output is already sorted.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

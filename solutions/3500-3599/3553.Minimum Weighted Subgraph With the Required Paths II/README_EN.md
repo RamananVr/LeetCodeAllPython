@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md
 rating: 2410
 source: Weekly Contest 450 Q4
 tags:
@@ -91,6 +90,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query wants the lightest subtree that covers both $src1 \to dest$ and $src2 \to dest$, i.e. the union of three paths. $n,q \le 10^5$ forbid a BFS per query.
+>
+> The union of two paths has weight $(\textit{dist}(a,b)+\textit{dist}(a,c)+\textit{dist}(b,c))/2$. After depths, weighted prefixes, and LCA, each distance is $O(\log n)$, and the triple formula answers the query.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

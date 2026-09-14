@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README_EN.md
 rating: 1867
 source: Biweekly Contest 43 Q2
 tags:
@@ -73,6 +72,18 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting $\textit{ab}$ scores $x$ and $\textit{ba}$ scores $y$; each deletion changes adjacency. Searching deletion orders is infeasible on long strings.
+>
+> A run of only $a$ and $b$ always ends with a single letter; the number of operations is fixed by the two counts. Higher-scoring pairs should be taken first.
+>
+> Swap letters and scores when $x<y$. While scanning, match the high-score pair against a counter; at a separator or the end, settle the low-score pair with $\min(cnt_a,cnt_b)$.
+
+<!-- thinking:end -->
 
 We can assume that the score of substring "ab" is always no less than the score of substring "ba". If not, we can swap "a" and "b", and simultaneously swap $x$ and $y$.
 

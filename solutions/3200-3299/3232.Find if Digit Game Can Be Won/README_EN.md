@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README_EN.md
 rating: 1163
 source: Weekly Contest 408 Q1
 tags:
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Summation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice picks either all one-digit numbers or all two-digit numbers and wins if that sum is strictly larger. $n\le 100$ needs no search: the two choices are complementary, so she wins iff the two sums differ.
+>
+> Sum values $<10$ and values $\ge 10$ and compare. One linear scan.
+
+<!-- thinking:end -->
 
 According to the problem description, as long as the sum of the units digits is not equal to the sum of the tens digits, Alice can always choose a larger sum to win.
 

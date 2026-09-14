@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README_EN.md
 rating: 1324
 source: Weekly Contest 343 Q1
 tags:
@@ -111,6 +110,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score only depends on whether a $10$ occurred in the previous two turns. Lengths are at most $1000$, so we accumulate both scores by that rule and compare.
+
+<!-- thinking:end -->
 
 We can define a function $f(arr)$ to calculate the scores of the two players, denoted as $a$ and $b$, respectively, and then return the answer based on the relationship between $a$ and $b$.
 

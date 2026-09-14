@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2148.Count%20Elements%20With%20Strictly%20Smaller%20and%20Greater%20Elements/README_EN.md
 rating: 1201
 source: Weekly Contest 277 Q1
 tags:
@@ -55,6 +54,18 @@ Since there are two elements with the value 3, in total there are 2 elements hav
 <!-- solution:start -->
 
 ### Solution 1: Find Minimum and Maximum Values
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An element has both a strictly smaller and a strictly greater partner iff it is not a global extremum. Count values strictly between the minimum and the maximum.
+>
+> Compute $\textit{mi}$ and $\textit{mx}$, then count $x$ with $\textit{mi}<x<\textit{mx}$.
+>
+> Two linear passes and constant extra memory.
+
+<!-- thinking:end -->
 
 According to the problem description, we can first find the minimum value $\textit{mi}$ and the maximum value $\textit{mx}$ of the array $\textit{nums}$. Then, traverse the array $\textit{nums}$ and count the number of elements that satisfy $\textit{mi} < x < \textit{mx}$.
 

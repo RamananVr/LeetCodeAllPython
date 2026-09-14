@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each integer is multiplied by its depth and summed. The nesting is an $N$-ary tree with depth starting at $1$. One walk suffices.
+>
+> DFS: an integer adds $value\times depth$; a list recurses on children at $depth+1$. The top level starts at depth $1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

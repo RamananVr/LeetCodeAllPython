@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0577.Employee%20Bonus/README_EN.md
 tags:
     - Database
 ---
@@ -96,6 +95,16 @@ Bonus table:
 <!-- solution:start -->
 
 ### Solution 1: Left Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List employees whose bonus is under $1000$, treating a missing bonus as $0$. An inner join would drop people with no bonus row.
+>
+> Left-join `Bonus` and filter with `IFNULL(bonus, 0) < 1000`. `NULL` becomes $0$, matching an unpaid bonus.
+
+<!-- thinking:end -->
 
 We can use a left join to join the `Employee` table and the `Bonus` table on `empId`, and then filter out the employees whose bonus is less than $1000$. Note that the employees with `NULL` bonus values after the join should also be filtered out, so we need to use the `IFNULL` function to convert `NULL` values to $0$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -54,6 +53,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Minimum depth is the number of nodes on the shortest root-to-leaf path. A node with only one child is not a leaf, so we must continue down the existing side; treating the missing child as depth $0$ is wrong. $n \le 10^5$.
+>
+> Recursively: empty tree is $0$; missing left means $1$ plus the right minimum; missing right is symmetric; both children present means $1$ plus the smaller of the two.
+
+<!-- thinking:end -->
+
 The termination condition for recursion is when the current node is null, at which point return $0$. If one of the left or right subtrees of the current node is null, return the minimum depth of the non-null subtree plus $1$. If neither the left nor right subtree of the current node is null, return the smaller value of the minimum depths of the left and right subtrees plus $1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
@@ -87,6 +96,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 may walk an entire deep branch before seeing the nearest leaf. Minimum depth is a shortest path, so BFS can stop at the first leaf. That is faster in practice on skewed trees.
+
+<!-- thinking:end -->
 
 Use a queue to implement breadth-first search, initially adding the root node to the queue. Each time, take a node from the queue. If this node is a leaf node, directly return the current depth. If this node is not a leaf node, add all non-null child nodes of this node to the queue. Continue to search the next layer of nodes until a leaf node is found.
 

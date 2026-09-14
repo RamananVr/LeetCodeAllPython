@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0355.Design%20Twitter/README_EN.md
 tags:
     - Design
     - Hash Table
@@ -68,6 +67,16 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Post, follow, and fetch the ten most recent tweets from a user and followees. A full scan of all tweets is wasteful.
+>
+> Store each user’s tweets and follow set, and stamp tweets with a global clock. A feed gathers the latest ten from each relevant user and keeps the ten newest. Follow/unfollow only edit the set.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

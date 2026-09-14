@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README_EN.md
 rating: 2561
 source: Weekly Contest 288 Q4
 tags:
@@ -88,6 +87,16 @@ Note that Alice could make all the gardens complete but in this case, she would 
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A garden is either filled to $\textit{target}$ (perfect) or left imperfect, in which case we want its minimum as large as possible. $n \le 10^5$ and $newFlowers$ is up to $10^{10}$. Once the number of perfect gardens is fixed, leftover flowers should raise a prefix of the imperfect ones.
+>
+> Sort and prefix-sum. Enumerate the final perfect count $x$, pay to complete the most expensive gardens, then binary-search how far the remaining flowers can raise the imperfect prefix. The extra flowers are shared evenly but stay below $\textit{target}$. Maximize $x\cdot\textit{full}+y\cdot\textit{partial}$.
+
+<!-- thinking:end -->
 
 We note that if the number of flowers in a garden is already greater than or equal to $\textit{target}$, then this garden is already a perfect garden and cannot be changed. For imperfect gardens, we can plant more flowers to make them perfect gardens.
 

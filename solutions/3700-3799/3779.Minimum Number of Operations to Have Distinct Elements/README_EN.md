@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3779.Minimum%20Number%20of%20Operations%20to%20Have%20Distinct%20Elements/README_EN.md
 rating: 1444
 source: Biweekly Contest 172 Q1
 tags:
@@ -77,6 +76,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Reverse Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation drops the first three elements, i.e. we cut prefixes of length $3$. Scanning from the right, the first repeated value means everything at or before that index must go, which takes $\lfloor i/3\rfloor+1$ operations.
+
+<!-- thinking:end -->
 
 We can traverse the array $\textit{nums}$ in reverse order and use a hash table $\textit{st}$ to record the elements we have already traversed. When we traverse to element $\textit{nums}[i]$, if $\textit{nums}[i]$ is already in the hash table $\textit{st}$, it means we need to remove all elements in $\textit{nums}[0..i]$, and the number of operations required is $\left\lfloor \frac{i}{3} \right\rfloor + 1$. Otherwise, we add $\textit{nums}[i]$ to the hash table $\textit{st}$ and continue to traverse the next element.
 

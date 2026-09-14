@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1466.Reorder%20Routes%20to%20Make%20All%20Paths%20Lead%20to%20the%20City%20Zero/README_EN.md
 rating: 1633
 source: Weekly Contest 191 Q3
 tags:
@@ -71,6 +70,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ignoring direction, the graph is a tree; every city must reach $0$. Walking outward from $0$, an original forward edge must be reversed. Store cost $1$ with the given direction and $0$ with the reverse, then DFS the costs.
+
+<!-- thinking:end -->
+
 The route map given in the problem has $n$ nodes and $n-1$ edges. If we ignore the direction of the edges, then these $n$ nodes form a tree. The problem requires us to change the direction of some edges so that each node can reach node $0$.
 
 We might as well consider starting from node $0$ and reaching all other nodes. The direction is opposite to the problem description, which means that when we build the graph, for the directed edge $[a, b]$, we should regard it as the directed edge $[b, a]$. That is to say, if it is from $a$ to $b$, we need to change the direction once; if it is from $b$ to $a$, no direction change is needed.
@@ -103,6 +110,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 recurses. The same adjacency list can be walked with BFS from $0$, adding the edge cost when a new neighbor is first seen.
+
+<!-- thinking:end -->
 
 We can use the Breadth-First Search (BFS) method, starting from node $0$, to search all other nodes. During the process, if we encounter an edge that requires a change of direction, we increment the count of direction changes.
 

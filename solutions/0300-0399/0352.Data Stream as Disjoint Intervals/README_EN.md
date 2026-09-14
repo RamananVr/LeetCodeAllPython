@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md
 tags:
     - Union Find
     - Design
@@ -72,6 +71,16 @@ summaryRanges.getIntervals(); // return [[1, 3], [6, 7]]
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Integers from a stream must merge into disjoint intervals. Sorting everything on each insert is heavy. An ordered map keyed by left endpoints lets an insert touch only neighbors.
+>
+> Bisect to the successor and predecessor: fill a two-sided gap by joining three intervals, extend one side if adjacent, otherwise insert a singleton. `getIntervals` lists the sorted values.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

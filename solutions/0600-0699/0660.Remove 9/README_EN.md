@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0660.Remove%209/README_EN.md
 tags:
     - Math
 ---
@@ -49,6 +48,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After dropping every natural number that contains a digit $9$, find the $n$-th remaining value. Scanning until the $n$-th valid number is too slow for large $n$.
+>
+> Numbers without a $9$ are exactly base-$9$ numerals written with digits $0..8$. Convert $n$ to base $9$. The solution tabs are still empty.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

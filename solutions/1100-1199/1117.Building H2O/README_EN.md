@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1117.Building%20H2O/README_EN.md
 tags:
     - Concurrency
 ---
@@ -64,6 +63,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Molecules must be released as $H_2O$; three hydrogens or two oxygens must not go out first. The hydrogen semaphore starts at $2$ and oxygen at $0$: two hydrogens unlock oxygen, and one oxygen restores two hydrogen permits, so each round is exactly two H and one O.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

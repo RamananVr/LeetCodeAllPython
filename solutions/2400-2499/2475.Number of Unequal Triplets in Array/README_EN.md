@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README_EN.md
 rating: 1255
 source: Weekly Contest 320 Q1
 tags:
@@ -69,6 +68,14 @@ Note that (2, 0, 4) is not a valid triplet because 2 &gt; 0.
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$, ordered triples fit in a triple loop that tests pairwise inequality.
+
+<!-- thinking:end -->
+
 We can directly enumerate all triples $(i, j, k)$ and count all the ones that meet the conditions.
 
 The time complexity is $O(n^3)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
@@ -98,6 +105,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Enumeration of Middle Elements + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is $O(n^3)$. After sorting, equals sit together. Fix the middle index $j$; the product of how many values are strictly smaller on the left and strictly larger on the right is the contribution. Two binary searches find the borders.
+
+<!-- thinking:end -->
 
 We can also sort the array $nums$ first.
 
@@ -129,6 +144,14 @@ class Solution:
 
 ### Solution 3: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 still sorts. Only distinct values matter, not indices, so count frequencies: for a middle count $b$, with $a$ already seen and $c=n-a-b$, add $a\cdot b\cdot c$. Linear.
+
+<!-- thinking:end -->
+
 We can also use a hash table $cnt$ to count the number of each element in the array $nums$.
 
 Then traverse the hash table $cnt$, enumerate the number of middle elements $b$, and denote the number of elements on the left as $a$. Then the number of elements on the right is $c = n - a - b$. At this time, the number of triples that meet the conditions is $a \times b \times c$, which is added to the answer. Then update $a = a + b$ and continue to enumerate the number of middle elements $b$.
@@ -153,12 +176,6 @@ class Solution:
 ```
 
 <!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 4
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3209.Number%20of%20Subarrays%20With%20AND%20Value%20of%20K/README_EN.md
 rating: 2050
 source: Biweekly Contest 134 Q4
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$, so enumerating every subarray AND is $O(n^2)$ and too slow. With the right end fixed, moving the left end only decreases the AND, and values are at most $10^9$, so at most about $30$ distinct ANDs appear.
+>
+> A counter stores “AND ending at the previous index $\to$ frequency”. On $x$, AND each old key with $x$ to form a new map, add the singleton $x$, and add the count of key $k$ to the answer. Each right end touches only a logarithmic number of keys.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to find the result of the bitwise AND operation of elements from index $l$ to $r$ in the array $\textit{nums}$, that is, $\textit{nums}[l] \land \textit{nums}[l + 1] \land \cdots \land \textit{nums}[r]$, where $\land$ represents the bitwise AND operation.
 

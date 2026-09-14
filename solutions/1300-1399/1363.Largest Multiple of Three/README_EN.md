@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README_EN.md
 rating: 1822
 source: Weekly Contest 177 Q4
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Dynamic Programming + Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Form the largest integer divisible by $3$ from the given digits. Deleting a few digits by residue works, but keeping the lexicographically largest number of a given length is easy to get wrong. A subset is divisible by $3$ iff its sum is. After sorting ascending, $f[i][j]$ is the most digits we can pick from the first $i$ whose sum is $j \bmod 3$.
+>
+> Backtracking from $f[n][0]$ recovers the chosen digits. Because the array is sorted, larger digits are considered later and therefore written first. Leading zeros are stripped; an empty selection yields the empty string.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the maximum length of selecting several numbers from the first $i$ numbers, so that the sum of the selected numbers modulo $3$ equals $j$. To make the selected numbers as large as possible, we need to select as many numbers as possible, so we need to make $f[i][j]$ as large as possible. We initialize $f[0][0] = 0$, and the rest of $f[0][j] = -\infty$.
 

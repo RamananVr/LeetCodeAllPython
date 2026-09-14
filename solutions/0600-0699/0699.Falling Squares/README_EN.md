@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0699.Falling%20Squares/README_EN.md
 tags:
     - Segment Tree
     - Array
@@ -67,6 +66,16 @@ Note that square 2 only brushes the right side of square 1, which does not count
 <!-- solution:start -->
 
 ### Solution 1: Segment Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Squares drop onto the current skyline; after each drop we need the global max height. Coordinates reach $10^9$, so an array is impossible.
+>
+> A dynamic segment tree stores range maxima: query $[l,r]$ for the landing height, add the side length, and assign that height back with a lazy tag. Track the running maximum.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to maintain a set of intervals that support modification and query operations. In this case, we can use a segment tree to solve the problem.
 

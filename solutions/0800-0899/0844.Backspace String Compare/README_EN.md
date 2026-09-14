@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0844.Backspace%20String%20Compare/README_EN.md
 tags:
     - Stack
     - Two Pointers
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We compare two strings after applying backspaces. Building the cleaned strings uses extra linear space; the intended scan works on the originals.
+>
+> Walk right to left, letting a skip counter consume `#` and the characters they delete, then compare the next live characters. If one side runs out first, they differ.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

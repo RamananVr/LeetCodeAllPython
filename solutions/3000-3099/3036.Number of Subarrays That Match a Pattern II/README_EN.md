@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README_EN.md
 rating: 1894
 source: Weekly Contest 384 Q4
 tags:
@@ -67,6 +66,18 @@ Hence, there are 2 subarrays in nums that match the pattern.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is now $10^6$, so checking every window as in part I times out.
+>
+> The adjacent-relation sequence has length $n-1$. Matching the pattern on it is ordinary string matching and KMP is linear.
+>
+> We map $\textit{nums}$ to a $-1/0/1$ sequence and run KMP against $\textit{pattern}$; the number of hits is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

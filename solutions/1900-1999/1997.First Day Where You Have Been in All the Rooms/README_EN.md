@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README_EN.md
 rating: 2260
 source: Weekly Contest 257 Q3
 tags:
@@ -79,6 +78,18 @@ Day 6 is the first day where you have been in all the rooms.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Parity of visits sends us to $nextVisit[i]$ or $i+1$, and the day count can reach $10^9$. The first day $f[i]$ we enter room $i$ depends only on smaller indices.
+>
+> After the first visit to $i-1$ we bounce to $nextVisit[i-1]$; the interval in between repeats the earlier timeline, costing $f[i-1]-f[nextVisit[i-1]]$ plus two extra days.
+>
+> A linear recurrence modulo $10^9+7$ yields $f[n-1]$.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the date number of the first visit to the $i$-th room, so the answer is $f[n - 1]$.
 

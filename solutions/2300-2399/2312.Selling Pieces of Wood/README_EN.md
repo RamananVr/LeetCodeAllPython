@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md
 rating: 2363
 source: Weekly Contest 298 Q4
 tags:
@@ -73,6 +72,16 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A board may be cut horizontally or vertically many times, or sold whole. Searching cut sequences repeats the same dimensions. $m, n \le 200$, so there are $O(mn)$ distinct rectangles.
+>
+> A subproblem depends only on height and width: the best of selling whole versus splitting once and adding the two optima. Store given prices, then memoize $dfs(h,w)$, cutting only to half height or width to skip symmetric splits.
+
+<!-- thinking:end -->
+
 First, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$.
 
 Then, we design a function $dfs(h, w)$ to denote the maximum amount of money obtained by cutting a wood block with height $h$ and width $w$. The answer will be $dfs(m, n)$.
@@ -113,6 +122,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 pays recursion and cache overhead. Filling a table by increasing size writes the same transitions as nested loops, drops the call stack, and is easier to roll or parallelize.
+
+<!-- thinking:end -->
 
 We can transform the memoization search in Solution 1 into dynamic programming.
 

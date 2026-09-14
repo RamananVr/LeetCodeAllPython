@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1024.Video%20Stitching/README_EN.md
 rating: 1746
 source: Weekly Contest 131 Q4
 tags:
@@ -74,6 +73,18 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both the number of clips and the time bound are at most $100$, so a subset search could cover $[0,\textit{time}]$, but there are exponentially many subsets. For a fixed start we only need the clip with the farthest end, which is the jump-game setting.
+>
+> Store the farthest end $\textit{last}[i]$ of clips starting at $i$. A left-to-right scan keeps the reachable $\textit{mx}$; if $\textit{mx}$ stalls at $i$, coverage is impossible. Crossing the previous segment end $\textit{pre}$ costs one extra clip.
+>
+> The scan yields the minimum number of clips or $-1$.
+
+<!-- thinking:end -->
 
 Note that if there are multiple sub-intervals with the same starting point, it is optimal to choose the one with the largest right endpoint.
 

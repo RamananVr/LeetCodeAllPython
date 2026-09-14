@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0870.Advantage%20Shuffle/README_EN.md
 tags:
     - Greedy
     - Array
@@ -45,6 +44,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Permute $nums1$ to maximize positions strictly larger than $nums2$. This is Tian Ji’s horse race: $n\le 10^5$, so against $nums2$ from weak to strong, win with the smallest sufficient value, otherwise dump the global minimum.
+>
+> Sort $nums1$ and $nums2$ (keeping indices). A two-pointer pass assigns the current minimum to the weakest winnable foe, or to the current strongest foe if it cannot win.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

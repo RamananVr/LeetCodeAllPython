@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1916.Count%20Ways%20to%20Build%20Rooms%20in%20an%20Ant%20Colony/README_EN.md
 rating: 2486
 source: Weekly Contest 247 Q4
 tags:
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Valid build orders are the topological orders of the given tree. Testing permutations is impossible for $n\le 10^5$.
+>
+> Orders inside disjoint subtrees are independent; merging two subtrees is the binomial choice of positions for one of them. Several children are merged left to right.
+>
+> A DFS returns subtree sizes and multiplies $\binom{s+t}{t}$ when folding a child of size $t$ into an already merged size $s$, taken modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

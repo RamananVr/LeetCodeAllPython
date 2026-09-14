@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README_EN.md
 rating: 1256
 source: Biweekly Contest 2 Q1
 tags:
@@ -51,6 +50,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the parity of the digit sum of the minimum matters: even yields $1$, odd yields $0$. Find the minimum, then peel digits.
+>
+> The low bit of $s$ is the parity; we return $s\&1\oplus 1$.
+>
+> No string conversion is required.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

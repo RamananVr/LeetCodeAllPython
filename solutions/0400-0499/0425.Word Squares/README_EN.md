@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0425.Word%20Squares/README_EN.md
 tags:
     - Trie
     - Array
@@ -62,6 +61,18 @@ The output consists of two word squares. The order of output does not matter (ju
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $k$ of a word square is forced to start with the $k$-th letters of the rows already chosen. Scanning the whole list for that prefix repeats the same comparisons.
+>
+> Insert every word into a trie and store indices on the path. DFS fills rows: the prefix is those $k$-th letters, and a trie walk returns every candidate at once.
+>
+> A square is complete when the number of rows equals the word length. Building the trie first turns prefix search into a descent.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

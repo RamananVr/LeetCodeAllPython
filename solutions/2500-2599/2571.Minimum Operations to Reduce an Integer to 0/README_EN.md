@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md
 rating: 1649
 source: Weekly Contest 333 Q2
 tags:
@@ -67,6 +66,16 @@ So the minimum number of operations is 3.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Bitwise Operation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step adds or subtracts a power of two. Clearing bits independently costs one step per one, but a run of ones can be removed by adding the next power and subtracting, which is cheaper.
+>
+> Scan runs from the low bit. A singleton is subtracted in one step; a longer run is collapsed by adding the next bit, leaving a carry of one. A leftover run at the end costs one step if its length is $1$, otherwise two.
+
+<!-- thinking:end -->
 
 We convert the integer $n$ to binary, starting from the lowest bit:
 

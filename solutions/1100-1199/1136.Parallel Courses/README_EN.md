@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1136.Parallel%20Courses/README_EN.md
 rating: 1710
 source: Biweekly Contest 5 Q4
 tags:
@@ -62,6 +61,14 @@ In the second semester, you can take course 3.
 <!-- solution:start -->
 
 ### Solution 1: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of semesters is the longest chain of prerequisites; a semester can take every course whose indegree is now $0$. Layered Kahn topology: each layer is one semester. Leftover courses mean a cycle, so return $-1$.
+
+<!-- thinking:end -->
 
 We can first build a graph $g$ to represent the prerequisite relationships between courses, and count the in-degree $indeg$ of each course.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README_EN.md
 rating: 2157
 source: Biweekly Contest 171 Q4
 tags:
@@ -90,6 +89,14 @@ The minimum inversion count is therefore 0.</p>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n-k+1$ windows of length $k$, and $n\le 10^5$ forbids counting inversions from scratch. Consecutive windows differ by one insertion and one deletion. A Fenwick tree over window values updates the inversion count when a new maximum-from-the-left or minimum-from-the-right arrives, and we keep the minimum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

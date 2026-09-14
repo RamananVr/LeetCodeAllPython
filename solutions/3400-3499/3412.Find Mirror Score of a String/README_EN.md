@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README_EN.md
 rating: 1578
 source: Weekly Contest 431 Q2
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An unmarked character pairs with the nearest unmarked mirror to its left; the score is the index gap. A leftward scan at every position is quadratic for $n\le 10^5$.
+>
+> Mirroring is an involution. Pairing with the closest unused mirror is exactly a pop from a per-character stack.
+>
+> We keep a stack of unused indices for each letter. On seeing $x$, if the stack of its mirror $y$ is nonempty we pop $j$ and add $i-j$; otherwise we push $i$ onto the stack of $x$.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{d}$ to store the index list of each unmarked character, where the key is the character and the value is the list of indices.
 

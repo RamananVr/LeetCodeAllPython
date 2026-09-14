@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count binary trees whose nodes come from $arr$ and whose children multiply to the parent. Values are distinct and $n\le 1000$, so process them in increasing order so children are ready before parents.
+>
+> $f[i]$ is the number of trees rooted at $arr[i]$. For each left child $b$, if $a/b$ is also present, add $f[b]\cdot f[c]$. Every value has the single-node tree, and the answer is the sum of $f$ modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0356.Line%20Reflection/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the points are symmetric about some vertical line. Trying every candidate axis is unnecessary: if one exists, it is the midpoint of the extreme $x$-coordinates.
+>
+> Let $s=\min x+\max x$. Every $(x,y)$ must have $(s-x,y)$ in the set. Load the points, then test once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

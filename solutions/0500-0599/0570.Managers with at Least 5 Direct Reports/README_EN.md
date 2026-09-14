@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0570.Managers%20with%20at%20Least%205%20Direct%20Reports/README_EN.md
 tags:
     - Database
 ---
@@ -70,6 +69,16 @@ Employee table:
 <!-- solution:start -->
 
 ### Solution 1: Grouping and Joining
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A manager is an employee with at least five direct reports. Count by `managerId`, then join back for names.
+>
+> Group-count reports, keep those with $\ge 5$, and join `Employee` on id. Aggregation and the name lookup stay separate.
+
+<!-- thinking:end -->
 
 We can first count the number of direct subordinates for each manager, and then join the `Employee` table to find the managers whose number of direct subordinates is greater than or equal to $5$.
 

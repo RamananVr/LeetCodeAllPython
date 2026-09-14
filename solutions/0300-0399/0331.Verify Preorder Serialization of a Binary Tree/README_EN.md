@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README_EN.md
 tags:
     - Stack
     - Tree
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check whether a comma-separated preorder is a valid binary tree. Every node has two children; nulls are `#`. Slot counting works; a stack reduction is direct.
+>
+> The pattern `value # #` is a finished leaf subtree and collapses to one `#`. After all reductions a single `#` remains iff the serialization is valid. A non-null that cannot gather two children leaves leftover tokens.
+
+<!-- thinking:end -->
 
 We split the string `preorder` into an array by commas, then traverse the array. If we encounter two consecutive `'#'` and the third element is not `'#'`, we replace these three elements with a single `'#'`. This process continues until the array traversal is complete.
 

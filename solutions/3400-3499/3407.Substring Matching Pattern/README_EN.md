@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3407.Substring%20Matching%20Pattern/README_EN.md
 rating: 1472
 source: Biweekly Contest 147 Q1
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: String Matching
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $p$ contains a single $*$, and both strings are at most length $50$, so even backtracking would pass. We only need the literal pieces on both sides of the star to appear in order in $s$, with any (possibly empty) gap between them.
+>
+> Matching $p$ as a regex against the entire $s$ would confuse “substring” with “whole-string match”. The star-expanded pattern only has to be some substring of $s$.
+>
+> We therefore split $p$ on $*$, then $\textit{find}$ each literal from left to right, moving the start pointer forward only. If any piece is missing, the answer is false.
+
+<!-- thinking:end -->
 
 According to the problem description, `*` can be replaced by any sequence of zero or more characters, so we can split the pattern string $p$ by `*` into several substrings. If these substrings appear in order in the string $s$, then $p$ can become a substring of $s$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README_EN.md
 rating: 1741
 source: Weekly Contest 148 Q2
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After the first player takes $x$, the tree splits into the left subtree, the right subtree, and the parent side. The second player colors the root of the largest of the three and owns that component. More than $n/2$ nodes there is a win. Finding $x$ and counting the two subtrees yields all three sizes.
+
+<!-- thinking:end -->
 
 First, we use DFS to find the node where player 1's colored point $x$ is located, denoted as $node$.
 

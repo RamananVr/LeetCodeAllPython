@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md
 rating: 1274
 source: Weekly Contest 127 Q1
 tags:
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly negating the current minimum $k$ times is optimal. Both $n$ and $k$ are at most $10^4$, but finding the minimum each time needs an extra selection structure. Values lie in $[-100,100]$, so we need not sort the original array.
+>
+> To maximize the sum we should flip the most negative numbers first. If an odd number of flips remain and there is no zero, the smallest positive value must be flipped once more.
+>
+> A frequency map consumes flips from $-100$ to $-1$, optionally flips the smallest positive, and finally sums value times count.
+
+<!-- thinking:end -->
 
 We observe that to maximize the sum of the array, we should try to turn the smallest negative numbers into positive numbers.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README_EN.md
 rating: 1745
 source: Weekly Contest 434 Q2
 tags:
@@ -125,6 +124,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Events are timestamped, and an offline user is invisible to HERE for $60$ seconds. Processing in input order can apply a MESSAGE before the same-time OFFLINE.
+>
+> Sort by time, and on ties put OFFLINE before MESSAGE, then update by type.
+>
+> $\textit{online\_t}[i]$ is when user $i$ comes back. ALL increments a lazy counter applied to everyone at the end; HERE scans users already online; named mentions add one directly.
+
+<!-- thinking:end -->
 
 We sort the events in ascending order of timestamps. If the timestamps are the same, we place OFFLINE events before MESSAGE events.
 

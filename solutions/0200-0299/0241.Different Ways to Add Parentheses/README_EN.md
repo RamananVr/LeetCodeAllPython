@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0241.Different%20Ways%20to%20Add%20Parentheses/README_EN.md
 tags:
     - Recursion
     - Memoization
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each parenthesization splits at some operator. Evaluating every split naively recomputes the same subexpressions.
+>
+> We cut at each operator, recurse for all left and right values, combine them, and memoize each substring.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

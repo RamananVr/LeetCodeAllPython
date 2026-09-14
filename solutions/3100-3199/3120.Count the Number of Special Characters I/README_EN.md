@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3120.Count%20the%20Number%20of%20Special%20Characters%20I/README_EN.md
 rating: 1205
 source: Weekly Contest 394 Q1
 tags:
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A letter is special when both cases appear. Scanning the string once per letter repeats $O(n|\Sigma|)$ work.
+>
+> Membership of each character is enough, and a set built in one pass answers all $26$ pairs.
+>
+> Insert $word$ into a set, then count letters whose lower and upper forms both occur.
+
+<!-- thinking:end -->
 
 We use a hash table or array $s$ to record the characters that appear in the string $word$. Then we traverse the 26 letters. If both the lowercase and uppercase letters appear in $s$, the count of special characters is incremented by one.
 

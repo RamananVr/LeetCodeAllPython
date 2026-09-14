@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,16 @@ The rest of the employees get a 100% bonus.
 <!-- solution:start -->
 
 ### Solution 1: IF Statement + ORDER BY Clause
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Employees with an odd id whose name does not start with $M$ receive their salary as a bonus; others get $0$. The rule belongs in the select list.
+>
+> $\textit{IF}$ maps an even id or a name starting with $M$ to $0$, otherwise $salary$, then $\textit{ORDER BY}$ $employee\_id$.
+
+<!-- thinking:end -->
 
 We can use the `IF` statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by `employee_id`.
 

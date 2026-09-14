@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0721.Accounts%20Merge/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -64,6 +63,18 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 <!-- solution:start -->
 
 ### Solution 1: Union-Find + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Accounts of the same person share emails and must be merged, then sorted. About $1000$ accounts makes pairwise set comparison awkward, and names must stay attached.
+>
+> The connectivity is among accounts: two indices join if they share an email. Union-find on account ids, plus a map from email to the first account that used it, finds those edges.
+>
+> Group emails by root, take the root account's name, and sort. Path compression keeps the cost near linearithmic.
+
+<!-- thinking:end -->
 
 Based on the problem description, we can use a union-find data structure to merge accounts with the same email address. The specific steps are as follows:
 

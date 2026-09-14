@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README_EN.md
 rating: 2469
 source: Weekly Contest 468 Q4
 tags:
@@ -85,6 +84,18 @@ tags:
 <!-- solution:start -->
 
 ### Method 1: Sparse Table (ST) + Priority Queue (Max-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike I, the $k$ subarrays must be distinct, so the same segment cannot be reused. For a fixed left end $l$ the value is monotone in the right end.
+>
+> We then have $n$ monotone sequences and want the sum of the global top $k$. Push each sequence's last term $[l,n-1]$ into a max-heap; after a pop, if the right end can shrink, push the next term.
+>
+> A sparse table answers range max/min in $O(1)$. $k$ pops cost $O(\log n)$ each.
+
+<!-- thinking:end -->
 
 Consider enumerating the left boundary $l$ of the subarray. As the right boundary $r$ moves to the right, the value of the subarray $\textit{nums}[l..r]$ increases monotonically. This is because the maximum value within the interval can only increase (or remain unchanged), while the minimum value can only decrease (or remain unchanged). Thus, their difference, $\max(\textit{nums}[l..r]) - \min(\textit{nums}[l..r])$, possesses a monotonically non-decreasing property.
 

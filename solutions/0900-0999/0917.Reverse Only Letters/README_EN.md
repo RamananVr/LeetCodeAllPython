@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0917.Reverse%20Only%20Letters/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -51,6 +50,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only letters reverse; other characters stay. Collecting letters and writing them back works, but two pointers finish it in one pass. Skip non-letters from both ends and swap. The string is immutable, so convert to a list first.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$ to point to the head and tail of the string respectively. When $i < j$, we continuously move $i$ and $j$ until $i$ points to an English letter and $j$ points to an English letter, then we swap $s[i]$ and $s[j]$. Finally, we return the string.
 

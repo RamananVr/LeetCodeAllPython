@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0909.Snakes%20and%20Ladders/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -81,6 +80,16 @@ This is the lowest possible number of moves to reach the last square, so return 
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is at most $20\times 20$. The fewest die rolls is an unweighted shortest path. Labels snake through the grid; a snake or ladder teleports to its destination.
+>
+> BFS from $1$ by layers, visiting each cell once. The layer that first reaches $n^2$ is the answer; if the queue empties, return $-1$.
+
+<!-- thinking:end -->
 
 We can use the Breadth-First Search (BFS) method, starting from the starting point, moving forward 1 to 6 steps each time, and then checking for snakes or ladders. If there are any, move to the destination of the snake or ladder; otherwise, move to the next square.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README_EN.md
 tags:
     - Trie
     - Array
@@ -74,6 +73,16 @@ Since now the four &lt;b&gt;&#39;s are consecutive, we merge them: &quot;&lt;b&g
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every occurrence of a word in $s$ must be wrapped, and intervals may overlap. Naive matching per word repeats work and still needs a merge pass.
+>
+> Insert words into a trie and walk from every start index to collect end positions. Merge overlapping intervals, then splice `<b>` around them.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

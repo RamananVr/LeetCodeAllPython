@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md
 rating: 1418
 source: Weekly Contest 306 Q2
 tags:
@@ -67,6 +66,16 @@ Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we
 <!-- solution:start -->
 
 ### Solution 1: Single Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node’s edge score is the sum of indices that point to it. $n \le 10^5$, so one accumulation suffices; ties take the smaller index.
+>
+> Add source $i$ into $cnt[j]$ and compare with the current best on the fly, avoiding a second scan.
+
+<!-- thinking:end -->
 
 We define an array $\textit{cnt}$ of length $n$, where $\textit{cnt}[i]$ represents the edge score of node $i$. Initially, all elements are $0$. We also define an answer variable $\textit{ans}$, initially set to $0$.
 

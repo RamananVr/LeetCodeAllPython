@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README_EN.md
 rating: 1509
 source: Weekly Contest 408 Q2
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special number has exactly three positive divisors, i.e. it is the square of a prime. $l,r\le 10^9$, so trial-dividing every integer in the range is impossible.
+>
+> Special numbers in $[l,r]$ correspond to primes in $[\lceil\sqrt{l}\rceil,\lfloor\sqrt{r}\rfloor]$. After a sieve up to $\sqrt{10^9}$, count those primes and subtract from the interval length.
+
+<!-- thinking:end -->
 
 According to the problem description, we can observe that only the squares of prime numbers are special numbers. Therefore, we can first preprocess all prime numbers less than or equal to $\sqrt{10^9}$, and then iterate through the interval $[\lceil\sqrt{l}\rceil, \lfloor\sqrt{r}\rfloor]$, counting the number of primes $\textit{cnt}$ in the interval. Finally, we return $r - l + 1 - \textit{cnt}$.
 

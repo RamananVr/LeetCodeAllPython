@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README_EN.md
 rating: 1912
 source: Biweekly Contest 40 Q4
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mountain rises then falls around a peak. Fewest deletions means the longest mountain subsequence. $n \le 1000$, so for each peak compute a LIS on the left and an LDS on the right.
+>
+> $\textit{left}[i]$ and $\textit{right}[i]$ are those lengths; a peak needs both greater than $1$.
+>
+> The answer is $n-\max(\textit{left}[i]+\textit{right}[i]-1)$.
+
+<!-- thinking:end -->
 
 This problem can be transformed into finding the longest increasing subsequence and the longest decreasing subsequence.
 

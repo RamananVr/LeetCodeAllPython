@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0556.Next%20Greater%20Element%20III/README_EN.md
 tags:
     - Math
     - Two Pointers
@@ -42,6 +41,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the next greater integer that is a permutation of $n$'s digits. That is exactly the next-permutation algorithm.
+>
+> Find the rightmost descent $i$, then the rightmost $j$ that is larger than $cs[i]$, swap, and reverse the suffix into increasing order. No descent means $n$ is already maximal. Overflow past $32$-bit also yields $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

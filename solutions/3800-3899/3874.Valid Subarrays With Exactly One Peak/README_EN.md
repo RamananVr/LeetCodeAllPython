@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README_EN.md
 tags:
     - Array
     - Math
@@ -97,6 +96,20 @@ A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of element
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid subarray contains exactly one peak, and that peak lies within $k$ of both ends. $n \le 10^5$ forbids enumerating intervals.
+>
+> Peaks separate one another. For a unique peak $p$, the left end cannot reach the previous peak, the right end cannot reach the next, and both stay inside $[p-k,p+k]$.
+>
+> Collect all peaks, then for each peak multiply the number of legal left ends by the number of legal right ends.
+>
+> Neighboring-peak clamps enforce uniqueness.
+
+<!-- thinking:end -->
 
 We first traverse the array to find all peak positions and store them in a list $\textit{peaks}$.
 

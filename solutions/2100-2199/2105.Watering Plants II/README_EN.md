@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2105.Watering%20Plants%20II/README_EN.md
 rating: 1507
 source: Weekly Contest 271 Q3
 tags:
@@ -86,6 +85,18 @@ So, the total number of times they have to refill is 0.
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice and Bob walk from opposite ends. Before watering a plant each must have enough water, otherwise they refill first. The walk is uniquely determined, so simulation is enough.
+>
+> With $n\le 10^5$ each person visits $O(n)$ plants. Two pointers and current volumes $a$, $b$ count refills in linear time.
+>
+> When the pointers meet, the last plant is watered by whoever currently holds more; if both fall short, one extra refill is needed. Before they meet, each side refills and subtracts independently.
+
+<!-- thinking:end -->
 
 We use two variables $a$ and $b$ to represent the amount of water Alice and Bob have, initially $a = \textit{capacityA}$, $b = \textit{capacityB}$. Then we use two pointers $i$ and $j$ to point to the head and tail of the plant array, and simulate the process of Alice and Bob watering from both ends to the middle.
 

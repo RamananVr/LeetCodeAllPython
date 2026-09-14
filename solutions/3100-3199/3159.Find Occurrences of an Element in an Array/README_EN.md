@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3159.Find%20Occurrences%20of%20an%20Element%20in%20an%20Array/README_EN.md
 rating: 1262
 source: Biweekly Contest 131 Q2
 tags:
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Queries ask for the index of the $i$-th occurrence of $x$. Scanning from the left per query is $O(nm)$.
+>
+> All occurrence indices fit in an array $ids$, after which a query is one lookup.
+>
+> Collect indices of $x$, then return $ids[i-1]$ or $-1$ when $i$ is too large.
+
+<!-- thinking:end -->
 
 According to the problem description, we can first traverse the array `nums` to find the indices of all elements with a value of $x$, and record them in the array `ids`.
 

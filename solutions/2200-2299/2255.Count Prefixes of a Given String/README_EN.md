@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README_EN.md
 rating: 1260
 source: Biweekly Contest 77 Q1
 tags:
@@ -59,6 +58,16 @@ Note that the same string can occur multiple times in words, and it should be co
 <!-- solution:start -->
 
 ### Solution 1: Traversal Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many words are prefixes of $s$. There are at most $10^3$ words and length at most $10$, so a prefix test per word is enough; a trie is unnecessary.
+>
+> $\textit{startswith}$ returns whether $s$ begins with $w$. The work is proportional to the number of words times $|s|$.
+
+<!-- thinking:end -->
 
 We directly traverse the array words, and for each string w, we check if s starts with w as a prefix. If it does, we increment the answer by one.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README_EN.md
 tags:
     - Stack
     - Array
@@ -87,6 +86,18 @@ i=3:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each length $k$ we want the maximum window minimum. A deque per $k$ is $O(n^2)$ overall.
+>
+> The longest interval where $nums[i]$ is the minimum is bounded by the nearest strictly smaller values; that length $m$ lets $nums[i]$ compete for every answer of length $\le m$.
+>
+> Monotone stacks find those bounds, we write into $ans[m-1]$, then sweep from the right so longer answers also fill shorter lengths.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

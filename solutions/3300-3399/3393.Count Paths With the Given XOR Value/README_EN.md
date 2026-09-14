@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3393.Count%20Paths%20With%20the%20Given%20XOR%20Value/README_EN.md
 rating: 1573
 source: Biweekly Contest 146 Q2
 tags:
@@ -96,6 +95,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk from the top-left to the bottom-right (right or down only) with path XOR equal to $k$. The grid is at most $300 \times 300$ and values are below $16$, so $f[i][j][x]$ fits.
+>
+> The XOR domain has size $16$. A transition into $(i,j)$ XORs $\textit{grid}[i][j]$ onto paths from above and from the left.
+>
+> The answer is $f[m-1][n-1][k]$ modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

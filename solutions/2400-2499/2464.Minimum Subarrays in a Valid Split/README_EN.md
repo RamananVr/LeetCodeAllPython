@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md
 tags:
     - Array
     - Math
@@ -81,6 +80,14 @@ It can be proved that 2 is the minimum number of subarrays that we can obtain in
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A piece is valid iff the GCD of its endpoints exceeds $1$, and we want the fewest pieces. From $i$, try every right end $j$ and take $1+dfs(j+1)$ when the GCD allows. Memoized $O(n^2)$ GCDs; return $-1$ if unbounded.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i)$ to represent the minimum number of partitions starting from index $i$. For index $i$, we can enumerate all partition points $j$, i.e., $i \leq j < n$, where $n$ is the length of the array. For each partition point $j$, we need to determine whether the greatest common divisor of $nums[i]$ and $nums[j]$ is greater than $1$. If it is greater than $1$, we can partition, and the number of partitions is $1 + dfs(j + 1)$; otherwise, the number of partitions is $+\infty$. Finally, we take the minimum of all partition numbers.
 

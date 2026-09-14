@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0266.Palindrome%20Permutation/README_EN.md
 tags:
     - Bit Manipulation
     - Hash Table
@@ -55,6 +54,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A permutation is a palindrome iff at most one character has an odd count. Tally frequencies and test that the number of odd counts is less than $2$.
+
+<!-- thinking:end -->
 
 If a string is a palindrome, at most one character can appear an odd number of times, while all other characters must appear an even number of times. Therefore, we only need to count the occurrences of each character and then check if this condition is satisfied.
 

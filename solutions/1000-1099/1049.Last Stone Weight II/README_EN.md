@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md
 rating: 2092
 source: Weekly Contest 137 Q4
 tags:
@@ -68,6 +67,18 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each smash assigns opposite signs to two stones, so the remainder is the absolute difference of two subset sums. $n\le 30$ but the total is only a few thousand, which is a $0$-$1$ knapsack of capacity $\lfloor s/2\rfloor$: pack as close to half as possible.
+>
+> $\textit{dp}[i][j]$ is the best weight of the first $i$ stones that does not exceed $j$, taking or skipping stone $i$.
+>
+> The answer is $s-2\cdot\textit{dp}[n][\lfloor s/2\rfloor]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -94,7 +105,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ depends only on row $i-1$. A one-dimensional array updated from high capacity to low reuses the same transition without packing a stone twice, and the space becomes $O(s)$.
+
+<!-- thinking:end -->
+
+$dp[i][j]$ only depends on the previous row $dp[i - 1][\cdot]$, so we can drop the first dimension and enumerate the capacity from large to small, reducing the space complexity to $O(\textit{sum})$.
 
 <!-- tabs:start -->
 

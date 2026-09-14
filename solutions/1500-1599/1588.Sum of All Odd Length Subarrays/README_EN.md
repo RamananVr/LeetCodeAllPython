@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README_EN.md
 rating: 1408
 source: Biweekly Contest 35 Q1
 tags:
@@ -73,6 +72,16 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum every odd-length subarray. $n$ is typically at most $100$, so a triple loop would pass, yet it re-adds the same entries. The numbers of odd- and even-length subarrays ending at $i$ have closed forms.
+>
+> Let $f[i]$ and $g[i]$ be those two sums. An odd segment is an even segment ending at $i-1$ plus $arr[i]$, and there are $i/2+1$ of them; even segments are symmetric. The answer is the sum of all $f[i]$.
+
+<!-- thinking:end -->
+
 We define two arrays $f$ and $g$ of length $n$, where $f[i]$ represents the sum of subarrays ending at $\textit{arr}[i]$ with odd lengths, and $g[i]$ represents the sum of subarrays ending at $\textit{arr}[i]$ with even lengths. Initially, $f[0] = \textit{arr}[0]$, and $g[0] = 0$. The answer is $\sum_{i=0}^{n-1} f[i]$.
 
 When $i > 0$, consider how $f[i]$ and $g[i]$ transition:
@@ -110,6 +119,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each state reads only the previous $f$ and $g$, so two rolling scalars suffice. Time stays linear and the extra arrays disappear.
+
+<!-- thinking:end -->
 
 We notice that the values of $f[i]$ and $g[i]$ only depend on $f[i - 1]$ and $g[i - 1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i - 1]$ and $g[i - 1]$, respectively, thus optimizing the space complexity.
 

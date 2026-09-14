@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README_EN.md
 rating: 1253
 source: Weekly Contest 368 Q1
 tags:
@@ -73,6 +72,16 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mountain needs $i<j<k$ and $nums[i]<nums[j]>nums[k]$, minimizing the sum. $n \le 50$ allows a triple loop. After fixing the peak $j$, only the left and right minima matter, and both must be strictly smaller than $nums[j]$.
+>
+> Precompute suffix minima in $right$, then scan left to right while tracking $left$. Test each peak and update the triple sum, or return $-1$ if none exists.
+
+<!-- thinking:end -->
 
 We can preprocess the minimum value on the right side of each position and record it in the array $right[i]$, where $right[i]$ represents the minimum value in $nums[i+1..n-1]$.
 

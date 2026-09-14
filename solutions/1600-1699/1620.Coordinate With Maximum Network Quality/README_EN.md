@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README_EN.md
 rating: 1665
 source: Biweekly Contest 37 Q2
 tags:
@@ -84,6 +83,18 @@ No other coordinate has a higher network quality.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $50$ towers and coordinates in $[0,50]$ leave only $51 \times 51$ candidate points, so a triple loop over quality is fine.
+>
+> A tower contributes $0$ beyond $\textit{radius}$ and otherwise $\lfloor q/(1+d) \rfloor$.
+>
+> Sum every tower at each integer point and keep the highest quality, breaking ties by lexicographic order. Starting from $(0,0)$ matches the required answer when every quality is zero.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

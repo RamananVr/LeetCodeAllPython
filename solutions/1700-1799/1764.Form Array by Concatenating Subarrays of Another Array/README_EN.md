@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README_EN.md
 rating: 1588
 source: Biweekly Contest 46 Q2
 tags:
@@ -74,6 +73,16 @@ They share a common elements nums[4] (0-indexed).
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must match the groups in order as disjoint contiguous blocks of $nums$. Sizes are tiny, so a left-to-right greedy scan works: consume a group when it matches, otherwise shift the start by one.
+>
+> Pointer $i$ is the current group and $j$ walks $nums$. On a slice match, advance $j$ by the group length and increment $i$; otherwise increment $j$. Success is $i$ reaching the group count.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

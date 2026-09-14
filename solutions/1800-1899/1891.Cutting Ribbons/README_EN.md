@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -81,6 +80,16 @@ Now you have 4 ribbons of length 4.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ribbons may only be cut shorter; we want the maximum equal length that yields at least $k$ pieces. Longer pieces give fewer of them.
+>
+> Binary-search the length in $[0,\max ribbons]$ and test whether $\sum \lfloor x/mid\rfloor \ge k$. Feasible lengths can grow; otherwise shrink.
+
+<!-- thinking:end -->
 
 We observe that if we can obtain $k$ ropes of length $x$, then we can also obtain $k$ ropes of length $x-1$. This implies that there is a monotonicity property, and we can use binary search to find the maximum length $x$ such that we can obtain $k$ ropes of length $x$.
 

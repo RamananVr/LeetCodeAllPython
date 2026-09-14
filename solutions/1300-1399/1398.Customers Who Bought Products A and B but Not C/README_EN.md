@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1398.Customers%20Who%20Bought%20Products%20A%20and%20B%20but%20Not%20C/README_EN.md
 tags:
     - Database
 ---
@@ -94,6 +93,14 @@ Orders table:
 <!-- solution:start -->
 
 ### Solution 1: LEFT JOIN + GROUP BY + HAVING
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers who bought $A$ and $B$ but never $C$. Left-join customers to orders, group by customer, and require $\mathrm{SUM}(\textit{product}=A)>0$, the same for $B$, and a zero sum for $C$.
+
+<!-- thinking:end -->
 
 We can use `LEFT JOIN` to join the `Customers` table and the `Orders` table, then group them by `customer_id`, and finally filter out the customers who have purchased products A and B but not product C.
 

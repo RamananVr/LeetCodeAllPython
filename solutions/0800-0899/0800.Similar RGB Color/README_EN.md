@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0800.Similar%20RGB%20Color/README_EN.md
 tags:
     - Math
     - String
@@ -62,6 +61,16 @@ This is the highest among any shorthand color.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A shorthand color uses only channel values $00,11,\ldots,ff$, i.e. multiples of $17$. Similarity is the sum of squared channel differences, and the three channels do not interact, so enumerating all $16^3$ shorthand colors is unnecessary.
+>
+> Write a channel $q$ as $17y+z$. If the remainder $z>8$, round up to the next multiple; otherwise keep the current one. Applying this independently to the three channels yields the closest shorthand color.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

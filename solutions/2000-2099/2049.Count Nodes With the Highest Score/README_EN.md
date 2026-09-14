@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md
 rating: 1911
 source: Weekly Contest 264 Q3
 tags:
@@ -71,6 +70,16 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Removing a node scores the product of component sizes. With $n \le 10^5$ we need all scores in one walk. Subtree sizes appear on the DFS unwind; the complement is $n-cnt$.
+>
+> Build child lists and DFS from the root: multiply child sizes, then $n-cnt$ if nonzero. Track the maximum score and its multiplicity.
+
+<!-- thinking:end -->
 
 First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $ans$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
 

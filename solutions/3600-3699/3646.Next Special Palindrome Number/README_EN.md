@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README_EN.md
 rating: 2445
 source: Weekly Contest 462 Q4
 tags:
@@ -68,6 +67,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special palindrome uses digit $d$ exactly $d$ times (under the stated frequency rule) and reads the same forwards. Checking $n+1,n+2,\ldots$ fails for large $n$.
+>
+> Only finitely many multisets obey the frequencies. Enumerate half-permutations, mirror them, sort, and binary-search the successor of $n$.
+>
+> At most one odd-count digit sits in the center; the rest come in pairs. After generating every candidate, each query is the least value strictly above $n$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

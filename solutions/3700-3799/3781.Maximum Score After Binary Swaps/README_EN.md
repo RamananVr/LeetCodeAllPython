@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3781.Maximum%20Score%20After%20Binary%20Swaps/README_EN.md
 rating: 1823
 source: Biweekly Contest 172 Q3
 tags:
@@ -76,6 +75,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Max-Heap
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A `1` can only swap with a `0` on its left, so each `1` may claim the best unused value among positions seen so far. Scanning left to right, we push $nums[i]$ into a max-heap and, on a `1`, pop the current top into the score.
+
+<!-- thinking:end -->
 
 According to the problem statement, each `'1'` can be swapped left any number of times, so each `'1'` can choose the largest unpicked number to its left. We can maintain these candidates with a max-heap.
 

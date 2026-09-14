@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2347.Best%20Poker%20Hand/README_EN.md
 rating: 1241
 source: Biweekly Contest 83 Q1
 tags:
@@ -77,6 +76,16 @@ Note that we cannot make a &quot;Flush&quot; or a &quot;Three of a Kind&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Five cards yield Flush, Three of a Kind, Pair, or High Card, in that order. The hand is tiny, so counting suffices.
+>
+> Test a uniform suit first, then rank frequencies for $\ge 3$ or exactly $2$. Otherwise it is High Card.
+
+<!-- thinking:end -->
 
 We first traverse the array $\textit{suits}$ to check if adjacent elements are equal. If they are, we return `"Flush"`.
 

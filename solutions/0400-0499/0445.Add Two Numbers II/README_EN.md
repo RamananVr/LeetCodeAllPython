@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README_EN.md
 tags:
     - Stack
     - Linked List
@@ -62,6 +61,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The lists store the high digit first, so we cannot add from the heads as in Add Two Numbers. Reversing twice more is pointer-heavy.
+>
+> Push both lists onto stacks, pop the low digits, add with carry, and insert each new node at the front of the answer. A leftover carry becomes one more head insert.
+>
+> The stacks make the low end come out first; head insertion restores high-digit-first order without reversing the lists.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -101,6 +112,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already adds via two stacks. Solution 2 is the same skeleton: pop, add, insert at the dummy head, until both stacks and the carry are gone.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

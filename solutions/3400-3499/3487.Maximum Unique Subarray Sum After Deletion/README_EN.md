@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3487.Maximum%20Unique%20Subarray%20Sum%20After%20Deletion/README_EN.md
 rating: 1399
 source: Weekly Contest 441 Q1
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may delete any elements; the remainder must have distinct values and maximum sum. If everything is non-positive, the best is the single largest value.
+>
+> Once a positive exists, negatives and duplicate positives never help: negatives shrink the sum, duplicates are illegal.
+>
+> If the global max is non-positive, return it. Otherwise sum the distinct positives with a set.
+
+<!-- thinking:end -->
 
 We first find the maximum value $\textit{mx}$ in the array. If $\textit{mx} \leq 0$, then all elements in the array are less than or equal to 0. Since we need to select a non-empty subarray with the maximum element sum, the maximum element sum would be $\textit{mx}$.
 

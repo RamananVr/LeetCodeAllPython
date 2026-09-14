@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md
 rating: 1182
 source: Biweekly Contest 118 Q1
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the indices of words that contain $x$. Both the list and each word are at most length $50$, so a membership test per word suffices.
+>
+> A comprehension collects indices in order; no extra index is required.
+
+<!-- thinking:end -->
 
 We directly traverse each string `words[i]` in the string array `words`. If `x` appears in `words[i]`, we add `i` to the answer array.
 

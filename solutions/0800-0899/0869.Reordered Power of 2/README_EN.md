@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0869.Reordered%20Power%20of%202/README_EN.md
 tags:
     - Hash Table
     - Math
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Can a permutation of $n$’s digits be a power of two? $n\le 10^9$, so $10!$ permutations are more work than the thirty-odd powers $2^0\ldots 2^{30}$.
+>
+> Compare digit counts of $n$ with each power of two up to $10^9$. A match is a yes.
+
+<!-- thinking:end -->
 
 We can enumerate all powers of 2 in the range $[1, 10^9]$ and check if their digit composition is the same as the given number.
 

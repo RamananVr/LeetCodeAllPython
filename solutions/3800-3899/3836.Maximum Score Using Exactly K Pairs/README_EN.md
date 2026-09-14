@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README_EN.md
 rating: 1987
 source: Weekly Contest 488 Q4
 tags:
@@ -107,6 +106,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick $k$ index-increasing pairs from two arrays and maximize the sum of products. $n,m \le 100$ and $k \le \min(n,m)$ fit a 3-D DP.
+>
+> A pair consumes one element from each side and cannot go backwards. The choices are skip $nums1$, skip $nums2$, or pair both.
+>
+> Let $f[i][j][k]$ be the best score using the two prefixes and exactly $k$ pairs, with those three transitions.
+>
+> The empty prefixes with zero pairs score $0$; other states start at $-\infty$. The answer is $f[n][m][K]$.
+
+<!-- thinking:end -->
 
 We denote the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ as $n$ and $m$ respectively, and denote $k$ in the problem as $K$.
 

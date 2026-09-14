@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README_EN.md
 rating: 1199
 source: Biweekly Contest 150 Q1
 tags:
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good number is strictly larger than the neighbors $k$ away, when they exist. $n\le 100$, so we test each index.
+>
+> A missing side imposes no constraint and must not be treated as $0$.
+>
+> Skip $i$ when a left neighbor exists and $x\le \textit{nums}[i-k]$, or a right neighbor exists and $x\le \textit{nums}[i+k]$; otherwise add $x$.
+
+<!-- thinking:end -->
 
 We can traverse the array $\textit{nums}$ and check each element $\textit{nums}[i]$ to see if it meets the conditions:
 

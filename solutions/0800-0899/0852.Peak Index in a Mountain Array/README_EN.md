@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array rises strictly then falls strictly; we need the peak index. A linear scan works, but $n\le 10^5$ and the peak test is monotone: left of the peak $arr[i]<arr[i+1]$, right of it the opposite.
+>
+> Binary search $[1,n-2]$: if $arr[mid]>arr[mid+1]$ the peak is in the left half (including $mid$), otherwise in the right. The left endpoint is the peak.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

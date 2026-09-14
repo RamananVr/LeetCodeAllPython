@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README_EN.md
 tags:
     - Database
 ---
@@ -117,6 +116,14 @@ In the Sales department:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Top three distinct salaries per department, employees included on ties. A correlated count of strictly higher distinct salaries in the same department being less than $3$ means the row is in the top three; then join departments. No ranking table is materialized.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -170,6 +177,14 @@ WHERE
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rescans the department for every employee. $\textit{DENSE\_RANK}$ partitioned by department and ordered by salary descending, then $\textit{rk}\le 3$, is the top three bands including ties.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

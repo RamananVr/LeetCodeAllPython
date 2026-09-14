@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -68,6 +67,18 @@ So, the maximum time needed is 1.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Several hens eat all grains concurrently; one hen's time is the length of a possibly folded walk. Assigning contiguous grain segments to hens explodes with the number of hens. $n,m \le 2\times 10^4$ rules out search.
+>
+> Time $t$ is monotone: if everything can be eaten in $t$, a larger time also works. After sorting, left grains should go to left hens, so a two-pointer check decides a candidate $t$.
+>
+> For each hen we compute the fold cost according to whether the next grain lies left or right, and keep eating rightward until the next grain would exceed $t$. Binary search yields the minimal feasible $t$.
+
+<!-- thinking:end -->
 
 First, sort the chickens and grains by their position from left to right. Then enumerate the time $t$ using binary search to find the smallest $t$ such that all the grains can be eaten up in $t$ seconds.
 

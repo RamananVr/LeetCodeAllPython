@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md
 rating: 1164
 source: Weekly Contest 347 Q1
 tags:
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only trailing zeros of the decimal representation should be removed; zeros in the middle or at the front stay. A left-to-right scan cannot tell which zeros are trailing until the end is known.
+>
+> Stripping consecutive zeros from the right is exactly $rstrip$.
+
+<!-- thinking:end -->
 
 We can traverse the string from the end to the beginning, stopping when we encounter the first character that is not `0`. Then, we return the substring from the beginning to this character.
 

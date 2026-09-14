@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README_EN.md
 rating: 1250
 source: Biweekly Contest 175 Q1
 tags:
@@ -96,6 +95,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters and specials reverse inside their own slots and never take each other's places. $|s| \le 100$ allows collecting then writing back.
+>
+> A full-string reverse would scramble category boundaries. Extract the two kinds, then consume them from the right.
+>
+> Push letters and specials onto two stacks, then walk the original string and pop the matching stack.
+>
+> LIFO yields each category reversed while the occupancy pattern stays the same.
+
+<!-- thinking:end -->
 
 We first store the letters and special characters from string $s$ into two separate lists $a$ and $b$ respectively. Then we traverse the string $s$. If the current position is a letter, we pop the last letter from list $a$ and place it back at that position; otherwise, we pop the last special character from list $b$ and place it back at that position.
 

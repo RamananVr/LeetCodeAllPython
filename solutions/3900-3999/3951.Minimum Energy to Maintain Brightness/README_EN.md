@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README_EN.md
 rating: 1529
 source: Biweekly Contest 184 Q2
 tags:
@@ -97,6 +96,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Interval Merge
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coordinates reach $10^9$, so we cannot expand every point. Each covered point needs $\lceil\textit{brightness}/3\rceil$ energy, and overlapping intervals share a point, so the intervals are merged first.
+>
+> Sort and fuse touching segments into disjoint ones, then multiply each length by the per-point energy. Complexity follows the number of intervals, not the numeric road length.
+
+<!-- thinking:end -->
 
 A single bulb can illuminate at most 3 positions. To ensure the total brightness is at least $\textit{brightness}$, the number of bulbs required to be turned on is $\lceil \frac{\textit{brightness}}{3} \rceil$. In programming, this is commonly written in integer division form as `(brightness + 2) / 3`.
 

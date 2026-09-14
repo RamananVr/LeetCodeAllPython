@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md
 tags:
     - Array
 ---
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Change at most one value to make the array non-decreasing. Two descents fail; one descent can be fixed on either side.
+>
+> At the first $a>b$, try setting $a$ to $b$ and $b$ to $a$, then test sortedness. No descent means it already works.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

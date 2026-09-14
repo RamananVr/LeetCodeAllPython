@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README_EN.md
 rating: 1500
 source: Biweekly Contest 127 Q2
 tags:
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The prefix goes to player one and the suffix to player two; a clear is $+1$ and a fail is $-1$. Player one must score strictly more and leave at least one level. $n \le 10^5$.
+>
+> The total $s$ is fixed. After $i$ levels player one has $t$ and the opponent has $s-t$, so we need $t>s-t$.
+>
+> Compute $s$, then accumulate $t$ over the first $n-1$ positions and test the inequality.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of the scores that both players can get, denoted as $s$.
 

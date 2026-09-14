@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README_EN.md
 rating: 1579
 source: Weekly Contest 226 Q2
 tags:
@@ -70,7 +69,17 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent pairs form a path; the two ends have degree $1$. Walking from either end restores the array.
+>
+> Build the undirected adjacency list, take a degree-$1$ node as $ans[0]$ and its neighbour as $ans[1]$. Each later value is the neighbour that is not the previous one.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -102,7 +111,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 walks neighbours iteratively. DFS from a degree-$1$ end produces the same order and is convenient as a recursion.
+
+<!-- thinking:end -->
+
+Start at a degree-1 endpoint and DFS the adjacency list.
 
 <!-- tabs:start -->
 

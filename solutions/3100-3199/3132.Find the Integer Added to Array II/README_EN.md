@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3132.Find%20the%20Integer%20Added%20to%20Array%20II/README_EN.md
 rating: 1620
 source: Weekly Contest 395 Q2
 tags:
@@ -83,6 +82,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Enumeration + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two elements are dropped from $nums1$, then every remaining value is shifted by $x$ to match $nums2$. Trying every deletion pair is $O(n^2)$.
+>
+> After sorting, $x$ must be $nums2[0]$ minus one of the first three values of $nums1$, because at most two leading extras can be removed.
+>
+> For each candidate, two pointers count mismatches; at most two are allowed. The smallest feasible $x$ is the answer.
+
+<!-- thinking:end -->
 
 First, we sort the arrays $nums1$ and $nums2$. Since we need to remove two elements from $nums1$, we only need to consider the first three elements of $nums1$, denoted as $a_1, a_2, a_3$. We can enumerate the first element $b_1$ of $nums2$, then we can get $x = b_1 - a_i$, where $i \in \{1, 2, 3\}$. Then we can use the two pointers method to determine whether there exists an integer $x$ that makes $nums1$ and $nums2$ equal, and take the smallest $x$ that satisfies the condition.
 

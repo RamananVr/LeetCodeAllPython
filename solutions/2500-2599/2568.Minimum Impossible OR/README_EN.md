@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md
 rating: 1754
 source: Biweekly Contest 98 Q3
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Powers of 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A value is expressible if it is the bitwise OR of some nonempty subset. OR only turns bits on, so if every power below $2^k$ is present, every integer in $[1,2^{k+1}-1]$ is expressible.
+>
+> The smallest missing value is therefore a missing power of two. Store the array in a set and return the first $2^i$ that is absent.
+
+<!-- thinking:end -->
 
 We start from the integer $1$. If $1$ is expressible, it must appear in the array `nums`. If $2$ is expressible, it must also appear in the array `nums`. If both $1$ and $2$ are expressible, then their bitwise OR operation $3$ is also expressible, and so on.
 

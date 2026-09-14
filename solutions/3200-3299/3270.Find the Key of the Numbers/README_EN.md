@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README_EN.md
 rating: 1205
 source: Biweekly Contest 138 Q1
 tags:
@@ -79,6 +78,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digit $d$ of the key is the minimum of the three numbers' $d$-th digits, missing high digits treated as zero. There are four digits, so take minima and add with place weights.
+>
+> For $k=1,10,100,1000$ add $\min_i (x_i//k)\% 10$ times $k$. No string conversion is required.
+
+<!-- thinking:end -->
 
 We can directly simulate this process by defining a variable $\textit{ans}$ to store the answer and a variable $\textit{k}$ to represent the current digit place, where $\textit{k} = 1$ represents the units place, $\textit{k} = 10$ represents the tens place, and so on.
 

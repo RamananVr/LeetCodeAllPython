@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0505.The%20Maze%20II/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -79,6 +78,16 @@ The length of the path is 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The ball rolls until it hits a wall, so an edge is a full roll rather than a single cell. Stepping cell by cell re-expands the same roll many times.
+>
+> States are stopping cells. From each stop, roll in four directions to the end and relax that cell if the path is shorter. Distances per roll vary, so this is shortest-path relaxation on stop points, not unweighted BFS. The recorded distance at the destination is the answer, or $-1$ if it stays infinite.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README_EN.md
 rating: 1784
 source: Weekly Contest 374 Q2
 tags:
@@ -70,6 +69,16 @@ It can be shown that all integers from 1 to 20 are obtainable from the resulting
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must form every value in $[1,target]$ with the given coins plus extras. If $[0,s-1]$ is already covered, a new $x \le s$ extends the range to $s+x-1$; if the next coin is larger, we must insert $s$ and double the range. This is the standard covering greedy.
+>
+> Sort the coins and advance a pointer. While $s \le target$, either absorb the next coin or set $s \leftarrow 2s$ and increment the answer.
+
+<!-- thinking:end -->
 
 Suppose the current amount we need to construct is $s$, and we have already constructed all amounts in $[0,...,s-1]$. If there is a new coin $x$, we add it to the array, which can construct all amounts in $[x, s+x-1]$.
 

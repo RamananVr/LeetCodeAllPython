@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README_EN.md
 rating: 1228
 source: Biweekly Contest 45 Q1
 tags:
@@ -63,6 +62,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum values that occur exactly once. Both the length and the values are at most $100$, so count frequencies and add keys whose count is $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -81,6 +88,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 counts fully then sums. With a tiny domain we can do it in one pass: add on the first sighting, subtract on the second, and ignore later ones.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

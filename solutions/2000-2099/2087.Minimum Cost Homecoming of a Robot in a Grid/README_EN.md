@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README_EN.md
 rating: 1743
 source: Biweekly Contest 66 Q3
 tags:
@@ -71,6 +70,16 @@ The total cost is 3 + 2 + 6 + 7 = 18</pre>
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Entering a row or column costs that row/column fee. Any monotone path from start to home crosses the same set of rows and columns; detours only add cost.
+>
+> Sum those crossed row fees and column fees. The starting row/column is not paid (we do not enter it).
+
+<!-- thinking:end -->
 
 Let's assume the robot's initial position is $(x_0, y_0)$ and the home position is $(x_1, y_1)$.
 

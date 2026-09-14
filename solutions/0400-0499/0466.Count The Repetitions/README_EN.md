@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0466.Count%20The%20Repetitions/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -56,6 +55,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Iteration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> How many copies of $n_2\cdot s_2$ sit inside $n_1\cdot s_1$? Walking the concatenation repeats the same $s_2$ offset many times when $n_1$ is large.
+>
+> Precompute: from each index $i$ in $s_2$, one pass over $s_1$ yields how many $s_2$ were finished and the next index. Then iterate $n_1$ times on that table and divide by $n_2$.
+>
+> $s_2$ is short, so the only state is the starting offset; matching one $s_1$ becomes an $O(1)$ transition.
+
+<!-- thinking:end -->
 
 We preprocess the string $s_2$ such that for each starting position $i$, we calculate the next position $j$ and the count of $s_2$ after matching a complete $s_1$, i.e., $d[i] = (cnt, j)$, where $cnt$ represents the count of $s_2$, and $j$ represents the next position in the string $s_2$.
 

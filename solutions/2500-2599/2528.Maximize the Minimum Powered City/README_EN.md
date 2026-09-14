@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md
 rating: 2235
 source: Biweekly Contest 95 Q4
 tags:
@@ -82,6 +81,16 @@ It can be proved that we cannot make the minimum power of a city greater than 4.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Difference Array + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each station covers a radius $r$, and at most $k$ extra stations may be built. We want to maximize the minimum power among cities. Searching allocations is impossible at $n\le 10^5$.
+>
+> The achievable minimum is monotone in $k$, so binary-search a target $x$. A difference array first computes the initial power of every city. When checking, walk left to right: if city $i$ is short of $x$, place the deficit as far right as still covers $i$, so later cities benefit, and record the range add with another difference array. Exceeding the remaining $k$ rejects $x$.
+
+<!-- thinking:end -->
 
 According to the problem description, the minimum number of power stations increases as the value of $k$ increases. Therefore, we can use binary search to find the largest minimum number of power stations, ensuring that the additional power stations needed do not exceed $k$.
 

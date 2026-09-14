@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README_EN.md
 rating: 1414
 source: Biweekly Contest 111 Q2
 tags:
@@ -69,6 +68,14 @@ Therefore, false is returned.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $str2$ must be a subsequence of $str1$, allowing each matched character at most one cyclic increment. Scan $str1$ and advance in $str2$ when the current character or its successor matches the next needed letter.
+
+<!-- thinking:end -->
 
 This problem actually requires us to determine whether a string $s$ is a subsequence of another string $t$. However, the characters do not have to match exactly. If two characters are the same, or one character is the next character of the other, they can match.
 

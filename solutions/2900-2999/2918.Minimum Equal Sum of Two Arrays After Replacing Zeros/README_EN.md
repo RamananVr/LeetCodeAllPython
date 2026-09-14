@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2918.Minimum%20Equal%20Sum%20of%20Two%20Arrays%20After%20Replacing%20Zeros/README_EN.md
 rating: 1526
 source: Weekly Contest 369 Q2
 tags:
@@ -58,6 +57,16 @@ Both arrays have an equal sum of 12. It can be shown that it is the minimum sum 
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each zero becomes at least $1$, so the lower bounds $s_1,s_2$ are the sums after treating zeros as ones. An array with no zero cannot increase its sum.
+>
+> Assume $s_1 \le s_2$. Equality yields that common value; if $s_1 < s_2$, the smaller array must still contain a zero to reach $s_2$, otherwise the instance is impossible. One pass that sums and counts zeros decides the cases.
+
+<!-- thinking:end -->
 
 We consider the case where we treat all $0$s in the array as $1$s, and calculate the sum of the two arrays separately, denoted as $s_1$ and $s_2$. Without loss of generality, we assume that $s_1 \le s_2$.
 

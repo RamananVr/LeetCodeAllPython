@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md
 rating: 2094
 source: Biweekly Contest 59 Q3
 tags:
@@ -69,6 +68,16 @@ The four ways to get there in 7 minutes are:
 <!-- solution:start -->
 
 ### Solution 1: Naive Dijkstra Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need both the shortest path and the number of such paths. $n\le 200$ makes dense Dijkstra $O(n^2)$ acceptable.
+>
+> When a strictly better distance appears, copy the predecessor's count; when the distance ties, add it. The destination count is taken modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We define the following arrays:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1790.Check%20if%20One%20String%20Swap%20Can%20Make%20Strings%20Equal/README_EN.md
 rating: 1300
 source: Weekly Contest 232 Q1
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most one swap in $s1$ should equal $s2$. The strings may differ in $0$ places (already equal) or $2$ places (exactly those two swapped).
+>
+> Record up to two mismatch pairs: fail if there are more than two, or the second pair is not the reverse of the first. A single mismatch cannot be fixed by one swap.
+
+<!-- thinking:end -->
 
 We use a variable $cnt$ to record the number of characters at the same position in the two strings that are different. If the two strings meet the requirements of the problem, then $cnt$ must be $0$ or $2$. We also use two character variables $c1$ and $c2$ to record the characters that are different at the same position in the two strings.
 

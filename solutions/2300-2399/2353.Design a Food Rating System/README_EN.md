@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md
 rating: 1781
 source: Weekly Contest 303 Q3
 tags:
@@ -93,6 +92,16 @@ foodRatings.highestRated(&quot;japanese&quot;); // return &quot;ramen&quot;
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We query the highest-rated food of a cuisine (breaking ties lexicographically) and update ratings. Up to $2 \times 10^4$ calls make a linear scan too slow.
+>
+> Each cuisine keeps a sorted set of $(-rating, food)$; a map stores each food’s rating and cuisine. An update removes the old pair and inserts the new one; a query reads the first food name.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{d}$ to store the foods for each cuisine, where the key is the cuisine and the value is an ordered set. Each element in the ordered set is a tuple $(\textit{rating}, \textit{food})$, sorted by rating in descending order, and if the ratings are the same, sorted by food name in lexicographical order.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README_EN.md
 rating: 1301
 source: Weekly Contest 289 Q1
 tags:
@@ -72,6 +71,16 @@ s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly replace each block of $k$ digits by the sum of those digits until the string is at most $k$ long. $|s| \le 100$, so simulating the rounds is enough.
+>
+> While the length exceeds $k$, slice with step $k$, sum each slice, and join the decimal representations. Each sum has at most three digits, so the string shrinks.
+
+<!-- thinking:end -->
 
 According to the problem statement, we can simulate the operations described in the problem until the length of the string is less than or equal to $k$. Finally, return the string.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0244.Shortest%20Word%20Distance%20II/README_EN.md
 tags:
     - Design
     - Array
@@ -62,6 +61,14 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many queries would rescan the whole list. Store every index of each word, then two-pointer the two sorted index lists for the minimum gap.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

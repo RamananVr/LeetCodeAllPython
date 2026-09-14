@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/README_EN.md
 rating: 1548
 source: Weekly Contest 208 Q2
 tags:
@@ -85,6 +84,16 @@ The profit was never positive, so return -1.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each turn boards at most four people and pays a running cost; we want the first turn that attains the maximum profit. Customers arrive in batches of length up to $10^5$, so we must simulate every turn and cannot skip the waiting line.
+>
+> Keep the waiting count and the running profit: each turn adds new arrivals, boards $\min(4,wait)$ people, and updates profit. A strictly larger profit records the turn index. Stop when both the queue and the remaining batches are empty. If profit never goes positive, return $-1$.
+
+<!-- thinking:end -->
 
 We directly simulate the rotation process of the Ferris wheel. Each time it rotates, we add up the waiting customers and the newly arrived customers, then at most $4$ people get on the ride, update the number of waiting customers and profit, and record the maximum profit and its corresponding number of rotations.
 

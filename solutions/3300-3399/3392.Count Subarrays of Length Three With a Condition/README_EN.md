@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3392.Count%20Subarrays%20of%20Length%20Three%20With%20a%20Condition/README_EN.md
 rating: 1200
 source: Biweekly Contest 146 Q1
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$3$ subarray is counted when twice the sum of the wings equals the middle. With $n \le 100$ we enumerate the middle index.
+>
+> For each $i \in [1,n-2]$ we test $(nums[i-1]+nums[i+1])\times 2 = nums[i]$ and count the successes.
+
+<!-- thinking:end -->
 
 We traverse each subarray of length $3$ in the array $\textit{nums}$ and check if twice the sum of the first and third numbers equals the second number. If it does, we increment the answer by $1$.
 

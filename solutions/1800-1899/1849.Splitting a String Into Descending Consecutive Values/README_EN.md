@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README_EN.md
 rating: 1746
 source: Weekly Contest 239 Q2
 tags:
@@ -72,6 +71,16 @@ The values are in descending order with adjacent values differing by 1.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string must split into at least two parts whose integer values decrease by exactly $1$. Leading zeros are allowed but do not change the value. The number of cuts is exponential, yet $n\le 20$ makes search feasible.
+>
+> Extend the current part from the left, accumulating $y$. The first part is free; later parts must be exactly one less than the previous value. The first part must not consume the whole string. DFS succeeds if we reach the end.
+
+<!-- thinking:end -->
 
 We can start from the first character of the string and try to split it into one or more substrings, then recursively process the remaining part.
 

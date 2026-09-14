@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README_EN.md
 rating: 1530
 source: Weekly Contest 224 Q2
 tags:
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Combination + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distinct tuples with $a\cdot b=c\cdot d$: if a product arises from $v$ pairs, they form $\binom{v}{2}$ pair-of-pairs, each giving $8$ ordered tuples. $n\le 1000$ allows enumerating all unordered pairs.
+>
+> Count pairs per product in a hash map and add $v(v-1)/2$ shifted left by three.
+
+<!-- thinking:end -->
 
 Assuming there are $n$ pairs of numbers, for any two pairs of numbers $a, b$ and $c, d$ that satisfy the condition $a \times b = c \times d$, there are a total of $\mathrm{C}_n^2 = \frac{n \times (n-1)}{2}$ such combinations.
 

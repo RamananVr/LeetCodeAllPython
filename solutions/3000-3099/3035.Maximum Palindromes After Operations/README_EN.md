@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README_EN.md
 rating: 1856
 source: Weekly Contest 384 Q3
 tags:
@@ -82,6 +81,18 @@ Hence, the answer is 1.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Any two strings may swap characters, and we want as many palindromes as possible. $n \le 1000$ with bounded total length.
+>
+> A palindrome only needs paired letters. All letters form one pool; each odd count wastes one letter, and the remaining pairs should fill shorter strings first.
+>
+> An XOR mask counts odd-frequency letters. Total length minus that count is the even budget. After sorting by length we subtract $2\lfloor |w|/2 \rfloor$ from the budget.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

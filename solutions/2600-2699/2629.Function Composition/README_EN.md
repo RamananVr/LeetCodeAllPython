@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2629.Function%20Composition/README_EN.md
 tags:
     - JavaScript
 ---
@@ -72,6 +71,16 @@ The composition of zero functions is the identity function</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Composition applies right to left. A left fold would reverse the mathematical order. A single scan over a short list is enough.
+>
+> `reduceRight` starts from $x$ and applies each function; an empty list is the identity, as required.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0533.Lonely%20Pixel%20II/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -62,6 +61,16 @@ Take &#39;B&#39; at row r = 0 and column c = 1 as an example:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides having exactly $target$ `B`s in the row and column, every row that has a `B` in that column must be identical. Rescanning rows per column repeats work.
+>
+> Count black cells per row and collect row indices per column. For a column, take one template row: if the column's row-count equals that template's $target$ and every listed row equals the template, add $target$. Whole-row equality avoids a cell-wise rewrite.
+
+<!-- thinking:end -->
 
 The second condition in the problem is equivalent to requiring that for each column containing black pixels, these rows are exactly the same.
 

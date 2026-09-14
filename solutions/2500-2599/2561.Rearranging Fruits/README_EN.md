@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md
 rating: 2221
 source: Weekly Contest 331 Q4
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swap fruits between two baskets until the multisets match; a swap costs the smaller value. Frequency differences tell what must move; an odd difference is impossible.
+>
+> Values that must leave, sorted, pair the cheaper half with the expensive half. A direct swap costs the smaller fruit; routing through the global minimum $mi$ costs $2mi$. Sum $\min(x,2mi)$ over the cheaper half.
+
+<!-- thinking:end -->
 
 First, we can remove the common elements from both arrays. For the remaining numbers, the occurrence of each number must be even, otherwise, it is impossible to construct identical arrays. Let's denote the arrays after removing common elements as $a$ and $b$.
 

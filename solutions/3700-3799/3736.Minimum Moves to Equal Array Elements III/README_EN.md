@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README_EN.md
 rating: 1251
 source: Biweekly Contest 169 Q1
 tags:
@@ -78,6 +77,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Calculate Sum and Maximum Value
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move increases one element by $1$, so the common final value cannot be below the current maximum. The target is therefore the maximum, and the total number of increments is $\textit{mx}\cdot n-s$.
+
+<!-- thinking:end -->
 
 This problem requires making all elements in the array equal, with each operation only able to increase a single element by 1. To minimize the number of operations, we should make all elements equal to the maximum value in the array.
 

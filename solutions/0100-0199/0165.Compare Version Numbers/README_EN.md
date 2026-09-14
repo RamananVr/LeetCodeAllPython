@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -81,6 +80,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compare revision numbers; missing parts are $0$ and leading zeros do not count. Splitting into integer arrays uses extra space. Lengths are at most $500$. Two pointers scan together, finish a part at each dot, and treat a missing side as $0$ until they differ or both end.
+
+<!-- thinking:end -->
 
 Traverse both strings simultaneously using two pointers $i$ and $j$, which point to the current positions in each string, starting with $i = j = 0$.
 

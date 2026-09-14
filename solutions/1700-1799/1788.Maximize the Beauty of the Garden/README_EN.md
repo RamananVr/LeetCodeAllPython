@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1788.Maximize%20the%20Beauty%20of%20the%20Garden/README_EN.md
 tags:
     - Greedy
     - Array
@@ -70,6 +69,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid garden has equal endpoint beauties; negative flowers in the middle may be dropped. For each pair of equal ends, keep every positive flower between them.
+>
+> A map stores the first index of each beauty; the prefix sum adds only positives. On seeing $v$ again, score two copies of $v$ plus the positive prefix between them.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to record the first occurrence of each aesthetic value, and a prefix sum array $s$ to record the sum of the aesthetic values before the current position. If an aesthetic value $v$ appears at positions $i$ and $j$ (where $i \lt j$), then we can get a valid garden $[i+1,j]$, whose aesthetic value is $s[i] - s[j + 1] + v \times 2$. We use this value to update the answer. Otherwise, we record the current position $i$ of the aesthetic value in the hash table $d$. Next, we update the prefix sum. If the aesthetic value $v$ is negative, we treat it as $0$.
 

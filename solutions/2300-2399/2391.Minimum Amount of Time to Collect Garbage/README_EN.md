@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README_EN.md
 rating: 1455
 source: Weekly Contest 308 Q3
 tags:
@@ -83,6 +82,16 @@ It takes a total of 7 + 15 + 15 = 37 minutes to collect all the garbage.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three trucks each collect one type and must drive from house $0$ to that type’s last house. Collection time is the total number of characters; travel depends only on the farthest index. $n \le 10^5$.
+>
+> One scan adds string lengths and records last indices. Prefix sums of $travel$ are added when the prefix ends exactly at a truck’s last house.
+
+<!-- thinking:end -->
 
 According to the problem description, each garbage truck starts from house $0$, collects one type of garbage, and moves forward in order until it reaches the house index where this type of garbage last appears.
 

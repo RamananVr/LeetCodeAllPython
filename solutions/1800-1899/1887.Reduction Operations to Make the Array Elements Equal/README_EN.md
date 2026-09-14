@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1887.Reduction%20Operations%20to%20Make%20the%20Array%20Elements%20Equal/README_EN.md
 rating: 1427
 source: Weekly Contest 244 Q2
 tags:
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation replaces a current maximum by the next strictly smaller value. Simulating one maximum at a time is slow.
+>
+> After sorting, every newly seen larger value adds one more step that all later elements must take. $cnt$ counts those steps; each element adds the current $cnt$.
+
+<!-- thinking:end -->
 
 We first sort the array $\textit{nums}$, then iterate from the second element of the array. If the current element is not equal to the previous element, we increment $\textit{cnt}$, indicating the number of operations needed to reduce the current element to the minimum value. Then we add $\textit{cnt}$ to $\textit{ans}$ and continue to the next element.
 

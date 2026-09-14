@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3907.Count%20Smaller%20Elements%20With%20Opposite%20Parity/README_EN.md
 ---
 
 <!-- problem:start -->
@@ -83,6 +82,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3907.Co
 <!-- solution:start -->
 
 ### Solution 1: Ordered List or Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning rightward for a smaller opposite-parity value at every index is $O(n^2)$ and fails for $n\le 10^5$. The needed count is exactly how many yet-unseen opposite-parity values are smaller.
+>
+> Walking right-to-left makes the right side the unseen set. Two sorted lists store evens and odds; $\textit{bisect\_left}$ on the opposite list answers the query, then the current value is inserted into its own list.
+>
+> Each query and insert is logarithmic, so the total is $O(n\log n)$.
+
+<!-- thinking:end -->
 
 We can use two ordered lists (or Binary Indexed Trees) to separately maintain even and odd elements. For each element, we query the number of smaller elements in the other list, and then add the current element to its corresponding list.
 

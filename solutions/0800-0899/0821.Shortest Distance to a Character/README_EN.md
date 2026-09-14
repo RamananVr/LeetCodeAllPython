@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -56,6 +55,16 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index needs its distance to the nearest $c$. Scanning both sides from every position is quadratic and unnecessary for $n\le 10^4$. The nearest $c$ is either to the left or to the right.
+>
+> A left-to-right pass records the latest $c$; a right-to-left pass keeps the closer of the two. Two linear sweeps fill the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

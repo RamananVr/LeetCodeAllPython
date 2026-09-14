@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README_EN.md
 rating: 1426
 source: Weekly Contest 511 Q2
 tags:
@@ -77,6 +76,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A dominant node is one whose value equals the subtree maximum. One bottom-up DFS computes both children’s maxima and compares them with the node.
+>
+> A null child returns $-\infty$; the current maximum is the max of the three. Equality with the node increments the answer, and that maximum is returned to the parent. $n\le 10^5$ forbids rescanning each subtree.
+
+<!-- thinking:end -->
 
 A node is dominant if its value equals the maximum value in the subtree rooted at it. Therefore, for each node, we only need the maximum values of its left and right subtrees, then compare them with the node itself.
 

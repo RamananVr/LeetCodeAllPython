@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0131.Palindrome%20Partitioning/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -41,6 +40,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + DFS (Backtracking)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List every way to cut $s$ into palindromic pieces. $n\le 16$, so at most $2^{n-1}$ partitions; backtracking is fine. Checking palindromes at each cut rescans the same spans.
+>
+> Precompute $f[i][j]$ whether $s[i..j]$ is a palindrome, then try the next cut only when $f[i][j]$ is true.
+
+<!-- thinking:end -->
 
 We can use dynamic programming to preprocess whether any substring in the string is a palindrome, i.e., $f[i][j]$ indicates whether the substring $s[i..j]$ is a palindrome.
 

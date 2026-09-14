@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README_EN.md
 tags:
     - Array
 ---
@@ -68,6 +67,16 @@ This is the maximum distance possible, so the answer is 3.
 <!-- solution:start -->
 
 ### Solution 1: Single Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We sit in an empty seat to maximize distance to the nearest person. End gaps are the distance to the first or last occupied seat; an interior gap is best at its midpoint.
+>
+> One pass records the first and last occupied indices and the widest gap between people. The answer is the max of the left gap, the right gap, and half the interior gap.
+
+<!-- thinking:end -->
 
 We define two variables $\textit{first}$ and $\textit{last}$ to represent the positions of the first and last person, respectively. We use the variable $d$ to represent the maximum distance between two people.
 

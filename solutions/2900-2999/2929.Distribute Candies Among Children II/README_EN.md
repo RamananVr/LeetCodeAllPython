@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README_EN.md
 rating: 1701
 source: Biweekly Contest 117 Q2
 tags:
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bounds rise to $10^6$; enumerating two variables is $O(n)$ and tight in some languages. The same inclusion-exclusion as parts I and III applies, and $C_{m}^{2}=m(m-1)/2$ is $O(1)$.
+>
+> Guard $n>3\cdot limit$, then add and subtract the unconstrained, one-overflow, and two-overflow terms. No loop is required.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, limit]$ candies.
 

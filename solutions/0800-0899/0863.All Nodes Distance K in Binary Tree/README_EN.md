@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -56,6 +55,16 @@ Explanation: The nodes that are a distance 2 from the target node (with value 5)
 <!-- solution:start -->
 
 ### Solution 1: DFS + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want nodes at distance $k$ from $\textit{target}$. Child pointers alone cannot walk to a parent. With at most $500$ nodes, record parents first, then walk $k$ steps from $\textit{target}$.
+>
+> The first DFS stores each parent; the second explores left, right, and parent, skipping the previous node, and collects values when the remaining distance is $0$.
+
+<!-- thinking:end -->
 
 We first use DFS to traverse the entire tree and save each node's parent node in the hash table $\textit{g}$.
 

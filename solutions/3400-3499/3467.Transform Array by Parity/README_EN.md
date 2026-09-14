@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README_EN.md
 rating: 1165
 source: Biweekly Contest 151 Q1
 tags:
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Evens become $0$, odds become $1$, then the array is sorted non-decreasing. That is just all zeros in front. $n\le 100$, so a count suffices.
+>
+> No sort is required: the even count $\textit{even}$ is the length of the zero prefix.
+>
+> Count evens in one pass and write the two segments back.
+
+<!-- thinking:end -->
 
 We can traverse the array $\textit{nums}$ and count the number of even elements $\textit{even}$. Then, we set the first $\textit{even}$ elements of the array to $0$ and the remaining elements to $1$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0608.Tree%20Node/README_EN.md
 tags:
     - Database
 ---
@@ -104,6 +103,16 @@ Tree table:
 <!-- solution:start -->
 
 ### Solution 1: Conditional Statements + Subquery
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node's type depends on whether it has a parent and whether it is someone else's parent.
+>
+> `CASE` labels `p_id IS NULL` as Root, `id IN (SELECT p_id)` as Inner, and the rest as Leaf.
+
+<!-- thinking:end -->
 
 We can use the `CASE WHEN` conditional statement to determine the type of each node as follows:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two sentences are similar when they have equal length and each aligned pair is equal or listed. Similarity is not transitive. We only need a fast pair test.
+>
+> Store $\textit{similarPairs}$ in a set. Because pairs are unordered, keep both directions or probe both.
+>
+> Reject unequal lengths; then zip the sentences and fail if a pair is neither equal nor stored.
+
+<!-- thinking:end -->
 
 First, we check if the lengths of $\textit{sentence1}$ and $\textit{sentence2}$ are equal. If they are not equal, return $\text{false}$.
 

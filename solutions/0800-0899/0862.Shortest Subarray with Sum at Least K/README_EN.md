@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md
 tags:
     - Queue
     - Array
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest subarray whose sum is at least $k$. Negatives break a sliding window, and $n\le 10^5$ forbids quadratic enumeration. On prefix sums we want the smallest $j-i$ with $s[j]-s[i]\ge k$.
+>
+> Keep a monotone increasing deque of indices: pop the front when it already yields $\ge k$, and drop a tail that is at least the current prefix, because a later, smaller prefix is a better start.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

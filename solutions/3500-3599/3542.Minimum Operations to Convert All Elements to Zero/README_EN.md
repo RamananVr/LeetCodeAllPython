@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README_EN.md
 rating: 1889
 source: Biweekly Contest 156 Q2
 tags:
@@ -92,6 +91,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation zeroes a whole run of the current minimum. Equal values split by a smaller one need separate operations. Scanning every value’s segments can become quadratic.
+>
+> Keep a strictly increasing stack. A new smaller $x$ pops each larger top as one operation; a duplicate of the top merges without increasing the answer. Leftover stack entries each cost one more operation.
+
+<!-- thinking:end -->
 
 According to the problem description, we should first convert the smallest numbers to $0$, then the second smallest numbers to $0$, and so on. During this process, if two numbers are separated by smaller numbers, they require an additional operation to become $0$.
 

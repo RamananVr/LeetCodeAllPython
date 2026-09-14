@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README_EN.md
 rating: 1303
 source: Biweekly Contest 82 Q1
 tags:
@@ -75,6 +74,16 @@ The root node evaluates to True, so we return true.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Leaves are booleans; inner nodes are OR or AND. At most $1000$ nodes, so evaluate by definition.
+>
+> A missing left child is a leaf. Otherwise recurse on both children and apply $or$ or $and$ from the node value. Each node is visited once.
+
+<!-- thinking:end -->
 
 We can use recursion to solve this problem.
 

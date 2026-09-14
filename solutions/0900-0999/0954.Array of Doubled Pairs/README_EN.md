@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README_EN.md
 tags:
     - Greedy
     - Array
@@ -58,6 +57,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reorder the array so each even index is half of the next. Zeros pair only with zeros; an odd count fails. Other values should match from small absolute value to large: each $x$ must find enough remaining $2x$, or a larger number may already have been claimed. A frequency map tracks leftovers.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

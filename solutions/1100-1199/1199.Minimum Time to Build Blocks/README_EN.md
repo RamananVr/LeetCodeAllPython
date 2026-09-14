@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md
 rating: 2250
 source: Biweekly Contest 9 Q4
 tags:
@@ -72,6 +71,14 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Workers may split, costing $split$, then work in parallel. Forward search over split plans is awkward. In reverse, merge two blocks into one whose time is $split+\max(t_i,t_j)$, matching a split plus parallel builds. Always merge the two shortest remaining times so large jobs absorb fewer splits; a min-heap repeats this until one time remains.
+
+<!-- thinking:end -->
 
 First, consider the case where there is only one block. In this case, there is no need to split the worker, just let him build the block directly. The time cost is $block[0]$.
 

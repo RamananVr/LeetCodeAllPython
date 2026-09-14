@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3967.Finish%20Time%20of%20Tasks%20II/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -154,6 +153,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The finish-time formula matches part I, but any node may be the root and we want the minimum. Re-running DFS from every root is too slow.
+>
+> Reroot: first compute subtree quantities from root $0$, then a second DFS folds the parent-side finish time into the current node, yielding the answer as if that node were the root.
+>
+> This directory has no implemented solution yet; the walkthrough stops at rerooting part I’s formula.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

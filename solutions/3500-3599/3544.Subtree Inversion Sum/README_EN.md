@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README_EN.md
 rating: 2544
 source: Biweekly Contest 156 Q4
 tags:
@@ -120,6 +119,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inverting a subtree multiplies every value by $-1$, and two inversions on an ancestor–descendant pair must be at least $k$ apart. $n \le 5 \cdot 10^4$ and $k \le 50$ suggest a tree DP that keeps the distance dimension.
+>
+> At each node store the best subtree sum under the current sign and the remaining distance since the last ancestor inversion. The transition decides whether to invert here (if the distance allows) and sums the children.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

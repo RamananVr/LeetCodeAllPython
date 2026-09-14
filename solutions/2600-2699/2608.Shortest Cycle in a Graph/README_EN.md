@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md
 rating: 1904
 source: Biweekly Contest 101 Q4
 tags:
@@ -60,6 +59,16 @@ tags:
 
 ### Solution 1: Enumerate edges + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest cycle can be found by deleting each edge and computing the shortest path between its ends. $n,m \le 1000$ makes $O(m(n+m))$ BFS affordable.
+>
+> Any cycle uses some edge $(u,v)$; after deleting it, $\mathrm{dist}(u,v)+1$ is the shortest cycle through that edge. We take the minimum over all edges, or report no cycle if none reconnects.
+
+<!-- thinking:end -->
+
 We first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
 
 Then we enumerate the two-directional edge $(u, v)$, if the path from vertex $u$ to vertex $v$ still exists after deleting this edge, then the length of the shortest cycle containing this edge is $dist[v] + 1$, where $dist[v]$ represents the shortest path length from vertex $u$ to vertex $v$. We take the minimum of all these cycles.
@@ -100,6 +109,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Enumerate points + BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 runs BFS once per edge. Starting BFS from every vertex is enough: the first already-visited neighbor that is not the parent closes a cycle of length $\mathrm{dist}(u)+\mathrm{dist}(v)+1$.
+>
+> When the graph is denser this does fewer searches, $O(n(n+m))$, and avoids deleting edges.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
 

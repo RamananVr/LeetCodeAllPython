@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README_EN.md
 rating: 2241
 source: Biweekly Contest 126 Q4
 tags:
@@ -97,6 +96,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every subsequence $S$ we count subsequences of $S$ whose sum is $k$, then sum those counts. $n,k \le 100$.
+>
+> An element may be outside $S$, in $S$ but not in the summing subsequence $T$, or in $T$. The first two share the same sum and both copy the previous state.
+>
+> Hence $f[i][j]=2f[i-1][j]+f[i-1][j-x]$ with $f[0][0]=1$.
+
+<!-- thinking:end -->
+
 The problem requires us to find all subsequences $\textit{S}$ in the given array $\textit{nums}$, and then calculate the number of ways for each subsequence $\textit{T}$ such that the sum of $\textit{T}$ equals $\textit{k}$.
 
 We define $f[i][j]$ to represent the number of ways to form subsequences with the first $i$ numbers such that the sum of each subsequence equals $j$. Initially, $f[0][0] = 1$, and all other positions are $0$.
@@ -143,6 +154,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Part I’s transition only reads the previous row at $j$ and $j-x$, so the first dimension can go.
+>
+> Updating a one-dimensional array from the back avoids reusing a newly written $j-x$ and drops extra space to $O(k)$.
+
+<!-- thinking:end -->
 
 In the state transition equation from Solution 1, the value of $f[i][j]$ only depends on $f[i-1][j]$ and $f[i-1][j-x]$. Therefore, we can optimize the first dimension of the space, reducing the space complexity to $O(k)$.
 

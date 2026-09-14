@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0086.Partition%20List/README_EN.md
 tags:
     - Linked List
     - Two Pointers
@@ -50,6 +49,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is two scans: collect nodes $< x$, then the rest, and rebuild. Correct, and $n \le 200$ is tiny, but that copies nodes or walks twice, and it is easy to scramble relative order.
+>
+> The bottleneck is splitting and reassembling instead of one pass. The problem only asks for a stable partition: order among the small nodes and among the large nodes both stay the same.
+>
+> So grow two lists in one walk and stitch the small tail to the large head. Tail pointers link original nodes — no copies; clear the large tail to avoid a cycle.
+
+<!-- thinking:end -->
 
 We create two linked lists $l$ and $r$, one to store nodes less than $x$ and the other to store nodes greater than or equal to $x$. Then we concatenate them.
 

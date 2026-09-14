@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md
 rating: 2003
 source: Weekly Contest 269 Q4
 tags:
@@ -87,6 +86,16 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 <!-- solution:start -->
 
 ### Solution 1: Simulation + Graph Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The secret spreads along same-time meeting components. Both $n$ and the meeting count are $10^5$. Sort by time; each timestamp is a temporary graph, BFS only from people who already know.
+>
+> Later times do not look backward. `vis` stays true once set.
+
+<!-- thinking:end -->
 
 The core idea of this problem is to find all people who eventually know the secret by simulating the propagation process through meetings. We can treat each meeting as an edge in an undirected graph, where each participant is a node in the graph, and the meeting time is the "timestamp" of the edge connecting the nodes. At each time point, we traverse all meetings and use Breadth-First Search (BFS) to simulate the propagation of the secret.
 

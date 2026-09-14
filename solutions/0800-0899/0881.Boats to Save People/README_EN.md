@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md
 tags:
     - Greedy
     - Array
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each boat holds at most two people whose weights sum to at most $\textit{limit}$. $n\le 5\cdot 10^4$, so pair the heaviest with the lightest when possible.
+>
+> Sort and use two pointers: if the ends fit, both board; otherwise the heavier one goes alone. Each step uses one boat until the pointers cross.
+
+<!-- thinking:end -->
 
 After sorting, use two pointers to point to the beginning and end of the array respectively. Each time, compare the sum of the elements pointed to by the two pointers with `limit`. If it is less than or equal to `limit`, then both pointers move one step towards the middle. Otherwise, only the right pointer moves. Accumulate the answer.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README_EN.md
 rating: 1234
 source: Weekly Contest 498 Q1
 tags:
@@ -96,6 +95,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning the prefix maximum and suffix minimum at every index is $O(n^2)$. That fits $n\le 100$, but the same quantities can be prepared in one pass.
+>
+> The instability at $i$ depends only on the maximum on $[0,i]$ and the minimum on $[i,n-1]$. The latter is independent of the scan of $i$ and can be computed right-to-left; the former grows monotonically as we walk left-to-right.
+>
+> Precompute suffix minima $\textit{right}$, then maintain a running prefix maximum $\textit{left}$ and return the first $i$ with $\textit{left}-\textit{right}[i]\le k$.
+
+<!-- thinking:end -->
 
 First, we preprocess an array $\textit{right}$, where $\textit{right}[i]$ represents the minimum value among the elements in $nums$ from index $i$ to index $n - 1$. We can compute the $\textit{right}$ array by traversing $nums$ from back to front.
 

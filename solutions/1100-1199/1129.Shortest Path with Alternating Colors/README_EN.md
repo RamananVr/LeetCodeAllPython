@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md
 rating: 1779
 source: Weekly Contest 146 Q2
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges are red or blue and consecutive edges must differ, so a node may be visited twice with different incoming colors. The state is $(\textit{node},\textit{last color})$. BFS from $0$ with both virtual colors; the first time a node is reached is the shortest path.
+>
+> Adjacency is stored by color and the color is flipped on each hop so same-color edges are never taken.
+
+<!-- thinking:end -->
 
 The problem is essentially a shortest path problem, which we can consider solving using BFS.
 

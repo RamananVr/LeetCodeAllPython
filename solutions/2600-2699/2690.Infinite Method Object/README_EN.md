@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2690.Infinite%20Method%20Object/README_EN.md
 tags:
     - JavaScript
 ---
@@ -52,6 +51,14 @@ The returned string should always match the method name.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every property access must return a function that yields that property name. Enumerating infinitely many keys is impossible. A `Proxy` `get` trap captures the name and returns a closure that `toString`s it.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3782.Last%20Remaining%20Integer%20After%20Alternating%20Deletion%20Operations/README_EN.md
 rating: 2074
 source: Biweekly Contest 172 Q4
 tags:
@@ -92,6 +91,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can be $10^{15}$, so we cannot simulate the deletions. The process is a Josephus variant that alternately drops every other number from the left then the right. We keep the first term and common difference of the surviving arithmetic progression until one value remains.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

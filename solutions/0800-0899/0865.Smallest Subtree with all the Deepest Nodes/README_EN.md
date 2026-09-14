@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -75,6 +74,16 @@ Notice that nodes 5, 3 and 2 contain the deepest nodes in the tree but node 2 is
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The smallest subtree covering every deepest leaf is their LCA. Computing depths then the LCA needs two passes; one postorder can return both a candidate root and a depth.
+>
+> If one child is deeper, the answer lives there; if depths tie, the current node covers both sides. A null node has depth $0$.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}(\textit{root})$ that returns the smallest subtree containing all the deepest nodes in the subtree rooted at $\textit{root}$, as well as the depth of the subtree rooted at $\textit{root}$.
 

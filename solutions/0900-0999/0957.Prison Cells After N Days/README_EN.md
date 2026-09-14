@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -73,6 +72,14 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells update from their neighbors and $n$ can be $10^9$, so a day-by-day loop is impossible. There are only $8$ cells, and both ends become empty after the first day, so at most $2^6$ states appear and the evolution cycles. Record each state with its day; on a repeat, reduce $n$ modulo the period and jump to day $n$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

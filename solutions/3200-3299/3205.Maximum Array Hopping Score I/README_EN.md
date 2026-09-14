@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -70,6 +69,16 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From index $0$ we jump right to some $j$ and score $(j-i)\times\textit{nums}[j]$, maximizing the total. $n\le 10^3$ forbids enumerating jump sequences exponentially, yet $O(n^2)$ states fit the limit.
+>
+> The subproblem depends only on the start $i$: once we are at $i$, the best continuation does not depend on how we arrived. Define $\textit{dfs}(i)$ as the best score from $i$, take the max of $(j-i)\times\textit{nums}[j]+\textit{dfs}(j)$ over $j>i$, and memoize.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i)$, which represents the maximum score that can be obtained starting from index $i$. Therefore, the answer is $\textit{dfs}(0)$.
 
 The execution process of the function $\textit{dfs}(i)$ is as follows:
@@ -103,6 +112,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recurrence in Solution 1 is already optimal; the recursion stack and cache are unnecessary. The same transfer becomes bottom-up: $f[j]$ is the best score from $0$ to $j$, and each $j$ enumerates predecessors $i<j$. The time is still $O(n^2)$, now iterative.
+
+<!-- thinking:end -->
 
 We can transform the memoization search from Solution 1 into dynamic programming.
 
@@ -138,6 +155,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 is still quadratic. From $i$, jumping to a $j$ that is not the next value no smaller than the current one cannot beat inserting that intermediate hop, so the optimal path only visits the monotone sequence of next-greater indices. A monotonic stack extracts that index list; scoring adjacent hops is then linear.
+
+<!-- thinking:end -->
 
 We observe that for the current position $i$, we should jump to the next position $j$ with the maximum value to obtain the maximum score.
 

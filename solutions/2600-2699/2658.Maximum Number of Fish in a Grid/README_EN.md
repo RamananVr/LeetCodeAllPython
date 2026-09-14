@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md
 rating: 1489
 source: Biweekly Contest 103 Q3
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One trip may traverse a 4-connected water component and sum its fish. The grid is at most $10 \times 10$, so we start DFS/BFS from every water cell; land separates components.
+>
+> Visited water is zeroed to avoid reuse; the largest component sum is the answer, or $0$ if none exists.
+
+<!-- thinking:end -->
 
 According to the problem description, we only need to find the number of fish in each connected water area and then take the maximum value. Therefore, we can use the depth-first search method to solve this problem.
 

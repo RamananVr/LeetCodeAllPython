@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0472.Concatenated%20Words/README_EN.md
 tags:
     - Depth-First Search
     - Trie
@@ -58,6 +57,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A concatenated word is at least two shorter dictionary words. Trying every split and a set lookup grows with both $n$ and length.
+>
+> Sort by length and insert shorter words into a trie first. DFS the current word on the trie: at an end-of-word node recurse on the suffix; if the whole word splits, it is concatenated, otherwise insert it.
+>
+> Concatenated words stay out of the trie, since a longer word can always fall back to atomic pieces. The empty suffix is the success base case.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

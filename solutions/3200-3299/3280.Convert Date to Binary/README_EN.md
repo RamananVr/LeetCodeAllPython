@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3280.Convert%20Date%20to%20Binary/README_EN.md
 rating: 1205
 source: Weekly Contest 414 Q1
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace each of `yyyy-mm-dd` by its binary representation. The date is valid and fixed-width, so split on `-` and format.
+>
+> Convert each part to `int`, emit binary, and join with `-`. No calendar arithmetic beyond that.
+
+<!-- thinking:end -->
 
 We first split the string $\textit{date}$ by `-`, then convert each part to its binary representation, and finally join these three parts with `-`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0284.Peeking%20Iterator/README_EN.md
 tags:
     - Design
     - Array
@@ -68,6 +67,16 @@ peekingIterator.hasNext(); // return False
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The wrapped iterator’s $next$ consumes a value, but peek must not. One cached lookahead is enough.
+>
+> $peek$ fills the cache from the inner $next$; $next$ returns the cache if present; $hasNext$ is true if the cache or the inner iterator still has an item.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

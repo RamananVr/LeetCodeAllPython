@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README_EN.md
 rating: 1286
 source: Weekly Contest 137 Q2
 tags:
@@ -55,6 +54,18 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly deleting adjacent equal pairs may rescan a string of length $10^5$. After a deletion the new adjacency is local, so a stack can keep the compressed prefix.
+>
+> A character equal to the top is popped; otherwise it is pushed.
+>
+> The stack at the end is the fully reduced string.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

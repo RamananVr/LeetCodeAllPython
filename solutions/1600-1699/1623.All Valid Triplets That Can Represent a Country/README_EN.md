@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README_EN.md
 tags:
     - Database
 ---
@@ -127,6 +126,16 @@ Let us see all the possible triplets.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick one student from each school with pairwise-distinct ids and names. The tables are small, so a three-way Cartesian product plus filters is enough.
+>
+> The $\texttt{WHERE}$ clause requires all three id pairs and all three name pairs to differ; the selected names are every valid triplet.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

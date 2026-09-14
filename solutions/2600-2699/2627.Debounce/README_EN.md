@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.Debounce/README_EN.md
 tags:
     - JavaScript
 ---
@@ -103,6 +102,18 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bursts should collapse to one call $t$ milliseconds after the last trigger. Immediate invocation cannot coalesce.
+>
+> Keep the latest timer: a new call clears the previous one and restarts it, then invokes with the newest arguments.
+>
+> The closure also preserves `this` so the wrapper works as a method.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README_EN.md
 rating: 1608
 source: Biweekly Contest 98 Q2
 tags:
@@ -76,6 +75,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is the smallest adjacent gap plus the range. At most two values may be changed. Copying an existing value drives the low score to $0$, leaving only the range.
+>
+> After sorting, two edits discard extrema from the ends. The three candidates — drop the two smallest, one from each end, or the two largest — cover the optimum; take the smallest remaining range.
+
+<!-- thinking:end -->
 
 From the problem description, we know that the minimum score is actually the minimum difference between two adjacent elements in the sorted array, and the maximum score is the difference between the first and last elements of the sorted array. The score of the array $nums$ is the sum of the minimum score and the maximum score.
 

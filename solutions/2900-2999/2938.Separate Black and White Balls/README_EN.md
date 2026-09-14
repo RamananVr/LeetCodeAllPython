@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md
 rating: 1422
 source: Weekly Contest 372 Q2
 tags:
@@ -70,6 +69,16 @@ It can be proven that the minimum number of steps needed is 2.
 <!-- solution:start -->
 
 ### Solution 1: Counting Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent swaps that send every $1$ to the right (equivalently every $0$ to the left) cost the number of $0$s to the right of each $1$. $n \le 10^5$. Scanning right to left, a $1$ still crosses $n-i-cnt$ empty slots on its right.
+>
+> $cnt$ is the number of ones already seen; summing those gaps is the minimum swap count. The balls need not be moved explicitly.
+
+<!-- thinking:end -->
 
 We consider moving all the '1's to the rightmost side. We use a variable $cnt$ to record the current number of '1's that have been moved to the rightmost side, and a variable $ans$ to record the number of moves.
 

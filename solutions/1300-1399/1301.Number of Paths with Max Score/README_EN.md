@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README_EN.md
 rating: 1853
 source: Biweekly Contest 16 Q4
 tags:
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From the bottom-right corner we may move left, up, or diagonally left-up. Enumerating every path to compare scores is infeasible for $n \le 100$. Cells are shared by many paths, and we need both the maximum score and the number of ways to achieve it.
+>
+> We therefore work backwards. Let $f[i][j]$ be the best score to reach $(i,j)$ and $g[i][j]$ the number of such paths. Cell $(i,j)$ comes from $(i+1,j)$, $(i,j+1)$, or $(i+1,j+1)$: a strictly better predecessor replaces the count, an equal score adds to it. Obstacles and the start square contribute no digit; the way-count is taken modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the maximum score from the starting point $(n - 1, n - 1)$ to $(i, j)$, and $g[i][j]$ to represent the number of ways to achieve the maximum score from the starting point $(n - 1, n - 1)$ to $(i, j)$. Initially, $f[n - 1][n - 1] = 0$ and $g[n - 1][n - 1] = 1$. The other positions of $f[i][j]$ are all $-1$, and $g[i][j]$ are all $0$.
 

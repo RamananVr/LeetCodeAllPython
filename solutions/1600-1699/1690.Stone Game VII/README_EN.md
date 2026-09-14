@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md
 rating: 1951
 source: Weekly Contest 219 Q3
 tags:
@@ -67,6 +66,16 @@ The score difference is 18 - 12 = 6.
 
 ### Solution 1: Memorization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each turn removes one end and scores the sum of what remains. The first-player minus second-player gap on an interval is a memoized game: $dfs(i,j)$ is the current player's advantage.
+>
+> Prefix sums $s$ give the score after dropping the left or right end; take the larger of $s[j+1]-s[i+1]-dfs(i+1,j)$ and $s[j]-s[i]-dfs(i,j-1)$.
+
+<!-- thinking:end -->
+
 First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the total sum of the first $i$ stones.
 
 Next, we design a function $dfs(i, j)$, which represents the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. The answer is $dfs(0, n - 1)$.
@@ -108,6 +117,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recursion becomes interval DP. $f[i][j]$ has the same meaning and needs shorter intervals first: fill decreasing $i$ and increasing $j$. The answer is $f[0][n-1]$.
+
+<!-- thinking:end -->
 
 We can convert the memoization search in Solution 1 into dynamic programming. We define $f[i][j]$ as the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. Therefore, the answer is $f[0][n - 1]$.
 

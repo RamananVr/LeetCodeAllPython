@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md
 rating: 1864
 source: Weekly Contest 420 Q3
 tags:
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation divides $x$ by a proper divisor. A prime cannot shrink; a composite becomes its least prime factor after one such division. With $n \le 10^5$ and $M \le 10^6$ we precompute least prime factors.
+>
+> Editing from the left would fight constraints that are still unknown. From the right, the next value is already final, so a larger left neighbor must become $\textit{lpf}[x]$ immediately.
+>
+> If even the least prime factor exceeds the right neighbor, the array cannot become non-decreasing. Each index is operated on at most once, so one right-to-left pass counts the answer.
+
+<!-- thinking:end -->
 
 According to the problem description,
 

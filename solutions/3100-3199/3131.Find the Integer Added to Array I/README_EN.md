@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3131.Find%20the%20Integer%20Added%20to%20Array%20I/README_EN.md
 rating: 1160
 source: Weekly Contest 395 Q1
 tags:
@@ -95,6 +94,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Calculate Minimum Difference
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums2$ is $nums1$ after adding one common integer. Matching permutations to recover the shift needs a sort or a map.
+>
+> A uniform add does not change which elements are smallest, so the shift equals the difference of minima.
+>
+> Return $\min(nums2)-\min(nums1)$ after a linear scan.
+
+<!-- thinking:end -->
 
 We can find the minimum value of each array, then return the difference between the two minimum values.
 

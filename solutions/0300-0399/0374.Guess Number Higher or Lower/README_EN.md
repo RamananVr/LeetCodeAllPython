@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README_EN.md
 tags:
     - Binary Search
     - Interactive
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Guess a number in $[1,n]$; `guess` says higher or lower. Linear probes take $n$ tries. The range is sorted, so binary search.
+>
+> Find the first $x$ with `guess(x)\le 0`. The code uses key $-guess(x)$ and a single `bisect`.
+
+<!-- thinking:end -->
 
 We perform a binary search in the interval $[1,..n]$, and find the first number that satisfies `guess(x) <= 0`, which is the answer.
 

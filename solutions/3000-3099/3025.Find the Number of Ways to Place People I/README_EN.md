@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README_EN.md
 rating: 1707
 source: Biweekly Contest 123 Q2
 tags:
@@ -99,6 +98,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting and Classification
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$. Enumerating an upper-left and a lower-right corner and scanning the box is $O(n^3)$ and would pass, but repeats a lot of work.
+>
+> After sorting by increasing $x$ and, on ties, decreasing $y$, a valid lower-right $y$ must strictly increase as $x$ grows, or the new point would sit inside an earlier rectangle.
+>
+> For each upper-left point we keep the largest chosen $y_2$ and count a pair only when $\textit{maxY} < y_2 \le y_1$.
+
+<!-- thinking:end -->
 
 First, we sort the array. Then, we can classify the results based on the properties of a triangle.
 

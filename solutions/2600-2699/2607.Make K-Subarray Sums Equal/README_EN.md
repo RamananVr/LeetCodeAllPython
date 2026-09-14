@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md
 rating: 2071
 source: Biweekly Contest 101 Q3
 tags:
@@ -74,6 +73,18 @@ The array after the operations is [5,5,5,5]
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal sums of adjacent windows of length $k$ simplify to $arr_i=arr_{i+k}$. The array is circular, so residues spaced by $k$ and by $n$ must share one value.
+>
+> Bézout's identity splits the indices into $\gcd(n,k)$ independent chains. Elements on a chain must become one number; the $L_1$ cost is minimized at the median.
+>
+> Sort each residue class, take its median, and sum the deviations.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README_EN.md
 tags:
     - Dynamic Programming
 ---
@@ -70,6 +69,16 @@ It can be proven that there is only 1 good string satisfying all conditions.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good string is a concatenation of blocks of $\textit{oneGroup}$ ones and $\textit{zeroGroup}$ zeros, with total length in $[\textit{minLength},\textit{maxLength}]$. Enumerating concatenations is too large.
+>
+> Let $f[i]$ be the number of good strings of length $i$. The last block is either a one-block or a zero-block, so $f[i]=f[i-\textit{oneGroup}]+f[i-\textit{zeroGroup}]$ when those indices exist, with $f[0]=1$. Sum $f$ from $\textit{minLength}$ through $\textit{maxLength}$.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the number of strings of length $i$ that meet the condition. The state transition equation is:
 

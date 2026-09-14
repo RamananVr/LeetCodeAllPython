@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2023.Number%20of%20Pairs%20of%20Strings%20With%20Concatenation%20Equal%20to%20Target/README_EN.md
 rating: 1341
 source: Biweekly Contest 62 Q2
 tags:
@@ -77,6 +76,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 100$ and short strings, enumerate ordered pairs $(i,j)$ and concatenate. $i \neq j$ means a value can be reused only if it appears twice.
+>
+> The double loop matches the statement; no preprocess is needed.
+
+<!-- thinking:end -->
+
 Traverse the array `nums`, for each $i$, enumerate all $j$, if $i \neq j$ and $nums[i] + nums[j] = target$, then increment the answer by one.
 
 The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively. The space complexity is $O(1)$.
@@ -101,6 +110,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 concatenates in $O(m)$ per pair. Every valid pair is some prefix of $target$ plus the matching suffix.
+>
+> Count string frequencies, then split $target$. When prefix equals suffix use $c(c-1)$ so one index is not paired with itself.
+
+<!-- thinking:end -->
 
 We can use a hash table to count the occurrence of each string in the array `nums`, then traverse all prefixes and suffixes of the string `target`. If both the prefix and suffix are in the hash table, then increment the answer by the product of their occurrences.
 

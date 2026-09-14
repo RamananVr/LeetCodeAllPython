@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md
 rating: 2405
 source: Biweekly Contest 107 Q4
 tags:
@@ -71,6 +70,16 @@ For queries[1]: Only server with id 3 gets no request in the duration [2,4].
 <!-- solution:start -->
 
 ### Solution 1: Offline Queries + Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each time $q$, count servers with no log in $[q-x,q]$. Scanning the logs per query is $O(qm)$.
+>
+> Sort queries by their right end and logs by time. Two pointers insert logs that enter the window and drop those that leave; a hash map stores distinct servers inside the window. The answer is $n$ minus that count.
+
+<!-- thinking:end -->
 
 We can sort all the queries by time from smallest to largest, and then process each query in chronological order.
 

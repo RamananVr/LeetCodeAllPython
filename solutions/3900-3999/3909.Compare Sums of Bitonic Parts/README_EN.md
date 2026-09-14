@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README_EN.md
 rating: 1408
 source: Biweekly Contest 181 Q2
 ---
@@ -109,6 +108,18 @@ source: Biweekly Contest 181 Q2
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is already bitonic, so the peak is unique and we need not re-check the rise/fall shape. Finding the peak and summing both sides separately takes two scans; one scan can split the sums at the same time.
+>
+> Let $\textit{l}$ be the rising-part sum and $\textit{r}$ start as the total sum. While adjacent pairs still increase, fold the new value into $\textit{l}$ and drop the previous value from $\textit{r}$ (the peak stays on the right). Stop at the first descent.
+>
+> Comparing $\textit{l}$ and $\textit{r}$ then tells which side is larger.
+
+<!-- thinking:end -->
 
 We use two variables, $\textit{l}$ and $\textit{r}$, to record the sums of the ascending and descending parts, respectively. Initially, $\textit{l}$ is set to the first element of the array, and $\textit{r}$ is set to the sum of all elements in the array.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README_EN.md
 rating: 1847
 source: Weekly Contest 466 Q3
 tags:
@@ -87,6 +86,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bowl subarray has both ends strictly above every interior value. Pairing ends is quadratic. The ends must be the two largest values of the segment and sit on opposite sides.
+>
+> For each index, the previous and next strictly greater values are the two walls. A monotone stack computes those neighbors in one pass.
+>
+> Each pair $(\textit{L}[i],\textit{R}[i])$ of span at least $3$ is a bowl. Dedup by associating a bowl with the nearest-greater relation so the same walls are not counted twice.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

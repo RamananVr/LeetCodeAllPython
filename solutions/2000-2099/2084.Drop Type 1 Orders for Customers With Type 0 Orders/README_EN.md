@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README_EN.md
 tags:
     - Database
 ---
@@ -87,6 +86,16 @@ Customer 4 has two orders of type 1. We return both of them.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers who have a type-0 order must drop all type-1 rows; everyone else keeps theirs. Compute the set of customers with a type-0 order, then keep a row if it is type 0 or its customer is outside that set.
+>
+> A CTE plus `NOT EXISTS` encodes the filter.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -111,6 +120,16 @@ WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a subquery. Self-join different types of the same customer: a type-1 row that matches a type-0 should drop. Keep rows with no mixed-type partner, or whose partner is type 1 (so the row itself is type 0), then distinct.
+>
+> Same result via `LEFT JOIN`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3926.Count%20Valid%20Word%20Occurrences/README_EN.md
 rating: 1608
 source: Weekly Contest 501 Q2
 ---
@@ -98,6 +97,18 @@ source: Weekly Contest 501 Q2
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Chunks and queries each total $10^5$ characters, so we cannot rescan the text per query. A word starts with a letter and ends at a space or an illegal hyphen, so the concatenated text can be tokenized once.
+>
+> Join $\textit{chunks}$ into $s$ and scan: skip separators, extend until a space or a hyphen that is not followed by a letter, and count tokens in a hash map. Each query is a lookup.
+>
+> Tokenization and answering are both linear in the total length.
+
+<!-- thinking:end -->
 
 First, we concatenate all strings in $\textit{chunks}$ to obtain a single string $s$.
 

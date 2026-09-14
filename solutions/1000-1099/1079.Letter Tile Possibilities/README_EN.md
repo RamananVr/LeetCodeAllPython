@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README_EN.md
 rating: 1740
 source: Weekly Contest 140 Q2
 tags:
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distinct sequences are permutations of a multiset. $n\le 7$ is searchable, but identical letters would be over-counted if we permuted positions. We should recurse on remaining counts.
+>
+> $\textit{dfs}(\textit{cnt})$ tries every letter still available, uses one copy, and counts that choice as a nonempty sequence before recursing.
+>
+> Counts are incremented back on return; the top call uses the bag’s frequencies.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

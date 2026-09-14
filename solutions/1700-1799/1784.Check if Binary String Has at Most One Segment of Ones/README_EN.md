@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1784.Check%20if%20Binary%20String%20Has%20at%20Most%20One%20Segment%20of%20Ones/README_EN.md
 rating: 1206
 source: Weekly Contest 231 Q1
 tags:
@@ -49,6 +48,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string starts with $1$ and has no leading zeros. A second run of ones appears iff a $0$ is later followed by a $1$, i.e. the substring $01$ occurs.
+>
+> Testing for $01$ is enough; we need not count runs.
+
+<!-- thinking:end -->
 
 Since the string $s$ has no leading zeros, $s$ starts with `'1'`.
 

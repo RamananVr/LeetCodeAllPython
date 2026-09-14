@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README_EN.md
 rating: 1799
 source: Weekly Contest 153 Q3
 tags:
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray may drop at most one element. Kadane from each end yields the best segment ending or starting at an index; with no deletion the answer is their maximum. Deleting $arr[i]$ adds the best left ending at $i-1$ to the best right starting at $i+1$. After filling $left$ and $right$, enumerate interior deletion points.
+
+<!-- thinking:end -->
 
 We can preprocess the array $\textit{arr}$ to find the maximum subarray sum ending and starting with each element, storing them in arrays $\textit{left}$ and $\textit{right}$, respectively.
 

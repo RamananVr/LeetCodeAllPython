@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3799.Word%20Squares%20II/README_EN.md
 rating: 1606
 source: Weekly Contest 483 Q2
 tags:
@@ -102,6 +101,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The words are distinct $4$-letter strings and there are at most $15$ of them, so we may enumerate four distinct indices. After sorting, four nested loops pick $\textit{top},\textit{left},\textit{right},\textit{bottom}$ and keep a tuple when the four corner letters match.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

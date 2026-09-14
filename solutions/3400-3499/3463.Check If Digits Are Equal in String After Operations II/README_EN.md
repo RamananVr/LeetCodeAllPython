@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README_EN.md
 rating: 2286
 source: Weekly Contest 438 Q3
 tags:
@@ -92,6 +91,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The process matches part I, but $n\le 10^5$ forbids layer-by-layer simulation. The final two digits are linear forms of the original string with binomial coefficients modulo $10$.
+>
+> Index $i$ contributes $C_{n-2}^{i}\,s[i]$ (or $C_{n-2}^{i-1}$) to the left (right) digit. Since $10$ is composite, we apply Lucas modulo $2$ and $5$ and combine with CRT.
+>
+> Compare the two weighted sums modulo $10$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

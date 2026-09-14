@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md
 rating: 2301
 source: Weekly Contest 456 Q4
 tags:
@@ -107,6 +106,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating spanning trees and subsets of at most $k$ upgrades is exponential and impossible for $n,m\le 10^5$. Stability is the tree's minimum edge strength, so feasibility of a threshold $x$ is monotone and the maximum can be binary-searched.
+>
+> Must-edges cannot be upgraded, so their minimum strength $mn$ is an upper bound. A cycle among must-edges, or a graph that stays disconnected after adding every edge, has no answer.
+>
+> For a candidate $\textit{lim}$, union every edge with strength at least $\textit{lim}$, then spend at most $k$ upgrades on edges with $2s\ge \textit{lim}$. Union-find decides connectivity, so a logarithmic number of checks yields the maximum feasible stability.
+
+<!-- thinking:end -->
 
 According to the problem description, the stability of a spanning tree is determined by the minimum strength edge in it. If a stability $x$ is feasible, then for any $y < x$, stability $y$ is also feasible. Therefore, we can use binary search to find the maximum stability.
 

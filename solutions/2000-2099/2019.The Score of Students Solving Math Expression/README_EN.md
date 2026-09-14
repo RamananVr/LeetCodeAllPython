@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README_EN.md
 rating: 2583
 source: Weekly Contest 260 Q4
 tags:
@@ -93,6 +92,18 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Interval DP)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $15$ operators; wrong answers come from different associations. Parenthesis enumeration is Catalan-sized, but interval DP unions all values. The true answer uses standard precedence separately.
+>
+> $f[i][j]$ is the set of values of digits $i..j$; split at $k$ and apply the operator, dropping results $>1000$.
+>
+> Count $answers$: $5$ if exact, else $2$ if the value lies in $f[0][m-1]$.
+
+<!-- thinking:end -->
 
 First, we design a function $cal(s)$ to calculate the result of a valid mathematical expression that only contains single-digit numbers. The correct answer is $x = cal(s)$.
 

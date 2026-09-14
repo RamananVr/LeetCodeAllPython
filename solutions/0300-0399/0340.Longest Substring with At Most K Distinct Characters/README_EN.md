@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0340.Longest%20Substring%20with%20At%20Most%20K%20Distinct%20Characters/README_EN.md
 tags:
     - Hash Table
     - String
@@ -49,6 +48,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest substring with at most $k$ distinct characters. Checking every pair of ends is $O(n^2)$. Distinctness grows with the right end and shrinks when the left advances, so a sliding window works.
+>
+> Admit the right character; while the map has more than $k$ keys, drop the left. The window is always the longest legal suffix of the prefix, and the length is $n-l$.
+
+<!-- thinking:end -->
 
 We can use the idea of a sliding window, with a hash table $\textit{cnt}$ to record the occurrence count of each character within the window, and $\textit{l}$ to denote the left boundary of the window.
 

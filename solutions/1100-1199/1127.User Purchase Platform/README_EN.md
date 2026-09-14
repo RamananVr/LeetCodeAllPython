@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1127.User%20Purchase%20Platform/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,16 @@ On 2019-07-02, user 2 purchased using mobile <strong>only</strong>, user 3 purch
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each user-day is `desktop`, `mobile`, or `both`, and every date must still emit all three platforms. Aggregate by user and date: one platform stays as-is, otherwise `both`.
+>
+> A skeleton of every date times the three labels left-joins that aggregate and fills zeros so each day has three rows.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

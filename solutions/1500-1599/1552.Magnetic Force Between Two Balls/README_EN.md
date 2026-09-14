@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README_EN.md
 rating: 1919
 source: Weekly Contest 202 Q3
 tags:
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Place $m$ balls to maximize the minimum gap. Positions reach $10^9$, so we cannot enumerate layouts by gap; $n\le 10^5$ still allows a fast feasibility test.
+>
+> Larger gaps admit fewer balls, which is monotone. After sorting, binary-search a gap $f$ and scan left to right, placing a ball only when it is at least $f$ from the previous one. Treat “cannot place $m$ balls” as the search key; the predecessor of the first failing $f$ is the largest feasible gap.
+
+<!-- thinking:end -->
 
 We notice that the greater the minimum magnetic force between any two balls, the fewer balls can be placed, which exhibits monotonicity. We can use binary search to find the maximum minimum magnetic force that allows the number of balls not less than $m$ to be placed.
 

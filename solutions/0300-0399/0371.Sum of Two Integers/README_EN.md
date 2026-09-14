@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README_EN.md
 tags:
     - Bit Manipulation
     - Math
@@ -39,6 +38,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add without `+`/`-`. Bitwise: the sum without carry is XOR, the carry is AND shifted left. Repeat until the carry vanishes.
+>
+> Python ints are unbounded, so mask with $0xFFFFFFFF$ to $32$ bits. If the sign bit is set, convert two’s complement back to a negative.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

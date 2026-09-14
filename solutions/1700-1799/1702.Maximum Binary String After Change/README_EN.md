@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README_EN.md
 rating: 1825
 source: Biweekly Contest 42 Q3
 tags:
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The operations replace $00$ with $10$ and $10$ with $01$. Searching every rewrite grows exponentially with the string length and will not finish under the constraints.
+>
+> Operation 2 can slide any $1$ rightward; operation 1 collapses a run of zeros into ones followed by a single $0$. The optimal string therefore contains at most one $0$, placed as far right as possible.
+>
+> Leading ones before the first $0$ cannot change. All later zeros can be gathered to one index: if the first $0$ is at $k$, add the number of zeros after it to obtain the final $0$ position, and fill the rest with ones.
+
+<!-- thinking:end -->
 
 We observe that operation $2$ can move all $1$s to the end of the string, and operation $1$ can change all `0000..000` strings to `111..110`.
 

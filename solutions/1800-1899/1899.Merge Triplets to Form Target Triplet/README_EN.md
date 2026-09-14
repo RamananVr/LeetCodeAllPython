@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README_EN.md
 rating: 1635
 source: Weekly Contest 245 Q3
 tags:
@@ -79,6 +78,16 @@ The target triplet [5,5,5] is now an element of triplets.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A merge replaces two triplets by their coordinate-wise maximum. Any triplet that already exceeds the target in one coordinate can never be used, because maxima cannot shrink.
+>
+> Keep only triplets dominated by $target$ and take the coordinate-wise max among them. Equality with $target$ means each coordinate has a source and the merges can form it.
+
+<!-- thinking:end -->
 
 Let $\textit{target} = [x, y, z]$. We need to determine whether there exists a triplet $[a, b, c]$ such that $a \leq x$, $b \leq y$, and $c \leq z$.
 

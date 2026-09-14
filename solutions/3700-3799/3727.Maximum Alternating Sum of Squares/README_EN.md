@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3727.Maximum%20Alternating%20Sum%20of%20Squares/README_EN.md
 rating: 1454
 source: Weekly Contest 473 Q2
 tags:
@@ -76,6 +75,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The alternating score depends only on squared magnitudes and the parity of the index, not on the original signs. Larger squares should take the plus slots and smaller ones the minus slots; after sorting by square, the second half minus the first half is optimal.
+
+<!-- thinking:end -->
 
 We can sort the elements of the array by their squared values, then place the elements with larger squared values at even indices and those with smaller squared values at odd indices.
 

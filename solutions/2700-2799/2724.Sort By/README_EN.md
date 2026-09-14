@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.Sort%20By/README_EN.md
 tags:
     - JavaScript
 ---
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort the array by the numeric key $fn(item)$. A hand-rolled comparator or an extra stable sort is unnecessary.
+>
+> Passing $fn(a)-fn(b)$ to $sort$ yields the required order.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

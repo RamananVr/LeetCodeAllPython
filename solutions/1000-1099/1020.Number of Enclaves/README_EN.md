@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1020.Number%20of%20Enclaves/README_EN.md
 rating: 1615
 source: Weekly Contest 130 Q4
 tags:
@@ -61,6 +60,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Testing whether each land cell can reach the border repeats searches over the same grid; $m,n\le 500$ makes that wasteful. Enclaves are land that cannot reach the border, so they are the complement of border-connected land.
+>
+> Flooding from every $1$ on the four borders removes all land that can leave. The remaining ones cannot.
+>
+> DFS performs the flood; the answer is the number of $1$s left.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -98,6 +109,16 @@ class Solution:
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS may recurse on the order of $2.5\times 10^5$ cells. Connectivity does not depend on search order.
+>
+> A queue of border land cells runs the same flood in BFS, clearing reachable cells and counting what remains.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -130,6 +151,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Search still uses a stack or queue proportional to the component size. The same connectivity can be recorded with union-find: adjacent land is united, and every border land is united with a dummy exterior node.
+>
+> Cells that stay land and are not in the exterior component are enclaves, so we count those sizes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

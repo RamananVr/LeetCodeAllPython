@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README_EN.md
 rating: 1244
 source: Biweekly Contest 11 Q1
 tags:
@@ -56,6 +55,14 @@ tags:
 
 ### Solution 1: Arithmetic Series Sum Formula
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is an arithmetic progression with one term removed, $n \le 1000$. The full sequence has $n+1$ terms and known endpoints, so its sum follows the closed formula; subtracting the array sum yields the missing term. One summation suffices; we never compute the common difference.
+
+<!-- thinking:end -->
+
 The sum formula for an arithmetic series is $\frac{(a_1 + a_n)n}{2}$, where $n$ is the number of terms in the arithmetic series, the first term is $a_1$, and the last term is $a_n$.
 
 Since the array given in the problem is an arithmetic series with one missing number, the number of terms in the array is $n + 1$, the first term is $a_1$, and the last term is $a_n$. Therefore, the sum of the array is $\frac{(a_1 + a_n)(n + 1)}{2}$.
@@ -81,6 +88,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Find Common Difference + Traverse
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sum formula yields the missing value without using the common difference. Computing $d$ from the endpoints and length, then scanning for a gap not equal to $d$, recovers the missing term at the break; if every gap matches, all values are equal. Same linear time, closer to the definition of the progression.
+
+<!-- thinking:end -->
 
 Since the array given in the problem is an arithmetic series with one missing number, the first term is $a_1$, and the last term is $a_n$. The common difference $d$ is $\frac{a_n - a_1}{n}$.
 

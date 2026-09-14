@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1766.Tree%20of%20Coprimes/README_EN.md
 rating: 2231
 source: Biweekly Contest 46 Q4
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration + Stack + Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each node we want the closest ancestor whose value is coprime with it. $n\le 10^5$ but values lie in $[1,50]$, so one stack per value is enough.
+>
+> Precompute coprime pairs in $1..50$. During DFS, look at the stack top of every value coprime to $nums[i]$ and take the deepest.
+>
+> Push $(i,\textit{depth})$ onto the stack of $nums[i]$ before recursing and pop afterward, so the top is always the nearest ancestor.
+
+<!-- thinking:end -->
 
 Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
 

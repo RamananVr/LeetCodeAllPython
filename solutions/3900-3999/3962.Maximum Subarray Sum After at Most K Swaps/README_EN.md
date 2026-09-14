@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3962.Maximum%20Subarray%20Sum%20After%20at%20Most%20K%20Swaps/README_EN.md
 rating: 2672
 source: Weekly Contest 506 Q4
 tags:
@@ -90,6 +89,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $k$ arbitrary swaps means we may replace the smallest entries of some subarray by the largest entries outside it. $n\le 1500$ lets us enumerate $[l,r]$ and swap up to $k$ inside-minima with outside-maxima.
+>
+> For each segment take those two $k$-sets, sort, and apply the improving prefix. A heap can maintain them while the right end grows.
+>
+> This directory has no implemented solution yet; the walkthrough stops at “enumerate a segment plus a top-$k$ exchange”.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

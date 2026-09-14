@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0310.Minimum%20Height%20Trees/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Height is the distance from the root to the farthest leaf. BFS from every node is $O(n^2)$. The center of the tree diameter — one or two nodes — is exactly the set of minimum-height roots.
+>
+> Leaves have degree $1$. Peel them inward together (a topological peel): each layer decrements neighbors, and new degree-$1$ nodes enqueue. The last remaining layer is the center. A single node is returned as-is.
+
+<!-- thinking:end -->
 
 If the tree only has one node, then this node is the root of the minimum height tree. We can directly return this node.
 

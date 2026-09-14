@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md
 tags:
     - Recursion
     - Math
@@ -47,6 +46,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning every integer in $[1,n]$ is impossible for large $n$. The count of digit $1$ depends only on the digits and the upper bound, which is a digit-DP setting.
+>
+> Treat $n$ as a string and memoize $dfs(i,\textit{cnt},\textit{limit})$: position $i$ from the high end, $\textit{cnt}$ ones so far, and whether we still match the prefix of $n$. Enumerate the current digit and add the results.
+
+<!-- thinking:end -->
 
 This problem essentially asks for the number of times the digit $1$ appears in the given range $[l, ..r]$. The count is related to the number of digits and the value of each digit. We can use the concept of Digit DP to solve this problem. In Digit DP, the size of the number has little impact on the complexity.
 

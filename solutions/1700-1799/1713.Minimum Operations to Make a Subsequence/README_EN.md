@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README_EN.md
 rating: 2350
 source: Weekly Contest 222 Q4
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Longest Increasing Subsequence + Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The fewest insertions equal $|\textit{target}|$ minus the LCS length. Classic LCS is $O(mn)$ and both arrays can have length $10^5$.
+>
+> $\textit{target}$ has distinct values, so tokens of $arr$ that occur in $\textit{target}$ map to indices. The LCS becomes the LIS of that index sequence.
+>
+> A Fenwick tree stores the best LIS ending below the current index: query $x-1$, then update $x$. The answer is $m$ minus that LIS length.
+
+<!-- thinking:end -->
 
 According to the problem statement, the longer the common subsequence between `target` and `arr`, the fewer elements need to be added. Therefore, the minimum number of elements to be added equals the length of `target` minus the length of the longest common subsequence between `target` and `arr`.
 

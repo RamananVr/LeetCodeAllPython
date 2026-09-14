@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0517.Super%20Washing%20Machines/README_EN.md
 tags:
     - Greedy
     - Array
@@ -68,6 +67,16 @@ It&#39;s impossible to make all three washing machines have the same number of d
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If the total number of dresses is not divisible by the number of machines, it is impossible. Otherwise each machine should hold the average $k$. One move ships one dress to a neighbor.
+>
+> Subtract $k$ to get a surplus/deficit. The prefix $s$ is the net number of dresses that must cross that boundary. A machine with surplus $x>0$ must also ship those $x$ dresses out. The answer is the max of $|s|$ and those per-machine surpluses.
+
+<!-- thinking:end -->
 
 If the total number of clothes in the washing machines cannot be divided evenly by the number of washing machines, it is impossible to make the number of clothes in each washing machine equal, so we directly return $-1$.
 

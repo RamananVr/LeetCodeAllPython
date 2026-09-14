@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0643.Maximum%20Average%20Subarray%20I/README_EN.md
 tags:
     - Array
     - Sliding Window
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum average of a window of length $k$ is the maximum sum. Recomputing each window is $O(nk)$ for $n\le 10^5$.
+>
+> Slide a length-$k$ sum: add the entering value, drop the leaving one, and divide the best sum by $k$.
+
+<!-- thinking:end -->
 
 We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$ of the numbers within the window. We take the maximum sum $s$ as the answer.
 

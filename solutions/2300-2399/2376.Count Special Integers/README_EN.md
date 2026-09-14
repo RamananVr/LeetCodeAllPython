@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md
 rating: 2120
 source: Weekly Contest 306 Q4
 tags:
@@ -60,6 +59,16 @@ Some of the integers that are not special are: 22, 114, and 131.</pre>
 <!-- solution:start -->
 
 ### Solution 1: State Compression + Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count integers in $[1,n]$ with distinct digits. $n \le 2 \times 10^9$ forbids enumeration. The predicate depends only on the digit set, so digit DP applies.
+>
+> Memoize $dfs(i,mask,lead,limit)$: $mask$ is used digits, leading zeros occupy nothing, and $limit$ keeps us $\le n$. A finished non-leading number contributes $1$.
+
+<!-- thinking:end -->
 
 This problem essentially asks for the number of numbers in the given range $[l, ..r]$ that satisfy certain conditions. The conditions are related to the composition of the numbers rather than their size, so we can use the concept of Digit DP to solve it. In Digit DP, the size of the number has little impact on the complexity.
 

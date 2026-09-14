@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README_EN.md
 rating: 1488
 source: Biweekly Contest 132 Q2
 tags:
@@ -93,6 +92,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The front two players compare and the loser goes to the tail. A literal queue can run $O(n+k)$ steps when $k$ is huge.
+>
+> A loser never returns before a yet-unseen stronger player. After $n-1$ consecutive wins the current player is the global maximum, so $k$ may be capped at $n-1$.
+>
+> Keep the champion index $i$ and a streak $cnt$, resetting on a stronger opponent. Stop when $cnt=k$ or the array ends.
+
+<!-- thinking:end -->
 
 We notice that each time the first two elements of the array are compared, regardless of the result, the next comparison will always be between the next element in the array and the current winner. Therefore, if we have looped $n-1$ times, the final winner must be the maximum element in the array. Otherwise, if an element has won consecutively $k$ times, then this element is the final winner.
 

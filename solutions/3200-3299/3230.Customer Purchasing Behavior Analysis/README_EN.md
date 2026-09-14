@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md
 tags:
     - Database
 ---
@@ -139,6 +138,16 @@ Each row of this table contains information about a product, including its categ
 <!-- solution:start -->
 
 ### Solution 1: Grouping + Window Functions + Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must aggregate amount, count, and distinct categories per customer, plus the category that is most frequent and then most recent. Doing this in application code scatters the logic.
+>
+> Join transactions to products, count per customer and category with the latest date, take rank $1$ per customer by that order, then aggregate loyalty on the detail rows. The window encodes the tie-break exactly.
+
+<!-- thinking:end -->
 
 First, we join the `Transactions` table with the `Products` table, recording the result in a temporary table `T`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README_EN.md
 rating: 1626
 source: Biweekly Contest 183 Q2
 tags:
@@ -84,6 +83,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and $k\le 100$, so we may enumerate the even-index residue $x$ and the odd-index residue $y$ ($x\neq y$) — $k(k-1)$ pairs — and sum the circular distances $\min(|t-v|,k-|t-v|)$.
+>
+> Reduce the array modulo $k$ first, then run the double enumeration. $O(nk^2)$ fits the limits.
+
+<!-- thinking:end -->
 
 We can enumerate the target value $x$ for even indices and the target value $y$ for odd indices, where $0 \leq x, y < k$ and $x \neq y$. For each element, we calculate the number of operations required to change it to the target value, and accumulate the total number of operations. Finally, we return the minimum value among all enumeration results.
 

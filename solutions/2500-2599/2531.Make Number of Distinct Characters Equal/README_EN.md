@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README_EN.md
 rating: 1775
 source: Weekly Contest 327 Q3
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must swap exactly one character so the two strings have the same number of distinct letters. The strings are long, but only $26$ letters matter — frequencies, not positions.
+>
+> Count frequencies and the two distinct-counts $x,y$. Enumerate the letter $c_1$ taken from the first string and $c_2$ from the second. Equal letters leave the counts unchanged, so $x=y$ suffices; otherwise adjust each side by whether a letter vanishes or appears, and accept when the new counts match.
+
+<!-- thinking:end -->
 
 We first use two arrays $\textit{cnt1}$ and $\textit{cnt2}$ of length $26$ to record the frequency of each character in the strings $\textit{word1}$ and $\textit{word2}$, respectively.
 

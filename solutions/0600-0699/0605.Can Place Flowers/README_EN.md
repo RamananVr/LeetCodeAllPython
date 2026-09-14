@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0605.Can%20Place%20Flowers/README_EN.md
 tags:
     - Greedy
     - Array
@@ -44,6 +43,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flowers cannot share an edge, and we only need to know whether $n$ can be placed. Subset enumeration is impossible for length $2\times 10^4$.
+>
+> Placing a flower as soon as a gap of three zeros appears never blocks a later extra plot. Pad both ends with $0$, plant greedily, and check that the remaining $n$ is not positive.
+
+<!-- thinking:end -->
 
 We directly traverse the array $flowerbed$. For each position $i$, if $flowerbed[i]=0$ and its adjacent positions on the left and right are also $0$, then we can plant a flower at this position. Otherwise, we cannot. Finally, we count the number of flowers that can be planted. If it is not less than $n$, we return $true$, otherwise we return $false$.
 

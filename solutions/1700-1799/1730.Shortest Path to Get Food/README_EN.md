@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -79,6 +78,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS (Breadth-First Search)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From the unique $*$ we want the nearest $\#$, avoiding obstacles. Unweighted shortest paths are BFS.
+>
+> Enqueue $*$ and expand four-neighbours level by level: return the depth on $\#$, mark empty cells blocked after enqueue to avoid revisits. An empty queue means unreachable.
+
+<!-- thinking:end -->
 
 According to the problem, we need to start from `*`, find the nearest `#`, and return the shortest path length.
 

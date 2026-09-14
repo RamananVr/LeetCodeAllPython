@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README_EN.md
 tags:
     - Database
 ---
@@ -73,6 +72,16 @@ Product 2 was ordered one time in 2022. We do not include it in the answer.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need products with at least three orders in two consecutive years. After grouping by product and year, we test adjacent years. A self-join is direct: mark whether a year has $\ge 3$ orders, then join rows one year apart whose marks are both true.
+>
+> The CTE aggregates $(\textit{product\_id}, \textit{YEAR})$ into $\textit{mark}$; the join is $p_1.y = p_2.y-1$ on the same product with both marks set, then we take distinct ids.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -99,6 +108,14 @@ WHERE p1.mark AND p2.mark;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 keeps every year and filters on $\textit{mark}$. We can instead keep only years with $\textit{HAVING COUNT}(1)\ge 3$, so the self-join has no extra predicate. The result is the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

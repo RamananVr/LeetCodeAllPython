@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2534.Time%20Taken%20to%20Cross%20the%20Door/README_EN.md
 tags:
     - Queue
     - Array
@@ -81,6 +80,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Queue + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The door lets one person through per second. When both sides wait, it keeps the previous direction; after idle time it prefers exit. Arrival times are $O(n)$, so a second-by-second loop stays linear.
+>
+> Two queues hold enter and exit requests. At time $t$, enqueue everyone who has arrived. If both queues are nonempty, pop the side $st$; if only one is nonempty, switch $st$ to that side; if both are empty, reset $st$ to exit. Record each person's crossing time.
+
+<!-- thinking:end -->
 
 We define two queues, where $q[0]$ stores the indices of people who want to enter, and $q[1]$ stores the indices of people who want to exit.
 

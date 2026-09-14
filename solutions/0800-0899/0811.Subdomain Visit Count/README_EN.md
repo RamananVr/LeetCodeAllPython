@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -64,6 +63,16 @@ For the subdomains, we will visit &quot;mail.com&quot; 900 + 1 = 901 times, &quo
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each count must be added to the domain and every parent domain. There are at most $100$ short records, so splitting on dots is enough.
+>
+> For every suffix after a space or a dot, add the visit count. Format the counter as the required strings.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3966.Count%20Good%20Integers%20in%20a%20Range/README_EN.md
 rating: 2006
 source: Biweekly Contest 185 Q4
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $l$ and $r$ reach $10^{15}$, so we cannot list integers. A good number has adjacent digits differing by at most $k$ — a digit-DP constraint.
+>
+> Count $[0,r]$ minus $[0,l-1]$. The state stores position, previous digit, tightness, and leading-zero. A new digit must differ from the previous by at most $k$ once leading zeros have ended.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that digit DP.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

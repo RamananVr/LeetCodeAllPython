@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README_EN.md
 rating: 2036
 source: Weekly Contest 450 Q3
 tags:
@@ -81,6 +80,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: 0-1 BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A four-neighbor step costs $1$ and a same-letter teleport costs $0$; walls are blocked. Shortest paths on $0$-$1$ weights are a 0-1 BFS rather than a general Dijkstra.
+>
+> Index portals by letter. The first time a letter is reached, push every other portal of that letter to the front of the deque and drop the letter so it is never reused. Ordinary steps go to the back.
+
+<!-- thinking:end -->
 
 We can use 0-1 BFS to solve this problem. We start from the top-left cell and use a double-ended queue to store the coordinates of the current cell. Each time we dequeue a cell, we check its four adjacent cells. If an adjacent cell is an empty cell and has not been visited, we add it to the queue and update its distance.
 

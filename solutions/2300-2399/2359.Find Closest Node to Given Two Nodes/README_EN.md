@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README_EN.md
 rating: 1714
 source: Weekly Contest 304 Q3
 tags:
@@ -64,6 +63,16 @@ The maximum of those two distances is 2. It can be proven that we cannot get a n
 <!-- solution:start -->
 
 ### Solution 1: BFS + Enumerate Common Nodes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Out-degree is at most one, so each start reaches a path (or a cycle prefix). $n \le 10^5$ allows one BFS from each node.
+>
+> After both distance arrays, scan every index and minimize $\max(d_1[i],d_2[i])$, breaking ties by the smaller index. Unreachable stays infinity.
+
+<!-- thinking:end -->
 
 We can first use BFS to calculate the distance from $node1$ and $node2$ to every node, denoted as $d_1$ and $d_2$ respectively. Then, enumerate all common nodes $i$, and for each, compute $\max(d_1[i], d_2[i])$. The answer is the node with the minimal such value.
 

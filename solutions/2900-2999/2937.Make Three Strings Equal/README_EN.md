@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md
 rating: 1347
 source: Weekly Contest 372 Q1
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the last character of one string may be deleted, so the three strings become equal iff they share a nonempty common prefix, which is the final string. Walk index $i$ until the three characters split; the prefix length is then $i$.
+>
+> If $i=0$ no nonempty equal string exists. Otherwise the deletions equal the total length minus $3i$. If they never split, use the shortest length. $n \le 100$ needs one aligned scan.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that if the three strings are equal after deleting characters, then they have a common prefix of length greater than $1$. Therefore, we can enumerate the position $i$ of the common prefix. If the three characters at the current index $i$ are not all equal, then the length of the common prefix is $i$. At this point, we check if $i$ is $0$. If it is, return $-1$. Otherwise, return $s - 3 \times i$, where $s$ is the sum of the lengths of the three strings.
 

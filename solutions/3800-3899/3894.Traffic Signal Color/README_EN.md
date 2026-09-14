@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3894.Traffic%20Signal%20Color/README_EN.md
 rating: 1222
 source: Biweekly Contest 180 Q1
 tags:
@@ -69,6 +68,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the light color from a few discrete tests on $\textit{timer}$, otherwise $\texttt{Invalid}$.
+>
+> The predicates are disjoint; check $0$, then $30$, then $(30,90]$.
+>
+> No extra state is required.
+>
+> Constant time.
+
+<!-- thinking:end -->
 
 We determine the answer according to the conditions described in the problem and return the corresponding string.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2055.Plates%20Between%20Candles/README_EN.md
 rating: 1819
 source: Biweekly Contest 64 Q3
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both the string and the query count reach $10^5$, so each query cannot scan. Plates count only when candles bound them on both sides.
+>
+> A prefix of `*` gives any open-interval count; nearest-left and nearest-right `|` are precomputed. For $[l,r]$ take the first candle $i$ to the right of $l$ and the last $j$ to the left of $r$; if $i<j$ the answer is $presum[j]-presum[i+1]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

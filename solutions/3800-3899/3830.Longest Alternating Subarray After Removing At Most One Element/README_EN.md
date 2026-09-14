@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README_EN.md
 rating: 2162
 source: Weekly Contest 487 Q4
 tags:
@@ -96,6 +95,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix-Suffix Decomposition + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating subarray switches between $<$ and $>$; we may delete at most one element. $n \le 10^5$ forbids trying every deletion.
+>
+> Without deletion the longest run follows from a left-to-right recurrence on the last comparison. Deleting $i$ tries to join the left run at $i-1$ with the right run at $i+1$.
+>
+> Precompute, for both directions, the longest alternating length ending at $i$ and starting at $i$.
+>
+> Take the no-deletion maximum, then try each deletion and add the matching prefix and suffix only when $nums[i-1]$ and $nums[i+1]$ still alternate.
+
+<!-- thinking:end -->
 
 We use two arrays $l_1$ and $l_2$ to represent the length of the longest alternating subarray ending at position $i$ with the last comparison being "<" and ">", respectively. Similarly, we use $r_1$ and $r_2$ to represent the length of the longest alternating subarray starting at position $i$ with the first comparison being "<" and ">", respectively.
 

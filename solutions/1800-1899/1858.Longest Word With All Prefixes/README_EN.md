@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md
 tags:
     - Depth-First Search
     - Trie
@@ -67,6 +66,16 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
 <!-- solution:start -->
 
 ### Solution 1: Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest word whose every prefix is also in the list, breaking ties lexicographically. Rechecking the list for each prefix would square the total length.
+>
+> Insert every word into a trie and mark terminals. A word is valid iff every node on its path is a terminal. Compare valid words by length and then lexicographic order.
+
+<!-- thinking:end -->
 
 We define a Trie where each node has two attributes: a child node array $\textit{children}$ of length $26$, and a flag $\textit{isEnd}$ indicating whether the node marks the end of a word.
 

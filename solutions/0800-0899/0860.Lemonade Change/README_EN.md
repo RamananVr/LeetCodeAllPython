@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0860.Lemonade%20Change/README_EN.md
 tags:
     - Greedy
     - Array
@@ -62,6 +61,16 @@ Since not every customer received the correct change, the answer is false.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bills are only $5$, $10$, and $20$, and change must come from cash already taken. $n\le 10^5$, so greedy: a $20$ prefers one $10$ plus one $5$, otherwise three $5$s.
+>
+> Track counts of $5$s and $10$s; a negative $5$ count fails. The full history is unnecessary.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -94,6 +103,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: One-liner
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already covers every change rule. Method 2 folds the same two counters into one $\textit{every}$ scan, branching on denomination with xor tests.
+>
+> The meaning is unchanged; only the implementation is a one-liner, still failing when the $5$ count goes negative.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

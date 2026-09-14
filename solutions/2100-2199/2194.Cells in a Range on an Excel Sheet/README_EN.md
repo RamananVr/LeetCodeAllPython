@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2194.Cells%20in%20a%20Range%20on%20an%20Excel%20Sheet/README_EN.md
 rating: 1253
 source: Weekly Contest 283 Q1
 tags:
@@ -71,6 +70,18 @@ The red arrow denotes the order in which the cells should be presented.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A range such as `A1:F2` should list cells column-major, then by row. Both spans are tiny, so a double loop is enough.
+>
+> Iterate column characters in the outer loop and row numbers in the inner loop, concatenating each cell.
+>
+> The start and end columns are the first and last letters of $s$; the rows are the two digits.
+
+<!-- thinking:end -->
 
 We directly traverse all the cells within the range and add them to the answer array.
 

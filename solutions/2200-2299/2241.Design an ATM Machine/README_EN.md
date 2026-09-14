@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README_EN.md
 rating: 1616
 source: Biweekly Contest 76 Q3
 tags:
@@ -81,6 +80,16 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are five denominations, up to $5000$ operations, and amounts up to $10^9$. Searching combinations is impossible; the machine must prefer larger bills, which is greedy division.
+>
+> A length-$5$ array stores the stock. Deposits add in place. Withdrawals take $\min(\lfloor \textit{amount}/d_i \rfloor, \textit{cnt}[i])$ of each bill from $500$ down to $20$. If any amount remains the request fails and the stock is left untouched; otherwise the counts are subtracted.
+
+<!-- thinking:end -->
 
 We use an array $\textit{d}$ to record the denominations of the bills and an array $\textit{cnt}$ to record the number of bills for each denomination.
 

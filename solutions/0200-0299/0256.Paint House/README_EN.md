@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0256.Paint%20House/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -59,6 +58,16 @@ Minimum cost: 2 + 5 + 3 = 10.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent houses cannot share a color, so listing paintings is too large. The best cost of color $c$ on house $i$ depends only on the other two colors on house $i-1$.
+>
+> Three rolling variables store the best totals for the three colors; the answer is their minimum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

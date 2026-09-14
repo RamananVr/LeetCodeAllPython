@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README_EN.md
 rating: 2195
 source: Weekly Contest 323 Q4
 tags:
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Offline Query + BFS + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query starts at the top-left cell and may enter only cells strictly smaller than the query value. Searching from scratch for every query would revisit most of the grid when $k$ is large.
+>
+> Queries are independent and monotone in the threshold: a larger value can only enlarge the reachable set. Sort queries offline and grow a min-heap frontier; when the threshold rises, pop every cell below it and expand its four neighbors. Each cell is pushed once, and answers are written back in the original order.
+
+<!-- thinking:end -->
 
 According to the problem description, each query is independent, the order of the queries does not affect the result, and we are required to start from the top left corner each time, counting the number of cells that can be accessed and whose value is less than the current query value.
 

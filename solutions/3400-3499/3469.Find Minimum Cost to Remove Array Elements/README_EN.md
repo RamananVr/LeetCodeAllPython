@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README_EN.md
 rating: 2111
 source: Biweekly Contest 151 Q3
 ---
@@ -77,6 +76,18 @@ source: Biweekly Contest 151 Q3
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move removes three elements (per the statement) at cost equal to their maximum, until the array is gone. $n\le 1000$ makes the order of deletions exponential.
+>
+> The remainder is a prefix still in play plus at most one held-back value, which is a compact state.
+>
+> Memoized DP enumerates which indices go next and adds their maximum. The last one or two elements are base cases.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

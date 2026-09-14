@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1411.Number%20of%20Ways%20to%20Paint%20N%20%C3%97%203%20Grid/README_EN.md
 rating: 1844
 source: Weekly Contest 184 Q4
 tags:
@@ -53,6 +52,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three colors with adjacent cells different and $n\le 5000$ make coloring the whole grid infeasible. A row of three cells falls into two symmetry classes: type $010$ (two colors) and type $012$ (three colors).
+>
+> Counting successors yields $g_0=3f_0+2f_1$ and $g_1=2f_0+2f_1$. Both classes start at $6$; after $n-1$ transitions their sum is the answer.
+
+<!-- thinking:end -->
+
 We classify all possible states for each row. According to the principle of symmetry, when a row only has $3$ elements, all legal states are classified as: $010$ type, $012$ type.
 
 - When the state is $010$ type: The possible states for the next row are: $101$, $102$, $121$, $201$, $202$. These $5$ states can be summarized as $3$ $010$ types and $2$ $012$ types.
@@ -85,6 +94,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: State Compression + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 needs hand-derived transition coefficients. With only three columns there are at most $27$ colorings per row, so we can list valid masks and compatible pairs.
+>
+> $f[i][j]$ is the number of ways to paint row $i$ with mask $j$, summed from compatible previous masks. A rolling array keeps one layer, without closed-form coefficients.
+
+<!-- thinking:end -->
 
 We notice that the grid only has $3$ columns, so there are at most $3^3=27$ different coloring schemes in a row.
 

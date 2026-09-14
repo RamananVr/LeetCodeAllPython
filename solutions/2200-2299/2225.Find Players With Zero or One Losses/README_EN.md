@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README_EN.md
 rating: 1316
 source: Weekly Contest 287 Q2
 tags:
@@ -79,6 +78,16 @@ Thus, answer[0] = [1,2,5,6] and answer[1] = [].
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must list players who never lost and those who lost exactly once, each in increasing order. There are up to $10^5$ matches, so scanning every possible id is wasteful. Only players who appear matter, and the only statistic is the loss count.
+>
+> A hash map $\textit{cnt}$ stores losses: a winner is inserted with $0$ if new, a loser is incremented. After sorting by id, players with $0$ or $1$ loss go into the two answer lists.
+
+<!-- thinking:end -->
 
 We use a hash table `cnt` to record the number of matches each player has lost.
 

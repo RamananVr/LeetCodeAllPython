@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README_EN.md
 rating: 1160
 source: Weekly Contest 489 Q1
 tags:
@@ -82,6 +81,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bulbs are numbered $1$ to $100$; each listing toggles that bulb. The array length is at most $100$, so we simulate.
+>
+> The final state depends only on the parity of each number's occurrences.
+>
+> XOR $1$ into a length-$101$ array and collect indices that remain $1$.
+>
+> Those indices are already in increasing order.
+
+<!-- thinking:end -->
 
 We use an array $\textit{st}$ of length $101$ to record the state of each light bulb. Initially, all elements are $0$, indicating that all light bulbs are in the off state. For each element $\textit{bulbs}[i]$ in the array $\textit{bulbs}$, we toggle the value of $\textit{st}[\textit{bulbs}[i]]$ (i.e., $0$ becomes $1$, and $1$ becomes $0$). Finally, we traverse the $\textit{st}$ array, add the indices with a value of $1$ to the result list, and return the result.
 

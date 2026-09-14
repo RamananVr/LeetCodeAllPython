@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README_EN.md
 tags:
     - Database
 ---
@@ -92,6 +91,18 @@ Each row of this table contains the ID and name of a product.
 <!-- solution:start -->
 
 ### Solution 1: Regex Matching
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need products whose names contain three consecutive digits. A hand-rolled scan easily misses boundaries between digits and letters or string ends.
+>
+> A single regular expression covers those cases. The pattern $(^|[^0-9])[0-9]{3}([^0-9]|$)$ matches an isolated run of three digits without treating a longer digit block as several overlapping hits in an uncontrolled way.
+>
+> We filter the frame with that pattern and sort by $\textit{product\_id}$ to match the required order.
+
+<!-- thinking:end -->
 
 We can use regular expressions to match product names that contain three consecutive digits.
 

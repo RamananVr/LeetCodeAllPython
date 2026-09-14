@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1681.Minimum%20Incompatibility/README_EN.md
 rating: 2389
 source: Weekly Contest 218 Q4
 tags:
@@ -71,6 +70,18 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + State Compression + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Partition into $k$ groups of distinct values, minimizing the sum of $(\max-\min)$. $n \le 16$ allows subset DP.
+>
+> Precompute incompatibility $g[i]$ for every size-$m=n/k$ subset without duplicates. $f[S]$ is the min cost of chosen index set $S$; transition over duplicate-free $m$-subsets of the complement.
+>
+> If $f[2^n-1]$ stays infinite, return $-1$.
+
+<!-- thinking:end -->
 
 Let's assume that the size of each subset after partitioning is $m$, so $m=\frac{n}{k}$, where $n$ is the length of the array.
 

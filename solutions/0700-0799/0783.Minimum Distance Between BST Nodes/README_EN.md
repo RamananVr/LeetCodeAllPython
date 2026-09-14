@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Inorder Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Minimum difference between any two BST values. Inorder is sorted, so the minimum lies between consecutive inorder values.
+>
+> Walk inorder, keep $\textit{pre}$, and update $\textit{ans}$ by $\textit{root.val}-\textit{pre}$.
+
+<!-- thinking:end -->
 
 The problem requires us to find the minimum difference between the values of any two nodes. Since the inorder traversal of a binary search tree is an increasing sequence, we only need to find the minimum difference between the values of two adjacent nodes in the inorder traversal.
 

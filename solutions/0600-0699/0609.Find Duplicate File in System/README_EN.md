@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicates are defined by equal content, but each path packs a directory and `name(content)` into one string. Pairwise comparison does not scale.
+>
+> Split the directory from file tokens, then split each token at the parenthesis. Group paths by content and keep buckets of size greater than $1$.
+
+<!-- thinking:end -->
 
 We create a hash table $d$, where the key is the file content and the value is a list of file paths with the same content.
 

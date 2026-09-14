@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README_EN.md
 tags:
     - Database
 ---
@@ -149,6 +148,16 @@ Each row assigns a category and price to a product.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need product pairs bought together by at least three users. Deduplicate user–product rows and self-join on $\textit{user\_id}$ to form ordered pairs.
+>
+> Aggregate distinct users per pair, join category information, and sort as required. An equi-join plus grouping replaces a triple nested loop.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

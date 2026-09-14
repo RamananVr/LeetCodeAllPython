@@ -4052,6 +4052,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4044  |  [Count Good Cyclic Rotations](4000-4099/4044.Count%20Good%20Cyclic%20Rotations/README_EN.md)  |    |  Medium  |  Weekly Contest 518  |
 |  4045  |  [Count Robot Groups](4000-4099/4045.Count%20Robot%20Groups/README_EN.md)  |    |  Medium  |  Weekly Contest 518  |
 |  4046  |  [Minimum Cost Path With At Most K Turns](4000-4099/4046.Minimum%20Cost%20Path%20With%20At%20Most%20K%20Turns/README_EN.md)  |    |  Hard  |  Weekly Contest 518  |
+|  4047  |  [Minimum Operations to Make XOR of All Elements Zero](4000-4099/4047.Minimum%20Operations%20to%20Make%20XOR%20of%20All%20Elements%20Zero/README_EN.md)  |    |  Hard  |  🔒  |
+|  4048  |  [Count Values With Equally Spaced Occurrences I](4000-4099/4048.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 191  |
+|  4049  |  [Count Values With Equally Spaced Occurrences II](4000-4099/4049.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 191  |
+|  4050  |  [Minimum Days to Score Exactly N Points](4000-4099/4050.Minimum%20Days%20to%20Score%20Exactly%20N%20Points/README_EN.md)  |    |  Medium  |  Biweekly Contest 191  |
+|  4051  |  [Count Subarrays with Distant Sums](4000-4099/4051.Count%20Subarrays%20with%20Distant%20Sums/README_EN.md)  |    |  Hard  |  Biweekly Contest 191  |
+|  4052  |  [Cyclically Shift Rows and Columns](4000-4099/4052.Cyclically%20Shift%20Rows%20and%20Columns/README_EN.md)  |    |  Easy  |  Weekly Contest 519  |
+|  4053  |  [Minimum Operations to Make Every Element Palindromic](4000-4099/4053.Minimum%20Operations%20to%20Make%20Every%20Element%20Palindromic/README_EN.md)  |    |  Medium  |  Weekly Contest 519  |
+|  4054  |  [Count Shadow Pairs I](4000-4099/4054.Count%20Shadow%20Pairs%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 519  |
+|  4055  |  [Count Shadow Pairs II](4000-4099/4055.Count%20Shadow%20Pairs%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 519  |
 
 ## Copyright
 

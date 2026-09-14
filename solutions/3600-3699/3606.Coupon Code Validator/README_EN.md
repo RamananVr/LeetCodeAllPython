@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md
 rating: 1312
 source: Weekly Contest 457 Q1
 tags:
@@ -89,6 +88,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$, filtering by the stated rules is enough. A valid coupon has a non-empty identifier of letters, digits, and underscores, a business line among the four allowed values, and an active flag.
+>
+> Collect qualifying indices, sort them by $(\textit{businessLine},\textit{code})$, then emit the identifiers. The sort keys match the required category order and lexicographic tie-break.
+
+<!-- thinking:end -->
 
 We can directly simulate the conditions described in the problem to filter out valid coupons. The specific steps are as follows:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README_EN.md
 rating: 2525
 source: Weekly Contest 464 Q4
 tags:
@@ -104,6 +103,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each robot fires left or right, clipped by its $\textit{distance}$ and by neighbors. $2^n$ assignments are impossible.
+>
+> After sorting by position, robot $i$'s choice depends only on robot $i+1$'s direction. $\textit{dfs}(i,j)$ is the best destruction after deciding $i$ with the next direction equal to $j$.
+>
+> A left shot is blocked by the previous robot; a right shot is blocked by the next robot and, if that one also fires left, by its range. Binary search counts walls in the surviving interval; memoization removes duplicate states.
+
+<!-- thinking:end -->
 
 We first store each robot with its range in an array and sort them by robot position. We also sort the wall positions. Next, we use depth-first search (DFS) to calculate the number of walls each robot can destroy, and use memoized search to avoid redundant calculations.
 

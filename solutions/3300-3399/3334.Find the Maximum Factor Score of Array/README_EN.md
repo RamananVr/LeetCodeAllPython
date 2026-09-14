@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README_EN.md
 rating: 1518
 source: Weekly Contest 421 Q1
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is $\gcd \times \operatorname{lcm}$ of the whole array or of the array after deleting one element. With $n \le 100$ we could recompute each deletion, but prefix/suffix aggregates answer each candidate in $O(1)$.
+>
+> Build suffix $\gcd$ and $\operatorname{lcm}$, then scan a prefix: deleting $i$ merges $\textit{pre}$ with $\textit{suf}[i+1]$.
+>
+> We also compare the no-deletion score $\textit{suf}[0]$ and keep the largest product.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

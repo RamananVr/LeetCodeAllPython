@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -71,6 +70,16 @@ and two 2s from [2,2,2,2] in 6 ways.
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count triples summing to $target$. Values lie in $[0,100]$ and $n\le 3000$, so a cubic enumeration is tight. Count frequencies, then enumerate $i<j$; the third value $c=target-a-b$ must lie after $j$.
+>
+> Decrement $b$ before looking up $c$, so the counter only represents the suffix, and each lookup is $O(1)$.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $cnt$ of length $101$ to count the occurrence of each element in the array $arr$.
 

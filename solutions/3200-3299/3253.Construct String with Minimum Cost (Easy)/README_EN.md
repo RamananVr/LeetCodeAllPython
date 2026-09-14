@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Construct%20String%20with%20Minimum%20Cost%20%28Easy%29/README_EN.md
 ---
 
 <!-- problem:start -->
@@ -75,6 +74,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 <!-- solution:start -->
 
 ### Solution 1: Trie + Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{target}$ has length $2000$ and there are at most $50$ words, so matching every word at every index would pass, but shared prefixes would be compared repeatedly. A trie lets one walk from $i$ produce every match end.
+>
+> $\textit{dfs}(i)$ is the cheapest way to build $\textit{target}[i:]$. Walking the trie to a node that stores a cost adds $\textit{dfs}(j+1)$. After memoization there are $n$ states, each walking $O(n)$.
+
+<!-- thinking:end -->
 
 We first create a Trie $\textit{trie}$, where each node in the Trie contains an array $\textit{children}$ of length $26$, and each element in the array is a pointer to the next node. Each node in the Trie also contains a $\textit{cost}$ variable, which represents the minimum cost from the root node to the current node.
 

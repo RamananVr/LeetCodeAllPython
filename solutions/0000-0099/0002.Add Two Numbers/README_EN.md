@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0002.Add%20Two%20Numbers/README_EN.md
 tags:
     - Recursion
     - Linked List
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to convert both lists to integers and add. Length is at most $100$, so big integers would pass, but the lists already store digits in reverse—this is column addition. Converting away from the list throws that structure away.
+>
+> The issue is not arithmetic volume: the lists may differ in length, and a final carry may remain. Each position is “the two digits (missing treated as $0$) plus $carry$”, then split into a new digit and a new carry.
+>
+> So we grow the answer from a dummy node and walk both lists together. The loop must continue while $l_1$, $l_2$, or $carry$ remains; otherwise $[9]+[1]$ drops the leading $1$.
+
+<!-- thinking:end -->
 
 We traverse two linked lists $l_1$ and $l_2$ at the same time, and use the variable $carry$ to indicate whether there is a carry.
 

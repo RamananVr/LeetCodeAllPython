@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md
 tags:
     - Stack
     - Array
@@ -86,6 +85,16 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 <!-- solution:start -->
 
 ### Solution 1: Stack + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Functions nest and we need exclusive time. Stepping the timeline second-by-second is impossible for large timestamps.
+>
+> A stack matches the nesting: on `start`, credit the top with $[pre, cur)$; on `end`, credit $[pre, cur]$ and set $pre=cur+1$. One pass over the logs.
+
+<!-- thinking:end -->
 
 We define a stack $\textit{stk}$ to store the identifiers of the currently executing functions. We also define an array $\textit{ans}$ to store the exclusive time of each function, initially setting the exclusive time of each function to $0$. We use a variable $\textit{pre}$ to record the previous timestamp.
 

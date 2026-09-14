@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1138.Alphabet%20Board%20Path/README_EN.md
 rating: 1410
 source: Weekly Contest 147 Q2
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters sit on a $5$-column board; we walk from one letter to the next. Ordinary cells have four neighbors, but `z` has only an upward neighbor, so moving down or right first can leave the board.
+>
+> For each letter move in the order left, up, right, down: finish left/up before right/down, so we never step off at `z`, then append `!`.
+
+<!-- thinking:end -->
 
 Starting from the origin point $(0, 0)$, simulate each step of the movement, appending the result of each step to the answer. Note that the direction of movement follows the order "left, up, right, down".
 

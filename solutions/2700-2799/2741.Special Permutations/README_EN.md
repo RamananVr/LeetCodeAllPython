@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2741.Special%20Permutations/README_EN.md
 rating: 2020
 source: Weekly Contest 350 Q3
 tags:
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count permutations in which every adjacent pair has one value dividing the other. $n\le 14$ makes $n!$ heavy, but the used set and the last index determine the rest.
+>
+> Let $f[i][j]$ be the number of ways to use mask $i$ and end at index $j$. A singleton mask is $1$; otherwise sum $f[i\oplus 2^j][k]$ over previous indices $k$ that satisfy the divisibility condition. Sum the full mask and reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We notice that the maximum length of the array in the problem does not exceed $14$. Therefore, we can use an integer to represent the current state, where the $i$-th bit is $1$ if the $i$-th number in the array has been selected, and $0$ if it has not been selected.
 

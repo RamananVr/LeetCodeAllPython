@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1845.Seat%20Reservation%20Manager/README_EN.md
 rating: 1428
 source: Biweekly Contest 51 Q2
 tags:
@@ -67,6 +66,16 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must always reserve the smallest free seat and later release seats. Scanning a boolean array for the minimum free index is $O(n)$ per call.
+>
+> Store free seat numbers in a min-heap: $\textit{reserve}$ pops the top, $\textit{unreserve}$ pushes the number back. Both updates are logarithmic.
+
+<!-- thinking:end -->
 
 We define a priority queue (min-heap) $\textit{q}$ to store all the available seat numbers. Initially, we add all seat numbers from $1$ to $n$ into $\textit{q}$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README_EN.md
 rating: 1885
 source: Weekly Contest 172 Q4
 tags:
@@ -65,6 +64,16 @@ Opening Only the second tap will water the whole garden [0,5]
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each tap covers $[i-r_i,i+r_i]$; we want the fewest taps that cover $[0,n]$. Subset search is impossible for $n \le 10^4$. Among taps that cover the same left end, the one that reaches farthest right is best, which is the jump-game setting: store in $\textit{last}[l]$ the farthest right reachable from $l$.
+>
+> Scanning positions, we keep the current reach $mx$ and the previous segment end $\textit{pre}$; hitting $\textit{pre}$ opens one more tap. If $mx \le i$ at any point, coverage fails.
+
+<!-- thinking:end -->
 
 We note that for all taps that can cover a certain left endpoint, choosing the tap that can cover the farthest right endpoint is optimal.
 

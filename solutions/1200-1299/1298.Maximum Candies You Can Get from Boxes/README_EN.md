@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README_EN.md
 rating: 1824
 source: Weekly Contest 168 Q4
 tags:
@@ -78,6 +77,16 @@ The total number of candies will be 6.
 <!-- solution:start -->
 
 ### Solution 1: BFS + Hash Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A box opens only if we hold it and it is open (or we have its key). Boxes and keys nest; $n \le 1000$ suggests BFS on currently openable boxes.
+>
+> $has$ is the set of boxes we own; $took$ avoids reprocessing. The queue holds open, not-yet-processed boxes: we use their keys to unlock closed boxes and add nested boxes to $has$. Initially open boxes enter the queue and add candy; each later opening adds candy once.
+
+<!-- thinking:end -->
 
 The problem gives a set of boxes, each of which may have a state (open/closed), candies, keys, and other boxes inside. Our goal is to use the initially given boxes to open as many more boxes as possible and collect the candies inside. We can unlock new boxes by obtaining keys, and get more resources through boxes nested inside other boxes.
 

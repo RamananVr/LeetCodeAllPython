@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README_EN.md
 rating: 2189
 source: Weekly Contest 139 Q4
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four nested loops over a $100\times 100$ matrix are $O(n^4)$. Fixing the top and bottom rows compresses each column to a sum, leaving “subarrays that add to $\textit{target}$” on a 1-D array.
+>
+> That 1-D count uses a prefix-sum map: after adding $x$, look up $s-\textit{target}$. There are $O(n^2)$ row pairs and a linear scan per pair.
+>
+> Sum $f(\textit{col})$ over every pair of bounds.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

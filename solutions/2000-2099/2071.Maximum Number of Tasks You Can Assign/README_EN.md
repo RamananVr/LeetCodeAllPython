@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2071.Maximum%20Number%20of%20Tasks%20You%20Can%20Assign/README_EN.md
 rating: 2648
 source: Biweekly Contest 65 Q4
 tags:
@@ -84,6 +83,18 @@ The last pill is not given because it will not make any worker strong enough for
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of tasks $x$ is monotone. Checks must be near-linear for $n,m \le 5 \times 10^4$. Assign the $x$ hardest tasks to the $x$ strongest workers.
+>
+> Workers go from weakest to strongest among those $x$: if possible, take the easiest remaining task without a pill; otherwise pill the hardest. A deque stores currently affordable tasks.
+>
+> Binary-search the largest feasible $x$.
+
+<!-- thinking:end -->
 
 Sort the tasks in ascending order of completion time and the workers in ascending order of ability.
 

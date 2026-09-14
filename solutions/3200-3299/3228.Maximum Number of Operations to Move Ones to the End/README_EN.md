@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3228.Maximum%20Number%20of%20Operations%20to%20Move%20Ones%20to%20the%20End/README_EN.md
 rating: 1593
 source: Weekly Contest 407 Q3
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation turns a $10$ into $01$, shifting a $1$ one step right. $n\le 10^5$, so simulating every shift may be quadratic. An operation is “some $1$ crossing the next $0$”, and every $1$ already seen can cross each later $0$-run.
+>
+> Count ones in $\textit{cnt}$; at a $1\to 0$ boundary those $\textit{cnt}$ ones can each move once more, so add $\textit{cnt}$. One linear pass.
+
+<!-- thinking:end -->
 
 We use a variable $\textit{ans}$ to record the answer and another variable $\textit{cnt}$ to count the current number of $1$s.
 

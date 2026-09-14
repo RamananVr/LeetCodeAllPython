@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README_EN.md
 rating: 1195
 source: Weekly Contest 156 Q1
 tags:
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 1000$ it suffices to count each value and test that those frequencies are unique. One pass builds the counts; a set of the frequencies has the same size as the number of distinct values iff every frequency appears once.
+
+<!-- thinking:end -->
 
 We use a hash table $cnt$ to count the frequency of each number in the array $arr$, and then use another hash table $vis$ to count the types of frequencies. Finally, we check whether the sizes of $cnt$ and $vis$ are equal.
 

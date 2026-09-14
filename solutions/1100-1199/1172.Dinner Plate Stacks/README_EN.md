@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md
 rating: 2109
 source: Weekly Contest 151 Q4
 tags:
@@ -92,6 +91,14 @@ D.pop()            // Returns -1.  There are still no stacks.
 <!-- solution:start -->
 
 ### Solution 1: Stack Array + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `push` must hit the leftmost non-full stack and `pop` the rightmost non-empty one, plus `popAtStack`. Scanning from the left each time is slow under many operations. An array of stacks plus a sorted set of non-full indices makes the leftmost hole the set minimum; a pop that creates a hole reinserts the index, and trailing empty stacks are trimmed so `pop` sees the last live stack.
+
+<!-- thinking:end -->
 
 We define the following data structures or variables:
 

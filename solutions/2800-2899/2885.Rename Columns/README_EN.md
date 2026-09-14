@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2885.Rename%20Columns/README_EN.md
 tags:
     - Pandas
 ---
@@ -70,6 +69,14 @@ The column names are changed accordingly.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four column names must be remapped. A single `rename(columns=...)` applies the mapping without relying on positional order.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

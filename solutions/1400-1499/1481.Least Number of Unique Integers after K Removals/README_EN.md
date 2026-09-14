@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README_EN.md
 rating: 1284
 source: Weekly Contest 193 Q2
 tags:
@@ -57,6 +56,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After $k$ deletions we want as few distinct values as possible, so delete the rarest first. Sort frequencies and spend $k$ on them; when $k$ runs out, the leftover distinct count is the answer.
+
+<!-- thinking:end -->
 
 We use the hash table $cnt$ to count the number of times each integer in the array $arr$ appears, and then sort the values in $cnt$ in ascending order, and record them in the array $nums$.
 

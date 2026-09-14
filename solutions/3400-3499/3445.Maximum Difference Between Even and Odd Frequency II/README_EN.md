@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README_EN.md
 rating: 2693
 source: Weekly Contest 435 Q4
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Character Pairs + Sliding Window + Prefix State Compression
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, we maximize an odd frequency $a$ minus an even frequency $b$ over substrings of length at least $k$. Five characters, but $O(n^2)$ substrings.
+>
+> $f_a-f_b$ is a difference of prefix counts. Parity constraints compress the prefix into two bits, so a sliding left end queries the minimum $\textit{preA}-\textit{preB}$.
+>
+> For each pair $(a,b)$ we advance $r$, shrink $l$ once the length and the count of $b$ allow, store the best prefix difference per parity in $t[2][2]$, and combine it with $\textit{curA}-\textit{curB}$.
+
+<!-- thinking:end -->
 
 We want to find a substring $\textit{subs}$ of string $s$ that satisfies the following conditions:
 

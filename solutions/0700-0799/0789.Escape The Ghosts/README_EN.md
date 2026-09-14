@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0789.Escape%20The%20Ghosts/README_EN.md
 tags:
     - Array
     - Math
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> You and the ghosts move at once. A ghost whose Manhattan distance to the target is at most yours can intercept.
+>
+> You escape iff every ghost is strictly farther from the target than you are (from the origin).
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

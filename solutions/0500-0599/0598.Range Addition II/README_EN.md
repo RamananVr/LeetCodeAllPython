@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0598.Range%20Addition%20II/README_EN.md
 tags:
     - Array
     - Math
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each update adds one to a top-left submatrix. The final maximum equals the number of updates, and it occupies the intersection of those submatrices. Every update starts at $(0,0)$, so the intersection is $\min a_i$ by $\min b_i$.
+>
+> One pass over the operations; the product is the answer. No $m \times n$ difference array is required.
+
+<!-- thinking:end -->
 
 We notice that the intersection of all operation submatrices is the submatrix where the final maximum integer is located, and each operation submatrix starts from the top-left corner $(0, 0)$. Therefore, we traverse all operation submatrices to find the minimum number of rows and columns. Finally, we return the product of these two values.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README_EN.md
 rating: 1329
 source: Weekly Contest 390 Q1
 tags:
@@ -55,6 +54,18 @@ The following substring has a length of 2 and contains at most two occurrences o
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every character in the substring may appear at most twice. $n \le 100$ would allow enumeration, but the constraint is a classic sliding window.
+>
+> After the right end absorbs a character, if some count exceeds $2$ the left end must advance until that count is back to $2$. A valid window updates the maximum length.
+>
+> A hash of counts plus two pointers does this in one pass.
+
+<!-- thinking:end -->
 
 We use two pointers $l$ and $r$ to maintain a sliding window, and an array $cnt$ to record the occurrence times of each character in the window.
 

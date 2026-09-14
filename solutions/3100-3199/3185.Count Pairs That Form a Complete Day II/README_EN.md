@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3185.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20II/README_EN.md
 rating: 1385
 source: Weekly Contest 402 Q2
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The predicate matches part I but $n$ reaches $10^5$, so a double loop fails. Counts of seen remainders still suffice.
+>
+> The complementary residue is unchanged; a map or a length-$24$ array works.
+>
+> Scan left to right, add $cnt[(24-x\bmod 24)\bmod 24]$, then increment $cnt[x\bmod 24]$.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $\textit{cnt}$ of length $24$ to record the occurrence count of each hour modulo $24$.
 

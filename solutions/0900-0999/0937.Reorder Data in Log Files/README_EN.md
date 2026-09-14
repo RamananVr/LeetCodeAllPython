@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README_EN.md
 tags:
     - Array
     - String
@@ -70,6 +69,14 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 <!-- solution:start -->
 
 ### Solution 1: Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letter-logs sort by content then identifier; digit-logs keep their relative order and come last. A stable key does this in one sort: letter-logs use $(0,\textit{content},\textit{id})$, digit-logs use $(1,)$.
+
+<!-- thinking:end -->
 
 We can use a custom sorting method to divide the logs into two categories: letter logs and digit logs.
 

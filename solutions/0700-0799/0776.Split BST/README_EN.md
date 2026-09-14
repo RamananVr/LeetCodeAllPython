@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0776.Split%20BST/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -53,6 +52,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split a BST into $\le target$ and $>target$, both still BSTs. The tree is tiny; recurse on the root versus the target.
+>
+> If the root is $\le target$, the whole left tree stays with it and we split the right, reattaching the smaller piece. The other case is symmetric.
+>
+> Return the two roots; null yields two nulls.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

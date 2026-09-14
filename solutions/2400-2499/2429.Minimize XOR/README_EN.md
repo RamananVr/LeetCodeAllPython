@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2429.Minimize%20XOR/README_EN.md
 rating: 1532
 source: Weekly Contest 313 Q3
 tags:
@@ -65,6 +64,16 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $x$ must have the same popcount as $num2$ and minimize $x\oplus num1$, so $x$ should reuse $num1$'s high $1$-bits. At most $31$ bits, greedy by position works.
+>
+> First take $num1$'s $1$-bits from high to low; if slots remain, fill $num1$'s $0$-bits from low to high so the XOR does not grow in high bits.
+
+<!-- thinking:end -->
 
 According to the problem description, we first calculate the number of set bits in $\textit{num2}$, denoted as $\textit{cnt}$. Then, we iterate from the highest to the lowest bit of $\textit{num1}$; if the current bit is $1$, we set the corresponding bit in $x$ to $1$ and decrement $\textit{cnt}$, until $\textit{cnt}$ becomes $0$. If $\textit{cnt}$ is still not $0$, we iterate from the lowest bit upwards, setting positions where $\textit{num1}$ has $0$ to $1$ in $x$, and decrement $\textit{cnt}$ until it reaches $0$.
 

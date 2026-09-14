@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1144.Decrease%20Elements%20To%20Make%20Array%20Zigzag/README_EN.md
 rating: 1558
 source: Weekly Contest 148 Q1
 tags:
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only decrease values. A zigzag is either “even indices smaller” or “odd indices smaller”; compute both and keep the cheaper. For an index that must become smaller, the needed decrease is determined by its two neighbors, and those positions do not interfere.
+
+<!-- thinking:end -->
 
 We can separately enumerate the even and odd positions as the elements "smaller than adjacent elements", and then calculate the required number of operations. The minimum of the two is taken.
 

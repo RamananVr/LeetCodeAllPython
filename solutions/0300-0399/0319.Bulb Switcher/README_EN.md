@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0319.Bulb%20Switcher/README_EN.md
 tags:
     - Brainteaser
     - Math
@@ -61,6 +60,16 @@ So you should return 1 because there is only one bulb is on.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bulb $i$ is toggled once per divisor of $i$ and ends on iff that count is odd. Simulating $n$ rounds is $O(n\log n)$, while $n$ may be $10^9$.
+>
+> Divisors pair except for perfect squares. The number of squares in $1\ldots n$ is $\lfloor\sqrt{n}\rfloor$, which is the answer.
+
+<!-- thinking:end -->
 
 We can number the $n$ bulbs as $1, 2, 3, \cdots, n$. For the $i$-th bulb, it will be operated in the $d$-th round if and only if $d$ is a factor of $i$.
 

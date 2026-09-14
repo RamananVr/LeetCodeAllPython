@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -49,6 +48,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is a linear scan that records the first and last hits. Correct, but $n \le 10^5$ and the problem requires $O(\log n)$. Expanding outward from one match is still $O(n)$ in the worst case.
+>
+> The array is non-decreasing, so the two endpoints are separate binary-search questions; we need not find both in one pass.
+>
+> The left endpoint is the first index $\ge target$; the right endpoint is the first index $\ge target+1$, minus one. Two lower-bound queries suffice; if they land on the same index, $target$ is absent.
+
+<!-- thinking:end -->
 
 We can perform two binary searches to find the left boundary and the right boundary.
 

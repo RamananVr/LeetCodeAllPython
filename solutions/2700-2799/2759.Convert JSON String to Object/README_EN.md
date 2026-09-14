@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2759.Convert%20JSON%20String%20to%20Object/README_EN.md
 tags:
     - JavaScript
 ---
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Parse a well-formed JSON string without $eval$ or $JSON.parse$. Splitting with regular expressions does not handle nesting or escapes.
+>
+> Keep an index $i$ and dispatch on the current character: recursive parsers for objects, arrays, strings, numbers, and the three literals. Strings honor backslashes; composites stop at commas or closing brackets. One call from the root parses the value.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

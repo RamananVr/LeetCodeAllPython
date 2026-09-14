@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README_EN.md
 rating: 1252
 source: Weekly Contest 279 Q1
 tags:
@@ -75,6 +74,18 @@ The resultant array formed is [2,1], which is the same as the initial array.
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even indices sort ascending and odd indices descending; the two groups do not interact. Extract, sort, and write back.
+>
+> Assign sorted $\textit{nums}[::2]$ and reverse-sorted $\textit{nums}[1::2]$.
+>
+> Sorting dominates the running time.
+
+<!-- thinking:end -->
 
 We can extract the elements at odd and even indices separately, then sort the array of odd indices in non-increasing order and the array of even indices in non-decreasing order. Finally, merge the two arrays back together.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0838.Push%20Dominoes/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -66,6 +65,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Multi-Source BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Dominoes fall simultaneously; opposing forces cancel. $n\le 10^5$, so a full-board tick simulation is slow. Force spreads from already-fallen tiles, which is a multi-source BFS.
+>
+> Enqueue every initial $L$ and $R$. A cell falls only if it receives a single force at that time; both directions in the same second leave it upright. Layering by time yields the final string.
+
+<!-- thinking:end -->
 
 Treat all initially pushed dominoes (`L` or `R`) as **sources**, which simultaneously propagate their forces outward. Use a queue to perform BFS layer by layer (0, 1, 2, ...):
 

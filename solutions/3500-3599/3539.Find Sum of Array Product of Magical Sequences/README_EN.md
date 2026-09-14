@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README_EN.md
 rating: 2693
 source: Weekly Contest 448 Q4
 tags:
@@ -91,6 +90,16 @@ A sequence of integers <code>seq</code> is called <strong>magical</strong> if:
 <!-- solution:start -->
 
 ### Solution 1: Combinatorics + Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sequence of length $m$ draws from $\textit{nums}$; the product’s contribution depends on the popcount of the frequency vector after binary carrying. Enumerating sequences is impossible.
+>
+> Assign a multiplicity $t$ to $\textit{nums}[i]$ with weight $\binom{j}{t} \cdot \textit{nums}[i]^t$. The carry and remaining popcount update from $t+\textit{st}$. Memoize $\textit{dfs}(i,j,k,\textit{st})$ and invert factorials for the binomials.
+
+<!-- thinking:end -->
 
 We design a function $\text{dfs}(i, j, k, st)$, which represents the number of ways when we are currently processing the $i$-th element of array $\textit{nums}$, still need to select numbers from the remaining $j$ positions to fill into the magical sequence, still need to satisfy having $k$ set bits in binary form, and the current carry from the previous bit is $st$. Then the answer is $\text{dfs}(0, m, k, 0)$.
 

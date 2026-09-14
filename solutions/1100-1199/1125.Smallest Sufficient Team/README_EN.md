@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md
 rating: 2250
 source: Weekly Contest 145 Q4
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $m\le 16$ skills, so skill sets fit in $2^m$ states, whereas choosing people is $2^n$. Encode each person as a mask $p[j]$ and let $f[i]$ be the smallest team covering skill set $i$.
+>
+> From a reached $i$, add person $j$ and move to $i\mid p[j]$. Arrays $g$ and $h$ remember the last person and previous state so the index list can be reconstructed from the full mask.
+
+<!-- thinking:end -->
 
 We notice that the length of `req_skills` does not exceed $16$, so we can use a binary number of length no more than $16$ to represent whether each skill is mastered. Let's denote the length of `req_skills` as $m$ and the length of `people` as $n$.
 

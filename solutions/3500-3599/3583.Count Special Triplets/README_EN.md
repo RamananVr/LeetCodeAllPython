@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3583.Count%20Special%20Triplets/README_EN.md
 rating: 1509
 source: Weekly Contest 454 Q2
 tags:
@@ -115,6 +114,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Middle Number + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special triple has $nums[i]=nums[k]=2\cdot nums[j]$. Enumerating the two ends is quadratic. Fix the middle $j$ and multiply the counts of $2x$ on each side.
+>
+> Load every value into $\textit{right}$. Scan $x$ from the left: decrement it on the right, add $\textit{left}[2x]\cdot\textit{right}[2x]$, then increment it on the left. Reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We can enumerate the middle number $\textit{nums}[j]$, and use two hash tables, $\textit{left}$ and $\textit{right}$, to record the occurrence counts of numbers to the left and right of $\textit{nums}[j]$, respectively.
 

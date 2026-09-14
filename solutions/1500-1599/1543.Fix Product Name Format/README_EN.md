@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README_EN.md
 tags:
     - Database
 ---
@@ -82,6 +81,16 @@ In March, one matryoshka was sold.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Product names mix case and stray spaces, and we must total sales by month. Grouping the raw column would split one product into several keys.
+>
+> Trim and lower-case the name, format the date as year-month, then group by those two columns and count. A CTE performs the cleanup; the outer query only aggregates and sorts.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

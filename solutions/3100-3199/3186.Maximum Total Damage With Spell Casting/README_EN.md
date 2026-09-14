@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3186.Maximum%20Total%20Damage%20With%20Spell%20Casting/README_EN.md
 rating: 1840
 source: Weekly Contest 402 Q3
 tags:
@@ -72,6 +71,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Taking damage $x$ forbids every other value in $[x-2,x+2]$, while equal $x$ may all be taken. Subsets of distinct damages are exponential.
+>
+> After sorting the choice is: skip every copy of the current value, or take them all and jump to the first value $>x+2$. That jump is a binary search.
+>
+> Memoize $dfs(i)=\max(dfs(i+cnt[x]),\,x\cdot cnt[x]+dfs(nxt[i]))$. Each distinct damage expands once.
+
+<!-- thinking:end -->
 
 We can first sort the array $\textit{power}$, use a hash table $\textit{cnt}$ to record the occurrence count of each damage value, and then iterate through the array $\textit{power}$. For each damage value $x$, we can determine the index of the next damage value that can be used when using a spell with damage value $x$, which is the index of the first damage value greater than $x + 2$. We can use binary search to find this index and record it in the array $\textit{nxt}$.
 

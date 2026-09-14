@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README_EN.md
 tags:
     - Array
     - String
@@ -65,6 +64,16 @@ There are a total of 2 lines, and the last line is 4 pixels wide.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each letter has a known width and every line holds at most $100$ units. The string is short enough to simulate in one pass.
+>
+> If the current letter does not fit, start a new line with that letter’s width. Return the number of lines and the width used on the last line.
+
+<!-- thinking:end -->
 
 We define two variables `lines` and `last`, representing the number of lines and the width of the last line, respectively. Initially, `lines = 1` and `last = 0`.
 

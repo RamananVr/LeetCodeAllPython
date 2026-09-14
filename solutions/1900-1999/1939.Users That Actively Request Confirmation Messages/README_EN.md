@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1939.Users%20That%20Actively%20Request%20Confirmation%20Messages/README_EN.md
 tags:
     - Database
 ---
@@ -101,6 +100,16 @@ User 7 requested two messages within 24 hours and 1 second of each other, so we 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user is active if two confirmation timestamps fall within $24$ hours. A self-join states that condition directly.
+>
+> Join $\texttt{Confirmations}$ to itself on $\texttt{user\_id}$ with $c_1$ earlier than $c_2$ and a second difference of at most one day, then take distinct users.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

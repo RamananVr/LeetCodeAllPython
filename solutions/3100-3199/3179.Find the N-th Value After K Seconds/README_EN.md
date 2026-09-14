@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3179.Find%20the%20N-th%20Value%20After%20K%20Seconds/README_EN.md
 rating: 1369
 source: Weekly Contest 401 Q2
 tags:
@@ -121,6 +120,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each second every entry becomes a prefix sum. The closed form is $\binom{n+k-1}{n-1}$, but $n,k\le 1000$ makes a direct simulation simpler under a modulus.
+>
+> The array length stays $n$, so prefix sums can be written in place from the left.
+>
+> Start from all ones, repeat $a[i]+=a[i-1]$ modulo $10^9+7$ for $k$ seconds, and return $a[n-1]$.
+
+<!-- thinking:end -->
 
 We notice that the range of the integer $n$ is $1 \leq n \leq 1000$, so we can directly simulate this process.
 

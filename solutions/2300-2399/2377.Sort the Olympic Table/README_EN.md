@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md
 tags:
     - Database
 ---
@@ -81,6 +80,16 @@ Israel comes before Egypt because it has more bronze medals.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The table is ordered by gold, silver, bronze descending, then country ascending. No extra aggregates are required.
+>
+> $ORDER\ BY$ columns $2,3,4$ descending and column $1$ ascending prints the whole table.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

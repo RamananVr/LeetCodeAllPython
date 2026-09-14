@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2271.Maximum%20White%20Tiles%20Covered%20by%20a%20Carpet/README_EN.md
 rating: 2021
 source: Biweekly Contest 78 Q3
 tags:
@@ -66,6 +65,16 @@ It covers 2 white tiles, so we return 2.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A carpet of length $\textit{carpetLen}$ covers disjoint tile intervals. Placing the left end inside a tile never beats aligning it with some tile's left endpoint, so we only try those placements.
+>
+> Sort tiles by left end. A pointer $j$ keeps the farthest fully covered tile and $s$ their total length. A partially covered next tile adds $li+\textit{carpetLen}-tiles[j][0]$. $j$ only moves forward.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

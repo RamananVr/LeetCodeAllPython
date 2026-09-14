@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README_EN.md
 tags:
     - JavaScript
 ---
@@ -71,6 +70,16 @@ Primitive types are valid inputs.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `JSON.stringify` is forbidden, so each type must emit valid JSON text. Nested objects and arrays require recursion; the input is acyclic.
+>
+> `null`, strings, numbers, and booleans have fixed literals; arrays and objects wrap recursive entries, and keys reuse the string rule.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

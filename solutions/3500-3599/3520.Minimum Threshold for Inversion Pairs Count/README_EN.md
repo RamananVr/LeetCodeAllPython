@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3520.Minimum%20Threshold%20for%20Inversion%20Pairs%20Count/README_EN.md
 tags:
     - Binary Indexed Tree
     - Segment Tree
@@ -98,6 +97,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A larger threshold only adds inversion pairs whose difference is at most that threshold, so the count is monotone. With $n \le 10^4$, binary-search the threshold.
+>
+> For a candidate $x$, a Fenwick tree (or merge sort) counts pairs with difference in $(0, x]$. The smallest $x$ whose count is at least $k$ is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

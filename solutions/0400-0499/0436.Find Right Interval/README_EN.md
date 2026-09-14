@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0436.Find%20Right%20Interval/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -67,6 +66,18 @@ The right interval for [2,3] is [3,4] since start<sub>2</sub> = 3 is the smalles
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each interval wants the leftmost start that is at least its end. A linear scan per end is $O(n^2)$.
+>
+> Sort $(\textit{start},\textit{index})$ by start and, for every end, binary-search the first start $\ge$ that end.
+>
+> Sorted starts are monotone, so the first feasible start is the closest one. Storing the original index survives the sort.
+
+<!-- thinking:end -->
 
 We can store the start point and index of each interval into an array `arr`, and sort it by the start point. Then we iterate through the interval array, for each interval `[_, ed]`, we can use binary search to find the first interval whose start point is greater than or equal to `ed`, which is its right-side interval. If found, we store its index into the answer array, otherwise, we store `-1`.
 

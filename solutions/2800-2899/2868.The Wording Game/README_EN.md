@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md
 tags:
     - Greedy
     - Array
@@ -89,6 +88,14 @@ So Alice wins, and the game ends.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both word lists are sorted. A legal reply is either the same first letter and a larger string, or a first letter exactly one greater. Each player always takes the earliest remaining legal word, so two pointers simulate the game without search.
+
+<!-- thinking:end -->
 
 We use $k$ to record whose turn it is, where $k=0$ means it is Alice's turn, and $k=1$ means it is Bob's turn. We use $i$ to record Alice's index, $j$ to record Bob's index, and $w$ to record the current word. Initially, we set $i=1$, $j=0$, and $w=a[0]$.
 

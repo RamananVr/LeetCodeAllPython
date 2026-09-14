@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1963.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20String%20Balanced/README_EN.md
 rating: 1688
 source: Weekly Contest 253 Q3
 tags:
@@ -81,6 +80,16 @@ The resulting string is &quot;[[][]]&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Any two brackets may be swapped. After matching, the leftover is some `]`s followed by `[`s.
+>
+> If $x$ left brackets remain unmatched, each swap of the two ends removes two of them, so $\lfloor(x+1)/2\rfloor$ swaps suffice. One counter computes $x$.
+
+<!-- thinking:end -->
 
 We use a variable $x$ to record the current number of unmatched left brackets. We traverse the string $s$, for each character $c$:
 

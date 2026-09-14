@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README_EN.md
 tags:
     - Array
     - Interactive
@@ -116,6 +115,14 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the previous problem, $\textit{read}$ is called many times, so leftover characters from the last $\textit{read4}$ must be kept. Store the 4-slot buffer plus its cursor and size on the instance: refill only when empty, otherwise drain the leftover. The file pointer advances once across calls.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

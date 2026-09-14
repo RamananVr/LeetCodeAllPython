@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0038.Count%20and%20Say/README_EN.md
 tags:
     - String
 ---
@@ -72,6 +71,18 @@ countAndSay(4) = RLE of &quot;21&quot; = &quot;1211&quot;
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The definition itself is “the $n$-th term describes the $(n-1)$-th”, so there is no cheaper closed form. $n \le 30$, so we can start from `"1"` and iterate $n-1$ times.
+>
+> Each term is a run-length encoding of the previous one: a streak of the same character becomes “count + character”.
+>
+> Two pointers walk the current string $s$ and append each run’s length and character to a new string. The follow-up asks for an iterative solution, which also avoids a recursion stack.
+
+<!-- thinking:end -->
 
 The task requires outputting the appearance sequence of the $n$-th item, where the $n$-th item is the description of the $n-1$-th item in the sequence. Therefore, we iterate $n-1$ times. In each iteration, we use fast and slow pointers, denoted as j and i respectively, to record the current character's position and the position of the next character that is not equal to the current character. We then update the sequence of the previous item to be $j-i$ occurrences of the current character.
 

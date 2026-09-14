@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README_EN.md
 tags:
     - Database
 ---
@@ -108,6 +107,16 @@ There are 4 unique accepted requests, and there are 5 requests in total. So the 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The accept rate is distinct accepted pairs over distinct request pairs, or $0$ when there are no requests. Two distinct counts suffice.
+>
+> `COUNT(DISTINCT ...)` on each table, `IFNULL` for a zero denominator, then `ROUND` to two places. No join is required.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

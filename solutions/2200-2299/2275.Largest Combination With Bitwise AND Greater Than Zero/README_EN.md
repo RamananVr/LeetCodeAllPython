@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README_EN.md
 rating: 1642
 source: Weekly Contest 293 Q3
 tags:
@@ -67,6 +66,16 @@ The size of the combination is 2, so we return 2.
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subset has a positive AND iff some bit is $1$ in every chosen number. The largest such subset is therefore the maximum pop-count of any single bit. $n \le 10^5$ forbids enumerating subsets.
+>
+> For each bit $i$, count how many $x$ have that bit set and take the maximum. The bit width follows the largest value.
+
+<!-- thinking:end -->
 
 The problem requires finding the maximum length of a combination of numbers where the bitwise AND result is greater than $0$. This implies that there must be a certain binary bit where all numbers have a $1$ at that position. Therefore, we can enumerate each binary bit and count the number of $1$s at that bit position for all numbers. Finally, we take the maximum count.
 

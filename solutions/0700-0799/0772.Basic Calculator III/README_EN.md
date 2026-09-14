@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0772.Basic%20Calculator%20III/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Evaluate $+,-,*,/$ and parentheses. $n\le 10^4$. Multiplication and division bind immediately to the stack top; addition pushes a signed term and we sum at the end.
+>
+> A `(` starts a recursive evaluation until `)`; the result is the current number. A deque consumes the string once.
+>
+> $\textit{sign}$ is the previous operator; at each new operator we apply it to $\textit{num}$. Division truncates toward zero.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

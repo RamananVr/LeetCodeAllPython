@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3450.Maximum%20Students%20on%20a%20Single%20Bench/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -99,6 +98,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A student may appear several times on the same bench; we want the maximum number of distinct students. There are at most $100$ rows.
+>
+> A set deduplicates more directly than sorting and counting.
+>
+> A hash map from bench id to a set of student ids, then the maximum set size, or $0$ on empty input.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to store the students on each bench, where the key is the bench number and the value is a set containing the student IDs on that bench.
 

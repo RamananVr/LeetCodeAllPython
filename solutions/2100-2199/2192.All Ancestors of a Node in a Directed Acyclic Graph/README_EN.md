@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README_EN.md
 rating: 1787
 source: Biweekly Contest 73 Q3
 tags:
@@ -78,6 +77,18 @@ The above diagram represents the input graph.
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List every ancestor of each node in a DAG, sorted by id. Reverse DFS from every node repeats shared in-edges and still needs sorting. With $n\le 1000$ we can walk descendants of each $i$ and append $i$ to those lists, which is already sorted by $i$.
+>
+> Build the adjacency list, BFS from every $i$, and record $i$ on every reachable node. A visited set prevents re-enqueue.
+>
+> Each answer row is increasing because sources are enumerated in order.
+
+<!-- thinking:end -->
 
 First, we construct the adjacency list $g$ based on the two-dimensional array $edges$, where $g[i]$ represents all successor nodes of node $i$.
 

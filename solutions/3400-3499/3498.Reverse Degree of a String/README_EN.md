@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README_EN.md
 rating: 1201
 source: Biweekly Contest 153 Q1
 tags:
@@ -132,6 +131,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The reverse degree is the reversed-alphabet rank of each letter times its $1$-based index, summed. $|s|\le 1000$, so one scan is enough.
+>
+> $\texttt{a}$ maps to $26$ and $\texttt{z}$ to $1$, i.e. $26-(\textit{ord}(c)-\textit{ord}(\texttt{a}))$.
+>
+> Enumerate $(i,c)$ with $i$ starting at $1$ and add the product.
+
+<!-- thinking:end -->
 
 We can simulate the reverse degree of each character in the string. For each character, calculate its position in the reverse alphabet, multiply it by its position in the string, and then sum up all the results.
 

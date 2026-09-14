@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README_EN.md
 rating: 2220
 source: Weekly Contest 437 Q3
 tags:
@@ -86,6 +85,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special substring is the span from a letter's first to last occurrence, and every letter inside must stay inside that span. $n\le 5\times 10^4$, $k\le 26$.
+>
+> Each letter yields at most one candidate interval. Selecting $k$ disjoint ones is an interval-graph independent set, solvable by sorting right ends.
+>
+> Compute $[\textit{first},\textit{last}]$ for $26$ letters, close each interval under contained letters, sort by right end, and greedily pick. Feasible if at least $k$ intervals are taken.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

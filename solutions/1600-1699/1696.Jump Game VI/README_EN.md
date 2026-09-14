@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1696.Jump%20Game%20VI/README_EN.md
 rating: 1954
 source: Weekly Contest 220 Q3
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Monotonic Queue Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $i$ we may jump into $(i,i+k]$, adding the landing value, and want the best score at the end. Naive $f[i]=nums[i]+\max_{i-k \le j < i} f[j]$ is $O(nk)$ for $n=10^5$.
+>
+> A decreasing deque of indices holds the window maximum: $f[q[0]]$ is the best predecessor; the back drops worse $f$ values and the front drops indices that left the window.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the maximum score when reaching index $i$. The value of $f[i]$ can be transferred from $f[j]$, where $j$ satisfies $i - k \leq j \leq i - 1$. Therefore, we can use dynamic programming to solve this problem.
 

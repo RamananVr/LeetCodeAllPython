@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md
 rating: 1588
 source: Weekly Contest 361 Q2
 tags:
@@ -70,6 +69,14 @@ It can be shown that 1 is the minimum number of operations required to get a spe
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special number is $0$ modulo $25$, and any digits may be deleted. $dfs(i,k)$ is the fewest deletions from index $i$ with current remainder $k$: delete the digit and keep $k$, or keep it and move to $(k\cdot 10+d)\bmod 25$.
+
+<!-- thinking:end -->
 
 We notice that an integer $x$ can be divisible by $25$, i.e., $x \bmod 25 = 0$. Therefore, we can design a function $dfs(i, k)$, which represents the minimum number of digits to be deleted to make the number a special number, starting from the $i$th digit of the string $num$, and the current number modulo $25$ is $k$. The answer is $dfs(0, 0)$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README_EN.md
 rating: 1703
 source: Biweekly Contest 171 Q3
 tags:
@@ -93,6 +92,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At least $k$ tasks must use technique $1$; the rest may use either. Assign every task to technique $2$ first, then force the $k$ largest differences $\textit{technique1}-\textit{technique2}$ onto technique $1$, and also switch any remaining nonnegative difference.
+
+<!-- thinking:end -->
 
 We can first assign all tasks to technique 2, so the initial total score is $\sum_{i=0}^{n-1} technique2[i]$.
 

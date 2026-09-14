@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README_EN.md
 tags:
     - Greedy
     - Hash Table
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid quadruple needs equal substrings and minimal $j-a$. Equality collapses to a single character: the leftmost occurrence in $firstString$ paired with the rightmost same character in $secondString$.
+>
+> Map each character of $secondString$ to its last index. Walk $firstString$ and update the global minimum of $i-\textit{last}[c]$ together with its multiplicity.
+
+<!-- thinking:end -->
 
 The problem actually asks us to find a smallest index $i$ and a largest index $j$ such that $firstString[i]$ equals $secondString[j]$, and the value of $i - j$ is the smallest among all index pairs that meet the conditions.
 

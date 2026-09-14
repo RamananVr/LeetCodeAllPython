@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0305.Number%20of%20Islands%20II/README_EN.md
 tags:
     - Union Find
     - Array
@@ -66,6 +65,16 @@ Initially, the 2d grid is filled with water.
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Land cells arrive over time and we must report the island count after each one. Restarting DFS/BFS on the whole grid per operation multiplies grid size by the number of updates.
+>
+> A new land cell starts as its own island, then merges with land in the four neighbors. Union-find tracks components: merge only when a neighbor is already land and in a different set, and decrement the count. Re-adding the same cell is a no-op. Each operation is nearly constant, so the total grows linearly with $k$.
+
+<!-- thinking:end -->
 
 We use a two-dimensional array $grid$ to represent a map, where $0$ and $1$ represent water and land respectively. Initially, all cells in $grid$ are water cells (i.e., all cells are $0$), and we use a variable $cnt$ to record the number of islands. The connectivity between islands can be maintained by a union-find set $uf$.
 

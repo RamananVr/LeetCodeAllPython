@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2038.Remove%20Colored%20Pieces%20if%20Both%20Neighbors%20are%20the%20Same%20Color/README_EN.md
 rating: 1467
 source: Biweekly Contest 63 Q2
 tags:
@@ -92,6 +91,16 @@ Thus, Bob wins, so return false.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move deletes a piece between two equals; the players never steal each other's runs. With $n \le 10^5$ we only compare move counts.
+>
+> A run of length $\ell$ yields $\max(\ell-2,0)$ moves. Alice wins iff her total exceeds Bob's.
+
+<!-- thinking:end -->
 
 We count the number of times that the string `colors` contains three consecutive `'A'`s or three consecutive `'B'`s, denoted as $a$ and $b$, respectively.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md
 tags:
     - Greedy
     - Bit Manipulation
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may flip any rows or columns to maximize the binary score. $m,n\le 20$ allow enumerating row flips, but the MSB of every row should be $1$, otherwise that row is halved.
+>
+> Flip rows so the first column is all ones. Each later column contributes $\max(\text{ones},\text{zeros})$ times its place value. Column flips do not interact.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3148.Maximum%20Difference%20Score%20in%20a%20Grid/README_EN.md
 rating: 1819
 source: Weekly Contest 397 Q3
 tags:
@@ -68,6 +67,18 @@ The total score is <code>2 + 7 = 9</code>.</p>
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves go only right or down, and the score telescopes to last minus first. Trying every pair of cells is $O(m^2n^2)$.
+>
+> For a fixed end, the best start is the minimum cell in the closed upper-left region except itself. That minimum recurses from the cell above and the cell to the left.
+>
+> Let $f[i][j]$ be the smallest value seen on a path that can reach $(i,j)$. The answer is the maximum of $grid[i][j]-\min(f[i-1][j],f[i][j-1])$.
+
+<!-- thinking:end -->
 
 According to the problem description, if the values of the cells we pass through are $c_1, c_2, \cdots, c_k$, then our score is $c_2 - c_1 + c_3 - c_2 + \cdots + c_k - c_{k-1} = c_k - c_1$. Therefore, the problem is transformed into: for each cell $(i, j)$ of the matrix, if we take it as the endpoint, what is the minimum value of the starting point.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README_EN.md
 rating: 1372
 source: Biweekly Contest 92 Q2
 tags:
@@ -82,6 +81,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $diff[i][j]=onesRow_i+onesCol_j-zerosRow_i-zerosCol_j$, and zeros are width or height minus ones. With $mn\le 10^5$, count ones per row and column, then fill every cell.
+
+<!-- thinking:end -->
 
 We can solve this problem by simulating the process as described in the problem statement.
 

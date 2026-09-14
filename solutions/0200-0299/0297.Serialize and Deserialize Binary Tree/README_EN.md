@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0297.Serialize%20and%20Deserialize%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Level Order Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A general binary tree must record missing children; storing only present values loses shape. Level order writes $\#$ for nulls so parent–child slots can be rebuilt.
+>
+> Serialize by enqueueing both children; deserialize assigns the next two tokens as the front node’s left and right.
+
+<!-- thinking:end -->
 
 We can use level order traversal to serialize the binary tree. Starting from the root node, we add the nodes of the binary tree to the queue in the order from top to bottom, from left to right. Then we dequeue the nodes in the queue one by one. If the node is not null, we add its value to the serialized string; otherwise, we add a special character `#`. Finally, we return the serialized string.
 

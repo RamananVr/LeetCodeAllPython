@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README_EN.md
 rating: 1544
 source: Biweekly Contest 151 Q2
 tags:
@@ -95,6 +94,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A copy must lie in the given per-index bounds and keep the same adjacent differences as the original. The whole array is determined by its first term once the differences are fixed.
+>
+> If the first term is $x$, index $i$ is $x+\textit{pref}[i]$ and must fall in $[\textit{bounds}[i][0],\textit{bounds}[i][1]]$. That is a set of inequalities on $x$.
+>
+> Intersect those intervals; the number of integer points in the intersection is the number of copies, or $0$ if empty.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

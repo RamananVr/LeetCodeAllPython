@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3282.Reach%20End%20of%20Array%20With%20Max%20Score/README_EN.md
 rating: 1771
 source: Weekly Contest 414 Q3
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A jump $i\to j$ scores $(j-i)\times nums[i]$, i.e. $nums[i]$ for every skipped step. $n\le 10^5$. Jumping to a smaller $nums[j]$ cannot beat staying on $nums[i]$ for those steps, so we never jump to a smaller value.
+>
+> Keep the prefix maximum $mx$ and add it for every index except the last. That is the score of always riding the running maximum. Linear time.
+
+<!-- thinking:end -->
 
 Suppose we jump from index $i$ to index $j$, then the score is $(j - i) \times \text{nums}[i]$. This is equivalent to taking $j - i$ steps, and each step earns a score of $\text{nums}[i]$. Then we continue to jump from $j$ to the next index $k$, and the score is $(k - j) \times \text{nums}[j]$, and so on. If $\text{nums}[i] \gt \text{nums}[j]$, then we should not jump from $i$ to $j$, because the score obtained this way is definitely less than the score obtained by jumping directly from $i$ to $k$. Therefore, each time we should jump to the next index with a value greater than the current index.
 

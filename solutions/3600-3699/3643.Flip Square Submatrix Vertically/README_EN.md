@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README_EN.md
 rating: 1234
 source: Weekly Contest 462 Q1
 tags:
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flip the $k\times k$ square whose top-left is $(x,y)$ across its horizontal midline. $k\le 50$ allows in-place swaps.
+>
+> For $i\in [x,x+\lfloor k/2\rfloor)$, swap the segment $[y,y+k)$ with row $x+k-1-(i-x)$.
+>
+> Columns do not move, so the inner loop stays inside the square.
+
+<!-- thinking:end -->
 
 We start from row $x$ and flip a total of $\lfloor \frac{k}{2} \rfloor$ rows.
 

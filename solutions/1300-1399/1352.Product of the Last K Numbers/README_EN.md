@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md
 rating: 1473
 source: Weekly Contest 176 Q2
 tags:
@@ -77,6 +76,14 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 <!-- solution:start -->
 
 ### Solution 1: Prefix Product
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Append numbers and query the product of the last $k$. Multiplying on demand is $O(k)$ and there are up to $4 \times 10^4$ calls. Prefix products turn a suffix into a division of two entries. A $0$ zeroes every later window that contains it, so the prefix resets to $[1]$; a list shorter than $k+1$ means the window includes a $0$.
+
+<!-- thinking:end -->
 
 We initialize an array $s$, where $s[i]$ represents the product of the first $i$ numbers.
 

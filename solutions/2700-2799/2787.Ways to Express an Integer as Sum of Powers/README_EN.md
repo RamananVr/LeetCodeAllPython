@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README_EN.md
 rating: 1817
 source: Biweekly Contest 109 Q4
 tags:
@@ -59,6 +58,16 @@ It can be shown that it is the only way to express 10 as the sum of the 2<sup>nd
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Write $n$ as a sum of distinct $x$-th powers and count the ways. The bases that fit are at most $n$, but the subset of bases is still exponential to list.
+>
+> This is a $0$-$1$ knapsack with items $i^x$ and capacity $n$. $f[i][j]$ is the number of ways using the first $i$ bases to sum to $j$, taking or skipping $i^x$. The answer is $f[n][n]$ modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the number of ways to select some numbers from the first $i$ positive integers such that the sum of their $x$-th powers equals $j$. Initially, $f[0][0] = 1$, and all others are $0$. The answer is $f[n][n]$.
 

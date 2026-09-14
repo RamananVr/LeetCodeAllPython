@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README_EN.md
 tags:
     - Database
 ---
@@ -117,6 +116,18 @@ Note that it is okay to have one word that expresses more than one topic.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A post’s topics are keywords that appear as whole words in its content; otherwise the topic is `Ambiguous!`. A raw substring test would match inside a longer word.
+>
+> Pad both the content and the keyword with spaces and use $\texttt{INSTR}$ for a whole-word test. A left join keeps posts with no keyword. Group by $\textit{post\_id}$ and concatenate distinct $\textit{topic\_id}$s, replacing a null list with the default label.
+>
+> $\texttt{GROUP\_CONCAT(DISTINCT\ldots)}$ builds the topic list.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

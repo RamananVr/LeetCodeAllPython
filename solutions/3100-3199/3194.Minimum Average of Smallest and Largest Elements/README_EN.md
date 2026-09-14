@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3194.Minimum%20Average%20of%20Smallest%20and%20Largest%20Elements/README_EN.md
 rating: 1194
 source: Weekly Contest 403 Q1
 tags:
@@ -171,6 +170,18 @@ The smallest element of averages, 5.5, is returned.</div>
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step averages the current minimum and maximum; the answer is the smallest of those averages. A multiset simulation works, but the endpoints after sorting already form the pairs.
+>
+> The $i$-th smallest pairs with the $i$-th largest, averaging $(nums[i]+nums[n-1-i])/2$.
+>
+> Take the minimum of those sums for $i=0..n/2-1$ and divide by two.
+
+<!-- thinking:end -->
 
 First, we sort the array $\textit{nums}$. Then, we start taking elements from both ends of the array, calculating the sum of the two elements, and taking the minimum value. Finally, we return the minimum value divided by 2 as the answer.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0932.Beautiful%20Array/README_EN.md
 tags:
     - Array
     - Math
@@ -47,6 +46,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful array forbids $2A_k=A_i+A_j$. The left side is even, so an odd/even pair $A_i,A_j$ is always safe. Affine-map a smaller beautiful array into the odds and the evens and concatenate; the map preserves beauty, and divide-and-conquer builds $1..n$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

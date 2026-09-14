@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md
 rating: 1272
 source: Biweekly Contest 114 Q1
 tags:
@@ -66,6 +65,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traverse in Reverse Order
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation takes the current tail, so the answer is the shortest suffix that contains every integer in $1..k$. A reverse scan with a boolean array stops at the first time $k$ distinct targets are collected.
+
+<!-- thinking:end -->
 
 We can traverse the array in reverse order. For each element encountered during the traversal that is less than or equal to $k$ and has not been added to the set yet, we add it to the set until the set contains elements from $1$ to $k$.
 

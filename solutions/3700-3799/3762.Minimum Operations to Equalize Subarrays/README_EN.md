@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README_EN.md
 rating: 2497
 source: Weekly Contest 478 Q4
 tags:
@@ -156,6 +155,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adding or subtracting $k$ can equalize a range iff every value shares the same residue modulo $k$; the cheapest target is a median. With many queries we group indices by residue, then answer each range with prefix sums on the sorted values of that group.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

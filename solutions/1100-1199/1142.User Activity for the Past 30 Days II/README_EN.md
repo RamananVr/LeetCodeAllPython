@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,14 @@ Activity table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct `session_id` per user inside the date window, then average those session counts. `IFNULL` turns an empty table into $0$. The window matches the previous problem.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -103,6 +110,14 @@ FROM T;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 averages per-user session counts. When sessions do not overlap users, `COUNT(DISTINCT session_id)/COUNT(DISTINCT user_id)` equals that average on this schema and drops the CTE.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

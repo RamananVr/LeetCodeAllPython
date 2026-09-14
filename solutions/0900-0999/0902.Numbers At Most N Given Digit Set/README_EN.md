@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md
 tags:
     - Array
     - Math
@@ -71,6 +70,16 @@ In total, this is 29523 integers that can be written using the digits array.
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Building every number from $\textit{digits}$ and testing $x \le n$ re-expands the same prefixes near the decimal length of $n$. The count depends only on the position, whether we still have leading zeros, and whether we are tight against the upper bound.
+>
+> Write $n$ as $s$ and memoize $\textit{dfs}(i, \textit{lead}, \textit{limit})$: a leading-zero state may still place $0$, otherwise only digits from $\textit{digits}$ are allowed, clipped by $\textit{limit}$. A finished number counts as $1$ only if it is not all leading zeros.
+
+<!-- thinking:end -->
 
 This problem essentially asks for the number of positive integers that can be generated from the digits in digits within the given range $[l, .., r]$. The count depends on the number of digits and the value of each digit. We can solve this problem using the Digit DP approach. In Digit DP, the size of the number has little impact on the complexity.
 

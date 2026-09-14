@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md
 rating: 1622
 source: Biweekly Contest 88 Q3
 tags:
@@ -60,6 +59,16 @@ Thus, one possible nums3 array is [2,5,1,6].
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The Cartesian XOR has $mn$ terms; $m,n\le 10^5$ forbids enumeration. A value XOR-ed an even number of times vanishes, so $nums1[i]$ survives iff $n$ is odd.
+>
+> If $n$ is odd, XOR all of $nums1$ into the answer; if $m$ is odd, XOR all of $nums2$. The combination is the XOR of every pairing.
+
+<!-- thinking:end -->
 
 Since each element of the array will be XORed with each element of another array, we know that the result remains the same when the same number is XORed twice, i.e., $a \oplus a = 0$. Therefore, we only need to count the length of the array to know how many times each element is XORed with each element of another array.
 

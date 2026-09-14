@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1434.Number%20of%20Ways%20to%20Wear%20Different%20Hats%20to%20Each%20Other/README_EN.md
 rating: 2273
 source: Biweekly Contest 25 Q4
 tags:
@@ -76,6 +75,16 @@ Number of Permutations of (1,2,3,4) = 24.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n\le 10$ people and at most $40$ hats. Assigning hats per person is awkward to compress. Enumerate hats instead and bit-mask who already wears one.
+>
+> $f[i][j]$ is the number of ways using the first $i$ hats with assigned set $j$. Hat $i$ may be unused or given to a person $k$ who likes it and is still free. The answer is $f[m][2^n-1]$.
+
+<!-- thinking:end -->
 
 We notice that $n$ is not greater than $10$, so we consider using DP with state compression to solve this problem.
 

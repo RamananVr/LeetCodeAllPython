@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0630.Course%20Schedule%20III/README_EN.md
 tags:
     - Greedy
     - Array
@@ -66,6 +65,16 @@ The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Max-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each course has a duration and a deadline; searching subsets is impossible for $n\le 10^4$.
+>
+> Sort by deadline and take every course. If the running time exceeds the deadline, drop the longest taken course (max-heap) to free room for later tighter ones. The heap size is the answer.
+
+<!-- thinking:end -->
 
 We can sort the courses in ascending order by their end time, and each time select the course with the earliest deadline to take.
 

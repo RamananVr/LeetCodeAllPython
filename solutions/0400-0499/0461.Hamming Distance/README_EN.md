@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0461.Hamming%20Distance/README_EN.md
 tags:
     - Bit Manipulation
 ---
@@ -55,6 +54,18 @@ The above arrows point to positions where the corresponding bits are different.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Hamming distance is the number of differing bits. Comparing bit by bit needs a $32$-step loop.
+>
+> The $1$-bits of $x\oplus y$ are exactly those positions; $\textit{bit\_count}$ returns their number.
+>
+> XOR folds the comparison into one word operation; popcount is then a hardware instruction or a short loop.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

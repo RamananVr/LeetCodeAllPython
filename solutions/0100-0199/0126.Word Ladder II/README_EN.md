@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0126.Word%20Ladder%20II/README_EN.md
 tags:
     - Breadth-First Search
     - Hash Table
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every shortest transformation, not just the length. Words have length at most $5$ and the list at most $500$, so the BFS depth is small, but the number of paths can be large.
+>
+> Unidirectional BFS expands level by level and records each word's predecessors. Only edges that keep the current distance are stored, so every recorded path is shortest. After the end word is reached, walk the predecessor sets backward to list them all.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

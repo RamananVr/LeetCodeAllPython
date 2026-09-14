@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3486.Longest%20Special%20Path%20II/README_EN.md
 rating: 2924
 source: Biweekly Contest 152 Q4
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Like part I, except one value may appear twice and the others must stay unique. $n\le 5\times 10^4$ still wants a sliding window on the tree.
+>
+> The left end is now governed by a second repeat: the first duplicate may stay, and a further repeat pushes the window past the earlier occurrence.
+>
+> DFS keeps last-position lists and prefix edge weights. At most one “used duplicate” flag shrinks the left end while we update the longest path and its fewest nodes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

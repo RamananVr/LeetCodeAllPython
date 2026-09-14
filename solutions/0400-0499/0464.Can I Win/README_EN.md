@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0464.Can%20I%20Win/README_EN.md
 tags:
     - Bit Manipulation
     - Memoization
@@ -70,6 +69,18 @@ Same with other integers chosen by the first player, the second player will alwa
 <!-- solution:start -->
 
 ### Solution 1: State Compression + Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players draw without replacement from $1..n$ and the first to reach the target wins. $n\le 20$, so the state is the used set; a raw game tree repeats positions.
+>
+> If the total is too small, nobody can win. Otherwise $dfs(\textit{mask},s)$ tries each unused $i$: a win if $s+i$ already meets the target or the opponent loses afterwards. Memoize on $\textit{mask}$.
+>
+> A bit mask packs the set; at most $2^{n}$ subproblems. The total check skips a hopeless search.
+
+<!-- thinking:end -->
 
 First, we check if the sum of all selectable integers is less than the target value. If so, it means that we cannot win no matter what, so we directly return `false`.
 

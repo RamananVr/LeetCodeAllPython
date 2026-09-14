@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md
 rating: 1636
 source: Biweekly Contest 94 Q2
 tags:
@@ -74,6 +73,16 @@ Since student 2 has more points, [2,1] is returned.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A student's score adds $+3$ for each positive word and $-1$ for each negative word in the report; the top $k$ are those with higher score, then smaller id. Linear lookup in the word lists on every token multiplies list size by report length.
+>
+> Store both word lists in sets so each token is classified in $O(1)$. Collect $(\textit{score},\textit{id})$, sort by $(-\textit{score},\textit{id})$, and take the first $k$ ids.
+
+<!-- thinking:end -->
 
 We can store the positive words in a hash table $ps$ and the negative words in a hash table $ns$.
 

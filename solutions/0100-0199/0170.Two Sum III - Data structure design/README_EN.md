@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README_EN.md
 tags:
     - Design
     - Array
@@ -63,6 +62,14 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Support adding numbers and querying whether two of them sum to a value. At most $10^4$ calls. Sorting on every $\textit{find}$ is undone by later adds. A frequency map makes $\textit{add}$ $O(1)$; $\textit{find}$ tries each $x$ and looks up $value-x$, requiring count at least $2$ when $x$ equals $value-x$.
+
+<!-- thinking:end -->
 
 We use a hash table `cnt` to store the count of each number.
 

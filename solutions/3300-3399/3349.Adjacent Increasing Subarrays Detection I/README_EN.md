@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3349.Adjacent%20Increasing%20Subarrays%20Detection%20I/README_EN.md
 rating: 1298
 source: Weekly Contest 423 Q1
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether two adjacent strictly increasing segments of length $k$ exist. With $n \le 100$ we could try every start; one pass also yields the largest feasible $k$.
+>
+> The two segments either split one long increasing run ($\lfloor \textit{cur}/2 \rfloor$) or sit on two neighboring runs ($\min(\textit{pre},\textit{cur})$).
+>
+> At each break we update both candidates and finally test whether the maximum is at least $k$.
+
+<!-- thinking:end -->
 
 According to the problem description, we only need to find the maximum length of adjacent increasing subarrays $\textit{mx}$. If $\textit{mx} \ge k$, then there exist two adjacent strictly increasing subarrays of length $k$.
 

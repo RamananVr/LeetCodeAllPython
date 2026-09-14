@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README_EN.md
 tags:
     - Pandas
 ---
@@ -62,6 +61,14 @@ Only the first 3 rows are displayed.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the first three rows are needed. `head(3)` takes them in stored order without extra filters.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

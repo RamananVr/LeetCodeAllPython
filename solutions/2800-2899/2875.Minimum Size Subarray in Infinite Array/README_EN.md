@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md
 rating: 1913
 source: Weekly Contest 365 Q3
 tags:
@@ -71,6 +70,14 @@ It can be proven that there is no subarray with sum equal to target = 3.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array repeats forever, so $target$ is some number of full cycles plus a shortest leftover (or a shortest wrap that complements a cycle). Strip as many full sums as possible, then on one prefix-sum pass a hash map finds the shortest segment equal to the remainder or to $s$ minus the remainder.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of all elements in the array $nums$, denoted as $s$.
 

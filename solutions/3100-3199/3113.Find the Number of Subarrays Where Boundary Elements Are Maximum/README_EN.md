@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3113.Find%20the%20Number%20of%20Subarrays%20Where%20Boundary%20Elements%20Are%20Maximum/README_EN.md
 rating: 2046
 source: Biweekly Contest 128 Q4
 tags:
@@ -99,6 +98,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid subarray has equal endpoints that are also the maximum. Checking the middle maximum for every pair is $O(n^2)$ and too slow for large $n$.
+>
+> When both ends equal $x$, nothing larger may appear in between. The previous strictly greater value cuts every longer candidate ending at the current $x$.
+>
+> Keep a decreasing stack of values and how many times they can extend. After popping smaller runs, either increment the top when it equals $x$ or start a new run. Adding the top count at each step enumerates every valid subarray ending here.
+
+<!-- thinking:end -->
 
 We consider each element $x$ in the array $nums$ as the boundary element and the maximum value of the subarray.
 

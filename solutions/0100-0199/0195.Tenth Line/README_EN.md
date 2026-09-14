@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0195.Tenth%20Line/README_EN.md
 tags:
     - Shell
 ---
@@ -50,6 +49,14 @@ Line 10
 <!-- solution:start -->
 
 ### Solution 1: sed
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Print the tenth line, or nothing if the file is shorter. $\textit{sed}\,-n\,10p$ prints line $10$ only; a short file yields empty output, so we need not count lines first.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

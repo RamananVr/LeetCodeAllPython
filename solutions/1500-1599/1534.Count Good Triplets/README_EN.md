@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md
 rating: 1279
 source: Weekly Contest 200 Q1
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count index triples that satisfy three absolute-value bounds. $n\le 100$, so a triple loop is about $10^6$ comparisons and fits the limit.
+>
+> Enumerate $i<j<k$ and apply the three inequalities directly. The constraints are independent; there is no monotone structure that would justify a heavier data structure.
+
+<!-- thinking:end -->
 
 We can enumerate all $i$, $j$, and $k$ where $i \lt j \lt k$, and check if they simultaneously satisfy $|\textit{arr}[i] - \textit{arr}[j]| \le a$, $|\textit{arr}[j] - \textit{arr}[k]| \le b$, and $|\textit{arr}[i] - \textit{arr}[k]| \le c$. If they do, we increment the answer by one.
 

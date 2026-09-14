@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3508.Implement%20Router/README_EN.md
 rating: 1851
 source: Weekly Contest 444 Q2
 tags:
@@ -118,6 +117,16 @@ router.forwardPacket(); // There are no packets left, return <code>[]</code>.</d
 <!-- solution:start -->
 
 ### Solution 1: Hash Map + Queue + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The router must reject duplicates, evict the oldest packet by arrival, and count by destination and time window. Pack a triple into an integer for $O(1)$ membership; keep the cache in a queue and pop the front when full.
+>
+> Timestamps for one destination are appended in order, and forwarding only advances a left pointer, so $\textit{getCount}$ is a binary search on the unforwarded suffix.
+
+<!-- thinking:end -->
 
 We use a hash map $\textit{vis}$ to store the hash values of packets that have already been added, a queue $\textit{q}$ to store the packets currently in the router, a hash map $\textit{idx}$ to record the number of packets already forwarded for each destination, and a hash map $\textit{d}$ to store the list of timestamps for each destination.
 

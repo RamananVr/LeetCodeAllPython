@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0830.Positions%20of%20Large%20Groups/README_EN.md
 tags:
     - String
 ---
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A large group is a run of the same letter with length at least $3$. One scan of the lowercase string finds every such interval.
+>
+> Two pointers mark each run; if its length is at least $3$, record the endpoints and jump to the next run.
+
+<!-- thinking:end -->
 
 We use two pointers $i$ and $j$ to find the start and end positions of each group, then check if the group length is greater than or equal to $3$. If so, we add it to the result array.
 

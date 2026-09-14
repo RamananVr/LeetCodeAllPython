@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md
 rating: 2259
 source: Weekly Contest 484 Q4
 tags:
@@ -94,6 +93,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy Bit Construction + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After at most $k$ increments we pick $m$ numbers to maximize their AND. $n \le 5 \times 10^4$ rules out subset enumeration.
+>
+> A larger AND prefers high bits set. We try bits from high to low: given higher bits already chosen, ask whether the current bit can be $1$.
+>
+> Raising a value to at least $\textit{target}$ only needs to fix the first conflicting bit and below; the cost is a low-bit mask difference.
+>
+> For each candidate we sort costs and test whether the cheapest $m$ sum to at most $k$. Keeping a bit when the test passes yields a greedy high-bit-first answer.
+
+<!-- thinking:end -->
 
 We enumerate each bit from the highest bit, attempting to include that bit in the final bitwise AND result. For the currently attempted bitwise AND result $\textit{target}$, we calculate the minimum number of operations required to increase each element in the array to at least $\textit{target}$.
 

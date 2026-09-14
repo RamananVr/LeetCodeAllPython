@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3446.Sort%20Matrix%20by%20Diagonals/README_EN.md
 rating: 1372
 source: Weekly Contest 436 Q1
 tags:
@@ -94,6 +93,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10$ and each diagonal is independent. The lower triangle including the main diagonal is non-increasing; the upper triangle is non-decreasing.
+>
+> Collect, sort, and write back; no heavier structure is required.
+>
+> We extract each lower diagonal, sort, and pop largest-first; the upper diagonals are symmetric. The main diagonal is covered by the first loop.
+
+<!-- thinking:end -->
 
 We can simulate the diagonal sorting process as described in the problem.
 

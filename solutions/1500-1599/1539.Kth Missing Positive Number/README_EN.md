@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README_EN.md
 rating: 1295
 source: Biweekly Contest 32 Q1
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is a sorted subset of the positives; we want the $k$-th missing one. A linear scan works when $n$ and $k$ are moderate, but the missing count $arr[i]-i-1$ is monotone in $i$, so we can binary-search.
+>
+> If $arr[0]>k$ the answer is $k$. Otherwise search for the first index whose missing count is at least $k$. Just before that index, $arr[left-1]$ has already skipped $arr[left-1]-(left-1)-1$ positives; adding the remaining gap yields the $k$-th missing value.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

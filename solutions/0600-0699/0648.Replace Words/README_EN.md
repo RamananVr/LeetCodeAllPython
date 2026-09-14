@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0648.Replace%20Words/README_EN.md
 tags:
     - Trie
     - Array
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each sentence word should be replaced by the shortest dictionary root. Testing every root on every word repeats prefixes.
+>
+> Insert roots into a trie and walk each word until the first `is_end`; that prefix is the shortest root.
+
+<!-- thinking:end -->
 
 We can use a trie to store all the roots in the dictionary. Define the trie node class $\text{Trie}$, which contains an array $\text{children}$ of length $26$ to store child nodes, and a boolean variable $\text{is\_end}$ to mark whether it is a complete root.
 

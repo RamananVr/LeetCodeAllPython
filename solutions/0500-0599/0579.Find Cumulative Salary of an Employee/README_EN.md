@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0579.Find%20Cumulative%20Salary%20of%20an%20Employee/README_EN.md
 tags:
     - Database
 ---
@@ -124,6 +123,16 @@ So the cumulative salary summary for this employee is:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After dropping each employee's latest month, sum that month plus the two previous months of salary. `RANGE 2 PRECEDING` uses month values, not row counts.
+>
+> Exclude `(id, MAX(month))`, then window-sum inside each id ordered by month. Output by id and month descending.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -157,6 +166,16 @@ ORDER BY id, month DESC;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 drops the latest month with `NOT IN`. We can also rank months descending and keep $rk>1$.
+>
+> `RANK() OVER (... ORDER BY month DESC)` marks the newest month as $1$. The cumulative window matches Solution 1; the filter is more direct.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

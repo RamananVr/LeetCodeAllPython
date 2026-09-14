@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README_EN.md
 rating: 1301
 source: Weekly Contest 214 Q1
 tags:
@@ -76,6 +75,16 @@ Hence, nums = [0,1,1,2,1,3,2,3], and the maximum is max(0,1,1,2,1,3,2,3) = 3.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is defined by a parity recurrence and $n$ is tiny, so fill it and take the maximum.
+>
+> For $n<2$ return $n$. Otherwise set $\textit{nums}[0]=0,\textit{nums}[1]=1$, copy $\textit{nums}[i/2]$ on even $i$, and add the two half-indices on odd $i$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

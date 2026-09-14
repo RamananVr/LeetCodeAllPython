@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md
 rating: 2081
 source: Biweekly Contest 113 Q3
 tags:
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distance is $(x_1\oplus x_2)+(y_1\oplus y_2)=k$. With $k\le 100$, enumerate the $x$-xor $a$ and set the $y$-xor to $k-a$; the partner is recovered by xor. A hash map of earlier points counts pairs without double-counting.
+
+<!-- thinking:end -->
 
 We can use a hash table $cnt$ to count the occurrence of each point in the array $coordinates$.
 

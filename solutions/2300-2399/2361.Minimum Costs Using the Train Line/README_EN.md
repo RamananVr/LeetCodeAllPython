@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -78,6 +77,16 @@ Note that the expressCost is paid again to transfer back to the express route.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two lines run in parallel; the first express ride pays $expressCost$. $n \le 10^5$ needs a linear recurrence. The cost at stop $i$ depends only on the line used at $i-1$.
+>
+> Let $f[i]$ and $g[i]$ be the min costs of arriving on regular or express. Regular adds $a_i$ from either line; express adds $b_i$ from express, or $expressCost+b_i$ from regular. The answer at $i$ is the min of the two.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the minimum cost from station $0$ to station $i$ when arriving at station $i$ by the regular route, and $g[i]$ as the minimum cost from station $0$ to station $i$ when arriving at station $i$ by the express route. Initially, $f[0]=0, g[0]=\infty$.
 
 Next, we consider how to transition the states of $f[i]$ and $g[i]$.
@@ -126,7 +135,21 @@ class Solution:
 
 <!-- tabs:end -->
 
-We notice that in the state transition equations of $f[i]$ and $g[i]$, we only need to use $f[i-1]$ and $g[i-1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i-1]$ and $g[i-1]$ respectively. This allows us to optimize the space complexity to $O(1)$.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 keeps full arrays. The transition needs only the previous pair, so two scalars suffice and extra space becomes constant (the output still uses $O(n)$).
+
+<!-- thinking:end -->
+
+$f[i]$ and $g[i]$ only depend on $f[i-1]$ and $g[i-1]$, so we can keep two rolling variables and reduce the extra space to $O(1)$.
 
 <!-- tabs:start -->
 

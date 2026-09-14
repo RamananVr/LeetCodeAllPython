@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3292.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20II/README_EN.md
 rating: 2661
 source: Weekly Contest 415 Q4
 tags:
@@ -93,6 +92,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: String Hashing + Binary Search + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same statement as I, but lengths reach $5\times 10^4$, so trie plus memoization in $O(n^2)$ is too slow. The longest prefix match from $i$ is monotone in the length, so hashing plus binary search finds it in logarithmic time.
+>
+> Group word hashes by prefix length. $f(i)$ binary-searches the largest $L$ whose $\textit{target}[i..i+L)$ hash sits in that bucket. Those farthest reaches become a jump game: keep the current farthest and jump when the pointer hits it.
+
+<!-- thinking:end -->
 
 Due to the large data scale of this problem, using the "Trie + Memoization" method will time out. We need to find a more efficient solution.
 

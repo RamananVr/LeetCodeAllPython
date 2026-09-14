@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md
 rating: 1464
 source: Weekly Contest 177 Q2
 tags:
@@ -66,6 +65,14 @@ tags:
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Left and right child arrays on $n$ nodes should form exactly one binary tree. Failures are a second parent, a cycle, or more than one component. Union-find rejects a child that already has a parent or an edge inside one component; otherwise it merges and decreases the component count, which must finish at $1$.
+
+<!-- thinking:end -->
+
 We can traverse each node $i$ and its corresponding left and right children $l$, $r$, using an array $vis$ to record whether the node has a parent:
 
 - If the child node already has a parent, it means there are multiple fathers, which does not meet the condition, so we return `false` directly.
@@ -110,6 +117,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Indegree Counting + BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Union-find tracks parents and components. Counting indegrees finds the unique root (or fails). BFS from that root rejects a revisited child and finally requires every node to be seen, without a parent array.
+
+<!-- thinking:end -->
 
 We can first count the indegree of each node, i.e., how many parents point to it. If there is no node with indegree $0$, it means there is a cycle in the graph, so we return `false` directly; otherwise, that node is the root.
 

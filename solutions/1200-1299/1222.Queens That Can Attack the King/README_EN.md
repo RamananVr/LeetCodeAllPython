@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README_EN.md
 rating: 1391
 source: Weekly Contest 158 Q2
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Direct Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is $8\times 8$ with fewer than $64$ queens. A queen attacks the king only on the same row, column, or diagonal, with no queen in between. Walking outward from the king, the first queen on each of the eight rays is the unique attacker on that ray.
+>
+> We store queen cells in a set for $O(1)$ tests, then step from the king along the eight unit vectors, recording a hit and stopping that ray. The walk encodes blocking; the set keeps each step constant-time.
+
+<!-- thinking:end -->
 
 First, we store all the positions of the queens in a hash table or a two-dimensional array $s$.
 

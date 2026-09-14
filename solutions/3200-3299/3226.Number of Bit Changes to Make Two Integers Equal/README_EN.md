@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3226.Number%20of%20Bit%20Changes%20to%20Make%20Two%20Integers%20Equal/README_EN.md
 rating: 1247
 source: Weekly Contest 407 Q1
 tags:
@@ -71,6 +70,16 @@ It is not possible to make <code>n</code> equal to <code>k</code>.</p>
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only turn $1$-bits of $n$ into $0$. If $k$ has a $1$ where $n$ is $0$, the target is impossible. $n,k\le 10^6$, so a bit scan is enough.
+>
+> Test $n\land k=k$; if it fails, return $-1$. The bits that must flip are exactly the $1$s of $n\oplus k$, so the popcount is the answer.
+
+<!-- thinking:end -->
 
 If the bitwise AND result of $n$ and $k$ is not equal to $k$, it indicates that there exists at least one bit where $k$ is $1$ and the corresponding bit in $n$ is $0$. In this case, it is impossible to modify a bit in $n$ to make $n$ equal to $k$, and we return $-1$. Otherwise, we count the number of $1$s in the binary representation of $n \oplus k$.
 

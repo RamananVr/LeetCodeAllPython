@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README_EN.md
 rating: 1201
 source: Biweekly Contest 124 Q1
 tags:
@@ -83,6 +82,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation takes the first two remaining numbers and must keep the first score. $n \le 100$, so we simulate the rule.
+>
+> The first sum $s$ locks every later operation. We stop when fewer than two elements remain or the sum is not $s$.
+>
+> A scan with step $2$ counts the operations.
+
+<!-- thinking:end -->
 
 First, we calculate the sum of the first two elements, denoted as $s$. Then we traverse the array, taking two elements at a time. If their sum is not equal to $s$, we stop the traversal. Finally, we return the number of operations performed.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0457.Circular%20Array%20Loop/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -84,6 +83,18 @@ We can see the cycle 3 --&gt; 4 --&gt; 3 --&gt; ..., and all of its nodes are wh
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Jumps wrap around the array; we need a same-direction cycle longer than $1$. Storing every path uses extra memory, and we must reject self-loops and direction changes.
+>
+> From each unused index, Floyd pointers chase while products of values stay positive (same sign). A meeting that is not a self-loop is a cycle. Zero out the walk so those cells are never used as a later start.
+>
+> Zeroing is a mark that prevents restarting on an acyclic trail; $\textit{slow}\ne \textit{next}(\textit{slow})$ drops a 1-cycle.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

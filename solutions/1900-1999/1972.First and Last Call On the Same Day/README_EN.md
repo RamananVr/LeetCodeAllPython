@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1972.First%20and%20Last%20Call%20On%20the%20Same%20Day/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,16 @@ On 2021-08-11, user 1 and 5 had a call. This call was the only call for both of 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user qualifies if the first and last calls of a day share the other party. The table is directed; keeping only $\texttt{caller\_id}$ misses inbound legs.
+>
+> Union the reversed calls, then $\texttt{FIRST\_VALUE}$ over each (day, user) ordered by time ascending and descending. Equal endpoints, taken distinctly, are the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

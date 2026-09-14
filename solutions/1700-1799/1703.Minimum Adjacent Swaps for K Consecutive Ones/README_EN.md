@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1703.Minimum%20Adjacent%20Swaps%20for%20K%20Consecutive%20Ones/README_EN.md
 rating: 2466
 source: Biweekly Contest 42 Q4
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Median Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent swaps that gather $k$ ones into a contiguous block are equivalent to moving those ones' indices onto a window of length $k$. Enumerating a target for every window is too slow when $n\le 10^5$.
+>
+> One adjacent swap changes an index by $1$, so the cost equals the $L_1$ distance from the chosen ones to the target positions. That sum is minimized when the target is the median of the $k$ indices.
+>
+> Store ones' indices in $arr$ and build its prefix sums. Enumerate the window median $arr[i]$ and evaluate both sides in $O(1)$ via the prefix sums; keep the minimum.
+
+<!-- thinking:end -->
 
 We can store the indices of $1$s in the array $nums$ into an array $arr$. Next, we preprocess the prefix sum array $s$ of the array $arr$, where $s[i]$ represents the sum of the first $i$ elements in the array $arr$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README_EN.md
 rating: 1806
 source: Weekly Contest 139 Q3
 tags:
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Negabinary addition still walks from the low end, but the base $-2$ changes the carry: $2\times(-2)^i=-(-2)^{i+1}$ and $-(-2)^i=(-2)^i+(-2)^{i+1}$. Lengths $\le 1000$ allow a digit-wise simulation.
+>
+> Add $a+b+c$ from the right. If the sum is at least $2$, subtract $2$ and carry $-1$; if it is $-1$, write $1$ and carry $1$.
+>
+> Digits are collected low-first; strip extra leading zeros and reverse.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

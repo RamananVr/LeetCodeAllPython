@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README_EN.md
 rating: 1619
 source: Biweekly Contest 96 Q2
 tags:
@@ -64,6 +63,16 @@ One can prove that it is impossible to make arrays equal in fewer operations.</p
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation adds $k$ to one index and subtracts $k$ from another, so the total is conserved. A residue not divisible by $k$, or $k=0$ with a mismatch, cannot be fixed.
+>
+> Count how many times we must add $k$ ($a$) and how many times we must subtract it ($b$). Operations come in pairs, so the arrays match iff $a=b$, and the answer is $a$.
+
+<!-- thinking:end -->
 
 We use two variables $a$ and $b$ to record the number of times elements in $\textit{nums1}$ are increased by $k$ and decreased by $k$, respectively.
 

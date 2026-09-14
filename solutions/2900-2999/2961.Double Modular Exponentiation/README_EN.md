@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README_EN.md
 rating: 1450
 source: Weekly Contest 375 Q2
 tags:
@@ -69,6 +68,16 @@ Therefore we return [] as the answer.
 <!-- solution:start -->
 
 ### Solution 1: Simulation + Fast Power
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Test whether $(a^b \bmod 10)^c \bmod m$ equals $target$. Exponents and moduli are at most $10^3$, so two modular powers suffice.
+>
+> Enumerate $variables$ and collect matching indices.
+
+<!-- thinking:end -->
 
 We can directly simulate according to the problem description. For the power operation modulo, we can use the fast power method to speed up the calculation.
 

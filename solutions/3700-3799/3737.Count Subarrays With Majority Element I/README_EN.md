@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README_EN.md
 rating: 1422
 source: Biweekly Contest 169 Q2
 tags:
@@ -91,6 +90,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A majority means $\textit{target}$ occurs strictly more than half the length. The limits allow enumerating every subarray: fix the left end, scan right while counting $\textit{target}$, and test $2\cdot\textit{cnt}>\textit{len}$.
+
+<!-- thinking:end -->
 
 We can enumerate all subarrays and maintain a counter $\textit{cnt}$ to record the number of times $\textit{target}$ appears in the subarray, then determine whether $\textit{target}$ is the majority element of that subarray.
 

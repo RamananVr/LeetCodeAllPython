@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1185.Day%20of%20the%20Week/README_EN.md
 rating: 1382
 source: Weekly Contest 153 Q2
 tags:
@@ -59,23 +58,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Zeller's Congruence
+### Solution 1: Library Functions
 
-We can use Zeller's Congruence to calculate the day of the week. Zeller's Congruence is as follows:
+<!-- thinking:start -->
 
-$$
-w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
-$$
+> **Thinking**
+>
+> Mapping a Gregorian date to a weekday is already in the standard library. Build the date and format its weekday name, without hand-rolled leap-year or month-length logic.
 
-Where:
+<!-- thinking:end -->
 
-- `w`: Day of the week (starting from Sunday)
-- `c`: First two digits of the year
-- `y`: Last two digits of the year
-- `m`: Month (the range of m is from 3 to 14, that is, in Zeller's Congruence, January and February of a certain year are considered as the 13th and 14th month of the previous year. For example, January 1, 2003 is considered as the 1st day of the 13th month of 2002)
-- `d`: Day
-- `⌊⌋`: Floor function (round down)
-- `mod`: Modulo operation
+The simplest approach is to use the date library provided by the language to get the day of the week for the given year, month, and day.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
@@ -95,7 +88,33 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Zeller's Congruence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 needs a date library. Zeller's congruence computes the weekday from century, year-of-century, month, and day; January and February are months $13$ and $14$ of the previous year. No date type is required.
+
+<!-- thinking:end -->
+
+We can use Zeller's Congruence to calculate the day of the week. Zeller's Congruence is as follows:
+
+$$
+w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
+$$
+
+Where:
+
+- `w`: Day of the week (starting from Sunday)
+- `c`: First two digits of the year
+- `y`: Last two digits of the year
+- `m`: Month (the range of m is from 3 to 14, that is, in Zeller's Congruence, January and February of a certain year are considered as the 13th and 14th month of the previous year. For example, January 1, 2003 is considered as the 1st day of the 13th month of 2002)
+- `d`: Day
+- `⌊⌋`: Floor function (round down)
+- `mod`: Modulo operation
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

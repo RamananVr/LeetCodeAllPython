@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README_EN.md
 rating: 2411
 source: Weekly Contest 421 Q4
 tags:
@@ -119,6 +118,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Fast Matrix Exponentiation to Accelerate Recurrence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, $t \le 10^9$ and each letter expands into the next $\textit{nums}[i]$ letters. We cannot walk $t$ steps one by one.
+>
+> One step on the count vector is a fixed $26 \times 26$ matrix: row $i$ has ones on $[i+1, i+\textit{nums}[i]]$ modulo $26$.
+>
+> Fast exponentiation of that matrix, left-multiplied by the initial counts, yields the final length as the sum of the resulting vector.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the number of times the $j$-th letter appears in the alphabet after $i$ transformations. Initially, $f[0][j]$ corresponds to the frequency of the $j$-th letter in the input string $s$.
 

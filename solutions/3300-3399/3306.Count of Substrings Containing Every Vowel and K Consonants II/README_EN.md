@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README_EN.md
 rating: 2200
 source: Weekly Contest 417 Q3
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Problem Transformation + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The problem matches part I, but $n \le 2 \times 10^5$, so enumerating substrings is no longer viable.
+>
+> We still express “exactly $k$ consonants” as $f(k)-f(k+1)$. Both thresholds are monotone, so a sliding window stays linear.
+>
+> A map of the five vowels and a consonant counter $x$ are the same as in part I; the total cost is $O(n)$.
+
+<!-- thinking:end -->
 
 We can transform the problem into solving the following two subproblems:
 

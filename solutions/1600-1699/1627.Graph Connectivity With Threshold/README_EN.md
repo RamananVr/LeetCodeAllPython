@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README_EN.md
 rating: 2221
 source: Weekly Contest 211 Q4
 tags:
@@ -88,6 +87,18 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two cities are connected if a path exists using edges whose $\gcd$ exceeds $\textit{threshold}$. Testing $\gcd$ on every pair is too slow when both $n$ and the number of queries are large.
+>
+> Each $z$ above the threshold links all of its multiples, so unioning along multiples covers every direct edge.
+>
+> A disjoint-set unions $z,2z,3z,\ldots$ for $z \in (\textit{threshold}, n]$, and each query tests whether the two cities share a root.
+
+<!-- thinking:end -->
 
 We can enumerate $z$ and its multiples, and use union-find to connect them. In this way, for each query $[a, b]$, we only need to determine whether $a$ and $b$ are in the same connected component.
 

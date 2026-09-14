@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README_EN.md
 rating: 1208
 source: Weekly Contest 181 Q1
 tags:
@@ -82,6 +81,14 @@ nums       index     target
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert $\textit{nums}[i]$ at $\textit{index}[i]$; the index is always valid. $n \le 100$ allows a plain $\textit{insert}$, which shifts the tail each time.
+
+<!-- thinking:end -->
 
 We create a list $target$ to store the target array. Since the problem guarantees that the insertion position always exists, we can directly insert in the given order into the corresponding position.
 

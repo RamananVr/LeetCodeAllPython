@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0179.Largest%20Number/README_EN.md
 tags:
     - Greedy
     - Array
@@ -51,6 +50,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Form the largest number by concatenation. Numeric order and plain lexicographic order both fail: $9$ should precede $98$ because $998>989$. $n\le 100$. Compare $a+b$ with $b+a$ to order two strings, sort by that, and join. If the first character is $0$, every value was zero, so return $\texttt{"0"}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

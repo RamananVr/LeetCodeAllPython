@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0342.Power%20of%20Four/README_EN.md
 tags:
     - Bit Manipulation
     - Recursion
@@ -48,6 +47,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether $n$ is a power of four. Dividing by four works; a bit test is closed form. $4^x=2^{2x}$, so $n$ must be positive, have a single $1$, and that $1$ must sit on an even bit.
+>
+> $n\&(n-1)=0$ forces a power of two; $n\&\texttt{0xAAAAAAAA}=0$ rejects a $1$ on an odd bit. All three checks together suffice.
+
+<!-- thinking:end -->
 
 If a number is a power of $4$, then it must be greater than $0$. Suppose this number is $4^x$, which is $2^{2x}$. Therefore, its binary representation has only one $1$, and this $1$ appears at an even position.
 

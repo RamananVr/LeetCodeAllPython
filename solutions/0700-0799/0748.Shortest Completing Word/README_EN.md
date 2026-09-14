@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0748.Shortest%20Completing%20Word/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -64,6 +63,18 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A completing word must cover the letters on the plate (case-blind, digits ignored), and we want the shortest, earliest such word. Counting is enough.
+>
+> Tally the plate, then scan words: skip any that are not strictly shorter than the current answer, and accept the first that covers the counts.
+>
+> The alphabet has size $26$; each test is linear in the word.
+
+<!-- thinking:end -->
 
 First, we use a hash table or an array $cnt$ of length $26$ to count the frequency of each letter in the string `licensePlate`. Note that we convert all letters to lowercase for counting.
 

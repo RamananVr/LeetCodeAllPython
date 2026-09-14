@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README_EN.md
 rating: 1190
 source: Biweekly Contest 126 Q1
 tags:
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Encryption replaces every digit of a number by its largest digit. $n \le 50$ and $x \le 1000$, so we simulate each value.
+>
+> While peeling digits we track the maximum and build $p=1,11,111,\ldots$; the encrypted value is $mx \cdot p$.
+>
+> Summing over the array is the answer.
+
+<!-- thinking:end -->
 
 We directly simulate the encryption process by defining a function $encrypt(x)$, which replaces each digit in an integer $x$ with the maximum digit in $x$. The implementation of the function is as follows:
 

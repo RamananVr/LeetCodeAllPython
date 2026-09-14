@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md
 tags:
     - Stack
     - Array
@@ -53,6 +52,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the widest $i<j$ with $nums[i]\le nums[j]$. All pairs are quadratic. Useful left ends form a strictly decreasing sequence from the start; a later larger value is never a better left. A monotonic stack stores those candidates, then $j$ walks from the right and pops every stack top that forms a ramp, keeping the maximum width.
+
+<!-- thinking:end -->
 
 According to the problem, we can find that the subsequence formed by all possible $\textit{nums}[i]$ must be monotonically decreasing. Why is that? Let's prove it by contradiction.
 

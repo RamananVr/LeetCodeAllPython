@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README_EN.md
 rating: 1161
 source: Weekly Contest 294 Q1
 tags:
@@ -52,6 +51,16 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the floor percentage of a letter in $s$. The length is at most $100$, so a count plus integer division is enough.
+>
+> $s.\textit{count}(\textit{letter})\times 100 // |s|$ avoids floating point.
+
+<!-- thinking:end -->
 
 We can traverse the string $\textit{s}$ and count the number of characters that are equal to $\textit{letter}$. Then, we calculate the percentage using the formula $\textit{count} \times 100 \, / \, \textit{len}(\textit{s})$.
 

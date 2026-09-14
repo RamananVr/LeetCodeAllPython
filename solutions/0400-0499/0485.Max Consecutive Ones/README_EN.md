@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0485.Max%20Consecutive%20Ones/README_EN.md
 tags:
     - Array
 ---
@@ -47,6 +46,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest run of ones. Checking every subarray is $O(n^2)$; one scan is enough.
+>
+> A $1$ grows the current run and updates the answer; a $0$ resets the counter.
+>
+> Zeros separate runs, so the counter never joins two blocks.
+
+<!-- thinking:end -->
 
 We can iterate through the array, using a variable $\textit{cnt}$ to record the current number of consecutive 1s, and another variable $\textit{ans}$ to record the maximum number of consecutive 1s.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2820.Election%20Results/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,14 @@ Since Ryan and Christine received an equal number of votes, we will display thei
 <!-- solution:start -->
 
 ### Solution 1: Window Function + Group Statistics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each voter's ballot is split equally among that voter's non-null candidates. A window `COUNT` yields weight $1/\mathrm{cnt}$, a grouped `SUM` totals each candidate, and `RANK` keeps every first-place name, ordered alphabetically.
+
+<!-- thinking:end -->
 
 We can use the window function `count` to calculate the number of votes each voter gives to the candidates, then use the group statistics function `sum` to calculate the total number of votes for each candidate. Next, we use the window function `rank` to calculate the ranking of each candidate, and finally filter out the candidate who ranks first.
 

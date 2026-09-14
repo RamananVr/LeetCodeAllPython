@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README_EN.md
 rating: 2232
 source: Weekly Contest 417 Q4
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recurrence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $k \le 10^{14}$ we cannot build the string as in part I. Each operation doubles the length, so the $k$-th character is determined by a chain of “shift or not” decisions.
+>
+> Find the first length $n=2^i$ that is at least $k$, then walk the operations backward. If $k$ lies in the second half, it comes from the matching first-half index and we add $1$ when $\textit{operations}[i-1]=1$, then map $k$ back to the first half.
+>
+> When the length becomes $1$, the accumulated shift modulo $26$ is the letter. The walk takes $O(\log k)$ steps.
+
+<!-- thinking:end -->
 
 Since the length of the string doubles after each operation, if we perform $i$ operations, the length of the string will be $2^i$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md
 tags:
     - Greedy
     - Array
@@ -70,6 +69,14 @@ Note that other answers, such as [3, 3], would also be accepted.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pancake flip reverses a prefix. The array is a permutation of $1..n$, so we can place values from large to small: flip $k$ to the front, then flip it to its final index $k$. Record the two prefix lengths. A suffix that is already placed is left untouched.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

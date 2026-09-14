@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README_EN.md
 tags:
     - Array
     - Simulation
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A replacement occurs exactly when a strictly better (smaller) rank appears. Keep the current chosen rank $\textit{cur}$, initialized to the first student.
+>
+> Scan left to right; if $x<\textit{cur}$, update $\textit{cur}$ and increment the answer. $n\le 10^5$ allows a single pass; the history of ranks is unnecessary.
+
+<!-- thinking:end -->
 
 We use a variable $\text{cur}$ to record the rank of the currently selected student. We iterate through the array $\text{ranks}$, and if we encounter a student with a better rank (i.e., $\text{ranks}[i] < \text{cur}$), we update $\text{cur}$ and increment the answer by one.
 

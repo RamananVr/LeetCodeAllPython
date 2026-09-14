@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3481.Apply%20Substitutions/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -83,6 +82,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Placeholders $\%key\%$ expand to mapped values that may themselves contain placeholders. There is no cycle and at most $10$ keys, so recursion is enough.
+>
+> A single-level replace would leave nested percent signs. We build a hash map, then find the next pair of $\%$.
+>
+> $\textit{dfs}$ fully expands $d[key]$ first, concatenates the left side, and continues on the right. Every placeholder is defined.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{d}$ to store the substitution mapping, and then define a function $\textit{dfs}$ to recursively replace the placeholders in the string.
 

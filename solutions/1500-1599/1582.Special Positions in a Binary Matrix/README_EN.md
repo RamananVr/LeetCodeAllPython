@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README_EN.md
 rating: 1321
 source: Weekly Contest 206 Q1
 tags:
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count ones that are the unique one in their row and column. Rechecking the whole row and column per one is $O(mn(m+n))$.
+>
+> First tally ones per row and per column, then scan again: a cell contributes when it is $1$ and both counts equal $1$.
+
+<!-- thinking:end -->
 
 We can use two arrays, $\textit{rows}$ and $\textit{cols}$, to record the number of $1$s in each row and each column, respectively.
 

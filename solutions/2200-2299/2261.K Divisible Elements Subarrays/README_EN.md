@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README_EN.md
 rating: 1724
 source: Weekly Contest 291 Q3
 tags:
@@ -79,6 +78,16 @@ Since all subarrays are distinct, the total number of subarrays satisfying all t
 
 ### Solution 1: Enumeration + String Hashing
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct subarrays with at most $k$ elements divisible by $p$. $n \le 200$ lets us enumerate all subarrays; the issue is deduplication. Storing whole arrays is heavy; a rolling hash collapses a segment to a constant.
+>
+> Fix left $i$, extend $j$ while the divisible count stays at most $k$, and insert a double-modulus hash into a set. The set size is the answer.
+
+<!-- thinking:end -->
+
 We can enumerate the left endpoint $i$ of the subarray, and then enumerate the right endpoint $j$ in the range $[i, n)$. During the enumeration of the right endpoint, we use double hashing to store the hash value of the subarray into a set. Finally, we return the size of the set.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array.
@@ -112,7 +121,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Enumeration + String Concatenation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 avoids storing whole segments by hashing. With $n$ this small we can also join the elements into a string key. The same enumeration and $k$-pruning apply; only the constant factors grow.
+
+<!-- thinking:end -->
+
+Enumerate every subarray and store a joined string in a set. The time and space complexity are $O(n^2)$.
 
 <!-- tabs:start -->
 

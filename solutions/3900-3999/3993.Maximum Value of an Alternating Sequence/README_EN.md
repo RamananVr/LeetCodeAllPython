@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3993.Maximum%20Value%20of%20an%20Alternating%20Sequence/README_EN.md
 rating: 1452
 source: Biweekly Contest 187 Q2
 tags:
@@ -82,6 +81,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent values differ by at most $m$ and must strictly alternate. To grow some entry, each rise should use the full $m$ and each fall only $1$, leaving room for the next rise.
+>
+> If $n=1$ the answer is $s$. Otherwise rise-then-fall performs $\lfloor n/2\rfloor$ rises and the peak is $s+\lfloor n/2\rfloor(m-1)+1$. Fall-then-rise shrinks first and cannot beat that.
+>
+> $n$ and $s$ reach $10^9$, so the closed form must be $O(1)$.
+
+<!-- thinking:end -->
 
 If $n = 1$, the sequence contains only the starting value $s$, so the answer is $s$.
 

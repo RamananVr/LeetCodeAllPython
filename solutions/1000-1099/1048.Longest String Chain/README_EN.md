@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1048.Longest%20String%20Chain/README_EN.md
 rating: 1599
 source: Weekly Contest 137 Q3
 tags:
@@ -74,7 +73,27 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A chain grows by one character. $n\le 1000$ and length $\le 16$ allow DP after sorting by length. The best chain ending at $i$ comes from some predecessor $j$ whose length is one smaller.
+>
+> Two pointers test whether $a$ becomes $b$ by inserting one letter. Each $i$ tries earlier $j$ and sets $f[i]=\max(f[i],f[j]+1)$ on a hit.
+>
+> The answer is the maximum of $f$.
+
+<!-- thinking:end -->
+
+First, sort $\textit{words}$ by string length in ascending order. Define $f[i]$ as the length of the longest word chain ending with $\textit{words}[i]$. Initially, $f[i] = 1$.
+
+For each $i$, enumerate $j \in [0, i)$. If $\textit{words}[j]$ is a predecessor of $\textit{words}[i]$, update $f[i] = \max(f[i], f[j] + 1)$. Two strings form a predecessor pair if their lengths differ by $1$ and the shorter one can be obtained by deleting exactly one character from the longer one.
+
+The answer is $\max(f)$.
+
+The time complexity is $O(n^2 \times L)$ and the space complexity is $O(n)$, where $n$ is the length of the array and $L$ is the maximum length of a string.
 
 <!-- tabs:start -->
 
@@ -83,28 +102,23 @@ tags:
 ```python
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
-        def check(w1, w2):
-            if len(w2) - len(w1) != 1:
+        def check(a: str, b: str) -> bool:
+            if len(a) + 1 != len(b):
                 return False
-            i = j = cnt = 0
-            while i < len(w1) and j < len(w2):
-                if w1[i] != w2[j]:
-                    cnt += 1
-                else:
+            i = 0
+            for c in b:
+                if i < len(a) and a[i] == c:
                     i += 1
-                j += 1
-            return cnt < 2 and i == len(w1)
+            return i == len(a)
 
+        words.sort(key=len)
         n = len(words)
-        dp = [1] * (n + 1)
-        words.sort(key=lambda x: len(x))
-        res = 1
-        for i in range(1, n):
+        f = [1] * n
+        for i in range(n):
             for j in range(i):
                 if check(words[j], words[i]):
-                    dp[i] = max(dp[i], dp[j] + 1)
-            res = max(res, dp[i])
-        return res
+                    f[i] = max(f[i], f[j] + 1)
+        return max(f)
 ```
 
 <!-- tabs:end -->
@@ -113,7 +127,25 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans every shorter word even when the length gap is not $1$. A predecessor is $w$ with one character deleted, so there are at most $L$ candidates and a hash map can store scores by word.
+>
+> Still sorting by length, we delete each index of $w$ and take $f[p]+1$. The time becomes $O(nL^2)$.
+
+<!-- thinking:end -->
+
+Sort $\textit{words}$ by length as well. Use a hash table $f$ to record the longest word chain length ending at each word.
+
+For the current word $w$, enumerate each predecessor $p$ obtained by deleting one character. If $p$ is already in the hash table, update $f[w]$ with $f[p] + 1$.
+
+The answer is the maximum value among all $f[w]$.
+
+The time complexity is $O(n \times L^2)$ and the space complexity is $O(n \times L)$.
 
 <!-- tabs:start -->
 
@@ -122,17 +154,17 @@ class Solution:
 ```python
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
-        words.sort(key=lambda x: len(x))
-        res = 0
-        mp = {}
-        for word in words:
+        words.sort(key=len)
+        f = {}
+        ans = 0
+        for w in words:
             x = 1
-            for i in range(len(word)):
-                pre = word[:i] + word[i + 1 :]
-                x = max(x, mp.get(pre, 0) + 1)
-            mp[word] = x
-            res = max(res, x)
-        return res
+            for i in range(len(w)):
+                pred = w[:i] + w[i + 1 :]
+                x = max(x, f.get(pred, 0) + 1)
+            f[w] = x
+            ans = max(ans, x)
+        return ans
 ```
 
 <!-- tabs:end -->

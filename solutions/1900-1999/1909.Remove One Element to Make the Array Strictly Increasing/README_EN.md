@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1909.Remove%20One%20Element%20to%20Make%20the%20Array%20Strictly%20Increasing/README_EN.md
 rating: 1461
 source: Biweekly Contest 55 Q1
 tags:
@@ -66,6 +65,18 @@ No resulting array is strictly increasing, so return false.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every deletion and rechecking order is $O(n^2)$. At most one deletion is allowed, so there is at most one descent.
+>
+> Scan to the first $i$ with $\textit{nums}[i]\ge \textit{nums}[i+1]$. It suffices to test deleting $i$ or deleting $i+1$.
+>
+> Each test walks the array once while skipping that index. If no descent exists either deletion still works.
+
+<!-- thinking:end -->
 
 We can traverse the array to find the first position $i$ where $\textit{nums}[i] < \textit{nums}[i+1]$ is not satisfied. Then, we check if the array is strictly increasing after removing either $i$ or $i+1$. If it is, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 

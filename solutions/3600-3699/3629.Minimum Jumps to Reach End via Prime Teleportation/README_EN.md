@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3629.Minimum%20Jumps%20to%20Reach%20End%20via%20Prime%20Teleportation/README_EN.md
 rating: 2139
 source: Weekly Contest 460 Q3
 tags:
@@ -101,6 +100,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $i$ we may step to a neighbor or teleport to every $j$ whose value is divisible by a prime factor of $\textit{nums}[i]$. The shortest path is an unweighted BFS.
+>
+> Scanning the whole array on every teleport would explode. Precompute prime factors and, for each prime $p$, the list $g[p]$ of indices whose value is a multiple of $p$.
+>
+> BFS expands $i\pm 1$ and $g[\textit{nums}[i]]$, then clears that list so each prime is used once. The BFS layer that first reaches $n-1$ is the answer.
+
+<!-- thinking:end -->
 
 First, we preprocess the list of prime factors for every number up to $10^6$ and store them in $\textit{factors}$.
 

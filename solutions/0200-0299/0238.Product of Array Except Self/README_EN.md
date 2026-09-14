@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md
 tags:
     - Array
     - Prefix Sum
@@ -48,6 +47,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The product except $nums[i]$ is the left product times the right product. Two extra arrays for prefixes and suffixes use more than constant space.
+>
+> Write prefix products into the answer left to right, then multiply a running suffix from the right, using only the output array.
+
+<!-- thinking:end -->
 
 We define two variables $\textit{left}$ and $\textit{right}$ to represent the product of all elements to the left and right of the current element, respectively. Initially, $\textit{left} = 1$ and $\textit{right} = 1$. We define an answer array $\textit{ans}$ of length $n$.
 

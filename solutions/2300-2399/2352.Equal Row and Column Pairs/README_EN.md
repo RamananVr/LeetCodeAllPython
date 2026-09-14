@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md
 rating: 1286
 source: Weekly Contest 303 Q2
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count pairs of a row and a column that are equal. $n \le 200$, so an $O(n^3)$ comparison of $n$ positions is acceptable.
+>
+> For each row $i$ and column $j$, test $grid[i][k]=grid[k][j]$ for all $k$. Hashing whole rows is unnecessary.
+
+<!-- thinking:end -->
 
 We directly compare each row and column of the matrix $grid$. If they are equal, then it is a pair of equal row-column pairs, and we increment the answer by one.
 

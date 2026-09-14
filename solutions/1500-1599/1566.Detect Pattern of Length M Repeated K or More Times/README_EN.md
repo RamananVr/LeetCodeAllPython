@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README_EN.md
 rating: 1486
 source: Weekly Contest 204 Q1
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether a pattern of length $m$ repeats at least $k$ times. $n$ is tiny, so trying every start would work, yet one scan is enough.
+>
+> $k$ repeats mean $(k-1)m$ consecutive indices satisfy $a_i=a_{i-m}$. From index $m$ onward accumulate that equality and succeed at the target count; a mismatch resets the counter.
+
+<!-- thinking:end -->
 
 First, if the length of the array is less than $m \times k$, then there is definitely no pattern of length $m$ that repeats at least $k$ times, so we directly return $\textit{false}$.
 

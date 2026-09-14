@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README_EN.md
 rating: 1284
 source: Biweekly Contest 164 Q1
 tags:
@@ -62,6 +61,18 @@ The <strong>frequency</strong> of a digit <code>x</code> is the number of times 
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among the decimal digits of $n$, we want the least frequent one, breaking ties toward the smaller digit. Ten buckets suffice.
+>
+> Peel digits with $\textit{divmod}$, then scan the buckets and keep the positive count that is strictly smaller.
+>
+> Digits that never occur are ignored. There are $O(\log n)$ digits.
+
+<!-- thinking:end -->
 
 We use an array $\textit{cnt}$ to count the frequency of each digit. We iterate through each digit of the number $n$ and update the $\textit{cnt}$ array.
 

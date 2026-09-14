@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README_EN.md
 tags:
     - Hash Table
     - String
@@ -67,6 +66,16 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 <!-- solution:start -->
 
 ### Solution 1: Calculate the Contribution of Each Character
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $O(n^2)$ substrings and $n\le 10^5$, so we cannot enumerate them. A character is unique in a substring iff that substring covers this occurrence and neither neighboring occurrence of the same letter.
+>
+> Record indices of each letter, with sentinels at both ends. The $i$-th occurrence combines freely with the left gap and the right gap, contributing the product of those gaps. Sum over all letters.
+
+<!-- thinking:end -->
 
 For each character $c_i$ in the string $s$, when it appears only once in a substring, it contributes to the count of unique characters in that substring.
 

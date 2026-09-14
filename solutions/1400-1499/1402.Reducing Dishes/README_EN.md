@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1402.Reducing%20Dishes/README_EN.md
 rating: 1679
 source: Biweekly Contest 23 Q4
 tags:
@@ -68,6 +67,18 @@ Each dish is prepared in one unit of time.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every subset and every cooking order is impossible for $n\le 500$. Satisfaction can be negative and the empty menu scores $0$, so we only need the maximum like-time coefficient sum.
+>
+> Within a chosen set, larger values should receive larger time multipliers, so the optimal order is increasing. Adding the next-highest dish increases the total by the sum of dishes already chosen.
+>
+> Sort descending, maintain the prefix sum $s$, and add $s$ to the answer while $s>0$. Once the prefix is non-positive, smaller dishes cannot help.
+
+<!-- thinking:end -->
 
 Suppose we only choose one dish, then we should choose the dish with the highest satisfaction $s_0$, and check whether $s_0$ is greater than 0. If $s_0 \leq 0$, then we don't cook any dishes, otherwise, we cook this dish, and the total satisfaction is $s_0$.
 

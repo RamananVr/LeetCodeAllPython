@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md
 rating: 2214
 source: Weekly Contest 244 Q4
 tags:
@@ -80,6 +79,16 @@ The total waste is (5-3) + (5-5) + (10-8) + (10-10) + (14-11) + (14-12) = 9.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each supplier offers box sizes; a box holds at most one package that is no larger than the box. We want the minimum wasted space. Scanning packages per box is too slow.
+>
+> Sort the packages and each supplier's boxes. Binary search cuts out the next batch that fits the current box and adds $b$ times that count. Waste is total box space minus the package sum; take the best supplier.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

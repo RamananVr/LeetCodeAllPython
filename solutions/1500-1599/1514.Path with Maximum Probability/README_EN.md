@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md
 rating: 1846
 source: Weekly Contest 197 Q3
 tags:
@@ -77,6 +76,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Heap-Optimized Dijkstra Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum success probability from start to end on an undirected graph whose edge weights multiply. $n\le 10^4$ and $m\le 2\times 10^4$, so listing simple paths is impossible.
+>
+> Treating weights as the opposite of a cost, the problem is isomorphic to a shortest path: probabilities multiply and lie in $(0,1]$, so the optimum has optimal substructure. A max-heap Dijkstra relaxes neighbors by the product of the current probability and the edge; storing negated values simulates the max-heap. The first time the destination is settled is the answer.
+
+<!-- thinking:end -->
 
 We can use Dijkstra's algorithm to find the shortest path, but here we modify it slightly to find the path with the maximum probability.
 

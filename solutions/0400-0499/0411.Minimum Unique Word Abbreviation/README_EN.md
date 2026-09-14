@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -77,6 +76,18 @@ Since none of them are abbreviations of words in the dictionary, returning any o
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> This problem's language tabs are empty in the repository; there is no implemented algorithm yet. We still need a shortest abbreviation of $\textit{target}$ that is not valid for any dictionary word.
+>
+> $m\le 21$ and $\log_2 n+m\le 21$ allow enumerating which positions to keep. Adjacent replaced spans merge into one number, and the length is the number of kept letters plus the number of replaced spans.
+>
+> Only dictionary words of the same length can conflict: an abbreviation is unique if no such word matches $\textit{target}$ on every kept position.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

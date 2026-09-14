@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0555.Split%20Concatenated%20Strings/README_EN.md
 tags:
     - Greedy
     - Array
@@ -63,6 +62,16 @@ The answer string came from the fourth looped one, where you could cut from the 
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each string may be reversed, then we cut the concatenation at some index. Trying every reverse subset and every cut is too many.
+>
+> Replace each string by the lexicographically larger of itself and its reverse so the rest of the loop is already maximized. Then try every string as the cut location and both orientations of that string, keeping the global maximum.
+
+<!-- thinking:end -->
 
 We first traverse the string array `strs`. For each string $s$, if the reversed string $t$ is greater than $s$, we replace $s$ with $t$.
 

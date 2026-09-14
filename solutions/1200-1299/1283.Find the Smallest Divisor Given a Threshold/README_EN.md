@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1283.Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold/README_EN.md
 rating: 1541
 source: Weekly Contest 166 Q3
 tags:
@@ -56,6 +55,14 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A larger divisor only decreases the sum of ceilings, so the predicate is monotone. $n \le 5\times 10^4$ forbids trying every divisor. We binary-search the smallest $v$ in $[1,\max nums]$ such that $\sum \lceil nums_i/v \rceil \le threshold$. Each check is one linear scan.
+
+<!-- thinking:end -->
 
 Notice that for number $v$, if the sum of results of dividing each number in $nums$ by $v$ is less than or equal to $threshold$, then all values greater than $v$ satisfy the condition. There is a monotonicity, so we can use binary search to find the smallest $v$ that satisfies the condition.
 

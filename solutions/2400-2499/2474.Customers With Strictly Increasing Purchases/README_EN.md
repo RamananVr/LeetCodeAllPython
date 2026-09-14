@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README_EN.md
 tags:
     - Database
 ---
@@ -95,6 +94,16 @@ Customer 3: The first year is 2017, and the last year is 2018
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers whose yearly totals are strictly increasing. After summing $price$ per customer and year, a strictly increasing series makes $YEAR-RANK(\textit{total})$ constant.
+>
+> Window $RANK()$ on the yearly total, then keep customers for whom that difference has a single distinct value.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

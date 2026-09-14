@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md
 rating: 1355
 source: Biweekly Contest 54 Q2
 tags:
@@ -75,6 +74,16 @@ Student number 1 does not have enough chalk, so they will have to replace it.
 <!-- solution:start -->
 
 ### Solution 1: Sum and Modulo + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students use chalk in a cycle and $k$ can be huge, while one full round has a modest sum. Simulating every round is too slow.
+>
+> Reduce $k$ modulo the sum of one round, then walk from index $0$; the first student who needs more than the remainder is the answer.
+
+<!-- thinking:end -->
 
 Since the students' answers are conducted in rounds, we can add up the chalk needed by all students to get a total $s$. Then we take the remainder of $k$ by $s$, which can tell us the remaining number of chalks after the last round.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3423.Maximum%20Difference%20Between%20Adjacent%20Elements%20in%20a%20Circular%20Array/README_EN.md
 rating: 1184
 source: Biweekly Contest 148 Q1
 tags:
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular array also compares the first and last elements. $n\le 100$, so one scan is enough.
+>
+> Appending $\textit{nums}[0]$ turns the wrap-around pair into an ordinary adjacent pair.
+>
+> We take the maximum absolute difference over $\textit{pairwise}(\textit{nums}+[\textit{nums}[0]])$.
+
+<!-- thinking:end -->
 
 We traverse the array $\textit{nums}$, calculate the absolute difference between adjacent elements, and maintain the maximum absolute difference. Finally, we compare it with the absolute difference between the first and last elements and take the maximum value.
 

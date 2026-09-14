@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README_EN.md
 rating: 1853
 source: Weekly Contest 461 Q3
 tags:
@@ -147,6 +146,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters turn into stars in a given order. Feasibility is monotone in time, so the first moment a length-$k$ activation condition holds can be binary-searched.
+>
+> For a candidate $t$, treat the first $t+1$ positions as stars and count covered substrings from the gaps between consecutive stars.
+>
+> If the count meets the threshold, search a smaller time. Equivalently, insert stars in order, maintain gaps in an ordered set, and stop at the first success.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

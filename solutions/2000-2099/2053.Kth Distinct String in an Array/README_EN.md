@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2053.Kth%20Distinct%20String%20in%20an%20Array/README_EN.md
 rating: 1350
 source: Biweekly Contest 64 Q1
 tags:
@@ -72,6 +71,16 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A string is distinct iff it occurs once globally. With $n \le 1000$, count first, then scan in order, decrementing $k$ on frequency $1$ until it hits zero.
+>
+> Two linear passes; no extra index structure.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to record the number of occurrences of each string. Then, we traverse the array once more. For each string, if its occurrence count is $1$, we decrement $k$ by one. When $k$ reaches $0$, we return the current string.
 

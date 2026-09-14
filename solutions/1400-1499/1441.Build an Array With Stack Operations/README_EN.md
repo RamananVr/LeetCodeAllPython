@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md
 rating: 1180
 source: Weekly Contest 188 Q1
 tags:
@@ -92,6 +91,16 @@ The answers that read integer 3 from the stream are not accepted.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The stream is $1,2,\ldots,n$ and `target` is strictly increasing. Numbers missing from `target` need `Push` then `Pop`; numbers in `target` need only `Push`.
+>
+> A pointer $\textit{cur}$ is the next streamed value. For each target $x$, emit Push/Pop for the gap, then Push $x$. $n\le 100$.
+
+<!-- thinking:end -->
 
 We define a variable $\textit{cur}$ to represent the current number to be read, initially set to $\textit{cur} = 1$, and use an array $\textit{ans}$ to store the answer.
 

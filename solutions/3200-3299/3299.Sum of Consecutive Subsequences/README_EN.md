@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration of Contributions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A consecutive subsequence changes by $\pm 1$ at each step (indices need not be adjacent). We want length-at-least-$2$ contributions plus every singleton. $n\le 10^5$ forbids listing subsequences. An element's contribution is the number of increasing or decreasing chains that contain it.
+>
+> For increasing chains, multiply the number of chains ending at $x-1$ on the left by those starting at $x+1$ on the right, plus the one-sided extensions. Two hash-map scans fill $left$ and $right$; add $(l+r+lr)\times x$. Reverse the array for decreasing chains, then add the sum of all elements.
+
+<!-- thinking:end -->
 
 Let us count how many times each element $\textit{nums}[i]$ appears in a continuous subsequence of length greater than 1. Then, multiplying this count by $\textit{nums}[i]$ gives the contribution of $\textit{nums}[i]$ in all continuous subsequences of length greater than 1. We sum these contributions, and adding the sum of all elements, we get the answer.
 

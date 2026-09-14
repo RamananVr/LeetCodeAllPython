@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3961.Maximize%20Sum%20of%20Device%20Ratings/README_EN.md
 rating: 1879
 source: Weekly Contest 506 Q3
 ---
@@ -109,6 +108,18 @@ source: Weekly Contest 506 Q3
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A device’s rating is the smallest unit it keeps. Moving someone’s minimum onto another device can only replace the receiver’s second-smallest. When $n=1$ nothing can move, so the answer is the sum of minima.
+>
+> For $n\ge 2$ each device keeps at least two units: sort each row and start from the sum of second-smallest values. The one useful adjustment merges the global minimum into the device whose second-smallest is tiniest, replacing that second-smallest.
+>
+> The closed form is $\sum x[1]-(mn_2-mn)$.
+
+<!-- thinking:end -->
 
 Adding a unit to a device can only decrease or keep its rating unchanged. Therefore, if $n = 1$, we can directly return the sum of all device ratings.
 

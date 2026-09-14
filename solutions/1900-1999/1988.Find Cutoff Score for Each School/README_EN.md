@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README_EN.md
 tags:
     - Database
 ---
@@ -106,6 +105,14 @@ Exam table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each school wants the lowest exam score whose student count fits its capacity, or $-1$. Left-joining $\texttt{Exam}$ keeps schools with no feasible score, then $\texttt{MIN}$ with $\texttt{IFNULL}(\cdot,-1)$ per school.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

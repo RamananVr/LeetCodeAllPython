@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/README_EN.md
 rating: 1382
 source: Weekly Contest 171 Q2
 tags:
@@ -59,6 +58,14 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the fewest bit flips so that $a\lor b=c$. Bits are independent, so we never search over integers. If $c$'s bit is $0$, every $1$ in $a$ or $b$ must flip; if it is $1$, we flip once only when both bits are $0$. Summing over $32$ bits is enough.
+
+<!-- thinking:end -->
 
 We can enumerate each bit of the binary representation of $a$, $b$, and $c$, denoted as $x$, $y$, and $z$ respectively. If the bitwise OR operation result of $x$ and $y$ is different from $z$, we then check if both $x$ and $y$ are $1$. If so, we need to flip twice, otherwise, we only need to flip once. We accumulate all the required flip times.
 

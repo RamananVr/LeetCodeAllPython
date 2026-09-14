@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README_EN.md
 rating: 2411
 source: Biweekly Contest 163 Q4
 tags:
@@ -138,6 +137,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides paying a cell when moving right or down, we may teleport from a larger value to a smaller one at most $k$ times. The leftover teleport count is part of the state.
+>
+> $f[t][i][j]$ is the cheapest way to reach $(i,j)$ with $t$ teleports. Layer $t=0$ uses only grid moves. Teleports require a nonincreasing value, so cells are scanned from large to small and the best previous-layer cost among those cells is written onto the current layer.
+>
+> A second right/down sweep after the assignment lets the walk continue. The answer is the minimum destination cost over all $t$.
+
+<!-- thinking:end -->
 
 We define $f[t][i][j]$ as the minimum cost to reach cell $(i, j)$ using exactly $t$ teleportations. Initially, $f[0][0][0] = 0$, and all other states are infinity.
 

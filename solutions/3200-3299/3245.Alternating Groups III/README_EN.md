@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3245.Alternating%20Groups%20III/README_EN.md
 rating: 3112
 source: Weekly Contest 409 Q4
 tags:
@@ -110,6 +109,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On a ring we recolor tiles and count alternating groups of a given size. $n,q\le 5\times 10^4$, so a linear scan per query as in I/II is too slow. Groups are determined by maximal alternating runs; a recolor only splits or merges nearby runs.
+>
+> An ordered set stores runs and a Fenwick tree counts how many runs have each length. A query of size $s$ sums $\max(\ell-s+1,0)$ over run lengths, which a prefix can answer. There is no implementation in the tree yet; the reasoning follows this run plus Fenwick outline.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

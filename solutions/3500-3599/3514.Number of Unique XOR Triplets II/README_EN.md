@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README_EN.md
 rating: 1883
 source: Biweekly Contest 154 Q3
 tags:
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is no longer a permutation, so there is no closed form. Any XOR of two values is less than $2M$ where $M = \max(\textit{nums})$, so a Boolean array suffices.
+>
+> Mark every $a \oplus b$, then XOR each marked value with a third element into $s$, and count nonzero entries. Commutativity of XOR makes the index order irrelevant.
+
+<!-- thinking:end -->
 
 With indices satisfying $i \le j \le k$, the same index may be chosen more than once, and XOR is commutative. Therefore, the answer equals the number of distinct XOR values obtainable by picking any three elements from the array (with replacement).
 

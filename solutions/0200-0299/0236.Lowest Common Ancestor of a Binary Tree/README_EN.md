@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A general binary tree has no key order, so we cannot walk by value. The LCA is the deepest node that covers both $p$ and $q$.
+>
+> A postorder recursion returns a found node from a subtree. If both sides are non-empty the current root is the LCA; otherwise we pass up the non-empty side.
+
+<!-- thinking:end -->
 
 We recursively traverse the binary tree:
 

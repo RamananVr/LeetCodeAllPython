@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md
 rating: 1892
 source: Weekly Contest 223 Q3
 tags:
@@ -72,6 +71,18 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 <!-- solution:start -->
 
 ### Solution 1: Union-Find + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Allowed swaps compose, so values may be rearranged freely inside a connected component. With $n\le 10^5$ we must process components, not permutations.
+>
+> A DSU joins swappable indices. Within a component, the multiset of $\textit{source}$ should cover $\textit{target}$ at those positions as much as possible.
+>
+> Count source values per root. Walking $\textit{target}$, increment the distance when the component has no remaining copy of that value.
+
+<!-- thinking:end -->
 
 We can consider each index as a node, and the element corresponding to each index as the value of the node. Then each element `[a_i, b_i]` in the given `allowedSwaps` represents an edge between index `a_i` and `b_i`. Therefore, we can use a union-find set to maintain these connected components.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3281.Maximize%20Score%20of%20Numbers%20in%20Ranges/README_EN.md
 rating: 1768
 source: Weekly Contest 414 Q2
 tags:
@@ -66,6 +65,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick an integer in each $[start_i,start_i+d]$ to maximize the minimum gap between consecutive picks. $n\le 10^5$ forbids enumerating values. After sorting, the gap is monotone: if $x$ works, every smaller gap works.
+>
+> Binary-search $x$ and sweep left to right, taking the earliest point at least $last+x$ inside each interval. The largest feasible $x$ is the answer.
+
+<!-- thinking:end -->
 
 We can first sort the $\textit{start}$ array. Then, we consider selecting integers from left to right, where the score is equal to the minimum difference between any two adjacent selected integers.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3291.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20I/README_EN.md
 rating: 2081
 source: Weekly Contest 415 Q3
 tags:
@@ -94,6 +93,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Trie + Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Concatenate prefixes of $\textit{words}$ to form $\textit{target}$ with as few pieces as possible. $|target|\le 5\times 10^3$ and total word length $10^5$; trying every word at every index repeats prefixes.
+>
+> Store every word in a trie. From $i$, walk $\textit{target}$ down the trie; each existing node is a cut, plus $\textit{dfs}(j+1)$. After memoization each start walks at most $O(n)$.
+
+<!-- thinking:end -->
 
 We can use a trie to store all valid strings and then use memoization to calculate the answer.
 

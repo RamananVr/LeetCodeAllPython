@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3885.Design%20Event%20Manager/README_EN.md
 rating: 1548
 source: Weekly Contest 495 Q2
 tags:
@@ -87,6 +86,20 @@ eventManager.pollHighest(); // no events remain, return -1</div>
 <!-- solution:start -->
 
 ### Solution 1: Sorted Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Poll the highest-priority live event, breaking ties by smallest $\textit{eventId}$, and support priority updates. Up to $10^5$ operations.
+>
+> The max is an ordered-set endpoint; an update must erase the old key and insert the new one.
+>
+> Store $(-\textit{priority},\textit{eventId})$ so higher priority and smaller id come first, and a hash map remembers the current priority for deletion.
+>
+> A poll also drops the hash entry.
+
+<!-- thinking:end -->
 
 We define a sorted set $\textit{sl}$ to store tuples of priority and id $(-\textit{priority}, \textit{eventId})$ for all active events, and a hash map $\textit{d}$ to store the priority of each event.
 

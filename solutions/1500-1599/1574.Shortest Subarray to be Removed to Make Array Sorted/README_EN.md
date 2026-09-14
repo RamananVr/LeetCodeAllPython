@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README_EN.md
 rating: 1931
 source: Biweekly Contest 34 Q3
 tags:
@@ -68,6 +67,16 @@ Another correct solution is to remove the subarray [3,10,4].
 
 ### Solution 1: Two Pointers + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete one contiguous subarray so the rest is nondecreasing, and minimize the deletion. $n\le 10^5$ forbids trying every interval. What remains is a prefix plus a suffix whose join is still sorted.
+>
+> Find the longest nondecreasing prefix $[0,i]$ and suffix $[j,n)$. If they already cover the array the answer is $0$; otherwise we may drop the whole suffix or the whole prefix. For each prefix end $l$, binary-search the first suffix index $r$ with $arr[r]\ge arr[l]$, delete $(l,r)$, and keep the shortest.
+
+<!-- thinking:end -->
+
 First, we find the longest non-decreasing prefix and the longest non-decreasing suffix of the array, denoted as $\textit{nums}[0..i]$ and $\textit{nums}[j..n-1]$, respectively.
 
 If $i \geq j$, it means the array is already non-decreasing, so we return $0$.
@@ -107,6 +116,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 binary-searches each $l$ and pays an extra $\log n$. Both sides are sorted, so $r$ only moves right as $l$ grows. A monotone right pointer makes the second loop linear.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first find the longest non-decreasing prefix and the longest non-decreasing suffix of the array, denoted as $\textit{nums}[0..i]$ and $\textit{nums}[j..n-1]$, respectively.
 

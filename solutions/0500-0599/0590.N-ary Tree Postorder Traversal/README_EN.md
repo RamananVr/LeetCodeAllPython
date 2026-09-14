@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README_EN.md
 tags:
     - Stack
     - Tree
@@ -55,6 +54,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> N-ary postorder is children left to right, then the root. Recursion visits children first.
+>
+> Recurse on each child, then append the root. An empty tree yields an empty list.
+
+<!-- thinking:end -->
+
 We can recursively traverse the entire tree. For each node, we first recursively call the function for each of the node's children, then add the node's value to the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
@@ -93,6 +102,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Iteration (Stack Implementation)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursive postorder has the same depth limit. A stack that visits the root then pushes children left-to-right yields root-right-left; reversing that list is left-right-root.
+>
+> It is the mirror-preorder-then-reverse trick. Only one stack and the answer array are needed.
+
+<!-- thinking:end -->
 
 We can also solve this problem iteratively.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md
 rating: 1312
 source: Weekly Contest 496 Q1
 tags:
@@ -199,6 +198,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters and digits mirror inside their own alphabets; we sum absolute frequency gaps over unordered mirror pairs. One count pass suffices.
+>
+> $(c,m)$ and $(m,c)$ are the same pair, so visited characters must be marked.
+>
+> Count frequencies, then for each unseen $c$ add $|freq(c)-freq(m)|$ and mark $c$.
+>
+> A missing mirror contributes frequency $0$.
+
+<!-- thinking:end -->
 
 We first use a hash table $\textit{freq}$ to count the frequency of each character in string $s$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0859.Buddy%20Strings/README_EN.md
 tags:
     - Hash Table
     - String
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must swap exactly two characters of $s$ to obtain $\textit{goal}$. Different lengths or different letter counts are impossible. $n\le 2\cdot 10^4$, so one scan of mismatch positions is enough.
+>
+> Exactly two mismatches work because the counts already match. A fully equal pair needs some letter appearing twice, so a no-op swap exists.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

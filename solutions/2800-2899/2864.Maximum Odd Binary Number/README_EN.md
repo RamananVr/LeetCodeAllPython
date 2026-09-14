@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md
 rating: 1237
 source: Weekly Contest 364 Q1
 tags:
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An odd binary number must end with $1$, and the remaining ones should sit in the highest bits. After counting ones, emit $cnt-1$ leading ones, then the zeros, then a final $1$.
+
+<!-- thinking:end -->
 
 First, we count the number of '1's in the string $s$, denoted as $cnt$. Then, we place $cnt - 1$ '1's at the highest position, followed by the remaining $|s| - cnt$ '0's, and finally add one '1'.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README_EN.md
 rating: 1682
 source: Biweekly Contest 93 Q2
 tags:
@@ -73,6 +72,14 @@ Hence, we return -5.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A star is a center plus at most $k$ edges. Negative neighbors can be skipped. At $n\le 10^5$, sort positive neighbor values descending, add the first $k$ to the center, and take the best center.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

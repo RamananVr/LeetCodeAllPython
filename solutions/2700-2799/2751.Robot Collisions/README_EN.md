@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2751.Robot%20Collisions/README_EN.md
 rating: 2091
 source: Weekly Contest 351 Q4
 tags:
@@ -82,6 +81,16 @@ tags:
 <!-- solution:start -->
 
 ### Approach 1: Stack Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Robots on a line collide head-on: the weaker is removed, the stronger loses one health, and equal health removes both. We must report remaining healths in the original order. Simulating by time needs every meeting, and positions are large.
+>
+> Sort by position. Right-moving robots go on a stack; a left-moving one fights the top until it dies or the stack has no right-mover. Survivors are the original indices whose health stayed positive.
+
+<!-- thinking:end -->
 
 We first sort the robots by position in ascending order, storing the sorted robot indices in an array $\textit{idx}$. We then use a stack to simulate the collision process:
 

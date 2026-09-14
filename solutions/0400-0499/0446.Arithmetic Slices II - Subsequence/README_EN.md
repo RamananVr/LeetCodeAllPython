@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0446.Arithmetic%20Slices%20II%20-%20Subsequence/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Subsequences need not be contiguous and the difference can be huge, so listing every length-$\ge 3$ subsequence is impossible. $n\le 1000$ allows $O(n^2)$.
+>
+> Let $f[i][d]$ be the number of weak arithmetic subsequences (at least two terms) ending at $i$ with difference $d$. For $j<i$ and $d=nums[i]-nums[j]$, the $f[j][d]$ sequences become real slices once $nums[i]$ is appended, and $f[i][d]$ grows by $f[j][d]+1$ (including the new pair).
+>
+> Differences live in hash maps. Add $f[j][d]$ to the answer before updating $f[i][d]$, so weak sequences and true slices are handled in one double loop.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

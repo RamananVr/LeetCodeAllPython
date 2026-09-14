@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0112.Path%20Sum/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -65,6 +64,16 @@ There is no root-to-leaf path with sum = 5.
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a root-to-leaf path whose values sum to the target. Enumerating every path works for $n \le 5000$, but copying paths is extra work.
+>
+> Accumulate the running sum on the way down and test it only at a leaf. Either child succeeding is enough; the full path need not be stored.
+
+<!-- thinking:end -->
 
 Starting from the root node, recursively traverse the tree and update the value of the node to the path sum from the root node to that node. When you traverse to a leaf node, determine whether this path sum is equal to the target value. If it is equal, return `true`, otherwise return `false`.
 

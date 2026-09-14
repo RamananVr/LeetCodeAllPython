@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1445.Apples%20%26%20Oranges/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,14 @@ Day 2020-05-04, 15 apples and 16 oranges were sold (Difference 15 - 16 = -1).
 <!-- solution:start -->
 
 ### Solution 1: Group By + Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each day has apple and orange rows. Group by `sale_date`, add apple sales and subtract orange sales, then order by date.
+
+<!-- thinking:end -->
 
 We can group the data by date, and then use the `sum` function to calculate the difference in sales between apples and oranges for each day. If it is an apple, we represent it with a positive number, and if it is an orange, we represent it with a negative number. Finally, we sort the data by date.
 

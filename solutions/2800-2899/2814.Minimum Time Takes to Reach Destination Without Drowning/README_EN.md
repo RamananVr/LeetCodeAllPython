@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README_EN.md
 tags:
     - Breadth-First Search
     - Array
@@ -86,6 +85,14 @@ So the answer would be -1.
 <!-- solution:start -->
 
 ### Solution 1: Two BFS Traversals
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Water spreads one step per second, and the walker cannot enter a flooded cell. A first multi-source BFS stores the flood time $g[i][j]$ of every cell. A second BFS from the start advances to a neighbor only when $g[x][y]>t+1$, turning the flood constraint into a static comparison.
+
+<!-- thinking:end -->
 
 First, we run a BFS (Breadth-First Search) to calculate the shortest distance from each cell to the water, and record it in the array $g$. Then, we run another BFS starting from the cell $(s_i, s_j)$ to find the shortest distance to the target cell $(d_i, d_j)$. During this process, if the adjacent cell $(x, y)$ of the current cell $(i, j)$ satisfies $g[x][y] > t + 1$, then we can move from $(x, y)$ to $(i, j)$.
 

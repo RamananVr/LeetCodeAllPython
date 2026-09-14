@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0204.Count%20Primes/README_EN.md
 tags:
     - Array
     - Math
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trial division up to $\sqrt{x}$ counts primes, but $n$ can be $5\times 10^6$, so repeated tests are slow. If $x$ is prime, its multiples $2x,3x,\ldots$ are composite.
+>
+> The Sieve of Eratosthenes marks those multiples as we scan upward, then counts unmarked values. Each composite is crossed off by a factor, in about $O(n\log\log n)$ time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

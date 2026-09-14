@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md
 rating: 1336
 source: Weekly Contest 336 Q2
 tags:
@@ -59,6 +58,16 @@ It can be shown that 6 is the maximum score we can obtain.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Permute the array to maximize how many prefix sums are strictly positive. Positive values should come first, so sort descending.
+>
+> Accumulate the prefix; once it becomes non-positive, later prefixes only shrink, and the count so far is the answer. If it never drops, the answer is $n$.
+
+<!-- thinking:end -->
 
 To maximize the number of positive integers in the prefix sum array, we need to make the elements in the prefix sum array as large as possible, that is, to add as many positive integers as possible. Therefore, we can sort the array $nums$ in descending order, then traverse the array, maintaining the prefix sum $s$. If $s \leq 0$, it means that there can be no more positive integers in the current position and the positions after it, so we can directly return the current position.
 

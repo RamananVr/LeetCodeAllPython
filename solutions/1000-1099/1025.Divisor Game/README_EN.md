@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1025.Divisor%20Game/README_EN.md
 rating: 1435
 source: Weekly Contest 132 Q1
 tags:
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematical Induction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 1000$ we could DP each remaining value: the starter wins if some $x$ leaves a losing position. Small cases already suggest that odd $n$ loses and even $n$ wins, which induction confirms.
+>
+> A proper divisor of an odd integer is odd, so the opponent receives an even number. From an even integer we can subtract $1$ and leave an odd number. The outcome depends only on the parity of $n$.
+>
+> It is enough to return whether $n$ is even.
+
+<!-- thinking:end -->
 
 - When $n=1$, the first player loses.
 - When $n=2$, the first player takes $1$, leaving $1$, the second player loses, the first player wins.

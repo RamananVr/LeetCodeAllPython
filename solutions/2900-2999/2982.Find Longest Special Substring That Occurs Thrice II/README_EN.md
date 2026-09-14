@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README_EN.md
 rating: 1772
 source: Weekly Contest 378 Q3
 tags:
@@ -70,6 +69,16 @@ It can be shown that the maximum length achievable is 1.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Sliding Window Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 5 \times 10^5$ forbids storing every special substring. Feasibility stays monotone in the length, so binary-search $x$ and charge $\max(0, L-x+1)$ per run, totaling $O(n \log n)$.
+>
+> The code is method 1 of part I; only the bounds force the logarithmic search rather than a hashmap of all pieces.
+
+<!-- thinking:end -->
 
 We notice that if there exists a special substring of length $x$ that appears at least three times, then a special substring of length $x-1$ must also exist. This exhibits a monotonicity, so we can use binary search to find the longest special substring.
 

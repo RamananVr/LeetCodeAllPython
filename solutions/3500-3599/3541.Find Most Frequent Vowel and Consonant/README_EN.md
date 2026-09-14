@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README_EN.md
 rating: 1238
 source: Biweekly Contest 156 Q1
 tags:
@@ -79,6 +78,16 @@ The <strong>frequency</strong> of a letter <code>x</code> is the number of times
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the highest vowel frequency plus the highest consonant frequency, independent of which letter achieves it. One counting pass and two running maxima suffice.
+>
+> Treat a missing class as frequency $0$ and add the two maxima.
+
+<!-- thinking:end -->
 
 We first use a hash table or an array of length $26$, $\textit{cnt}$, to count the frequency of each letter. Then, we iterate through this table to find the most frequent vowel and consonant, and return the sum of their frequencies.
 

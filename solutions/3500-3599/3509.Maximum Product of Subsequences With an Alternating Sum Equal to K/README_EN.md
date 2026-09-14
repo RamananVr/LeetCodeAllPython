@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README_EN.md
 rating: 2702
 source: Weekly Contest 444 Q3
 tags:
@@ -127,6 +126,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $2^n$ subsequences and $n \le 150$. Alternating sum and product must be tracked together; $k$ is wide, but $\textit{limit} \le 5000$ and $nums[i] \le 12$, so products above $\textit{limit}$ can be discarded.
+>
+> DP over the index, the parity of the chosen length, the running alternating sum, and the capped product. A zero in $\textit{nums}$ needs a separate zero-product case.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

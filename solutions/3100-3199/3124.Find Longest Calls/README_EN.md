@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3124.Find%20Longest%20Calls/README_EN.md
 tags:
     - Database
 ---
@@ -125,6 +124,18 @@ Each row of this table contains information about calls, comprising of contact_i
 <!-- solution:start -->
 
 ### Solution 1: Equi-Join + Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The top three calls per type are required, with duration formatted as `HH:MM:SS`. A manual sort works, but ties need dense ranks.
+>
+> Equi-join contacts to calls, rank $duration$ descending within each type, and keep rows whose rank is at most $3$.
+>
+> Convert seconds to a clock string and sort by type, formatted duration, and name. The window rank replaces a per-group sort.
+
+<!-- thinking:end -->
 
 We can use equi-join to connect the two tables, and then use the window function `RANK()` to calculate the ranking of each type of phone. Finally, we just need to filter out the top three phones.
 

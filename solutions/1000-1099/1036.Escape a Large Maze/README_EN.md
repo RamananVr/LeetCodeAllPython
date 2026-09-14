@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md
 rating: 2164
 source: Weekly Contest 134 Q4
 tags:
@@ -67,6 +66,18 @@ We cannot move south or west because we cannot go outside of the grid.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $10^6\times 10^6$ grid cannot be materialized. At most $200$ blocked cells enclose an area of at most $|blocked|^2/2$, so visiting more cells than that from a source means it is not trapped.
+>
+> DFS from the source and from the target: meeting the other point succeeds; exceeding the area bound means we escaped the enclosure. Both sides must escape (or meet).
+>
+> Blocked cells sit in a set for $O(1)$ tests; the search size is quadratic in the number of obstacles.
+
+<!-- thinking:end -->
 
 The problem can be interpreted as determining whether it is possible to move from a source point to a target point in a $10^6 \times 10^6$ grid, given a small number of blocked points.
 

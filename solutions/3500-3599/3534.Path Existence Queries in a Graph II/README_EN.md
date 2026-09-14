@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3534.Path%20Existence%20Queries%20in%20a%20Graph%20II/README_EN.md
 rating: 2507
 source: Weekly Contest 447 Q4
 tags:
@@ -157,6 +156,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Lifting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous problem only asked connectivity. Here we need shortest-path length over many queries. After sorting by value, a step from a smaller node may jump to the farthest node within $\textit{maxDiff}$; that greedy hop is a shortest path.
+>
+> Two pointers compute the one-step jump; binary lifting fills $f[i][k]$. Align the smaller value, add jumps, and return $-1$ if the destination is still unreachable.
+
+<!-- thinking:end -->
 
 Key observation: an edge exists between two nodes if the absolute difference of their values is at most `maxDiff`. After sorting nodes by value, greedily jumping from a smaller-value node to the largest reachable value at each step yields the shortest path.
 

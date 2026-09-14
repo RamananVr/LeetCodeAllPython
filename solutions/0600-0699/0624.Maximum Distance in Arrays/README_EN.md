@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README_EN.md
 tags:
     - Greedy
     - Array
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Maintain Maximum and Minimum Values
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The distance uses endpoints from two different arrays. Pairing every two arrays is quadratic when there are $10^4$ arrays.
+>
+> The optimum is always a current endpoint versus a previous global min or max. Compare first, then merge the current array's ends into $\textit{mi}$ and $\textit{mx}$ so both ends never come from the same array.
+
+<!-- thinking:end -->
 
 We notice that the maximum distance must be the distance between the maximum value in one array and the minimum value in another array. Therefore, we can maintain two variables $\textit{mi}$ and $\textit{mx}$, representing the minimum and maximum values of the arrays we have traversed. Initially, $\textit{mi}$ and $\textit{mx}$ are the first and last elements of the first array, respectively.
 

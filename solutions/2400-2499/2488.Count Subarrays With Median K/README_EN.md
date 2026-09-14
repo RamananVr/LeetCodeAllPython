@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md
 rating: 1998
 source: Weekly Contest 321 Q4
 tags:
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums$ is a permutation. A subarray with median $k$ contains $k$, and the count of values $>k$ minus those $<k$ is $0$ (odd length) or $1$ (even). At $n\le 10^5$, walk right from $k$ recording the balance $x$, then walk left pairing with $-x$ and $-x+1$.
+>
+> A one-sided balance in $\{0,1\}$ also counts. A map stores right-hand frequencies.
+
+<!-- thinking:end -->
 
 First, we find the position $i$ of the median $k$ in the array, and then start traversing from $i$ to both sides, counting the number of subarrays with a median of $k$.
 

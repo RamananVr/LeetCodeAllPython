@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1342.Number%20of%20Steps%20to%20Reduce%20a%20Number%20to%20Zero/README_EN.md
 rating: 1163
 source: Biweekly Contest 19 Q1
 tags:
@@ -70,6 +69,14 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Halve an even number, decrement an odd one, and count steps to $0$. $\textit{num} \le 10^6$ is small enough to simulate: subtract one when the bit is set, otherwise shift right, until the value vanishes.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -94,6 +101,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same rule is a recursion: even goes to $n/2$, odd to $n-1$, each call adding one, stopping at $0$. The meaning matches the loop; only the call stack changes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

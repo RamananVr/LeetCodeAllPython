@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README_EN.md
 rating: 2345
 source: Weekly Contest 209 Q4
 tags:
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Gray Code Inverse Transform (Gray Code to Binary Code)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two operations flip the lowest bit or the bit just above the lowest $1$. $n$ can be $10^9$, so simulating each flip is impossible.
+>
+> Those rules are exactly how binary Gray codes are generated: treating $n$ as a Gray code, the minimum number of operations is the corresponding natural binary integer.
+>
+> Gray-to-binary is a prefix XOR from high to low, implemented as $\textit{ans} \oplus= n$ and a right shift until $n$ becomes $0$.
+
+<!-- thinking:end -->
 
 This problem essentially asks for the inverse transformation of Gray code at position $n$, i.e., constructing the original number from the Gray code.
 

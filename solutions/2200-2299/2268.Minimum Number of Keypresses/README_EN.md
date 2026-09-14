@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README_EN.md
 tags:
     - Greedy
     - Hash Table
@@ -75,6 +74,16 @@ A total of 15 button presses are needed, so return 15.
 <!-- solution:start -->
 
 ### Solution 1: Counting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nine keys, each with up to three letters; the press count is the letter's position on its key. $|s| \le 10^5$, so frequent letters should take the first slots.
+>
+> Sort frequencies decreasingly: the first nine letters cost $1$, the next nine cost $2$, and so on. Multiply the $i$-th frequency by the current layer $k$, incrementing $k$ every nine letters.
+
+<!-- thinking:end -->
 
 First, we count the occurrence of each character in the string $s$, and record it in an array or hash table $\textit{cnt}$.
 

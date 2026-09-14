@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0885.Spiral%20Matrix%20III/README_EN.md
 tags:
     - Array
     - Matrix
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walk the grid in an east-south-west-north spiral from a given start. Step lengths are $1,1,2,2,3,3,\ldots$. The grid is at most $100\times 100$, so simulation is enough.
+>
+> Advance by the current direction and length, recording in-bound cells. After east and south the length grows by one, and again after west and north. Stop when $rows\cdot cols$ cells are collected.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

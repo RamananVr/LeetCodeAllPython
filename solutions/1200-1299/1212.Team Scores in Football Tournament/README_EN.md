@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1212.Team%20Scores%20in%20Football%20Tournament/README_EN.md
 tags:
     - Database
 ---
@@ -105,6 +104,18 @@ Matches table:
 <!-- solution:start -->
 
 ### Solution 1: Left Join + Group By + Case Expression
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A team may play no match; an inner join would drop its zero-point row. A left join from $Teams$ to $Matches$ on being host or guest keeps those teams.
+>
+> Points depend only on whether the team is host or guest and on the goal comparison: $3$ for a win, $1$ for a draw, $0$ otherwise. $CASE$ scores each row; we sum by $team\_id$.
+>
+> We order by points descending and $team\_id$ ascending. The left join keeps the full roster; $CASE$ turns the win/draw/loss rule into an aggregable scalar.
+
+<!-- thinking:end -->
 
 We can join the `Teams` table and the `Matches` table using a left join, where the join condition is `team_id = host_team OR team_id = guest_team`, to obtain all the match information for each team.
 

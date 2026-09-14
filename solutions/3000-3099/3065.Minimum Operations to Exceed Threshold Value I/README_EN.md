@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md
 rating: 1149
 source: Biweekly Contest 125 Q1
 tags:
@@ -67,6 +66,16 @@ It can be shown that 3 is the minimum number of operations needed so that all el
 <!-- solution:start -->
 
 ### Solution 1: Traversal and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation deletes a value smaller than $k$; we want every remaining value $\ge k$. Order does not change the count.
+>
+> The answer is the number of elements smaller than $k$, obtained in one pass.
+
+<!-- thinking:end -->
 
 We only need to traverse the array once, counting the number of elements less than $k$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README_EN.md
 rating: 1808
 source: Biweekly Contest 80 Q4
 tags:
@@ -73,6 +72,16 @@ Thus, there are 5 subarrays having scores less than 5.
 
 ### Solution 1: Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray’s score is its sum times its length. Enumerating all subarrays is $O(n^2)$ and fails for $n \le 10^5$. All values are positive, so for a fixed right end a longer window has a larger score, and valid left ends form a prefix.
+>
+> Prefix sums answer any range sum in constant time. Binary-search the largest length $l$ with $(s[i]-s[i-l])\times l < k$. That right end contributes $l$ subarrays.
+
+<!-- thinking:end -->
+
 First, we calculate the prefix sum array $s$ of the array $\textit{nums}$, where $s[i]$ represents the sum of the first $i$ elements of $\textit{nums}$.
 
 Next, we enumerate each element of $\textit{nums}$ as the last element of a subarray. For each element, we can use binary search to find the maximum length $l$ such that $s[i] - s[i - l] \times l < k$. The number of subarrays ending at this element is $l$, and summing up all $l$ gives the final answer.
@@ -107,6 +116,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores a prefix array and pays a logarithmic cost per right end. Positivity makes the score decrease as the left end moves right, so the left pointer only advances. Maintain the window sum and count valid subarrays in one linear scan.
+
+<!-- thinking:end -->
 
 We can use the two-pointer technique to maintain a sliding window such that the sum of elements in the window is less than $k$. The number of subarrays ending at the current element is equal to the length of the window. Summing up all the window lengths gives the final answer.
 

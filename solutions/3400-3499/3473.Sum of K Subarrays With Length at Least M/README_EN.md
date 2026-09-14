@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README_EN.md
 rating: 2274
 source: Weekly Contest 439 Q3
 tags:
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick $k$ non-overlapping subarrays of length at least $m$ and maximize their total sum. The product of $n$, $k$, and $m$ must stay in a DP range.
+>
+> Whether we are currently inside a segment has to be part of the state, otherwise the length floor cannot be enforced.
+>
+> $f[i][j][0/1]$ considers the first $i$ elements, $j$ finished segments, and whether we are inside one. We skip $i$, or start/extend a segment. The answer is $f[n][k][*]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

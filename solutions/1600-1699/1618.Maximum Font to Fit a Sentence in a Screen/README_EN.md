@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1618.Maximum%20Font%20to%20Fit%20a%20Sentence%20in%20a%20Screen/README_EN.md
 tags:
     - Array
     - String
@@ -89,6 +88,18 @@ interface FontInfo {
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Font sizes are sorted and larger sizes are harder to fit, so feasibility is monotone in the index and we can binary-search the largest feasible size.
+>
+> A size fits when its height is at most $h$ and the sum of character widths is at most $w$, both via $\texttt{FontInfo}$.
+>
+> Binary-search the index range, $\texttt{check}$ the midpoint, and raise the left end on success. Verify $\textit{fonts}[\textit{left}]$ at the end.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

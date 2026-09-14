@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Chunk%20Array/README_EN.md
 tags:
     - JavaScript
 ---
@@ -68,6 +67,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is split into runs of length $size$, the last run possibly shorter. Stepping by $size$ and `slice` lets the method clip the tail, so the last chunk needs no special case.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

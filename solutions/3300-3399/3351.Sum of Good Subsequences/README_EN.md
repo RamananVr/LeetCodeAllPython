@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README_EN.md
 rating: 2085
 source: Weekly Contest 423 Q3
 tags:
@@ -72,6 +71,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subsequence has consecutive absolute differences equal to $1$. With $n \le 10^5$ we cannot list subsequences; we DP on values.
+>
+> Let $g[x]$ be the number of good subsequences ending with $x$ and $f[x]$ their element sum. A new $x$ starts a singleton or appends to existing $x-1$ or $x+1$.
+>
+> Appending adds “old sum + old count $\times x$”. Updates follow input order so earlier copies of $x$ are included. The answer is the sum of all $f$, modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

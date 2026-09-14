@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md
 rating: 1625
 source: Weekly Contest 345 Q3
 tags:
@@ -67,6 +66,16 @@ It can be shown that it is the maximum number of moves that can be made.</pre>
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves go to a strictly larger cell on the next column, slightly up, level, or down. Separate DFS from every start would revisit cells. Column-wise BFS is enough: the reachable rows in column $j$ generate candidates in column $j+1$.
+>
+> A set stores those rows; an empty next set returns the columns already walked, and reaching the last column yields $n-1$.
+
+<!-- thinking:end -->
 
 We define a queue $q$, and initially add all the row coordinates of the first column to the queue.
 

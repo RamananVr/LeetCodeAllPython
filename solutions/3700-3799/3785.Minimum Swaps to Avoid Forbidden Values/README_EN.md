@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README_EN.md
 rating: 2051
 source: Weekly Contest 481 Q3
 tags:
@@ -101,6 +100,14 @@ It is not possible to make <code>nums[i]</code> different from <code>forbidden[i
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A conflict is an index with $nums[i]=forbidden[i]$. If a value has no safe destination among those indices, the instance is impossible. Conflicts are resolved by swapping among themselves; the minimum number of swaps is determined by the number of conflicts (with the $0$/$1$ cases handled separately).
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3173.Bitwise%20OR%20of%20Adjacent%20Elements/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Iteration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Entry $i$ is $nums[i]\lor nums[i+1]$ and does not depend on farther elements.
+>
+> Each adjacent pair can be evaluated independently.
+>
+> Map `pairwise(nums)` through OR to obtain an array of length $n-1$.
+
+<!-- thinking:end -->
 
 We iterate through the first $n - 1$ elements of the array. For each element, we calculate the bitwise OR value of it and its next element, and store the result in the answer array.
 

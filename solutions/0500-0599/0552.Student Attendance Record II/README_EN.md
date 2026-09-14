@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README_EN.md
 tags:
     - Dynamic Programming
 ---
@@ -71,6 +70,16 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid length-$n$ record limits absences and consecutive lates. Enumerating $3^n$ strings is impossible for $n$ up to $10^5$.
+>
+> The state is only (days filled, absences used, current late streak), all tiny. Memoized $dfs(i,j,k)$ may place one `A` if $j=0$, an `L` if $k<2$, or a `P` that resets the streak. Reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -103,6 +112,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization is already polynomial, but recursion has a larger constant. The same triple can be filled bottom-up.
+>
+> $dp[i][j][k]$ is the number of ways for the first $i+1$ days with $j$ absences and a late streak of $k$. Transitions place `A`, `L`, or `P` from day $i-1$. Sum every $(j,k)$ on the last day. No call stack.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

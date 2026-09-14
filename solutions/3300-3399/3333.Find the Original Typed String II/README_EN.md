@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3333.Find%20the%20Original%20Typed%20String%20II/README_EN.md
 rating: 2628
 source: Biweekly Contest 142 Q4
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each run keeps at least one character and the total length must be at least $k$. With $n \le 5 \times 10^5$ and $k \le 2000$ we write “length at least $k$” as unrestricted ways $a$ minus ways of length less than $k$.
+>
+> Force one character from every run so $a$ is the product of run lengths; leftover capacities go into $\textit{nums}$ and $k$ decreases by the number of runs. If $k < 1$, every choice already meets the limit.
+>
+> $f[i][j]$ is the number of ways to spend $j$ extra picks on the first $i$ runs. The transition is a range sum, so prefix sums make it $O(k)$. $b$ is the last row below $k$, and $a-b$ is the answer.
+
+<!-- thinking:end -->
 
 For the constraint that the length is at least $k$, we can split it into two subproblems:
 

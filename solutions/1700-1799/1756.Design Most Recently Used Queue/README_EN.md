@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README_EN.md
 tags:
     - Design
     - Array
@@ -67,7 +66,21 @@ mRUQueue.fetch(8); // The 8<sup>th</sup> element (2) is already at the end of th
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each fetch moves the $k$-th element to the back. When $n$ and the query count are modest, a list deletion plus append is enough.
+>
+> $\textit{fetch}(k)$ takes index $k-1$, removes it, and appends it.
+
+<!-- thinking:end -->
+
+Use an array to maintain the current queue. For each $\textit{fetch}(k)$, take the $k$-th element, delete it from its current position, append it to the tail, and return it.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the queue.
 
 <!-- tabs:start -->
 
@@ -95,7 +108,23 @@ class MRUQueue:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Binary Indexed Tree + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 deletes in linear time. If we only append and never compact, we must find the $k$-th still-present index quickly.
+>
+> A Fenwick tree counts how often each index was moved. Binary search the first $i$ with $i-\textit{query}(i)\ge k$, append $q[i]$, and mark $i$ deleted. Each fetch is $O(\log^2 n)$.
+
+<!-- thinking:end -->
+
+We use an array $q$ to maintain the current elements in the queue. When moving the $k$-th element, we do not delete it, but append it to the end of the array. How do we know the position of the $k$-th element in $q$ if we do not delete it?
+
+We can use a Binary Indexed Tree to maintain whether each position in $q$ has been deleted. If the element at position $i$ is deleted, we update the $i$-th position in the tree, indicating that the number of times this position has been moved increases by $1$. Then, each time we want to delete the $k$-th element, we can use binary search to find the first position $i$ that satisfies $i - tree.query(i) \geq k$, which is the position of the $k$-th element in $q$. Let $x = q[i]$, then we append $x$ to the end of $q$ and update the $i$-th position in the tree. Finally, we return $x$.
+
+The time complexity is $O(\log^2 n)$, and the space complexity is $O(n)$, where $n$ is the length of the queue.
 
 <!-- tabs:start -->
 

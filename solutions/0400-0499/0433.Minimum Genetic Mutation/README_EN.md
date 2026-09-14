@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README_EN.md
 tags:
     - Breadth-First Search
     - Hash Table
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mutation flips one character and must land in the bank; we want the fewest steps. That is unweighted shortest path, so depth-first search does not give the minimum.
+>
+> BFS from the start. Each step scans unused bank strings that differ in exactly one position. The first time the end gene is dequeued is the answer; an empty queue means unreachable.
+>
+> The bank is tiny, so pairwise Hamming distance $1$ is enough. A visited set prevents enqueueing a gene twice.
+
+<!-- thinking:end -->
 
 We define a queue `q` to store the current gene sequence and the number of changes, and a set `vis` to store the visited gene sequences. Initially, we add the starting gene sequence `start` to the queue `q` and the set `vis`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README_EN.md
 rating: 1541
 source: Weekly Contest 334 Q2
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal + Modulo
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mark whether each prefix integer is divisible by $m$. Prefixes can be $10^5$ digits, so the integers themselves cannot be built.
+>
+> Remainders recur as $x\leftarrow (10x+d)\bmod m$. A zero remainder writes $1$, otherwise $0$.
+
+<!-- thinking:end -->
 
 We iterate over the string `word`, using a variable $x$ to record the modulo result of the current prefix with $m$. If $x$ is $0$, then the divisible array value at the current position is $1$, otherwise it is $0$.
 

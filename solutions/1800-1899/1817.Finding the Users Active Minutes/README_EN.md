@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README_EN.md
 rating: 1360
 source: Weekly Contest 235 Q2
 tags:
@@ -68,6 +67,16 @@ Hence, answer[1] = 1, answer[2] = 1, and the remaining values are 0.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user's UAM is the number of distinct minutes they were active; we must count how many users have each UAM. Duplicate $(user,time)$ pairs must not inflate the count.
+>
+> Map each user to a set of timestamps; the set size is that user's UAM. Increment $\textit{ans}[UAM-1]$ in a length-$k$ array. One pass over the logs is enough.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to record all the unique operation times of each user, and then traverse the hash table to count the number of active minutes for each user. Finally, we count the distribution of the number of active minutes for each user.
 

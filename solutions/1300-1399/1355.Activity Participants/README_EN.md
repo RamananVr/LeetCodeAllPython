@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1355.Activity%20Participants/README_EN.md
 tags:
     - Database
 ---
@@ -97,6 +96,14 @@ Singing is performed by 2 friends (Victor J. and Jade W.)
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Activities whose participant count is neither the maximum nor the minimum. Count friends per activity, then keep names whose count is strictly between the global min and max.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

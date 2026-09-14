@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1878.Get%20Biggest%20Three%20Rhombus%20Sums%20in%20a%20Grid/README_EN.md
 rating: 1897
 source: Biweekly Contest 53 Q3
 tags:
@@ -77,6 +76,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Diamond Center + Prefix Sum + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the three largest distinct sums of rhombuses in the grid, including single cells. Summing every rhombus by walking its border is slow.
+>
+> Prefix sums on both diagonals let us evaluate a rhombus from its center and side length in $O(1)$, correcting double-counted vertices. An ordered set keeps only the three largest distinct sums.
+
+<!-- thinking:end -->
 
 We can preprocess to get two prefix sum arrays $s_1$ and $s_2$, where $s_1[i][j]$ represents the sum of the elements on the upper left diagonal ending at $(i, j)$, and $s_2[i][j]$ represents the sum of the elements on the upper right diagonal ending at $(i, j)$.
 

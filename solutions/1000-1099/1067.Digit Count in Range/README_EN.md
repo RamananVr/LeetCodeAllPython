@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1067.Digit%20Count%20in%20Range/README_EN.md
 rating: 2025
 source: Biweekly Contest 1 Q4
 tags:
@@ -52,6 +51,18 @@ Note that the digit d = 1 occurs twice in the number 11.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting digit $d$ on $[\textit{low},\textit{high}]$ cannot enumerate values up to $2\times 10^8$. The range is $f(\textit{high})-f(\textit{low}-1)$, where $f(n)$ counts occurrences in $1..n$.
+>
+> Digit DP tracks how many times $d$ is already used, leading zeros, and the upper bound. Leading zeros must not count a $0$ when $d=0$.
+>
+> Split $n$ into digits and memoize $\textit{dfs}(\textit{pos},\textit{cnt},\textit{lead},\textit{limit})$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

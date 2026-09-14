@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -58,6 +57,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subarrays of a $0/1$ array whose sum is $\textit{goal}$. $n$ is large, so enumerating intervals is too slow. When the prefix sum is $s$, the number of earlier prefixes equal to $s-\textit{goal}$ is the number of good subarrays ending here. A counter of prefix frequencies, starting at $cnt[0]=1$, answers each step in $O(1)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -81,6 +88,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 uses linear extra space. Because the array is non-negative, the window sum is monotone in the left end. Two left pointers keep the first index whose sum exceeds $\textit{goal}$ and the first whose sum is at least $\textit{goal}$; their difference is the number of windows with sum exactly $\textit{goal}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

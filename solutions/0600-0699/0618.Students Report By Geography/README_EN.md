@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0618.Students%20Report%20By%20Geography/README_EN.md
 tags:
     - Database
 ---
@@ -70,6 +69,16 @@ Student table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students of three continents must appear side by side, sorted by name. Conditional aggregation needs a shared row index.
+>
+> `ROW_NUMBER()` within each continent, then `GROUP BY` that rank with `MAX(IF(continent=...))`, pivots the names into three columns.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

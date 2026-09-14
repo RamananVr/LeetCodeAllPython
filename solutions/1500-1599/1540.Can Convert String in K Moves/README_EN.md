@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README_EN.md
 rating: 1631
 source: Biweekly Contest 32 Q2
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Convert $s$ into $t$: the $i$-th move may shift one letter by $i$ positions, and each $i$ is usable at most once. $n\le 10^5$ and $k\le 10^9$, so we cannot simulate moves.
+>
+> Unequal lengths fail immediately. Each position has a minimal shift $x\in[1,25]$; identical $x$ must take $x,x+26,x+52,\ldots$ in turn. The last copy needs $x+26(cnt[x]-1)$ and must not exceed $k$. A zero shift costs nothing.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

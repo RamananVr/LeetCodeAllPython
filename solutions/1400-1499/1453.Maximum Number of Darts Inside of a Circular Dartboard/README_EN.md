@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1453.Maximum%20Number%20of%20Darts%20Inside%20of%20a%20Circular%20Dartboard/README_EN.md
 rating: 2201
 source: Weekly Contest 189 Q4
 tags:
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. A maximum covering disk of radius $r$ can be assumed to pass through two points. For each pair at distance $\le 2r$, compute the two candidate centers and count covered darts.
+>
+> A single dart already gives $1$. Compare distances against $r$ with a small epsilon so boundary points are kept.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md
 tags:
     - Graph
     - Shortest Path
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dijkstra Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want a shortest $s$–$d$ path in which at most $k$ edges may be treated as free. A vertex-only shortest-path state cannot remember how many hops remain. Since $k$ is small, the hop count joins the state.
+>
+> Dijkstra on pairs $(u,t)$: an edge $(u,v,w)$ may pay $w$ and stay at $t$, or, if $t<k$, move to $v$ at cost $0$ with $t+1$. The answer is the minimum distance among all $t$ at $d$.
+
+<!-- thinking:end -->
 
 First, we construct a graph $g$ based on the given edges, where $g[u]$ represents all neighboring nodes of node $u$ and their corresponding edge weights.
 

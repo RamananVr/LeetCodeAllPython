@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README_EN.md
 tags:
     - Array
     - Math
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Forming $n$ from the first $m$ primes with repetition is an unbounded knapsack. Combinatorial search is unnecessary: $n,m\le 1000$ admits an $O(mn)$ recurrence.
+>
+> Sieve the first $1000$ primes. Let $f[i]$ be the fewest primes that sum to $i$, with $f[0]=0$ and the rest $\infty$.
+>
+> For each prime $p$, scan $i$ upward and set $f[i]=\min(f[i],f[i-p]+1)$ so the same prime may be reused. If $f[n]$ stays $\infty$, return $-1$.
+
+<!-- thinking:end -->
 
 We can first preprocess to obtain the first $1000$ prime numbers, and then use dynamic programming to solve the problem.
 

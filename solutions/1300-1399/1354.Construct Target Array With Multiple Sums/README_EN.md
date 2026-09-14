@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README_EN.md
 rating: 2014
 source: Weekly Contest 176 Q4
 tags:
@@ -71,6 +70,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Construction + Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Starting from all ones, a step replaces one entry by the array sum; we ask if $\textit{target}$ is reachable. The forward direction does not know which index to grow, and values reach $10^9$. Backward, the current maximum must be the one just written: it came from the rest-sum $t$, so the previous value is $mx \bmod t$ (to skip long decrements). A max-heap repeats this until all ones, failing when $t=0$ or $mx-t<1$.
+
+<!-- thinking:end -->
 
 We observe that if we start constructing the target array $\textit{target}$ from the array $\textit{arr}$ in a forward manner, it is difficult to determine which index $i$ to choose each time, making the problem quite complex. However, if we construct in reverse starting from the array $\textit{target}$, each construction step must select the largest element in the current array, which ensures that each construction is unique, making the problem relatively simple.
 

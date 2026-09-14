@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md
 rating: 1959
 source: Weekly Contest 332 Q3
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query wants the shortest (then leftmost) substring whose value is $first\oplus second$. There are $10^5$ queries and values are $32$-bit, so scanning the string per query is too slow.
+>
+> Every $32$-bit integer appears as some substring of length at most $32$. From each start, extend at most $32$ bits and record the first occurrence of each value. Stop at a leading-zero zero so a longer spelling cannot hide a shorter one. Queries become hash lookups.
+
+<!-- thinking:end -->
 
 We can first preprocess all substrings of length $1$ to $32$ into their corresponding decimal values, find the minimum index and the corresponding right endpoint index for each value, and store them in the hash table $d$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3133.Minimum%20Array%20End/README_EN.md
 rating: 1934
 source: Weekly Contest 395 Q3
 tags:
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build a strictly increasing length-$n$ array whose AND is $x$ and whose last value is minimal. Trying the next candidate after $x$ one by one is too slow for large $n$.
+>
+> The first value must be $x$. Later values may only fill zeros of $x$, otherwise the AND would lose bits. Those free bits, read as a binary counter, are exactly $0,1,\ldots,n-1$.
+>
+> Write the bits of $n-1$ into $x$'s zero positions from low to high, and attach any leftover into bit $31$ and above. The result is the minimum last element.
+
+<!-- thinking:end -->
 
 According to the problem description, to make the last element of the array as small as possible and the bitwise AND result of the elements in the array is $x$, the first element of the array must be $x$.
 

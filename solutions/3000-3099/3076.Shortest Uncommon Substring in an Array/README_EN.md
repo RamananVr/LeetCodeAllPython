@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md
 rating: 1635
 source: Weekly Contest 388 Q3
 tags:
@@ -70,6 +69,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$ and $m \le 20$, so each string has $O(m^2)$ substrings. Testing each against the other strings is acceptable.
+>
+> We want the shortest string and, on ties, the lexicographically smallest, so we enumerate by increasing length and then by start, and stop a string once a candidate exists.
+>
+> A triple loop builds $\textit{sub}$ and keeps it when no other string contains it.
+
+<!-- thinking:end -->
 
 Given the small data scale, we can directly enumerate all substrings of each string and then determine whether it is a substring of other strings.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2620.Counter/README_EN.md
 tags:
     - JavaScript
 ---
@@ -56,6 +55,18 @@ n = -2
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each call must yield the next integer, starting from a captured $n$. A global counter would collide across `createCounter` instances.
+>
+> A closure holds $i$; post-increment returns the current value, so the first call is $n$.
+>
+> The outer function only initializes; the inner function owns the mutable state.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

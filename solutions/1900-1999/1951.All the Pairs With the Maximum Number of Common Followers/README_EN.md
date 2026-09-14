@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1951.All%20the%20Pairs%20With%20the%20Maximum%20Number%20of%20Common%20Followers/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,16 @@ Note that we do not have any information about the users that follow users 3, 4,
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every user pair that attains the maximum number of shared followers. Enumerating pairs outside SQL is unnecessary.
+>
+> Self-join $\texttt{Relations}$ on $\textit{follower\_id}$ with $user_1<user_2$, count per pair, rank by that count descending, and keep rank $1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

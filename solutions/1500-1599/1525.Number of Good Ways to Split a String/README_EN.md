@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README_EN.md
 rating: 1499
 source: Biweekly Contest 31 Q3
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count splits where the two sides have equally many distinct characters. $n\le 10^5$, so rescanning both sides at every cut is quadratic.
+>
+> The right-hand alphabet starts as a global frequency map; the left-hand set only grows. Moving the cut to the right inserts the current character on the left and decrements it on the right, dropping the key when the count hits zero. Whenever the two maps have the same size, the split is good. One pass suffices.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

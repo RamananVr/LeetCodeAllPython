@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README_EN.md
 rating: 2265
 source: Weekly Contest 276 Q4
 tags:
@@ -69,6 +68,18 @@ We can run the two computers simultaneously for at most 2 minutes, so we return 
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If $n$ computers can run for $t$ minutes, they can run for any shorter time. $t$ is bounded by the total charge, so it cannot be enumerated.
+>
+> A battery contributes at most $t$ minutes toward a run of length $t$, so feasibility is $\sum_i \min(b_i,t)\ge n\cdot t$. Binary search $t$ in $[0,\sum b_i]$.
+>
+> Each mid value is checked with a linear scan; the largest feasible $t$ is the answer.
+
+<!-- thinking:end -->
 
 We notice that if we can run $n$ computers simultaneously for $t$ minutes, then we can also run $n$ computers simultaneously for $t' \le t$ minutes, which shows monotonicity. Therefore, we can use the binary search method to find the maximum $t$.
 

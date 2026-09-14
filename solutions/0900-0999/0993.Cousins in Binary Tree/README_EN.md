@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -64,6 +63,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cousins share a depth and have different parents. Level-order the tree while carrying the parent; when $x$ or $y$ appears, record parent and depth, then compare after the walk.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -103,6 +110,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS proceeds layer by layer. DFS works as well: pass the parent and depth, record them for $x$ and $y$, and test the cousin condition.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

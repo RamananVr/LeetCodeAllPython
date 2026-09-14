@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README_EN.md
 rating: 2582
 source: Weekly Contest 357 Q4
 tags:
@@ -85,6 +84,14 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Elegance is total profit plus the square of the number of distinct categories; enumerating $k$-subsequences is infeasible. High-profit items should enter first: take the top $k$ by profit, record categories in a set, and push duplicate-category profits onto a stack. Later, a new category can replace the cheapest duplicate in the stack, trading some profit for a larger category-square term.
+
+<!-- thinking:end -->
 
 We can sort all items by profit from large to small. First choose the first $k$ items and calculate the total profit $tot$. Use a hash table $vis$ to record the categories of these $k$ items, use a stack $dup$ to record the profits of the repeated categories in order, and use a variable $ans$ to record the current maximum elegance.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1430.Check%20If%20a%20String%20Is%20a%20Valid%20Sequence%20from%20Root%20to%20Leaves%20Path%20in%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -72,6 +71,16 @@ Other valid sequences are:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a root-to-leaf path that equals $arr$ exactly. Both the tree and $arr$ have size at most $5000$, so a DFS that tries left and right is enough.
+>
+> $dfs(\textit{root},u)$ requires the node value to match $arr[u]$. At the last index the node must be a leaf; otherwise recurse. A null node or a mismatch fails.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

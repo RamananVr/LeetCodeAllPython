@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -61,6 +60,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A monotone string is zeros then ones, so some cut has all $0$s on the left and all $1$s on the right. $n\le 10^5$, so rescaning at every cut is too slow. Let $\textit{tot}$ be the number of zeros. At cut $i$, the prefix zero count $\textit{cur}$ yields the flips $i-\textit{cur}+\textit{tot}-\textit{cur}$; take the minimum.
+
+<!-- thinking:end -->
 
 First, we count the number of '0's in string $s$, denoted as $tot$. We define a variable $ans$ for the answer, initially set $ans = tot$, which represents the number of flips to change all '0's to '1's.
 

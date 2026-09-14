@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -72,6 +71,16 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Odd and even positions may be permuted independently, so a class is the pair of multisets on those positions. At most $1000$ words of length $20$, so normalize and insert into a set.
+>
+> Sort the even-index letters and the odd-index letters, concatenate them as a signature, and count distinct signatures.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

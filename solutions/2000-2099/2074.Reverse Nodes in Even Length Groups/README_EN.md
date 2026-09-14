@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/README_EN.md
 rating: 1685
 source: Weekly Contest 267 Q2
 tags:
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Group $t$ has target length $t$, the last group possibly shorter. With $n \le 10^5$ we reverse even groups in place. Count nodes, then walk group by group.
+>
+> `reverse(head,l)` reverses up to $l$ nodes and relinks the tail. Reverse a full group when $l$ is even, and the leftover suffix when its length is even. A dummy eases the head.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

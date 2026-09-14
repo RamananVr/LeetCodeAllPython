@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2181.Merge%20Nodes%20in%20Between%20Zeros/README_EN.md
 rating: 1333
 source: Weekly Contest 281 Q2
 tags:
@@ -64,6 +63,18 @@ The above figure represents the given linked list. The modified list contains
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values between neighboring zeros must become one node. A single forward scan of the list suffices.
+>
+> A dummy tail accumulates $s$ between zeros and appends a node with value $s$ when a zero arrives.
+>
+> Return the list after the dummy.
+
+<!-- thinking:end -->
 
 We define a dummy head node $\textit{dummy}$, a pointer $\textit{tail}$ pointing to the current node, and a variable $\textit{s}$ to record the sum of the values of the current nodes.
 

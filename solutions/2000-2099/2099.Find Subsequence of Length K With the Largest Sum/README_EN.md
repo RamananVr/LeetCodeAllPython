@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2099.Find%20Subsequence%20of%20Length%20K%20With%20the%20Largest%20Sum/README_EN.md
 rating: 1447
 source: Biweekly Contest 67 Q1
 tags:
@@ -69,6 +68,16 @@ Another possible subsequence is [4, 3].
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum sum with original order means the $k$ largest values, then sorted by index. $n \le 1000$, so sort indices by value.
+>
+> Keep the last $k$ indices and emit `nums` in increasing index order.
+
+<!-- thinking:end -->
 
 First, we create an index array $\textit{idx}$, where each element is an index of the array $\textit{nums}$. Then, we sort the index array $\textit{idx}$ based on the values in $\textit{nums}$, with the sorting rule being $\textit{nums}[i] < \textit{nums}[j]$, where $i$ and $j$ are two indices in the index array $\textit{idx}$.
 

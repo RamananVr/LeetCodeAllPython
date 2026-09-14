@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md
 rating: 1737
 source: Weekly Contest 385 Q3
 tags:
@@ -97,6 +96,18 @@ The most frequent prime number among all the created numbers is 97.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The matrix is at most $6 \times 6$, so the numbers formed from each cell in eight directions are few. We want the mode among primes greater than $10$, breaking ties by value.
+>
+> Directions and step counts can be enumerated; each formed number is tested for primality by trial division and counted.
+>
+> A final scan of the counts picks the best frequency and value, or $-1$ if no prime appears.
+
+<!-- thinking:end -->
 
 We can use a hash table to count the frequency of each prime number greater than 10.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md
 rating: 2422
 source: Weekly Contest 126 Q4
 tags:
@@ -73,6 +72,18 @@ The total cost was 25, and this is the minimum possible.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every merge order is correct, but with $n \le 30$ the number of valid partitions grows too quickly to search. Each move only merges $K$ consecutive piles, so the cost is determined by subproblems of the form “turn a contiguous segment into a given number of piles,” and the same interval is reached by many orders.
+>
+> Each merge reduces the pile count by $K-1$, so a single pile exists only when $(n-1)\bmod (K-1)=0$; otherwise the answer is $-1$. When it is feasible, merging $[i,j]$ into $k$ piles means some prefix becomes $1$ pile and the suffix becomes $k-1$ piles; merging into $1$ pile means first obtaining $K$ piles and then paying the sum of that interval.
+>
+> We therefore fill $f[i][j][k]$ by increasing interval length and keep a prefix sum $s$ for $O(1)$ range sums. The split $h$ always uses $f[i][h][1]$ on the left, matching the consecutive-merge constraint. The answer is $f[1][n][1]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

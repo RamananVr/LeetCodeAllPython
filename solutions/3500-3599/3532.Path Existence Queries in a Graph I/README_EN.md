@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README_EN.md
 rating: 1658
 source: Weekly Contest 447 Q2
 tags:
@@ -89,6 +88,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{nums}$ is already non-decreasing, and edges join values at most $\textit{maxDiff}$ apart, so each component is a contiguous index segment.
+>
+> Scan left to right and start a new group id when the adjacent gap exceeds the threshold. A query is true iff the two ids match.
+
+<!-- thinking:end -->
 
 According to the problem description, the node indices within the same connected component must be consecutive. Therefore, we can use an array $g$ to record the connected component index for each node and a variable $\textit{cnt}$ to track the current connected component index. As we iterate through the $\textit{nums}$ array, if the difference between the current node and the previous node is greater than $\textit{maxDiff}$, it indicates that the current node and the previous node are not in the same connected component. In this case, we increment $\textit{cnt}$. Then, we assign the current node's connected component index to $\textit{cnt}$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0046.Permutations/README_EN.md
 tags:
     - Array
     - Backtracking
@@ -44,6 +43,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is a language builtin or nested loops. $n \le 6$ so $n!$ fits, but $n$ is not fixed — we cannot hard-code loop depth.
+>
+> Generating every permutation means “pick an unused number for this position”. Reusing a number breaks the permutation, so we must mark.
+>
+> DFS fills index $i$: try each unused value, place it, recurse, then undo. $n$ is tiny; $O(n \cdot n!)$ matches the output size.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i)$ to represent that the first $i$ positions have been filled, and now we need to fill the $i+1$ position. We enumerate all possible numbers, if this number has not been filled, we fill in this number, and then continue to fill the next position, until all positions are filled.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1960.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Substrings/README_EN.md
 rating: 2690
 source: Biweekly Contest 58 Q4
 tags:
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum product of lengths of two disjoint odd palindromic substrings. Re-running a quadratic palindrome search on each split is too slow.
+>
+> Manacher yields the odd radius at every center. From those radii we derive the longest palindrome ending at or starting at each index, then prefix/suffix maxima for each split.
+>
+> The answer is the max product of the left prefix max and the right suffix max over all cuts.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

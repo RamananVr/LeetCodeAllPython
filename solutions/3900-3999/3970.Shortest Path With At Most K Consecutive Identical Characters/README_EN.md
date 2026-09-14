@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README_EN.md
 rating: 1840
 source: Weekly Contest 507 Q3
 tags:
@@ -92,6 +91,18 @@ The corresponding concatenation of labels is <code>&quot;aab&quot;</code>, which
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A plain shortest path ignores labels and may produce more than $k$ identical characters in a row. The state must remember the current run length.
+>
+> Dijkstra on $(\textit{node},\textit{run})$ with $\textit{run}\le k$ increments the run when the next label matches and resets it otherwise. The product of $n$ and $k$ bounds the state space.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that expanded-state shortest path.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

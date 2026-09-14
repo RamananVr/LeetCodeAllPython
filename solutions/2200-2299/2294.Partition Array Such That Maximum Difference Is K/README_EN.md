@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README_EN.md
 rating: 1416
 source: Weekly Contest 296 Q2
 tags:
@@ -78,6 +77,16 @@ Since three subsequences were created, we return 3. It can be shown that 3 is th
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We partition into subsequences, not subarrays; a group is valid iff $\max-\min\le k$. $n \le 10^5$, so sort first: nearby values belong together. A group starts at the current minimum $a$ and a new group begins when $b-a>k$.
+>
+> One scan after sorting, starting from one group, uses as few groups as possible because each group extends as far as it can.
+
+<!-- thinking:end -->
 
 The problem requires dividing into subsequences, not subarrays, so the elements in a subsequence can be non-continuous. We can sort the array $\textit{nums}$. Assuming the first element of the current subsequence is $a$, the difference between the maximum and minimum values in the subsequence will not exceed $k$. Therefore, we can iterate through the array $\textit{nums}$. If the difference between the current element $b$ and $a$ is greater than $k$, then update $a$ to $b$ and increase the number of subsequences by 1. After the iteration, we can obtain the minimum number of subsequences, noting that the initial number of subsequences is $1$.
 

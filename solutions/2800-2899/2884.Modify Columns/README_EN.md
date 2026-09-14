@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2884.Modify%20Columns/README_EN.md
 tags:
     - Pandas
 ---
@@ -63,6 +62,14 @@ DataFrame <code>employees</code>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every salary should double. An in-place multiply on the `salary` column leaves the rest of the frame unchanged.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

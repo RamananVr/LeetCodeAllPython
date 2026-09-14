@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md
 tags:
     - Greedy
     - Hash Table
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Hash Table + Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rearrange so equal letters are at least $k$ apart; if impossible, return empty. Spend frequent letters first and cool them in a queue.
+>
+> A max-heap pops a letter, appends it, and enqueues it for $k$ steps; when the queue is full, leftover counts return to the heap. If the heap empties before the string is finished, no layout exists.
+
+<!-- thinking:end -->
 
 We use a hash table or array $\textit{cnt}$ to count the occurrences of each character in the string. Then, we use a max heap $\textit{pq}$ to store each character and its count. Each element in the heap is a tuple $(v, c)$, where $v$ is the count and $c$ is the character.
 

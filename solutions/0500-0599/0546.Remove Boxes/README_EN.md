@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0546.Remove%20Boxes/README_EN.md
 tags:
     - Memoization
     - Array
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Removing a run scores the square of its length, and order changes later merges. A plain interval DP cannot express "clear the middle, then join the right run".
+>
+> $dfs(i,j,k)$ is the interval $[i,j]$ with $k$ extra boxes already equal to $boxes[j]$. Absorb the run ending at $j$ into $k$, then either remove $j$ now or find an earlier $h$ of the same color, clear $(h,j)$, and merge. Memoization caches each triple.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

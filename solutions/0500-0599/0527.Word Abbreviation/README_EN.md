@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md
 tags:
     - Greedy
     - Trie
@@ -62,6 +61,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Grouped Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An abbreviation is first letter + middle count + last letter; collisions need a longer prefix. Pairwise LCP is possible for $n \le 400$ but repeats the same prefix work.
+>
+> Only words that share length and last letter can collide, so group by $(|w|, w[-1])$. Insert each group into a trie that stores visit counts; the first unique node is the distinguishing prefix. Fall back to the original word when the abbreviation is not shorter.
+
+<!-- thinking:end -->
 
 We notice that if two words have the same abbreviation, their first and last letters must be the same, and their lengths must be the same. Therefore, we can group all words by length and last letter, and use a trie to store the information of each group of words.
 

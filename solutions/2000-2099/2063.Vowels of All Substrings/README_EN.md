@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md
 rating: 1663
 source: Weekly Contest 266 Q2
 tags:
@@ -74,6 +73,16 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Contribution
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $O(n^2)$ substrings and $n \le 10^5$, so we cannot list them. A vowel at $i$ appears in $(i+1)(n-i)$ substrings.
+>
+> Sum that product over vowels only.
+
+<!-- thinking:end -->
 
 We can enumerate each character $\textit{word}[i]$ in the string. If $\textit{word}[i]$ is a vowel, then $\textit{word}[i]$ appears in $(i + 1) \times (n - i)$ substrings. We sum up the counts of these substrings.
 

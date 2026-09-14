@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1629.Slowest%20Key/README_EN.md
 rating: 1315
 source: Weekly Contest 212 Q1
 tags:
@@ -74,6 +73,16 @@ The longest of these was the keypress for &#39;a&#39; with duration 16.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Durations are differences of consecutive release times. With length at most $1000$, one scan can track the longest duration and its key.
+>
+> Replace the answer on a strictly longer duration; on a tie take the lexicographically larger key. The first key lasts $\textit{releaseTimes}[0]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

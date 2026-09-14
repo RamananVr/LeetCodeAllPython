@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0530.Minimum%20Absolute%20Difference%20in%20BST/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Inorder Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The minimum pairwise difference on a general tree needs all pairs. In a BST, inorder is sorted, so the minimum lies between adjacent values.
+>
+> Walk inorder, keep the predecessor, and update with `val - pre`. Seed `pre` at $-\infty$ so the first node is skipped. One inorder pass suffices.
+
+<!-- thinking:end -->
 
 The problem requires us to find the minimum difference between the values of any two nodes. Since the inorder traversal of a binary search tree is an increasing sequence, we only need to find the minimum difference between the values of two adjacent nodes in the inorder traversal.
 

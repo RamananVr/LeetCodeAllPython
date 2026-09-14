@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README_EN.md
 rating: 2722
 source: Weekly Contest 427 Q4
 tags:
@@ -92,6 +91,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part I, but $n \le 2 \times 10^5$, so opposite corners cannot be enumerated. A valid rectangle has exactly one left and right point on each horizontal side and nothing inside.
+>
+> Sweep by $x$, keep the previous point of each $y$, and query emptiness of the candidate box with a Fenwick tree or segment tree.
+>
+> Each empty candidate updates the maximum area; if none exist, return $-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

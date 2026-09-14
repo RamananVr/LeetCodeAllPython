@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3397.Maximum%20Number%20of%20Distinct%20Elements%20After%20Operations/README_EN.md
 rating: 1687
 source: Weekly Contest 429 Q2
 tags:
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $x$ may become any integer in $[x-k,x+k]$; we want as many distinct results as possible. With $n \le 10^5$ we sort and greedily take the smallest still-available integer.
+>
+> $\textit{pre}$ is the last used value. $x$ becomes $\min(x+k,\max(x-k,\textit{pre}+1))$ and counts if that is still above $\textit{pre}$.
+>
+> Using smaller integers first leaves room for later, larger intervals, which is why we sort.
+
+<!-- thinking:end -->
 
 We can sort the array $\textit{nums}$ and then consider each element $x$ from left to right.
 

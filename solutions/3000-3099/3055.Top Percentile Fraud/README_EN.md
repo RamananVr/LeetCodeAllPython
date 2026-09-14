@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3055.Top%20Percentile%20Fraud/README_EN.md
 tags:
     - Database
 ---
@@ -84,6 +83,18 @@ Output table is ordered by state in ascending order, fraud score in descending o
 <!-- solution:start -->
 
 ### Solution 1: Using Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each state keeps the policies with the highest fraud score, including ties. A ranking window is more direct than a subquery.
+>
+> $\texttt{RANK}$ partitioned by state and ordered by score descending marks every top score as rank $1$.
+>
+> Keep $\textit{rk}=1$ and sort by state, score, and policy id.
+
+<!-- thinking:end -->
 
 We can use the `RANK()` window function to calculate the ranking of fraud scores for each state, then filter out the records with a rank of 1, and sort them as required by the problem.
 

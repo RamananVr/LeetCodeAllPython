@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2078.Two%20Furthest%20Houses%20With%20Different%20Colors/README_EN.md
 rating: 1240
 source: Weekly Contest 268 Q1
 tags:
@@ -71,6 +70,16 @@ House 0 has color 0, and house 1 has color 1. The distance between them is abs(0
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$ allows all pairs, yet an optimum always uses an endpoint: if the two ends share a color, the farthest opposite-colored houses pair with the other end.
+>
+> Compare $colors[0]$ and $colors[-1]$; if equal, walk inward to the first different color and take the larger span.
+
+<!-- thinking:end -->
 
 We can observe that if the first and last houses have different colors, the maximum distance is $n - 1$.
 

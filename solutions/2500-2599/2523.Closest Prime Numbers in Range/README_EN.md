@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md
 rating: 1649
 source: Weekly Contest 326 Q4
 tags:
@@ -72,6 +71,16 @@ Since 11 is smaller than 17, we return the first pair.
 <!-- solution:start -->
 
 ### Solution 1: Linear Sieve
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the adjacent prime pair in $[\textit{left},\textit{right}]$ with the smallest gap. $\textit{right}\le 10^6$, so trial-dividing every integer in the range repeats a great deal of work.
+>
+> A linear sieve produces every prime up to $\textit{right}$. Keep those inside the interval and scan consecutive gaps. Fewer than two primes yields $[-1,-1]$.
+
+<!-- thinking:end -->
 
 For the given range $[\textit{left}, \textit{right}]$, we can use the linear sieve method to find all prime numbers. Then, we traverse the prime numbers in ascending order to find the pair of adjacent prime numbers with the smallest difference, which will be the answer.
 

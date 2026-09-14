@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README_EN.md
 tags:
     - Stack
     - Array
@@ -86,6 +85,16 @@ Because only -1 is guaranteed to be found, you should return 1.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Binary search discards one side of the midpoint. A value is searchable only if it exceeds every left neighbor and is below every right neighbor; otherwise the wrong half may be dropped.
+>
+> A left-to-right prefix-max pass and a right-to-left suffix-min pass mark failures; the remaining ones are counted.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

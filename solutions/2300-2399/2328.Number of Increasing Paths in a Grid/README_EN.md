@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md
 rating: 2001
 source: Weekly Contest 300 Q4
 tags:
@@ -71,6 +70,16 @@ The total number of paths is 2 + 1 = 3.
 <!-- solution:start -->
 
 ### Solution 1: DFS + Memorization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strictly increasing paths may start anywhere and have any length. Up to $10^5$ cells makes enumeration impossible. Paths from a cell depend only on strictly larger neighbors.
+>
+> Memoize $dfs(i,j)$ as one (the cell itself) plus the four larger neighbors. Each cell is solved once; the sum over the grid is the answer.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i, j)$, which represents the number of strictly increasing paths that can be reached from the grid graph starting at the $i$-th row and $j$-th column. Then the answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$. In the search process, we can use a two-dimensional array $f$ to record the calculated results to avoid repeated calculation.
 

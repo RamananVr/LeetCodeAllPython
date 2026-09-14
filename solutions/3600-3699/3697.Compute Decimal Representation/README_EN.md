@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3697.Compute%20Decimal%20Representation/README_EN.md
 rating: 1250
 source: Weekly Contest 469 Q1
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $n$ into summands $d\times 10^p$ and emit them in decreasing order. Low-order modulo yields each digit; zeros are omitted.
+>
+> Keep a place value $p$. Each $\textit{divmod}$ produces a digit $v$; if it is nonzero, append $p\cdot v$, then multiply $p$ by $10$.
+>
+> Reverse the list so the high place comes first.
+
+<!-- thinking:end -->
 
 We can repeatedly perform modulo and division operations on $n$. Each modulo result multiplied by the current position value $p$ represents a decimal component. If the modulo result is not $0$, we add this component to our answer. Then we multiply $p$ by $10$ and continue processing the next position.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README_EN.md
 tags:
     - Linked List
 ---
@@ -58,6 +57,18 @@ The input has been split into consecutive parts with size difference at most 1, 
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split a list into $k$ parts as evenly as possible, giving leftover nodes to the earlier parts. $n\le 1000$, so count then cut.
+>
+> Each part gets $\lfloor n/k\rfloor$ nodes, and the first $n\bmod k$ parts get one extra. Unused slots stay null.
+>
+> A second walk advances the computed length, severs $\textit{next}$, and records the next head. Two passes in all.
+
+<!-- thinking:end -->
 
 First, we traverse the linked list to obtain its length $n$, and then we calculate the average length $\textit{cnt} = \lfloor \frac{n}{k} \rfloor$ and the remainder $\textit{mod} = n \bmod k$. For the first $\textit{mod}$ parts, each part has a length of $\textit{cnt} + 1$, while the lengths of the remaining parts are $\textit{cnt}$.
 

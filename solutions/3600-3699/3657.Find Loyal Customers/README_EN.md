@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3657.Find%20Loyal%20Customers/README_EN.md
 tags:
     - Database
 ---
@@ -140,6 +139,18 @@ transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Loyalty depends on volume, refund rate, and active span, so a single aggregation per $\textit{customer\_id}$ is enough.
+>
+> Compute transaction count, refund count, and the first and last dates. The span is the day difference; the refund ratio is refunds over transactions.
+>
+> Keep customers with at least three transactions, a refund ratio below $0.2$, and a span of at least $30$ days, ordered by id.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

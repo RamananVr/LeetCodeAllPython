@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2455.Average%20Value%20of%20Even%20Numbers%20That%20Are%20Divisible%20by%20Three/README_EN.md
 rating: 1151
 source: Weekly Contest 317 Q1
 tags:
@@ -54,6 +53,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $n\le 1000$, even and divisible by three means divisible by $6$. Sum those values and count them; return $0$ if the count is zero, else integer-divide.
+
+<!-- thinking:end -->
+
 We notice that an even number divisible by $3$ must be a multiple of $6$. Therefore, we only need to traverse the array, count the sum and the number of all multiples of $6$, and then calculate the average.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
@@ -80,6 +87,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already accumulates $x\bmod 6=0$. Filtering into a list and dividing the sum by its length is the same average, with an extra allocation.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3182.Find%20Top%20Scoring%20Students/README_EN.md
 tags:
     - Database
 ---
@@ -143,6 +142,18 @@ Each row of this table contains the student ID, course ID, semester, and grade r
 <!-- solution:start -->
 
 ### Solution 1: Join Tables + Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students who scored $A$ in every course of their major are required. Checking “taken” and “got A” separately misses missing enrollments.
+>
+> Inner-join students to major courses, then left-join enrollments so a missing course has a null grade.
+>
+> Group by student and require the number of $A$s to equal the number of major courses. The left join lets `COUNT` see holes that `SUM(grade='A')` does not.
+
+<!-- thinking:end -->
 
 We can join the `students` table and `courses` table based on the `major` field, then left join the `enrollments` table to the resulting table, and finally group by `student_id` to filter out the students who meet the conditions.
 

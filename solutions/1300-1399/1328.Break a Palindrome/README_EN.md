@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1328.Break%20a%20Palindrome/README_EN.md
 rating: 1473
 source: Biweekly Contest 18 Q2
 tags:
@@ -56,6 +55,14 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Change exactly one character so the string is no longer a palindrome and is lexicographically smallest; length $1$ is impossible. Replacing the leftmost non-`'a'` in the first half with `'a'` breaks symmetry as early and as cheaply as possible. If that half is all `'a'`, the last character must become `'b'`, or the string would stay a palindrome.
+
+<!-- thinking:end -->
 
 First, we check if the length of the string is $1$. If it is, we directly return an empty string.
 

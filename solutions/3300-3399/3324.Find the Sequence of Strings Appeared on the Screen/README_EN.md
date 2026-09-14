@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README_EN.md
 rating: 1293
 source: Weekly Contest 420 Q1
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The screen starts empty; each key appends a letter or advances the last one. With $|\textit{target}| \le 400$, we can simulate letter by letter.
+>
+> For each target character we append $\texttt{a}$, then $\texttt{b}$, and so on onto the current prefix until that character appears. Every intermediate string is part of the required sequence.
+>
+> No search over keypresses is needed: walking $\textit{ascii\_lowercase}$ up to the target letter records every screen state.
+
+<!-- thinking:end -->
 
 We can simulate Alice's typing process, starting from an empty string and updating the string after each keystroke until the target string is obtained.
 

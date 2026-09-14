@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3641.Longest%20Semi-Repeating%20Subarray/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A window is semi-repeating when the number of values that occur at least twice is at most $k$. Longer windows are stricter, so the left end only moves right as the right end advances.
+>
+> A frequency map updates a counter of repeated values: increment when a count rises from $1$ to $2$, decrement when it falls from $2$ to $1$. Shrink the left side while that counter exceeds $k$.
+>
+> Each index enters and leaves once; the answer is the longest legal window.
+
+<!-- thinking:end -->
 
 We use two pointers $l$ and $r$ to maintain a sliding window, where the right pointer continuously moves to the right, and we use a hash table $\textit{cnt}$ to record the number of occurrences of each element within the current window.
 

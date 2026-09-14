@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is non-decreasing and `get` calls are limited, so we cannot scan the matrix. The first $1$ in a row is found with binary search in $O(\log n)$ calls.
+>
+> The answer is the minimum such column over all rows, or $-1$ if no row contains a $1$.
+
+<!-- thinking:end -->
 
 First, we call `BinaryMatrix.dimensions()` to get the number of rows $m$ and columns $n$ of the matrix. Then for each row, we use binary search to find the column number $j$ where the leftmost $1$ is located. The smallest $j$ value that satisfies all rows is the answer. If there is no such column, return $-1$.
 

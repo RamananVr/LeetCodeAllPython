@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md
 rating: 1477
 source: Weekly Contest 341 Q3
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The target is concatenations of `abc`, and we may only insert. A DP over split points would pass for $n \le 50$, but the match advances greedily.
+>
+> Walk the repeating pattern `abc`: a mismatch counts as an insertion, a match consumes one character of $word$. After the scan, pad with the missing suffix if the last letter is not `c`.
+
+<!-- thinking:end -->
 
 We define the string $s$ as `"abc"`, and use pointers $i$ and $j$ to point to $s$ and $word$ respectively.
 

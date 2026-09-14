@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README_EN.md
 rating: 2072
 source: Biweekly Contest 48 Q4
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move picks two remaining numbers and scores $i\cdot\gcd$ on the $i$-th move. $n\le 7$ so $m=2n\le 14$, and subset DP can try pairings.
+>
+> Precompute pairwise $\gcd$. $f[k]$ is the best score using the elements in mask $k$. When the popcount is even, try removing a pair $i,j$ and add $\textit{cnt}/2\cdot g[i][j]$.
+>
+> The full mask $f[2^m-1]$ is the answer.
+
+<!-- thinking:end -->
 
 We can preprocess to get the greatest common divisor of any two numbers in the array `nums`, stored in the two-dimensional array $g$, where $g[i][j]$ represents the greatest common divisor of $nums[i]$ and $nums[j]$.
 

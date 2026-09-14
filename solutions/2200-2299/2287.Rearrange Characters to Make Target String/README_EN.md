@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README_EN.md
 rating: 1299
 source: Weekly Contest 295 Q1
 tags:
@@ -75,6 +74,16 @@ We can make at most one copy of &quot;aaaaa&quot;, so we return 1.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We copy $target$ from letters of $s$ as many times as possible. $|s|\le 100$; the limit is the letter whose supply-to-demand ratio is smallest.
+>
+> Count both strings and take $\min \lfloor cnt_1[c]/cnt_2[c] \rfloor$ over letters of $target$.
+
+<!-- thinking:end -->
 
 We count the occurrences of each character in the strings $\textit{s}$ and $\textit{target}$, denoted as $\textit{cnt1}$ and $\textit{cnt2}$. For each character in $\textit{target}$, we calculate the number of times it appears in $\textit{cnt1}$ divided by the number of times it appears in $\textit{cnt2}$, and take the minimum value.
 

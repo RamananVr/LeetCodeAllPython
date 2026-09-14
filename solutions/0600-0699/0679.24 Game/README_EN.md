@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0679.24%20Game/README_EN.md
 tags:
     - Array
     - Math
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four cards and the four operations must make $24$. The state space is tiny.
+>
+> Pick two numbers, apply $+,-,*,/$, and recurse on the shorter list. A singleton within $10^{-6}$ of $24$ succeeds; skip division by zero.
+
+<!-- thinking:end -->
 
 We design a function $dfs(nums)$, where $nums$ represents the current number sequence. The function returns a boolean value indicating whether there exists a permutation that makes this number sequence equal to $24$.
 

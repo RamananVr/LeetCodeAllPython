@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README_EN.md
 rating: 2069
 source: Weekly Contest 486 Q4
 tags:
@@ -76,6 +75,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Combinatorics + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the $n$-th positive integer with exactly $k$ ones; it is below $2^{50}$. Scanning naturals and counting bits is far too slow.
+>
+> Decide bits from high to low: if the ways to place the remaining $k$ ones in the lower $i$ bits are fewer than $n$, the current bit must be $1$.
+>
+> Precompute $\binom{i}{k}$. From bit $49$ downward, if $n>C(i,k)$ set the bit, subtract that count, and decrease $k$.
+>
+> This greedy filling uniquely identifies the $n$-th such integer in numerical order.
+
+<!-- thinking:end -->
 
 We need to find the $n$-th smallest positive integer that contains exactly $k$ ones in its binary representation. We can determine each bit from the most significant to the least significant, deciding whether it is $0$ or $1$.
 

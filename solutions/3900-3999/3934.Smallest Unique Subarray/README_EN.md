@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README_EN.md
 rating: 2162
 source: Weekly Contest 502 Q4
 tags:
@@ -107,6 +106,18 @@ There is at least one subarray of length 2 that is unique, so the smallest uniqu
 <!-- solution:start -->
 
 ### Solution 1: Rolling Hash + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If some unique subarray of length $L$ exists, a unique subarray of every larger length exists as well (extend that core). The minimal unique length is therefore monotone in $L$ and can be binary-searched.
+>
+> To test a candidate $\textit{mid}$, slide every window of that length and count hashes. Rolling hashes make each slide $O(1)$, so one test is $O(n)$.
+>
+> $O(\log n)$ tests give $O(n\log n)$ overall.
+
+<!-- thinking:end -->
 
 At $\textit{mid_len} = \frac{\textit{min_len} + \textit{max_len}}{2}$, for each candidate
 subarray length $\textit{mid_len}$, we slide a rolling hash window along all subarrays

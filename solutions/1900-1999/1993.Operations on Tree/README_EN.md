@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1993.Operations%20on%20Tree/README_EN.md
 rating: 1861
 source: Biweekly Contest 60 Q3
 tags:
@@ -91,6 +90,16 @@ lockingTree.lock(0, 1); // return false because node 0 is already locked.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Lock and unlock are point updates. Upgrade needs the node and its ancestors unlocked and at least one locked descendant, then unlocks the subtree and locks the node. $n\le 2000$ allows walking the parent chain and DFS.
+>
+> An array stores the locking user and adjacency lists store children. Upgrade climbs parents first, then DFS-unlocks descendants.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3187.Peaks%20in%20Array/README_EN.md
 rating: 2154
 source: Weekly Contest 402 Q4
 tags:
@@ -91,6 +90,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A peak is an interior index strictly above both neighbors. Range peak counts plus point updates make rebuilding $O(nq)$.
+>
+> Peaks are $0/1$ indicators, so a Fenwick tree range-sums them. An assignment at $idx$ only changes peaks at $idx-1,idx,idx+1$.
+>
+> Insert the initial peaks. A query sums $(l+1,r-1)$. An update subtracts the three old flags, writes the new value, and adds the new flags.
+
+<!-- thinking:end -->
 
 According to the problem description, for $0 < i < n - 1$, if it satisfies $nums[i - 1] < nums[i]$ and $nums[i] > nums[i + 1]$, we can consider $nums[i]$ as $1$, otherwise as $0$. Thus, for operation $1$, i.e., querying the number of peak elements in the subarray $nums[l..r]$, it is equivalent to querying the number of $1$s in the interval $[l + 1, r - 1]$. We can use a binary indexed tree to maintain the number of $1$s in the interval $[1, n - 1]$.
 

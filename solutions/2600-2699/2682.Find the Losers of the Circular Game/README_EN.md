@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md
 rating: 1382
 source: Weekly Contest 345 Q1
 tags:
@@ -75,6 +74,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The ball moves $p k$ steps on a circle until someone receives it twice. $n \le 50$ allows direct simulation. A visited array marks recipients; unmarked indices after the loop are the losers, shifted back to $1$-based numbers.
+
+<!-- thinking:end -->
 
 We use an array `vis` to record whether each friend has received the ball, initially, all friends have not received the ball. Then, we simulate the game process according to the rules described in the problem statement until a friend receives the ball for the second time.
 

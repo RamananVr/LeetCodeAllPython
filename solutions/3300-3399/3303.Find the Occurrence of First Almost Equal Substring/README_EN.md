@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md
 rating: 2509
 source: Biweekly Contest 140 Q4
 tags:
@@ -83,6 +82,18 @@ A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of charac
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A window is almost equal to $\textit{pattern}$ when their Hamming distance is at most one. Comparing every window character by character costs $O(|s| \cdot |\textit{pattern}|)$, which is too slow for lengths up to $10^5$.
+>
+> At most one mismatch means a prefix match and a suffix match together cover the window, leaving at most one gap. Forward and reverse Z-arrays (or string hashes) can test this in linear time.
+>
+> For each start we check whether the prefix-match length plus the suffix-match length is at least $|\textit{pattern}|-1$, and return the leftmost valid index, or $-1$ if none exists.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

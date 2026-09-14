@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README_EN.md
 rating: 1933
 source: Weekly Contest 253 Q4
 tags:
@@ -86,6 +85,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree (Fenwick Tree)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each obstacle continues the longest non-decreasing course to its left. A linear scan of the prefix is $O(n^2)$.
+>
+> After compressing heights, a Fenwick tree stores the best length among heights $\le h$. Query that prefix max, add one, and write back.
+>
+> Each index costs $O(\log n)$.
+
+<!-- thinking:end -->
 
 We can use a Binary Indexed Tree to maintain an array of the lengths of the longest increasing subsequences.
 

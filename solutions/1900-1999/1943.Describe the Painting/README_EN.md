@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1943.Describe%20the%20Painting/README_EN.md
 rating: 1969
 source: Biweekly Contest 57 Q3
 tags:
@@ -98,6 +97,18 @@ Note that returning a single segment [1,7) is incorrect because the mixed color 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Overlapping segments mix colors and we must emit maximal constant-mix pieces. Cutting every pair is $O(n^2)$.
+>
+> Color changes only at endpoints: add at the left, subtract at the right. After sorting those keys, a prefix sum that is nonzero between two consecutive keys is a mixed segment.
+>
+> A hash map stores the difference array; one sorted pass emits the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

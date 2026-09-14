@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2667.Create%20Hello%20World%20Function/README_EN.md
 tags:
     - JavaScript
 ---
@@ -54,6 +53,14 @@ Any arguments could be passed to the function but it should still always return 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The factory must return a function that ignores every argument and always yields a fixed string. The inner function never reads `args`, so every input produces the same result.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README_EN.md
 rating: 1530
 source: Biweekly Contest 23 Q2
 tags:
@@ -63,6 +62,18 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating partitions of $s$ into $k$ palindromes is exponential. With $n,k\le 10^5$, we can only decide feasibility from counting properties.
+>
+> A palindrome has at most one odd-count character as its center, so $k$ palindromes absorb at most $k$ odd-count characters. Each palindrome also needs at least one character, so $|s|<k$ is impossible.
+>
+> Compare the length with $k$, count frequencies, and check that the number of odd counts is at most $k$. Even pairs can be distributed freely; we never build the strings.
+
+<!-- thinking:end -->
 
 First, we check if the length of string $s$ is less than $k$. If it is, we cannot construct $k$ palindrome strings, so we can directly return `false`.
 

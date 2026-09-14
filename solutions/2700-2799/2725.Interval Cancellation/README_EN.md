@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2725.Interval%20Cancellation/README_EN.md
 tags:
     - JavaScript
 ---
@@ -123,6 +122,16 @@ Cancelled at 180ms
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Call $fn$ immediately, then every $t$ milliseconds, and allow cancel at any time. Chaining $setTimeout$ would require clearing the next tick by hand.
+>
+> Invoke once synchronously, then $setInterval$ the same call. The returned function $clearInterval$s that handle and stops further firings.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

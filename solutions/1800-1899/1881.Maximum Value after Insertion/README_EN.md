@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README_EN.md
 rating: 1381
 source: Weekly Contest 243 Q2
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert digit $x$ into the decimal string $n$ to maximize its value. A positive number wants a larger high digit as early as possible; a negative number wants the opposite.
+>
+> For a positive $n$, insert before the first digit smaller than $x$; for a negative $n$, skip the sign and insert before the first digit larger than $x$.
+
+<!-- thinking:end -->
 
 If $n$ is negative, we need to find the first position greater than $x$ and insert $x$ at that position. If $n$ is positive, we need to find the first position less than $x$ and insert $x$ at that position.
 

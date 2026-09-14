@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README_EN.md
 rating: 1997
 source: Biweekly Contest 14 Q4
 tags:
@@ -62,6 +61,14 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 <!-- solution:start -->
 
 ### Solution 1: Recursion + Divide and Conquer
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only call $hasShips$, and a rectangle holds at most $10$ ships. An empty rectangle is not split; a single occupied cell counts $1$. Otherwise we split into four quadrants. Divide-and-conquer spends queries on quadrants that actually contain ships; cost follows the number of ships times the log of the diameter.
+
+<!-- thinking:end -->
 
 Since there are at most $10$ ships in the rectangle, we can divide the rectangle into four sub-rectangles, calculate the number of ships in each sub-rectangle, and then add the number of ships in the four sub-rectangles. If there are no ships in a sub-rectangle, then there is no need to continue dividing.
 

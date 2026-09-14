@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1050.Actors%20and%20Directors%20Who%20Cooperated%20At%20Least%20Three%20Times/README_EN.md
 tags:
     - Database
 ---
@@ -68,6 +67,18 @@ ActorDirector table:
 <!-- solution:start -->
 
 ### Solution 1: Group By + Having
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need how often each actor–director pair collaborated. Grouping by both ids makes the group size the collaboration count.
+>
+> `GROUP BY actor_id, director_id` and `HAVING COUNT(1) >= 3` keep pairs with at least three rows.
+>
+> One aggregation is enough; no self-join is required.
+
+<!-- thinking:end -->
 
 We can use the `GROUP BY` statement to group the data by the `actor_id` and `director_id` fields, and then use the `HAVING` statement to filter out the `actor_id` and `director_id` that appear at least three times.
 

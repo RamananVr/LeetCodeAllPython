@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0448.Find%20All%20Numbers%20Disappeared%20in%20an%20Array/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -45,6 +44,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values lie in $[1,n]$; missing numbers are a set difference. Store seen values in a hash set and scan $1..n$. Linear time, $O(n)$ extra space.
+>
+> The follow-up wants constant extra memory; this solution establishes correctness first.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -63,6 +72,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a set. Value $x$ can negate index $|x|-1$ to mark “seen”; a still-positive slot $i$ means $i+1$ is missing. Absolute value before indexing avoids treating a mark as a subscript.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2803.Factorial%20Generator/README_EN.md
 tags:
     - JavaScript
 ---
@@ -70,6 +69,14 @@ gen.next().value // 1
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The generator should yield $0!$ or $1!$ through $n!$ on demand; precomputing every factorial is unnecessary. We keep a running product, multiply by the next factor, and yield. When $n=0$, we yield $0!=1$ once.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

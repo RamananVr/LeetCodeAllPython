@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README_EN.md
 rating: 1460
 source: Weekly Contest 216 Q2
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among length-$n$ strings with numeric sum $k$, the lexicographically smallest puts `a`s on the left and large letters on the right. $n$ can be $10^5$, so fill `z` from the tail.
+>
+> Start with all `a`s and leftover $d=k-n$. While $d>25$, write `z` and subtract $25$; add the remainder to the current position.
+
+<!-- thinking:end -->
 
 First, we initialize each character of the string to `'a'`, leaving a remaining value of $d=k-n$.
 

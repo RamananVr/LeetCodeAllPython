@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README_EN.md
 rating: 1881
 source: Weekly Contest 162 Q4
 tags:
@@ -78,6 +77,16 @@ Letter &quot;e&quot; can only be used once.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $14$ words, so $2^{14}$ subsets are enumerable. A subset is legal iff it does not exceed the stock in $letters$.
+>
+> We count the letter bank, then for each nonempty mask concatenate the chosen words, check the counts, and score legal ones. The masks exhaust the choices; the count test enforces the bank.
+
+<!-- thinking:end -->
 
 Given the small data range in the problem, we can use binary enumeration to enumerate all word combinations for the given word list. Then, we check whether each word combination meets the requirements of the problem. If it does, we calculate its score and finally take the word combination with the highest score.
 

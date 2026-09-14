@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1913.Maximum%20Product%20Difference%20Between%20Two%20Pairs/README_EN.md
 rating: 1144
 source: Weekly Contest 247 Q1
 tags:
@@ -62,6 +61,16 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating four indices is $O(n^4)$. Maximizing $ab-cd$ means taking the largest product minus the smallest product.
+>
+> After sorting, that is the product of the two largest minus the product of the two smallest, which uses four distinct indices.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

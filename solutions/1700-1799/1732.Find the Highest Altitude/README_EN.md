@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README_EN.md
 rating: 1256
 source: Biweekly Contest 44 Q1
 tags:
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum (Difference Array)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{gain}$ stores consecutive altitude differences from a start of $0$. The highest point is the maximum prefix sum of that difference array.
+>
+> Accumulate $\textit{gain}$ from $0$ and keep the running maximum.
+
+<!-- thinking:end -->
 
 We assume the altitude of each point is $h_i$. Since $gain[i]$ represents the altitude difference between the $i$th point and the $(i + 1)$th point, we have $gain[i] = h_{i + 1} - h_i$. Therefore:
 

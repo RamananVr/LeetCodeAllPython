@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3368.First%20Letter%20Capitalization/README_EN.md
 tags:
     - Database
 ---
@@ -107,6 +106,16 @@ Each row contains a unique ID and the corresponding text content.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each word should start with a capital and continue in lowercase. Split on spaces, $\textit{capitalize}$ every token, and join them back.
+>
+> Consecutive spaces must be preserved, so we split on $\texttt{' '}$ rather than on arbitrary whitespace.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

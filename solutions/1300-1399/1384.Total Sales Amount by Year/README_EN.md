@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README_EN.md
 tags:
     - Database
 ---
@@ -99,6 +98,14 @@ LC Keychain was sold for the period of 2019-12-01 to 2020-01-31, and there are 3
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Yearly totals may span $2018$–$2020$. Join each sale to the three calendar years it overlaps; the days in that year are the end day-of-year minus the start day-of-year plus one, times the daily average. $2020$ uses $366$ days.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

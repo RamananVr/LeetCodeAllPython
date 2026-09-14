@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README_EN.md
 tags:
     - Database
 ---
@@ -68,6 +67,14 @@ Each row contains an id, track_name, and artist.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count rows per artist, then sort by count descending and name ascending. `GROUP BY artist` with `COUNT`, followed by `ORDER BY occurrences DESC, artist`, matches the required order.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

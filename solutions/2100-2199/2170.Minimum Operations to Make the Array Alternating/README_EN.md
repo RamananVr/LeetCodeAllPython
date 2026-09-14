@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README_EN.md
 rating: 1662
 source: Weekly Contest 280 Q2
 tags:
@@ -70,6 +69,18 @@ Note that the array cannot be converted to [<u><strong>2</strong></u>,2,2,2,2] b
 <!-- solution:start -->
 
 ### Solution 1: Maintain Count of Odd and Even Positions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating array is constant on even indices, constant on odd indices, and the two values differ. An operation rewrites one cell, so the minimum edits equal the positions not equal to the chosen targets. We must pick a frequent even-value and a frequent odd-value that are not the same.
+>
+> Count the top two frequencies on even and odd indices. If the modes differ, keep both; if they coincide, keep the better of “even mode + odd runner-up” and the swapped pair.
+>
+> $f$ finds those two keys; the answer is $n$ minus the kept frequencies.
+
+<!-- thinking:end -->
 
 According to the problem description, if an array $\textit{nums}$ is an alternating array, then the elements at odd positions and even positions must be different, and the elements at odd positions are the same, as well as the elements at even positions.
 

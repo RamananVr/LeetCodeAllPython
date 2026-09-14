@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README_EN.md
 tags:
     - Database
 ---
@@ -72,6 +71,16 @@ User 7 had two purchases on the same day so we add their ID.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need users who have two purchases at most $7$ days apart. A self-join on every pair of a user's rows overcounts when someone buys often. Adjacent purchases after sorting already contain any window of length $7$.
+>
+> $\textit{LAG}(\textit{purchase\_date})$ partitioned by $\textit{user\_id}$ and ordered by date yields the gap to the previous buy. Keep rows with $d \le 7$ and take distinct user ids.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

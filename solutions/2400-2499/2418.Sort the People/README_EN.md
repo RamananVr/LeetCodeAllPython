@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2418.Sort%20the%20People/README_EN.md
 rating: 1193
 source: Weekly Contest 312 Q1
 tags:
@@ -62,6 +61,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 10^3$, sort names by descending height. Heights are unique, so the key is total. Sort indices by $heights$ descending, then emit $names[i]$.
+
+<!-- thinking:end -->
+
 According to the problem description, we can create an index array $idx$ of length $n$, where $idx[i]=i$. Then we sort each index in $idx$ in descending order according to the corresponding height in $heights$. Finally, we traverse each index $i$ in the sorted $idx$ and add $names[i]$ to the answer array.
 
 We can also create an array $arr$ of length $n$, where each element is a tuple $(heights[i], i)$. Then we sort $arr$ in descending order by height. Finally, we traverse each element $(heights[i], i)$ in the sorted $arr$ and add $names[i]$ to the answer array.
@@ -87,6 +94,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already sorts via an index array. Zipping height with name and sorting that pair descending removes the extra index array; the order is the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

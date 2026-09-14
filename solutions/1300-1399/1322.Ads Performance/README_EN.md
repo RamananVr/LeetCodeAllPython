@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1322.Ads%20Performance/README_EN.md
 tags:
     - Database
 ---
@@ -85,6 +84,14 @@ Note that we do not care about Ignored Ads.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> CTR is clicks over clicks-or-views; $\textit{Ignored}$ is dropped, and a missing ratio is $0$. Grouping by $\textit{ad\_id}$ with conditional sums yields both counts; $\mathrm{IFNULL}$ covers division by zero, then we sort by CTR descending and id ascending.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

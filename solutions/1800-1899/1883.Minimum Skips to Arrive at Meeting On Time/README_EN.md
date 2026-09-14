@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README_EN.md
 rating: 2587
 source: Weekly Contest 243 Q4
 tags:
@@ -81,6 +80,16 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Except the last road, finishing off an integer hour forces a wait. We may skip some waits and want the fewest skips to finish by $hoursBefore$. Choosing a subset of roads is exponential.
+>
+> $f[i][j]$ is the earliest time after $i$ roads and $j$ skips: without a skip we ceil $f[i-1][j]+d_i/s$; with a skip we add the raw time. An $eps$ guards floating-point ceil. The smallest $j$ with $f[n][j]$ within the limit is the answer.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the shortest time considering the first $i$ roads and exactly skipping $j$ rest times. Initially, $f[0][0]=0$, and the rest $f[i][j]=\infty$.
 

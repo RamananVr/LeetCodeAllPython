@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md
 rating: 1793
 source: Weekly Contest 390 Q3
 tags:
@@ -76,6 +75,18 @@ After step 2, we have 1 ID with the value of 3. So <code>ans[2] = 1</code>.</p>
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Frequencies of IDs change online and we report the current maximum after each update. $n \le 10^5$, so a full scan each time is too slow.
+>
+> Counts both grow and shrink, so a heap cannot edit old entries. Stale counts go into a lazy-deletion map and are popped when they reach the top.
+>
+> One hash map stores live frequencies, another stores how often a count was retired; we push the new count onto a max-heap and clean the top.
+
+<!-- thinking:end -->
 
 We use a hash table $cnt$ to record the occurrence times of each ID, a hash table $lazy$ to record the number of times each occurrence needs to be deleted, and a priority queue $pq$ to maintain the maximum occurrence times.
 

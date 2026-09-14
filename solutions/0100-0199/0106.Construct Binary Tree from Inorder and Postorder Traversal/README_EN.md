@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README_EN.md
 tags:
     - Tree
     - Array
@@ -55,6 +54,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The last postorder value is the root; inorder again splits left and right. Linear search for the root each time can be $O(n^2)$. Values are unique, so we index inorder first. The last value of the current postorder slice is the root; the count of inorder values to its left is the left-subtree size, which splits the remaining postorder into two recursive ranges.
+
+<!-- thinking:end -->
 
 The last node in the post-order traversal is the root node. We can find the position of the root node in the in-order traversal, and then recursively construct the left and right subtrees.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README_EN.md
 rating: 1713
 source: Weekly Contest 310 Q3
 tags:
@@ -66,6 +65,16 @@ It can be proven that it is not possible to divide the intervals into fewer than
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning existing groups per interval is quadratic at $n\le 10^5$. Groups cannot contain overlaps, so the answer is the maximum concurrent overlap. After sorting by left endpoint, an interval joins a group iff that group's current right end is strictly left of it.
+>
+> A min-heap of group right ends decides reuse: pop the heap top when it can take the new interval, otherwise open a new group. The heap size is the minimum number of groups.
+
+<!-- thinking:end -->
 
 First, we sort the intervals by their left endpoints. We use a min heap to maintain the rightmost endpoint of each group (the top of the heap is the minimum of the rightmost endpoints of all groups).
 

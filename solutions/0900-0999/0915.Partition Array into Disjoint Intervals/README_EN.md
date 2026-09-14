@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0915.Partition%20Array%20into%20Disjoint%20Intervals/README_EN.md
 tags:
     - Array
 ---
@@ -59,6 +58,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Maximum + Suffix Minimum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cut $i$ is valid when the maximum on the left is at most the minimum on the right. $n\le 10^5$, so we cannot rescan both sides for every $i$. Precompute suffix minima, then scan from the left while tracking the prefix maximum; the first index with $mx\le mi[i]$ is the shortest left part (a cut is guaranteed).
+
+<!-- thinking:end -->
 
 To satisfy the requirements of the problem after partitioning into two subarrays, we need to ensure that the "maximum value of the array prefix" is less than or equal to the "minimum value of the array suffix".
 

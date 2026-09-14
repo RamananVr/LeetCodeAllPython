@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README_EN.md
 rating: 1292
 source: Biweekly Contest 93 Q1
 tags:
@@ -67,6 +66,14 @@ Each string in the array has value 1. Hence, we return 1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A string is either its decimal value or, if it contains a letter, its length. Lengths are at most $9$. Test $\textit{isdigit}$ then take $\textit{int}$ or $\textit{len}$, and keep the maximum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -87,6 +94,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 parses the whole string after an all-digit check. Accumulating digit by digit returns the length on the first letter and otherwise builds the integer, without a separate scan.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -113,6 +128,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same rule as method 1 via a built-in parse: on success use the number, on failure use the length. The error path is exactly “contains a non-digit”.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

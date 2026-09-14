@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README_EN.md
 tags:
     - Greedy
     - Math
@@ -55,6 +54,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the largest number $\le n$ whose digits are non-decreasing. Checking $n, n-1, \ldots$ is too slow; we should rewrite the digits.
+>
+> After the first descent, turning the tail into nines may still leave a prefix larger than $n$. Decrement the left run until the digits are non-decreasing again, then set the suffix to nines.
+>
+> Walk to the first drop, step back while decrementing, then fill nines. $O(\log n)$ digits.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

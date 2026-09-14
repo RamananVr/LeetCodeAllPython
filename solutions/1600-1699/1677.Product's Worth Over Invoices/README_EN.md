@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1677.Product%27s%20Worth%20Over%20Invoices/README_EN.md
 tags:
     - Database
 ---
@@ -106,6 +105,16 @@ Invoice table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We aggregate rest/paid/canceled/refunded per product; products without invoices must still appear with zeros.
+>
+> Left-join $\texttt{Invoice}$ onto $\texttt{Product}$, $\texttt{SUM}$ by $\texttt{product\_id}$, replace null sums with $\texttt{IFNULL}(\ldots,0)$, and order by name.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

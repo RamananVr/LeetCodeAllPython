@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README_EN.md
 rating: 1388
 source: Weekly Contest 369 Q1
 tags:
@@ -134,6 +133,16 @@ Only bits 0 and 3 qualify. The result is <code>(1001)<sub>2</sub> = 9</code>.</p
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bit $i$ of the K-or is $1$ iff at least $k$ numbers have that bit set; bits are independent. Values are below $2^{31}$, so $32$ bits suffice.
+>
+> Count ones on each bit and OR $2^i$ into the answer when the count is at least $k$. $n \le 50$ needs no extra structure.
+
+<!-- thinking:end -->
 
 We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of numbers in the array $nums$ whose $i$-th bit is $1$, denoted as $cnt$. If $cnt \ge k$, we add $2^i$ to the answer.
 

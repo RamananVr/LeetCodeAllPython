@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1432.Max%20Difference%20You%20Can%20Get%20From%20Changing%20an%20Integer/README_EN.md
 rating: 1426
 source: Biweekly Contest 25 Q2
 tags:
@@ -66,6 +65,16 @@ We have now a = 9 and b = 1 and max difference = 8
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $num\le 10^8$, so there are few digits. One replacement rewrites every occurrence of a digit; the maximum difference is max-value minus min-value after one replacement each.
+>
+> For the maximum, replace the first non-$9$ digit with $9$ everywhere. For the minimum, replace the leading digit with $1$ if it is not already $1$; otherwise replace a later digit that is not $0$ or $1$ with $0$, avoiding a leading zero.
+
+<!-- thinking:end -->
 
 To obtain the maximum difference, we should take the maximum and minimum values, as this yields the largest difference.
 

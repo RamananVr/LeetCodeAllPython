@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md
 rating: 1947
 source: Weekly Contest 491 Q3
 ---
@@ -83,6 +82,19 @@ source: Weekly Contest 491 Q3
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick one number per row to minimize the bitwise OR. At most $10^5$ cells, so selections cannot be enumerated.
+>
+> We want high bits of the OR to stay $0$. Try bits from high to low: given higher bits already fixed, ask whether every row still has a value compatible with those bits (lower bits free).
+>
+> For the trial mask $\textit{ans} \mid (2^i-1)$, if each row has an $x$ covered by the mask, the current bit may stay $0$; otherwise it must be set.
+>
+> High-bit-first filling yields the minimum OR.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

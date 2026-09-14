@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README_EN.md
 rating: 2009
 source: Weekly Contest 255 Q3
 tags:
@@ -78,6 +77,18 @@ The absolute difference is 1.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Grouped Knapsack)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Picking one value per row to minimize $|sum-\textit{target}|$ is exponential. Values and rows are at most $70$, so reachable sums fit in a rolling set.
+>
+> Each new row replaces $f$ with $\{a+b\mid a\in f,\,b\in\textit{row}\}$. The closest value to $\textit{target}$ is the answer.
+>
+> Deduplication keeps the state far smaller than the raw product.
+
+<!-- thinking:end -->
 
 Let $f[i][j]$ represent whether it is possible to select elements from the first $i$ rows with a sum of $j$. Then we have the state transition equation:
 

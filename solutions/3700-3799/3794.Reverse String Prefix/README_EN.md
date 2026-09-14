@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3794.Reverse%20String%20Prefix/README_EN.md
 rating: 1229
 source: Biweekly Contest 173 Q1
 tags:
@@ -74,6 +73,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the first $k$ characters are reversed, and $k$ never exceeds the length. We reverse that prefix slice and concatenate the suffix.
+
+<!-- thinking:end -->
 
 We reverse the first $k$ characters of the string according to the problem description, and then concatenate them with the remaining characters.
 

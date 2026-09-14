@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3627.Maximum%20Median%20Sum%20of%20Subsequences%20of%20Size%203/README_EN.md
 rating: 1262
 source: Weekly Contest 460 Q1
 ---
@@ -73,6 +72,18 @@ source: Weekly Contest 460 Q1
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each triple contributes its median. Maximizing the sum of medians means making large values medians and pairing them with smaller fillers. $n\le 5\times 10^5$ forbids searching partitions.
+>
+> After sorting, the smallest $n/3$ values can only be fillers. From the remaining $2n/3$ values, take every other smaller one as a median: the sum from index $n/3$ with step $2$.
+>
+> Each triple then has a strictly smaller partner, and the medians are the largest half of what remains.
+
+<!-- thinking:end -->
 
 To maximize the sum of medians, we need to select larger elements as medians whenever possible. Since each operation can only select three elements, we can sort the array and then start from index $n / 3$, selecting every other element (skipping one) until the end of the array. This ensures that we select the largest possible medians.
 

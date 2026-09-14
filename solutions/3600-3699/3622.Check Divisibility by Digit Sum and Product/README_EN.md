@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3622.Check%20Divisibility%20by%20Digit%20Sum%20and%20Product/README_EN.md
 rating: 1148
 source: Weekly Contest 459 Q1
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For $n\le 10^6$ it suffices to peel digits and form their sum and product. $\textit{divmod}$ extracts low-order digits without converting to a string.
+>
+> The product starts at $1$, not $0$. Test whether $s+p$ divides $n$. There are $O(\log n)$ digits.
+
+<!-- thinking:end -->
 
 We can iterate through each digit of the integer $n$, calculating the digit sum $s$ and digit product $p$. Finally, we check whether $n$ is divisible by $s + p$.
 

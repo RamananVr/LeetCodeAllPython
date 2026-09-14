@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3448.Count%20Substrings%20Divisible%20By%20Last%20Digit/README_EN.md
 rating: 2386
 source: Weekly Contest 436 Q3
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring, read as a decimal integer, must be divisible by its last digit. $n\le 10^5$ forbids testing every substring.
+>
+> The last digit $d$ lies in $[1,9]$. Divisibility is the value being $0$ modulo $d$. We keep counts of prefixes whose remainder is $r$ when the current digit is the last.
+>
+> If the prefix remainder is $p$, a start $l$ works when $p\equiv 10^{i-l+1}\cdot(\textit{prefix}_{l-1})\pmod d$. Grouping by the last digit yields a linear digit-DP / prefix count. A last digit $0$ contributes nothing.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

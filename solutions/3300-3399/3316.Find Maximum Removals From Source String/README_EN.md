@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3316.Find%20Maximum%20Removals%20From%20Source%20String/README_EN.md
 rating: 2062
 source: Biweekly Contest 141 Q3
 tags:
@@ -107,6 +106,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may delete indices in $\textit{targetIndices}$ only while $\textit{pattern}$ remains a subsequence. With $n \le 3 \times 10^3$, an $O(mn)$ matching DP fits.
+>
+> The state must track both the match progress and how many deletions have been taken. Impossible states stay at $-\infty$ so a failed match cannot look valid.
+>
+> $f[i][j]$ takes the better of skipping $\textit{source}[i-1]$ (adding $1$ if that index is deletable) and matching the current characters. $f[m][n]$ is the answer.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the maximum number of deletions in the first $i$ characters of $\textit{source}$ that match the first $j$ characters of $\textit{pattern}$. Initially, $f[0][0] = 0$, and the rest $f[i][j] = -\infty$.
 

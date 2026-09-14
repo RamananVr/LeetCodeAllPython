@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md
 rating: 1530
 source: Weekly Contest 215 Q2
 tags:
@@ -85,6 +84,18 @@ Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
 <!-- solution:start -->
 
 ### Solution 1: Counting + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swapping two characters and renaming one letter globally preserve the set of letters and the multiset of frequencies (the latter up to permuting values among those letters).
+>
+> Hence the strings are close iff they use the same letters and their frequency lists match after sorting.
+>
+> Count both strings and compare key sets plus sorted value lists.
+
+<!-- thinking:end -->
 
 According to the problem description, two strings are close if they meet the following two conditions simultaneously:
 

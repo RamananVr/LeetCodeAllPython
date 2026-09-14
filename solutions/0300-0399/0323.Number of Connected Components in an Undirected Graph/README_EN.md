@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0323.Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -55,6 +54,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count connected components in an undirected graph. Start a search at each unseen node and increment once per new component. $O(n+m)$ fits the limits.
+>
+> Build the adjacency list and DFS: return $0$ if seen, otherwise mark, recurse on neighbors, and return $1$. Summing over all nodes is the count.
+
+<!-- thinking:end -->
+
 First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents all neighbor nodes of node $i$.
 
 Then we traverse all nodes. For each node, we use DFS to traverse all its adjacent nodes and mark them as visited until all its adjacent nodes have been visited. In this way, we have found a connected component, and the answer is incremented by one. Then we continue to traverse the next unvisited node until all nodes have been visited.
@@ -91,6 +100,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS needs the graph and a call stack. Union-find merges endpoints; a successful union decrements the component count from $n$. No explicit adjacency list is required.
+
+<!-- thinking:end -->
 
 We can use a union-find set to maintain the connected components in the graph.
 
@@ -142,6 +159,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> To avoid recursion depth, replace the DFS with BFS: enqueue an unseen node, flood its component, and increment. Time stays $O(n+m)$.
+
+<!-- thinking:end -->
 
 We can also use BFS (Breadth-First Search) to count the number of connected components in the graph.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README_EN.md
 rating: 1184
 source: Weekly Contest 302 Q1
 tags:
@@ -74,6 +73,16 @@ No more pairs can be formed. A total of 1 pair has been formed, and there are 0 
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal values pair up; we need the number of pairs and leftovers. $n \le 100$, so a frequency count suffices.
+>
+> Sum $\lfloor v/2 \rfloor$ over frequencies for the pair count; leftovers are $n-2s$.
+
+<!-- thinking:end -->
 
 We can count the occurrences of each number $x$ in the array $\textit{nums}$ and record them in a hash table or array $\textit{cnt}$.
 

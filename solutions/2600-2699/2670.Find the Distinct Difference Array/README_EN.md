@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md
 rating: 1266
 source: Weekly Contest 344 Q1
 tags:
@@ -65,6 +64,16 @@ For index i = 4, there are 3 distinct elements in the prefix and no elements in 
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Preprocessed Suffix
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index needs distinct counts of its prefix minus its suffix. Rebuilding two sets per $i$ is wasteful even for $n \le 50$.
+>
+> A right-to-left set fills suffix distinct counts $suf[i]$; a second left-to-right pass yields $|s|-suf[i+1]$.
+
+<!-- thinking:end -->
 
 We can preprocess a suffix array $suf$, where $suf[i]$ represents the number of distinct elements in the suffix $nums[i, ..., n - 1]$. During the preprocessing, we use a hash table $s$ to maintain the elements that have appeared in the suffix, so we can query the number of distinct elements in the suffix in $O(1)$ time.
 

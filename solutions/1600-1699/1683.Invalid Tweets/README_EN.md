@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1683.Invalid%20Tweets/README_EN.md
 tags:
     - Database
 ---
@@ -66,6 +65,16 @@ Tweet 2 has length = 33. It is an invalid tweet.
 <!-- solution:start -->
 
 ### Solution 1: Using `CHAR_LENGTH` Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A tweet is invalid when its content has more than $15$ characters. We need a character count, not a byte length, so $\texttt{CHAR\_LENGTH}$ rather than $\texttt{LENGTH}$.
+>
+> Select $\texttt{tweet\_id}$ where $\texttt{CHAR\_LENGTH}(\texttt{content})>15$.
+
+<!-- thinking:end -->
 
 The `CHAR_LENGTH()` function returns the length of a string, where Chinese characters, numbers, and letters are all counted as $1$ byte.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md
 tags:
     - Stack
     - Array
@@ -78,6 +77,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse Polish notation puts the operator after its operands, so evaluation order is already fixed and we need no parentheses or precedence. $n\le 10^4$. Push numbers; on an operator pop two values, compute, and push back. The stack holds pending intermediates; one value remains.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -109,6 +116,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 maps operators to functions. This version mutates the stack top in place, branching on the four operators, and watches operand order and truncation toward zero. Same structure, no function table.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

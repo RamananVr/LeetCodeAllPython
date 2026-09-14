@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README_EN.md
 tags:
     - Database
 ---
@@ -68,6 +67,16 @@ Products table:
 <!-- solution:start -->
 
 ### Solution 1: Conditional Filtering
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need product ids that are both low-fat and recyclable.
+>
+> Filter rows where both $\textit{low\_fats}$ and $\textit{recyclable}$ are $Y$, and project $\textit{product\_id}$.
+
+<!-- thinking:end -->
 
 We can directly filter the product IDs where `low_fats` is `Y` and `recyclable` is `Y`.
 

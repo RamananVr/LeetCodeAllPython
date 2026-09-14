@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md
 rating: 1919
 source: Biweekly Contest 24 Q4
 tags:
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must split $s$ into integers in $[1,k]$ with no leading zeros. $n\le 10^5$ rules out enumerating cuts. $k\le 10^9$, so a number starting at $i$ spans at most $10$ digits.
+>
+> Let $f(i)$ be the number of ways to restore $s[i:]$. A leading zero dies; otherwise try end indices $j$ while the value is $\le k$ and add $f(j+1)$. Memoize or compute right to left.
+>
+> The solution tabs in this problem are still empty; this is the standard transition the implementation should follow.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

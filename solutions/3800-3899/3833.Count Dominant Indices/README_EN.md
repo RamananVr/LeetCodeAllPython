@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3833.Count%20Dominant%20Indices/README_EN.md
 rating: 1171
 source: Weekly Contest 488 Q1
 tags:
@@ -75,6 +74,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A dominant index is strictly larger than the average of the suffix to its right; the last index is excluded. $n \le 100$ allows recomputing each suffix, but those sums overlap.
+>
+> The suffix average depends only on the suffix sum and its length.
+>
+> Walk right to left with a running suffix sum $\textit{suf}$, compare $nums[i]$ with $\textit{suf}/(n-i-1)$, then fold $nums[i]$ into the suffix.
+>
+> One reverse pass decides every index.
+
+<!-- thinking:end -->
 
 We can traverse the array from back to front, maintaining a suffix sum $\text{suf}$, which represents the sum of all elements to the right of the current element. For each element, we check if it is greater than the average value of the elements to its right $\frac{\text{suf}}{n - i - 1}$. If so, we increment the answer by one. Finally, we return the answer.
 

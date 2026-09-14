@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README_EN.md
 rating: 2198
 source: Weekly Contest 493 Q4
 tags:
@@ -103,6 +102,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Activation spreads along equal $x$ or $y$. We may add one extra point and want the most activated points. $n \le 10^5$.
+>
+> Points that share an $x$ or a $y$ lie in one component. Union-find treats coordinates as nodes: $(x,y)$ unions $x$ with $y$.
+>
+> The new point can join two components. Take the two largest component sizes and add one for the new point.
+>
+> Shift $y$ by $3 \times 10^9$ so $x$ and $y$ identifiers never collide.
+
+<!-- thinking:end -->
 
 We can use a Union-Find data structure to solve this problem.
 

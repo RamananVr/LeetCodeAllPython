@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README_EN.md
 rating: 2125
 source: Weekly Contest 252 Q4
 tags:
@@ -76,6 +75,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special subsequence is ones of $0$s, then $1$s, then $2$s. There are exponentially many subsequences, so we count by ending value.
+>
+> $f[i][j]$ is the number among the first $i$ elements that end with $j$. A $0$ doubles previous $0$-sequences plus a new singleton; $1$ and $2$ append to the previous stage or the same stage.
+>
+> The answer is $f[n-1][2]$ modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the number of special subsequences ending with $j$ among the first $i+1$ elements. Initially, $f[i][j]=0$, and if $nums[0]=0$, then $f[0][0]=1$.
 
 For $i \gt 0$, we consider the value of $nums[i]$:
@@ -137,6 +148,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only three previous counters are needed, so an in-place array of length $3$ drops extra space to constant.
+
+<!-- thinking:end -->
 
 We notice that in the above state transition equations, the value of $f[i][j]$ is only related to $f[i-1][j]$. Therefore, we can remove the first dimension and optimize the space complexity to $O(1)$.
 

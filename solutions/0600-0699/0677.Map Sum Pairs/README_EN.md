@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md
 tags:
     - Design
     - Trie
@@ -67,6 +66,16 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `sum(prefix)` needs the total of keys with that prefix, and `insert` overwrites. Scanning every key is linear in the map size.
+>
+> Trie nodes store subtree sums. Insert adds $\Delta=val-old$ along the path; `sum` returns the node at the prefix. A hash map keeps the previous value.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to store key-value pairs and a trie $t$ to store the prefix sums of the key-value pairs. Each node in the trie contains two pieces of information:
 

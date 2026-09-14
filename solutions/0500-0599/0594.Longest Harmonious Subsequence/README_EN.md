@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A harmonious subsequence has max and min differing by exactly $1$. Order does not matter, only the values. Listing subsequences is unrealistic.
+>
+> Count frequencies. For each $x$ that has a neighbor $x+1$, $cnt[x]+cnt[x+1]$ is the longest subsequence using just those two values. Take the maximum.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to record the occurrence count of each element in the array $\textit{nums}$. Then, we iterate through each key-value pair $(x, c)$ in the hash table. If the key $x + 1$ exists in the hash table, then the sum of occurrences of elements $x$ and $x + 1$, $c + \textit{cnt}[x + 1]$, forms a harmonious subsequence. We just need to find the maximum length among all harmonious subsequences.
 

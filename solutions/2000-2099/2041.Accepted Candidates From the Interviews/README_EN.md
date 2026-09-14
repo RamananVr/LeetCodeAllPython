@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2041.Accepted%20Candidates%20From%20the%20Interviews/README_EN.md
 tags:
     - Database
 ---
@@ -104,6 +103,16 @@ Rounds table:
 <!-- solution:start -->
 
 ### Solution 1: Join Tables + Grouping + Filtering
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A hire needs at least two years' experience and a total interview score above $15$. Candidates join rounds on `interview_id`.
+>
+> Filter experience, group by `candidate_id`, and `HAVING` the sum $>15$. The pandas path is the same aggregation.
+
+<!-- thinking:end -->
 
 We can join the `Candidates` table and the `Rounds` table based on `interview_id`, filter out candidates with at least 2 years of work experience, then group by `candidate_id` to calculate the total score for each candidate, and finally filter out candidates with a total score greater than 15.
 

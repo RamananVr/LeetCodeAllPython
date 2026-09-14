@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0798.Smallest%20Rotation%20with%20Highest%20Score/README_EN.md
 tags:
     - Array
     - Prefix Sum
@@ -62,6 +61,18 @@ So we will choose the smallest k, which is 0.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After $k$ rotations, $nums[i]$ sits at $(i-k)\bmod n$ and scores if that index is $\ge nums[i]$. $n\le 10^5$.
+>
+> Each value scores on a circular interval of $k$. A difference array marks $+1$/$ -1$ at the ends; the prefix is the score of each $k$.
+>
+> Pick the smallest $k$ with the maximum score.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

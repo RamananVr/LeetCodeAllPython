@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3295.Report%20Spam%20Message/README_EN.md
 rating: 1198
 source: Weekly Contest 416 Q1
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A message is spam if at least two words lie in the banned list. $n,m\le 10^5$, so scanning the banned list per word is quadratic.
+>
+> Put banned words in a hash set and count hits in the message; return whether the count is at least $2$. Expected linear time.
+
+<!-- thinking:end -->
 
 We use a hash table $s$ to store all the words in $\textit{bannedWords}$. Then, we traverse each word in $\textit{message}$. If the word appears in the hash table $s$, we increment the counter $cnt$ by one. If $cnt$ is greater than or equal to $2$, we return $\text{true}$; otherwise, we return $\text{false}$.
 

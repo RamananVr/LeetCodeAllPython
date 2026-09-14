@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md
 rating: 1708
 source: Biweekly Contest 118 Q3
 tags:
@@ -107,6 +106,16 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Buying 1-based index $i$ unlocks the next $i$ fruits for free. $n \le 1000$. From $i$, the next purchase is some $j \in [i+1,2i+1]$.
+>
+> $dfs(i)$ memoizes that minimum; when $2i \ge n$, buying $i$ covers the tail. Start at $1$.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs}(i)$ to represent the minimum number of coins needed to buy all the fruits starting from the $i$-th fruit. The answer is $\textit{dfs}(1)$.
 
 The execution logic of the function $\textit{dfs}(i)$ is as follows:
@@ -142,6 +151,14 @@ class Solution:
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The memo unfolds the same recurrence bottom-up: $f[i]$ is still the cost from $i$ to the end, enumerating $j \in [i+1,2i+1]$. Filling from the back removes the recursion stack and matches method 1.
+
+<!-- thinking:end -->
+
 We can rewrite the memoization search in Solution 1 into a dynamic programming form.
 
 Similar to Solution 1, we define $f[i]$ to represent the minimum number of coins needed to buy all the fruits starting from the $i$-th fruit. The answer is $f[1]$.
@@ -172,6 +189,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming + Monotonic Queue Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 spends $O(n)$ per $i$ to minimize a range of $f[j]$, i.e. $O(n^2)$, which is acceptable at $n=1000$. As $i$ decreases, the window $[i+1,2i+1]$ shrinks on the right, so a monotonic queue can store candidate indices.
+>
+> Going backwards, drop heads beyond $2i+1$, add $prices[q[0]-1]$ into $prices[i-1]$, and keep the queue increasing by $prices$. After the in-place update, $prices[0]$ is the answer.
+
+<!-- thinking:end -->
 
 Observing the state transition equation in Solution 2, we can see that for each $i$, we need to find the minimum value of $f[i + 1], f[i + 2], \cdots, f[2i + 1]$. As $i$ decreases, the range of these values also decreases. This is essentially finding the minimum value in a sliding window with a narrowing range, which can be optimized using a monotonic queue.
 

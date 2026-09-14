@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md
 rating: 1216
 source: Weekly Contest 380 Q1
 tags:
@@ -58,6 +57,18 @@ So the number of elements in the array with maximum frequency is 5.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$, so counting frequencies and summing is enough. The required quantity is the sum of those maximum frequencies, not the number of distinct values that attain them.
+>
+> After the counts are known we take $\textit{mx}$ and add every count equal to $\textit{mx}$.
+>
+> One counting pass and one scan of the values suffice.
+
+<!-- thinking:end -->
 
 We can use a hash table or array $cnt$ to record the occurrence of each element.
 

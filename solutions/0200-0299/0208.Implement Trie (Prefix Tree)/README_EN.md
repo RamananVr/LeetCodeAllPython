@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README_EN.md
 tags:
     - Design
     - Trie
@@ -63,7 +62,17 @@ trie.search(&quot;app&quot;);     // return True
 
 <!-- solution:start -->
 
-## Solution 1: Trie (Prefix Tree)
+### Solution 1: Trie (Prefix Tree)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning every inserted word for each prefix query repeats work on shared prefixes. Letters are lowercase, so a $26$-way tree can layer characters.
+>
+> Insertion walks (and creates) nodes and marks $isEnd$ at the last one. Prefix search follows the same path; full-word search also checks the end flag.
+
+<!-- thinking:end -->
 
 Each node in the trie contains two parts:
 

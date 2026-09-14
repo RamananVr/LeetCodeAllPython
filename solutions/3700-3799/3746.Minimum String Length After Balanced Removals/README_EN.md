@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README_EN.md
 rating: 1326
 source: Weekly Contest 476 Q2
 tags:
@@ -76,6 +75,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Any substring with equally many $a$s and $b$s may be deleted, and nothing remains deletable iff the leftover letters are all the same. The answer is therefore the absolute difference of the two counts; we need not simulate the removals.
+
+<!-- thinking:end -->
 
 According to the problem description, as long as adjacent characters are different, we can remove them. Therefore, the final remaining string will only contain the same character, either all 'a' or all 'b'. So we only need to count the number of 'a' and 'b' in the string, and the final minimum length is the absolute difference between their counts.
 

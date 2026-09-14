@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md
 tags:
     - JavaScript
 ---
@@ -78,6 +77,16 @@ Placeholder &quot;_&quot; is replaced with 5 and 20 is added at the end of args.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Partial application should fill $\_$ placeholders from later arguments in order and append leftovers. Ordinary $bind$ cannot express placeholders.
+>
+> The returned function walks the preset array, replaces each $\_$ with the next rest argument, $push$es any unused rest arguments, and $apply$s the original function.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

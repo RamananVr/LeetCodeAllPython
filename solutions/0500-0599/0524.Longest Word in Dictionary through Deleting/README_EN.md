@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Subsequence Judgment
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest dictionary word that is a subsequence of $s$, breaking ties lexicographically. Enumerating subsequences of $s$ is unrealistic.
+>
+> Test each dictionary word as a subsequence of $s$ with two pointers, and keep the best by length then lexicographic order. Dictionary size and word length are modest, so the total cost is acceptable.
+
+<!-- thinking:end -->
 
 We define a function $check(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
 

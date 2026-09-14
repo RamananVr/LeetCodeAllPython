@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3207.Maximum%20Points%20After%20Enemy%20Battles/README_EN.md
 rating: 1591
 source: Biweekly Contest 134 Q2
 tags:
@@ -93,6 +92,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation either scores $\lfloor\textit{energy}/e\rfloor$ on an unmarked enemy or spends one point to absorb that enemy's energy. With $n\le 10^5$ and energies up to $10^9$, simulating one action at a time is too many rounds.
+>
+> Scoring should always target the cheapest enemy, while energy should come from the largest. Sort first; if the current energy is already below the minimum, the answer is $0$. Otherwise absorb enemies from large to small, scoring as many times as possible against the minimum before each absorb. One pass after sorting is enough.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to score by defeating enemies with the lowest energy value and increase our energy value by defeating enemies with the highest energy value and marking them.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md
 rating: 1218
 source: Weekly Contest 315 Q2
 tags:
@@ -59,6 +58,14 @@ The number of distinct integers in this array is 1 (The number 2).
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every original number and its digit reversal must be counted. With $n\le 10^5$ and values $\le 10^6$, reverse by slicing the decimal string. Insert the array into a set, then add each reversal; the size is the answer.
+
+<!-- thinking:end -->
 
 First, we use a hash table to record all integers in the array. Then, we traverse each integer in the array, reverse it, and add the reversed integer to the hash table. Finally, we return the size of the hash table.
 

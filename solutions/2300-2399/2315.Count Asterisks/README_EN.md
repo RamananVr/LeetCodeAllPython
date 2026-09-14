@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2315.Count%20Asterisks/README_EN.md
 rating: 1250
 source: Biweekly Contest 81 Q1
 tags:
@@ -64,6 +63,16 @@ There are 2 asterisks considered. Therefore, we return 2.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bars come in pairs; we count stars that lie outside every pair. $|s| \le 1000$, so one scan is enough.
+>
+> A flag $\textit{ok}$ tells whether we are outside a pair. Toggle it on `|`, and count `*` only while it is on. There is no need to split the string.
+
+<!-- thinking:end -->
 
 We define an integer variable $\textit{ok}$ to indicate whether we can count when encountering `*`. Initially, $\textit{ok}=1$, meaning we can count.
 

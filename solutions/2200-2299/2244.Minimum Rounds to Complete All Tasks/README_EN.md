@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README_EN.md
 rating: 1371
 source: Weekly Contest 289 Q2
 tags:
@@ -63,6 +62,16 @@ It can be shown that all the tasks cannot be completed in fewer than 4 rounds, s
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A round finishes $2$ or $3$ tasks of one difficulty. Difficulties are independent, so we count frequencies. A count of $1$ is impossible.
+>
+> For $v \ge 2$, prefer rounds of $3$: $\lfloor v/3 \rfloor$ full rounds, plus one more if a remainder exists (a remainder of $1$ is realized as two rounds of $2$). Sum over difficulties.
+
+<!-- thinking:end -->
 
 We use a hash table to count the number of tasks for each difficulty level. Then we traverse the hash table. For each difficulty level, if the number of tasks is $1$, then it is impossible to complete all tasks, so we return $-1$. Otherwise, we calculate the number of rounds needed to complete tasks of this difficulty level and add it to the answer.
 

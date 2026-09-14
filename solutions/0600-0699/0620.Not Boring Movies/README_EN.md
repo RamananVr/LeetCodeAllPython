@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0620.Not%20Boring%20Movies/README_EN.md
 tags:
     - Database
 ---
@@ -71,6 +70,16 @@ We have three movies with odd-numbered IDs: 1, 3, and 5. The movie with ID = 3 i
 <!-- solution:start -->
 
 ### Solution 1: Conditional Filtering + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The filters are independent: description is not `boring`, and `id` is odd; then sort by rating.
+>
+> `WHERE description != 'boring' AND id & 1 = 1` plus `ORDER BY rating DESC` is the whole query.
+
+<!-- thinking:end -->
 
 We can use the `WHERE` clause to filter out the records where `description` is not `boring` and `id` is odd, and then use the `ORDER BY` clause to sort the result in descending order by `rating`.
 

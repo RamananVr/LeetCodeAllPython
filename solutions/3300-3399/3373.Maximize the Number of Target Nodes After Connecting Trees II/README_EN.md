@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README_EN.md
 rating: 2161
 source: Weekly Contest 426 Q4
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, distance is replaced by parity and $n,m \le 10^5$, so per-node DFS is too slow.
+>
+> Targets are nodes of the same color as $i$, plus the larger color class of the second tree. A tree is bipartite, so two colorings yield both class sizes.
+>
+> The answer at $i$ is $\textit{cnt1}[c1[i]]$ plus the larger class of the second tree.
+
+<!-- thinking:end -->
 
 The number of target nodes for node $i$ can be divided into two parts:
 

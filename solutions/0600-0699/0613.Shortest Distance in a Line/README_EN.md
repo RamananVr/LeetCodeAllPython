@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README_EN.md
 tags:
     - Database
     - Closest Pair of Points
@@ -68,6 +67,14 @@ Point table:
 
 ### Solution 1: Self-Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On a line the shortest distance is the minimum positive difference of two points. A self-join with `p1.x < p2.x` and `MIN(p2.x - p1.x)` is enough.
+
+<!-- thinking:end -->
+
 We can use a self-join to join each point in the table with the larger points, and then calculate the distance between the two points. Finally, we can take the minimum distance.
 
 <!-- tabs:start -->
@@ -89,6 +96,14 @@ FROM
 <!-- solution:start -->
 
 ### Solution 2: Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The minimum must occur between neighbors after sorting, so a full join is unnecessary. `LAG(x)` yields the previous point; the smallest positive gap is the answer.
+
+<!-- thinking:end -->
 
 We can use a window function to sort the points in the table by their $x$ values, and then calculate the distance between adjacent points. Finally, we can take the minimum distance.
 

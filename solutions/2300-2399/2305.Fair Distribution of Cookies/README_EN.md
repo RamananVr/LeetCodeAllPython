@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md
 rating: 1886
 source: Weekly Contest 297 Q3
 tags:
@@ -68,6 +67,16 @@ It can be shown that there is no distribution with an unfairness less than 7.
 <!-- solution:start -->
 
 ### Solution 1: Backtracking + Pruning
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We assign $n \le 8$ bags to $k \le 8$ children and minimize the maximum load. Unconstrained assignment has $k^n$ states, which is too large near the limits.
+>
+> Unfairness does not depend on bag order, but placing large bags first triggers pruning sooner. Sort bags decreasingly, then backtrack: skip a child if adding the bag is already no better than the known answer; treat equal loads on adjacent children as symmetric. After every bag is placed, update the answer with the current maximum.
+
+<!-- thinking:end -->
 
 First, we sort the array $cookies$ in descending order (to reduce the number of searches), and then create an array $cnt$ of length $k$ to store the number of cookies each child gets. Also, we use a variable $ans$ to maintain the current minimum degree of unfairness, initialized to a very large value.
 

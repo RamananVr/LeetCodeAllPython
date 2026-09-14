@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0192.Word%20Frequency/README_EN.md
 tags:
     - Shell
 ---
@@ -56,6 +55,14 @@ day 1
 <!-- solution:start -->
 
 ### Solution 1: awk
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Word frequencies, most common first. Squeeze spaces to newlines so each word is a line, sort, then $\textit{uniq}\,-c$. Sort those counts numerically descending, and $\textit{awk}$ swaps “count word” into “word count”.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

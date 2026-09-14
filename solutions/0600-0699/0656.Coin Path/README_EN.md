@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0656.Coin%20Path/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -48,6 +47,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Jump to the end with steps $\le \textit{maxJump}$, skip $-1$, minimize cost and then the index sequence. Forward parent pointers need a lexicographic tie-break.
+>
+> Let $f[i]$ be the cheapest cost from $i$ to the end. Reconstruct left-to-right by always taking the leftmost $i$ whose $f[i]$ equals the remaining budget, which is the lexicographically smallest path.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

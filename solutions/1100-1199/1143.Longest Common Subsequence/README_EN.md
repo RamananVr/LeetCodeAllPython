@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -66,6 +65,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A common subsequence need not be contiguous; enumerating subsequences is too costly. $f[i][j]$ is the LCS of the two prefixes: matching last characters add one to $f[i-1][j-1]$, otherwise take the better of dropping one character. Filling by prefix length uses only shorter prefixes.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the length of the longest common subsequence of the first $i$ characters of $text1$ and the first $j$ characters of $text2$. Therefore, the answer is $f[m][n]$, where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0109.Convert%20Sorted%20List%20to%20Binary%20Search%20Tree/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A list cannot access the midpoint in $O(1)$. Finding it with two pointers at every recursive step costs $O(n\log n)$. There are up to $2\times 10^4$ nodes.
+>
+> A sorted list is still an inorder sequence. Flatten it into an array, then build a balanced BST as with a sorted array: midpoint as root, recurse on both sides. $O(n)$ extra space buys $O(1)$ midpoint access.
+
+<!-- thinking:end -->
 
 We first convert the linked list to an array $\textit{nums}$, and then use depth-first search to construct the binary search tree.
 

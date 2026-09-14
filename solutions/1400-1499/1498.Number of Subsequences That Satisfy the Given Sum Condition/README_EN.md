@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1498.Number%20of%20Subsequences%20That%20Satisfy%20the%20Given%20Sum%20Condition/README_EN.md
 rating: 2276
 source: Weekly Contest 195 Q3
 tags:
@@ -70,6 +69,16 @@ Number of valid subsequences (63 - 2 = 61).
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence is judged only by its min and max, so sorting does not change those pairs. $n\le 10^5$. Fix the minimum $nums[i]$, binary-search the largest legal $nums[j]$, and multiply by $2^{j-i}$ for free choices in between.
+>
+> Precompute powers of two. Once $2\cdot nums[i]>target$, larger minima are impossible.
+
+<!-- thinking:end -->
 
 Since the problem is about subsequences and involves the sum of the minimum and maximum elements, we can first sort the array $\textit{nums}$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2630.Memoize%20II/README_EN.md
 tags:
     - JavaScript
 ---
@@ -78,6 +77,18 @@ Merging two empty objects will always result in an empty object. The 2nd and 3rd
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arguments may be arbitrary objects and must be distinguished by reference. `JSON.stringify` would collapse distinct objects with the same contents.
+>
+> Assign each seen value an increasing id and join those ids into the cache key, so equality is identity, not structure.
+>
+> One map stores value-to-id, the other id-string-to-result.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

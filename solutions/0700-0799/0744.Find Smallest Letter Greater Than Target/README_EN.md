@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0744.Find%20Smallest%20Letter%20Greater%20Than%20Target/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among non-decreasing letters, find the smallest one strictly greater than $\textit{target}$, wrapping to the front. The array is sorted, so we binary-search.
+>
+> That is an upper bound. If it falls at $n$, the answer is $letters[0]$—index modulo $n$.
+>
+> $\textit{bisect\_right}$ on the code points, then $letters[i\bmod n]$. $O(\log n)$.
+
+<!-- thinking:end -->
 
 Since `letters` is sorted in non-decreasing order, we can use binary search to find the smallest character that is larger than `target`.
 

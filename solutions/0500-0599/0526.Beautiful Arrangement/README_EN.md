@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -62,7 +61,19 @@ The second beautiful arrangement is [2,1]:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Backtracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count permutations where value $j$ at position $i$ divides or is divided by $i$. Full $15!$ search is impossible, but few values fit each position.
+>
+> Precompute the legal values per position, then backtrack by position while marking used numbers. Reaching $n+1$ counts one arrangement. The divisibility lists keep the search inside the feasible set.
+
+<!-- thinking:end -->
+
+Assign unused numbers to each position when the divisibility condition holds.
 
 <!-- tabs:start -->
 
@@ -100,7 +111,19 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: State Compression DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Backtracking still expands a permutation tree and repeats the same unused-set at the same position. With $n \le 15$ the used set fits in $2^n$ bits.
+>
+> $f[i]$ is the number of ways to reach used-set $i$. The pop-count is the next position; try each unused $j$ that divides that position. $f[0]=1$ and the full mask is the answer. Each subset is filled once.
+
+<!-- thinking:end -->
+
+$f[i]$ is the number of ways to form the chosen-number mask $i$.
 
 <!-- solution:end -->
 

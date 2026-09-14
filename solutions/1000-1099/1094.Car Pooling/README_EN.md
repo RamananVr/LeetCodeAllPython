@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1094.Car%20Pooling/README_EN.md
 rating: 1441
 source: Weekly Contest 142 Q2
 tags:
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each trip adds passengers on $[from,to)$. We need the load never to exceed capacity. Locations are at most $1000$, so a difference array is enough.
+>
+> Add at the start, subtract at the end, then prefix-sum and test every position against $\textit{capacity}$.
+>
+> The array runs to the latest drop-off; empty stops keep the previous load.
+
+<!-- thinking:end -->
 
 We can use the idea of a difference array, adding the number of passengers to the starting point of each trip and subtracting from the end point. Finally, we just need to check whether the prefix sum of the difference array does not exceed the maximum passenger capacity of the car.
 

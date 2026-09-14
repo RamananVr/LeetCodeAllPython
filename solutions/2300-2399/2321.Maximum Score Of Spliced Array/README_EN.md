@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md
 rating: 1790
 source: Weekly Contest 299 Q3
 tags:
@@ -76,6 +75,16 @@ The score is max(sum(nums1), sum(nums2)) = max(31, 3) = 31.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap one aligned subarray and want the larger array sum. $n \le 10^5$, so intervals cannot be enumerated. After swapping $[l,r]$, $nums2$ grows by the range sum of $nums1_i-nums2_i$.
+>
+> That is a maximum-subarray problem. Kadane on the difference yields the best gain for $nums2$; the swapped difference yields the gain for $nums1$. Add each gain to the original sum and take the better.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

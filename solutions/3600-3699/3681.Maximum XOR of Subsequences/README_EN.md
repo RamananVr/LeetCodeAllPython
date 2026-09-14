@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README_EN.md
 rating: 2026
 source: Biweekly Contest 165 Q4
 tags:
@@ -90,6 +89,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence XOR is a subset XOR. The maximum is given by a linear basis: insert every value, then greedy from the high bit. $n\le 10^5$ is fine.
+>
+> From the high bit downward, XOR the basis vector in when it enlarges the answer. The empty subset is $0$ and a singleton is available, so the result is nonnegative.
+>
+> Each bit keeps at most one basis vector; insert and query are $O(\log A)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

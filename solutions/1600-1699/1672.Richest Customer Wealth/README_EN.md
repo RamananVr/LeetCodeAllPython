@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1672.Richest%20Customer%20Wealth/README_EN.md
 rating: 1182
 source: Weekly Contest 217 Q1
 tags:
@@ -68,6 +67,14 @@ The 2nd customer is the richest with a wealth of 10.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Summation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Wealth is a row sum. The matrix is at most $50\times 50$, so sum each row and take the maximum.
+
+<!-- thinking:end -->
 
 We traverse `accounts` and find the maximum sum of each row.
 

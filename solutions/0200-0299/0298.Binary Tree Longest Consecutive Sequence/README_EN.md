@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A consecutive path is a downward chain whose values increase by $1$. Postorder yields the lengths from each child; we extend only when the child is exactly one larger, otherwise restart at $1$.
+>
+> $dfs$ returns the longest consecutive length starting at the current node and updates a global answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

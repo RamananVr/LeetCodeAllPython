@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README_EN.md
 rating: 1260
 source: Weekly Contest 511 Q1
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Parity
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A knight step flips the parity of $x+y$, i.e. the square color. Even length paths stay on the same color. On an $8\times 8$ board the knight reaches every square, so same color iff an even-length path exists.
+>
+> Compare $(x+y)\bmod 2$ of the two squares; no BFS is needed.
+
+<!-- thinking:end -->
 
 Each knight move has an offset of $(\pm 1, \pm 2)$ or $(\pm 2, \pm 1)$, so the change in the coordinate sum $x + y$ is always odd. In other words, every move flips the color of the square (black/white distinguished by $(x + y) \bmod 2$).
 

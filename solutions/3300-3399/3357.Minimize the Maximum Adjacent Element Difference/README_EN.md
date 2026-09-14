@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README_EN.md
 rating: 3077
 source: Weekly Contest 424 Q4
 tags:
@@ -87,6 +86,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We replace every $-1$ by a value in $[1,\textit{limit}]$ to minimize the maximum adjacent difference. With $n \le 10^5$ we binary-search that maximum.
+>
+> Filled neighbors give a lower bound. Gaps are runs of $-1$ that we fill with at most two constants, and we test whether those constants can meet both ends under threshold $d$.
+>
+> A run that is too long or whose ends differ by more than $2d$ rejects $d$. The smallest feasible $d$ is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

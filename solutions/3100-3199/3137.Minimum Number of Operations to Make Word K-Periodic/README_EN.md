@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3137.Minimum%20Number%20of%20Operations%20to%20Make%20Word%20K-Periodic/README_EN.md
 rating: 1491
 source: Weekly Contest 396 Q2
 tags:
@@ -109,6 +108,18 @@ font-size: 0.85rem;
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation replaces one length-$k$ block by another. The string should become a repetition of a single block. Trying every target block is proportional to the number of blocks.
+>
+> The operation count is the number of blocks minus the frequency of the most common block. Counting is enough; the string need not be rewritten.
+>
+> Slice $word$ with step $k$, take the maximum count, and return $n/k$ minus that maximum.
+
+<!-- thinking:end -->
 
 We can divide the string `word` into substrings of length $k$, then count the occurrence of each substring, and finally return $n/k$ minus the count of the most frequently occurring substring.
 

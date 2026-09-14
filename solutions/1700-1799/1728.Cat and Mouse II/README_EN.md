@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README_EN.md
 rating: 2849
 source: Weekly Contest 224 Q4
 tags:
@@ -100,6 +99,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A state is the mouse cell, cat cell, and whose turn it is, with jumps and stays allowed. Searching forward from the start must handle cycles and a $1000$-move cap.
+>
+> Terminal positions—the hole, coincidence, the cat reaching food—have known winners. Propagating backward along previous positions labels every state as a win or a loss.
+>
+> Store out-degrees: the player to move wins immediately if any successor is already a win for them; if every successor is a loss when the degree hits zero, they lose. Return whether the opening mouse-to-move state is a mouse win.
+
+<!-- thinking:end -->
 
 According to the problem description, the state of the game is determined by the mouse's position, the cat's position, and whose turn it is. The following states can be determined directly:
 

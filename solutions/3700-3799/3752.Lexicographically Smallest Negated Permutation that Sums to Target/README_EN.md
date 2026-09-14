@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README_EN.md
 rating: 1827
 source: Biweekly Contest 170 Q3
 tags:
@@ -90,6 +89,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The absolute values must be a permutation of $1\ldots n$ summing to $\textit{target}$. The all-positive sum is $S=n(n+1)/2$; negating $x$ decreases the sum by $2x$, so $S-\textit{target}$ must be a nonnegative even number. Negating from large to small leaves the smallest positives in front and yields the lexicographically smallest array.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

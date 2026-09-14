@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -64,6 +63,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need connectivity between two vertices. After building the adjacency lists, DFS with a visited set reports success on reaching the destination, in linear time.
+
+<!-- thinking:end -->
+
 We first convert $\textit{edges}$ into an adjacency list $g$, then use DFS to determine whether there is a path from $\textit{source}$ to $\textit{destination}$.
 
 During the process, we use an array $\textit{vis}$ to record the vertices that have already been visited to avoid revisiting them.
@@ -103,6 +110,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A deep recursion may overflow on a long path. BFS with a queue and the same visited set expands until the destination appears or the queue empties.
+
+<!-- thinking:end -->
 
 We can also use BFS to determine whether there is a path from $\textit{source}$ to $\textit{destination}$.
 
@@ -147,6 +162,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> When the path itself is unused, union-find merges every edge and compares the two roots, avoiding recursion entirely.
+
+<!-- thinking:end -->
 
 Union-Find is a tree-like data structure that, as the name suggests, is used to handle some disjoint set **merge** and **query** problems. It supports two operations:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3215.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20II/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -63,6 +62,16 @@ Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, r
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need triples whose XOR has an even popcount. $n\le 10^5$ forbids enumerating triples. The parity of the XOR popcount is the parity of the three popcount parities.
+>
+> Each array therefore collapses to two counts: popcount modulo $2$. Enumerate the three parities and, when their sum is even, add the product of the three counts. After a linear pass the combination is $O(1)$.
+
+<!-- thinking:end -->
 
 For two integers, the parity of the number of $1$s in the XOR result depends on the parity of the number of $1$s in the binary representations of the two integers.
 

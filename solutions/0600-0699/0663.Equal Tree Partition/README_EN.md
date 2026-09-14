@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0663.Equal%20Tree%20Partition/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -49,6 +48,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete one edge so the two sides have equal sums. Re-summing for every edge is quadratic.
+>
+> One postorder pass yields the total $s$. If $s$ is odd it is impossible. Store every subtree sum except the whole tree; $s/2$ among them means that cut works.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

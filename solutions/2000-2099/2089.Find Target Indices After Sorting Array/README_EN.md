@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README_EN.md
 rating: 1152
 source: Weekly Contest 269 Q1
 tags:
@@ -67,6 +66,16 @@ The index where nums[i] == 5 is 4.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 100$, sort and collect indices equal to $target$; they already appear in increasing order.
+>
+> A linear count of smaller/equal values could build the same range; the code simply sorts.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

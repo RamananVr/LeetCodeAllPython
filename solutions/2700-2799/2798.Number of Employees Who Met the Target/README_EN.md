@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md
 rating: 1142
 source: Weekly Contest 356 Q1
 tags:
@@ -63,6 +62,16 @@ There are 0 employees who met the target.
 <!-- solution:start -->
 
 ### Solution 1: Iteration and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count employees whose hours are at least $target$. One linear scan is enough; no sort or extra structure is required.
+>
+> Sum the predicate $x\ge target$ over $hours$.
+
+<!-- thinking:end -->
 
 We can iterate through the array $hours$. For each employee, if their working hours $x$ is greater than or equal to $target$, then we increment the counter $ans$ by one.
 

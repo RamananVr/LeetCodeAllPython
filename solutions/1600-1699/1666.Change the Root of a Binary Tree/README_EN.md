@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1666.Change%20the%20Root%20of%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Promoting a leaf to the root flips edges along the leaf-to-old-root path: the child becomes the parent, the parent becomes the left child, and an existing left child moves to the right.
+>
+> Walk that chain upward, keeping the current node, parent, and grandparent, rewire pointers, and clear the new root's $\textit{parent}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

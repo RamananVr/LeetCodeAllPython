@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README_EN.md
 rating: 1811
 source: Biweekly Contest 169 Q3
 tags:
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix and Suffix Decomposition + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After changing at most one index, the longest nondecreasing run may cross that index. We precompute the nondecreasing length ending or starting at each $i$. Replacing index $i$ concatenates the left and right runs when $nums[i-1]\le nums[i+1]$; otherwise we keep the longer side plus the replaced cell.
+
+<!-- thinking:end -->
 
 We can use two arrays $\textit{left}$ and $\textit{right}$ to record the length of the longest non-decreasing subarray ending and starting at each position, respectively. Initially, $\textit{left}[i] = 1$ and $\textit{right}[i] = 1$.
 

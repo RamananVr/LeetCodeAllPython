@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README_EN.md
 rating: 1347
 source: Weekly Contest 489 Q2
 tags:
@@ -88,6 +87,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the leftmost value whose frequency is unique among all frequencies. $n \le 10^5$ needs a linear solution.
+>
+> First obtain each value's count, then how many values share each count.
+>
+> Two counters suffice: value $\to$ frequency and frequency $\to$ occupancy. Scan in original order and return the first value whose occupancy is $1$.
+>
+> If none exists, return $-1$.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{cnt}$ to count the occurrences of each element, and then use another hash table $\textit{freq}$ to count the frequency of each occurrence count. Finally, we traverse the array $\textit{nums}$ again. For each element $x$, if the value of $\textit{freq}[\textit{cnt}[x]]$ is 1, it means the occurrence frequency of $x$ is unique, and we return $x$. If no such element is found after traversing, return -1.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1746.Maximum%20Subarray%20Sum%20After%20One%20Operation/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -49,6 +48,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exactly one element must be squared, then we want the maximum subarray sum. Trying each replacement plus Kadane is $O(n^2)$ and fails for $n\le 10^5$.
+>
+> Ending at the current index, the replacement may still be unused or already used. The former is ordinary Kadane; the latter comes from squaring here after an unused prefix, or from continuing a used prefix.
+>
+> Two rolling values $f,g$ track those endings; the answer is the global maximum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

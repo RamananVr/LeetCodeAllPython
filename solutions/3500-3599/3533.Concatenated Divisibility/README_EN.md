@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3533.Concatenated%20Divisibility/README_EN.md
 rating: 2257
 source: Weekly Contest 447 Q3
 tags:
@@ -142,6 +141,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 13$ allows a search over permutations, but rebuilding the concatenated integer from scratch repeats work. We also need the lexicographically smallest permutation.
+>
+> Precompute each value’s power of ten. A subset DP stores the used set and the running remainder modulo $k$, and reconstructs along the lexicographically smaller path. If no state works, return an empty list.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

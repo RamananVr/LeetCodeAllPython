@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README_EN.md
 rating: 1161
 source: Weekly Contest 495 Q1
 tags:
@@ -81,6 +80,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the smallest $i$ with $s[i]=s[n-i-1]$. Length $\le 100$, so scan the first half.
+>
+> Other characters do not affect this symmetric test.
+>
+> Check $i=0,1,\ldots,\lfloor n/2 \rfloor$ and return on the first hit.
+>
+> If none, return $-1$.
+
+<!-- thinking:end -->
 
 We iterate over the first half of the string $s$. For each index $i$, we check whether the characters at position $i$ and position $n - i - 1$ are equal. If they are, we return index $i$. If no such index is found after the iteration, we return -1.
 

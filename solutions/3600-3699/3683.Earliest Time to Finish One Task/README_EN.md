@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README_EN.md
 rating: 1198
 source: Weekly Contest 467 Q1
 ---
@@ -61,6 +60,16 @@ source: Weekly Contest 467 Q1
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only one task must finish; its completion time is $s_i+t_i$. Tasks are independent, so the answer is the minimum.
+>
+> $n\le 100$ is a single pass. Order and parallelism do not arise.
+
+<!-- thinking:end -->
 
 We iterate through the $\textit{tasks}$ array and, for each task, calculate its completion time $s_i + t_i$. The minimum of all task completion times is the earliest time to finish at least one task.
 

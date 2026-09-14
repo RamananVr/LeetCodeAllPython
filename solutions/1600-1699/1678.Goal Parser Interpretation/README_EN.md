@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md
 rating: 1221
 source: Weekly Contest 218 Q1
 tags:
@@ -63,6 +62,14 @@ The final concatenated result is &quot;Goal&quot;.
 
 ### Solution 1: String Replacement
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The command is only `G`, `()`, and `(al)`, length at most $100$. Replacing `()` with `o` and `(al)` with `al` is the parse.
+
+<!-- thinking:end -->
+
 According to the problem, we only need to replace `"()"` with `'o'` and `"(al)"` with `"al"` in the string `command`.
 
 <!-- tabs:start -->
@@ -82,6 +89,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: String Iteration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 builds new strings with two replaces. A single scan keeps `G`, writes `o` for `()`, and `al` otherwise, without extra whole-string copies.
+
+<!-- thinking:end -->
 
 We can also iterate over the string `command`. For each character $c$:
 

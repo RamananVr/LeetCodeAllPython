@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1689.Partitioning%20Into%20Minimum%20Number%20Of%20Deci-Binary%20Numbers/README_EN.md
 rating: 1355
 source: Weekly Contest 219 Q2
 tags:
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A deci-binary digit is only $0$ or $1$. Summing them to $n$ requires at least $d$ ones in a position whose digit is $d$. The answer is therefore the maximum digit of $n$.
+
+<!-- thinking:end -->
 
 The problem is equivalent to finding the maximum number in the string.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README_EN.md
 rating: 2222
 source: Weekly Contest 466 Q4
 tags:
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count binary palindromes in $[0,n]$. $n$ is large, so a palindrome is generated from its first half.
+>
+> Let $n$ have bit length $L$. Palindromes shorter than $L$ are counted by length; those of length $L$ come from first halves whose mirror is at most $n$.
+>
+> Odd lengths have a free center bit. Treat the first half as an integer, mirror it, compare with $n$, and add every shorter length.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

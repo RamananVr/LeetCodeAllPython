@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0376.Wiggle%20Subsequence/README_EN.md
 tags:
     - Greedy
     - Array
@@ -70,6 +69,16 @@ One is [1, 17, 10, 13, 10, 16, 8] with differences (16, -7, 3, -3, 6, -8).
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A wiggle subsequence alternates up and down. Enumerating subsequences is large. At an ending index we only distinguish a last up or last down.
+>
+> $f[i]$ ends up, $g[i]$ ends down. A smaller $nums[j]$ extends a down into $f$; a larger one extends an up into $g$. The answer is the max of all $f$ and $g$.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the length of the wiggle sequence ending at the $i$th element with an upward trend, and $g[i]$ as the length of the wiggle sequence ending at the $i$th element with a downward trend. Initially, $f[0] = g[0] = 1$ because when there is only one element, the length of the wiggle sequence is $1$. Initialize the answer as $1$.
 

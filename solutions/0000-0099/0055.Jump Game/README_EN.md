@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0055.Jump%20Game/README_EN.md
 tags:
     - Greedy
     - Array
@@ -52,6 +51,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is DFS/BFS over reachable indices, or DP for whether each index is reachable. Correct, but worst-case $O(n^2)$. $n \le 10^4$ is tight, and we only care about the last index, not the path.
+>
+> The waste is expanding every jump. Reachable indices form a prefix: maintain the farthest reachable $mx$; if some $i > mx$, we are cut off.
+>
+> So we scan left to right, update $mx$ with $i + \textit{nums}[i]$, and finishing the scan means the end is reachable.
+
+<!-- thinking:end -->
 
 We use a variable $mx$ to maintain the farthest index that can currently be reached, initially $mx = 0$.
 

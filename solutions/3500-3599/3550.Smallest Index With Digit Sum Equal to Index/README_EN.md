@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README_EN.md
 rating: 1200
 source: Weekly Contest 450 Q1
 tags:
@@ -83,6 +82,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Digit Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the smallest index $i$ whose digit sum equals $i$. Scanning from $0$ yields the minimum.
+>
+> Sum digits by dividing by $10$; if none match, return $-1$. A linear scan is enough.
+
+<!-- thinking:end -->
 
 We can start from index $i = 0$ and iterate through each element $x$ in the array, calculating the digit sum $s$ of $x$. If $s = i$, return the index $i$. If no such index is found after traversing all elements, return -1.
 

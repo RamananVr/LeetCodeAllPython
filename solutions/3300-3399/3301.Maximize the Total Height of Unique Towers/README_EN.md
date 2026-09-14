@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README_EN.md
 rating: 1448
 source: Biweekly Contest 140 Q2
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Heights must be pairwise distinct and within each tower's cap. With $n \le 10^5$, enumerating assignments is infeasible. Filling short towers first can steal large integers that tall towers still need.
+>
+> To maximize the sum we should assign larger heights to towers with larger caps. After sorting $\textit{maximumHeight}$ descending, $mx$ stores the last assigned height.
+>
+> The current tower takes $\min(x, mx-1)$: it stays within its cap and strictly below the previous height. A non-positive value means no valid assignment exists.
+
+<!-- thinking:end -->
 
 We can sort the maximum heights of the towers in descending order, then allocate the heights one by one starting from the maximum height. Use a variable $mx$ to record the current maximum allocated height.
 

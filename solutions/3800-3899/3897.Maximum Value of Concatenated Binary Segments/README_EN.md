@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README_EN.md
 rating: 1998
 source: Biweekly Contest 180 Q4
 tags:
@@ -90,6 +89,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each piece is some $1$s followed by $0$s. We may reorder pieces to maximize the concatenated binary integer. Total length $\le 2 \times 10^5$.
+>
+> Binary comparison is lexicographic. The order of $A$ and $B$ is the better of $AB$ and $BA$.
+>
+> All-$1$ pieces come first (more $1$s earlier); mixed pieces sort by $1$s descending then $0$s ascending; all-$0$ pieces go last.
+>
+> After sorting, add precomputed powers of two for each $1$; the bit string need not be built.
+
+<!-- thinking:end -->
 
 Let the binary string corresponding to the $i$-th segment be $1^{x_i}0^{y_i}$, where $x_i = \textit{nums1}[i]$ and $y_i = \textit{nums0}[i]$.
 

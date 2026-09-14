@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md
 rating: 2294
 source: Biweekly Contest 113 Q4
 tags:
@@ -84,6 +83,14 @@ So, answer[2] = 1.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every root we want the fewest reversals that make the whole tree reachable. A first DFS from $0$ counts backward edges as $ans[0]$. Rerooting along an edge changes the answer by $\pm 1$, so a second DFS fills every root.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

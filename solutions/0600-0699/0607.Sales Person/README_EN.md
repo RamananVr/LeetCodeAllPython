@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0607.Sales%20Person/README_EN.md
 tags:
     - Database
 ---
@@ -126,6 +125,16 @@ According to orders 3 and 4 in the Orders table, it is easy to tell that only sa
 <!-- solution:start -->
 
 ### Solution 1: LEFT JOIN + GROUP BY
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need salespeople who never sold to company `RED`. Subtracting those who did sell `RED` drops people with no orders at all.
+>
+> Left-join orders and companies, group by salesperson, and keep rows whose `SUM` of `RED` matches is $0$ (`NULL` treated as $0$).
+
+<!-- thinking:end -->
 
 We can use a left join to join the `SalesPerson` table with the `Orders` table on the condition of sales id, and then join the result with the `Company` table on the condition of company id. After that, we can group by `sales_id` and count the number of orders with the company name `RED`. Finally, we can filter out the salespersons who do not have any orders with the company name `RED`.
 

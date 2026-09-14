@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README_EN.md
 rating: 1556
 source: Biweekly Contest 69 Q3
 tags:
@@ -72,6 +71,18 @@ Note that &quot;ll&quot; is another longest palindrome that can be created, and 
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindrome is built by pairing a word with its reverse, with at most one `aa`-shaped word in the center. Searching concatenation orders is too large; only frequencies and reverses matter.
+>
+> After counting, `ab` pairs with `ba` $\min$ times for $4$ characters each pair; same-letter words contribute even counts first, and one leftover odd copy may sit in the center.
+>
+> We accumulate pairing length from the counter and add $2$ if any symmetric word remains. Opposite words are charged via $\min(v,\textit{cnt}[k[::-1]])$ on both sides, which yields $2\min\times 2$ in total.
+
+<!-- thinking:end -->
 
 First, we use a hash table $\textit{cnt}$ to count the occurrences of each word.
 

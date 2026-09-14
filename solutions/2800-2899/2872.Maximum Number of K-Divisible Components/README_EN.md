@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md
 rating: 1967
 source: Biweekly Contest 114 Q4
 tags:
@@ -70,6 +69,14 @@ It can be shown that no other valid split has more than 3 connected components.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The whole tree sum is divisible by $k$, so deleting a subtree whose sum is also divisible by $k$ leaves valid components. A bottom-up DFS accumulates subtree sums and counts every subtree whose sum is $0$ modulo $k$.
+
+<!-- thinking:end -->
 
 We note that the problem guarantees the sum of all node values in the entire tree is divisible by $k$. Therefore, if we remove a subtree whose sum of elements is divisible by $k$, the sum of node values in each of the remaining connected components must also be divisible by $k$.
 

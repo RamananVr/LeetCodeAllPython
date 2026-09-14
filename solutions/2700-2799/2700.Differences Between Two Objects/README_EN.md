@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md
 tags:
     - JavaScript
 ---
@@ -144,6 +143,16 @@ obj2 = { &nbsp;
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Comparing two JSON values key by key after taking the union of their keys is feasible under a $10^4$ serialization bound, but keys that exist on only one side must be dropped, and a type mismatch must become a leaf pair rather than a nested walk.
+>
+> Hence we only recurse on shared keys. Scalars are compared directly; objects and arrays yield a nested diff that is recorded only when it is nonempty. An internal type tag keeps arrays distinct from plain objects.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

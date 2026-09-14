@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1739.Building%20Boxes/README_EN.md
 rating: 2198
 source: Weekly Contest 225 Q4
 tags:
@@ -74,6 +73,16 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 <!-- solution:start -->
 
 ### Solution 1: Mathematical Rule
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boxes stack in a corner as a staircase; an upper box needs all four sides supported. Minimizing ground boxes means filling the tallest complete tetrahedral pile first.
+>
+> A full layer $k$ holds $1+\cdots+k$ boxes. Add complete layers while possible, then place the remainder on the ground in groups of $1,2,3,\ldots$, incrementing the ground count each time.
+
+<!-- thinking:end -->
 
 According to the problem description, the box with the highest number of layers needs to be placed in the corner of the wall, and the arrangement of the boxes is in a step-like shape, which can minimize the number of boxes touching the ground.
 

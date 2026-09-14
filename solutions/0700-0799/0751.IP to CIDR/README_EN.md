@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0751.IP%20to%20CIDR/README_EN.md
 tags:
     - Bit Manipulation
     - String
@@ -79,6 +78,18 @@ Note that while the CIDR block &quot;255.0.0.0/28&quot; does cover all the addre
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cover $n$ consecutive IPv4 addresses with as few CIDR blocks as possible. The language tabs in this repo are empty; the usual construction is a greedy longest prefix.
+>
+> From the current start, the longest aligned block is limited by trailing zeros of the address and by how many IPs remain. Emit that block, advance the start, and decrease $n$.
+>
+> Convert IP to an integer; a block of mask $m$ covers $2^{32-m}$ addresses and never overshoots the range.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

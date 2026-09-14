@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0567.Permutation%20in%20String/README_EN.md
 tags:
     - Hash Table
     - Two Pointers
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A permutation of $s1$ is a window of length $|s1|$ with the same counts. Sorting every window is wasteful.
+>
+> A sliding window stores the remaining counts versus $s1$ and $\textit{need}$ is how many letters are still off. Add the right end, drop the left, and succeed when $\textit{need}=0$. Fixed length, one scan.
+
+<!-- thinking:end -->
 
 We use an array $\textit{cnt}$ to record the characters and their counts that need to be matched, and a variable $\textit{need}$ to record the number of different characters that still need to be matched. Initially, $\textit{cnt}$ contains the character counts from the string $\textit{s1}$, and $\textit{need}$ is the number of different characters in $\textit{s1}$.
 

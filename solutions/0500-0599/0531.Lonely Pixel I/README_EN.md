@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A lonely black pixel is the only `B` in its row and column. Rechecking the row and column for every `B` is $O(mn(m+n))$.
+>
+> Count `B`s per row and column first, then scan again: a `B` whose both counts are $1$ is lonely. Two passes, $O(mn)$ time.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to count the number of black pixels in each row and column, which are recorded in the arrays `rows` and `cols` respectively. Then we traverse each black pixel, check whether there is only one black pixel in its row and column. If so, we increment the answer by one.
 

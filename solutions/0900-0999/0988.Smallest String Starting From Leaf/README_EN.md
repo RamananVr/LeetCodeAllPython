@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A leaf-to-root path is a string; we want the lexicographically smallest. At most $8500$ nodes, so every root-to-leaf path can be enumerated. DFS pushes letters, and at a leaf the reversed path is compared with the answer; then the letter is popped.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

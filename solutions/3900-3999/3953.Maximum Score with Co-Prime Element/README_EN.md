@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3953.Maximum%20Score%20with%20Co-Prime%20Element/README_EN.md
 rating: 2390
 source: Biweekly Contest 184 Q4
 tags:
@@ -111,6 +110,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After choosing $v$, every entry not coprime to $v$ must be changed; the score is $v$ minus that count. $v\le\textit{maxVal}$, so we need how many array values share a prime with $v$.
+>
+> Factor the array into smallest-prime or multiple counts, then inclusion-exclusion on $v$ yields the non-coprime tally. Whether we enumerate all values up to $\textit{maxVal}$ depends on that bound.
+>
+> This directory has no implemented solution yet; the walkthrough stops at enumerating $v$ plus a coprimality count.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

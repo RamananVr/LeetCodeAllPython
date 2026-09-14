@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -79,6 +78,16 @@ Since 0 is the only node on the path, the answer to the first query is 0.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the closest vertex on the path $start\to end$ to a given $node$. $n$ and the query count are $10^3$, so a BFS per query would pass, but paths would be rebuilt often. On a tree the closest point is the deepest among $\mathrm{LCA}(start,end)$, $\mathrm{LCA}(start,node)$ and $\mathrm{LCA}(end,node)$.
+>
+> After binary lifting, each query computes those three LCAs. The tabs have no implementation; lifting or a BFS per query both fit.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

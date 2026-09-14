@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README_EN.md
 rating: 1174
 source: Weekly Contest 341 Q1
 tags:
@@ -65,6 +64,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The matrix is $0/1$; we want the row with the most ones, breaking ties by smaller index. With at most $100$ rows and columns, summing each row and keeping the best pair is enough.
+
+<!-- thinking:end -->
 
 We initialize an array $\textit{ans} = [0, 0]$ to store the index of the row with the most $1$s and the count of $1$s.
 

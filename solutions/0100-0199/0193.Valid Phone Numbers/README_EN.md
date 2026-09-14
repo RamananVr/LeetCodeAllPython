@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0193.Valid%20Phone%20Numbers/README_EN.md
 tags:
     - Shell
 ---
@@ -44,6 +43,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: awk
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Valid numbers are only $xxx-xxx-xxxx$ and $(xxx)\,xxx-xxxx$. Match the whole line. An $\textit{awk}$ regex anchored at both ends: three digits and a dash, or a parenthesized triple and a space, then three digits, a dash, and four digits.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

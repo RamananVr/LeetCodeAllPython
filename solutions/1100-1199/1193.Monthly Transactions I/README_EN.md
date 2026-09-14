@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1193.Monthly%20Transactions%20I/README_EN.md
 tags:
     - Database
 ---
@@ -70,6 +69,14 @@ Transactions table:
 <!-- solution:start -->
 
 ### Solution 1: Grouping and Aggregation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Aggregate counts and amounts by year-month and country. `DATE_FORMAT` yields the month; `GROUP BY` those two keys, then `COUNT` and conditional `SUM` cover all rows versus `approved` rows.
+
+<!-- thinking:end -->
 
 We can first group by month and country, and then use the `COUNT` and `SUM` functions to respectively calculate the number of transactions, the number of approved transactions, the total amount, and the total amount of approved transactions for each group.
 

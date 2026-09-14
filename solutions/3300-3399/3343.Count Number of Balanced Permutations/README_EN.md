@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README_EN.md
 rating: 2614
 source: Weekly Contest 422 Q4
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search + Combinatorial Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced permutation has equal digit sums on odd and even positions. An odd total is impossible. With $n \le 80$ we cannot list permutations; we allocate each digit value to the two sides.
+>
+> $\textit{dfs}(i,j,a,b)$ starts from digit $i$, still needs odd-position sum $j$, $a$ odd slots, and $b$ even slots. Digit $i$ sends $l$ copies to the odd side and $r=\textit{cnt}[i]-l$ to the even side.
+>
+> Each split is weighted by $C_a^l C_b^r$ and we recurse to $i+1$. Combinations avoid counting identical digits more than once.
+
+<!-- thinking:end -->
 
 First, we count the occurrences of each digit in the string $\textit{num}$ and record them in the array $\textit{cnt}$, then calculate the total sum $\textit{s}$ of the string $\textit{num}$.
 

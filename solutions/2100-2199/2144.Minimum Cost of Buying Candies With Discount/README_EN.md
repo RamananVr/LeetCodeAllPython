@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2144.Minimum%20Cost%20of%20Buying%20Candies%20With%20Discount/README_EN.md
 rating: 1260
 source: Biweekly Contest 70 Q1
 tags:
@@ -77,6 +76,18 @@ Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every two paid candies grant one free candy that is no more expensive than the cheaper paid one. To maximize the free values we should pay for the expensive candies first. Searching partitions is unnecessary.
+>
+> After sorting prices descending, every third candy is free, so the cost is the total minus those positions.
+>
+> Sort and subtract $\textit{cost}[2::3]$ from the sum.
+
+<!-- thinking:end -->
 
 We can first sort the candies by price in descending order, then for every three candies, we take two. This ensures that the candies we get for free are the most expensive, thereby minimizing the total cost.
 

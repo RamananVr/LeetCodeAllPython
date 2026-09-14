@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0393.UTF-8%20Validation/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -76,6 +75,16 @@ But the second continuation byte does not start with 10, so it is invalid.
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Validate a UTF-8 byte stream given as integers. The leading prefix dictates how many `10xxxxxx` bytes follow. One pass is enough.
+>
+> `cnt` is remaining continuation bytes, which must be `10xxxxxx`. Otherwise decode a 1–4-byte header and set `cnt`. Fail on a bad prefix; success requires `cnt=0` at the end.
+
+<!-- thinking:end -->
 
 We use a variable $cnt$ to record the current number of bytes that need to be filled starting with $10$, initially $cnt = 0$.
 

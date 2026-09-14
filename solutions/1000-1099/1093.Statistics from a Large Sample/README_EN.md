@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README_EN.md
 rating: 1471
 source: Weekly Contest 142 Q1
 tags:
@@ -79,6 +78,18 @@ The mode is 1 as it appears the most in the sample.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sample is a frequency table on $0..255$ with up to $10^9$ points, so it cannot be expanded. Min, max, sum, and mode come from one scan; the median is the $k$-th item in the cumulative counts.
+>
+> The scan updates $mi,mx,s,cnt$ and the mode (largest frequency). `find(i)` walks `count` until the running total reaches $i$.
+>
+> An odd length takes the middle value; an even length averages the two central values. Mean is $s/cnt$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

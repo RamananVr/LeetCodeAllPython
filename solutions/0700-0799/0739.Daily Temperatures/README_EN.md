@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md
 tags:
     - Stack
     - Array
@@ -44,6 +43,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each day, the wait until a warmer day. $n\le 10^5$ forbids a rightward scan from every index.
+>
+> This is next-greater-element. A monotonic stack of indices still waiting for a warmer day, scanned right to left, pops every temperature that is not strictly warmer; the new top is the answer.
+>
+> Temperatures increase from top to bottom. Each index is pushed and popped once, $O(n)$.
+
+<!-- thinking:end -->
 
 This problem requires us to find the position of the first element greater than each element to its right, which is a typical application scenario for a monotonic stack.
 

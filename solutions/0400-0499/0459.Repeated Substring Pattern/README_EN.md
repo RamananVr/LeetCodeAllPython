@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README_EN.md
 tags:
     - String
     - String Matching
@@ -58,6 +57,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether $s$ is a proper prefix repeated. Trying every prefix length is $O(n^2)$.
+>
+> Build $s+s$ and search for $s$ starting at index $1$. A hit before $n$ means $s$ lines up inside the concatenation, hence a period exists.
+>
+> Starting at $1$ skips the trivial match at $0$; a hit at $n$ is only the middle copy, so there is no smaller period.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1774.Closest%20Dessert%20Cost/README_EN.md
 rating: 1701
 source: Weekly Contest 230 Q2
 tags:
@@ -92,6 +91,16 @@ Total: 3 + 4 + 10 + 0 = 17. You cannot make a dessert with a total cost of 18.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exactly one base is required; each topping is taken $0$, $1$, or $2$ times. The cost should be closest to $\textit{target}$. The topping count is small enough to enumerate subset sums.
+>
+> Duplicate toppings, DFS all sums, and sort them. For each base and one half-sum, binary-search the other half for the closest complement, breaking ties toward the cheaper cost.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md
 tags:
     - Design
     - Array
@@ -64,6 +63,16 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reset and a uniform shuffle. Reset needs a copy of the original. Fisher–Yates swaps $i$ with a uniform index in $[i,n)$, so every permutation is equally likely.
+>
+> `reset` copies from the backup; `shuffle` permutes in place.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

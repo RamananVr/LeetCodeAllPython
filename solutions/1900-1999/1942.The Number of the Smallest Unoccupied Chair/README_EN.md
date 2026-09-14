@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1942.The%20Number%20of%20the%20Smallest%20Unoccupied%20Chair/README_EN.md
 rating: 1695
 source: Biweekly Contest 57 Q2
 tags:
@@ -79,6 +78,18 @@ Since friend 0 sat on chair 2, we return 2.
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Friends take the smallest idle chair on arrival and release it on leaving. Scanning all chairs each time adds a linear factor.
+>
+> A min-heap of idle indices and a min-heap of $(\textit{leaving},\textit{chair})$ handle reuse. On arrival we free every expired chair, then pop the smallest idle index.
+>
+> We stop when the target friend is seated. Sorting plus heaps is $O(n\log n)$.
+
+<!-- thinking:end -->
 
 First, we create a tuple for each friend consisting of their arrival time, leaving time, and index, then sort these tuples by arrival time.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1396.Design%20Underground%20System/README_EN.md
 rating: 1464
 source: Weekly Contest 182 Q3
 tags:
@@ -116,6 +115,14 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check-in, check-out, and the average time between two stations must be $O(1)$. Map each $\textit{id}$ to its check-in time and station; on check-out, add the duration into a $(\textit{start},\textit{end})\mapsto(\textit{total},\textit{count})$ table. The average is that ratio.
+
+<!-- thinking:end -->
 
 We use two hash tables to store data:
 

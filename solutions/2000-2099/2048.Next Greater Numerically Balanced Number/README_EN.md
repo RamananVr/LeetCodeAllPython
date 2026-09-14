@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README_EN.md
 rating: 1734
 source: Weekly Contest 264 Q2
 tags:
@@ -75,6 +74,16 @@ It is also the smallest numerically balanced number strictly greater than 3000.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10^6$ and the next balanced number is at most $1224444$, so testing $x=n+1,n+2,\ldots$ works. Digit $d$ must appear exactly $d$ times if at all.
+>
+> Count decimal digits of $x$ and accept when every nonzero frequency equals its digit. `count` walks upward until a hit.
+
+<!-- thinking:end -->
 
 We note that the range of $n$ in the problem is $[0, 10^6]$, and one of the balanced numbers greater than $10^6$ is $1224444$. Therefore, we directly enumerate $x \in [n + 1, ..]$ and then judge whether $x$ is a balanced number. The enumerated $x$ will definitely not exceed $1224444$.
 

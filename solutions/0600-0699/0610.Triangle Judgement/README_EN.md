@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0610.Triangle%20Judgement/README_EN.md
 tags:
     - Database
 ---
@@ -64,6 +63,16 @@ Triangle table:
 <!-- solution:start -->
 
 ### Solution 1: IF Statement + Triangle Inequality
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three lengths form a triangle iff the three triangle inequalities hold.
+>
+> An `IF` on $x+y>z$, $x+z>y$, and $y+z>x$ labels each row `Yes` or `No`.
+
+<!-- thinking:end -->
 
 The condition for whether three sides can form a triangle is that the sum of any two sides is greater than the third side. Therefore, we can use an `IF` statement to determine whether this condition is satisfied. If it is satisfied, we return `Yes`, otherwise we return `No`.
 

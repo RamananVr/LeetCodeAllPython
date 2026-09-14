@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1393.Capital%20GainLoss/README_EN.md
 tags:
     - Database
 ---
@@ -82,6 +81,14 @@ Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. 
 <!-- solution:start -->
 
 ### Solution 1: GROUP BY + SUM(IF())
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Net capital gain per stock is sells minus buys. Grouping by $\textit{stock\_name}$ and $\mathrm{SUM}(\mathrm{IF}(\textit{operation}=\texttt{'Buy'},-\textit{price},\textit{price}))$ yields that net in one pass.
+
+<!-- thinking:end -->
 
 We use `GROUP BY` to group the buy and sell operations of the same stock, and then use `SUM(IF())` to calculate the capital gains and losses of each stock.
 

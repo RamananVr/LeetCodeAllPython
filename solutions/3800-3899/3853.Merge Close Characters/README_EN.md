@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3853.Merge%20Close%20Characters/README_EN.md
 rating: 1471
 source: Biweekly Contest 177 Q2
 tags:
@@ -94,6 +93,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal characters within distance $k$ in the current string merge right into left, always choosing the leftmost pair. $n \le 100$, yet rewriting the string each time is messy.
+>
+> Merging means: a new character is absorbed if it lies within $k$ of that character's last index in the answer.
+>
+> A map stores each letter's latest answer index. Scan the input: skip if mergeable, otherwise append and update.
+>
+> Always preferring the leftmost pair matches this left-to-right construction.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{last}$ to record the last occurrence position of each character. We iterate over each character in the string. If the current character has appeared before and the difference between the current index and its last occurrence index is at most $k$, we skip the character; otherwise, we add the character to the answer and update its position in the hash table.
 

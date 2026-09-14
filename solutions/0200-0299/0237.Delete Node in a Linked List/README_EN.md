@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md
 tags:
     - Linked List
 ---
@@ -71,6 +70,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Node assignment
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We are given only the node to delete, so the predecessor’s $next$ cannot be rewritten. Copy the successor’s value into the current node and skip the successor, which is equivalent to deleting it.
+
+<!-- thinking:end -->
 
 We can replace the value of the current node with the value of the next node, and then delete the next node. This can achieve the purpose of deleting the current node.
 

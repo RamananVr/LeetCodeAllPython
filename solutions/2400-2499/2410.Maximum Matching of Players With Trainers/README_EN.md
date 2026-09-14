@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README_EN.md
 rating: 1381
 source: Biweekly Contest 87 Q2
 tags:
@@ -66,6 +65,16 @@ Each player can only be matched with one trainer, so the maximum answer is 1.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pair enumeration fails at $n,m\le 10^5$. Each player should take the weakest trainer who can still train them, so stronger trainers remain for later players.
+>
+> Sort both arrays and walk with two pointers: skip trainers below the current player, then consume one match. The trainer pointer never moves left, so the cost is dominated by sorting.
+
+<!-- thinking:end -->
 
 According to the problem description, each athlete should be matched with the trainer whose ability value is as close as possible. Therefore, we can sort the ability values of both athletes and trainers, and then use the two-pointer method for matching.
 

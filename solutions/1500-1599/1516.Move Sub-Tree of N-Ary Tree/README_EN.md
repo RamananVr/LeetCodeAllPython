@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -92,6 +91,16 @@ Notice that node 4 is the last child of node 1.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must move the subtree rooted at $p$ so that $p$ becomes a child of $q$. Rewiring pointers without regard to ancestry breaks the tree when $q$ lies inside $p$'s subtree: detaching $p$ also disconnects $q$ from the rest of the tree.
+>
+> Locate $p$, $q$, and their parents, and test the ancestor relation. If $q$ is under $p$, first attach $q$ to $p$'s original parent, then attach $p$ under $q$; otherwise detach $p$ from its parent and hang it under $q$. The tree is small enough that a couple of traversals suffice to find the nodes and rewrite the links.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

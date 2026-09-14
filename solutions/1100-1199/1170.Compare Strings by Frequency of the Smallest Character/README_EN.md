@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1170.Compare%20Strings%20by%20Frequency%20of%20the%20Smallest%20Character/README_EN.md
 rating: 1431
 source: Weekly Contest 151 Q2
 tags:
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query counts how many $words$ have a strictly larger $f$. Scanning all words per query is $O(qn)$. Precompute every $f(w)$, sort, and binary-search the first value above $f(q)$; the suffix length is the answer. $f$ is the count of the smallest letter and is linear in a short string.
+
+<!-- thinking:end -->
 
 First, according to the problem description, we implement a function $f(s)$, which returns the frequency of the smallest letter in the string $s$ in lexicographical order.
 

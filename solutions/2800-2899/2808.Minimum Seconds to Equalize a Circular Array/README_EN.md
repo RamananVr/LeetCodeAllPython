@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2808.Minimum%20Seconds%20to%20Equalize%20a%20Circular%20Array/README_EN.md
 rating: 1875
 source: Biweekly Contest 110 Q3
 tags:
@@ -74,6 +73,14 @@ It can be proven that 2 seconds is the minimum amount of seconds needed for equa
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The final common value must already occur in the array. Each copy of $x$ spreads one step left and right per second, so the time on the circle is half the largest gap between consecutive occurrences, including the wrap-around. Group indices by value and take the minimum $\lfloor t/2\rfloor$.
+
+<!-- thinking:end -->
 
 We assume that all elements eventually become $x$, and $x$ must be an element in the array.
 

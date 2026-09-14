@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README_EN.md
 rating: 1604
 source: Biweekly Contest 81 Q2
 tags:
@@ -61,6 +60,16 @@ Therefore, we return 14.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unreachable pairs sit in different components. $n \le 10^5$, so we cannot enumerate pairs. The count is the product of component sizes.
+>
+> DFS yields each component size $t$. Multiply by the sum $s$ of earlier sizes, then add $t$ into $s$. Each vertex and edge is visited once.
+
+<!-- thinking:end -->
 
 For any two nodes in an undirected graph, if there is a path between them, then they are mutually reachable.
 

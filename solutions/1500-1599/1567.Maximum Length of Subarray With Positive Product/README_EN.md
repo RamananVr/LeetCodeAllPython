@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README_EN.md
 rating: 1710
 source: Weekly Contest 204 Q2
 tags:
@@ -65,6 +64,16 @@ Notice that we cannot include 0 in the subarray since that&#39;ll make the produ
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the longest subarray whose product is positive. $n\le 10^5$, so checking every pair overflows and times out. Zeros split the array and a minus only flips the sign, so we may store, at each end, the longest positive and negative products.
+>
+> Let $f[i]$ and $g[i]$ be those two lengths ending at $i$. A positive value keeps the previous signs; a negative value swaps them; a zero breaks both. The answer is the maximum $f[i]$.
+
+<!-- thinking:end -->
+
 We define two arrays $f$ and $g$ of length $n$, where $f[i]$ represents the length of the longest subarray ending at $\textit{nums}[i]$ with a positive product, and $g[i]$ represents the length of the longest subarray ending at $\textit{nums}[i]$ with a negative product.
 
 Initially, if $\textit{nums}[0] > 0$, then $f[0] = 1$, otherwise $f[0] = 0$; if $\textit{nums}[0] < 0$, then $g[0] = 1$, otherwise $g[0] = 0$. We initialize the answer $ans = f[0]$.
@@ -110,6 +119,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each state uses only the previous $f$ and $g$, so two scalars replace the arrays. Time stays linear and extra memory becomes constant.
+
+<!-- thinking:end -->
 
 We observe that for each $i$, the values of $f[i]$ and $g[i]$ only depend on $f[i - 1]$ and $g[i - 1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i - 1]$ and $g[i - 1]$, respectively, thus optimizing the space complexity to $O(1)$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/README_EN.md
 rating: 1851
 source: Biweekly Contest 71 Q3
 tags:
@@ -85,6 +84,18 @@ Note other possible ways are 0076, 076, 0116, and 116, but none of them produces
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cooker shows four digits of minutes and seconds. The same duration may be $m$ minutes $s$ seconds or $m-1$ minutes $s+60$ seconds, provided both stay in two-digit ranges. Cost is finger moves plus key presses, so we evaluate the legal encodings.
+>
+> For a pair $(\textit{m},\textit{s})$, drop leading zeros and walk the digits from $\textit{startAt}$, adding $\textit{moveCost}$ on a change and $\textit{pushCost}$ every press.
+>
+> Return the smaller of $\texttt{f}(m,s)$ and $\texttt{f}(m-1,s+60)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

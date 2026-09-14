@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3164.Find%20the%20Number%20of%20Good%20Pairs%20II/README_EN.md
 rating: 1777
 source: Weekly Contest 399 Q3
 tags:
@@ -62,6 +61,18 @@ The 5 good pairs are <code>(0, 0)</code>, <code>(1, 0)</code>, <code>(1, 1)</cod
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumerate Multiples
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The predicate matches part I but lengths reach $10^5$, so a double loop fails.
+>
+> $x$ pairs with $y$ iff $k$ divides $x$ and $x/k$ is a multiple of $y$. After counting quotients, walk multiples of each $y$.
+>
+> Build $cnt1$ from $nums1$ values divisible by $k$. For each $x$ in $cnt2$ step from $x$ to $mx$ and add $cnt1[y]\cdot v$. An empty $cnt1$ yields $0$.
+
+<!-- thinking:end -->
 
 We use a hash table `cnt1` to record the occurrence times of each number divided by $k$ in array `nums1`, and a hash table `cnt2` to record the occurrence times of each number in array `nums2`.
 

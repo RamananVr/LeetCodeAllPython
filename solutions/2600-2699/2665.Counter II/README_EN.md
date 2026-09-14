@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2665.Counter%20II/README_EN.md
 tags:
     - JavaScript
 ---
@@ -67,6 +66,16 @@ counter.reset(); // 0
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Increment, decrement, and reset must share one counter. Separate globals would collide; a closed-over $val$ keeps state per instance.
+>
+> `increment`/`decrement` update $val$ and return it; `reset` writes the original $init$ back.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

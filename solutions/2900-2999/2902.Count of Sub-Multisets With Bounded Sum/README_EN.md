@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README_EN.md
 rating: 2758
 source: Biweekly Contest 115 Q4
 tags:
@@ -77,6 +76,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count sub-multisets whose sums lie in $[l,r]$, with total sum at most $2 \times 10^4$. A plain 0-1 knapsack over every item costs about $n \cdot r$ and is tight; repeated values should be handled as a bounded knapsack.
+>
+> For each nonzero $num$ with frequency $freq$, a stride prefix $stride[i]=dp[i]+dp[i-num]+\cdots$ lets us subtract the terms that use more than $freq$ copies. Zeros do not change the sum, so the answer is multiplied by $zeros+1$ (including taking none).
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

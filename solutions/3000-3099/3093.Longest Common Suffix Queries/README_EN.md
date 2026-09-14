@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md
 rating: 2118
 source: Weekly Contest 390 Q4
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query wants the container word with the longest common suffix, then the shortest word, then the smallest index. Total length is far too large for pairwise suffix checks.
+>
+> A common suffix is a common prefix of the reversed strings, which a trie stores. Each node keeps the best (shortest length, smallest index) under that suffix.
+>
+> We insert container words reversed, updating the best pair along the path, and walk a query reversed until the next edge is missing.
+
+<!-- thinking:end -->
 
 The problem requires us to find the longest common suffix, so we can consider using a Trie.
 

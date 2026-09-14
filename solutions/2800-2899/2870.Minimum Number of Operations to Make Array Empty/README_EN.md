@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md
 rating: 1392
 source: Biweekly Contest 114 Q2
 tags:
@@ -70,6 +69,14 @@ It can be shown that we cannot make the array empty in less than 4 operations.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move deletes two or three equal values. If any frequency is $1$, the array cannot be emptied; otherwise the fewest moves for count $c$ is $\lceil c/3\rceil$, written $(c+2)//3$.
+
+<!-- thinking:end -->
 
 We use a hash table $count$ to count the number of occurrences of each element in the array. Then we traverse the hash table. For each element $x$, if it appears $c$ times, we can perform $\lfloor \frac{c+2}{3} \rfloor$ operations to delete $x$. Finally, we return the sum of the number of operations for all elements.
 

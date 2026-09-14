@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README_EN.md
 tags:
     - Greedy
     - Array
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A chain is a strictly increasing sequence of pairs. LIS-style DP is $O(n^2)$.
+>
+> Sort by the right end and take a pair whenever it fits. Smaller right ends leave more room, so one greedy pass is optimal.
+
+<!-- thinking:end -->
 
 We sort all pairs in ascending order by the second number, and use a variable $\textit{pre}$ to maintain the maximum value of the second number of the selected pairs.
 

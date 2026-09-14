@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3181.Maximum%20Total%20Reward%20Using%20Operations%20II/README_EN.md
 rating: 2688
 source: Weekly Contest 401 Q4
 tags:
@@ -70,6 +69,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part I with a larger domain, so a Boolean array in $O(nM)$ fails.
+>
+> The update remains “shift the low $v$ bits by $v$ and OR them back”, which a bitset performs a word at a time.
+>
+> After unique sort, start from $f=1$, apply $f\mathrel{|}=(f\&((1\ll v)-1))\ll v$, and return $f.bit\_length()-1$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \textit{True}$, and all other values are $\textit{False}$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md
 rating: 1964
 source: Weekly Contest 490 Q4
 tags:
@@ -176,6 +175,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Starting from $1$, each $nums[i]$ may multiply, divide, or leave the value, and the final rational must equal $k$. The array is short, but intermediate fractions grow.
+>
+> A state is the index together with the reduced fraction $(p,q)$. The ternary tree needs memoization.
+>
+> After multiply or divide we reduce by $\gcd$; a leaf scores iff $p=k$ and $q=1$.
+>
+> Clear the cache afterwards so later tests do not reuse states.
+
+<!-- thinking:end -->
 
 We define a function $\text{dfs}(i, p, q)$ that represents the number of different choice sequences when processing at index $i$ with the current rational value being $\frac{p}{q}$. Initially, $\text{dfs}(0, 1, 1)$ represents starting from the initial value of $1$.
 

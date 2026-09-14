@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0254.Factor%20Combinations/README_EN.md
 tags:
     - Backtracking
     - Prime Factorization
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Factorizations of $n$ with at least two factors should be generated in nondecreasing order to avoid permutations. Enumerate factors from the current minimum $i$ up to $\sqrt{n}$.
+>
+> $dfs(n,i)$ records the chosen factors plus leftover $n$, then tries each $j\ge i$ that divides $n$ and recurses on $n/j$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

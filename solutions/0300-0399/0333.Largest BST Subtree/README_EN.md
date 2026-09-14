@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0333.Largest%20BST%20Subtree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the size of the largest BST subtree. Validating a BST at every node repeats work. A subtree is a BST iff both sides are BSTs and the root sits between their extrema.
+>
+> Postorder returns $(\min,\max,size)$. If left-max $<$ root $<$ right-min, merge sizes and update the answer; otherwise return sentinels $(-\infty,\infty,0)$ so ancestors cannot absorb it. An empty tree returns $(\infty,-\infty,0)$ so a leaf succeeds.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2173.Longest%20Winning%20Streak/README_EN.md
 tags:
     - Database
 ---
@@ -91,6 +90,18 @@ The longest winning streak was 1 match.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each player’s longest run of wins. After ordering by match day, a run of equal results has a constant difference between the per-player row number and the per-(player, result) row number.
+>
+> Group by that difference, count rows with $\textit{result}='Win'$, and take the maximum per player.
+>
+> Window functions form the groups; the outer query aggregates $\textit{longest\_streak}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

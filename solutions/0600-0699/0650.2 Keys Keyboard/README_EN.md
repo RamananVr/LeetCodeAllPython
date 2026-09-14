@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0650.2%20Keys%20Keyboard/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -56,7 +55,17 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Start from one `A` and reach $n$ by copy and paste. The search tree of sequences is wide.
+>
+> If the last step pastes a block of length $n/j$ into $j$ copies, $dfs(n)=\min(dfs(n/j)+j)$. Memoize over factors; $n=1$ costs $0$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -85,7 +94,15 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization is top-down. The same recurrences fill $dp[i]$ bottom-up over factors, without recursion.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -111,7 +128,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The optimum equals the sum of prime factors of $n$: factor $i$ is one copy plus $i-1$ pastes. Factorize $n$ and skip the DP table.
+
+<!-- thinking:end -->
+
+Factorize $n$; each prime factor $i$ costs $i$ operations.
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md
 rating: 2057
 source: Weekly Contest 283 Q4
 tags:
@@ -82,6 +81,18 @@ Note that there are other ways to obtain the same resultant array.
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent non-coprime values are replaced by their LCM, which may merge again with either side. The LCM of three numbers does not depend on association, so we may always merge to the left.
+>
+> Push the next value; while the top two are not coprime, pop and replace the new top by their LCM.
+>
+> Each value is pushed and popped at most once, and each $\gcd$ is logarithmic.
+
+<!-- thinking:end -->
 
 If there exist three adjacent numbers $x$, $y$, $z$ that can be merged, then the result of first merging $x$ and $y$, then merging $z$, is the same as the result of first merging $y$ and $z$, then merging $x$. Both results are $\textit{LCM}(x, y, z)$.
 

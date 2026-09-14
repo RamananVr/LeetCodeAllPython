@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README_EN.md
 rating: 2251
 source: Biweekly Contest 183 Q3
 tags:
@@ -106,6 +105,18 @@ The diagram shows one optimal choice of paths.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Shared cells of the two paths must lie on some top-left-to-bottom-right path and some bottom-left-to-top-right path at once. With $m,n$ up to $10^3$, enumerating path pairs is impossible.
+>
+> The intersection is essentially a corridor crossing some columns. For each candidate band, add the forced approaches outside the band to the band values; four corner-to-cell path DPs precompute those approaches.
+>
+> This directory has no implemented solution yet; the walkthrough stops at “four-corner path DP plus an intersection band”.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

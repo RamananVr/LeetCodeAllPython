@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md
 rating: 1623
 source: Weekly Contest 161 Q2
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Array or Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want subarrays with exactly $k$ odds, $n \le 5\times 10^4$. Treating odds as $1$ and evens as $0$, these are intervals whose prefix sums differ by $k$.
+>
+> While scanning we keep the odd count $t$, look up how often $t-k$ has appeared, then record $t$. The prefix sum turns “exactly $k$ odds” into one map query.
+
+<!-- thinking:end -->
 
 The problem asks for the number of subarrays that contain exactly $k$ odd numbers. We can calculate the number of odd numbers $t$ in each prefix array and record it in an array or hash table $cnt$. For each prefix array, we only need to find the number of prefix arrays with $t-k$ odd numbers, which is the number of subarrays ending with the current prefix array.
 

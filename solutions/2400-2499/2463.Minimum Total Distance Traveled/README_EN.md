@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md
 rating: 2453
 source: Weekly Contest 318 Q4
 tags:
@@ -84,6 +83,16 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $100$ robots and factories, each factory having a limit. After sorting, an optimal assignment is non-crossing: adjacent robots go to the same or neighboring factories.
+>
+> $dfs(i,j)$ is the minimum distance from robot $i$ and factory $j$: skip the factory, or repair the next $0..limit$ robots there. Memoized states are $O(mn)$ times the limit.
+
+<!-- thinking:end -->
 
 First, we sort the robots and factories in ascending order. Then we define a function $dfs(i, j)$ to represent the minimum total moving distance starting from the $i$-th robot and the $j$-th factory.
 

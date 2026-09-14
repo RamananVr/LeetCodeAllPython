@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README_EN.md
 rating: 1491
 source: Weekly Contest 234 Q2
 tags:
@@ -75,6 +74,16 @@ So it takes only 2 operations.
 <!-- solution:start -->
 
 ### Solution 1: Find Pattern + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation sends the first half of the array to even indices and the second half to odd indices. Simulating the whole permutation is $O(n)$ per round and there can be $\Theta(n)$ rounds; it would pass, but we need not store every position.
+>
+> The index map is the same every round. Except for $0$ and $n-1$, any index returning to its start restores the whole permutation. Track index $1$: if it lies in the first half it becomes $i\ll 1$, otherwise $(i-(n\gg 1))\ll 1\mid 1$. The number of steps until it is $1$ again is the answer.
+
+<!-- thinking:end -->
 
 We observe the change pattern of the numbers and find that:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1258.Synonymous%20Sentences/README_EN.md
 rating: 1847
 source: Biweekly Contest 13 Q3
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Union-Find + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Synonymy is transitive, so classes are components. There are few words and pairs: union-find merges them, then we group by root and sort lexicographically.
+>
+> When building a sentence, a word outside every class stays; otherwise we DFS over every word in its class. Components supply the replacements; DFS expands the Cartesian product by position.
+
+<!-- thinking:end -->
 
 We can notice that the synonyms in the problem are transitive, i.e., if `a` and `b` are synonyms, and `b` and `c` are synonyms, then `a` and `c` are also synonyms. Therefore, we can use a union-find set to find the connected components of synonyms, where all the words in each connected component are synonyms and are sorted in lexicographical order.
 

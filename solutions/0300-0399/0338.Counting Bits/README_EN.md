@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0338.Counting%20Bits/README_EN.md
 tags:
     - Bit Manipulation
     - Dynamic Programming
@@ -65,6 +64,16 @@ Do not solve it with built-in functions (i.e., like <code>__builtin_popcount</co
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count set bits of every integer in $0\ldots n$. Per-number bit scans cost $O(\log i)$. $n\le 10^5$ still allows that, but we can do better later.
+>
+> Call `bit_count` (or repeated `lowbit`) on each $i$ to fill the array.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -82,6 +91,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 counts each integer from scratch. Clearing the lowest set bit yields $i\&(i-1)$, whose answer is already known, so $ans[i]=ans[i\&(i-1)]+1$. Fill upward in $O(n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

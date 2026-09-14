@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README_EN.md
 rating: 1604
 source: Weekly Contest 326 Q3
 tags:
@@ -79,6 +78,16 @@ It can be shown that we cannot partition the string into less than 4 substrings.
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the digit string into substrings whose integer values are at most $k$, using as few pieces as possible. Full partitions are impossible at $n\le 10^5$, but a valid piece is at most the number of digits of $k$ long, so each start extends only a constant number of ways.
+>
+> Let $\textit{dfs}(i)$ be the fewest pieces from index $i$. Accumulate the value to the right, stop once it exceeds $k$, and take $1+\textit{dfs}(j+1)$ over legal ends. Memoization evaluates each start once; impossibility is $\infty$, reported as $-1$.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i)$ to represent the minimum number of partitions starting from index $i$ of string $s$. The answer is $dfs(0)$.
 

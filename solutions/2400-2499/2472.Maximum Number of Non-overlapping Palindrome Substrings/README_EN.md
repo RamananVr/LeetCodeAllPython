@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README_EN.md
 rating: 2013
 source: Weekly Contest 319 Q4
 tags:
@@ -65,6 +64,14 @@ It can be shown that we cannot find a selection with more than two valid substri
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick as many non-overlapping palindromes of length at least $k$ as possible; $n\le 2000$. Precompute $dp[i][j]$ in $O(n^2)$. Then $dfs(i)$ is the best from $i$: skip $i$, or take a palindrome $[i,j]$ ($j\ge i+k-1$) plus $dfs(j+1)$.
+
+<!-- thinking:end -->
 
 First, preprocess the string $s$ to get $dp[i][j]$, which represents whether the substring $s[i,..j]$ is a palindrome.
 

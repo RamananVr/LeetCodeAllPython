@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3595.Once%20Twice/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All values appear three times except one singleton and one double, and the solution must be linear time and constant extra space — no hash map. Bits modulo $3$ separate the two special values.
+>
+> Two masks accumulate bits that occur $1 \bmod 3$ and $2 \bmod 3$. After the scan they are the two answers. Two’s-complement handles negatives.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

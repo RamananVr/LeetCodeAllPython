@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The inorder successor is the smallest key greater than $p$. On a BST we walk as in binary search: if the current key is larger it is a candidate and we go left; otherwise we go right.
+>
+> The last candidate on that path is the successor, in time proportional to the height.
+
+<!-- thinking:end -->
 
 The in-order traversal of a binary search tree is an ascending sequence, so we can use the binary search method.
 

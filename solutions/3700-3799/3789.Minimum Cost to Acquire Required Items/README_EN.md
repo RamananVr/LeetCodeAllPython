@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3789.Minimum%20Cost%20to%20Acquire%20Required%20Items/README_EN.md
 rating: 1579
 source: Weekly Contest 482 Q2
 tags:
@@ -85,6 +84,14 @@ Any other valid combination would cost more, so the minimum total cost is 22.</p
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each demand can be filled by a single-type item or by a bundle, and the needs are too large to simulate unit by unit. Only three policies matter: buy only singles, buy only bundles, or buy $\min(need1,need2)$ bundles and finish with singles. We take the cheapest of the three.
+
+<!-- thinking:end -->
 
 We can divide the purchasing strategy into three cases:
 

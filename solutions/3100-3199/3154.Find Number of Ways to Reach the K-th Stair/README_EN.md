@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README_EN.md
 rating: 2071
 source: Weekly Contest 398 Q4
 tags:
@@ -112,6 +111,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One may step down once (not twice in a row) or jump up by $2^{jump}$ and increment $jump$. Unbounded search grows with the jump count.
+>
+> Positions beyond $k+1$ can never return. Jumps are $O(\log k)$, so the triple $(i,j,jump)$ is small, with $j$ recording a recent down step.
+>
+> Memoize $dfs(i,j,jump)$: count $1$ when $i=k$, optionally step down, and always try the next jump. Overshoot returns $0$.
+
+<!-- thinking:end -->
 
 We design a function `dfs(i, j, jump)`, which represents the number of ways to reach the $k$th step when currently at the $i$th step, having performed $j$ operation 1's and `jump` operation 2's. The answer is `dfs(1, 0, 0)`.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -53,6 +52,18 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count contiguous subarrays whose product is strictly less than $k$. $n$ can be $3\times 10^4$, so enumerating both ends is $O(n^2)$.
+>
+> All values are positive, so the window product is monotone as the right end grows. Once it reaches $k$, only advancing the left end restores a legal window—each pointer moves at most once.
+>
+> Keep product $p$ and left $l$. After multiplying by $x$, divide out $\textit{nums}[l]$ while $p\ge k$. Then $r-l+1$ subarrays end at $r$. One pass suffices.
+
+<!-- thinking:end -->
 
 We can use two pointers to maintain a sliding window, where the product of all elements in the window is less than $k$.
 

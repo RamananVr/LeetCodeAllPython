@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2205.The%20Number%20of%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,16 @@ Out of the three users, only User 3 is eligible for a discount.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must count users who have at least one purchase in $[\textit{startDate}, \textit{endDate}]$ with amount at least $\textit{minAmount}$. Summing a user's purchases would treat several small orders as one large one, which the statement forbids.
+>
+> Filter at row level: the timestamp lies in the interval and $\textit{amount} \ge \textit{minAmount}$. Deduplicate with $\textit{COUNT}(\textit{DISTINCT user\_id})$ and return that scalar from the function.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

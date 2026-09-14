@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2777.Date%20Range%20Generator/README_EN.md
 tags:
     - JavaScript
 ---
@@ -72,6 +71,16 @@ g.next().value // &#39;2023-04-10&#39;
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Yield every date in a closed range with a fixed step. Manual Julian-day arithmetic is easy to get wrong at month ends; $Date.setDate$ carries automatically.
+>
+> Walk from the start through the end, $yield$ the ISO date, then add $step$ days. The generator pauses, so the whole range need not be materialized.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3839.Number%20of%20Prefix%20Connected%20Groups/README_EN.md
 rating: 1401
 source: Biweekly Contest 176 Q2
 tags:
@@ -109,6 +108,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words of length at least $k$ that share the first $k$ characters form a group; we count groups of size at least two. $n \le 5000$ makes pairwise prefix tests unnecessary.
+>
+> A group is completely determined by the length-$k$ prefix, independent of the suffix.
+>
+> For every word with length $\ge k$ we count $w[:k]$ in a hash map, then count keys whose frequency exceeds $1$.
+>
+> Shorter words are ignored.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{cnt}$ to count the number of occurrences of the prefix composed of the first $k$ characters of each string with length greater than or equal to $k$. Finally, we count the number of keys in $\textit{cnt}$ with values greater than $1$, which is the number of connected groups.
 

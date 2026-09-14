@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README_EN.md
 rating: 1290
 source: Weekly Contest 432 Q1
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $50\times 50$, so we can follow the stated walk. Even rows go left to right, odd rows right to left, and we keep every other cell.
+>
+> Building the full zigzag and then taking even positions needs an extra array. A toggling flag can decide inclusion while we walk.
+>
+> We scan row by row, reverse odd rows in place, and append a cell only when $\textit{ok}$ is true, flipping $\textit{ok}$ after each cell. The flag carries across rows, so no global index is required.
+
+<!-- thinking:end -->
 
 We traverse each row. If the current row index is odd, we reverse the elements of that row. Then, we traverse the elements of the row and add them to the answer array according to the rules specified in the problem.
 

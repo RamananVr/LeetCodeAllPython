@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README_EN.md
 rating: 2645
 source: Biweekly Contest 159 Q4
 tags:
@@ -125,6 +124,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Queries ask for the $k$-th distinct root-to-node XOR in a subtree, with $n$ and $q$ up to $5 \cdot 10^4$. DFS first writes every path XOR, then small-to-large merge runs on the tree.
+>
+> A binary Trie stores the distinct XORs of a subtree, ordered and $k$-th-queryable. Insert values from the smaller Trie into the larger, skipping duplicates. Answer that node’s queries when its Trie is complete.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

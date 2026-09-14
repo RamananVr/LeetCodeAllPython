@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README_EN.md
 rating: 1413
 source: Weekly Contest 307 Q1
 tags:
@@ -73,6 +72,16 @@ It can be proven that no smaller answer exists.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Opponents must be beaten in order, and both energy and experience must be strictly larger at the start of a fight. $n \le 100$, so simulate and top up when short.
+>
+> If energy is not enough, train to the opponent’s energy plus one; likewise for experience. After the fight, energy drops and experience grows. The sum of shortages is the training time.
+
+<!-- thinking:end -->
 
 Let's denote the current energy as $x$ and the current experience as $y$.
 

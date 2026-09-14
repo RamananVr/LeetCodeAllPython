@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README_EN.md
 rating: 1965
 source: Biweekly Contest 89 Q3
 tags:
@@ -72,6 +71,16 @@ It is optimal to leave nums as is, and since 10 is the maximum value, we return 
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation moves value from $i$ to $i-1$, i.e. excess flows left. Minimizing the final maximum at $n\le 10^5$ is a binary search on that cap $mx$.
+>
+> Scan right to left: anything above $mx$ is forwarded. The guess is feasible iff $nums[0]$ plus the leftover forwarded amount is still $\le mx$.
+
+<!-- thinking:end -->
 
 To minimize the maximum value of the array, it is intuitive to use binary search. We binary search for the maximum value $mx$ of the array, and find the smallest $mx$ that satisfies the problem requirements.
 

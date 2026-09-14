@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1637.Widest%20Vertical%20Area%20Between%20Two%20Points%20Containing%20No%20Points/README_EN.md
 rating: 1486
 source: Biweekly Contest 38 Q2
 tags:
@@ -57,6 +56,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The width of a vertical gap depends only on consecutive $x$-coordinates. With $n$ up to $10^5$, sort by $x$ and scan adjacent differences.
+>
+> $y$ does not matter; the answer is $\max(x_{i+1}-x_i)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -75,6 +84,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts in $O(n\log n)$. The max gap is at least $(\textit{max}-\textit{min})/(n-1)$; with that bucket width the answer can only lie between consecutive nonempty buckets.
+>
+> Each bucket stores its min and max $x$; a linear scan of buckets is expected $O(n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

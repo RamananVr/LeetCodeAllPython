@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README_EN.md
 rating: 1597
 source: Weekly Contest 157 Q2
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The subsequence must keep order and use a fixed $difference$. $n \le 10^5$ rules out subset enumeration. The longest chain ending at $x$ depends only on the chain ending at $x-difference$, which, if it exists, has already been seen.
+>
+> Scanning left to right, set $f[x]=f[x-difference]+1$. A hash map indexes the predecessor by value; one pass yields every ending length, and we take the maximum.
+
+<!-- thinking:end -->
 
 We can use a hash table $f$ to store the length of the longest arithmetic subsequence ending with $x$.
 

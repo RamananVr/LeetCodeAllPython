@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md
 tags:
     - JavaScript
 ---
@@ -74,6 +73,14 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must implement `call`: run the function with a given `this`. Hanging a temporary property would mutate the object. `bind(context)` builds a bound function; applying the remaining arguments reuses the engine's `this` binding.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

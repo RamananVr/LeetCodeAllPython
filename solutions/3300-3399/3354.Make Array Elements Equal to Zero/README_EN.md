@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3354.Make%20Array%20Elements%20Equal%20to%20Zero/README_EN.md
 rating: 1397
 source: Weekly Contest 424 Q1
 tags:
@@ -96,6 +95,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Starting from a $0$, we decrement the next positive value and turn around. We count starts and directions that clear the array. A linear pass over every $0$ is enough.
+>
+> The process succeeds when the two sides match: equal sums allow either direction; a difference of $1$ allows only the larger side first.
+>
+> A prefix $l$ and the total $s$ test every $0$ without simulating the walk.
+
+<!-- thinking:end -->
 
 Suppose we initially move to the left and encounter a non-zero element. In that case, we need to decrement this element by one, then change the direction of movement and continue moving.
 

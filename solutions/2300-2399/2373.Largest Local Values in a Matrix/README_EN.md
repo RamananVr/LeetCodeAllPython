@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README_EN.md
 rating: 1331
 source: Weekly Contest 306 Q1
 tags:
@@ -62,6 +61,16 @@ Notice that each value in the generated matrix corresponds to the largest value 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each output cell is the max of the $3 \times 3$ whose upper-left is that position. $n \le 100$, so we enumerate windows.
+>
+> For every $(i,j)$ scan nine cells and write the max into an $(n-2)\times(n-2)$ matrix.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2153.The%20Number%20of%20Passengers%20in%20Each%20Bus%20II/README_EN.md
 tags:
     - Database
 ---
@@ -105,6 +104,18 @@ Passengers table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Buses have capacities; passengers board in arrival order and leftovers wait. We must merge bus and passenger events by time and keep a waiting count.
+>
+> Treat a bus as a positive capacity and a passenger as $-1$, order by time (then $\textit{bus\_id}$), and maintain a running leftover $\textit{cur\_sum}$ that absorbs passengers and is reduced when a bus arrives.
+>
+> For rows with $\textit{bus\_id}>0$, boarded passengers equal capacity minus the leftover after that bus (or the full capacity if it fills).
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

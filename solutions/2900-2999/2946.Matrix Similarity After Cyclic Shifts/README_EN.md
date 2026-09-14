@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README_EN.md
 rating: 1405
 source: Weekly Contest 373 Q1
 tags:
@@ -93,6 +92,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Odd rows shift right by $k$ and even rows left by $k$; the matrix must stay unchanged. $k$ may be reduced modulo the width, but comparing the cell that would land on $(i,j)$ avoids rotating.
+>
+> On odd rows inspect $mat[i][(j+k)\bmod n]$, on even rows $mat[i][(j-k+n)\bmod n]$. One mismatch rejects. The matrix is at most $25 \times 25$.
+
+<!-- thinking:end -->
 
 We iterate over each element of the matrix and check whether its position after the cyclic shift is the same as the element at the original position.
 

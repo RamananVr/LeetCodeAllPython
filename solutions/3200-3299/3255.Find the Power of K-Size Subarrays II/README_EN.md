@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3255.Find%20the%20Power%20of%20K-Size%20Subarrays%20II/README_EN.md
 rating: 1595
 source: Biweekly Contest 137 Q2
 tags:
@@ -83,6 +82,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same statement as I, but $n\le 10^5$ forbids scanning $k$ cells per window. The consecutive-increasing length ending at $i$ still decides $[i-k+1,i]$.
+>
+> $f[i]$ follows I: increment when $\textit{nums}[i]=\textit{nums}[i-1]+1$, else reset to $1$. If $f[i]\ge k$ at a right end, emit $\textit{nums}[i]$. Linear time matches the limit.
+
+<!-- thinking:end -->
 
 We define an array $f$, where $f[i]$ represents the length of the continuous increasing subsequence ending at the $i$-th element. Initially, $f[i] = 1$.
 

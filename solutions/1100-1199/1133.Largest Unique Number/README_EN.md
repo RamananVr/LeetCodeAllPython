@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1133.Largest%20Unique%20Number/README_EN.md
 rating: 1226
 source: Biweekly Contest 5 Q1
 tags:
@@ -51,6 +50,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Reverse Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the largest number that appears once, or $-1$. Count frequencies, keep keys with count $1$, and take the maximum. A fixed array of size $1001$ scanned downward is the same idea when the range is tiny.
+
+<!-- thinking:end -->
 
 Given the data range in the problem, we can use an array of length $1001$ to count the occurrence of each number. Then, we traverse the array in reverse order to find the first number that appears only once. If no such number is found, we return $-1$.
 

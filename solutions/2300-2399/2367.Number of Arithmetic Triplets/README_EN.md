@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README_EN.md
 rating: 1203
 source: Weekly Contest 305 Q1
 tags:
@@ -68,6 +67,16 @@ tags:
 
 ### Solution 1: Brute Force
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count triples with common difference $diff$ in a strictly increasing array. $n \le 200$ allows a triple loop.
+>
+> Enumerate three indices and test both gaps against $diff$.
+
+<!-- thinking:end -->
+
 We notice that the length of the array $nums$ is no more than $200$. Therefore, we can directly enumerate $i$, $j$, $k$, and check whether they meet the conditions. If they do, we increment the count of the triplet.
 
 The time complexity is $O(n^3)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
@@ -89,6 +98,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Array or Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is cubic. Values and length are tiny, so a set plus queries for $x+diff$ and $x+2diff$ is linear.
+
+<!-- thinking:end -->
 
 We can first store the elements of $nums$ in a hash table or array $vis$. Then, for each element $x$ in $nums$, we check if $x+diff$ and $x+diff+diff$ are also in $vis$. If they are, we increment the count of the triplet.
 

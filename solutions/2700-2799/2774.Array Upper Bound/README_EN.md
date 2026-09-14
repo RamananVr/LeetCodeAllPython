@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2774.Array%20Upper%20Bound/README_EN.md
 tags:
     - JavaScript
 ---
@@ -58,13 +57,39 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the last index of $target$ in a sorted array. A right-to-left scan is correct, but a logarithmic bound is available.
+>
+> Binary-search the first index greater than $target$; the previous index is the rightmost hit if it equals $target$, otherwise the value is absent.
+
+<!-- thinking:end -->
+
+The array is sorted in non-decreasing order. Binary search for the first index greater than $\textit{target}$, then check whether the previous element equals $\textit{target}$. If it does, that index is the last occurrence; otherwise return $-1$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Linear Scan
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Binary search buys a logarithm at the cost of endpoint logic. $lastIndexOf$ scans once from the right and is shorter, though linear in the worst case.
+
+<!-- thinking:end -->
+
+Call `lastIndexOf` to scan from right to left and return the last index of the target, or $-1$ if it does not exist.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- solution:end -->
 

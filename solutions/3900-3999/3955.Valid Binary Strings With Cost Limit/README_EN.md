@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3955.Valid%20Binary%20Strings%20With%20Cost%20Limit/README_EN.md
 rating: 1429
 source: Weekly Contest 505 Q2
 tags:
@@ -86,6 +85,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 12$, so $2^n$ strings exist, but we also need no two adjacent ones and the sum of one-indices $\le k$. A positional DFS lists every valid string.
+>
+> A position may always take $0$; it takes $1$ only when the previous bit is not $1$ and $tot+i\le k$. At length $n$ the path is recorded.
+>
+> The independent-set constraint keeps the search much smaller than $2^n$.
+
+<!-- thinking:end -->
 
 We want to generate binary strings of length $n$ that satisfy the following conditions:
 

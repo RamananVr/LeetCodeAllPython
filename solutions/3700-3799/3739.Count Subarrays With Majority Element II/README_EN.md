@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README_EN.md
 rating: 2089
 source: Biweekly Contest 169 Q4
 tags:
@@ -90,6 +89,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The quadratic count of the previous problem does not scale. Mapping $\textit{target}$ to $+1$ and everything else to $-1$, a majority becomes a subarray sum strictly greater than $0$. For each right end we need the number of smaller prefix sums, which a Fenwick tree maintains on the shifted range $[-n,n]$.
+
+<!-- thinking:end -->
 
 According to the problem description, we can treat elements equal to $\textit{target}$ in the array as $1$, and elements not equal to $\textit{target}$ as $-1$. This way, $\textit{target}$ being the majority element of a subarray is equivalent to the number of $1$s in the subarray being strictly greater than the number of $-1$s, i.e., the sum of the subarray is strictly greater than $0$.
 

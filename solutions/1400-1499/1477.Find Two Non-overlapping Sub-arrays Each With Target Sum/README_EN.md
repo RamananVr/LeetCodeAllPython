@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README_EN.md
 rating: 1850
 source: Biweekly Contest 28 Q3
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$ and values are positive, so a prefix-sum map finds every subarray summing to $target$ in linear time. We need two non-overlapping ones with minimal total length.
+>
+> $f[i]$ is the shortest such subarray in the first $i$ elements. When $[j+1,i]$ hits $target$, combine it with $f[j]$ and set $f[i]=\min(f[i-1],i-j)$.
+
+<!-- thinking:end -->
 
 We can use a hash table $d$ to record the most recent position where each prefix sum appears, with the initial value $d[0]=0$.
 

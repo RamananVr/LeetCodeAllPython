@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README_EN.md
 rating: 2215
 source: Weekly Contest 391 Q4
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After removing one point the maximum Manhattan distance among the rest must be recomputed. Scanning all pairs for every removal is $O(n^3)$ and fails when $n$ is a few thousand.
+>
+> $|x_1-x_2|+|y_1-y_2|$ equals the larger of the spreads of $x+y$ and $x-y$. The global maximum therefore depends only on the extreme values of these two transformed coordinates.
+>
+> Store every $x+y$ and $x-y$ in ordered sets, temporarily drop each point, read the new extrema, and insert it back. Each update is logarithmic, so the best removal is found in $O(n\log n)$.
+
+<!-- thinking:end -->
 
 For two points $(x_1, y_1)$ and $(x_2, y_2)$, their Manhattan distance is $|x_1 - x_2| + |y_1 - y_2|$. We can transform it into $\max(x_1 - x_2, x_2 - x_1) + \max(y_1 - y_2, y_2 - y_1)$, which is:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md
 rating: 1604
 source: Biweekly Contest 88 Q2
 tags:
@@ -74,6 +73,16 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Up to $2\times 10^5$ uploads and queries forbid scanning $[1,n]$ each time. The longest prefix is the largest $r$ such that $1..r$ are all uploaded; only uploading $r+1$ can extend it.
+>
+> Store uploaded ids in a set and keep $r$. After an upload, increment $r$ while $r+1$ is present. Each id advances $r$ at most once, so the extra work is linear overall.
+
+<!-- thinking:end -->
 
 We use a variable $r$ to record the current longest prefix of uploaded videos, and an array or hash table $s$ to record the videos that have been uploaded.
 

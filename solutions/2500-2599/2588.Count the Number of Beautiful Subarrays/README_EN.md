@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md
 rating: 1696
 source: Weekly Contest 336 Q3
 tags:
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix XOR + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray is beautiful iff we can turn it to zeros by repeatedly subtracting $2^k$ from two set bits — i.e. every bit appears an even number of times, i.e. the XOR is $0$. Checking every interval is quadratic.
+>
+> Equal prefix XORs bound a zero-XOR segment. A hash map counts prefixes; the current $\textit{mask}$ adds the number of earlier equals. A leading $0$ accounts for segments that start at the beginning.
+
+<!-- thinking:end -->
 
 We observe that a subarray can become an array of all $0$s if and only if the number of $1$s on each binary bit of all elements in the subarray is even.
 

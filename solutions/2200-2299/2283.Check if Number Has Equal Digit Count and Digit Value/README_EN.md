@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README_EN.md
 rating: 1253
 source: Biweekly Contest 79 Q1
 tags:
@@ -64,6 +63,16 @@ The indices 0 and 1 both violate the condition, so return false.
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $num[i]$ must equal how many times digit $i$ occurs. The string is at most length $10$, so count then verify by index.
+>
+> A $\textit{Counter}$ of the digits is compared with $num[i]$ at each position.
+
+<!-- thinking:end -->
 
 We can use an array $\textit{cnt}$ of length $10$ to count the occurrences of each digit in the string $\textit{num}$. Then, we enumerate each digit in the string $\textit{num}$ and check if its occurrence count equals the digit itself. If this condition is satisfied for all digits, we return $\text{true}$; otherwise, we return $\text{false}$.
 

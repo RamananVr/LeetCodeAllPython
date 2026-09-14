@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md
 tags:
     - Math
     - Combinatorics
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need nonnegative $x+y+z=n$ with each variable at most $limit$. $n$ can be huge, so triple loops are impossible. Stars and bars give $C_{n+2}^{2}$ without the cap; inclusion-exclusion subtracts the cases with one variable at least $limit+1$ and adds back two simultaneous violations.
+>
+> If $n>3\cdot limit$ the count is $0$. The binomial arguments are guarded so they stay nonnegative. The formula is $O(1)$.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, limit]$ candies.
 

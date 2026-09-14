@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1375.Number%20of%20Times%20Binary%20String%20Is%20Prefix-Aligned/README_EN.md
 rating: 1438
 source: Weekly Contest 179 Q2
 tags:
@@ -66,6 +65,14 @@ We can see that the string was prefix-aligned 1 time, so we return 1.
 <!-- solution:start -->
 
 ### Solution 1: Direct Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $flips$ is a permutation of $1..n$; step $i$ turns bit $flips[i]$ on. The prefix $[1..i]$ is all ones iff the maximum among the first $i$ flips equals $i$. Tracking that maximum and comparing it with $i$ counts the moments.
+
+<!-- thinking:end -->
 
 We can traverse the array $flips$, keeping track of the maximum value $mx$ of the elements we have traversed so far. If $mx$ equals the current index $i$ we are traversing, it means that the first $i$ elements have all been flipped, i.e., the prefix is consistent, and we increment the answer.
 

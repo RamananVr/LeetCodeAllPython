@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0211.Design%20Add%20and%20Search%20Words%20Data%20Structure/README_EN.md
 tags:
     - Depth-First Search
     - Design
@@ -66,6 +65,16 @@ wordDictionary.search(&quot;b..&quot;); // return True
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exact lookup could use a hash set, but $.$ matches any letter, so scanning every word is awkward. Words use lowercase letters, which fit a trie.
+>
+> Add walks a $26$-way path. Search follows a fixed edge on a letter and branches over every non-empty child on $.$; a match must end on a word node.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

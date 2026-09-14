@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3493.Properties%20Graph/README_EN.md
 rating: 1565
 source: Weekly Contest 442 Q2
 tags:
@@ -87,6 +86,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two nodes are adjacent iff their property sets share at least $k$ values. $n,m\le 100$, so we build the graph and count components.
+>
+> Lists may repeat; converting to sets keeps the intersection from being over-counted.
+>
+> Compare every pair, add undirected edges, and DFS/BFS to count components.
+
+<!-- thinking:end -->
 
 We first convert each attribute array into a hash table and store them in a hash table array $\textit{ss}$. We define a graph $\textit{g}$, where $\textit{g}[i]$ stores the indices of attribute arrays that are connected to $\textit{properties}[i]$.
 

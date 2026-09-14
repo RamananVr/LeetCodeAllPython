@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0529.Minesweeper/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -76,6 +75,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A click on a mine becomes `X`. Otherwise count adjacent mines: write the count, or write `B` and flood neighboring empties. Only the click region needs to be revealed.
+>
+> If the cell is `M`, mark `X`. Otherwise DFS: count neighbors, write the digit and stop if any mine, else write `B` and recurse on adjacent `E` cells. Each cell expands at most once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

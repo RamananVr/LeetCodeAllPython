@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2694.Event%20Emitter/README_EN.md
 tags:
     - JavaScript
 ---
@@ -106,6 +105,16 @@ emitter.emit(&quot;firstEvent&quot;, [5]); // [7]</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An event may have many callbacks, and unsubscribe must remove only itself. Linear removal from an array needs an index search. A `Map<string, Set<Callback>>` adds on subscribe, deletes on unsubscribe, and `emit` calls the set in insertion order, collecting return values.
+>
+> A missing event yields an empty array.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README_EN.md
 rating: 1334
 source: Biweekly Contest 78 Q2
 tags:
@@ -68,6 +67,16 @@ There are two valid splits in nums:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid split needs the left sum at least the right sum, and a non-empty right part. $n \le 10^5$ forbids summing from scratch. The two sides add to the total $s$, so the test is prefix $t \ge s-t$.
+>
+> Compute $s$, then scan the first $n-1$ elements, accumulating $t$ and counting.
+
+<!-- thinking:end -->
 
 First, we calculate the total sum $s$ of the array $\textit{nums}$. Then, we traverse the first $n-1$ elements of the array $\textit{nums}$, using the variable $t$ to record the prefix sum. If $t \geq s - t$, we increment the answer by one.
 

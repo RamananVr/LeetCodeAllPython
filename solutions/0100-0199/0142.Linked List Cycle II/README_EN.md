@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md
 tags:
     - Hash Table
     - Linked List
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must return the cycle entrance, not only detect it. A visited map works, but the follow-up wants $O(1)$ space. $n\le 10^4$.
+>
+> After the fast and slow pointers meet, send one pointer back to the head and walk both at the same speed; they meet at the entrance, because the head-to-entrance distance equals the meet-to-entrance distance around the cycle.
+
+<!-- thinking:end -->
 
 We first use the fast and slow pointers to judge whether the linked list has a ring. If there is a ring, the fast and slow pointers will definitely meet, and the meeting node must be in the ring.
 

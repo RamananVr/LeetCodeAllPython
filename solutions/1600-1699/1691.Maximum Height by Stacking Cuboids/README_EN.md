@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README_EN.md
 rating: 2171
 source: Weekly Contest 219 Q4
 tags:
@@ -76,6 +75,16 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cuboids may be rotated and must be componentwise no larger than the one below. Sorting each triple into length $\le$ width $\le$ height preserves legality and maximizes height; then sort the cuboids.
+>
+> $n$ is small. $f[i]$ is the best height with $i$ at the bottom; try every $j$ whose width and height also fit, and set $f[i]=\max f[j]+h_i$.
+
+<!-- thinking:end -->
 
 According to the problem description, box $j$ can be placed on box $i$ if and only if the "length, width, and height" of box $j$ are less than or equal to the "length, width, and height" of box $i$.
 

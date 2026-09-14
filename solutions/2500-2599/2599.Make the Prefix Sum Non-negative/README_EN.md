@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README_EN.md
 tags:
     - Greedy
     - Array
@@ -60,6 +59,16 @@ The array after the operation is [3,-2,6,-5]. The prefix sum array is [3, 1, 7, 
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An element may be moved to the end; every prefix sum must stay non-negative, and we want the fewest moves. The set of moves cannot be enumerated.
+>
+> Only negatives can drag a prefix below zero. When the running sum becomes negative, remove the smallest remaining negative seen so far — that restores the sum with the least damage. A min-heap stores those negatives; popping subtracts them from the sum and counts a move.
+
+<!-- thinking:end -->
 
 We use a variable $s$ to record the prefix sum of the current array.
 

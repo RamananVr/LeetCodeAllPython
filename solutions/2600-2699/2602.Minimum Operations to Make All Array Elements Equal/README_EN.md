@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README_EN.md
 rating: 1903
 source: Weekly Contest 338 Q3
 tags:
@@ -75,6 +74,18 @@ So the total number of operations for the second query is 2 + 4 + 1 + 3 = 10.
 <!-- solution:start -->
 
 ### Solution 1: sort + prefix sum + binary search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query turns every element into the same target $x$, one increment or decrement per operation. Scanning $nums$ per query is $O(nq)$ and fails for $n,q \le 10^5$.
+>
+> Elements do not interact: the cost is $\sum |nums_i-x|$. After sorting, $x$ splits the array into values below and above $x$, and both absolute deviations follow from a prefix sum in $O(1)$.
+>
+> We therefore sort, build the prefix sums, and for each $x$ binary-search the split index to accumulate the raise and lower costs.
+
+<!-- thinking:end -->
 
 First, we sort the array $nums$ and calculate the prefix sum array $s$ with a length of $n+1$, where $s[i]$ represents the sum of the first $i$ elements in the array $nums$.
 

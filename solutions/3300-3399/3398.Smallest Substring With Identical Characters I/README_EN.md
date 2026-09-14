@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3398.Smallest%20Substring%20With%20Identical%20Characters%20I/README_EN.md
 rating: 2301
 source: Weekly Contest 429 Q3
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may flip at most $\textit{numOps}$ bits to minimize the longest run of equal characters. With $n \le 1000$ we binary-search the target length $m$.
+>
+> For $m=1$ the string must become `0101...` or `1010...`; we take the closer pattern. For $m>1$ a run of length $k$ needs $\lfloor k/(m+1) \rfloor$ flips.
+>
+> $m$ is feasible when the total flips are at most $\textit{numOps}$. The smallest such $m$ is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

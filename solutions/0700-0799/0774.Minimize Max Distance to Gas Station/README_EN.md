@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0774.Minimize%20Max%20Distance%20to%20Gas%20Station/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -48,6 +47,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert at most $k$ stations to minimize the maximum gap. $k$ can be $10^6$, so we cannot try every allocation.
+>
+> Feasibility is monotone in the cap $x$: a gap $d$ needs $\lfloor d/x\rfloor$ inserts. Smaller $x$ needs more inserts.
+>
+> Binary-search $x$ on floats until the width is $10^{-6}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

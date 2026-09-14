@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3637.Trionic%20Array%20I/README_EN.md
 rating: 1263
 source: Weekly Contest 461 Q1
 tags:
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A trionic array is a nonempty strict rise, a nonempty strict fall, and another nonempty strict rise. Walking the three segments is simpler than enumerating two turning points.
+>
+> Pointer $p$ consumes the first ascent; stopping at the start fails. $q$ then consumes the descent; no movement or finishing at the end means a missing middle or last segment.
+>
+> The final ascent must end exactly at $n-1$. One pass checks existence and strictness of all three parts.
+
+<!-- thinking:end -->
 
 We first define a pointer $p$, initially $p = 0$, pointing to the first element of the array. We move $p$ to the right until we find the first element that doesn't satisfy strict increasing order, i.e., $nums[p] \geq nums[p + 1]$. If $p = 0$ at this point, it means the first part of the array doesn't have a strictly increasing section, so we return $\text{false}$ directly.
 

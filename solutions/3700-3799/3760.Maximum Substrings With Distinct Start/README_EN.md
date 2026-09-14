@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3760.Maximum%20Substrings%20With%20Distinct%20Start/README_EN.md
 rating: 1364
 source: Weekly Contest 478 Q2
 tags:
@@ -82,6 +81,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each piece must start with a distinct character, so there are at most $|\Sigma|$ pieces and each character that appears can start at most one of them. Every distinct character can form its own piece, hence the answer is the number of distinct letters in $s$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

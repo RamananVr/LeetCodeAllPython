@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README_EN.md
 rating: 1446
 source: Weekly Contest 132 Q2
 tags:
@@ -57,6 +56,18 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Collecting every ancestor at each node repeats paths and is heavy for $n\le 5000$. Only the minimum and maximum on the path matter.
+>
+> DFS carries $(\textit{mi},\textit{mx})$ downward, updates the answer with $|\textit{val}-\textit{mi}|$ and $|\textit{val}-\textit{mx}|$, then includes the current value in the range.
+>
+> One traversal of the tree is enough.
+
+<!-- thinking:end -->
 
 For each node, to find the maximum difference with its ancestor nodes, we only need to find the difference between the maximum and minimum values of the ancestor nodes. The maximum difference among all nodes and their ancestor nodes is the answer.
 

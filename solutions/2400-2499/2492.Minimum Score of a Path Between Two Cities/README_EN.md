@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README_EN.md
 rating: 1679
 source: Weekly Contest 322 Q3
 tags:
@@ -73,6 +72,16 @@ It can be shown that no other path has less score.
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges may be reused and $1$ is connected to $n$. A path's score is its lightest edge, and any $1$–$n$ walk can reach every edge of that component, so the answer is the minimum weight in the component of $1$.
+>
+> DFS from $1$, updating the answer on every edge.
+
+<!-- thinking:end -->
+
 According to the problem description, each edge can be traversed multiple times, and it is guaranteed that node $1$ and node $n$ are in the same connected component. Therefore, the problem is actually asking for the minimum edge weight in the connected component containing node $1$.
 
 We first build an undirected graph $g$ from $\textit{roads}$, then perform DFS starting from node $1$. While traversing the connected component, we update the answer with $\textit{ans} = \min(\textit{ans}, w)$ for each edge visited.
@@ -111,6 +120,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already finds that minimum. The same visit order can be a BFS queue; only the traversal changes.
+
+<!-- thinking:end -->
 
 We can also use BFS to solve this problem. Enqueue node $1$ and expand the connected component layer by layer, updating the answer with $\textit{ans} = \min(\textit{ans}, w)$ whenever an edge is visited.
 

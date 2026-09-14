@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0759.Employee%20Free%20Time/README_EN.md
 tags:
     - Array
     - Sorting
@@ -58,6 +57,18 @@ We discard any intervals that contain inf as they aren&#39;t finite.
 <!-- solution:start -->
 
 ### Solution 1: Interval Merging
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find gaps when every employee is free. Each person's intervals are sorted, but the global list is not.
+>
+> The times when someone is busy are the union of all intervals; gaps of that union are common free time.
+>
+> Sort by start, merge overlaps, and emit $[a.end, b.start)$ between consecutive merged intervals.
+
+<!-- thinking:end -->
 
 We can merge all employees' working time intervals into a single list, then sort and merge the overlapping intervals. Finally, we traverse the merged interval list to find the free time periods between adjacent intervals.
 

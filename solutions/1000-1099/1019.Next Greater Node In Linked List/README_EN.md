@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README_EN.md
 rating: 1570
 source: Weekly Contest 130 Q3
 tags:
@@ -56,6 +55,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning rightward from every node is $O(n^2)$ and tight at $n\le 10^4$. The query is the next greater element on the right, the same as the array problem.
+>
+> A decreasing stack from right to left holds candidates. The current value pops every top that is not strictly larger; the new top, if any, is the next greater value.
+>
+> We flatten the list into an array and fill the answer in one reverse pass.
+
+<!-- thinking:end -->
 
 The problem requires finding the next larger node for each node in the linked list, that is, finding the first node to the right of each node in the linked list that is larger than it. We first traverse the linked list and store the values in the linked list in an array $nums$. For each element in the array $nums$, we just need to find the first element to its right that is larger than it. The problem of finding the next larger element can be solved using a monotonic stack.
 

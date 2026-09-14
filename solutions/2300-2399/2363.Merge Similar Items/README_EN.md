@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md
 rating: 1270
 source: Biweekly Contest 84 Q1
 tags:
@@ -84,6 +83,16 @@ Therefore, we return [[1,7],[2,4],[7,1]].
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merge two lists by value, adding weights. Values and lengths are at most $1000$, so a map plus a sort is enough.
+>
+> Add every $(value,weight)$ into a counter, then emit items in increasing value.
+
+<!-- thinking:end -->
 
 We can use a hash table or array `cnt` to count the total weight of each item in `items1` and `items2`. Then, we traverse the values in ascending order, adding each value and its corresponding total weight to the result array.
 

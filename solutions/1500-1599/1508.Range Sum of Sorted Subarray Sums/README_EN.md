@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1508.Range%20Sum%20of%20Sorted%20Subarray%20Sums/README_EN.md
 rating: 1402
 source: Biweekly Contest 30 Q2
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must sort every subarray sum and add the entries from index $\textit{left}$ to $\textit{right}$. There are $O(n^2)$ subarrays and $n\le 10^3$. Recomputing that list per query would waste work, but here there is a single query.
+>
+> Enumerate the left endpoint and accumulate a running sum to the right to list all subarray sums in $O(n^2)$. After sorting, sum the requested closed range and reduce modulo $10^9+7$. An $n^2\log n$ sort fits the limits.
+
+<!-- thinking:end -->
 
 We can generate the array $\textit{arr}$ according to the problem's requirements, then sort the array, and finally calculate the sum of all elements in the range $[\textit{left}-1, \textit{right}-1]$ to get the result.
 

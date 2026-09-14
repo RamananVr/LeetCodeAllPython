@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An abbreviation interleaves letters and skip lengths, and a number may not have a leading zero. Expanding the abbreviation into a new string is unnecessary and can be large.
+>
+> Two pointers scan $\textit{abbr}$: digits accumulate a skip (rejecting a leading zero); a letter first applies the skip, then compares characters. At the end, the word pointer plus any leftover skip must land exactly on the last index.
+>
+> Skip and compare belong in one pass so overflow, mismatch, and unused length are checked together.
+
+<!-- thinking:end -->
 
 We can directly simulate character matching and replacement.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3129.Find%20All%20Possible%20Stable%20Binary%20Arrays%20I/README_EN.md
 rating: 2200
 source: Biweekly Contest 129 Q3
 tags:
@@ -85,6 +84,18 @@ tags:
 
 ### Solution 1: Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stable array never has more than $limit$ equal bits in a row. Backtracking over $zero$ zeros and $one$ ones explodes.
+>
+> Validity after a prefix depends only on remaining zeros and ones and on which bit is written next. Overflow is the case of writing $limit+1$ equal bits after the opposite bit.
+>
+> Let $dfs(i,j,k)$ be the number of ways with $i$ zeros and $j$ ones left and next bit $k$. Add the same-color and other-color transitions and subtract the overflow term. Memoization yields $O(zero\cdot one)$ states.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs}(i, j, k)$ to represent the number of stable binary arrays that satisfy the problem conditions when there are $i$ zeros and $j$ ones remaining to place, and the next digit to fill is $k$. Then the answer is $\textit{dfs}(\textit{zero}, \textit{one}, 0) + \textit{dfs}(\textit{zero}, \textit{one}, 1)$.
 
 The computation process of $\textit{dfs}(i, j, k)$ is as follows:
@@ -137,6 +148,18 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recurrence has no aftereffect; recursion still pays cache and call overhead near the upper limits.
+>
+> The same transition fills a table $f[i][j][k]$: $i$ zeros and $j$ ones used, last bit $k$.
+>
+> Base cases are monochrome strings no longer than $limit$. After iterating with a modulus, read $f[zero][one][0]+f[zero][one][1]$.
+
+<!-- thinking:end -->
 
 We can also convert the memoized search in Solution 1 into dynamic programming.
 

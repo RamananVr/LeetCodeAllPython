@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README_EN.md
 rating: 1708
 source: Biweekly Contest 23 Q3
 tags:
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sampling grid points or checking only the four corners misses edge and interior intersections. Coordinates go to $10^4$, so we need an exact geometric test.
+>
+> The circle meets the rectangle iff the closest point of the rectangle to the center lies inside the circle. That point's $x$ and $y$ can be clamped independently to $[x_1,x_2]$ and $[y_1,y_2]$.
+>
+> A coordinate that already lies in its interval contributes distance $0$; otherwise we take the nearer endpoint. Compare the sum of squared distances with $radius^2$.
+
+<!-- thinking:end -->
 
 For a point $(x, y)$, its shortest distance to the center of the circle $(xCenter, yCenter)$ is $\sqrt{(x - xCenter)^2 + (y - yCenter)^2}$. If this distance is less than or equal to the radius $radius$, then this point is within the circle (including the boundary).
 

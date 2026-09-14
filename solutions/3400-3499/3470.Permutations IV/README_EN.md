@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3470.Permutations%20IV/README_EN.md
 rating: 2473
 source: Biweekly Contest 151 Q4
 tags:
@@ -102,6 +101,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the $k$-th permutation of $1..n$ with alternating parity. $n$ is too large to list them all.
+>
+> Once the first position's parity is fixed, the rest is determined, and the count is a product of factorials and the remaining odd/even cardinalities.
+>
+> Fill left to right: try each candidate, use the count of alternating suffixes to see whether $k$ falls there, subtract, and continue. Return empty if $k$ is too large.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

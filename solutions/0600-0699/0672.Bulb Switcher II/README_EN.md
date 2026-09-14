@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0672.Bulb%20Switcher%20II/README_EN.md
 tags:
     - Bit Manipulation
     - Depth-First Search
@@ -79,6 +78,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four buttons XOR-flip bulbs. Even presses cancel, and bulb $i$ always matches $i+6$.
+>
+> Keep the first $\min(n,6)$ bulbs. Enumerate the $2^4$ parity masks whose popcount is $\le presses$ and congruent modulo $2$, XOR the operations, and count distinct states.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

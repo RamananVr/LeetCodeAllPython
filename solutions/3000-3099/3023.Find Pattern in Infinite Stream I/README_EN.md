@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README_EN.md
 tags:
     - Array
     - Interactive
@@ -71,6 +70,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pattern has length at most $100$ and the stream is unbounded, so we cannot buffer everything. A naive compare at every start can do about $10^7$ comparisons.
+>
+> Length $100$ fits in two $64$-bit integers. The stream keeps a sliding window of the same width.
+>
+> Each new bit shifts the right half; the overflow bit enters the left half. Once the window is full we compare both integers.
+
+<!-- thinking:end -->
 
 We notice that the length of the array $pattern$ does not exceed $100$, therefore, we can use two $64$-bit integers $a$ and $b$ to represent the binary numbers of the left and right halves of $pattern$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1783.Grand%20Slam%20Titles/README_EN.md
 tags:
     - Database
 ---
@@ -95,6 +94,16 @@ Player 3 (Novak) did not win anything, we did not include them in the result tab
 
 ### Solution 1: Union All + Equi-Join + Group By
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four slam winners sit in wide columns; we need a per-player title count. Unpivot the four columns, then join players.
+>
+> $\mathrm{UNION\ ALL}$ the four winner ids, join $\textit{Players}$, and $\mathrm{COUNT}$ by player.
+
+<!-- thinking:end -->
+
 We can use `UNION ALL` to merge all player IDs who won Grand Slam titles into a table `T`, then use an equi-join `JOIN` to join `T` table with `Players` table on `player_id`, and finally use `GROUP BY` and `COUNT` to count the number of Grand Slam titles won by each player.
 
 <!-- tabs:start -->
@@ -131,6 +140,14 @@ GROUP BY 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Instead of unpivoting, cross join players to championships and sum four $\mathrm{CASE}$ expressions, dropping zeros with $\mathrm{HAVING}$. No intermediate table; each player scans the four columns.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

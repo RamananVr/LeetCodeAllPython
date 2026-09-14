@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0690.Employee%20Importance/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -69,6 +68,16 @@ Thus, the total importance value of employee 5 is -3.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Importance is the employee plus every subordinate. Looking up ids in the raw list is linear per hop.
+>
+> Map id to the object, then DFS from the given id: `importance` plus the sum of recursive calls on subordinates.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to store all employee information, where the key is the employee's ID, and the value is the employee object. Then we start a depth-first search from the given employee ID. Each time we traverse to an employee, we add the employee's importance to the answer, and recursively traverse all the subordinates of the employee, adding the importance of the subordinates to the answer as well.
 

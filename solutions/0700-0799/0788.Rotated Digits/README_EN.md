@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -67,6 +66,16 @@ Note that 1 and 10 are not good numbers, since they remain unchanged after rotat
 
 ### Solution 1: Direct Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good number stays valid after rotation and changes. $n\le 10^4$, so test each integer.
+>
+> Illegal digits fail; otherwise build the rotated value from the map and compare with $x$.
+
+<!-- thinking:end -->
+
 An intuitive and effective approach is to directly enumerate each number in $[1,2,..n]$ and determine whether it is a good number. If it is a good number, increment the answer by one.
 
 The key to the problem is how to determine whether a number $x$ is a good number. The logic is as follows:
@@ -111,6 +120,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scales poorly past $10^4$. Validity depends only on digits, so digit DP counts $[1,n]$.
+>
+> $dfs(i,ok,limit)$: $ok$ means a $2/5/6/9$ has appeared. Skip illegal digits; at the end return $ok$.
+
+<!-- thinking:end -->
 
 Solution 1 is sufficient to solve this problem, but its time complexity is relatively high. If the data range of the problem reaches the level of $10^9$, the approach in Solution 1 will exceed the time limit.
 

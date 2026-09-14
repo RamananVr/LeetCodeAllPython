@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README_EN.md
 rating: 1380
 source: Biweekly Contest 50 Q2
 tags:
@@ -69,6 +68,16 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks how many given points lie in a circle. Both arrays have size at most $500$, and a squared-distance test is $O(1)$, so nested enumeration is enough.
+>
+> No spatial index is required: for every circle scan every point and test $dx^2+dy^2\le r^2$ to avoid square roots. The $O(mn)$ cost fits the limits.
+
+<!-- thinking:end -->
 
 Enumerate all the circles $(x, y, r)$. For each circle, calculate the number of points within the circle to get the answer.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README_EN.md
 rating: 2225
 source: Biweekly Contest 71 Q4
 tags:
@@ -77,6 +76,18 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Max and Min Heap) + Prefix and Suffix Sum + Enumeration of Split Points
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After dropping $n$ elements, we want the smallest difference between the sum of the first $n$ remaining and the last $n$. That is a split where the left keeps its $n$ smallest and the right its $n$ largest. Choosing the dropped set by brute force is impossible.
+>
+> A max-heap maintains the sum $\textit{pre}[i]$ of the $n$ smallest in a prefix; a min-heap maintains $\textit{suf}[i]$ of the $n$ largest in a suffix. At split $i\in[n,2n]$ the difference is $\textit{pre}[i]-\textit{suf}[i+1]$.
+>
+> Build both arrays with heaps, then minimize over the split.
+
+<!-- thinking:end -->
 
 The problem is essentially equivalent to finding a split point in $nums$, dividing the array into two parts. In the first part, select the smallest $n$ elements, and in the second part, select the largest $n$ elements, so that the difference between the sums of the two parts is minimized.
 

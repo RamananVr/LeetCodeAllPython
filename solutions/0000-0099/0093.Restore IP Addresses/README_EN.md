@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md
 tags:
     - String
     - Backtracking
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An IP is exactly four segments, each $0$–$255$ with no leading zeros. $n \le 20$, so enumerating three cuts works, but leading zeros, overflow, and segment count scatter across nested loops.
+>
+> Backtracking is the natural shape: from index $i$, try $1$–$3$ digits as the next segment, and recurse if valid. Collect only when we have four segments and the string is consumed; stop if we already have four or run past the end. Prune illegal prefixes early.
+
+<!-- thinking:end -->
 
 We define a function $dfs(i)$, which represents the list of IP addresses that can be formed starting from the $i$th position of string $s$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README_EN.md
 rating: 1745
 source: Weekly Contest 199 Q3
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count leaf pairs whose distance is at most $distance$. Pairwise LCA queries cost roughly (number of leaves)$^2$ times height, which is heavy on a chain. A good pair lies entirely in one subtree or straddles the current root.
+>
+> Split the answer into the left subtree, the right subtree, and pairs that cross the root. The crossing term only needs, on each side, a histogram of leaf distances to this root; buckets whose distances sum to at most the limit contribute a product. $distance\le 10$, so the histograms stay tiny.
+
+<!-- thinking:end -->
 
 The problem asks for the number of good leaf node pairs in a binary tree. The answer can be divided into three parts: the number of good leaf node pairs in the left subtree, the number of good leaf node pairs in the right subtree, and the number of good leaf node pairs formed by leaf nodes from the left subtree and leaf nodes from the right subtree.
 

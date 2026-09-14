@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0622.Design%20Circular%20Queue/README_EN.md
 tags:
     - Design
     - Queue
@@ -74,6 +73,16 @@ myCircularQueue.Rear();     // return 4
 <!-- solution:start -->
 
 ### Solution 1: Array Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular queue needs $O(1)$ enqueue/dequeue on a fixed array and must tell empty from full. Head and tail alone collide when they wrap.
+>
+> Store $\textit{size}$ as well: write at $(\textit{front}+\textit{size})\bmod k$, and read the rear at $(\textit{front}+\textit{size}-1)\bmod k$. Empty and full are just size checks.
+
+<!-- thinking:end -->
 
 We can use an array $q$ of length $k$ to simulate a circular queue, with a pointer $\textit{front}$ to record the position of the front element. Initially, the queue is empty, and $\textit{front}$ is $0$. Additionally, we use a variable $\textit{size}$ to record the number of elements in the queue, initially $\textit{size}$ is $0$.
 

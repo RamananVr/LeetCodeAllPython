@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0224.Basic%20Calculator/README_EN.md
 tags:
     - Stack
     - Recursion
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Plus, minus, and parentheses prevent a single left-to-right sum. A parenthesized fragment is its own accumulation, so the outer total and sign must be saved on entry.
+>
+> A stack stores $ans$ and $sign$ at $($ and resets them; at $)$ we pop and add the inner result times the outer sign. Digits join $ans$ with the current sign.
+
+<!-- thinking:end -->
 
 We use a stack $stk$ to save the current calculation result and operator, a variable $sign$ to save the current sign, and a variable $ans$ to save the final calculation result.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0574.Winning%20Candidate/README_EN.md
 tags:
     - Database
 ---
@@ -95,6 +94,16 @@ The winner is candidate B.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The winner has the most votes. Count by `CandidateId`, take the top id, then join the name.
+>
+> The inner group-count with `ORDER BY COUNT DESC LIMIT 1` yields the id; the outer join reads `Name`. Ties are promised not to happen.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -122,6 +131,16 @@ FROM
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 aggregates then joins. Starting from candidates, left-join votes and group by candidate, then order by the count.
+>
+> `COUNT(1)` after the left join is the vote total, $0$ when there are none. One less subquery; the winner is the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

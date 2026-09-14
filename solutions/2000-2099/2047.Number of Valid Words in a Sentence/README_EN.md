@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2047.Number%20of%20Valid%20Words%20in%20a%20Sentence/README_EN.md
 rating: 1471
 source: Weekly Contest 264 Q1
 tags:
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sentence is at most $1000$ characters. After splitting, each token must have no digits, punctuation only at the end, and at most one hyphen between letters.
+>
+> A flag tracks a seen hyphen; scan characters against those rules and count valid tokens.
+
+<!-- thinking:end -->
 
 First, we split the sentence into words by spaces, and then check each word to determine if it is a valid word.
 

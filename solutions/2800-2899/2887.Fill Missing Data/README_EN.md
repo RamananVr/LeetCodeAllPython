@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2887.Fill%20Missing%20Data/README_EN.md
 tags:
     - Pandas
 ---
@@ -59,6 +58,14 @@ The quantity for Wristwatch and WirelessEarbuds are filled by 0.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Null quantities should become $0$. `fillna(0)` on that column leaves missing values in other columns untouched.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

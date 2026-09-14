@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1650.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20III/README_EN.md
 tags:
     - Tree
     - Hash Table
@@ -77,6 +76,16 @@ class Node {
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nodes have parent pointers, so we need not search from the root. Every node on $p$'s path to the root is an ancestor of $p$; the first node of $q$'s path that lies in that set is the LCA.
+>
+> A set $vis$ stores $p$'s path; then walk $q$ toward the root. Extra space is linear in the depth.
+
+<!-- thinking:end -->
+
 We use a hash table $vis$ to record all nodes on the path from node $p$ to the root node. Then we start from node $q$ and traverse towards the root node. If we encounter a node that exists in the hash table $vis$, then this node is the nearest common ancestor of $p$ and $q$, and we can return it directly.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
@@ -116,6 +125,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores a whole chain. Two pointers climb from $p$ and $q$, jumping to the other start at the root; they meet at the LCA, as in intersecting lists, using $O(1)$ extra space.
+
+<!-- thinking:end -->
 
 We can use two pointers $a$ and $b$ to point to nodes $p$ and $q$ respectively, and then traverse towards the root node. When $a$ and $b$ meet, it is the nearest common ancestor of $p$ and $q$. Otherwise, if pointer $a$ traverses to the root node, then we let it point to node $q$, and do the same for pointer $b$. In this way, when the two pointers meet, it is the nearest common ancestor of $p$ and $q$.
 

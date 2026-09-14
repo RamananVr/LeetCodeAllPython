@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README_EN.md
 tags:
     - Array
     - Math
@@ -78,6 +77,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort by absolute value. No secondary key is required. $n\le 100$ is a single custom sort.
+>
+> The key is $\lvert x\rvert$. A stable sort keeps equal-absolute ties in their original order, which remains correct.
+
+<!-- thinking:end -->
 
 We can use a custom sorting function to sort the array, where the sorting criterion is the absolute value of each element.
 

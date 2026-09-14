@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md
 rating: 2463
 source: Weekly Contest 458 Q4
 tags:
@@ -101,6 +100,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want a simple path whose vertex labels form a palindrome. $n$ is small, so the used-vertex set can be a bitmask.
+>
+> A palindrome grows from both ends: when the current ends share a label, each end steps to an unused neighbor with that same label. Odd and even palindromes start from a single vertex or a pair of adjacent equal labels.
+>
+> Let $f[S][i][j]$ mean a palindromic path on vertex set $S$ with ends $i,j$. Transition through unused neighbors of $i$ and $j$ that carry equal labels. The answer is the largest $|S|$ among reachable states.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

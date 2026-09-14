@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3353.Minimum%20Total%20Operations/README_EN.md
 tags:
     - Array
 ---
@@ -73,6 +72,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation rewrites a prefix to a single value. We want the whole array equal with as few operations as possible.
+>
+> The final value must be $\textit{nums}[n-1]$. Each adjacent mismatch requires one extra prefix rewrite to the left.
+>
+> Hence the answer is the number of adjacent unequal pairs, counted in one scan.
+
+<!-- thinking:end -->
 
 We can traverse the array, and for each element, if it is not equal to the previous element, we need to perform an operation. Finally, we return the number of operations.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README_EN.md
 rating: 1266
 source: Biweekly Contest 109 Q2
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Vowels should be sorted by ASCII while consonants stay put. Sorting the whole string would move consonants.
+>
+> Extract the vowels, sort them, and write them back into the vowel slots from left to right.
+
+<!-- thinking:end -->
 
 First, we store all the vowels in the string into an array or list $vs$, then we sort $vs$.
 

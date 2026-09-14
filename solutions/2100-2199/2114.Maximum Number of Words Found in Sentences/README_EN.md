@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2114.Maximum%20Number%20of%20Words%20Found%20in%20Sentences/README_EN.md
 rating: 1257
 source: Biweekly Contest 68 Q1
 tags:
@@ -63,6 +62,18 @@ In this example, the second and third sentences (underlined) have the same numbe
 <!-- solution:start -->
 
 ### Solution 1: Space Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words in a sentence are separated by spaces, so the word count is the number of spaces plus one. The total length is small enough to count spaces per sentence.
+>
+> There is no need to split into a list; take the maximum space count.
+>
+> The answer is $1+\max_s s.\texttt{count}(\text{' '})$.
+
+<!-- thinking:end -->
 
 We iterate through the array `sentences`. For each sentence, we count the number of spaces, then the number of words is the number of spaces plus $1$. Finally, we return the maximum number of words.
 

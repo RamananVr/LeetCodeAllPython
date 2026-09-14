@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md
 rating: 2395
 source: Weekly Contest 236 Q4
 tags:
@@ -83,6 +82,16 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set + Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the average of an $m$-length window after dropping the smallest and largest $k$ values, with frequent insertions. Sorting the window every time is $O(m\log m)$ and too slow.
+>
+> A queue stores insertion order. Three ordered multisets hold the lowest $k$, the middle segment, and the highest $k$, together with the middle sum $s$. After each insert or pop we move overflow elements so both ends have size $k$. The average is $s/(m-2k)$.
+
+<!-- thinking:end -->
 
 We can maintain the following data structures or variables:
 
@@ -169,7 +178,21 @@ class MKAverage:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Single Ordered Set + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 juggles three trees and their size invariants. A single ordered list of the window is enough: build it when the window first fills, then adjust $s$ by the rank of the inserted and deleted values. The structure is simpler and each update remains logarithmic.
+
+<!-- thinking:end -->
+
+Use a queue for insertion order and one ordered set for the current window of length $m$. When the window first becomes full, build the set and sum the middle segment after dropping the smallest and largest $k$ elements. Later insertions and deletions update that middle sum from the element's rank in the set.
+
+Unlike method 1, which partitions the window into three sets, this approach keeps a single ordered sequence.
+
+Each `addElement` call takes $O(\log m)$ time, and each `calculateMKAverage` call takes $O(1)$ time. The space complexity is $O(m)$.
 
 <!-- tabs:start -->
 

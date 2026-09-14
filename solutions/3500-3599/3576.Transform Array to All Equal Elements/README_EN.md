@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README_EN.md
 rating: 1489
 source: Weekly Contest 453 Q1
 tags:
@@ -77,6 +76,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping two adjacent signs is a adjacent transposition of minuses. The only reachable constant arrays are all $nums[0]$ or all $-nums[0]$.
+>
+> Scan left to right: if the current sign disagrees with the target, flip here (which inverts the rest) and increment the counter. Accept if the last element matches and the count is at most $k$. Try both targets.
+
+<!-- thinking:end -->
 
 According to the problem description, to make all elements in the array equal, all elements must be either $\textit{nums}[0]$ or $-\textit{nums}[0]$. Therefore, we design a function $\textit{check}$ to determine whether the array can be transformed into all elements equal to $\textit{target}$ with at most $k$ operations.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md
 rating: 1301
 source: Weekly Contest 351 Q1
 tags:
@@ -68,6 +67,16 @@ Thus, we return 2.
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count index pairs whose first and last digits are coprime. A double loop is acceptable for $n\le 100$, but it rereads every left first digit.
+>
+> Scan left to right. A length-$10$ counter stores first digits already seen. For the current last digit, add the counts of coprime first digits, then increment the current first digit.
+
+<!-- thinking:end -->
 
 We can use an array $\textit{cnt}$ of length $10$ to record the count of the first digit of each number.
 

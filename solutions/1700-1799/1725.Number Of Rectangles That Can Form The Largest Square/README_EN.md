@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1725.Number%20Of%20Rectangles%20That%20Can%20Form%20The%20Largest%20Square/README_EN.md
 rating: 1229
 source: Weekly Contest 224 Q1
 tags:
@@ -58,6 +57,16 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The largest square from a rectangle has side $\min(l,w)$. We need how many rectangles attain the global maximum side.
+>
+> One scan keeps the current maximum $mx$ and its count: reset on a larger side, increment on a tie. A second pass is unnecessary.
+
+<!-- thinking:end -->
 
 We define a variable $ans$ to record the count of squares with the current maximum side length, and another variable $mx$ to record the current maximum side length.
 

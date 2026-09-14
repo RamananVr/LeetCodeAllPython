@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0048.Rotate%20Image/README_EN.md
 tags:
     - Array
     - Math
@@ -51,6 +50,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: In-place Rotation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is a new matrix with $\textit{matrix}[j][n-1-i] \gets \textit{matrix}[i][j]$. Correct, $O(n^2)$ time and space. $n \le 20$ fits, but the problem requires in-place.
+>
+> The extra matrix is the bottleneck. A $90^\circ$ clockwise turn factors into two in-place flips: reverse upside-down, then transpose across the main diagonal.
+>
+> $(i, j)$ goes to $(n-1-i, j)$, then to $(j, n-1-i)$ — the target. Two rounds of swaps, $O(1)$ extra space.
+
+<!-- thinking:end -->
 
 According to the problem requirements, we need to rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.
 

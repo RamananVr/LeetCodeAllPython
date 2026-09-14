@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README_EN.md
 rating: 1983
 source: Biweekly Contest 44 Q2
 tags:
@@ -69,6 +68,18 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 <!-- solution:start -->
 
 ### Solution 1: Simulation + Statistics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may teach one language, and only friend pairs that currently cannot talk need help. Friendship is not transitive, so indirect links do not matter.
+>
+> Collect both endpoints of pairs whose language sets are disjoint; those people form the set $s$ we must consider.
+>
+> Count how many people in $s$ already know each language. Teaching the most frequent one costs $|s|$ minus that maximum.
+
+<!-- thinking:end -->
 
 For each friendship, if the sets of languages known by the two people do not intersect, we need to teach one language so that they can communicate. We add these people to a hash set $s$.
 

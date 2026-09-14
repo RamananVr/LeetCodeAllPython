@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3386.Button%20with%20Longest%20Push%20Time/README_EN.md
 rating: 1255
 source: Weekly Contest 428 Q1
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A press lasts the gap between consecutive events; the first button lasts its timestamp. With $n \le 1000$ one scan is enough.
+>
+> Keep the best duration and index; replace them when the duration is larger, or equal with a smaller index.
+>
+> Events are already sorted by time.
+
+<!-- thinking:end -->
 
 We define two variables $\textit{ans}$ and $t$, representing the index of the button with the longest press time and the press time, respectively.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README_EN.md
 rating: 2156
 source: Weekly Contest 197 Q4
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The geometric median minimizes the sum of Euclidean distances to the customers. The objective is differentiable in the plane but has no simple closed form. The instance is small enough for iterative approximation within $10^{-5}$.
+>
+> Start at the centroid and descend the gradient, which is the sum of unit vectors toward the clients. Decay the learning rate by $0.999$, and add a tiny term in the denominator to avoid division by zero on a client. Stop when both step components fall below $10^{-6}$, and return the current distance sum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

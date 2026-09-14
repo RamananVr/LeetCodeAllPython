@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3798.Largest%20Even%20Number/README_EN.md
 rating: 1365
 source: Weekly Contest 483 Q1
 tags:
@@ -74,6 +73,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string contains only `1` and `2`, so an even integer must end with `2`. Keeping every character maximizes the value, hence we strip trailing `1`s until a `2` remains; if none exists the result is empty.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

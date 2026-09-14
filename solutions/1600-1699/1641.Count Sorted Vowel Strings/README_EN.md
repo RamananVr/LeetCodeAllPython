@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md
 rating: 1519
 source: Weekly Contest 213 Q2
 tags:
@@ -63,6 +62,16 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A nondecreasing vowel string of length $n$ is a weakly sorted selection from five letters. $n$ is small, so search by “placed $i$ letters, last vowel index $j$”.
+>
+> $dfs(i,j)$ returns $1$ at $i=n$, otherwise sums $dfs(i+1,k)$ for $k \ge j$, memoized to reuse states.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -84,6 +93,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The 2-D state in Solution 1 collapses to counts ending at each vowel. The next length is a prefix sum of the previous counts.
+>
+> Roll a length-$5$ array, write prefix sums back, and sum it. Extra space is constant.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

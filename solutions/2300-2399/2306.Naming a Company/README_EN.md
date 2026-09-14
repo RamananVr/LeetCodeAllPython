@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md
 rating: 2305
 source: Weekly Contest 297 Q4
 tags:
@@ -77,6 +76,16 @@ The following are some examples of invalid selections:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid name swaps the first letters of two distinct ideas, and both results must be absent from the original set. Pairwise checks are $O(n^2)$ and fail for $n \le 5 \times 10^4$.
+>
+> There are only $26$ first letters; whether suffixes collide decides a swap. After storing ideas in a set, count $f[i][j]$: strings starting with letter $i$ whose first letter can become $j$ without hitting the set. A second pass adds $f[j][i]$ for each idea that may swap to $j$, counting pairs in $O(n|\Sigma|)$ time.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the number of strings in $\textit{ideas}$ that start with the $i$-th letter and, when replaced with the $j$-th letter, do not exist in $\textit{ideas}$. Initially, $f[i][j] = 0$. Additionally, we use a hash table $s$ to record the strings in $\textit{ideas}$, allowing us to quickly determine whether a string is in $\textit{ideas}$.
 

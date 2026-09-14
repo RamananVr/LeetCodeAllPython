@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md
 tags:
     - Union Find
     - Counting
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equality of categories is available only through $haveSameCategory(a,b)$; we want the number of distinct categories. Treating each index as its own class and merging is quadratic, which matches $n\le 100$.
+>
+> A disjoint-set union keeps known equals: query every pair and union on a yes. The number of roots that still point to themselves is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

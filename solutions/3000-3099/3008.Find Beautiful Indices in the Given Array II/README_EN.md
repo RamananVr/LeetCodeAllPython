@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md
 rating: 2016
 source: Weekly Contest 380 Q4
 tags:
@@ -80,6 +79,18 @@ Thus we return [0] as the result.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The problem is the same as part I, except $|a|$ and $|b|$ may be as large as $|s| \le 5 \times 10^5$. Naive matching and pairwise checks fail.
+>
+> KMP is linear for any pattern length, and the occurrence lists stay sorted, so the same KMP-plus-two-pointers scheme still works.
+>
+> The implementation matches part I: prefix functions, searches, then a scan of the two sorted lists.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md
 rating: 1325
 source: Weekly Contest 388 Q2
 tags:
@@ -75,6 +74,18 @@ The sum of the happiness values of the selected children is 5.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Selecting a child decreases every other remaining happiness by $1$ (not below $0$). $n \le 2 \times 10^5$ and we pick $k$.
+>
+> Later picks have been decremented more times, so we should take currently larger values first. The $i$-th pick contributes $\max(h-i,0)$.
+>
+> Sort decreasingly and sum that formula over the first $k$ children.
+
+<!-- thinking:end -->
 
 To maximize the sum of happiness values, we should prioritize selecting children with higher happiness values. Therefore, we can sort the children in descending order by happiness value, and then select $k$ children in sequence. For the current $i$-th child, the happiness value obtained is $\max(\textit{happiness}[i] - i, 0)$. Finally, return the sum of happiness values of these $k$ children.
 

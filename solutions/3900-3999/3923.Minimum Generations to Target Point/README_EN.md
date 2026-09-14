@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README_EN.md
 rating: 1883
 source: Biweekly Contest 182 Q3
 tags:
@@ -140,6 +139,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $20$ points and coordinates are at most $6$, yet expanding generations by pairing midpoints repeats many points. The map $\lfloor(a+b)/2\rfloor$ acts independently on each coordinate.
+>
+> In one dimension, $x$ is generable only if it lies in the convex hull of existing coordinates and clears the congruence obstruction created by integer division (low bits are discarded). The answer is the smallest $k$ that works in all three dimensions at once.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that per-axis analysis.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

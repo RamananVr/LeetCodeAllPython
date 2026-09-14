@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README_EN.md
 rating: 1926
 source: Weekly Contest 426 Q3
 tags:
@@ -82,6 +81,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We connect $i$ in the first tree to some $j$ in the second; targets are nodes within distance $k$. With $n,m \le 1000$ we may DFS from every start.
+>
+> After the new edge, $i$ contributes nodes at depth $\le k$, while $j$ has budget $k-1$. The second-tree quantity does not depend on $i$, so we take its global maximum.
+>
+> Compute $t$, the best depth-$(k-1)$ count in the second tree, then add the depth-$k$ count of each $i$ in the first tree.
+
+<!-- thinking:end -->
 
 According to the problem description, to maximize the number of target nodes for node $i$, we must connect node $i$ to one of the nodes $j$ in the second tree. Therefore, the number of target nodes for node $i$ can be divided into two parts:
 

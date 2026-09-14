@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2026.Low-Quality%20Problems/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,16 @@ Problems 7, 10, 11, and 13 are low-quality problems because their like percentag
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Quality is $likes/(likes+dislikes)$; we want ids strictly below $0.6$, sorted. No join or grouping is required.
+>
+> A single `WHERE` encodes the ratio and `ORDER BY problem_id` fixes the order.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

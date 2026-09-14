@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1061.Lexicographically%20Smallest%20Equivalent%20String/README_EN.md
 tags:
     - Union Find
     - String
@@ -79,6 +78,18 @@ So only the second letter &#39;o&#39; in baseStr is changed to &#39;d&#39;, the 
 <!-- solution:start -->
 
 ### Solution 1: Union Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equivalence is transitive. Each letter of $baseStr$ should become the smallest letter in its class. Twenty-six letters fit in a disjoint-set union.
+>
+> When uniting $s1[i]$ and $s2[i]$ we attach the larger root to the smaller one, so the representative is the lexicographically smallest character.
+>
+> Each character of $baseStr$ is replaced by its root.
+
+<!-- thinking:end -->
 
 We can use Union Find (Disjoint Set Union, DSU) to handle the equivalence relations between characters. Each character can be regarded as a node, and the equivalence relations can be seen as edges connecting these nodes. With Union Find, we can group all equivalent characters together and quickly find the representative element for each character during queries. When performing union operations, we always set the representative element to be the lexicographically smallest character. This ensures that the final string is the lexicographically smallest equivalent string.
 

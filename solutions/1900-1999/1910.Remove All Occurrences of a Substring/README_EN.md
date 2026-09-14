@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1910.Remove%20All%20Occurrences%20of%20a%20Substring/README_EN.md
 rating: 1460
 source: Biweekly Contest 55 Q2
 tags:
@@ -70,6 +69,18 @@ Now s has no occurrences of &quot;xy&quot;.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $s$ and $\textit{part}$ are at most $10^3$ long, so repeatedly locating and erasing one occurrence is acceptable.
+>
+> Each step replaces the leftmost $\textit{part}$. A later concatenation may recreate $\textit{part}$, so the loop continues until none remain.
+>
+> Every replacement shortens $s$, so the process terminates and matches the required leftmost-first order.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

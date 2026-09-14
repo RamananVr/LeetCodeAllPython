@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0006.Zigzag%20Conversion/README_EN.md
 tags:
     - String
 ---
@@ -73,6 +72,18 @@ P     I
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Drawing the 2D grid and reading by row is correct, but most cells are empty. $n \le 10^3$ would pass, yet the unused “column” dimension is wasted.
+>
+> Only the row of each character, and order within a row, affect the answer. The row index goes $0,1,\ldots,\textit{numRows}-1$ and then back, reversing at the top or bottom.
+>
+> So we keep $\textit{numRows}$ lists and flip a direction $k$ at the boundaries. $k$ starts at $-1$, so the first row immediately turns it downward. When $\textit{numRows}=1$, top and bottom are the same row; we must return $s$ as is, or the direction would bounce in place.
+
+<!-- thinking:end -->
 
 We use a 2D array $g$ to simulate the process of arranging the string in a zigzag pattern, where $g[i][j]$ represents the character at row $i$ and column $j$. Initially, $i = 0$. We also define a direction variable $k$, initially $k = -1$, which means moving upwards.
 

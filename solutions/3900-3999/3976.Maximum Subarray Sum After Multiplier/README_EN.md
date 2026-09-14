@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README_EN.md
 rating: 1981
 source: Weekly Contest 508 Q3
 tags:
@@ -84,6 +83,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray may multiply a contiguous piece by $k$, divide a contiguous piece by $k$, or do nothing. $n\le 10^5$ requires a linear decision among “not started / multiplying / dividing / already finished”.
+>
+> $f[i][j]$ is the best sum ending at $i$ in state $j$. Transitions start, continue, or finish the scaled segment, and a new segment may begin from $0$. The answer is the max over states.
+>
+> After rolling, space is constant and time is $O(n)$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the maximum subarray sum ending at $nums[i]$ with current state $j$. There are $4$ states for $j$:
 

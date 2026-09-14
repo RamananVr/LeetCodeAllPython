@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README_EN.md
 rating: 2042
 source: Weekly Contest 493 Q3
 tags:
@@ -71,6 +70,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix and Suffix Decomposition + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After changing at most one entry, find the longest contiguous arithmetic subarray. $n \le 10^5$ forbids expanding from every change.
+>
+> Without a change the longest run is a streak of equal adjacent differences. Changing $i$ may extend the left run, the right run, or join both on one common difference.
+>
+> Precompute arithmetic lengths $f,g$ ending or starting at $i$, then try each change in those three ways.
+>
+> Joining both sides requires $nums[i+1]-nums[i-1]$ even, and extra length is added only when that difference matches the neighboring runs.
+
+<!-- thinking:end -->
 
 We first compute the differences between adjacent elements of the array, stored as array $d$, where $d[i] = nums[i] - nums[i - 1]$.
 

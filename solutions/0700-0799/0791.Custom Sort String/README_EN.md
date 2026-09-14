@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0791.Custom%20Sort%20String/README_EN.md
 tags:
     - Hash Table
     - String
@@ -65,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reorder $s$ by the relative order in $order$. Sorting by the index in $order$ does that.
+>
+> Missing letters get key $0$ and gather at the front, which is allowed.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -83,6 +92,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting is $n\log n$. Count $s$, emit each $order$ character that many times, then append the rest. Linear.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

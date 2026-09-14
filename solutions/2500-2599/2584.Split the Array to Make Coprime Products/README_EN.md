@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README_EN.md
 rating: 2159
 source: Weekly Contest 335 Q3
 tags:
@@ -67,6 +66,16 @@ There is no valid split.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the leftmost $i$ such that the prefix product is coprime to the suffix product. The products overflow; coprimality means the two sides share no prime.
+>
+> The first and last occurrences of each prime must lie on the same side of the cut. Record the first index of every prime and extend that index's cover to the last occurrence. Scan these covers: if the running right end ends before index $i$, $i-1$ is a valid split.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

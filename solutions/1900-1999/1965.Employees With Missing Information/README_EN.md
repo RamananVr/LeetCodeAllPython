@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README_EN.md
 tags:
     - Database
 ---
@@ -96,6 +95,16 @@ The salary of employee 2 is missing.
 <!-- solution:start -->
 
 ### Solution 1: Subquery + Union
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Missing information means an id appears in only one of the two tables. We take both anti-joins and sort.
+>
+> $\texttt{NOT IN}$ subqueries collect ids only in $\texttt{Employees}$ or only in $\texttt{Salaries}$; $\texttt{UNION}$ and $\texttt{ORDER BY}$ finish the result.
+
+<!-- thinking:end -->
 
 We can first find all `employee_id` that are not in the `Salaries` table from the `Employees` table, and then find all `employee_id` that are not in the `Employees` table from the `Salaries` table. Finally, we can combine the two results using the `UNION` operator, and sort the result by `employee_id`.
 

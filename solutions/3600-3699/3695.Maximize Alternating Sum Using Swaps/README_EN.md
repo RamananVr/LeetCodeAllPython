@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README_EN.md
 rating: 1984
 source: Biweekly Contest 166 Q4
 tags:
@@ -89,6 +88,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The alternating sum is even indices minus odd indices. Allowed swaps make values interchangeable inside a connected component of indices.
+>
+> Union-find builds those components. In a component with $e$ even indices, assign the $e$ largest values to even positions and the rest to odd ones.
+>
+> Components are independent; the total is the maximum alternating sum. A sort (or a selection of the $e$-th largest) implements the assignment.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

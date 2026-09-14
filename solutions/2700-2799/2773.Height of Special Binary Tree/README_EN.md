@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2773.Height%20of%20Special%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -78,6 +77,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In this special tree a leaf’s two children point at each other; we want the height. An ordinary DFS would cycle at a leaf.
+>
+> Descend to the left child only when $left.right$ is not the current node, and to the right child only when $right.left$ is not. That skips the crossing edges on leaves while the depth updates the height.
+
+<!-- thinking:end -->
 
 The key to the problem is how to determine whether a node is a leaf node. We design a function $dfs(root, d)$, where $root$ represents the current node, and $d$ represents the depth of the current node. Each time we search, we update the answer $ans = \max(ans, d)$, and then determine whether the current node is a leaf node. If the current node has a left child, and the right child of the left child is not the current node, then we recursively call $dfs(root.left, d + 1)$. If the current node has a right child, and the left child of the right child is not the current node, then we recursively call $dfs(root.right, d + 1)$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md
 rating: 1184
 source: Weekly Contest 329 Q1
 tags:
@@ -74,6 +73,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alternate signs from the most significant digit. There are few digits: convert to a decimal string and weight each index by its parity.
+
+<!-- thinking:end -->
+
 We can directly simulate the process as described in the problem.
 
 We define an initial symbol $sign=1$. Starting from the most significant digit, we take out one digit $x$ each time, multiply it by $sign$, add the result to the answer, then negate $sign$, and continue to process the next digit until all digits are processed.
@@ -97,6 +104,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 builds the sign as $(-1)^i$. A running $\textit{sign}$ flipped between $+1$ and $-1$ avoids exponentiation and yields the same sum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README_EN.md
 rating: 2095
 source: Biweekly Contest 177 Q3
 tags:
@@ -97,6 +96,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $\pm 1$ changes one entry so adjacent parities alternate, and among minimum-move arrays we minimize the range. $n \le 10^5$.
+>
+> Only two patterns exist: even indices even, or even indices odd. In each pattern a mismatched entry needs one move, independent of the sign.
+>
+> To keep the range small, a mismatch that is already the global min can only go up, a global max only down; other signs do not create new extrema beyond those.
+>
+> Evaluate $(\textit{moves},\textit{range})$ for both patterns and take the lexicographically smaller; a singleton needs nothing.
+
+<!-- thinking:end -->
 
 We can try to transform the array into two different parity-alternating forms: one where even numbers are at even indices and odd numbers are at odd indices, and another where odd numbers are at even indices and even numbers are at odd indices.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0941.Valid%20Mountain%20Array/README_EN.md
 tags:
     - Array
 ---
@@ -54,6 +53,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mountain strictly rises then strictly falls, and needs length at least $3$. Walk inward from both ends until the sequence stops rising or falling; the two peaks must meet and cannot sit on an endpoint. Each pointer moves once.
+
+<!-- thinking:end -->
 
 First, we check if the length of the array is less than $3$. If it is, then it definitely is not a mountain array, so we return `false` directly.
 

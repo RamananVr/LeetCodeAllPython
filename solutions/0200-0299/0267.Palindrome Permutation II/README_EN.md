@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0267.Palindrome%20Permutation%20II/README_EN.md
 tags:
     - Hash Table
     - String
@@ -43,6 +42,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> First check that at most one character has an odd count. Keep that character (if any) as the center and grow pairs outward.
+>
+> $dfs(t)$ picks a letter that still has two copies, wraps it around $t$, and stops when the length matches $s$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

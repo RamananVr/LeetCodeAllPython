@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md
 rating: 3124
 source: Weekly Contest 475 Q4
 tags:
@@ -87,6 +86,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is circular and we may use at most $k$ segments; the score is the sum of $\max-\min$ over segments. With $n\le 1000$ we can cut the cycle at each start, then run an interval DP that partitions the linear array into at most $k$ pieces maximizing the sum of ranges.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

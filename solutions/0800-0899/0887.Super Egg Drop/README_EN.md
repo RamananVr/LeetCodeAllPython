@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0887.Super%20Egg%20Drop/README_EN.md
 tags:
     - Math
     - Binary Search
@@ -67,6 +66,16 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $k$ eggs and $n$ floors, minimize the worst-case drops. A cubic enumeration of the drop floor is heavy. For a fixed egg count the worst-case cost is monotone in the floor, so there is a floor that balances the break / survive subproblems.
+>
+> $dfs(i,j)$ is $i$ floors and $j$ eggs. Binary-search the drop floor by comparing the two branches, then add one. One floor or one egg has a closed form.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -101,6 +110,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same transition fills $f[i][j]$ by floors and eggs, without recursion. One egg gives $f[i][1]=i$.
+>
+> The inner loop still binary-searches the balancing floor. The answer is $f[n][k]$, same asymptotics, flatter constants.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

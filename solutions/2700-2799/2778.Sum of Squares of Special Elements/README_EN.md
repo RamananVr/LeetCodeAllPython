@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README_EN.md
 rating: 1151
 source: Weekly Contest 354 Q1
 tags:
@@ -57,6 +56,16 @@ Hence, the sum of the squares of all special elements of nums is nums[1] * nums[
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special element is one whose $1$-based index divides $n$; we want the sum of their squares. Collecting the indices first is unnecessary.
+>
+> Enumerate $i=1..n$ and add $nums[i-1]^2$ whenever $n\bmod i=0$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

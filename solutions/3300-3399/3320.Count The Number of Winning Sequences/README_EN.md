@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README_EN.md
 rating: 2153
 source: Weekly Contest 419 Q3
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $|s| \le 1000$ and three creatures per turn (distinct from the previous one), enumerating sequences is impossible. The state is the turn, the score gap, and Bob's last creature.
+>
+> If the remaining turns cannot overtake Alice, the state is $0$. The gap may be negative; Python can index it directly, other languages shift by $n$.
+>
+> $\textit{dfs}(i,j,k)$ tries each creature other than $k$, updates the gap from the round outcome, and adds the results modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}(i, j, k)$, where $i$ represents starting from the $i$-th character of the string $s$, $j$ represents the current score difference between $\textit{Alice}$ and $\textit{Bob}$, and $k$ represents the last creature summoned by $\textit{Bob}$. The function calculates how many sequences of moves $\textit{Bob}$ can make to defeat $\textit{Alice}$.
 

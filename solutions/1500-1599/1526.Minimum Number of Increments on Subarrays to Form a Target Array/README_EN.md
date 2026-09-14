@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README_EN.md
 rating: 1872
 source: Biweekly Contest 31 Q4
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation increments a contiguous range; we must turn zeros into $target$. Both $n$ and $target[i]$ can be $10^5$, so building the array layer by layer is impossible.
+>
+> An increment covering $[i,j]$ contributes to the prefix $target[0..i]$ only when $target[i]$ exceeds its left neighbor. Hence $f[i]=f[i-1]+\max(0,target[i]-target[i-1])$ with $f[0]=target[0]$. The recurrence depends on the previous value alone, so a scan of adjacent rises is enough.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the minimum number of operations required to obtain $target[0,..i]$, initially setting $f[0] = target[0]$.
 

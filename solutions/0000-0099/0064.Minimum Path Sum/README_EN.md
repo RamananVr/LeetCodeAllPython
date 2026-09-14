@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -53,6 +52,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to enumerate every path from the top left to the bottom right and take the smallest sum. $m, n \le 200$, so the number of paths is exponential.
+>
+> The bottleneck is recomputing overlapping prefixes. We may only move right or down, so the optimum into $(i, j)$ is the better of the cell above and the cell to the left, plus the current value.
+>
+> Store that minimum in $f[i][j]$: the borders accumulate along a single edge; the interior takes a $\min$ then adds $\textit{grid}[i][j]$. Fill by rows; the bottom-right cell is the answer.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the minimum path sum from the top left corner to $(i, j)$. Initially, $f[0][0] = grid[0][0]$, and the answer is $f[m - 1][n - 1]$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md
 rating: 1192
 source: Weekly Contest 357 Q1
 tags:
@@ -71,6 +70,14 @@ Therefore, we return &quot;ponter&quot;.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each `i` reverses the current screen text. With a modest $n$, a list that appends and reverses in place is enough; a deque is unnecessary for this constraint.
+
+<!-- thinking:end -->
 
 We directly simulate the keyboard input process, using a character array $t$ to record the text on the screen, initially $t$ is empty.
 

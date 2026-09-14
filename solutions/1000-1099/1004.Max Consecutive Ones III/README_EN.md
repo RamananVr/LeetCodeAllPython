@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md
 rating: 1655
 source: Weekly Contest 126 Q3
 tags:
@@ -55,6 +54,18 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every subarray for its number of zeros is $O(n^2)$, which fails for $n\le 10^5$. Flipping at most $k$ zeros to maximize consecutive ones is the same as the longest window that contains at most $k$ zeros.
+>
+> When the right end advances and the zero count exceeds $k$, the left end must advance to restore feasibility. Only the maximum length is required, so the window is allowed to grow monotonically: the left end moves at most one step per iteration.
+>
+> We keep $l$ and $\textit{cnt}$ for the current window. After the right end visits every index, $n-l$ is the length of the longest feasible window.
+
+<!-- thinking:end -->
 
 We can iterate through the array, using a variable $\textit{cnt}$ to record the current number of 0s in the window. When $\textit{cnt} > k$, we move the left boundary of the window to the right by one position.
 

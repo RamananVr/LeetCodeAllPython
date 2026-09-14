@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README_EN.md
 rating: 1281
 source: Weekly Contest 333 Q1
 tags:
@@ -75,6 +74,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merge two $id$-sorted lists of pairs, adding values that share an $id$. A two-pointer merge works, but ids are at most $1000$, so a counter plus a sort of its items is enough.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array `cnt` to count the frequency of each number in the two arrays.
 

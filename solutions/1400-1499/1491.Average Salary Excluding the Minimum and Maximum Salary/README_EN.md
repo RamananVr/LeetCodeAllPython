@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1491.Average%20Salary%20Excluding%20the%20Minimum%20and%20Maximum%20Salary/README_EN.md
 rating: 1201
 source: Biweekly Contest 29 Q1
 tags:
@@ -56,6 +55,14 @@ Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and salaries are unique. Subtract the min and max from the sum and divide by $n-2$.
+
+<!-- thinking:end -->
 
 Simulate according to the problem's requirements.
 

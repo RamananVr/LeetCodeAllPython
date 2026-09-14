@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0178.Rank%20Scores/README_EN.md
 tags:
     - Database
 ---
@@ -78,6 +77,14 @@ Scores table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rank scores descending: ties share a rank and the next rank is consecutive. $\textit{RANK}$ leaves gaps after ties; $\textit{ROW\_NUMBER}$ splits them. $\textit{DENSE\_RANK}$ is the ranking we want; then order by score descending.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -112,6 +119,14 @@ FROM Scores;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs window functions, which older MySQL lacks. Scan scores descending with variables for the previous score and current rank: increment only when the score changes. That is a hand-rolled dense rank.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

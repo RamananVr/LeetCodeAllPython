@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md
 rating: 1979
 source: Weekly Contest 243 Q3
 tags:
@@ -77,6 +76,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Priority Queue (Min-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tasks arrive at times $0,1,2,\ldots$. A free server with the smallest weight (then smallest index) is chosen; if none is free we wait for the earliest one. Scanning all servers per task is too slow.
+>
+> An idle heap stores $(\textit{weight},\textit{index})$; a busy heap stores $(\textit{free time},\textit{weight},\textit{index})$. At task $j$ move finished servers back, or if none are idle take the earliest busy server and chain the new task onto it.
+
+<!-- thinking:end -->
 
 We use a min-heap $\textit{idle}$ to maintain all idle servers, where each element is a tuple $(x, i)$ representing the $i$-th server with weight $x$. We use another min-heap $\textit{busy}$ to maintain all busy servers, where each element is a tuple $(w, s, i)$ representing the $i$-th server that will be idle at time $w$ with weight $s$. Initially, we add all servers to $\textit{idle}$.
 

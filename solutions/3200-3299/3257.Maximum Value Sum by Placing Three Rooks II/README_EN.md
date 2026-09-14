@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3257.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20II/README_EN.md
 rating: 2553
 source: Biweekly Contest 137 Q4
 tags:
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same as I, but the side length is $500$, so even a few candidates per row make row-triple enumeration tight. We further keep top cells per column, or enumerate only globally large cells.
+>
+> The rooks still need distinct rows and columns; candidates come from the top few of each row or column. There is no implementation in the tree yet; the reasoning is to shrink candidates, then check conflicts.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

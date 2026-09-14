@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1475.Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop/README_EN.md
 rating: 1212
 source: Biweekly Contest 28 Q1
 tags:
@@ -67,6 +66,14 @@ For items 3 and 4 you will not receive any discount at all.
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The discount is the next price to the right that is at most the current one. $n\le 500$ would allow a double loop; a monotonic stack finds the next smaller-or-equal in linear time. Scan right to left on an increasing stack and subtract in place.
+
+<!-- thinking:end -->
 
 The problem is essentially to find the first element on the right side that is smaller than each element. We can use a monotonic stack to solve this.
 

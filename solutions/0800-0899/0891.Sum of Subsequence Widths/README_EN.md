@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README_EN.md
 tags:
     - Array
     - Math
@@ -55,6 +54,16 @@ The sum of these widths is 6.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum widths of all subsequences. There are $2^n$ of them and $n\le 10^5$, so we cannot enumerate. A width depends only on min and max; after sorting, $nums[i]$ is the max of $2^i$ subsequences and the min of $2^{n-1-i}$.
+>
+> One sorted pass accumulates $(v-\textit{nums}[n-1-i])\cdot 2^i$ while rolling the power of two, then reduces modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

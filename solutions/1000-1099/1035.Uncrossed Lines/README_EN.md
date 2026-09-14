@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1035.Uncrossed%20Lines/README_EN.md
 rating: 1805
 source: Weekly Contest 134 Q3
 tags:
@@ -70,6 +69,18 @@ We cannot draw 3 uncrossed lines, because the line from nums1[1] = 4 to nums2[2]
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Non-crossing equal pairs are a common subsequence, so the problem is LCS. $m,n\le 500$ admits an $O(mn)$ table.
+>
+> $f[i][j]$ is the best score of the two prefixes: equal last elements take $f[i-1][j-1]+1$, otherwise the better of dropping one side.
+>
+> The answer is $f[m][n]$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the maximum number of connections between the first $i$ numbers of $\textit{nums1}$ and the first $j$ numbers of $\textit{nums2}$. Initially, $f[i][j] = 0$, and the answer is $f[m][n]$.
 

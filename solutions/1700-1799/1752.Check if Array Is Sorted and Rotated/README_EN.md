@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1752.Check%20if%20Array%20Is%20Sorted%20and%20Rotated/README_EN.md
 rating: 1324
 source: Weekly Contest 227 Q1
 tags:
@@ -64,6 +63,16 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A nondecreasing array rotated at most once has at most one descent on the circle ($nums[i-1]>nums[i]$ with wrap-around).
+>
+> Count those descents in one pass; the array is valid iff the count is at most $1$.
+
+<!-- thinking:end -->
 
 To satisfy the problem's requirement, there can be at most one element in array $\textit{nums}$ whose value is greater than the next element, i.e., $nums[i] \gt nums[i + 1]$. If there are more than one such elements, then array $\textit{nums}$ cannot be obtained by rotation.
 

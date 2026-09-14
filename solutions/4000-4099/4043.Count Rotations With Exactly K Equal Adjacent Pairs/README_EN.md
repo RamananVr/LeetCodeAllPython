@@ -1,7 +1,8 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4043.Count%20Rotations%20With%20Exactly%20K%20Equal%20Adjacent%20Pairs/README_EN.md
+rating: 1209
+source: Weekly Contest 518 Q1
 ---
 
 <!-- problem:start -->
@@ -78,6 +79,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4043.Co
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cyclic left shift changes only the adjacent pairs at the two ends; equalities in the middle stay. Rebuilding the string for every rotation would be quadratic.
+>
+> Compute the score of the original string, then in $O(1)$ subtract the lost head pair and add the new tail pair, counting how often the score equals $k$.
+>
+> Indices modulo $n$ let all $n$ rotations run on the original string.
+
+<!-- thinking:end -->
 
 Let $n$ be the length of the string. First compute the score of the original string $s$, i.e. the number of indices $i$ such that $s[i] = s[i + 1]$ ($0 \leq i < n - 1$). If $\textit{score} = k$, increment the answer by $1$.
 

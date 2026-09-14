@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README_EN.md
 rating: 1556
 source: Weekly Contest 490 Q3
 tags:
@@ -85,6 +84,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may reorder $t$ to maximize the integer $s \oplus t$. $s$ is fixed, so a $1$ in a higher bit is better.
+>
+> Bit $i$ becomes $1$ if we still have a $t$ character opposite $s[i]$. Those opposite characters should be spent on the leftmost bits.
+>
+> Count $0$s and $1$s in $t$. Left to right, spend an opposite character when one remains; otherwise spend a matching one and leave a $0$.
+>
+> Greedy consumption prefers $1$s in high positions.
+
+<!-- thinking:end -->
 
 We use an array $\textit{cnt}$ of length $2$ to count the number of character '0' and character '1' in string $t$.
 

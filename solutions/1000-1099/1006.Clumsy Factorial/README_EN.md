@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md
 rating: 1407
 source: Weekly Contest 127 Q2
 tags:
@@ -67,6 +66,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Applying $\times,\div,+, -$ from $n$ downward matches the definition, but multiplication and division bind tighter than addition and subtraction, so a left-to-right running total is wrong. $N\le 10^4$ allows a linear scan; the issue is separating the priorities.
+>
+> Multiplication and division must combine with the previous operand immediately. Addition and subtraction only contribute signed terms and can wait until the end.
+>
+> A stack stores pending terms and $k\bmod 4$ cycles the four operators: $\times$ and $\div$ replace the top, $+$ and $-$ push $x$ or $-x$, and the answer is the sum of the stack.
+
+<!-- thinking:end -->
 
 The calculation process of clumsy factorial can be seen as a simulation of a stack.
 

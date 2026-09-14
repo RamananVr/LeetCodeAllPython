@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2680.Maximum%20OR/README_EN.md
 rating: 1912
 source: Biweekly Contest 104 Q3
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Preprocessing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may left-shift numbers a total of $k$ times to maximize the bitwise OR. Spreading shifts splits high bits; giving all $k$ shifts to one value is optimal.
+>
+> When $nums[i]$ is the boosted value, the rest is its prefix OR and suffix OR. A precomputed $suf$ lets one scan try every index.
+
+<!-- thinking:end -->
 
 We notice that in order to maximize the answer, we should apply $k$ times of bitwise OR to the same number.
 

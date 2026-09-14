@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README_EN.md
 tags:
     - Geometry
     - Array
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each virus grows in Manhattan distance; we want the first day some cell meets $k$ of them. $n\le 50$ allows binary search on the day.
+>
+> Day $t$ yields diamonds of radius $t$. Whether a point lies in at least $k$ diamonds can be tested after rotating to $(x+y,x-y)$ via a sweep or by enumerating intersection candidates.
+>
+> Binary-search the least $t$; each check is affordable for this $n$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

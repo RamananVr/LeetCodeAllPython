@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1179.Reformat%20Department%20Table/README_EN.md
 tags:
     - Database
 ---
@@ -71,6 +70,14 @@ Note that the result table has 13 columns (1 for the department id + 12 for the 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Month-per-row revenue must become one row per department with twelve columns. `GROUP BY id` and `SUM(CASE month WHEN ...)` picks that month's revenue; at most one row per month makes `SUM` the value, or `NULL` if missing.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

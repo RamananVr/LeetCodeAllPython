@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md
 rating: 1197
 source: Weekly Contest 388 Q1
 tags:
@@ -61,6 +60,18 @@ It is possible to distribute the apples as the total capacity is greater than or
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Apples may be reboxed arbitrarily; we want the fewest boxes. $n,m \le 50$.
+>
+> Only the sum of capacities versus the total number of apples matters. Larger boxes reach that sum sooner.
+>
+> Sort capacities decreasingly, subtract from the apple total, and return how many boxes were used.
+
+<!-- thinking:end -->
 
 To minimize the number of boxes needed, we should prioritize using boxes with larger capacities. Therefore, we can sort the boxes in descending order of capacity, and then use the boxes one by one until all the apples are packed. We return the number of boxes used at this point.
 

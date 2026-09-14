@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md
 tags:
     - Array
     - Math
@@ -83,6 +82,16 @@ It can be shown that choosing any 2 triangles and running the algorithm will not
 <!-- solution:start -->
 
 ### Solution 1: Find the Pattern
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must color as few cells as possible so every white triangle has two red sides. The triangle has $O(n^2)$ cells for $n \le 1000$, so search is impossible.
+>
+> Drawings show the top cell is always red, and every four rows from the bottom repeat a sparse pattern. Emit coordinates from row $n$ down to row $2$ on that cycle.
+
+<!-- thinking:end -->
 
 We draw a graph to observe, and we can find that the first row only has one triangle and must be colored, and from the last row to the second row, the coloring scheme of every four rows is the same:
 

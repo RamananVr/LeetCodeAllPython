@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README_EN.md
 tags:
     - Bit Manipulation
     - Interactive
@@ -47,6 +46,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\texttt{commonBits}(x)$ XORs $n$ with $x$ and then returns the number of shared $1$-bits. Each query permanently changes $n$.
+>
+> Querying the same $x$ twice restores $n$. Comparing the two answers tells whether that bit was originally $1$: a decrease on the second call means it started as $1$.
+>
+> For every bit we query $1\ll i$ twice and set the bit when the first count is larger.
+
+<!-- thinking:end -->
 
 Based on the problem description, we observe that:
 

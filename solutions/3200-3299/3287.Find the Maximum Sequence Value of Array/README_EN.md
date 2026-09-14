@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3287.Find%20the%20Maximum%20Sequence%20Value%20of%20Array/README_EN.md
 rating: 2545
 source: Biweekly Contest 139 Q3
 tags:
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Prefix and Suffix Decomposition + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick $k$ values from a prefix and $k$ from the complementary suffix; maximize OR XOR OR. $n\le 400$, $k\le n/2$, values $<128$, so subset-OR DP at a cut is feasible.
+>
+> $f[i][j][x]$ is whether $j$ elements among the first $i$ can OR to $x$; $g$ is the suffix analogue. At each cut $i\in[k,n-k]$ enumerate reachable $x,y$ and update $x\oplus y$. The $2^7$ universe keeps the tables small.
+
+<!-- thinking:end -->
 
 We consider dividing the sequence into two parts, the first $k$ elements and the last $k$ elements, and calculate all possible XOR values for the prefixes and suffixes.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -51,6 +50,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Depth is the number of nodes on the longest root-to-leaf path. Level-order counting of layers works, and $n \le 10^4$ is fine. A tree is recursive: the depth is one plus the larger of the two subtree depths, and the empty tree has depth $0$. Recurse on both children and take the max.
+
+<!-- thinking:end -->
 
 Recursively traverse the left and right subtrees, calculate the maximum depth of the left and right subtrees, and then take the maximum value plus $1$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0639.Decode%20Ways%20II/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -85,6 +84,16 @@ Hence, there are a total of (6 * 2) + (3 * 1) = 12 + 3 = 15 ways to decode &quot
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `*` expands one-digit and two-digit decodings. Length $10^5$ rules out backtracking.
+>
+> The same linear DP applies: the count depends on the previous two states. Casework on `*` versus digits adds the one- and two-digit contributions; three rolling variables suffice.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README_EN.md
 rating: 1593
 source: Weekly Contest 482 Q3
 tags:
@@ -74,6 +73,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation + Modulo Operation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An all-ones integer is never a multiple of an even $k$. Otherwise the remainder evolves as $x\leftarrow 10x+1\pmod k$. There are only $k$ remainders, so a zero remainder yields the number of digits, and $k$ unsuccessful steps imply no such integer.
+
+<!-- thinking:end -->
 
 First, if $k$ is even, there is no valid $n$ that satisfies the condition, so we directly return $-1$.
 

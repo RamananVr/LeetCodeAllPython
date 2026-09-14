@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3673.Find%20Zombie%20Sessions/README_EN.md
 tags:
     - Database
 ---
@@ -150,6 +149,18 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
 <!-- solution:start -->
 
 ### Solution 1: Grouped Aggregation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zombie session is defined by duration, scroll count, click-to-scroll ratio, and the absence of a purchase. Aggregate by $(\textit{session\_id},\textit{user\_id})$.
+>
+> Duration is the minute difference between the last and first timestamps; the three event types are counted separately.
+>
+> Keep sessions of at least $30$ minutes, at least five scrolls, a click ratio below $0.2$, and no purchase, ordered by scrolls descending then session id.
+
+<!-- thinking:end -->
 
 We can group the sessions by session_id, calculate the session duration, the number of scroll events, click events, and purchase events for each session, then filter according to the conditions given in the problem. Finally, we sort by the number of scroll events in descending order and by session ID in ascending order.
 

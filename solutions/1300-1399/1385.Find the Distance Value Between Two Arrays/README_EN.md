@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1385.Find%20the%20Distance%20Value%20Between%20Two%20Arrays/README_EN.md
 rating: 1234
 source: Biweekly Contest 22 Q1
 tags:
@@ -77,6 +76,14 @@ For arr1[2]=8 we have:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count values in $arr1$ whose distance to every entry of $arr2$ exceeds $d$. A double scan is $O(mn)$. After sorting $arr2$, $x$ is valid iff nothing lies in $[x-d,x+d]$: the first index $\ge x-d$ is either past the end or already greater than $x+d$.
+
+<!-- thinking:end -->
 
 We can first sort the array $\textit{arr2}$, and then for each element $x$ in the array $\textit{arr1}$, use binary search to find the first element in the array $\textit{arr2}$ that is greater than or equal to $x - d$. If such an element exists and is less than or equal to $x + d$, it does not meet the distance requirement. Otherwise, it meets the distance requirement. We count the number of elements that meet the distance requirement, which is the answer.
 

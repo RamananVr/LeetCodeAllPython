@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0839.Similar%20String%20Groups/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Similarity (at most two mismatched positions) is transitive, so the answer is the number of connected components. $n\le 300$ allows pairwise checks plus union-find.
+>
+> Strings are anagrams of each other, so we only count mismatches: at most two means an edge. Each successful union decreases the component count.
+
+<!-- thinking:end -->
 
 We can enumerate any two strings $s$ and $t$ in the list of strings. Since $s$ and $t$ are anagrams, if the number of differing characters at corresponding positions between $s$ and $t$ does not exceed $2$, then $s$ and $t$ are similar. We can use the union-find data structure to merge $s$ and $t$. If the merge is successful, the number of similar string groups decreases by $1$.
 

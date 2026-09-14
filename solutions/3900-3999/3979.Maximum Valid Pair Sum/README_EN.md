@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README_EN.md
 rating: 1328
 source: Biweekly Contest 186 Q2
 tags:
@@ -84,6 +83,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid pair needs index gap at least $k$. For a right end $j\ge k$ the left end is at most $j-k$, so we only need the maximum on $[0,j-k]$.
+>
+> That window grows monotonically with $j$: a running $x$ absorbs $\textit{nums}[j-k]$ and $x+\textit{nums}[j]$ updates the answer.
+>
+> The scan is $O(n)$; the left side is never rescanned.
+
+<!-- thinking:end -->
 
 For a valid pair $(i, j)$, we require $j - i \geq k$, i.e., $i \leq j - k$. We enumerate the right endpoint $j$ starting from $k$. For each $j$, the maximum left endpoint is $j - k$. We maintain the maximum value $x$ of $\textit{nums}[i]$ in the range $[0, j - k]$, and update the answer with $x + \textit{nums}[j]$.
 

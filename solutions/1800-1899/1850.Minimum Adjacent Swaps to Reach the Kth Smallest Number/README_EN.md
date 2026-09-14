@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README_EN.md
 rating: 2073
 source: Weekly Contest 239 Q3
 tags:
@@ -87,6 +86,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Find Next Permutation + Inversion Pairs
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We first obtain the $k$-th next permutation, then ask how many adjacent swaps turn the original string into it. Repeated digits mean we cannot treat positions as an arbitrary permutation.
+>
+> Apply next-permutation $k$ times to get $s$. Record the original indices of each digit in order, then assign them greedily while reading $s$. The number of adjacent swaps equals the number of inversions of that index sequence.
+
+<!-- thinking:end -->
 
 We can call the `next_permutation` function $k$ times to get the $k$th smallest permutation $s$.
 

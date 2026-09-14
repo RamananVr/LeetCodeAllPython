@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3024.Type%20of%20Triangle/README_EN.md
 rating: 1134
 source: Biweekly Contest 123 Q1
 tags:
@@ -66,6 +65,18 @@ As all the sides are of different lengths, it will form a scalene triangle.
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Case Discussion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three side lengths are given and tiny. We first test the triangle inequality, then distinguish equilateral, isosceles, and scalene.
+>
+> After sorting, the inequality is $a+b>c$; equilateral is $\min=\max$; isosceles is any adjacent pair equal.
+>
+> Sort, then branch in that order.
+
+<!-- thinking:end -->
 
 First, we sort the array, and then we can classify and discuss according to the definition of a triangle.
 

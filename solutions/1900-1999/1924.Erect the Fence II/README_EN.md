@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md
 tags:
     - Geometry
     - Array
@@ -62,6 +61,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The fence is the minimum enclosing circle of the points. Trying every pair or triple is $O(n^3)$ and tight for $n\le 3000$.
+>
+> The circle is defined by two diametral points or three boundary points. Welzl's randomized incremental construction is expected linear: a new point inside the current circle changes nothing, otherwise it must lie on the next boundary and the instance shrinks.
+>
+> Shuffle the points, maintain the current center and radius, and keep the error within the allowed $10^{-5}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

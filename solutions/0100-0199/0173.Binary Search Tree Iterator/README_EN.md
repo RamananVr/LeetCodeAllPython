@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README_EN.md
 tags:
     - Stack
     - Tree
@@ -78,6 +77,14 @@ bSTIterator.hasNext(); // return False
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inorder on a BST is sorted. Up to $10^5$ nodes and as many calls. A full inorder into an array makes $\textit{next}/\textit{hasNext}$ a cursor move — amortized $O(1)$ — but $O(n)$ space. The follow-up wants $O(h)$ memory.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -122,6 +129,14 @@ class BSTIterator:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 flattens the whole tree. An explicit stack simulates inorder: push the left spine at init; $\textit{next}$ pops, then pushes the left spine of the right child. At most $h$ nodes sit on the stack, and each node is pushed and popped once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

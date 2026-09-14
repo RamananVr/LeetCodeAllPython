@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1741.Find%20Total%20Time%20Spent%20by%20Each%20Employee/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,16 @@ Employee 2 has two events: one on day 2020-11-28 with a total of (33 - 3) = 30, 
 <!-- solution:start -->
 
 ### Solution 1: Group By + Sum Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is an in/out pair. We need total office time per employee per day.
+>
+> Group by $\textit{event\_day}$ and $\textit{emp\_id}$ and sum $\textit{out\_time}-\textit{in\_time}$.
+
+<!-- thinking:end -->
 
 We can first group by `emp_id` and `event_day`, and then calculate the total time for each group. The total time is equal to the sum of the differences between `out_time` and `in_time` for each record in the group.
 

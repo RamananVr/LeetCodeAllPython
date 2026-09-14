@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/README_EN.md
 tags:
     - Depth-First Search
     - Linked List
@@ -102,6 +101,18 @@ After flattening the multilevel linked list it becomes:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flattening a multilevel list is a preorder walk: child before the original next. Walking next first would append the child list at the very end.
+>
+> $\textit{preorder}(\textit{pre},\textit{cur})$ links the current node after its predecessor, saves the old next, flattens the child (the returned tail becomes the new predecessor), then flattens the saved next and clears $\textit{child}$.
+>
+> A dummy node holds the head; afterwards the real head's $\textit{prev}$ is cleared. The original next must be saved before the child walk overwrites it.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README_EN.md
 tags:
     - Trie
     - String
@@ -105,6 +104,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only ten number words, all short. Scanning left to right, if the current position matches a word we append its digit and skip that length; otherwise we advance by one. With $n\le 10^5$, trying the ten words at each index is enough.
+
+<!-- thinking:end -->
 
 We first establish a mapping relationship between number words and their corresponding digits, recorded in array $d$, where $d[i]$ represents the word corresponding to digit $i$.
 

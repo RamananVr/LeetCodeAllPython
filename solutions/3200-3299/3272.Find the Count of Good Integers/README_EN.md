@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README_EN.md
 rating: 2382
 source: Biweekly Contest 138 Q3
 tags:
@@ -87,6 +86,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Combinatorics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good integer is an $n$-digit number whose digits match some palindrome divisible by $k$. $n\le 10$ forbids listing all $n$-digit numbers; a palindrome is fixed by its first half, about $10^{\lceil n/2\rceil}$ of them.
+>
+> Build each palindrome from the first half; if it is divisible by $k$, add the permutations of that multiset (nonzero leading digit), using the sorted digit string as a seen key. Factorials compute $\frac{(n-x_0)(n-1)!}{\prod x_i!}$.
+
+<!-- thinking:end -->
 
 We can consider enumerating all palindromic numbers of length $n$ and checking whether they are $k$-palindromic numbers. Due to the properties of palindromic numbers, we only need to enumerate the first half of the digits and then reverse and append them to form the full number.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README_EN.md
 rating: 1843
 source: Weekly Contest 334 Q3
 tags:
@@ -83,6 +82,16 @@ Since there is no other operation, the answer is 4.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair may be marked when twice the smaller value does not exceed the larger; each index is used at most once. At most $\lfloor n/2\rfloor$ pairs exist, so the smaller half should try to match the larger half.
+>
+> After sorting, the left pointer sits on the cheap half while the right half is scanned from the median onward. A value at least twice the left one scores a pair and advances the left pointer. The answer is twice the number of successes.
+
+<!-- thinking:end -->
 
 According to the problem description, the problem can generate at most $n / 2$ pairs of indices, where $n$ is the length of the array $\textit{nums}$.
 

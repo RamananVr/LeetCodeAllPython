@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2754.Bind%20Function%20to%20Context/README_EN.md
 tags:
     - JavaScript
 ---
@@ -92,6 +91,16 @@ boundFunc(); // &quot;My name is Kathy&quot;
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Implement $bind$: the returned function should invoke the original with a given $this$. A thin wrapper that relies on its own $this$ would not lock the context.
+>
+> Install an arrow function on the prototype that $this.call$s $obj$ with the forwarded arguments, so the bound object stays $obj$.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3796.Find%20Maximum%20Value%20in%20a%20Constrained%20Sequence/README_EN.md
 rating: 1832
 source: Biweekly Contest 173 Q3
 tags:
@@ -83,6 +82,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sequence starts at $0$, neighboring values differ by at most $\textit{diff}[i]$, and some indices have caps. We first form the unconstrained peak heights, then propagate every restriction left and right through the $\textit{diff}$ limits and take the pointwise minimum; the answer is the maximum of those heights.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

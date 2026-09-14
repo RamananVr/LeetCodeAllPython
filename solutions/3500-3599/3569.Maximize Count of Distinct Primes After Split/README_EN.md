@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README_EN.md
 rating: 2697
 source: Weekly Contest 452 Q4
 tags:
@@ -86,6 +85,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After each update we want to maximize distinct primes in a prefix plus those in the complementary suffix. A prime that occurs on both sides counts twice; on one side, once.
+>
+> $n,q \le 5 \cdot 10^4$, so keep the leftmost and rightmost index of every prime. The gain of a split $k$ depends on whether those endpoints straddle $k$, which a segment tree (or divide-and-conquer structure) can store. An update refreshes one prime’s endpoints and queries the global maximum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README_EN.md
 rating: 1531
 source: Biweekly Contest 175 Q2
 tags:
@@ -73,6 +72,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{nonPositive}(\textit{nums},k)$ is the number of subtract-$k$ steps to make every entry non-positive. We want the smallest $k$ with that count $\le k^2$, and $n \le 10^5$.
+>
+> Larger $k$ only decreases the step count while $k^2$ grows, so feasibility is monotone.
+>
+> For a fixed $k$ the count is $\sum \lceil nums[i]/k \rceil$. Binary search the smallest feasible $k$ in $[1,10^5]$.
+>
+> Each check scans the array once, for $O(n \log M)$ overall.
+
+<!-- thinking:end -->
 
 We notice that as $k$ increases, it becomes easier to satisfy the condition. This exhibits monotonicity, so we can use binary search to find the minimum $k$.
 

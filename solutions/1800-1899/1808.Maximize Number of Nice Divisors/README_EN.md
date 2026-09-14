@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README_EN.md
 rating: 2070
 source: Weekly Contest 234 Q4
 tags:
@@ -61,6 +60,16 @@ There is not other value of n that has at most 5 prime factors and more nice div
 <!-- solution:start -->
 
 ### Solution 1: Problem Transformation + Fast Power
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A nice divisor must include every prime at least once, so the count equals the product of the exponents, whose sum is at most $\textit{primeFactors}$. Enumerating partitions grows too quickly.
+>
+> The task is to split an integer into positive parts with maximum product. The classic split uses as many $3$s as possible and avoids a leftover $1$ (replace $3+1$ by $2+2$). Return $n$ itself when $n<4$; otherwise branch on $n\bmod 3$ and compute the power of $3$ with fast exponentiation modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We can factorize $n$ into prime factors, i.e., $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$, where $a_i$ is a prime factor and $k_i$ is the exponent of the prime factor $a_i$. Since the number of prime factors of $n$ does not exceed `primeFactors`, we have $k_1 + k_2 + \cdots + k_m \leq primeFactors$.
 

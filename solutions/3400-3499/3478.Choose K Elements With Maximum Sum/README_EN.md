@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README_EN.md
 rating: 1753
 source: Weekly Contest 440 Q2
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Priority Queue (Min-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each $i$ we pick at most $k$ values $\textit{nums2}[j]$ among indices with $\textit{nums1}[j]<\textit{nums1}[i]$. $n\le 10^5$ forbids a fresh filter per $i$.
+>
+> After sorting by $\textit{nums1}$, the eligible $j$ only grow, so a min-heap of size $k$ can keep the current top-$k$ sum.
+>
+> Pointer $j$ pushes $\textit{nums2}$ of strictly smaller $\textit{nums1}$ keys; overflow pops the heap minimum. The heap sum is the answer at that $i$.
+
+<!-- thinking:end -->
 
 We can convert the array $\textit{nums1}$ into an array $\textit{arr}$, where each element is a tuple $(x, i)$, representing the value $x$ at index $i$ in $\textit{nums1}$. Then, we sort the array $\textit{arr}$ in ascending order by $x$.
 

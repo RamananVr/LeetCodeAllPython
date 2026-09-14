@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0837.New%2021%20Game/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -67,6 +66,16 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 <!-- solution:start -->
 
 ### Solution 1: Memoized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We add a uniform integer in $[1,\textit{maxPts}]$ until the total reaches $k$, and want the probability it is still $\le n$. Expanding every draw is impossible for $k,n\le 10^4$; memoize on the current total.
+>
+> $dfs(i)$ is the success probability from total $i$. For $i\ge k$ we stop and test $i\le n$; $i=k-1$ has a closed form. Other states use a difference of neighbors so each transition is $O(1)$ instead of $O(\textit{maxPts})$.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i)$, which represents the probability that when the current score is $i$, the final score does not exceed $n$ when we stop drawing numbers. The answer is $dfs(0)$.
 
@@ -167,6 +176,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization still recurses. The same recurrence fills downward from $k-2$: $f[i]$ comes from $f[i+1]$ and the window end $f[i+\textit{maxPts}+1]$.
+>
+> Terminals in $[k,\min(n,k+\textit{maxPts}))$ are $1$. The answer is $f[0]$, computed in linear time.
+
+<!-- thinking:end -->
 
 We can convert the memoized search in Solution 1 into dynamic programming.
 

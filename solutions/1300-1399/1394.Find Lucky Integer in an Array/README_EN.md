@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1394.Find%20Lucky%20Integer%20in%20an%20Array/README_EN.md
 rating: 1118
 source: Weekly Contest 182 Q1
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A lucky integer occurs as many times as its value; we want the largest. After counting, keep the maximum $x$ with $x=v$, or $-1$ if none exists.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each number in $\textit{arr}$. Then, we iterate through $\textit{cnt}$ to find the largest $x$ such that $\textit{cnt}[x] = x$. If there is no such $x$, return $-1$.
 

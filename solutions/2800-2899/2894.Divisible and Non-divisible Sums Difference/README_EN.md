@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README_EN.md
 rating: 1140
 source: Weekly Contest 366 Q1
 tags:
@@ -75,6 +74,14 @@ We return 0 - 15 = -15 as the answer.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is small enough to scan $[1,n]$: subtract a multiple of $m$ and add every other integer, which is exactly $num_1-num_2$.
+
+<!-- thinking:end -->
 
 We traverse every number in the range $[1, n]$. If it is divisible by $m$, we subtract it from the answer. Otherwise, we add it to the answer.
 

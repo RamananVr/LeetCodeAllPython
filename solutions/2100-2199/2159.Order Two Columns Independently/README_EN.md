@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2159.Order%20Two%20Columns%20Independently/README_EN.md
 tags:
     - Database
 ---
@@ -69,6 +68,18 @@ Data table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two columns must be sorted independently — the first ascending, the second descending — then aligned by row. Sorting the table as pairs would keep the original coupling.
+>
+> Window functions assign ranks in each column; a join on the rank lines up the independently ordered values.
+>
+> Number $\textit{first\_col}$ ascending and $\textit{second\_col}$ descending, then join on $\textit{rk}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

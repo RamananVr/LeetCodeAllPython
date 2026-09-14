@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2823.Deep%20Object%20Filter/README_EN.md
 tags:
     - JavaScript
 ---
@@ -75,6 +74,14 @@ fn = (x) =&gt; Array.isArray(x)
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Filtering must recurse through nested arrays and objects, with $fn$ deciding each leaf. Drop children that return `undefined`; an array or object that becomes empty is itself discarded.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

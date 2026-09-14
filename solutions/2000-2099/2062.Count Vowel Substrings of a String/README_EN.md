@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README_EN.md
 rating: 1458
 source: Weekly Contest 266 Q1
 tags:
@@ -72,6 +71,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 100$ all $O(n^2)$ substrings are cheap. A vowel substring uses only vowels and all five of them. Fix the left end and grow right; a consonant kills that left end; a set of size $5$ scores one.
+>
+> A hash set stores vowels seen in the current span.
+
+<!-- thinking:end -->
 
 We can enumerate the left endpoint $i$ of the substring. For the current left endpoint, maintain a hash table to record the vowels that appear in the current substring. Then enumerate the right endpoint $j$. If the character at the current right endpoint is not a vowel, break the loop. Otherwise, add the character at the current right endpoint to the hash table. If the number of elements in the hash table is $5$, it means the current substring is a vowel substring, and increment the result by $1$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1636.Sort%20Array%20by%20Increasing%20Frequency/README_EN.md
 rating: 1430
 source: Biweekly Contest 38 Q1
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The order is increasing frequency, then decreasing value on ties. $n \le 100$, so count then sort with a key.
+>
+> A counter (or a shifted array) yields $\textit{cnt}$; the sort key is $(\textit{cnt}[x], -x)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

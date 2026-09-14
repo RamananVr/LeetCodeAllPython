@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1334.Find%20the%20City%20With%20the%20Smallest%20Number%20of%20Neighbors%20at%20a%20Threshold%20Distance/README_EN.md
 rating: 1854
 source: Weekly Contest 173 Q3
 tags:
@@ -81,6 +80,14 @@ The city 0 has 1 neighboring city at a distanceThreshold = 2.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each city, count others within the distance threshold and pick the smallest count, breaking ties toward the larger id. $n \le 100$ allows a shortest-path run from every source. After building the dense graph, Dijkstra from high ids to low, counting $\textit{dist}[j] \le \textit{distanceThreshold}$, updates the answer only on a strictly smaller count so ties keep the larger id.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -123,6 +130,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per-source Dijkstra repeats $n$ searches. Floyd–Warshall fills all-pairs distances once; counting cities within the threshold is then a scan of each row. The code is simpler and still $O(n^3)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

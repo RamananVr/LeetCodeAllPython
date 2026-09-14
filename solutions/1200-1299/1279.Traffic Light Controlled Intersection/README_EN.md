@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README_EN.md
 tags:
     - Concurrency
 ---
@@ -94,6 +93,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two roads cannot both be green; turning the light and crossing must be exclusive. There are few cars, so one lock serializes the critical section: if the arrival is not on the green road, switch then cross. The lock ensures only one car changes the light or crosses at a time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

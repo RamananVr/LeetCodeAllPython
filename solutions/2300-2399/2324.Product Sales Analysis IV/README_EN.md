@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2324.Product%20Sales%20Analysis%20IV/README_EN.md
 tags:
     - Database
 ---
@@ -105,6 +104,16 @@ User 102 spent the most money on products 1, 2, and 3.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each user needs the product with the largest spend, keeping ties. Sum $quantity \times price$ per user and product, then rank spends descending inside each user.
+>
+> Join $Sales$ to $Product$, group, and keep rows with rank $1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

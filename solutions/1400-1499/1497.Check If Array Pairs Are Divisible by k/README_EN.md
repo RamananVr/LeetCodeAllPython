@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1497.Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k/README_EN.md
 rating: 1787
 source: Weekly Contest 195 Q2
 tags:
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting Remainders
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two values sum to a multiple of $k$ iff their remainders sum to $0$ or $k$. $n\le 10^5$. Count $x\bmod k$: remainder $0$ must be even, and remainder $i$ must match $k-i$ (including $k/2$ when $k$ is even).
+
+<!-- thinking:end -->
 
 The sum of two numbers $a$ and $b$ is divisible by $k$ if and only if the sum of their remainders when divided by $k$ is divisible by $k$.
 

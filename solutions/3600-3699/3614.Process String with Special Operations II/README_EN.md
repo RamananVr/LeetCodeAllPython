@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md
 rating: 2010
 source: Weekly Contest 458 Q3
 tags:
@@ -209,6 +208,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Tracking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the previous problem, only index $k$ of the result is required, and `#` doubles the length, so materializing the string is impossible.
+>
+> A forward pass tracks only the length $m$: letters add one, `*` subtracts one with a floor of $0$, and `#` shifts left. If $k\ge m$, return `'.'`.
+>
+> A reverse pass maps $k$ back to a source letter. On `#`, halve $m$ and subtract the first half when $k$ lands in the second; `%` sends $k$ to $m-1-k$; a letter decrements $m$, and $k=m$ after that decrement is the character we want.
+
+<!-- thinking:end -->
 
 We first calculate the length $m$ of the processed result string $\textit{result}$. If $k \geq m$, it indicates that $k$ exceeds the valid indices of the result string, so we return '.'.
 

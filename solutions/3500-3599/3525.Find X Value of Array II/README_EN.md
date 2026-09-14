@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3525.Find%20X%20Value%20of%20Array%20II/README_EN.md
 rating: 2644
 source: Weekly Contest 446 Q4
 tags:
@@ -126,6 +125,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The static count from the previous problem does not survive point updates and a forced prefix deletion. $k \le 5$, so a segment only needs its product modulo $k$ and the number of ways each remainder arises after dropping a suffix.
+>
+> Store that payload in a segment tree and define a merge. After each update, query the target remainder on $[start, n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

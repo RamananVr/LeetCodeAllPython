@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2190.Most%20Frequent%20Number%20Following%20Key%20In%20an%20Array/README_EN.md
 rating: 1289
 source: Biweekly Contest 73 Q1
 tags:
@@ -66,6 +65,18 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 <!-- solution:start -->
 
 ### Solution 1: Traversal and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count values that immediately follow $\textit{key}$ and return the unique mode. One scan of adjacent pairs suffices.
+>
+> Whenever a pair’s left value equals $\textit{key}$, increment the right value and remember the current best.
+>
+> The map is bounded by the value range.
+
+<!-- thinking:end -->
 
 We use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each $\textit{target}$, and use a variable $\textit{mx}$ to maintain the maximum number of occurrences of $\textit{target}$. Initially, $\textit{mx} = 0$.
 

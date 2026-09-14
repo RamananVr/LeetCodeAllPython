@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3722.Lexicographically%20Smallest%20String%20After%20Reverse/README_EN.md
 rating: 1414
 source: Biweekly Contest 168 Q1
 tags:
@@ -90,6 +89,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must reverse exactly one prefix or suffix, so there are only $n$ choices of $k$. Enumerating each $k$, building both candidates, and taking the lexicographically smallest string is enough.
+
+<!-- thinking:end -->
 
 We can enumerate all possible values of $k$ ($1 \leq k \leq n$). For each $k$, we compute the string obtained by reversing the first $k$ characters and the string obtained by reversing the last $k$ characters, then take the lexicographically smallest string among them as the final answer.
 

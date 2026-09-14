@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2186.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram%20II/README_EN.md
 rating: 1253
 source: Weekly Contest 282 Q2
 tags:
@@ -61,6 +60,18 @@ It can be shown that there is no way to make them anagrams of each other with le
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A step inserts one letter into either string. The minimum number of insertions is the $L_1$ distance between the two frequency vectors — the letters each side still lacks.
+>
+> Subtract $t$’s counts from $s$’s and sum absolute values.
+>
+> One pass over the two strings suffices.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

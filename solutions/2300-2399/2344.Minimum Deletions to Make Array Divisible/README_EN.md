@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README_EN.md
 rating: 1640
 source: Weekly Contest 302 Q4
 tags:
@@ -64,7 +63,21 @@ There is no way to delete elements from nums to allow this.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deletions the remaining minimum must divide every entry of $numsDivide$, hence it is a divisor of $x=\gcd(numsDivide)$. $n$ can be $10^5$.
+>
+> Compute $x$, sort $nums$, and return the index of the first divisor of $x$. If none exists, the answer is $-1$.
+
+<!-- thinking:end -->
+
+If an element can divide every value in `numsDivide`, it is a divisor of their GCD $x$. Compute $x$, sort `nums`, and return the index of the first divisor of $x$.
+
+The time complexity is $O(m + \log M + n \times \log n)$, where $n$ and $m$ are the lengths of `nums` and `numsDivide`, and $M$ is the maximum value in `numsDivide`.
 
 <!-- tabs:start -->
 
@@ -89,27 +102,19 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Math + Enumeration (No Sorting)
 
-<!-- tabs:start -->
+<!-- thinking:start -->
 
-#### Python3
+> **Thinking**
+>
+> Method 1 sorts only to find the smallest valid divisor. A linear scan can take the minimum $y$ that divides $x$, then count values smaller than $y$.
 
-```python
-class Solution:
-    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        x = gcd(*numsDivide)
-        nums.sort()
-        return next((i for i, v in enumerate(nums) if x % v == 0), -1)
-```
+<!-- thinking:end -->
 
-<!-- tabs:end -->
+After computing the GCD $x$ of `numsDivide`, scan `nums` for the smallest valid divisor $y$, then count how many elements are smaller than $y$. No sort is required.
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
+The time complexity is $O(m + \log M + n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

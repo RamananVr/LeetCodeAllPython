@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Islands are equal iff a translation matches them; rotation does not count. Absolute coordinates need a common origin.
+>
+> DFS records both the step direction and the backtrack. Distinct shapes yield distinct strings; a set of those strings is the answer. Mark land as $0$ when visited.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

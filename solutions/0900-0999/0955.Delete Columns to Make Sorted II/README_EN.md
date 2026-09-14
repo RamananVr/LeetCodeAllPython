@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README_EN.md
 tags:
     - Greedy
     - Array
@@ -72,6 +71,14 @@ i.e., it is NOT necessarily true that (strs[0][0] &lt;= strs[0][1] &lt;= ...)
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete the fewest columns so the rows are lexicographically nondecreasing. Lexicographic order is decided by the first differing column, so a pair already ordered is immune to later columns. Scan left to right: if an undecided pair descends in this column, the column must go; otherwise mark pairs that become strictly increasing.
+
+<!-- thinking:end -->
 
 When comparing strings in lexicographical order, we compare from left to right, and the first unequal character determines the ordering relationship between two strings. Therefore, we can traverse each column from left to right and determine whether the current column needs to be deleted.
 

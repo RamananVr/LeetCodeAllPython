@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2042.Check%20if%20Numbers%20Are%20Ascending%20in%20a%20Sentence/README_EN.md
 rating: 1257
 source: Weekly Contest 263 Q1
 tags:
@@ -72,6 +71,16 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sentence is at most $200$ characters. After splitting on spaces, check that numeric tokens strictly increase and ignore the rest.
+>
+> Keep the previous number $pre$; fail if the current value is $\le pre$.
+
+<!-- thinking:end -->
 
 We can split the string $s$ into several words by spaces. Then, for each word, check if it is a number. If it is a number, convert it to an integer, compare it with the previous number. If it is not strictly increasing, return `false`. Otherwise, assign the current number to the previous number and continue the traversal.
 

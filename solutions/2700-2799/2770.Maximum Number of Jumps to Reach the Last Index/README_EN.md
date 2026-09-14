@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README_EN.md
 rating: 1533
 source: Weekly Contest 353 Q2
 tags:
@@ -79,6 +78,16 @@ It can be proven that there is no other jumping sequence that goes from 0 to n -
 <!-- solution:start -->
 
 ### Solution 1: Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Jump from index $0$ to the end, each step requiring an absolute difference at most $target$, and maximize the number of jumps. $n\le 1000$; a shortest-path formulation would minimize jumps instead.
+>
+> $dfs(i)$ is the most jumps from $i$: take $1+dfs(j)$ over legal $j>i$, $0$ at the end, and $-\infty$ when no jump exists. If the memoized value is negative, return $-1$.
+
+<!-- thinking:end -->
 
 For each position $i$, we consider to jump to position $j$ which satisfies $|nums[i] - nums[j]| \leq target$. Then we can jump from $i$ to $j$, and continue to jump from $j$ to the end.
 

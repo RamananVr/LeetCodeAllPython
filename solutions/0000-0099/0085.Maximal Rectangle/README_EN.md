@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0085.Maximal%20Rectangle/README_EN.md
 tags:
     - Stack
     - Array
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is pick two cells as opposite corners and test whether the rectangle is all $1$s. Correct, but $O(m^2 n^2)$. $m, n \le 200$ will time out.
+>
+> The bottleneck is rechecking 2D ranges. Observation: the count of consecutive $1$s upward from row $i$, column $j$ is exactly a histogram bar. Each row becomes “largest rectangle in histogram.”
+>
+> That is problem 84. Maintain $\textit{heights}[j]$ per row: increment on $1$, reset on $0$, then run the monotonic stack. Total time $O(mn)$.
+
+<!-- thinking:end -->
 
 We can treat each row as the base of a histogram and calculate the maximum area of the histogram for each row.
 

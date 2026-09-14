@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -51,7 +50,15 @@ tags:
 
 <!-- solution:start -->
 
-## Solution 1: DFS
+### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Root-to-leaf paths are recorded while we walk. DFS appends the current value, joins the path at a leaf, and pops on the way back.
+
+<!-- thinking:end -->
 
 We can use depth-first search to traverse the entire binary tree. Each time, we add the current node to the path. If the current node is a leaf node, we add the entire path to the answer. Otherwise, we continue to recursively traverse the child nodes of the node. Finally, when the recursion ends and returns to the current node, we need to remove the current node from the path.
 

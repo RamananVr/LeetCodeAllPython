@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3679.Minimum%20Discards%20to%20Balance%20Inventory/README_EN.md
 rating: 1638
 source: Biweekly Contest 165 Q2
 tags:
@@ -95,6 +94,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inside every window of length $w$, at most $m$ copies of an item may be kept; extras are discarded on arrival. Simulate left to right and subtract counts that leave the window.
+>
+> $\textit{cnt}$ stores kept copies in the current window; $\textit{marked}[i]$ records whether day $i$ kept its item. Only a kept item is subtracted when it slides out.
+>
+> If $\textit{cnt}[x]$ is already $m$, discard; otherwise keep. Each arrival is handled once.
+
+<!-- thinking:end -->
 
 We use a hash map $\textit{cnt}$ to record the quantity of each item type in the current window, and an array $\textit{marked}$ to record whether each item is kept.
 

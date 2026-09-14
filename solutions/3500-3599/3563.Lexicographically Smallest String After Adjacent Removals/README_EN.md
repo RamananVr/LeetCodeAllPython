@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md
 rating: 2584
 source: Weekly Contest 451 Q4
 tags:
@@ -93,6 +92,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent consecutive letters may be removed, and we want the lexicographically smallest survivor, not an arbitrary one. $n \le 250$ allows an interval DP that tests whether a segment can vanish, then a reconstruction of the smallest string.
+>
+> $g[i][j]$ is whether $s[i..j]$ can be deleted, by pairing $s[i]$ with a later match. $f[i]$ is the smallest string from $s[i..]$: keep $s[i]$ plus $f[i+1]$, or skip a fully deletable $[i,k]$ to $f[k+1]$, and take the lexicographic minimum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

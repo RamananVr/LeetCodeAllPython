@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README_EN.md
 tags:
     - Stack
     - Array
@@ -53,6 +52,16 @@ Sum is 17.
 <!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Summing the minimum of every subarray is quadratic if we enumerate intervals. Switch to contribution: multiply $arr[i]$ by how often it is the minimum.
+>
+> Monotonic stacks find the previous strictly smaller value on the left and the next smaller-or-equal on the right, so equal values are credited once. The product of the two spans is the number of subarrays.
+
+<!-- thinking:end -->
 
 The problem asks for the sum of the minimum values of each subarray, which is equivalent to finding the number of subarrays for which each element $arr[i]$ is the minimum, then multiplying by $arr[i]$, and finally summing these up.
 

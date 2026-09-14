@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README_EN.md
 rating: 1909
 source: Weekly Contest 416 Q4
 tags:
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same statement as I with larger limits, so the linear slide stays and substring enumeration does not. Coverage is still “at least as many of every character as $\textit{word2}$”, and it is still monotone.
+>
+> The same $need$ and window counts: extend the right, shrink the left while covered, add the left index. Return $0$ if $\textit{word1}$ is shorter. Linear time.
+
+<!-- thinking:end -->
 
 The problem is essentially to find how many substrings in $\textit{word1}$ contain all the characters in $\textit{word2}$. We can use a sliding window to handle this.
 

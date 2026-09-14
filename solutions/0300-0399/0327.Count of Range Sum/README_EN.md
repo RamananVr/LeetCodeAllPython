@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0327.Count%20of%20Range%20Sum/README_EN.md
 tags:
     - Binary Indexed Tree
     - Segment Tree
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subarrays whose sum lies in $[lower,upper]$. A sum is a prefix difference; a double loop is $O(n^2)$. For prefix $x$ we need how many earlier prefixes fall in $[x-upper,x-lower]$.
+>
+> Discretize all $x$, $x-lower$, and $x-upper$. A Fenwick tree stores frequencies of seen prefixes: query the interval, then insert $x$, so only earlier prefixes count.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

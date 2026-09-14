@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README_EN.md
 rating: 1291
 source: Biweekly Contest 122 Q1
 tags:
@@ -71,6 +70,18 @@ It can be shown that 12 is the minimum cost achievable.
 <!-- solution:start -->
 
 ### Solution 1: Traverse to Find the Smallest and Second Smallest Values
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$ and we split into three subarrays whose cost is the sum of their first elements. The first of those is always $\textit{nums}[0]$.
+>
+> The other two starts are distinct elements from indices $[1,n)$. The minimum sum uses the smallest and second-smallest values there.
+>
+> A single scan that tracks those two values is enough; we never materialize the cuts.
+
+<!-- thinking:end -->
 
 We set the first element of the array $nums$ as $a$, the smallest element among the remaining elements as $b$, and the second smallest element as $c$. The answer is $a+b+c$.
 

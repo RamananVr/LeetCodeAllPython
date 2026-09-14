@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -69,6 +68,14 @@ The sum of all the elements is 35 which is the maximum possible some out of ever
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A linear subset has constant $prices[i]-i$. Group prices by that key and sum within each group; the largest group sum is the answer.
+
+<!-- thinking:end -->
 
 We can transform the equation as follows:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md
 rating: 1896
 source: Weekly Contest 242 Q3
 tags:
@@ -63,6 +62,16 @@ In the second step, move from index 3 to index 5.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From index $0$ we may jump to a `'0'` whose distance lies in $[minJump,maxJump]$. Checking the jump window from every index is too slow for $n\le 10^5$.
+>
+> $f[i]$ is true iff $s[i]='0'$ and some reachable index sits in $[i-maxJump,i-minJump]$. A prefix sum of $f$ answers that range in $O(1)$, so we fill $f$ from left to right.
+
+<!-- thinking:end -->
 
 We define a prefix sum array $pre$ of length $n+1$, where $pre[i]$ represents the number of reachable positions in the first $i$ positions of $s$. We define a boolean array $f$ of length $n$, where $f[i]$ indicates whether $s[i]$ is reachable. Initially, $pre[1] = 1$ and $f[0] = true$.
 

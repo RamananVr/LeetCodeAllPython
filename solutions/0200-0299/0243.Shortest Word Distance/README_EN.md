@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0243.Shortest%20Word%20Distance/README_EN.md
 tags:
     - Array
     - String
@@ -50,6 +49,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $word1\neq word2$, so the shortest distance is the gap between their latest indices. Track those two positions and update the minimum as we scan.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

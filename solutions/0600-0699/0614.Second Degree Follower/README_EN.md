@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0614.Second%20Degree%20Follower/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,16 @@ User Alice has 1 follower. Alice is not a second-degree follower because she doe
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A second-degree follower follows someone and is also followed. One scan of the table cannot see both hops.
+>
+> Join `f1.follower = f2.followee` to list their followees, then `COUNT(DISTINCT followee)` per follower.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

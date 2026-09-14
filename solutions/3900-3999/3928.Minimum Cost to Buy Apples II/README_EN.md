@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3928.Minimum%20Cost%20to%20Buy%20Apples%20II/README_EN.md
 rating: 2186
 source: Weekly Contest 501 Q4
 tags:
@@ -259,6 +258,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A separate shortest-path search from every shop toward every other shop is about $O(n^2\log n)$, which is tight for $n\le 1000$. Outbound travel is empty-handed while the return multiplies by $\textit{tax}$, so the two directions do not share one distance table.
+>
+> Compute empty-handed distances and loaded distances separately — the latter is shortest paths on edges $cost\cdot tax$. For shop $i$ the answer is $\min_j(\mathrm{dist}_{\mathrm{empty}}(i,j)+\textit{prices}[j]+\mathrm{dist}_{\mathrm{load}}(j,i))$.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that two-weight reduction.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README_EN.md
 tags:
     - Greedy
     - Array
@@ -57,6 +56,14 @@ As we cannot use any three side lengths to form a triangle of non-zero area, we 
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sides $a\le b\le c$ form a triangle iff $a+b>c$, and we want the largest perimeter. All triples are cubic. After sorting, try $c$ from large to small with the two neighboring sides; the first triple that satisfies the inequality is optimal, otherwise that $c$ cannot work.
+
+<!-- thinking:end -->
 
 Suppose the three sides of the triangle are $a \leq b \leq c$. The triangle has non-zero area if and only if $a + b \gt c$.
 

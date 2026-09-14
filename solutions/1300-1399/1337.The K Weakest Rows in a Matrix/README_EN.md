@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1337.The%20K%20Weakest%20Rows%20in%20a%20Matrix/README_EN.md
 rating: 1224
 source: Weekly Contest 174 Q1
 tags:
@@ -90,6 +89,14 @@ The rows ordered from weakest to strongest are [0,2,3,1].
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows are ordered by soldier count, then by index; we keep the first $k$. Ones sit left of zeros, so the count is the first zero. Bisecting the reversed row for $0$ yields that count; sorting row indices by it and slicing $k$ entries is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2905.Find%20Indices%20With%20Index%20and%20Value%20Difference%20II/README_EN.md
 rating: 1763
 source: Weekly Contest 367 Q3
 tags:
@@ -78,6 +77,16 @@ Hence, [-1,-1] is returned.</pre>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 10^5$ rules out a double loop. For each right index $i$ the admissible left set is still the prefix $[0, i-indexDifference]$, whose extrema grow monotonically.
+>
+> Maintain the indices of the prefix minimum and maximum while scanning, and test the difference against $nums[i]$. The $O(n)$ implementation is the same as part I; only the constraints force this linear form.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

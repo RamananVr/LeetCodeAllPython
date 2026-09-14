@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2783.Flight%20Occupancy%20and%20Waitlist%20Analysis/README_EN.md
 tags:
     - Database
 ---
@@ -94,6 +93,16 @@ Passengers table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each flight, count confirmed seats and waitlisted passengers. An inner join would drop flights with no passengers, and bookings are capped by capacity.
+>
+> Left-join passengers onto flights and group by $flight\_id$: $LEAST(count, capacity)$ is booked, $GREATEST(count-capacity, 0)$ is waitlisted, then order by flight id.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

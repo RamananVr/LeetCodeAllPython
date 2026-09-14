@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -54,6 +53,18 @@ XRLXXRRLX
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `XL`/`RX` swaps move `L` left and `R` right; they cannot pass. After dropping `X`, the letter sequences must match.
+>
+> Each aligned `L` cannot have moved right ($i\ge j$), each `R` cannot have moved left ($i\le j$).
+>
+> Two pointers skip `X` and test those inequalities.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

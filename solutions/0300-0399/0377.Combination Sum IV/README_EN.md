@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -64,6 +63,16 @@ Note that different sequences are counted as different combinations.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count ordered ways to sum to $target$. An outer loop over items (combinations) misses permutations. Enumerate the sum first, then the last addend.
+>
+> $f[i]$ is the number of permutations summing to $i$, $f[0]=1$. For each $i$ and each $x\le i$, add $f[i-x]$. Same shape as 322, counting instead of minimizing coins.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the number of combinations that sum up to $i$. Initially, $f[0] = 1$, and the rest $f[i] = 0$. The final answer is $f[target]$.
 

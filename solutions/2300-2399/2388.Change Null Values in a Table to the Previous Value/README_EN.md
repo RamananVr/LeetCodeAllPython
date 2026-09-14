@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2388.Change%20Null%20Values%20in%20a%20Table%20to%20the%20Previous%20Value/README_EN.md
 tags:
     - Database
 ---
@@ -77,6 +76,16 @@ Note that the rows in the output are the same as in the input.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A null drink should become the last non-null, in table order. A session variable remembers that value while scanning.
+>
+> On a non-null, assign $@cur$; on a null, keep $@cur$. Project that as the new column.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -99,6 +108,14 @@ FROM CoffeeShop;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Session variables are less portable. $ROW\_NUMBER$ freezes order; a running sum of non-null flags forms groups; $MAX(drink)$ inside each group is its only non-null value.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

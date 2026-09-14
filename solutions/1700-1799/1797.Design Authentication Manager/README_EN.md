@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1797.Design%20Authentication%20Manager/README_EN.md
 rating: 1534
 source: Biweekly Contest 48 Q2
 tags:
@@ -73,6 +72,16 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A token expires at $\textit{currentTime}+\textit{timeToLive}$ after generate or renew. The operation count is modest, so a hash map of expiry times suffices.
+>
+> Generate writes an expiry; renew updates only if still valid; count scans how many expiries are still in the future.
+
+<!-- thinking:end -->
 
 We can simply maintain a hash table $d$, where the key is `tokenId` and the value is the expiration time.
 

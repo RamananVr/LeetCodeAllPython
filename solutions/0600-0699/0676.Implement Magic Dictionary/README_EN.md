@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README_EN.md
 tags:
     - Depth-First Search
     - Design
@@ -68,6 +67,16 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 <!-- solution:start -->
 
 ### Solution 1: Trie + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query must differ from some dictionary word in exactly one letter. Scanning every word per query repeats prefixes.
+>
+> Store words in a trie. DFS follows the same letter when possible, or spends the single change on another child. Success requires $\textit{diff}=1$ at a word end.
+
+<!-- thinking:end -->
 
 We can use a trie to store all the words in the dictionary. For each word we search, we use depth-first search. Specifically, we start from the root of the trie. For the current letter we are traversing, we first check whether there is a child node that is the same as it. If there is, we continue to traverse downwards. Otherwise, we need to check whether there are remaining modification times. If not, it means that it cannot be matched, so we return false. If there are remaining modification times, we can try to modify the current letter and continue to traverse downwards. If the child node corresponding to the modified letter exists, it means that it can be matched, otherwise it means that it cannot be matched, so we return false. If we traverse to the end of the word and the number of modifications is exactly 1, it means that it can be matched, so we return true.
 

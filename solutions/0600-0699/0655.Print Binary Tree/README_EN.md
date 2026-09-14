@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0655.Print%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -67,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The matrix size is $m\times(2^{h+1}-1)$, so the height must be known first.
+>
+> One DFS computes $h$ and allocates the grid; a second DFS writes each node at $(r,c)$ and shifts children by $2^{h-r-1}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -106,6 +115,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both the height pass and the fill pass can be BFS: level count gives $h$, then a queue of $(node,r,c)$ writes the matrix without recursion.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README_EN.md
 tags:
     - Bit Manipulation
     - Interactive
@@ -58,6 +57,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\texttt{commonSetBits}(x)$ is the number of $1$-bits shared by $n$ and $x$. $n < 2^{30}$, so we may query bit by bit.
+>
+> For $x=2^i$ the result is nonzero iff bit $i$ of $n$ is set.
+>
+> We try $32$ powers of two and OR in every bit that answers true.
+
+<!-- thinking:end -->
 
 We can enumerate the powers of 2, and then call the `commonSetBits` method. If the return value is greater than 0, it means that the corresponding bit in the binary representation of `n` is 1.
 

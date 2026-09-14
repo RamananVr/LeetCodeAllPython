@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2613.Beautiful%20Pairs/README_EN.md
 tags:
     - Geometry
     - Array
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Divide and Conquer
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the closest Manhattan pair of points, breaking ties by index lexicographic order. Pairwise search fails for $n \le 10^5$. Coincident points have distance $0$ and yield the smallest index pair immediately.
+>
+> Otherwise the classic closest-pair divide-and-conquer applies: sort by $x$, recurse on both halves, then scan the strip of width $d$ by $y$ for cross pairs, using indices to break ties.
+
+<!-- thinking:end -->
 
 This problem is equivalent to finding two points in the plane, such that the Manhattan distance between them is the smallest. If there are multiple points satisfying the condition, return the one with the smallest index.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README_EN.md
 rating: 1871
 source: Biweekly Contest 61 Q3
 tags:
@@ -69,6 +68,18 @@ We earn 9 + 5 + 6 = 20 dollars in total.</pre>
 
 ### Solution 1: Memoization Search + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After sorting rides by start, ride $i$ only combines with later rides whose start is $\ge end_i$. Subsets are infeasible for $m \le 3 \times 10^4$; the state is the best profit from index $i$.
+>
+> Skip goes to $i+1$; take binary-searches the first start $\ge end_i$ as $j$ and adds distance, tip, and $dfs(j)$.
+>
+> Memoization evaluates each $i$ once in $O(m \log m)$.
+
+<!-- thinking:end -->
+
 First, we sort $rides$ in ascending order by $start$. Then we design a function $dfs(i)$, which represents the maximum tip that can be obtained from accepting orders starting from the $i$-th passenger. The answer is $dfs(0)$.
 
 The calculation process of the function $dfs(i)$ is as follows:
@@ -111,6 +122,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already $O(m \log m)$, yet recursion and `@cache` add constants. Sorting by end lets $f[i]$ be the best profit among the first $i$ rides, with no aftereffect.
+>
+> Skip is $f[i-1]$; take binary-searches the last end $\le start_i$. Filling $f$ iteratively removes the call stack.
+
+<!-- thinking:end -->
 
 We can change the memoization search in Solution 1 to dynamic programming.
 

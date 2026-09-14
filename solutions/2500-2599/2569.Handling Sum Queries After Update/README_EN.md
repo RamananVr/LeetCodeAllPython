@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md
 rating: 2397
 source: Biweekly Contest 98 Q4
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Segment Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three operations: flip a range of $nums1$; add $p\times\sum nums1$ to every element of $nums2$; report $\sum nums2$. $n,q\le 10^5$ forbids walking a range on every flip.
+>
+> $\sum nums2$ is a single running total; only the range sum of $nums1$ matters for the second operation. A segment tree stores how many ones sit in each interval, with a lazy flip that replaces a sum $s$ by $\textit{length}-s$. The third operation just records the current total.
+
+<!-- thinking:end -->
 
 According to the problem description:
 

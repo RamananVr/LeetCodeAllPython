@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README_EN.md
 rating: 1220
 source: Weekly Contest 435 Q1
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the largest odd frequency minus the smallest even frequency. A single count over lowercase letters suffices.
+>
+> The statement is about the whole string, not a substring.
+>
+> Scan a counter, take the max odd and the min even, and return their difference.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $\textit{cnt}$ to record the occurrences of each character in the string $s$. Then, we traverse $\textit{cnt}$ to find the maximum frequency $a$ of characters that appear an odd number of times and the minimum frequency $b$ of characters that appear an even number of times. Finally, we return $a - b$.
 

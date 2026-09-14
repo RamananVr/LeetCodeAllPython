@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README_EN.md
 rating: 2005
 source: Weekly Contest 228 Q4
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The degree of a trio is the sum of the three vertex degrees minus $6$. The graph is small enough to enumerate triangles in $O(n^3)$.
+>
+> An adjacency matrix tests edges and $\textit{deg}$ stores degrees. For $i<j<k$ with all three edges, update $\textit{deg}[i]+\textit{deg}[j]+\textit{deg}[k]-6$. Return $-1$ if none exist.
+
+<!-- thinking:end -->
 
 We first store all edges in the adjacency matrix $\textit{g}$, and then store the degree of each node in the array $\textit{deg}$. Initialize the answer $\textit{ans} = +\infty$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0148.Sort%20List/README_EN.md
 tags:
     - Linked List
     - Two Pointers
@@ -60,6 +59,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Merge Sort
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort a list; the follow-up wants $O(n\log n)$ time and constant extra space. There is no random access, so quicksort swaps are awkward. $n\le 5\times 10^4$. Merge sort only needs sequential scans: split at the midpoint, sort both halves, merge. The recursion stack is $O(\log n)$.
+
+<!-- thinking:end -->
 
 We can use the merge sort approach to solve this problem.
 

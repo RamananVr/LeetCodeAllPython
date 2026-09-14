@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md
 rating: 2073
 source: Weekly Contest 361 Q3
 tags:
@@ -81,6 +80,14 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the count of indices with $nums[i]\bmod modulo=k$ itself congruent to $k$ on a subarray. Mapping those indices to $1$ reduces the condition to $(s_r-s_{l-1})\bmod modulo=k$. A hash map of prefix sums modulo $modulo$ counts the matching left ends in one pass.
+
+<!-- thinking:end -->
 
 The problem requires the number of indices $i$ in an interval that satisfy $nums[i] \bmod modulo = k$. We can transform the array $nums$ into a $0-1$ array $arr$, where $arr[i] = 1$ indicates $nums[i] \bmod modulo = k$, otherwise $arr[i] = 0$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -53,6 +52,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the longest common contiguous subarray. Lengths are $1000$, so matching from every pair of starts is too slow, and LCS DP does not enforce contiguity.
+>
+> Contiguity means a suffix grows only when the current pair matches: it is one plus the suffix of the prefixes, otherwise zero.
+>
+> Let $f[i][j]$ be the common suffix ending at $nums1[i-1]$ and $nums2[j-1]$. Take the global maximum. Time $O(mn)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

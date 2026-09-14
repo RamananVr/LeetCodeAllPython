@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0259.3Sum%20Smaller/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Two Pointers + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Order does not matter, so we sort. After fixing the smallest index $i$, two pointers count pairs on the right whose sum is below $\textit{target}$.
+>
+> If $nums[i]+nums[j]+nums[k]<\textit{target}$, every $k'$ in $(j,k]$ works, so we add $k-j$ and move $j$; otherwise we decrement $k$.
+
+<!-- thinking:end -->
 
 Since the order of elements does not affect the result, we can sort the array first and then use the two-pointer method to solve this problem.
 

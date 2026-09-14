@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README_EN.md
 tags:
     - Database
 ---
@@ -73,6 +72,14 @@ Bob only has one record, we just take that one.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each user needs their second-most-recent activity, or the only one if they have a single row. A window $\mathrm{RANK}$ partitioned by user and ordered by start date descending, together with a window $\mathrm{COUNT}$, lets us keep rank $2$ or a count of $1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

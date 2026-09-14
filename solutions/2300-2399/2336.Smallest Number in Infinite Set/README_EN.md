@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README_EN.md
 rating: 1375
 source: Weekly Contest 301 Q2
 tags:
@@ -67,6 +66,16 @@ smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The set starts as all positive integers, but values and operations stay within $1000$, so only $[1,1000]$ matters.
+>
+> Keep present numbers in an ordered set. Pop deletes the minimum; add inserts it back. Order gives the minimum in $O(\log n)$.
+
+<!-- thinking:end -->
 
 We note that the range of elements in the set given by the problem is $[1, 1000]$, and the operations we need to support are:
 

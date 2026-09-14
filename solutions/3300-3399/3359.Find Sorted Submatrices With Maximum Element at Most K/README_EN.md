@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README_EN.md
 tags:
     - Stack
     - Array
@@ -94,6 +93,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count submatrices that are nonincreasing down each column and whose entries are at most $k$. With $m,n \le 10^3$ each bottom-right corner must be handled in nearly linear time.
+>
+> Discard cells larger than $k$, then store in each column the upward nonincreasing height. Across a row those heights form a histogram.
+>
+> A monotonic stack counts rectangles whose right border is the current column; summing over all cells is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

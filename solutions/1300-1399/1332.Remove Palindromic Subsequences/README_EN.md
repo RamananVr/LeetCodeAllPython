@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README_EN.md
 rating: 1628
 source: Weekly Contest 173 Q1
 tags:
@@ -67,6 +66,14 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each deletion removes a palindromic subsequence, and the alphabet is only `'a'` and `'b'`. Any monochromatic subsequence is a palindrome, so two deletions always suffice. If $s$ itself is a palindrome, one deletion is enough. Comparing $s$ with its reverse decides between $1$ and $2$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

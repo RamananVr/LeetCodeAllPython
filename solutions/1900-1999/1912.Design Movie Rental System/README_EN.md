@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README_EN.md
 rating: 2181
 source: Biweekly Contest 55 Q4
 tags:
@@ -84,6 +83,18 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $\textit{search}$ and $\textit{report}$ need the first five tuples in a fixed order while rent/drop mutate the sets. Sorting from scratch under $n,m\le 10^5$ is too slow.
+>
+> Unrented copies of each movie live in a sorted list of $(\textit{price},\textit{shop})$; all rented copies live in one sorted list of $(\textit{price},\textit{shop},\textit{movie})$. A hash map stores prices for $O(1)$ key lookup.
+>
+> Rent moves an entry from the movie bucket to the rented list; drop does the reverse. The first five rows are a slice, and each update is logarithmic.
+
+<!-- thinking:end -->
 
 We define an ordered set $\textit{available}$, where $\textit{available}[movie]$ stores a list of all shops that have not rented out the movie $movie$. Each element in the list is $(\textit{price}, \textit{shop})$, sorted in ascending order by $\textit{price}$, and if prices are equal, by $\textit{shop}$ in ascending order.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README_EN.md
 rating: 1328
 source: Biweekly Contest 49 Q1
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Pattern Recognition
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Squares alternate in color. Building the whole board for one query is unnecessary.
+>
+> Adjacent squares have opposite colors, which is exactly the parity of the sum of the file and rank indices. Convert the letter and digit to integers and test whether their sum is odd (white) or even (black).
+
+<!-- thinking:end -->
 
 Observing the chessboard, we find that two squares $(x_1, y_1)$ and $(x_2, y_2)$ with the same color satisfy that both $x_1 + y_1$ and $x_2 + y_2$ are either odd or even.
 

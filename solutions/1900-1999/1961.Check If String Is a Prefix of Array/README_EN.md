@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1961.Check%20If%20String%20Is%20a%20Prefix%20of%20Array/README_EN.md
 rating: 1234
 source: Weekly Contest 253 Q1
 tags:
@@ -59,6 +58,16 @@ It is impossible to make s using a prefix of arr.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ must equal the concatenation of some prefix of $\textit{words}$, not more and not fewer. Accumulate lengths and, when they first equal $|s|$, compare the join.
+>
+> If no prefix matches the length, $s$ is not a prefix string.
+
+<!-- thinking:end -->
 
 We traverse the array $words$, using a variable $t$ to record the currently concatenated string. If the length of $t$ is greater than the length of $s$, it means that $s$ is not a prefix string of $words$, so we return $false$; if the length of $t$ is equal to the length of $s$, we return whether $t$ is equal to $s$.
 

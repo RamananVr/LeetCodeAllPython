@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README_EN.md
 rating: 1199
 source: Weekly Contest 258 Q1
 tags:
@@ -70,6 +69,18 @@ You should not do any reverse operation, the resulting string is &quot;abcd&quot
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string length satisfies $n \le 250$, so locating $ch$ and reversing the prefix is linear. If $ch$ is absent, the original string is already the answer.
+>
+> Only the segment through the first occurrence should flip; the suffix stays unchanged. A single `find` yields index $i$, or $-1$ when missing.
+>
+> Hence slice $word[i::-1]$ for the reversed prefix and concatenate $word[i+1:]$.
+
+<!-- thinking:end -->
 
 First, we find the index $i$ where the character $ch$ first appears. Then, we reverse the characters from index $0$ to index $i$ (including index $i$). Finally, we concatenate the reversed string with the string starting from index $i + 1$.
 

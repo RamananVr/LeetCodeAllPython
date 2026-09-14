@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README_EN.md
 rating: 1606
 source: Biweekly Contest 36 Q2
 tags:
@@ -65,6 +64,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $10^5$ records, enumerating every triple per employee is heavier than needed. “Three uses in one hour” is equivalent, after sorting, to some three consecutive times spanning at most $60$ minutes.
+>
+> Group times by name, convert $\texttt{HH:MM}$ to minutes, sort, and test $\textit{ts}[i+2]-\textit{ts}[i] \le 60$.
+>
+> A hash table $d$ stores each person's times; skip anyone with fewer than three stamps, then sort the alerted names lexicographically.
+
+<!-- thinking:end -->
 
 First, we use a hash table $d$ to record all the clock-in times of each employee.
 

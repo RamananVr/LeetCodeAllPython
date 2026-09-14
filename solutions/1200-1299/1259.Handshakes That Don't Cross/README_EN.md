@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README_EN.md
 rating: 1951
 source: Biweekly Contest 13 Q4
 tags:
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An even number of people shake hands on a circle without crossing; the count is Catalan-like. $n \le 1000$ forbids listing matchings. Fix one person: their partner splits the circle into two smaller even instances, and we multiply those counts over every legal partner.
+>
+> $dfs(i)$ tries an even left size $l$ and a right size $i-l-2$. Memoization shares sub-circles. We reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i)$, which represents the number of handshake schemes for $i$ people. The answer is $dfs(n)$.
 

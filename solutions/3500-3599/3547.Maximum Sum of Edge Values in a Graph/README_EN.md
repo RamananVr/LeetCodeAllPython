@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md
 rating: 2343
 source: Weekly Contest 449 Q3
 tags:
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every degree is at most $2$, so the graph is a disjoint union of paths and cycles. An edge’s value is the product of its ends; larger integers should sit on vertices that touch more edges.
+>
+> Classify each component as a path or a cycle and place $n,\ldots,1$ so large values are adjacent. Distinct components share no edges, so the assignment is local to each block.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

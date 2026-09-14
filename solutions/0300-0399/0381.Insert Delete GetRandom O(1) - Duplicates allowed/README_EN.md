@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README_EN.md
 tags:
     - Design
     - Array
@@ -75,6 +74,16 @@ randomizedCollection.getRandom(); // getRandom should return 1 or 2, both equall
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike 380, duplicates are allowed. One value may occupy many indices, so the map stores a set of positions.
+>
+> Insert adds the new index to that set. Delete takes any index, swaps with the tail, and updates both values’ sets. Random still samples the array, so duplicates are naturally heavier.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

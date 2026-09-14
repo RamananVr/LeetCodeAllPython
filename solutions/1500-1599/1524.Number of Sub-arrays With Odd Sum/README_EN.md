@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README_EN.md
 rating: 1610
 source: Biweekly Contest 31 Q2
 tags:
@@ -66,6 +65,16 @@ All sub-arrays have even sum and the answer is 0.
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Counter
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subarrays whose sum is odd. There are $O(n^2)$ of them and $n\le 10^5$, so explicit sums fail. The parity of a subarray sum is the parity of the difference of two prefix sums.
+>
+> An odd prefix pairs with every previous even prefix; an even prefix pairs with every previous odd one. While scanning we keep those two counters, add the matching count for the current prefix, then update. Reduce the answer modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We define an array $\textit{cnt}$ of length 2 as a counter, where $\textit{cnt}[0]$ and $\textit{cnt}[1]$ represent the number of subarrays with even and odd prefix sums, respectively. Initially, $\textit{cnt}[0] = 1$ and $\textit{cnt}[1] = 0$.
 

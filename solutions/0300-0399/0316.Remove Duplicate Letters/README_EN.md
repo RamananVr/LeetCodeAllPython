@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README_EN.md
 tags:
     - Stack
     - Greedy
@@ -53,6 +52,16 @@ tags:
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the lexicographically smallest subsequence that uses each present letter once. Searching all subsequences is too large.
+>
+> Record each letter's last index. Scan left to right: skip a letter already on the stack; otherwise pop a larger top while it still occurs later, then push. The monotone stack keeps the prefix small; last indices guarantee a popped letter can return.
+
+<!-- thinking:end -->
+
 We use an array `last` to record the last occurrence of each character, a stack to save the result string, and an array `vis` or an integer variable `mask` to record whether the current character is in the stack.
 
 Traverse the string $s$, for each character $c$, if $c$ is not in the stack, we need to check whether the top element of the stack is greater than $c$. If it is greater than $c$ and the top element of the stack will appear later, we pop the top element of the stack and push $c$ into the stack.
@@ -88,6 +97,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 uses last indices to test leftover occurrences. Count frequencies first and decrement while scanning; pop the top while its remaining count is positive. The test is equivalent without storing last positions.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

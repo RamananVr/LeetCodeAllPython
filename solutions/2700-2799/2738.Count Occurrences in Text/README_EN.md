@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README_EN.md
 tags:
     - Database
 ---
@@ -71,6 +70,16 @@ Files table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count standalone occurrences of $bull$ and $bear$. Tokenizing with a regular expression works, but there are only two target words and they must be space-delimited.
+>
+> Count each word with $LIKE\ '\%\ word\ \%'$ and $UNION$ the two rows, so substrings inside other tokens are not counted.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

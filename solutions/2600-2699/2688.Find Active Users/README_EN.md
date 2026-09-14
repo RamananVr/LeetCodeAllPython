@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md
 tags:
     - Database
 ---
@@ -73,6 +72,14 @@ Each row includes the user ID, the purchased item, the date of purchase, and the
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An active user has two purchases at most $7$ days apart. A full self-join of dates is heavier than needed. `LAG` over each user ordered by time yields the previous purchase; `DATEDIFF` $\le 7$ marks the user, then we `DISTINCT` the ids.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

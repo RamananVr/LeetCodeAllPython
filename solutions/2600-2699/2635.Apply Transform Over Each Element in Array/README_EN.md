@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README_EN.md
 tags:
     - JavaScript
 ---
@@ -63,6 +62,14 @@ The function increases each value in the array by one.
 <!-- solution:start -->
 
 ### Solution 1: traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `Array.map` is forbidden. In-place writes are allowed, so we replace each index with $fn(arr[i],i)$ and return the same array.
+
+<!-- thinking:end -->
 
 We traverse the array $arr$, for each element $arr[i]$, replace it with $fn(arr[i], i)$. Finally, return the array $arr$.
 

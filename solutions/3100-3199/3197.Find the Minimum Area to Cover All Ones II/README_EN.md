@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README_EN.md
 rating: 2540
 source: Weekly Contest 403 Q4
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three axis-aligned rectangles must cover every $1$. Enumerating three independent boxes is a high-degree polynomial in the coordinates.
+>
+> Their dissection of the grid has six topologies: two horizontal cuts, two vertical cuts, and four “cut once, then split one side”.
+>
+> Let $f$ be the bounding-box area of ones inside a sub-rectangle. Enumerate the cut lines, sum the three areas, and keep the minimum.
+
+<!-- thinking:end -->
 
 According to the problem description, we can use two dividing lines to split the rectangle into three parts. We calculate the minimum rectangular area containing all $1$s for each part and then take the minimum sum of the areas of the three parts.
 

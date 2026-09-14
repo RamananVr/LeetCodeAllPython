@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -73,6 +72,18 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deletion must keep the BST ordered. A node with one child is replaced by that child; a node with two children needs a successor or predecessor.
+>
+> Recurse left or right by comparison. On a hit: return the right child if there is no left, the left child if there is no right; otherwise hang the whole left subtree off the leftmost node of the right subtree and return the right subtree.
+>
+> That leftmost node is the in-order successor and has no left child, so the in-order sequence stays sorted after one descent.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

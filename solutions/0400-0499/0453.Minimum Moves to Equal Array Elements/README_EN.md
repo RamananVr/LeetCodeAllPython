@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0453.Minimum%20Moves%20to%20Equal%20Array%20Elements/README_EN.md
 tags:
     - Array
     - Math
@@ -53,6 +52,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Incrementing $n-1$ elements is the same as decrementing the one left out, until everything equals the minimum. Simulating the increments rewrites the whole array.
+>
+> The number of decrements is $\sum nums - n\cdot\min(nums)$.
+>
+> One pass for the min and the sum is enough; the operations need not be applied.
+
+<!-- thinking:end -->
 
 Let the minimum value of the array $\textit{nums}$ be $\textit{mi}$, the sum of the array be $\textit{s}$, and the length of the array be $\textit{n}$.
 

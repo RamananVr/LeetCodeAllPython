@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README_EN.md
 rating: 2375
 source: Weekly Contest 429 Q4
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part I with a larger $n$. The check is still $O(n)$, so binary search on $m$ is $O(n \log n)$ and scales.
+>
+> $m=1$ still compares the two alternating patterns; larger $m$ still charges $\lfloor k/(m+1) \rfloor$ flips per run.
+>
+> The implementation is therefore the same as part I.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

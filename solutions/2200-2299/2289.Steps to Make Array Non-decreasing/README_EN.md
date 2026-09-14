@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README_EN.md
 rating: 2481
 source: Weekly Contest 295 Q3
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each round deletes every element that is strictly smaller than its left neighbor; we want the number of rounds. $n \le 10^5$ forbids simulating rounds. The deletion time of an index is determined by how long a decreasing suffix to its right takes to be absorbed by a larger left value.
+>
+> A stack from the right holds indices not yet eaten. Popping updates $dp[i] = \max(dp[i]+1, dp[\textit{top}])$. The answer is $\max(dp)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0489.Robot%20Room%20Cleaner/README_EN.md
 tags:
     - Backtracking
     - Interactive
@@ -90,6 +89,18 @@ From the top left corner, its position is one row below and three columns right.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The room map is hidden; we only have move, turn, and clean. A random walk cannot guarantee coverage or a return to the start.
+>
+> Treat the start as $(0,0)$ and DFS the four directions: walk in when the cell is new and $\textit{move}$ succeeds. After the four tries, turn around, step back to the parent, and restore the old heading.
+>
+> A visited set of relative coordinates prevents repeats. The backtrack must turn $180^\circ$ before $\textit{move}$, or the heading would disagree with the recursion.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

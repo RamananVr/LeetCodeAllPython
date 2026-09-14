@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md
 tags:
     - Hash Table
     - String
@@ -73,6 +72,16 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every letter that appears in the substring occurs exactly $count$ times. For $i \in [1,26]$ types the window length is $i \cdot count$, so we can slide it.
+>
+> Track how many letters currently have frequency $count$; adjust on insert/delete. The window is valid when that number equals $i$.
+
+<!-- thinking:end -->
 
 We can enumerate the number of types of letters in the substring within the range of $[1..26]$, then the length of the substring is $i \times count$.
 

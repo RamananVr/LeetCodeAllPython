@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README_EN.md
 rating: 1845
 source: Biweekly Contest 157 Q3
 tags:
@@ -84,6 +83,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The path from $1$ to a deepest leaf has $d$ edges. Each edge is $1$ or $2$, and the cost is odd iff an odd number of them are $1$. Other edges are free.
+>
+> The number of odd-sized subsets of $d$ elements is $2^{d-1}$ ($0$ when $d=0$). DFS finds $d$; a fast power finishes the count.
+
+<!-- thinking:end -->
 
 First, we build an adjacency list $g$ from the edges, where $g[u]$ contains all neighbors of node $u$.
 

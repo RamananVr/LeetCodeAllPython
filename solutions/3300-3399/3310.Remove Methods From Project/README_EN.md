@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README_EN.md
 rating: 1710
 source: Weekly Contest 418 Q2
 tags:
@@ -91,6 +90,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Methods reachable from $k$ along call edges are suspicious, yet we must not remove a node that a clean method still invokes. The graph is large enough that only linear traversals are acceptable.
+>
+> The first DFS marks the directed closure of $k$. The second starts from every unmarked node and, along undirected edges, clears any node that a clean method can reach.
+>
+> Only nodes that remain marked after both passes are removed; the rest form the answer.
+
+<!-- thinking:end -->
 
 We can start from $k$ and find all suspicious methods, recording them in the array $\textit{suspicious}$. Then, we traverse from $0$ to $n-1$, starting from all non-suspicious methods, and mark all reachable methods as non-suspicious. Finally, we return all non-suspicious methods.
 

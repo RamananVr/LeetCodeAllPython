@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0899.Orderly%20Queue/README_EN.md
 tags:
     - Math
     - String
@@ -57,6 +56,16 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 <!-- solution:start -->
 
 ### Solution 1: Case-by-case Judgment
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We move one of the first $k$ characters to the end and want the lexicographically smallest string. When $k=1$ this is only rotation, so we try every rotation.
+>
+> When $k\ge 2$, adjacent swaps are possible, so every permutation is reachable and the answer is the sorted string.
+
+<!-- thinking:end -->
 
 If $k = 1$, we can only move the first character of the string to the end of the string each time, resulting in $|s|$ different states. We return the string with the smallest lexicographic order.
 

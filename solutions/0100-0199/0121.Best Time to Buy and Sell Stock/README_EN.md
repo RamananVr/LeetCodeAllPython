@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -54,6 +53,14 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 <!-- solution:start -->
 
 ### Solution 1: Enumerate + Maintain the Minimum Value of the Prefix
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One buy and one sell; trying every pair is $O(n^2)$ and $n$ can reach $10^5$. For a fixed sell day the best buy is the minimum price before it. Scan while keeping the prefix minimum, update the answer by today's price minus that minimum, then fold today into the prefix.
+
+<!-- thinking:end -->
 
 We can enumerate each element of the array $nums$ as the selling price. Then we need to find a minimum value in front of it as the purchase price to maximize the profit.
 

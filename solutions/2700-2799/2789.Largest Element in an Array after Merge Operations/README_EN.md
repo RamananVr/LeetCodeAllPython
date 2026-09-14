@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README_EN.md
 rating: 1484
 source: Weekly Contest 355 Q2
 tags:
@@ -66,6 +65,16 @@ There is only one element in the final array, which is 11.
 <!-- solution:start -->
 
 ### Solution 1: Merge in Reverse Order
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two adjacent values may merge into their sum only when $nums[i]\le nums[i+1]$; we want the largest value that can appear. Merging from the left spends small numbers too early and blocks later chains.
+>
+> Scan right to left and, when $nums[i]\le nums[i+1]$, add the right value into $nums[i]$, folding in an already-maximized suffix. The maximum remaining entry is the answer.
+
+<!-- thinking:end -->
 
 According to the problem description, in order to maximize the maximum element in the merged array, we should merge the elements on the right first, making the elements on the right as large as possible, so as to perform as many merge operations as possible and finally get the maximum element.
 

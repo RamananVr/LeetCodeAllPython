@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -76,6 +75,16 @@ Concatenating everything results in [1] + [2] + [4,7,8,9,10] + [6,3] = [1,2,4,7,
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The boundary is the left side, the leaves, and the right side in counterclockwise order. The root is listed once and leaves must not repeat. One mixed walk struggles with direction and deduplication.
+>
+> Three DFS passes: left edge prefers left (else right) and skips leaves; a second pass collects leaves; the right edge prefers right and is reversed. The root is emitted first if it is not a leaf. A flag $i$ selects the role.
+
+<!-- thinking:end -->
 
 First, if the tree has only one node, we directly return a list with the value of that node.
 

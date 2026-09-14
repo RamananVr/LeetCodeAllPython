@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README_EN.md
 tags:
     - JavaScript
 ---
@@ -57,6 +56,16 @@ gen.next().value; // 3
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An infinite Fibonacci stream cannot be materialized as an array and must speak the generator protocol.
+>
+> Keep adjacent terms $a,b$, yield $a$, then roll. The generator advances only when the caller pulls.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

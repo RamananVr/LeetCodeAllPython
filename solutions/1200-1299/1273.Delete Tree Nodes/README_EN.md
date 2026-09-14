@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1273.Delete%20Tree%20Nodes/README_EN.md
 rating: 1732
 source: Biweekly Contest 14 Q3
 tags:
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree whose values sum to $0$ is deleted. $n \le 10^4$, so one bottom-up DFS: sum children's values and surviving sizes, then zero the size if this subtree sums to $0$. The root's surviving size is the answer. Post-order deletes children before the parent decides.
+
+<!-- thinking:end -->
 
 First, we convert the tree into a graph $g$, where $g[i]$ represents all the child nodes of node $i$.
 

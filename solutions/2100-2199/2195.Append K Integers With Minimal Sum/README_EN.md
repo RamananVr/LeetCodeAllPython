@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README_EN.md
 rating: 1658
 source: Weekly Contest 283 Q2
 tags:
@@ -59,6 +58,18 @@ The sum of the six integers appended is 1 + 2 + 3 + 4 + 7 + 8 = 25, so we return
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Append $k$ missing positive integers with minimum sum, i.e., the $k$ smallest positives absent from $\textit{nums}$. Walking from $1$ and testing membership can loop too long when $k$ and the gaps are large.
+>
+> Sort with sentinels $0$ and $2\times 10^9$. Each adjacent pair $(a,b)$ leaves a contiguous hole; take the first $\min(k,b-a-1)$ integers, whose sum is an arithmetic series.
+>
+> Consume $k$ from left to right.
+
+<!-- thinking:end -->
 
 We can add two sentinel nodes to the array, which are $0$ and $2 \times 10^9$.
 

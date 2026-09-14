@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README_EN.md
 rating: 2130
 source: Weekly Contest 267 Q4
 tags:
@@ -84,6 +83,16 @@ Request 3: Person 3 and person 4 cannot be friends since person 0 and person 1 w
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Requests are sequential and a restriction forbids two people from sharing a component. Union-find stores friendship. With $q,m,n \le 1000$, each request may scan all restrictions.
+>
+> Already-united pairs succeed; otherwise reject if some restriction's endpoints lie in the two components, and unite only on success. Path compression keeps finds cheap.
+
+<!-- thinking:end -->
 
 We can use a union-find set to maintain the friend relationships, and then for each request, we determine whether it meets the restriction conditions.
 

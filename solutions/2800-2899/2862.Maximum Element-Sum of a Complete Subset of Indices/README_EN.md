@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md
 rating: 2291
 source: Weekly Contest 363 Q4
 tags:
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A set of indices is complete iff every pairwise product is a square, i.e. they share the same square-free kernel. Enumerate kernel $k$ and sum $nums[k\cdot j^2-1]$ over admissible $j$.
+
+<!-- thinking:end -->
 
 We note that if a number can be expressed in the form of $k \times j^2$, then all numbers of this form have the same $k$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3347.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20II/README_EN.md
 rating: 2155
 source: Biweekly Contest 143 Q3
 tags:
@@ -82,6 +81,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part I, but values and $k$ reach $10^9$, so the difference array must be a sorted map rather than a dense table.
+>
+> Coverage is unchanged: we still mark $x-k$, $x+k+1$, and $x$, then sweep the prefix sums.
+>
+> The frequency is again $\min(s,\textit{cnt}[x]+\textit{numOperations})$, so the code is the same as part I.
+
+<!-- thinking:end -->
 
 According to the problem description, for each element $x$ in the array $\textit{nums}$, we can change it to any integer within the range $[x-k, x+k]$. We want to perform operations on some elements in $\textit{nums}$ to maximize the frequency of a certain integer in the array.
 

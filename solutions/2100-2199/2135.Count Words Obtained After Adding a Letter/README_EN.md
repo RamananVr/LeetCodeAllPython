@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2135.Count%20Words%20Obtained%20After%20Adding%20a%20Letter/README_EN.md
 rating: 1828
 source: Weekly Contest 275 Q3
 tags:
@@ -85,6 +84,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words have distinct lowercase letters; a target is a start word plus one extra letter, up to order. Sorting both sides after deleting one letter works but does extra string work.
+>
+> A 26-bit mask represents the letter set. Store start masks in a hash set; a target is valid if clearing one of its bits hits the set.
+>
+> Build the set from $\textit{startWords}$, then try flipping off each letter of every target.
+
+<!-- thinking:end -->
 
 We notice that the given strings only contain lowercase letters, and each letter in a string appears at most once. Therefore, we can represent a string with a binary number of length $26$, where the $i$-th bit being $1$ indicates that the string contains the $i$-th lowercase letter, and $0$ indicates the absence of the $i$-th lowercase letter.
 

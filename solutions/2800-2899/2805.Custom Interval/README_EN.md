@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2805.Custom%20Interval/README_EN.md
 tags:
     - JavaScript
 ---
@@ -90,6 +89,14 @@ setTimeout(() =&gt; {
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The wait before the $count$-th firing is $delay+period\cdot count$, so a constant-period `setInterval` does not apply. Recursively schedule `setTimeout` with that delay, store the handle in a map keyed by an identifier, and let `customClearInterval` cancel the pending timeout.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

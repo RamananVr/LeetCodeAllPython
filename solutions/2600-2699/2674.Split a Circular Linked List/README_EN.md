@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README_EN.md
 tags:
     - Linked List
     - Two Pointers
@@ -54,6 +53,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular list must split into a front half at least as long as the back half. Counting length first takes two passes. Fast and slow pointers stop the slow one at the end of the front half in one walk.
+>
+> When the fast pointer is about to re-enter the head, the slow pointer is at the midpoint; then the second half is closed and the first half relinks to the original head.
+
+<!-- thinking:end -->
 
 We define two pointers $a$ and $b$, both initially pointing to the head of the linked list. Each iteration, pointer $a$ moves forward one step, and pointer $b$ moves forward two steps, until pointer $b$ reaches the end of the linked list. At this point, pointer $a$ points to half of the linked list nodes, and we break the linked list from pointer $a$, thus obtaining the head nodes of the two linked lists.
 

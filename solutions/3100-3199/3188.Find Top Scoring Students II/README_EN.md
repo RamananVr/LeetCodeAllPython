@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3188.Find%20Top%20Scoring%20Students%20II/README_EN.md
 tags:
     - Database
 ---
@@ -158,6 +157,18 @@ Each row contains the student ID, course ID, semester, and grade received.
 <!-- solution:start -->
 
 ### Solution 1: Joining + Grouping + Conditional Filtering
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides GPA, every mandatory course must be $A$ and at least two electives must be $A$ or $B$. Splitting these into separate queries misses null enrollments.
+>
+> A CTE keeps students with GPA $\ge 2.5$, then joins major courses and left-joins grades so conditional sums can state every rule.
+>
+> `HAVING` equates mandatory $A$s with mandatory courses, requires electives to be present and in $\{A,B\}$, and demands at least two electives.
+
+<!-- thinking:end -->
 
 First, we filter out students with an average GPA greater than or equal to 2.5 and record them in table `T`.
 

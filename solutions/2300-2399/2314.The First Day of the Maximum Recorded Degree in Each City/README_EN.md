@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md
 tags:
     - Database
 ---
@@ -75,6 +74,16 @@ For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each city needs the day of its highest temperature, breaking ties by the earliest date. A sort per group works, but a window ranks temperature and date together.
+>
+> Partition by $city\_id$, order by degree descending and day ascending, and keep rank $1$. Output cities in increasing id.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

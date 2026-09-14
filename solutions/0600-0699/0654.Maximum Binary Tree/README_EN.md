@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0654.Maximum%20Binary%20Tree/README_EN.md
 tags:
     - Stack
     - Tree
@@ -72,6 +71,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The root is the interval maximum; children follow the same rule. A linear scan for the max is $O(n^2)$ worst-case, acceptable for $n\le 10^3$.
+>
+> Take `max` and its index, then recurse on the two sides.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -105,6 +114,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each max query in method 1 is linear. A segment tree answers range maxima in $O(\log n)$, so the same recursion becomes $O(n\log n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -177,6 +194,14 @@ class SegmentTree:
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The segment tree is extra structure. A decreasing stack finds the nearest greater neighbor on the left: the last popped node becomes the left child, and the new top takes the current node as its right child. One pass builds the tree.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

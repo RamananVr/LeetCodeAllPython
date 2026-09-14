@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README_EN.md
 rating: 1407
 source: Weekly Contest 157 Q1
 tags:
@@ -70,6 +69,16 @@ Total cost is 1.
 <!-- solution:start -->
 
 ### Solution 1: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move of $2$ costs $0$, so all even positions communicate for free, and all odd positions do likewise. The only paid move is a step of $1$ between parities.
+>
+> We gather chips onto one even and one odd position at cost $0$, then move the smaller pile to the other. The answer is the minimum of the odd count and the even count.
+
+<!-- thinking:end -->
 
 Move all chips at even indices to position 0, and all chips at odd indices to position 1, all at a cost of 0. Then, choose the position (either 0 or 1) with fewer chips and move these chips to the other position. The minimum cost required is the smaller quantity of chips.
 

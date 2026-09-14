@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README_EN.md
 rating: 1278
 source: Weekly Contest 507 Q1
 tags:
@@ -89,6 +88,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each `_` may become any direction. The final Manhattan distance is the absolute net vertical move plus the absolute net horizontal move; every wildcard can be aligned with those nets and simply adds to the sum.
+>
+> One scan accumulates $U/D$ into $x$, $L/R$ into $y$, and `_` into $z$; the answer is $|x|+|y|+z$.
+>
+> No explicit path is required.
+
+<!-- thinking:end -->
 
 We can use a variable $x$ to record the vertical distance, a variable $y$ to record the horizontal distance, and a variable $z$ to record the number of replaceable moves.
 

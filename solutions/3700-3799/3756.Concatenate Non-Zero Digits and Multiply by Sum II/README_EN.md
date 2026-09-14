@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3756.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20II/README_EN.md
 rating: 1968
 source: Weekly Contest 477 Q3
 tags:
@@ -138,6 +137,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are up to $10^5$ queries, so we cannot rebuild each substring. We precompute digit sums, nonzero counts, and the integer formed by concatenating nonzero digits; $x$ on $[l,r]$ follows from the two prefixes and a power of ten, then multiply by the range digit sum.
+
+<!-- thinking:end -->
 
 We preprocess three prefix arrays:
 

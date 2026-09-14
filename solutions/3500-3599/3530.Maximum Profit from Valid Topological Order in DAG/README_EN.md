@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3530.Maximum%20Profit%20from%20Valid%20Topological%20Order%20in%20DAG/README_EN.md
 rating: 2352
 source: Biweekly Contest 155 Q4
 tags:
@@ -148,6 +147,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are exponentially many topological orders, but $n \le 22$ lets a bit mask represent the processed set. Profit is $\textit{score}[i]$ times the position.
+>
+> Let $f[S]$ be the best profit after processing $S$. Try a vertex $v \notin S$ whose in-neighbors all lie in $S$, and add $\textit{score}[v] \cdot (|S|+1)$. The answer is $f[U]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

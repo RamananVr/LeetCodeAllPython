@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -50,6 +49,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse each word and keep the spaces. Split, reverse, and join.
+>
+> `split` yields the words; reverse each and join with spaces. Manual two-pointers are unnecessary unless library helpers are forbidden.
+
+<!-- thinking:end -->
 
 We can split the string $\textit{s}$ into an array of words $\textit{words}$ by spaces, then reverse each word and concatenate them back into a string.
 

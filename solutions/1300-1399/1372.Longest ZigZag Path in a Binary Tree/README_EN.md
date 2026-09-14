@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1372.Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/README_EN.md
 rating: 1713
 source: Biweekly Contest 21 Q3
 tags:
@@ -74,6 +73,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zigzag must alternate left and right while descending. Restarting from every node and direction repeats subtrees. DFS carries the length already obtained if the last step was left ($l$) or right ($r$). The left child continues with $r+1$ and resets the right length; the right child is symmetric. A global maximum is kept.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README_EN.md
 rating: 2280
 source: Weekly Contest 310 Q4
 tags:
@@ -82,6 +81,16 @@ The subsequence has a length of 1, so we return 1.
 <!-- solution:start -->
 
 ### Solution 1: Segment Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Classic LIS is $O(n^2)$, which fails at $n\le 10^5$, and adjacent values may differ by at most $k$. The best length ending at $v$ is one plus the maximum $f$ on $[v-k,v-1]$, so we need range-max queries and point updates on the value domain.
+>
+> Values lie in $[1,10^5]$. A segment tree stores $f[v]$; for each $v$ query then update, in $O(n\log V)$.
+
+<!-- thinking:end -->
 
 We assume that $f[v]$ represents the length of the longest increasing subsequence ending with the number $v$.
 

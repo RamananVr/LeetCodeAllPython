@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0961.N-Repeated%20Element%20in%20Size%202N%20Array/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -55,6 +54,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An array of length $2n$ has one value repeated $n$ times and $n$ unique others. The first value already in a set is the answer.
+
+<!-- thinking:end -->
+
 Since the array $\textit{nums}$ has a total of $2n$ elements, with $n + 1$ distinct elements, and one element repeated $n$ times, this means the remaining $n$ elements in the array are all distinct.
 
 Therefore, we only need to iterate through the array $\textit{nums}$ and use a hash table $s$ to record the elements we've encountered. When we encounter an element $x$, if $x$ already exists in the hash table $s$, it means $x$ is the repeated element, and we can directly return $x$.
@@ -82,6 +89,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The set uses linear space. The repeated value appears at distance at most $2$ in a circular reading, so compare each index $i\ge 2$ with the two before it; if none match, the answer is $nums[0]$.
+
+<!-- thinking:end -->
 
 According to the problem description, half of the elements in the array $\textit{nums}$ are the same. If we view the array as a circular arrangement, then there is at most $1$ other element between two identical elements.
 

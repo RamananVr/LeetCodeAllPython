@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README_EN.md
 rating: 1759
 source: Biweekly Contest 182 Q2
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$, so we cannot enumerate flip sets. Forbidding the subsequences `011` and `110` means the string cannot realize “a $0$ followed later by two $1$s” or “two $1$s followed later by a $0$”.
+>
+> Coherent strings are therefore highly restricted: all zeros, all ones, ones followed by zeros, and a few patterns that never split ones around a zero. The minimum number of flips is the smallest Hamming distance to one of those shapes.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that classification.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

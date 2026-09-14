@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1056.Confusing%20Number/README_EN.md
 tags:
     - Math
 ---
@@ -70,6 +69,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only digits $0,1,6,8,9$ survive a $180^\circ$ rotation, and $6$ swaps with $9$. Checking digits from low to high while building the rotated number decides whether it is confusing.
+>
+> A table $d$ maps each digit; an illegal digit fails at once. Appending mapped digits into $y$ is the rotation.
+>
+> The number is confusing iff $y\neq n$. Leading zeros vanish in the integer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md
 rating: 1203
 source: Weekly Contest 387 Q1
 tags:
@@ -69,6 +68,18 @@ Hence, the array result formed by concatenation is [5,3,4,8].
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first two values seed the two arrays; later values go to the array whose current tail is larger. $n \le 50$, so we follow the rule.
+>
+> Only the two tails matter; earlier history is irrelevant.
+>
+> After the scan we concatenate $\textit{arr}_1+\textit{arr}_2$.
+
+<!-- thinking:end -->
 
 We create two arrays $\textit{arr1}$ and $\textit{arr2}$ to store the elements of $\textit{nums}$. Initially, $\textit{arr1}$ contains only $\textit{nums[0]}$, and $\textit{arr2}$ contains only $\textit{nums[1]}$.
 

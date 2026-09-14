@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1546.Maximum%20Number%20of%20Non-Overlapping%20Subarrays%20With%20Sum%20Equals%20Target/README_EN.md
 rating: 1855
 source: Weekly Contest 201 Q3
 tags:
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Select as many non-overlapping subarrays of sum $target$ as possible. $n\le 10^5$ rules out interval DP. When two candidates overlap, keeping the one that ends further left never hurts later choices.
+>
+> Scan with a prefix-sum set, take the earliest subarray that hits $target$, then restart after it. The greedy always finishes a piece as soon as possible and leaves more room to the right.
+
+<!-- thinking:end -->
 
 We traverse the array $nums$, using the method of prefix sum + hash table, to find subarrays with a sum of $target$. If found, we increment the answer by one, then we set the prefix sum to $0$ and continue to traverse the array $nums$ until the entire array is traversed.
 

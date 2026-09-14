@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README_EN.md
 rating: 1567
 source: Weekly Contest 263 Q3
 tags:
@@ -73,6 +72,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 16$ there are $2^{16}$ subsets. The OR of all elements is the maximum $mx$; we count subsets whose OR equals $mx$.
+>
+> DFS includes or skips each index and compares the running OR at the leaves. Depth $n$, no explicit mask list.
+
+<!-- thinking:end -->
+
 The maximum bitwise OR value $\textit{mx}$ in the array $\textit{nums}$ can be obtained by performing bitwise OR on all elements in the array.
 
 Then we can use depth-first search to enumerate all subsets and count the number of subsets whose bitwise OR equals $\textit{mx}$. We design a function $\text{dfs(i, t)}$, which represents the number of subsets starting from index $\textit{i}$ with the current bitwise OR value being $\textit{t}$. Initially, $\textit{i} = 0$ and $\textit{t} = 0$.
@@ -112,6 +121,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is recursive. Binary enumeration ORs bits of each mask while updating the running maximum and its count, so $mx$ need not be known in advance.
+>
+> The inner scan costs an extra $n$; extra memory drops to $O(1)$.
+
+<!-- thinking:end -->
 
 We can use binary enumeration to count the bitwise OR results of all subsets. For an array $\textit{nums}$ of length $n$, we can use an integer $\textit{mask}$ to represent a subset, where the $i$-th bit of $\textit{mask}$ being 1 means including element $\textit{nums[i]}$, and 0 means not including it.
 

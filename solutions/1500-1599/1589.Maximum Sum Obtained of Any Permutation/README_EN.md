@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README_EN.md
 rating: 1871
 source: Biweekly Contest 35 Q2
 tags:
@@ -74,6 +73,16 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 <!-- solution:start -->
 
 ### Solution 1: Difference Array + Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Permute $nums$ to maximize the sum of all requested range sums. Both $n$ and the number of requests reach $10^5$. An index that is covered more often should receive a larger value.
+>
+> A difference array adds one to each $[l,r]$ in $O(1)$; a prefix sum then yields every index's coverage. Sorting coverages with $nums$ and multiplying aligned pairs assigns the largest values to the hottest positions.
+
+<!-- thinking:end -->
 
 We observe that for a query operation, it returns the sum of all elements in the query interval $[l, r]$. The problem requires the maximum sum of the results of all query operations, which means we need to accumulate the results of all query operations to maximize the sum. Therefore, if an index $i$ appears more frequently in the query operations, we should assign a larger value to index $i$ to maximize the sum of the results of all query operations.
 

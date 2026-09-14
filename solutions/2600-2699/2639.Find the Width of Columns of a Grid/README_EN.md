@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README_EN.md
 rating: 1282
 source: Biweekly Contest 102 Q1
 tags:
@@ -64,6 +63,14 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A column width is the longest decimal representation in that column, including a minus sign. The grid is at most $100 \times 100$, so the maximum `str` length per column is enough.
+
+<!-- thinking:end -->
 
 We denote the number of columns in the matrix as $n$, and create an array $ans$ of length $n$, where $ans[i]$ represents the width of the $i$-th column. Initially, $ans[i] = 0$.
 

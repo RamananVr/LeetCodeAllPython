@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README_EN.md
 rating: 1533
 source: Weekly Contest 508 Q2
 tags:
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Merge Intervals
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort occupied intervals by left endpoint and merge overlaps into disjoint busy segments. Intersect those with $[\textit{freeStart},\textit{freeEnd}]$: drop segments outside the window and clip those that cross it.
+>
+> Merging keeps the clipping pass linear.
+
+<!-- thinking:end -->
 
 We first sort all occupied intervals by their left endpoints, and then traverse all intervals. If the left endpoint of the current interval is greater than the right endpoint of the last interval plus $1$, we add the current interval to the result. Otherwise, we merge the current interval with the last interval, and update the right endpoint of the last interval to the larger value of the current interval and the last interval.
 

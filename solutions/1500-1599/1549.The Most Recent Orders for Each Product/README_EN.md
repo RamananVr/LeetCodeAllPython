@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1549.The%20Most%20Recent%20Orders%20for%20Each%20Product/README_EN.md
 tags:
     - Database
 ---
@@ -130,6 +129,16 @@ The hard disk was never ordered and we do not include it in the result table.
 <!-- solution:start -->
 
 ### Solution 1: Equi-Join + Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every product we want every order on its latest date. Several orders may share that date, so $ROW\_NUMBER$ would drop ties.
+>
+> Join $Orders$ to $Products$, then $RANK$ partitioned by product and ordered by date descending. Rows with $rk=1$ keep every latest-day order; sort by name and identifiers afterwards.
+
+<!-- thinking:end -->
 
 We can use an equi-join to join the `Orders` table and the `Products` table based on `product_id`, and then use the window function `rank()`, which assigns a rank to each `product_id` in the `Orders` table based on its `order_date` in descending order. Finally, we can select the rows with a rank of $1$ for each `product_id`.
 

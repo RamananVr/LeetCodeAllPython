@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README_EN.md
 tags:
     - Graph
     - Design
@@ -109,6 +108,16 @@ excel.get(3, &quot;C&quot;); // return 6
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is small, but a `sum` formula must stay live: changing a referenced cell must change the sum. A cached number that is never reevaluated goes stale.
+>
+> Store either a constant or a formula on each cell; `get`/`sum` evaluate recursively, and `set` overwrites the formula. The statement forbids cycles. The solution tabs are still empty.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

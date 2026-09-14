@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README_EN.md
 tags:
     - Hash Table
     - String
@@ -66,6 +65,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The count is the same as in part I, but $n \le 3 \times 10^5$, so the window must stay linear.
+>
+> “Some character appears at least $k$ times” is monotone in the left end; we keep the longest suffix whose counts all stay below $k$.
+>
+> The code matches part I: after adding the right character we advance $l$ if needed and add $l$ to the answer.
+
+<!-- thinking:end -->
 
 We can enumerate the right endpoint of the substring, and then use a sliding window to maintain the left endpoint of the substring, ensuring that the occurrence count of each character in the sliding window is less than $k$.
 

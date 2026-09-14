@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1957.Delete%20Characters%20to%20Make%20Fancy%20String/README_EN.md
 rating: 1357
 source: Biweekly Contest 58 Q1
 tags:
@@ -67,6 +66,16 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A fancy string has no three identical letters in a row. Deleting as few as possible means keeping a character whenever it is still legal.
+>
+> Append $s[i]$ unless it equals the previous two kept characters. That deletes only what must go and yields a longest fancy string.
+
+<!-- thinking:end -->
 
 We can iterate through the string $s$ and use an array $\textit{ans}$ to record the current answer. For each character $\textit{s[i]}$, if $i < 2$ or $s[i]$ is not equal to $s[i - 1]$, or $s[i]$ is not equal to $s[i - 2]$, we add $s[i]$ to $\textit{ans}$.
 

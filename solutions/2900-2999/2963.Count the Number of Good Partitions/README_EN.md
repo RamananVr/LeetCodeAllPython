@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README_EN.md
 rating: 1984
 source: Weekly Contest 375 Q4
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Grouping + Fast Power
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good partition keeps equal values in one part, so each value’s first-to-last span must lie inside a single piece. Last-occurrence map $last$ cuts the array into unsplittable blocks; each boundary between blocks may be cut or not.
+>
+> While scanning, $j$ tracks the current block’s right end; $i=j$ increments the block count $k$. $k$ blocks give $k-1$ optional cuts, i.e. $2^{k-1}$ modulo the prime.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that the same number must be in the same subarray. Therefore, we use a hash table $last$ to record the index of the last occurrence of each number.
 

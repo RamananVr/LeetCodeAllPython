@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README_EN.md
 rating: 1908
 source: Biweekly Contest 125 Q3
 tags:
@@ -72,6 +71,18 @@ It can be shown that no two servers are connectable through servers other than 0
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair is counted at a hub when the two paths are edge-disjoint and both distances are divisible by $\textit{signalSpeed}$. $n \le 1000$.
+>
+> Fixing hub $a$, valid nodes in distinct subtrees pair with each other. A DFS counts nodes whose distance from $a$ is divisible.
+>
+> For each child of $a$ the DFS yields $t$; we add $s \cdot t$ and then fold $t$ into $s$.
+
+<!-- thinking:end -->
 
 First, we construct an adjacency list `g` based on the edges given in the problem, where `g[a]` represents all the neighbor nodes of node `a` and their corresponding edge weights.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3668.Restore%20Finishing%20Order/README_EN.md
 rating: 1255
 source: Weekly Contest 465 Q1
 tags:
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{friends}$ is a subset of $\textit{order}$ and must be emitted in finish order. $n\le 100$ allows a rank map and a sort.
+>
+> Set $d[x]=i$ from $\textit{order}$, then sort $\textit{friends}$ by $d[x]$.
+>
+> Comparisons then use finish rank rather than the numeric id.
+
+<!-- thinking:end -->
 
 First, we build a mapping from the order array to record the finishing position of each ID. Then, we sort the friends array based on the finishing order of these IDs in the order array.
 

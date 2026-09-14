@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2508.Add%20Edges%20to%20Make%20Degrees%20of%20All%20Nodes%20Even/README_EN.md
 rating: 2060
 source: Weekly Contest 324 Q3
 tags:
@@ -68,6 +67,16 @@ Every node in the resulting graph is connected to an even number of edges.
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most two new edges may be added, and they cannot duplicate existing ones, while every degree must become even. The handshaking lemma forces an even number of odd-degree vertices; one edge flips two parities, so more than four odd vertices is impossible.
+>
+> Build adjacency sets and collect odd-degree vertices $vs$. Size $0$ is already fine. For two vertices, connect them if they are not adjacent; otherwise look for a third vertex adjacent to neither. For four vertices, try the three perfect matchings and accept if one pairing uses two missing edges.
+
+<!-- thinking:end -->
 
 We first build the graph $g$ using `edges`, and then find all nodes with odd degrees, denoted as $vs$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README_EN.md
 tags:
     - Greedy
     - Array
@@ -66,6 +65,14 @@ Total profit is 4.
 
 ### Solution 1: Greedy Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may trade as often as we like, but cannot hold two shares. Summing every adjacent uptick equals buying each valley and selling the next peak. $n \le 3\times 10^4$. Walk consecutive days and add positive differences only.
+
+<!-- thinking:end -->
+
 Starting from the second day, if the stock price is higher than the previous day, buy on the previous day and sell on the current day to make a profit. If the stock price is lower than the previous day, do not buy or sell. In other words, buy and sell on all rising trading days, and do not trade on all falling trading days. The final profit will be the maximum.
 
 The time complexity is $O(n)$, where $n$ is the length of the `prices` array. The space complexity is $O(1)$.
@@ -87,6 +94,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The greedy form has no explicit state, so it does not extend cleanly to limited transactions or a cooldown. $f[i][0/1]$ is the best profit on day $i$ holding or not; transitions are keep, buy today, stay flat, or sell today. Same answer as Solution 1, more general state.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the maximum profit after trading on the $i$th day, where $j$ indicates whether we currently hold the stock. When holding the stock, $j=0$, and when not holding the stock, $j=1$. The initial state is $f[0][0]=-prices[0]$, and all other states are $0$.
 
@@ -130,6 +145,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Day $i$ in Solution 2 depends only on day $i-1$'s two states, so two rolling variables cut space to $O(1)$.
+
+<!-- thinking:end -->
 
 We can find that in Solution 2, the state of the $i$th day is only related to the state of the $i-1$th day. Therefore, we can use only two variables to maintain the state of the $i-1$th day, thereby optimizing the space complexity to $O(1)$.
 

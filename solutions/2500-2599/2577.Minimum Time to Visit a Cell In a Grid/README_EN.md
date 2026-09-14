@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2577.Minimum%20Time%20to%20Visit%20a%20Cell%20In%20a%20Grid/README_EN.md
 rating: 2381
 source: Weekly Contest 334 Q4
 tags:
@@ -85,6 +84,16 @@ The final time is 7. It can be shown that it is the minimum time possible.
 <!-- solution:start -->
 
 ### Solution 1: Shortest Path + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cell may be entered only at time at least its value; each step costs $1$, and we may walk back and forth to wait. If both neighbours of the start exceed $1$, the first step is impossible.
+>
+> Otherwise parity can always be adjusted by oscillating. Dijkstra on a min-heap of arrival times: if $t+1$ is already large enough, go then; else wait until $grid[x][y]$, plus one extra second when that instant has the wrong parity relative to $t+1$.
+
+<!-- thinking:end -->
 
 We observe that if we cannot move at the cell $(0, 0)$, i.e., $grid[0][1] > 1$ and $grid[1][0] > 1$, then we cannot move at the cell $(0, 0)$ anymore, and we should return $-1$. For other cases, we can move.
 

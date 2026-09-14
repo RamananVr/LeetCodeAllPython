@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2414.Length%20of%20the%20Longest%20Alphabetical%20Continuous%20Substring/README_EN.md
 rating: 1221
 source: Weekly Contest 311 Q2
 tags:
@@ -57,6 +56,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alphabetical runs in a string of length $n\le 10^5$ do not need endpoint enumeration. If consecutive ASCII codes differ by one, extend the current run; otherwise reset its length to $1$. A single pass records the maximum.
+
+<!-- thinking:end -->
 
 We can traverse the string $s$ and use a variable $\textit{ans}$ to record the length of the longest lexicographically consecutive substring, and another variable $\textit{cnt}$ to record the length of the current consecutive substring. Initially, $\textit{ans} = \textit{cnt} = 1$.
 

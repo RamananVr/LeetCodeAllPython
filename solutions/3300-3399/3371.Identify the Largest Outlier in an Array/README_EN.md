@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README_EN.md
 rating: 1643
 source: Weekly Contest 426 Q2
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is ordinary values, their sum, and one outlier. With $n \le 10^5$ we try each outlier in $O(1)$.
+>
+> Let the total be $s$. If $x$ is the outlier, $s-x$ is even and $(s-x)/2$ must appear among the remaining elements as the sum.
+>
+> A frequency map checks that case; if the sum equals $x$ we need two copies. We keep the largest valid $x$.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{cnt}$ to record the frequency of each element in the array $\textit{nums}$.
 

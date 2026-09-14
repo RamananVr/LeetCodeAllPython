@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3787.Find%20Diameter%20Endpoints%20of%20a%20Tree/README_EN.md
 tags:
     - Tree
     - Breadth-First Search
@@ -104,6 +103,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The endpoints of a tree diameter are found by two BFS passes: a farthest vertex $a$ from an arbitrary start, then a farthest vertex $b$ from $a$. Vertex $u$ is an endpoint of some diameter iff its distance to $a$ or to $b$ equals the diameter length.
+
+<!-- thinking:end -->
 
 We first convert the array $\text{edges}$ into an adjacency list representation of an undirected graph, where $g[u]$ represents all nodes adjacent to node $u$.
 

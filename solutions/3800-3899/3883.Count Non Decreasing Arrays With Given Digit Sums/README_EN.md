@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README_EN.md
 rating: 2172
 source: Biweekly Contest 179 Q4
 tags:
@@ -93,6 +92,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count nondecreasing arrays with $0 \le arr[i] \le 5000$ whose digit sums equal $\textit{digitSum}[i]$. $n \le 1000$ and digit sums $\le 50$.
+>
+> Monotonicity reduces the task to choosing a value at each index no smaller than the previous. Each digit sum has finitely many candidates.
+>
+> Precompute legal numbers per sum, then DP on index and last value, moving to a candidate at least as large.
+>
+> Modulo $10^9+7$. Values go up to $5000$, so sort candidates and use prefix sums to speed transitions.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

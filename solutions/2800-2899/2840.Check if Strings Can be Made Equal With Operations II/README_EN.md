@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README_EN.md
 rating: 1486
 source: Biweekly Contest 112 Q2
 tags:
@@ -64,6 +63,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swaps still mix only same-parity indices, now on a longer string. Even and odd positions remain two independent multisets; matching their counts is enough.
+
+<!-- thinking:end -->
 
 We observe the operation in the problem, and find that if the parity of the two indices $i$ and $j$ of the string is the same, then their order can be changed by swapping.
 

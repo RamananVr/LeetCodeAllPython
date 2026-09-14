@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README_EN.md
 rating: 1439
 source: Weekly Contest 163 Q2
 tags:
@@ -104,6 +103,16 @@ findElements.find(5); // return True
 <!-- solution:start -->
 
 ### Solution 1: DFS + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After contamination every value is $-1$, but children still obey $left=2x+1$ and $right=2x+2$ with root $0$. $find$ may run $10^4$ times, so we should not recompute a root-to-node path each query.
+>
+> Construction DFS restores every value into a hash set; $find$ is a set lookup. One traversal buys constant-time queries.
+
+<!-- thinking:end -->
 
 First, we traverse the binary tree using DFS, restore the node values to their original values, and store all node values in a hash table. Then, when searching, we only need to check if the target value exists in the hash table.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md
 tags:
     - Array
     - Matrix
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A transpose swaps rows and columns. The matrix is small enough to build a new one; in-place swaps are unnecessary.
+>
+> $\textit{zip}$ over the matrix turns each column into a new row.
+
+<!-- thinking:end -->
 
 Let $m$ be the number of rows and $n$ be the number of columns in the matrix $\textit{matrix}$. According to the definition of transpose, the transposed matrix $\textit{ans}$ will have $n$ rows and $m$ columns.
 

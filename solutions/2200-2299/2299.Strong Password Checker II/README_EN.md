@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README_EN.md
 rating: 1241
 source: Biweekly Contest 80 Q1
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A password needs length at least $8$, all four character classes, and no two equal neighbors. The length is at most $100$, so one scan can check everything. A four-bit mask records which classes appeared.
+>
+> Reject a short string or an equal adjacent pair; set the mask bit for the current class. A final mask of $15$ means all four classes are present.
+
+<!-- thinking:end -->
 
 According to the problem description, we can simulate the process of checking whether the password meets the requirements.
 

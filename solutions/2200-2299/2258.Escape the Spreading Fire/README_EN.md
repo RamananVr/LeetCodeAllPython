@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md
 rating: 2346
 source: Biweekly Contest 77 Q4
 tags:
@@ -84,6 +83,16 @@ Thus, 10<sup>9</sup> is returned.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may wait $t$ minutes before moving while fire spreads each minute; we want the largest feasible $t$. The grid has at most about $2\times 10^4$ cells. Feasibility is monotone in $t$, so we binary-search it.
+>
+> For a candidate $t$, spread fire for $t$ minutes; if the start burns, fail. Then BFS the person in lockstep with the fire, stepping only onto unburned grass. Reaching the exit before or with the fire succeeds. If even $t=mn$ works, return $10^9$.
+
+<!-- thinking:end -->
 
 We notice that if a stay time $t$ satisfies the condition, then all stay times less than $t$ also satisfy the condition. Therefore, we can consider using binary search to find the maximum stay time that satisfies the condition.
 

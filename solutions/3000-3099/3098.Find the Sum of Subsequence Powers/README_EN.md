@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README_EN.md
 rating: 2552
 source: Biweekly Contest 127 Q4
 tags:
@@ -79,6 +78,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The power of a subsequence is the minimum pairwise difference; we sum that over subsequences of length $k$. $n \le 50$.
+>
+> After sorting, only differences of consecutively chosen values can be the minimum, so a state is the current index, the last chosen index, how many picks remain, and the current minimum.
+>
+> Memoized $\textit{dfs}(i,j,k,\textit{mi})$ skips $i$ or takes it and updates the minimum by $\textit{nums}[i]-\textit{nums}[j]$. Sorting keeps those differences non-negative.
+
+<!-- thinking:end -->
 
 Given the problem involves the minimum difference between elements of a subsequence, we might as well sort the array $\textit{nums}$, which facilitates the calculation of the minimum difference between subsequence elements.
 

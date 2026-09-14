@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README_EN.md
 rating: 1583
 source: Weekly Contest 365 Q2
 tags:
@@ -64,6 +63,14 @@ It can be shown that there are no ordered triplets of indices with a value great
 <!-- solution:start -->
 
 ### Solution 1: Maintaining Prefix Maximum and Maximum Difference
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The formula is the same as the previous problem, but $n$ is larger, so a triple loop fails. One pass still keeps a prefix maximum and a best difference, updating the answer for the current $k$ before refreshing those two quantities.
+
+<!-- thinking:end -->
 
 We use two variables $\textit{mx}$ and $\textit{mxDiff}$ to maintain the prefix maximum value and maximum difference, respectively, and use a variable $\textit{ans}$ to maintain the answer. Initially, these variables are all $0$.
 

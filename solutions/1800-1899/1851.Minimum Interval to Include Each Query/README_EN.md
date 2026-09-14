@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README_EN.md
 rating: 2286
 source: Weekly Contest 239 Q4
 tags:
@@ -69,6 +68,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Offline Query + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query wants the shortest interval covering that point. Both arrays can have size $10^5$, so scanning all intervals per query is impossible.
+>
+> Sort queries offline by coordinate and intervals by left endpoint. A min-heap stores $(\textit{length},\textit{right})$ of intervals that already started: push those whose left is at most the query, pop those whose right is too small. The heap top is the shortest cover of the current point.
+
+<!-- thinking:end -->
 
 We notice that the order of queries does not affect the answer, and the intervals involved do not change. Therefore, we consider sorting all queries in ascending order, and sorting all intervals in ascending order of the left endpoint.
 

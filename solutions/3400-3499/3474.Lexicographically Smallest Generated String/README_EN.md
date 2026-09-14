@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README_EN.md
 rating: 2605
 source: Weekly Contest 439 Q4
 tags:
@@ -113,6 +112,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s[i]=\texttt{T}$ forces $ans[i..i+m)=t$; $\texttt{F}$ forbids equality. The string has length $n+m-1$ and should be lexicographically smallest, so we start from all $\texttt{a}$.
+>
+> T-constraints may conflict and must be written first, marking $\textit{fixed}$. An F-constraint that still equals $t$ must flip one unfixed cell.
+>
+> We change the rightmost unfixed cell to $\texttt{b}$ to keep earlier $\texttt{a}$s. If no unfixed cell exists, the instance is impossible.
+
+<!-- thinking:end -->
 
 Let $str1$ be $s$ and $str2$ be $t$.
 

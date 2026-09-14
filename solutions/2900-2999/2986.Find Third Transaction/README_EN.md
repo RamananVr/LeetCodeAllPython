@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2986.Find%20Third%20Transaction/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,16 @@ Output table is ordered by user_id in ascending order.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each user’s third transaction by time, with spend strictly above the previous two. $RANK$ numbers the user’s rows; two $LAG$s fetch the earlier spends and form the boolean $st$.
+>
+> Keep $rk=3$ and $st=1$. A triple self-join is unnecessary.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

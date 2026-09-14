@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README_EN.md
 tags:
     - Database
 ---
@@ -99,6 +98,16 @@ Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 <!-- solution:start -->
 
 ### Solution 1: Equi-Join + Group By + Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List users whose balance exceeds $10000$. Names and transactions live in two tables, so they must be joined on the account before we aggregate.
+>
+> After the equi-join, sum $amount$ per account and keep groups whose balance is greater than $10000$, projecting the name.
+
+<!-- thinking:end -->
 
 We can use an equi-join to join the `Users` table and the `Transactions` table on the condition of `account`, and then group by `account` to calculate the balance for each account using the `SUM` function. Finally, we can filter out the users whose balance is less than or equal to $10000$.
 

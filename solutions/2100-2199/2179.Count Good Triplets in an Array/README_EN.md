@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README_EN.md
 rating: 2272
 source: Biweekly Contest 72 Q4
 tags:
@@ -64,6 +63,18 @@ Out of those triplets, only the triplet (0,1,3) satisfies pos2<sub>x</sub> &lt; 
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree (Fenwick Tree)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good triplet has the same relative order in both permutations. Enumerating triples is $O(n^3)$ and fails for $n\le 10^5$. With the middle value fixed, the left count is how many already seen in $\textit{nums1}$ sit earlier in $\textit{nums2}$; the right count is the symmetric unseen suffix.
+>
+> Walk $\textit{nums1}$, query a Fenwick tree at the $\textit{nums2}$ position for the prefix count and the unused suffix, and add the product.
+>
+> Positions are $1$-based; $\texttt{update}$ after each value.
+
+<!-- thinking:end -->
 
 For this problem, we first use `pos` to record the position of each number in `nums2`, and then process each element in `nums1` sequentially.
 
@@ -134,6 +145,18 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Segment Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores prefix insertion counts in a Fenwick tree. A segment tree with point adds and range sums supports the same queries at the same asymptotic cost.
+>
+> Each node stores how many values in its interval have appeared; query $[1,p]$ and the unused count of $(p,n]$, add the product, then increment that point.
+>
+> The write-up records the segment-tree implementation.
+
+<!-- thinking:end -->
 
 We can also use a segment tree to solve this problem. A segment tree is a data structure that efficiently supports range queries and updates. The basic idea is to divide an interval into multiple subintervals, with each subinterval represented by a node.
 

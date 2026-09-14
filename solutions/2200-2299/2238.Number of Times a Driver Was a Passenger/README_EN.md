@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README_EN.md
 tags:
     - Database
 ---
@@ -73,6 +72,16 @@ The driver with ID = 11 was never a passenger.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every driver that appears, count how many times that person rode as a passenger; the count is $0$ if they never did. Grouping $\textit{Rides}$ by passenger would drop people who only drove.
+>
+> Take distinct $\textit{driver\_id}$ values and left-join $\textit{Rides}$ on $\textit{driver\_id} = \textit{passenger\_id}$. Counting $\textit{passenger\_id}$ keeps the zeros.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

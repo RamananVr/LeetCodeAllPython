@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3128.Right%20Triangles/README_EN.md
 rating: 1540
 source: Biweekly Contest 129 Q2
 tags:
@@ -208,6 +207,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A right angle at a $1$ needs another $1$ in its row and in its column. Rescanning the row and column for every $1$ is $O(mn(m+n))$.
+>
+> Row and column ones can be counted in advance. The contribution at $(i,j)$ is then $(rows[i]-1)(cols[j]-1)$.
+>
+> Accumulate ones per row and column, then add that product for every $1$. Both passes are $O(mn)$.
+
+<!-- thinking:end -->
 
 First, we can count the number of $1$s in each row and each column, and record them in the arrays $rows$ and $cols$.
 

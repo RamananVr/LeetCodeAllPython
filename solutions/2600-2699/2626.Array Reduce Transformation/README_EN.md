@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2626.Array%20Reduce%20Transformation/README_EN.md
 tags:
     - JavaScript
 ---
@@ -84,6 +83,16 @@ init = 25
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Built-in `reduce` is forbidden; we fold from the initializer. An empty array must return `init`, so the loop may do nothing.
+>
+> Start from $init$ and replace the accumulator with $fn(acc,x)$ for each element, matching native left-fold order.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

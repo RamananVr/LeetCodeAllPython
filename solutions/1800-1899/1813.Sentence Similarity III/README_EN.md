@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1813.Sentence%20Similarity%20III/README_EN.md
 rating: 1588
 source: Biweekly Contest 49 Q2
 tags:
@@ -84,6 +83,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shorter sentence must become the longer one by inserting one contiguous block of words, i.e. it is a prefix of the longer sentence glued to a suffix. Trying every insertion point is messy and easy to confuse with inserting in several places.
+>
+> Split both sentences and swap so the first is no shorter. Count the shared prefix from the left and the shared suffix from the right. If those two lengths cover the shorter sentence, the unmatched gap is a single interval and one insertion suffices.
+
+<!-- thinking:end -->
 
 We split the two sentences into two word arrays `words1` and `words2` by spaces. Let the lengths of `words1` and `words2` be $m$ and $n$, respectively, and assume that $m \ge nn.
 

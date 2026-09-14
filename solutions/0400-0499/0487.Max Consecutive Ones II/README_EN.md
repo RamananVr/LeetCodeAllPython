@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -59,6 +58,18 @@ The max number of consecutive ones is 4.
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most one $0$ may be treated as $1$. That is the longest window containing at most one zero.
+>
+> Expand the right end, counting zeros with $x\oplus 1$; when a second zero appears, shift the left end by one. We only want the maximum length, so $n-l$ is the answer.
+>
+> This is the $k=1$ case of “longest window with at most $k$ replacements”; the window never shrinks on purpose.
+
+<!-- thinking:end -->
 
 We can iterate through the array, using a variable $\textit{cnt}$ to record the current number of 0s in the window. When $\textit{cnt} > 1$, we move the left boundary of the window to the right by one position.
 

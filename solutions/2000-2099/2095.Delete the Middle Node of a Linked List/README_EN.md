@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README_EN.md
 rating: 1324
 source: Weekly Contest 270 Q2
 tags:
@@ -72,6 +71,16 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete the middle node (the later one if even length), which needs its predecessor. Slow starts at a dummy, fast at the head; two steps versus one leaves slow just before the middle.
+>
+> Rewire `slow.next`. Length $1$ is handled because the dummy sits before the only node.
+
+<!-- thinking:end -->
 
 The fast and slow pointer technique is a common method used to solve problems related to linked lists. We can maintain two pointers, a slow pointer $\textit{slow}$ and a fast pointer $\textit{fast}$. Initially, $\textit{slow}$ points to a dummy node, whose $\textit{next}$ pointer points to the head node $\textit{head}$ of the list, while $\textit{fast}$ points to the head node $\textit{head}$.
 

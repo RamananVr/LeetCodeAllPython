@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README_EN.md
 rating: 2304
 source: Biweekly Contest 76 Q4
 tags:
@@ -77,6 +76,16 @@ There are no valid node sequences of length 4, so we return -1.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want four distinct consecutive vertices with maximum score sum. $n \le 5\times 10^4$ forbids listing every path of length $3$. The middle of the path is some edge $(a,b)$; the ends $c$ and $d$ are neighbors of $a$ and $b$ respectively, all distinct.
+>
+> Keep only the three highest-scoring neighbors of each vertex. Enumerating an edge then tries a constant number of $(c,d)$ pairs after dropping conflicts with $a$ and $b$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

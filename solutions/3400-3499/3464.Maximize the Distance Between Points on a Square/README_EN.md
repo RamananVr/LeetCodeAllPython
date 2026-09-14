@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README_EN.md
 rating: 2805
 source: Weekly Contest 438 Q4
 tags:
@@ -96,6 +95,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Coordinate Mapping + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick $k$ points on the square boundary and maximize the minimum adjacent arc, including the wrap-around. The side is huge, there are at most $1.5\times 10^4$ points, and $k\le 25$.
+>
+> Maximizing a minimum is a binary search. Unfolding the boundary to a circle of length $4\cdot\textit{side}$ turns distances into one-dimensional gaps.
+>
+> For a candidate $\textit{lo}$ we try each start and greedily jump $k-1$ times by binary search, keeping the last point at most $\textit{start}+4\textit{side}-\textit{lo}$ so the cycle closes. Feasibility raises $\textit{lo}$.
+
+<!-- thinking:end -->
 
 Since the problem asks to maximize the minimum distance, we can use binary search on the answer to find the optimal solution.
 

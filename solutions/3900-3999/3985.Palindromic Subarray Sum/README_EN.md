@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README_EN.md
 rating: 2201
 source: Weekly Contest 509 Q4
 tags:
@@ -99,6 +98,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$, so expanding every palindrome center is $O(n^2)$ and may be slow. Every palindromic subarray is either a singleton (so the answer is at least $\max\textit{nums}$) or an expansion of equal neighbors around a center.
+>
+> If values do not repeat too often, center expansion may still run; otherwise equality must be hashed or handled by a palindromic automaton. This directory has no implemented solution yet; the walkthrough stops at center expansion versus the singleton maximum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

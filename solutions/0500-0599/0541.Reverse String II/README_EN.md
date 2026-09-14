@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0541.Reverse%20String%20II/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -43,6 +42,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In every block of $2k$ characters, reverse only the first $k$. A linear pass over blocks is enough.
+>
+> Convert to a list and, with step $2k$, reverse the slice of length $k$. A short tail reverses only what remains. Join back into a string.
+
+<!-- thinking:end -->
 
 We can traverse the string $\textit{s}$, iterating over every $\textit{2k}$ characters, and then use the two-pointer technique to reverse the first $\textit{k}$ characters among these $\textit{2k}$ characters.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1150.Check%20If%20a%20Number%20Is%20Majority%20Element%20in%20a%20Sorted%20Array/README_EN.md
 rating: 1249
 source: Biweekly Contest 6 Q1
 tags:
@@ -57,6 +56,14 @@ Thus, 101 is not a majority element because 2 &gt; 4/2 is false.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a sorted array the count of $target$ is the gap between its left and right bounds. Two binary searches find the first $\ge target$ and the first $>target$; the gap exceeds $n/2$ iff $target$ is a majority. A linear count is unnecessary for large $n$.
+
+<!-- thinking:end -->
+
 We notice that the elements in the array $nums$ are non-decreasing, that is, the elements in the array $nums$ are monotonically increasing. Therefore, we can use the method of binary search to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. If $right - left > \frac{n}{2}$, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
@@ -80,6 +87,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Binary Search (Optimized)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 runs two binary searches. If $target$ occurs more than half the time, the index $left+\lfloor n/2\rfloor$ still holds $target$. One `bisect_left` plus that probe drops the second search.
+
+<!-- thinking:end -->
 
 In Solution 1, we used binary search twice to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. However, we can use binary search once to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and then judge whether $nums[left + \frac{n}{2}]$ is equal to $target$. If they are equal, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
 

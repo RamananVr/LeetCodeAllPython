@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0207.Course%20Schedule/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -63,6 +62,16 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 <!-- solution:start -->
 
 ### Solution 1: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Prerequisites form a directed graph; finishing every course is possible iff the graph is acyclic. Enumerating orders is not viable at the given size.
+>
+> Kahn's algorithm repeatedly takes a vertex of indegree $0$ and decrements its successors. If every course enters the queue, there is no cycle.
+
+<!-- thinking:end -->
 
 For this problem, we can consider the courses as nodes in a graph, and prerequisites as edges in the graph. Thus, we can transform this problem into determining whether there is a cycle in the directed graph.
 

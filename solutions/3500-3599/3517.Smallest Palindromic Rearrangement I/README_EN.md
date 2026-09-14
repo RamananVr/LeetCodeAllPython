@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README_EN.md
 rating: 1357
 source: Weekly Contest 445 Q2
 tags:
@@ -75,6 +74,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ is already a palindrome, and any rearrangement that stays a palindrome is determined by the multiset of the first half. Put half of each character on the left, at most one odd character in the middle, and mirror the right.
+>
+> The left half should be filled from `a` to `z` to obtain the lexicographically smallest string.
+
+<!-- thinking:end -->
 
 We first count the occurrence of each character in the string and record it in a hash table or array $\textit{cnt}$. Since the string is a palindrome, the count of each character is either even, or there is exactly one character with an odd count.
 

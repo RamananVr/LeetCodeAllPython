@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3422.Minimum%20Operations%20to%20Make%20Subarray%20Elements%20Equal/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -75,6 +74,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Making every element of a window equal is cheapest at the median; the cost is the $L_1$ distance to it. We need that cost for every window of length $k$ with $n\le 10^5$.
+>
+> Sorting each window is $O(nk\log k)$. The two sides of the median must be maintained as the window slides.
+>
+> Two ordered sets $l$ and $r$ store the lower and upper halves with $|r|-|l|\in\{0,1\}$, so $\min r$ is the median. Side sums $s_1,s_2$ give the distance in $O(1)$. The outgoing element is removed from the set that contains it.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to find a subarray of length $k$ and make all elements in the subarray equal with the minimum number of operations. That is, we need to find a subarray of length $k$ such that the minimum number of operations required to make all elements in the subarray equal to the median of these $k$ elements is minimized.
 

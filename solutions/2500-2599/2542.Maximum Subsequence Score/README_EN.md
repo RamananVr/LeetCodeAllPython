@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md
 rating: 2056
 source: Biweekly Contest 96 Q3
 tags:
@@ -73,6 +72,16 @@ Choosing index 2 is optimal: nums1[2] * nums2[2] = 3 * 10 = 30 is the maximum po
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Priority Queue (Min Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A score is the sum of $k$ chosen $\textit{nums1}$ values times the minimum of the matching $\textit{nums2}$ values. Enumerating $k$-subsets is impossible.
+>
+> If the minimum is fixed as $a$, we may only pick among indices with $\textit{nums2}\ge a$. Scanning pairs in decreasing $\textit{nums2}$ makes the current $a$ the minimum, and all earlier pairs remain eligible. A min-heap keeps the $k$ largest $\textit{nums1}$ values; when it fills, multiply the sum by $a$ and evict the smallest to make room.
+
+<!-- thinking:end -->
 
 Sort nums2 and nums1 in descending order according to nums2, then traverse from front to back, maintaining a min heap. The heap stores elements from nums1, and the number of elements in the heap does not exceed $k$. At the same time, maintain a variable $s$ representing the sum of the elements in the heap, and continuously update the answer during the traversal process.
 

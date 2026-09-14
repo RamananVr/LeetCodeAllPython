@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3941.Password%20Strength/README_EN.md
 rating: 1284
 source: Weekly Contest 503 Q2
 tags:
@@ -78,6 +77,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strength scores each distinct character once, so the string is first inserted into a set.
+>
+> Points then follow the character class: $1$ for lowercase, $2$ for uppercase, $3$ for a digit, $5$ for a special. $n\le 10^5$, so one set-build plus one scan suffice.
+
+<!-- thinking:end -->
 
 We store each character in the input string in a hash set $\textit{st}$, so we can quickly ensure each distinct character is counted only once.
 

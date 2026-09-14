@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0431.Encode%20N-ary%20Tree%20to%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -60,6 +59,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A binary node has only two pointers, yet an $N$-ary node may have many children. The children are ordered, so the first child and the next sibling can occupy different pointers.
+>
+> Encode: left points to the first child; right threads the remaining siblings. Decode: start at the left child and walk right, recursively restoring each sibling.
+>
+> The map is invertible: each child list becomes a unique right spine hanging off the left pointer.
+
+<!-- thinking:end -->
 
 We can point the left pointer of the binary tree to the first child of the N-ary tree and the right pointer of the binary tree to the next sibling node of the N-ary tree.
 

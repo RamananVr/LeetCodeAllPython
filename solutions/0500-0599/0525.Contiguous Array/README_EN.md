@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0525.Contiguous%20Array/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest subarray with equally many $0$s and $1$s. Checking all pairs is $O(n^2)$ and too slow for $n \le 10^5$.
+>
+> Treat $0$ as $-1$; a zero-sum subarray is balanced. Equal prefix sums bound such a segment. Store the first index of each prefix; a later repeat updates the length. Seed $0$ at $-1$ so prefixes from the start are covered.
+
+<!-- thinking:end -->
 
 According to the problem description, we can treat $0$s in the array as $-1$. In this way, when encountering a $0$, the prefix sum $s$ will decrease by one, and when encountering a $1$, the prefix sum $s$ will increase by one. Therefore, suppose the prefix sum $s$ is equal at indices $j$ and $i$, where $j < i$, then the subarray from index $j + 1$ to $i$ has an equal number of $0$s and $1$s.
 

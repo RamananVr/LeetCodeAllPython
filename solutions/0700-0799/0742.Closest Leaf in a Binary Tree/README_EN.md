@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0742.Closest%20Leaf%20in%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the nearest leaf to the node valued $k$. The leaf may sit in the subtree or require walking up to the parent first. Downward search alone misses that.
+>
+> On the undirected graph of the tree, the first leaf reached by BFS from $k$ is the closest. Values are unique, so the start is easy to find.
+>
+> DFS records parent/child edges both ways, then BFS from $k$ returns on the first node with no children. $O(n)$.
+
+<!-- thinking:end -->
 
 First, we use depth-first search to construct an undirected graph $g$, where $g[node]$ represents the set of nodes adjacent to the node $node$. Then we start a breadth-first search from node $k$ until we find a leaf node, which is the answer.
 

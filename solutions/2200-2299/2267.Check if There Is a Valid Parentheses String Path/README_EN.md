@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README_EN.md
 rating: 2084
 source: Weekly Contest 292 Q4
 tags:
@@ -75,6 +74,16 @@ Note that there may be other valid parentheses string paths.
 <!-- solution:start -->
 
 ### Solution 1: DFS + Pruning
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only move right or down, and the path must be a valid parentheses string. The path length is $m+n-1$. An odd length, a starting $')'$, or an ending $'('$ is impossible. Full search is exponential, but a legal prefix balance $k$ cannot exceed the number of remaining cells.
+>
+> Memoized $\textit{dfs}(i,j,k)$ updates $k$ at the current cell, prunes if $k<0$ or $k$ exceeds leftover steps, and requires $k=0$ at the end.
+
+<!-- thinking:end -->
 
 Let $m$ be the number of rows and $n$ be the number of columns in the matrix.
 

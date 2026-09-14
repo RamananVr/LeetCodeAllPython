@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md
 rating: 2069
 source: Biweekly Contest 7 Q4
 tags:
@@ -81,6 +80,14 @@ Note that we can connect houses 1 and 2 with cost 1 or with cost 2 but we will a
 
 ### Solution 1: Kruskal's Algorithm (Minimum Spanning Tree)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A house may sink its own well or connect through pipes. Add a virtual node $0$ whose edges to houses are well costs; the instance is an MST on $n+1$ vertices. Sort edges by cost and union them until $n$ merges remain (all houses touch $0$), which is the minimum cost.
+
+<!-- thinking:end -->
+
 We assume that there is a well with the number $0$. Then we can consider the connectivity between each house and the well $0$ as an edge, and the weight of each edge is the cost of building a well for that house. At the same time, we consider the connectivity between each house as an edge, and the weight of each edge is the cost of laying a pipe. In this way, we can transform this problem into finding the minimum spanning tree of an undirected graph.
 
 We can use Kruskal's algorithm to find the minimum spanning tree of the undirected graph. First, we add an edge between the well $0$ and the house to the $pipes$ array, and then sort the $pipes$ array in ascending order of edge weights. Then, we traverse each edge. If this edge connects different connected components, we choose this edge and merge the corresponding connected components. If the current connected component is exactly $1$, then we have found the minimum spanning tree. The answer at this time is the current edge weight, and we return it.
@@ -123,6 +130,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 inlines union-find. Method 2 wraps union-by-size; `union` reports a real merge, and the loop only adds cost and counts. The graph and Kruskal order stay the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

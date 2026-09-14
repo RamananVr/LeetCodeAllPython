@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -55,6 +54,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find two nodes summing to $k$. Inorder plus two pointers works after collecting values.
+>
+> A set of seen values during a walk is enough: if $k-val$ is present, return true. The BST order is not required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -87,6 +96,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS can be replaced by BFS with the same seen-set test; only the traversal order changes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3597.Partition%20String/README_EN.md
 rating: 1347
 source: Weekly Contest 456 Q1
 tags:
@@ -193,6 +192,16 @@ tags:
 
 ### Solution 1: Hash Table + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Segments must be the shortest unseen strings in left-to-right order. Store emitted pieces in a set; after each appended character, emit and clear the buffer when it is new.
+>
+> Segment lengths grow like $1+2+\cdots$, so lookups cost about $O(n\sqrt{n})$ overall, which fits the limits.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{vis}$ to record the segments that have already appeared. Then, we traverse the string $s$, building the current segment $t$ character by character until this segment has not appeared before. Each time we construct a new segment, we add it to the result list and mark it as seen.
 
 After the traversal, we simply return the result list.
@@ -225,6 +234,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: String Hashing + Hash Table + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous method keys the set by the whole substring, so comparisons grow with segment length. A polynomial string hash makes a substring query $O(1)$ and keeps lookup expected-constant.
+>
+> Two pointers mark the current segment $[l,r]$; extend $r$ and cut when the hash is new. The greedy partition is unchanged, but the total time becomes linear.
+
+<!-- thinking:end -->
 
 We can use string hashing to speed up the lookup of segments. Specifically, we can compute a hash value for each segment and store it in a hash table. In this way, we can determine in constant time whether a segment has already appeared.
 

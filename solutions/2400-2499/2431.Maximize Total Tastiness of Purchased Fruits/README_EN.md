@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -79,6 +78,16 @@ It can be proven that 28 is the maximum total tastiness that can be obtained.
 <!-- solution:start -->
 
 ### Solution 1: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each fruit may be skipped, bought, or bought at half price with a coupon. State $(i,j,k)$ is the index, remaining money, and remaining coupons. The product $n\times\textit{maxAmount}\times\textit{maxCoupons}$ is small enough to memoize.
+>
+> Transitions are skip, pay full price if $j$ allows, or spend one coupon at $\lfloor price/2\rfloor$. Take the maximum tastiness.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i, j, k)$ to represent the maximum total tastiness starting from the $i$th fruit, with $j$ money left, and $k$ coupons left.
 

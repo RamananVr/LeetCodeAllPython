@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3662.Filter%20Characters%20by%20Frequency/README_EN.md
 tags:
     - Hash Table
     - String
@@ -74,6 +73,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep characters whose global frequency is strictly below $k$, in the original order. Count first, then filter, so deletions do not change the frequencies mid-scan.
+>
+> A $\textit{Counter}$ stores the totals; a second pass appends characters with count less than $k$.
+>
+> $n\le 100$ makes two linear scans enough.
+
+<!-- thinking:end -->
 
 First, we iterate through the string $s$ and count the frequency of each character, storing the results in a hash table or array $\textit{cnt}$.
 

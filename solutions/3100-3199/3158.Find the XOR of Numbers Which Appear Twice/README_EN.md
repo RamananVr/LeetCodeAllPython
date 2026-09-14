@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3158.Find%20the%20XOR%20of%20Numbers%20Which%20Appear%20Twice/README_EN.md
 rating: 1172
 source: Biweekly Contest 131 Q1
 tags:
@@ -76,6 +75,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> XOR the values that occur exactly twice. The domain is tiny, so a frequency table is enough.
+>
+> Count in one pass and XOR keys whose frequency is $2$. An empty list yields $0$.
+>
+> `Counter` plus `reduce(xor, ...)` solves it in linear time.
+
+<!-- thinking:end -->
+
 We define an array or hash table `cnt` to record the occurrence of each number.
 
 Next, we traverse the array `nums`. When a number appears twice, we perform an XOR operation with the answer.
@@ -102,6 +113,18 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A hash map is unnecessary when every value is at most $50$.
+>
+> A 64-bit mask records whether a value has been seen; the second sighting XORs it into the answer.
+>
+> If bit $x$ of $mask$ is set, XOR $x$ into $ans$; otherwise set the bit. Extra arrays disappear.
+
+<!-- thinking:end -->
 
 Since the given number range in the problem is $1 \leq \textit{nums}[i] \leq 50$, we can use a $64$-bit integer to store the occurrence of each number.
 

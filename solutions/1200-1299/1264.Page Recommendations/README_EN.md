@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1264.Page%20Recommendations/README_EN.md
 tags:
     - Database
 ---
@@ -106,6 +105,14 @@ Page 88 is not suggested because user 1 already likes it.
 
 ### Solution 1: Union + Equi-Join + Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A recommendation is a page a friend likes that user $1$ does not. Friendship is undirected, so we union both ends incident to user $1$, join $Likes$, and exclude $page\_id$s already liked by user $1$.
+
+<!-- thinking:end -->
+
 First, we query all users who are friends with `user_id = 1` and record them in the `T` table. Then, we query all pages that users in the `T` table like, and finally exclude the pages that `user_id = 1` likes.
 
 <!-- tabs:start -->
@@ -134,6 +141,14 @@ WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 materializes friends then joins. The friend subquery can sit in an $IN$ on $Likes.user\_id$ instead, dropping the CTE. The meaning is the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0201.Bitwise%20AND%20of%20Numbers%20Range/README_EN.md
 tags:
     - Bit Manipulation
 ---
@@ -52,6 +51,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> AND-ing every integer in $[left,right]$ is impossible when the span approaches $2^{31}$. The bitwise AND of a contiguous range is their common binary prefix: lower bits are cleared by some number in the range.
+>
+> While $left < right$, clear the lowest set bit of $right$ ($right \mathrel{\&}= right-1$) until $right \le left$. The remaining $right$ is that common prefix.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

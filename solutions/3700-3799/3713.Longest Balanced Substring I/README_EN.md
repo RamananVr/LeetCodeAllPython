@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README_EN.md
 rating: 1490
 source: Weekly Contest 471 Q2
 tags:
@@ -77,6 +76,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$ allows enumerating all substrings. Balance means every character that appears has the same count, i.e. $\textit{maxFreq}\times\textit{kinds}=\textit{length}$. Fixing the left end and scanning right while maintaining frequencies and the kind count updates the answer in $O(n^2)$.
+
+<!-- thinking:end -->
 
 We can enumerate the starting position $i$ of substrings in the range $[0,..n-1]$, then enumerate the ending position $j$ of substrings in the range $[i,..,n-1]$, and use a hash table $\textit{cnt}$ to record the frequency of each character in substring $s[i..j]$. We use variable $\textit{mx}$ to record the maximum frequency of characters in the substring, and use variable $v$ to record the number of distinct characters in the substring. If at some position $j$, we have $\textit{mx} \times v = j - i + 1$, it means substring $s[i..j]$ is a balanced substring, and we update the answer $\textit{ans} = \max(\textit{ans}, j - i + 1)$.
 

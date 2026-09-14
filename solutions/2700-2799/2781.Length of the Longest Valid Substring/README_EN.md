@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md
 rating: 2203
 source: Weekly Contest 354 Q4
 tags:
@@ -63,6 +62,16 @@ It can be shown that all other substrings contain either &quot;de&quot;, &quot;l
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid substring contains no forbidden string as a contiguous piece; we want the maximum length. Forbidden strings have length at most $10$, but $word$ can be $10^5$, so every substring cannot be tested.
+>
+> As the right end $j$ advances, only suffixes that end at $j$, have length at most $10$, and still start to the right of the current left end need a set lookup. A hit moves the left end just past that forbidden piece. The longest window is the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

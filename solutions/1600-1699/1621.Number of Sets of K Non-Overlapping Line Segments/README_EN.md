@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1621.Number%20of%20Sets%20of%20K%20Non-Overlapping%20Line%20Segments/README_EN.md
 rating: 2198
 source: Biweekly Contest 37 Q3
 tags:
@@ -64,6 +63,18 @@ The image above shows the 5 different ways {(0,2),(2,3)}, {(0,1),(1,3)}, {(0,1),
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Drawing $k$ non-overlapping (but possibly touching) segments on $n$ points is awkward to enumerate by endpoints. Process points left to right and split states by whether the last segment ends at the current point.
+>
+> Let $f[i][j]$ be ways to place $j$ segments on the first $i$ points with the last segment not ending at $i$, and $g[i][j]$ the ways where it does. Transitions use only the two kinds of state at $i-1$: inherit $j$ segments, or extend / start a new length-$1$ segment.
+>
+> Start from $f[1][0]=1$ and return $f[n][k]+g[n][k]$ modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0765.Couples%20Holding%20Hands/README_EN.md
 tags:
     - Greedy
     - Depth-First Search
@@ -58,6 +57,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Seat couples side by side with the fewest swaps. The count equals a permutation of couple-ids.
+>
+> Each sofa maps two people to couple numbers; those couples are unioned. A cycle of $y$ couples needs $y-1$ swaps.
+>
+> Union-find on $n$ couple ids; the answer is $n$ minus the number of roots.
+
+<!-- thinking:end -->
 
 We can assign a number to each pair of couples. Person with number $0$ and $1$ corresponds to couple $0$, person with number $2$ and $3$ corresponds to couple $1$, and so on. In other words, the person corresponding to $row[i]$ has a couple number of $\lfloor \frac{row[i]}{2} \rfloor$.
 

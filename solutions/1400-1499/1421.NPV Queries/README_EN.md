@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1421.NPV%20Queries/README_EN.md
 tags:
     - Database
 ---
@@ -105,6 +104,16 @@ The npv values of all other queries can be found in the NPV table.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query $(id,year)$ may be absent from `NPV` and should report $0$. An inner join would drop those rows, so `Queries` is left-joined to `NPV` on both keys.
+>
+> `IFNULL(npv, 0)` fills missing values while keeping every query row.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

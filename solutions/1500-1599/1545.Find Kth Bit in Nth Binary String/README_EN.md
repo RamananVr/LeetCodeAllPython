@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README_EN.md
 rating: 1479
 source: Weekly Contest 201 Q2
 tags:
@@ -72,6 +71,16 @@ The 11<sup>th</sup> bit is &quot;1&quot;.
 <!-- solution:start -->
 
 ### Solution 1: Case Analysis + Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $S_n$ is $S_{n-1}$, then a $1$, then the reversed complement of $S_{n-1}$, with length $2^n-1$. $n\le 20$ makes the full string millions of bits; we should not build it.
+>
+> Bit $k$ is $1$ when it is the midpoint ($k$ a power of two); it copies $S_{n-1}[k]$ on the left half; on the right half it is the complement of the mirrored left index. Recursing on those three cases has depth $n$.
+
+<!-- thinking:end -->
 
 We can observe that for $S_n$, the first half is the same as $S_{n-1}$, and the second half is the reverse and negation of $S_{n-1}$. Therefore, we can design a function $dfs(n, k)$, which represents the $k$-th character of the $n$-th string. The answer is $dfs(n, k)$.
 

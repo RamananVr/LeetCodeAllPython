@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README_EN.md
 rating: 2419
 source: Weekly Contest 457 Q4
 tags:
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coordinates reach $10^9$ and each move adds $\max(x,y)$ to one axis, so a forward search cannot enumerate the state space. The move is reversible: if one coordinate is strictly larger, the last addition was on that axis.
+>
+> Walk backwards from $(t_x,t_y)$ toward $(s_x,s_y)$. When $t_x\ge t_y$, if $t_x\ge 2t_y$ subtract a multiple of $t_y$ (several additions to $x$); otherwise subtract $t_y$ once. Handle $t_y>t_x$ symmetrically.
+>
+> If a step would fall below the start, or both coordinates are equal before the start is reached, the target is unreachable. Each reverse step is unique, so the step count is the minimum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

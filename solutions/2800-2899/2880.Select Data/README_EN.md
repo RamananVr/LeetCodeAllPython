@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2880.Select%20Data/README_EN.md
 tags:
     - Pandas
 ---
@@ -58,6 +57,14 @@ Input:</strong>
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the name and age of student $101$. A boolean mask selects that row, then we keep only the `name` and `age` columns.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

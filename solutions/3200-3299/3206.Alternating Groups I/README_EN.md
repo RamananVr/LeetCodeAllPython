@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3206.Alternating%20Groups%20I/README_EN.md
 rating: 1223
 source: Biweekly Contest 134 Q1
 tags:
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and the group length is fixed at $3$, so we could test every start for an alternating triple. The circular wrap needs modular indices and is a bit clumsy.
+>
+> Unrolling the ring to a $2n$ scan, $\textit{cnt}$ tracks the current alternating run and resets on equal neighbors. Count only when $i\ge n$ and $\textit{cnt}\ge 3$, so each original index is counted once as a group's right end, in $O(1)$ extra space.
+
+<!-- thinking:end -->
 
 We set $k = 3$, indicating that the length of the alternating group is $3$.
 

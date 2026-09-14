@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3395.Subsequences%20with%20a%20Unique%20Middle%20Mode%20I/README_EN.md
 rating: 2799
 source: Biweekly Contest 146 Q4
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$5$ subsequence is counted when its middle value is the unique mode. With $n \le 1000$ we fix the middle index and pick two indices on each side.
+>
+> A raw $O(n^5)$ search fails. After fixing $x=\textit{nums}[i]$, we classify left/right frequencies so that $x$ occurs strictly more often than every other value.
+>
+> Combine left and right frequency tables, subtracting cases where $x$ is tied or not the mode. With $O(n)$ prefix maps at $i$, each middle is $O(1)$ or $O(|\Sigma|)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

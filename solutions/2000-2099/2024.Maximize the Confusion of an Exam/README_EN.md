@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md
 rating: 1643
 source: Biweekly Contest 62 Q3
 tags:
@@ -76,6 +75,18 @@ In both cases, there are five consecutive &#39;T&#39;s.
 <!-- solution:start -->
 
 ### Solution 1: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may flip at most $k$ answers to maximize a monochrome run. $n \le 5 \times 10^4$ forbids scanning every interval. Flipping toward `T` and toward `F` are independent.
+>
+> A window is feasible while it contains at most $k$ opposite letters. Advance the right end; if over budget, advance the left.
+>
+> Two sliding windows yield the answer; the code keeps a valid window of length $n-l$.
+
+<!-- thinking:end -->
 
 We design a function $\textit{f}(c)$, which represents the longest length of consecutive characters under the condition that at most $k$ characters $c$ can be replaced, where $c$ can be 'T' or 'F'. The answer is $\max(\textit{f}('T'), \textit{f}('F'))$.
 

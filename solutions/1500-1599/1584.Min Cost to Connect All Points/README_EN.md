@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md
 rating: 1857
 source: Weekly Contest 206 Q3
 tags:
@@ -64,6 +63,16 @@ Notice that there is a unique path between every pair of points.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Connect all points by Manhattan distance and take a minimum spanning tree. $n\le 1000$ yields a dense complete graph, which suits a dense MST algorithm.
+>
+> Plain Prim keeps each vertex's distance to the current tree, repeatedly adds the closest unused vertex, and relaxes the others. $n$ rounds of an $n$-scan cost $O(n^2)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -102,6 +111,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Prim is organized around a cut and an adjacency matrix. Kruskal sorts every edge and unions endpoints until the graph is connected. With $O(n^2)$ edges the sort dominates; the style is convenient when we prefer to iterate edges.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

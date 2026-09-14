@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1780.Check%20if%20Number%20is%20a%20Sum%20of%20Powers%20of%20Three/README_EN.md
 rating: 1505
 source: Biweekly Contest 47 Q2
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematical Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is a sum of distinct powers of three iff every ternary digit is $0$ or $1$—never $2$.
+>
+> Repeatedly inspect $n\bmod 3$; fail if the remainder exceeds $1$, otherwise divide by $3$ until $n$ is $0$.
+
+<!-- thinking:end -->
 
 We find that if a number $n$ can be expressed as the sum of several "different" powers of three, then in the ternary representation of $n$, each digit can only be $0$ or $1$.
 

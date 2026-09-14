@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1196.How%20Many%20Apples%20Can%20You%20Put%20into%20the%20Basket/README_EN.md
 rating: 1248
 source: Biweekly Contest 9 Q1
 tags:
@@ -54,6 +53,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The basket holds weight $5000$, so the maximum count uses the lightest apples first. Sort, add from small to large, and return the count when the sum exceeds the cap, or $n$ if everything fits.
+
+<!-- thinking:end -->
 
 To maximize the number of apples, we should try to minimize the weight of the apples. Therefore, we can sort the weights of the apples, and then put them into the basket in ascending order until the weight of the basket exceeds $5000$. We then return the number of apples in the basket at this point.
 

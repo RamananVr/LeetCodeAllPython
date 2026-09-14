@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md
 rating: 1912
 source: Weekly Contest 245 Q2
 tags:
@@ -75,6 +74,16 @@ Hence, the maximum k is 2.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We delete $s[\textit{removable}[0..k))$ in order and want the largest $k$ such that $p$ remains a subsequence. More deletions only make the test harder.
+>
+> Binary-search $k$, mark the first $k$ indices, and scan $s$ against $p$. If $p$ still matches, try a larger $k$.
+
+<!-- thinking:end -->
 
 We notice that if removing the characters at the first $k$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$, then removing the characters at $k \lt k' \leq \textit{removable.length}$ indices will also satisfy the condition. This monotonicity allows us to use binary search to find the maximum $k$.
 

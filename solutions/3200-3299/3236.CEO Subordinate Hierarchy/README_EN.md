@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README_EN.md
 tags:
     - Database
 ---
@@ -105,6 +104,16 @@ manager_id is the employee_id of the employee&#39;s manager. The CEO has a NULL 
 <!-- solution:start -->
 
 ### Solution 1: Recursive CTE + Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The org chart is a tree rooted at the CEO; we need each subordinate's depth and salary gap. Repeated self-joins cannot bound the depth.
+>
+> A recursive CTE starts at `manager_id IS NULL` and walks manager edges, incrementing depth; subtract the CEO salary, drop level $0$, and sort by depth and id.
+
+<!-- thinking:end -->
 
 First, we use a recursive CTE to calculate the hierarchy level of each employee, where the CEO's level is $0$. We save `employee_id`, `employee_name`, `hierarchy_level`, `manager_id`, and `salary` into a temporary table `T`.
 

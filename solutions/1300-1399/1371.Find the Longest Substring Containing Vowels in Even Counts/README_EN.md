@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README_EN.md
 rating: 2040
 source: Biweekly Contest 21 Q2
 tags:
@@ -61,6 +60,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Prefix XOR + Array or Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest substring in which every vowel occurs evenly. $n \le 5 \times 10^5$ rules out both ends. Even counts mean two prefixes share the same parity mask. A five-bit mask tracks those parities; the first index of each mask plus a later repeat $i$ yields length $i-j$.
+
+<!-- thinking:end -->
 
 According to the problem description, if we use a number to represent the parity of the occurrences of each vowel in a prefix of the string $\textit{s}$, then when two prefixes have the same number, the substring between these two prefixes is a valid substring.
 

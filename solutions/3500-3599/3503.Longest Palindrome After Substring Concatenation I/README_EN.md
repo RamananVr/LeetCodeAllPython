@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README_EN.md
 rating: 1548
 source: Weekly Contest 443 Q2
 tags:
@@ -89,6 +88,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Palindrome Centers + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest palindrome inside $s$ or $t$ alone can be found by expanding around centers, but a concatenation may take a piece from each string and then grow a palindromic core on one side.
+>
+> After reversing $t$, a common prefix of $s$ and the reversed $t$ is a symmetric pair from the two originals. $f[i][j]$ stores that matched length; appending the longest palindrome starting at $i$ in $s$ or at $j$ in the reversed $t$ covers both “one side only” and “match then extend”.
+
+<!-- thinking:end -->
 
 According to the problem description, the concatenated palindrome string can be composed entirely of string $s$, entirely of string $t$, or a combination of both strings $s$ and $t$. Additionally, there may be extra palindromic substrings in either string $s$ or $t$.
 

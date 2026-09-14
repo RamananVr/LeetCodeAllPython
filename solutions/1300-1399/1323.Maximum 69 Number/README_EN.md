@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1323.Maximum%2069%20Number/README_EN.md
 rating: 1193
 source: Weekly Contest 172 Q1
 tags:
@@ -66,6 +65,14 @@ The maximum number is 9969.
 <!-- solution:start -->
 
 ### Solution 1: Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may change one $6$ into a $9$ and want the largest number. A higher place value outweighs a lower one, so the leftmost $6$ is the unique best edit; if none exists the number is already maximal. Replacing the first `'6'` in the decimal string is that choice.
+
+<!-- thinking:end -->
 
 We convert the number to a string, then traverse the string from left to right to find the first occurrence of $6$, replace it with $9$, and then return the integer corresponding to the converted string.
 

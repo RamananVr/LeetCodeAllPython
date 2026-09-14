@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3394.Check%20if%20Grid%20can%20be%20Cut%20into%20Sections/README_EN.md
 rating: 1916
 source: Biweekly Contest 146 Q3
 tags:
@@ -92,6 +91,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rectangles do not overlap; we ask whether two axis-aligned cuts can split them into three nonempty parts. Coordinates reach $10^9$, so we work on projections.
+>
+> Each interval contributes a start $+1$ and an end $-1$. Equal coordinates process ends first so a touch creates a gap.
+>
+> Whenever coverage returns to $0$ we have a full seam. Either orientation with at least three seams (two cuts) is valid.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

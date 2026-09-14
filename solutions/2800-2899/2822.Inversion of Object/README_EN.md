@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2822.Inversion%20of%20Object/README_EN.md
 tags:
     - JavaScript
 ---
@@ -62,6 +61,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inverting key–value pairs can map one value to several original keys. Store a scalar on the first occurrence and promote it to an array when the same value appears again.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

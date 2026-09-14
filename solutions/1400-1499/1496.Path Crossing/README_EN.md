@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1496.Path%20Crossing/README_EN.md
 rating: 1508
 source: Weekly Contest 195 Q1
 tags:
@@ -52,6 +51,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $|path|\le 10^4$. Walk the path and store visited cells. A step that lands on a stored cell crosses the path.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

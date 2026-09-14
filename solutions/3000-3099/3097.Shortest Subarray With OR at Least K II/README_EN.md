@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md
 rating: 1891
 source: Biweekly Contest 127 Q3
 tags:
@@ -77,6 +76,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 2 \times 10^5$, so enumerating subarrays is gone.
+>
+> Part I’s monotone OR plus per-bit counts for deletions is already $O(n \log M)$ and carries over unchanged.
+>
+> The same two pointers and $32$ counters maintain the current OR.
+
+<!-- thinking:end -->
 
 We can observe that if we fix the left endpoint of the subarray, as the right endpoint moves to the right, the bitwise OR value of the subarray will only increase, not decrease. Therefore, we can use the double pointers method to maintain a subarray that meets the conditions.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README_EN.md
 rating: 2123
 source: Weekly Contest 469 Q3
 ---
@@ -85,6 +84,18 @@ source: Weekly Contest 469 Q3
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zigzag array alternates the sign of consecutive differences. Values lie in $[l,r]$ and $n\le 2000$, so we shift the range to $[0,m-1]$ and DP.
+>
+> $\textit{up}[i]$ and $\textit{down}[i]$ count arrays ending at $i$ whose last step rises or falls. A descent sums all larger $\textit{up}$; an ascent sums all smaller $\textit{down}$.
+>
+> Prefix and suffix sums make each of the $n-1$ rounds $O(m)$. Length $1$ seeds both directions with $1$. Reduce the total modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 Let $m = r - l + 1$ and map the range $[l, r]$ to $[0, m - 1]$.
 

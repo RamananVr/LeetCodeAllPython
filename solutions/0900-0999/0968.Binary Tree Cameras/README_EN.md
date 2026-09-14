@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0968.Binary%20Tree%20Cameras/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -54,6 +53,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Tree DP)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A camera covers itself, its parent, and its children; we want as few as possible. The optimum at a node depends on the children, so we distinguish “has a camera / covered by a child / uncovered”. Tree DP returns the three minima bottom-up; the root may not stay uncovered.
+
+<!-- thinking:end -->
 
 For each node, we define three states:
 

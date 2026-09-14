@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1069.Product%20Sales%20Analysis%20II/README_EN.md
 tags:
     - Database
 ---
@@ -92,6 +91,18 @@ Product table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Total units per product are the sum of `quantity` for that `product_id`.
+>
+> Group by `product_id` and sum `quantity`.
+>
+> `GROUP BY 1` refers to the first selected column; the product table is not needed.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

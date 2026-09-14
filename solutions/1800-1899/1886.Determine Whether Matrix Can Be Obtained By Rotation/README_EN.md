@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1886.Determine%20Whether%20Matrix%20Can%20Be%20Obtained%20By%20Rotation/README_EN.md
 rating: 1407
 source: Weekly Contest 244 Q1
 tags:
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: In-Place Comparison
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether $mat$ rotated by $0/90/180/270$ degrees equals $target$. Building four copies works for $n\le 10$, but we can compare in place.
+>
+> The four maps send $(i,j)$ to $(i,j)$, $(j,n-1-i)$, $(n-1-i,n-1-j)$, and $(n-1-j,i)$. A four-bit mask tracks which rotations still match; a mismatch clears a bit, and we stop if the mask becomes $0$.
+
+<!-- thinking:end -->
 
 We observe the rotation pattern of the matrix and find that for an element $\text{mat}[i][j]$, after rotating 90 degrees it appears at position $\text{mat}[j][n-1-i]$, after rotating 180 degrees it appears at position $\text{mat}[n-1-i][n-1-j]$, and after rotating 270 degrees it appears at position $\text{mat}[n-1-j][i]$.
 

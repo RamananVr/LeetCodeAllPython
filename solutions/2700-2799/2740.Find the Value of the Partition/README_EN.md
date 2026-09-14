@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md
 rating: 1301
 source: Weekly Contest 350 Q2
 tags:
@@ -73,6 +72,16 @@ It can be proven that 9 is the minimum value out of all partitions.
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into two nonempty groups and minimize the difference of their maxima. Order inside a group does not matter; only how the global extremes are separated does.
+>
+> After sorting, every adjacent pair is a candidate cut between the left maximum and the right minimum, and the partition value is their difference. The answer is the minimum adjacent gap.
+
+<!-- thinking:end -->
 
 The problem requires us to minimize the partition value. Therefore, we can sort the array and then take the minimum difference between two adjacent numbers.
 

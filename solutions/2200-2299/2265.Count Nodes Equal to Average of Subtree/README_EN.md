@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README_EN.md
 rating: 1472
 source: Weekly Contest 292 Q2
 tags:
@@ -64,6 +63,16 @@ For the node with value 6: The average of its subtree is 6 / 1 = 6.
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count nodes whose value equals the floor average of their subtree. $n \le 10^3$ would allow a fresh scan per node, but that repeats work. One post-order walk can return the subtree sum and size.
+>
+> $\textit{dfs}$ returns $(s, n)$; compare $\lfloor s/n \rfloor$ with the node value and increment. A null tree returns $(0,0)$.
+
+<!-- thinking:end -->
 
 We design a function $\textit{dfs}$, which calculates the sum and the number of nodes of the subtree rooted at the current node.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1010.Pairs%20of%20Songs%20With%20Total%20Durations%20Divisible%20by%2060/README_EN.md
 rating: 1377
 source: Weekly Contest 128 Q2
 tags:
@@ -57,6 +56,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Math + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every pair for a sum divisible by $60$ is quadratic in $n\le 6\times 10^4$. Pairing depends only on remainders modulo $60$.
+>
+> If $x=a\bmod 60$, the complementary remainder is $y=(60-x)\bmod 60$. Counting previous $y$ values lets us add valid pairs as each song arrives.
+>
+> A table of size $60$ is queried and then updated in one pass, so a song is never paired with itself. Time is linear in $n$.
+
+<!-- thinking:end -->
 
 If the sum of a pair $(a, b)$ is divisible by $60$, i.e., $(a + b) \bmod 60 = 0$, then $(a \bmod 60 + b \bmod 60) \bmod 60 = 0$. Let $x = a \bmod 60$ and $y = b \bmod 60$, then $(x + y) \bmod 60 = 0$, which means $y = (60 - x) \bmod 60$.
 

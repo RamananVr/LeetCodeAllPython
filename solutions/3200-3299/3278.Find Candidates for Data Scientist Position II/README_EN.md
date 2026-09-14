@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README_EN.md
 tags:
     - Database
 ---
@@ -132,6 +131,16 @@ Each row includes project_id, required skill, and its importance (1-5) for the p
 <!-- solution:start -->
 
 ### Solution 1: Equi-Join + Group Statistics + Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A candidate must cover every skill of a project; the score adjusts $100$ by proficiency versus importance, and each project takes the highest score then the smaller id. A join plus group yields both the match count and the score.
+>
+> Equi-join on skill, aggregate matches and score, keep rows whose match count equals the project's skill count, rank by score and id, and keep $rk=1$.
+
+<!-- thinking:end -->
 
 We can perform an equi-join of the `Candidates` table and the `Projects` table on the `skill` column, counting the number of matched skills and calculating the total score for each candidate in each project, which is recorded in table `S`.
 

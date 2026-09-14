@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md
 rating: 2053
 source: Biweekly Contest 91 Q3
 tags:
@@ -97,6 +96,16 @@ Thus, Alice opens the gate at node 0 only. Hence, her net income is -7280.
 <!-- solution:start -->
 
 ### Solution 1: Two DFS Traversals
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bob's path is the unique $bob\to 0$ route; Alice walks from $0$ to a leaf. At $n\le 10^5$, a first DFS stores Bob's arrival time $ts$ on that path.
+>
+> A second DFS from $0$ scores a node as half if times tie, full if Alice is earlier, and zero if later. Update the answer at leaves.
+
+<!-- thinking:end -->
 
 According to the problem, we know that Bob's moving path is fixed, that is, starting from node $bob$ and finally reaching node $0$. Therefore, we can first run a DFS to find out the time it takes for Bob to reach each node, which we record in the array $ts$.
 

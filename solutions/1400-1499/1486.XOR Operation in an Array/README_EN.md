@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README_EN.md
 rating: 1180
 source: Weekly Contest 194 Q1
 tags:
@@ -57,6 +56,14 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$. Emit $start+2i$ and XOR the values together.
+
+<!-- thinking:end -->
 
 We can directly simulate to calculate the XOR result of all elements in the array.
 

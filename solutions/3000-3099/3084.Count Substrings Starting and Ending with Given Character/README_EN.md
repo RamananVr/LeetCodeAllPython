@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README_EN.md
 rating: 1323
 source: Weekly Contest 389 Q2
 tags:
@@ -56,6 +55,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring must start and end with the same given character. $n \le 10^5$, so we cannot enumerate ends.
+>
+> Every occurrence of $c$ is a singleton, and every pair of occurrences determines one more substring.
+>
+> If $c$ appears $\textit{cnt}$ times the answer is $\textit{cnt}+\textit{cnt}(\textit{cnt}-1)/2$.
+
+<!-- thinking:end -->
 
 First, we can count the number of character $c$ in string $s$, denoted as $cnt$.
 

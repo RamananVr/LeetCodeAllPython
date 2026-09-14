@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README_EN.md
 tags:
     - Linked List
     - Two Pointers
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the middle node, the later one when the length is even. Counting the length then walking half needs two passes.
+>
+> A fast pointer moves two steps and a slow pointer one; when the fast pointer ends, the slow pointer is at the middle. One walk is enough.
+
+<!-- thinking:end -->
 
 We define two pointers $\textit{fast}$ and $\textit{slow}$, both initially pointing to the head of the linked list.
 

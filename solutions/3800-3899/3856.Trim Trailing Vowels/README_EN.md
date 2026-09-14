@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README_EN.md
 rating: 1139
 source: Weekly Contest 491 Q1
 tags:
@@ -74,6 +73,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Reverse Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Remove every trailing vowel. $|s| \le 100$, so a right-to-left scan is enough.
+>
+> The answer is a prefix ending at the last non-vowel, or empty if every letter is a vowel.
+>
+> Skip $\texttt{aeiou}$ from the right and return $s[:i+1]$.
+>
+> One pointer and constant extra space.
+
+<!-- thinking:end -->
 
 We traverse the string from the end in reverse order until we encounter the first non-vowel character. Then we return the substring from the beginning of the string up to that position.
 

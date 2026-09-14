@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -97,6 +96,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk from $(0,0)$ to the opposite corner without touching a circle. Coordinates reach $10^9$, so a grid is impossible; there are at most $10^3$ circles, and the obstacle is their intersection graph inside the rectangle.
+>
+> If the start or end lies in a circle, we fail. Circles that meet inside the rectangle and jointly touch “left or top” and “right or bottom” cut the path. DFS from a circle that hits left/top, walking edges that intersect inside the rectangle; reaching a circle that hits right/bottom fails. Geometry decides whether a merge is inside.
+
+<!-- thinking:end -->
 
 According to the problem description, we discuss the following cases:
 

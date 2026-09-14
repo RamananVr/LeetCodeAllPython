@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README_EN.md
 rating: 2620
 source: Biweekly Contest 50 Q4
 tags:
@@ -71,6 +70,16 @@ Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then rever
 <!-- solution:start -->
 
 ### Solution 1: Counting + Permutation and Combination + Preprocessing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation moves to the previous permutation, so the answer is the number of permutations strictly smaller than $s$. With $|s|\le 3000$ we cannot list them.
+>
+> At each position, any smaller letter there followed by any permutation of the remaining multiset is a smaller string. Precomputed factorials and inverses evaluate $m\times(n-i-1)!/\prod n_c!$ modulo $10^9+7$; then decrement the current letter's count. The sum of these contributions is the answer.
+
+<!-- thinking:end -->
 
 The operation in the problem is actually to find the previous permutation in lexicographical order of the current permutation. Therefore, we only need to find the number of permutations smaller than the current permutation, which is the answer.
 

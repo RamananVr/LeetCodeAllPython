@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0514.Freedom%20Trail/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -66,6 +65,16 @@ So the final output is 4.
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each key character may be reached clockwise or counterclockwise, then confirmed. Branching over every ring position for every key character grows with $|key|$.
+>
+> Let $f[i][j]$ be the minimum steps to spell the first $i+1$ key characters and stop at index $j$. Precompute positions of each letter. A transition adds the shorter arc plus one press. The answer is the minimum among positions of the last key character.
+
+<!-- thinking:end -->
 
 First, we preprocess the positions of each character $c$ in the string $ring$, and record them in the array $pos[c]$. Suppose the lengths of the strings $key$ and $ring$ are $m$ and $n$, respectively.
 

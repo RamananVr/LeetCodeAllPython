@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0383.Ransom%20Note/README_EN.md
 tags:
     - Hash Table
     - String
@@ -46,6 +45,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Can `ransomNote` be formed from `magazine` letters? A multiset inclusion.
+>
+> Count magazine frequencies, then decrement along the note; a negative count means shortage. The alphabet has size $26$.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $cnt$ of length $26$ to record the number of times each character appears in the string `magazine`. Then traverse the string `ransomNote`, for each character $c$ in it, we decrease the number of $c$ by $1$ in $cnt$. If the number of $c$ is less than $0$ after the decrease, it means that the number of $c$ in `magazine` is not enough, so it cannot be composed of `ransomNote`, just return $false$.
 

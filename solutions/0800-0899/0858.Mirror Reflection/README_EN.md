@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md
 tags:
     - Geometry
     - Math
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reflections in the square unfold to a straight line on a grid. The first receptor hit is determined by whether the number of rooms in $x$ and in $y$ is odd or even.
+>
+> Cancel $\gcd(p,q)$ and inspect parity: both odd is receptor $1$, odd $p$ and even $q$ is $0$, even $p$ and odd $q$ is $2$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

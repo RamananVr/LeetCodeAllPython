@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README_EN.md
 rating: 2102
 source: Weekly Contest 508 Q4
 tags:
@@ -121,6 +120,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dijkstra
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edge weights are time, but each node also spends power, so remaining power belongs in the state. $n$ and $\textit{power}$ are at most $1000$, so $n\times\textit{power}$ states fit.
+>
+> $\textit{dist}[u][p]$ is the least time to reach $u$ with $p$ power left. Dijkstra pops $(d,p,u)$; equal time prefers more leftover power so the first visit to the target keeps the best reserve. A node with $p<\textit{cost}[u]$ cannot forward.
+>
+> The first time the target is popped is the shortest time together with that maximal leftover.
+
+<!-- thinking:end -->
 
 This is a shortest path problem, but the state must track the remaining power in addition to the current node.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md
 rating: 2448
 source: Weekly Contest 370 Q4
 tags:
@@ -82,6 +81,16 @@ It is a balanced subsequence, and its sum is the maximum among the balanced subs
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Balance $nums[i]-nums[j] \ge i-j$ rewrites as $nums[i]-i \ge nums[j]-j$. On $arr[t]=nums[t]-t$ we want a nondecreasing index sequence maximizing the sum of $nums$. The naive $f[i]=nums[i]+\max_{j<i, arr[j]\le arr[i]} f[j]$ (or just $nums[i]$) is $O(n^2)$ for $n \le 10^5$.
+>
+> After compressing $arr$, a Fenwick tree stores the best $f$ among values up to a threshold. Scan in index order, query, then insert; a final prefix maximum is the answer.
+
+<!-- thinking:end -->
 
 According to the problem description, we can transform the inequality $nums[i] - nums[j] \ge i - j$ into $nums[i] - i \ge nums[j] - j$. Therefore, we consider defining a new array $arr$, where $arr[i] = nums[i] - i$. A balanced subsequence satisfies that for any $j < i$, $arr[j] \le arr[i]$. The problem is transformed into selecting an increasing subsequence in $arr$ such that the corresponding sum in $nums$ is maximized.
 

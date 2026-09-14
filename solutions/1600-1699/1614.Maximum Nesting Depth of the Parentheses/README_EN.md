@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README_EN.md
 rating: 1322
 source: Weekly Contest 210 Q1
 tags:
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string is valid and at most length $100$. Nesting depth is the maximum number of unmatched opening parentheses during a scan.
+>
+> Digits and operators do not affect depth; only parentheses matter.
+>
+> A counter $d$ increases on `(`, updates the answer, and decreases on `)`. One pass suffices.
+
+<!-- thinking:end -->
 
 We use a variable $d$ to record the current depth, initially $d = 0$.
 

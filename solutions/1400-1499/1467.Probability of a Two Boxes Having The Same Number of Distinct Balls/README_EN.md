@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README_EN.md
 rating: 2356
 source: Weekly Contest 191 Q4
 tags:
@@ -79,6 +78,16 @@ Probability = 108 / 180 = 0.6
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $2n$ balls are split evenly, so the denominator is $C_{2n}^n$. At most $8$ colors and $6$ balls each, so we enumerate how many of color $i$ go into the first box.
+>
+> $dfs(i,j,\textit{diff})$: color $i$, $j$ slots left in box 1, difference of distinct-color counts. Putting all of a color on one side changes $diff$; otherwise it stays. Multiply by $\mathrm{comb}(balls[i],x)$. Divide accepting states by the total.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

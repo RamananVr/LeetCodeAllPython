@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README_EN.md
 rating: 1454
 source: Biweekly Contest 51 Q3
 tags:
@@ -82,6 +81,16 @@ The largest element in <code>arr is 3.</code>
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Greedy Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may reorder and decrease (but not increase) values so that the first is $1$ and adjacent differences are at most $1$, while maximizing the last value. We should decrease as little as possible.
+>
+> Sort, force the first entry to $1$, and cap each later value at $arr[i-1]+1$. The resulting nondecreasing chain is the tallest sequence that obeys the constraints, so the last entry is the answer.
+
+<!-- thinking:end -->
 
 First, we sort the array and then set the first element of the array to $1$.
 

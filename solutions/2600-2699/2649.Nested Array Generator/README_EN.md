@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md
 tags:
     - JavaScript
 ---
@@ -61,6 +60,14 @@ generator.next().done; // true
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nested numbers must appear in flattened inorder, lazily. A one-shot `flat` loses laziness. Bounded depth lets `yield*` splice recursive generators.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

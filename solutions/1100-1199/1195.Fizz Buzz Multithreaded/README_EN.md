@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README_EN.md
 tags:
     - Concurrency
 ---
@@ -73,6 +72,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four threads print `fizz`, `buzz`, `fizzbuzz`, and numbers, in order $1..n$. The `number` thread holds the main permit and, by divisibility of $i$ by $3$ and $5$, releases the matching thread; that thread prints and returns the permit. Otherwise `number` prints $i$ itself, so only one output proceeds at a time.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

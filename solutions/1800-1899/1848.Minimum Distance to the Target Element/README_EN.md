@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README_EN.md
 rating: 1216
 source: Weekly Contest 239 Q1
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The target is guaranteed to appear; we need the closest index to $\textit{start}$. No auxiliary structure is required.
+>
+> Scan every index equal to $\textit{target}$ and take the minimum of $|i-\textit{start}|$.
+
+<!-- thinking:end -->
 
 Traverse the array, find all indices equal to $target$, then calculate $|i - start|$, and take the minimum value.
 

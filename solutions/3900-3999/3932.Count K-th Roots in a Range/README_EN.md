@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3932.Count%20K-th%20Roots%20in%20a%20Range/README_EN.md
 rating: 1548
 source: Weekly Contest 502 Q2
 tags:
@@ -72,6 +71,18 @@ Hence, the answer is 3.</div>
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $r\le 10^9$, so we cannot walk every integer in the interval. Perfect $k$-th powers are the values $x^k$ with $l\le x^k\le r$.
+>
+> When $k=1$ the answer is the interval length. Otherwise $x$ is at most about $r^{1/k}$; compute $y=x^k$ for $x=0,1,2,\ldots$, stop past $r$, and count hits in $[l,r]$.
+>
+> The enumeration shrinks quickly as $k$ grows, which covers $k\le 30$.
+
+<!-- thinking:end -->
 
 First, we check if $k$ equals 1. If it does, the count of perfect 1st powers in the range is the count of integers in the range, which is $r - l + 1$.
 

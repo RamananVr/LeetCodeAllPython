@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1968.Array%20With%20Elements%20Not%20Equal%20to%20Average%20of%20Neighbors/README_EN.md
 rating: 1499
 source: Weekly Contest 254 Q2
 tags:
@@ -62,6 +61,16 @@ Note that the original array [6,2,0,9,7] also satisfies the conditions.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must avoid $2\cdot a[i]=a[i-1]+a[i+1]$. Values are distinct, so sorting and interleaving the smaller half with the larger half works.
+>
+> Even indices take the first half and odd indices the second; each middle value then has neighbors from opposite extremes and cannot be their average.
+
+<!-- thinking:end -->
 
 Since the elements in the array are distinct, we can first sort the array, then divide the array into two parts. Place the first half of the elements in the even positions of the answer array, and the second half of the elements in the odd positions of the answer array. In this way, for each element, its two adjacent elements will not be equal to its average value.
 

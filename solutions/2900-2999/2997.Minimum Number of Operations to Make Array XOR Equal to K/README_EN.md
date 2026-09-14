@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md
 rating: 1524
 source: Biweekly Contest 121 Q2
 tags:
@@ -66,6 +65,16 @@ It can be shown that we cannot make the XOR equal to k in less than 2 operations
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping one bit of one element flips that bit of the total XOR. The minimum number of flips is the Hamming distance between $\bigoplus nums$ and $k$.
+>
+> XOR $k$ in as well and count set bits. $n \le 10^5$ needs one reduction.
+
+<!-- thinking:end -->
 
 We can perform a bitwise XOR operation on all elements in the array $nums$. The number of bits that differ from the binary representation of $k$ in the result is the minimum number of operations.
 

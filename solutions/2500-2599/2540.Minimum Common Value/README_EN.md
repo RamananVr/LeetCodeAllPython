@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md
 rating: 1249
 source: Biweekly Contest 96 Q1
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both arrays are strictly increasing; we want the smallest common value. Putting one side in a set uses linear extra space.
+>
+> Advance two pointers together: equality yields the minimum common value; otherwise move the side with the smaller head. Each array is scanned at most once.
+
+<!-- thinking:end -->
 
 Traverse the two arrays. If the elements pointed to by the two pointers are equal, return that element. If the elements pointed to by the two pointers are not equal, move the pointer pointing to the smaller element to the right by one bit until an equal element is found or the array is traversed.
 

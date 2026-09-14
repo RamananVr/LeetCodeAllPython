@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md
 rating: 1259
 source: Weekly Contest 332 Q1
 tags:
@@ -98,6 +97,14 @@ Since the concatenation value is 673 so the answer is 673.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly concatenate the two ends into one integer and add it; a leftover middle value is added as-is. $n$ is small, so two pointers plus string concatenation implement the statement.
+
+<!-- thinking:end -->
+
 Starting from both ends of the array, we take out one element at a time, concatenate it with another element, and then add the concatenated result to the answer. We repeat this process until the array is empty.
 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
@@ -126,6 +133,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 shrinks a pair of pointers. Pairing index $i$ with $n-1-i$ up to $n/2$, then adding the middle element when $n$ is odd, is the same process.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

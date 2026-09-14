@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1786.Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node/README_EN.md
 rating: 2078
 source: Weekly Contest 231 Q3
 tags:
@@ -69,7 +68,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dijkstra + Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A restricted path must strictly decrease the distance to $n$. Compute those distances, then count paths on the DAG of decreasing distance.
+>
+> Dijkstra from $n$ fills $\textit{dist}$. Memoized $\textit{dfs}(i)$ walks neighbours with smaller $\textit{dist}$, returns $1$ at $n$, and reduces modulo $10^9+7$.
+
+<!-- thinking:end -->
+
+Compute distances to node $n$, then memoize the number of restricted paths.
 
 <!-- tabs:start -->
 
@@ -111,7 +122,17 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dijkstra + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 memoizes a search along decreasing distances. We can instead DP in increasing $\textit{dist}$ order so smaller nodes finish first and update their predecessors. Same counts, no recursion.
+
+<!-- thinking:end -->
+
+After distances to $n$ are known, iterate nodes by increasing distance and accumulate restricted paths.
 
 <!-- tabs:start -->
 

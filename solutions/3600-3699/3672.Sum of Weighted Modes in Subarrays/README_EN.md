@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3672.Sum%20of%20Weighted%20Modes%20in%20Subarrays/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -189,6 +188,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Map + Priority Queue + Sliding Window + Lazy Deletion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each window of length $k$ contributes $\textit{mode}\times\textit{freq}$, breaking ties toward the smaller mode. Rescanning every window is $O(nk)$.
+>
+> A frequency map plus a heap keyed by $(-\textit{freq},\textit{val})$ yields the mode. Lazy deletion pops a heap top whose frequency no longer matches the map.
+>
+> On a slide, push both the incoming and outgoing values. $\textit{get\_mode}$ returns the product once the top is consistent. Each index causes a constant number of heap operations.
+
+<!-- thinking:end -->
 
 We use a hash map $\textit{cnt}$ to record the frequency of each number in the current window. We use a priority queue $\textit{pq}$ to store the frequency and value of each number in the current window, with priority given to higher frequency, and for equal frequency, to smaller numbers.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3344.Maximum%20Sized%20Array/README_EN.md
 tags:
     - Bit Manipulation
     - Binary Search
@@ -87,6 +86,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f(n)=\sum_{i,j,k<n}(i\cdot(j\lor k))$ grows with $n$; we want the largest $n$ with $f(n)\le s$. Triple loops fail for $s \le 10^{15}$, but $n$ is at most about $1320$.
+>
+> Factoring out $i$ reduces the sum to a prefix of pairwise ORs. We precompute $f[i]$ by adding $i$ and $2(i\lor j)$ for $j<i$.
+>
+> Binary search then finds the largest $m$ with $f[m-1]\cdot(m-1)\cdot m/2 \le s$.
+
+<!-- thinking:end -->
 
 We can roughly estimate the maximum value of $n$. For $j \lor k$, the sum of the results is approximately $n^2 (n - 1) / 2$. Multiplying this by each $i \in [0, n)$, the result is approximately $(n-1)^5 / 4$. To ensure $(n - 1)^5 / 4 \leq s$, we have $n \leq 1320$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3139.Minimum%20Cost%20to%20Equalize%20Array/README_EN.md
 rating: 2666
 source: Weekly Contest 396 Q4
 tags:
@@ -110,6 +109,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Elements may only increase, so the common target is at least the current maximum. $n\le 10^5$ forbids simulating each increment.
+>
+> When $2\cdot cost1\le cost2$ the pairwise operation never helps and the cost is the total gap times $cost1$. Otherwise gaps should be paired, except when the largest gap is too big to pair freely.
+>
+> Raising the target further can improve pairing and only a bounded number of extra levels matter. For each candidate, turn the total gap and the largest gap into operation counts and keep the minimum cost modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

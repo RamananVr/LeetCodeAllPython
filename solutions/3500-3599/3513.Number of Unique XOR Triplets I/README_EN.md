@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README_EN.md
 rating: 1663
 source: Biweekly Contest 154 Q2
 tags:
@@ -83,6 +82,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{nums}$ is a permutation of $[1,n]$ and indices may repeat, so the set of triple XORs is determined by $n$. A cubic enumeration does not match the scale.
+>
+> For $n \le 2$ the answer equals $n$. For $n \ge 3$ the possible XORs fill $[0, 2^{\lfloor \log_2 n \rfloor + 1} - 1]$, which is $1 \ll \textit{bitLength}(n)$.
+
+<!-- thinking:end -->
 
 Since $\textit{nums}$ is a permutation of $[1, n]$, the available values are fixed as $\{1, 2, \ldots, n\}$. With indices satisfying $i \le j \le k$, the same index may be chosen more than once, so a XOR triplet is equivalent to picking three numbers (with replacement) from this set and taking their XOR.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README_EN.md
 tags:
     - Database
 ---
@@ -82,6 +81,16 @@ The mail of user 7 starts with a period.
 <!-- solution:start -->
 
 ### Solution 1: REGEXP Pattern Matching
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid address must start with a letter, continue with letters, digits, underscores, dots, or hyphens, and end with $\texttt{@leetcode.com}$. Hand-written character checks branch heavily and miss edge cases, while the rule is a regular language.
+>
+> The pattern $\texttt{^[A-Za-z][A-Za-z0-9_.-]*@leetcode\\.com$}$ matches the whole string. In SQL a case-sensitive suffix check guards the domain; the Pandas path applies the same full-string match to the $mail$ column.
+
+<!-- thinking:end -->
 
 We can use a regular expression to match valid email formats. The expression ensures that the username part meets the required rules and that the domain is fixed as `@leetcode.com`.
 

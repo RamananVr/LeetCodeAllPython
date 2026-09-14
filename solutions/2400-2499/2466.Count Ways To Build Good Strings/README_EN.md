@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md
 rating: 1694
 source: Biweekly Contest 91 Q2
 tags:
@@ -65,6 +64,14 @@ All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in t
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step appends $zero$ zeros or $one$ ones; a string is good if its length lies in $[low,high]$. With $high\le 10^5$, $dfs(i)$ is the number of ways after length $i$: count $1$ if $i$ is already in range, then add $dfs(i+zero)$ and $dfs(i+one)$.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$ to represent the number of good strings constructed starting from the $i$-th position. The answer is $dfs(0)$.
 
 The computation process of the function $dfs(i)$ is as follows:
@@ -104,6 +111,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Dynamic programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 recurses on the current length. Let $f[i]$ be ways to reach length $i$, $f[0]=1$, from $f[i-zero]$ and $f[i-one]$, then sum $f$ on $[low,high]$. No recursion stack.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

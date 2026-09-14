@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md
 rating: 2681
 source: Weekly Contest 333 Q4
 tags:
@@ -71,6 +70,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rebuild the lexicographically smallest string from an $lcp$ matrix. $lcp[i][j]>0$ iff $s[i]=s[j]$, so equality classes should receive letters from `'a'` onward.
+>
+> Whenever an unfilled index is met, paint every $j$ with $lcp[i][j]\ne 0$ with the current letter. Leftover blanks after `'z'` are impossible. Then verify the $lcp$ recurrence from the back: equal letters must equal the suffix $lcp$ plus one; unequal letters must store $0$.
+
+<!-- thinking:end -->
 
 Since the constructed string requires the lexicographically smallest order, we can start by filling the string $s$ with the character `'a'`.
 

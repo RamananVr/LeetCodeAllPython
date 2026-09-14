@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README_EN.md
 rating: 1260
 source: Weekly Contest 326 Q1
 tags:
@@ -61,6 +60,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many digits of $num$ divide $num$. There are at most ten digits, so enumerating them is enough.
+>
+> Repeatedly take $val = num \bmod 10$ and test $num \bmod val = 0$. The input contains no zero, so division by zero does not arise.
+
+<!-- thinking:end -->
+
 We directly enumerate each digit $val$ of the integer $num$, and if $val$ can divide $num$, we add one to the answer.
 
 After the enumeration, we return the answer.
@@ -88,6 +97,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 extracts digits arithmetically. Converting $num$ to a decimal string and testing each character yields the same check; only the way digits are obtained changes.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3527.Find%20the%20Most%20Common%20Response/README_EN.md
 rating: 1282
 source: Biweekly Contest 155 Q1
 tags:
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicate answers on the same day count once. Across days we want the most frequent remaining string, breaking ties lexicographically.
+>
+> Deduplicate each day with a set, accumulate in a hash map, then scan for the best count and string. The work is linear in the total length.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{cnt}$ to count the occurrences of each response. For the responses of each day, we first remove duplicates, then add each response to the hash table and update its count.
 

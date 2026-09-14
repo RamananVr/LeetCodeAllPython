@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md
 tags:
     - Database
 ---
@@ -74,6 +73,18 @@ The elevation map depicted above (in the black section) is graphically represent
 <!-- solution:start -->
 
 ### Solution 1: Window Function + Summation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Classic trapping rain water: each cell holds $\min(L,R)-h$. Tabular data can use running maxima instead of two pointers.
+>
+> A left running max and a right running max give $l$ and $r$; we sum $\min(l,r)-h$.
+>
+> $\texttt{cummax}$ and a reversed $\texttt{cummax}$ implement the two sides.
+
+<!-- thinking:end -->
 
 We use the window function `MAX(height) OVER (ORDER BY id)` to calculate the maximum height for each position and its left side, and use `MAX(height) OVER (ORDER BY id DESC)` to calculate the maximum height for each position and its right side, denoted as `l` and `r` respectively. Then, the amount of water stored at each position is `min(l, r) - height`. Finally, we sum them up.
 

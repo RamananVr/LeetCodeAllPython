@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0075.Sort%20Colors/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Three Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count $0,1,2$ then overwrite: two passes. Sorting would also work for $n \le 300$. The problem forbids library sort, and the follow-up wants one scan and $O(1)$ space.
+>
+> Three values only need a partition into all $0$s, all $1$s, and all $2$s. Let $i$ and $j$ bound the $0$s and $2$s already placed, and let $k$ scan the unknown middle. A swap toward $2$ brings an unseen value, so $k$ stays; a swap toward $0$ brings a value from the scanned range, so $k$ advances too. One pass finishes the three segments.
+
+<!-- thinking:end -->
 
 We define three pointers $i$, $j$, and $k$. Pointer $i$ is used to point to the rightmost boundary of the elements with a value of $0$ in the array, and pointer $j$ is used to point to the leftmost boundary of the elements with a value of $2$ in the array. Initially, $i=-1$, $j=n$. Pointer $k$ is used to point to the current element being traversed, initially $k=0$.
 

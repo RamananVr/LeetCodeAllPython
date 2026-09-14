@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README_EN.md
 rating: 2419
 source: Weekly Contest 470 Q4
 tags:
@@ -79,6 +78,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Digit DP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating $a$ and checking that $b=n-a$ has no zero digit is impossible for large $n$. Addition proceeds digit by digit with a carry; neither addend may contain a $0$, and their lengths may differ. A digit DP from low to high tracks the carry and whether each number is still alive. An extra leading zero absorbs a final carry so the last carry must be $0$.
+
+<!-- thinking:end -->
 
 We do a digit DP over the decimal representation of $n$ from the least-significant digit to the most-significant digit.
 

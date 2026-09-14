@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3994.Minimum%20Adjacent%20Swaps%20to%20Partition%20Array/README_EN.md
 rating: 1704
 source: Biweekly Contest 187 Q3
 tags:
@@ -98,6 +97,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent swaps count inversions relative to a target order. The three buckets are $(-\infty,a)$, $[a,b]$, $(b,+\infty)$, and they must appear in that order; order inside a bucket may stay.
+>
+> Map every value to a type $0/1/2$. Sorting that type sequence by adjacent swaps costs the number of type inversions, which a Fenwick tree can count.
+>
+> This directory has no implemented solution yet; the walkthrough stops at inversions of three types.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

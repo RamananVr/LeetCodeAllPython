@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0780.Reaching%20Points/README_EN.md
 tags:
     - Math
     - Greatest Common Divisor
@@ -61,6 +60,18 @@ One series of moves that transforms the starting point to the target is:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $(sx,sy)$ we may add one coordinate onto the other. The target can be huge, so searching forward does not terminate well. The inverse subtracts the smaller from the larger—i.e. modulo.
+>
+> While both coordinates exceed the start and differ, replace the larger by $a\bmod b$. Once one coordinate matches, the other must drop to the start by a multiple of that value.
+>
+> Equal to the start succeeds; otherwise fail. Modulo folds many subtractions into one.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3797.Count%20Routes%20to%20Climb%20a%20Rectangular%20Grid/README_EN.md
 rating: 2375
 source: Biweekly Contest 173 Q4
 tags:
@@ -147,6 +146,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths start on the last row and end on the first, each step has Euclidean length at most $d$ and must go upward. When the grid is modest we precompute the legal upward neighbors of every free cell, then DP from the bottom row, summing ways modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

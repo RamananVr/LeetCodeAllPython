@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README_EN.md
 rating: 2723
 source: Weekly Contest 431 Q4
 tags:
@@ -67,7 +66,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Binary Search + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick at most four non-overlapping weighted intervals to maximize the total weight, breaking ties by the lexicographically smallest index tuple. $n\le 5\times 10^4$ forbids subset search.
+>
+> This is weighted interval scheduling with a cap of four. After sorting by left endpoint, the next non-overlapping interval is a binary search.
+>
+> State $(i,k)$ starts at interval $i$ with $k$ picks remaining. We either skip $i$ or take it and jump to $\textit{nxt}[i]$, comparing both weight and the index list so the lexicographically smallest optimum is kept.
+
+<!-- thinking:end -->
+
+Copy the intervals and record each original index, then sort by left endpoint. For each interval $i$, binary-search the first position $\textit{nxt}[i]$ whose left endpoint is strictly greater than $i$'s right endpoint (shared endpoints count as overlap).
+
+Let $f[i][k]$ be the maximum weight obtainable from interval $i$ onward with at most $k$ picks, and let $g[i][k]$ store the corresponding lexicographically smallest index list. Transition from the back: skipping $i$ inherits $f[i+1][k]$; taking $i$ inserts its original index into $g[\textit{nxt}[i]][k-1]$ and adds the current weight. Keep the larger weight, or the lexicographically smaller index list on a tie. The answer is $g[0][4]$.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. At most $4$ intervals are chosen, so inserting and comparing index lists is constant time.
 
 <!-- tabs:start -->
 

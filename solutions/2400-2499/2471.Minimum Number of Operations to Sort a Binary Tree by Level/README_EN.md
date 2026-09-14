@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README_EN.md
 rating: 1635
 source: Weekly Contest 319 Q3
 tags:
@@ -77,6 +76,16 @@ It can be proven that 3 is the minimum number of operations needed.
 <!-- solution:start -->
 
 ### Solution 1: BFS + Discretization + Element Swap
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each level is sorted independently by swapping values. The minimum swaps equal the number of moves that turn the permutation into the identity, i.e. walk cycles after ranking the values.
+>
+> BFS collects a level, map values to ranks $0..len-1$, then swap $t[i]$ with $t[t[i]]$ until fixed, counting swaps.
+
+<!-- thinking:end -->
 
 First, we traverse the binary tree using BFS to find the node values at each level. Then, we sort the node values at each level. If the sorted node values are different from the original node values, it means that we need to swap elements. The number of swaps is the number of operations needed at that level.
 

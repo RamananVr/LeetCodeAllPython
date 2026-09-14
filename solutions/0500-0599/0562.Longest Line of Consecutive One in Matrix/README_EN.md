@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -53,6 +52,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest run of ones may go horizontally, vertically, or on either diagonal. Extending from every start is $O(mn \cdot (m+n))$.
+>
+> Four tables store the run ending at $(i,j)$ in each direction, taking the cell above, left, upper-left, or upper-right plus one. Zeros stay zero. A one-cell border avoids bounds checks. Track the global maximum.
+
+<!-- thinking:end -->
 
 We define $f[i][j][k]$ to represent the length of the longest consecutive $1$s ending at $(i, j)$ in direction $k$. The value range of $k$ is $0, 1, 2, 3$, representing horizontal, vertical, diagonal, and anti-diagonal directions, respectively.
 

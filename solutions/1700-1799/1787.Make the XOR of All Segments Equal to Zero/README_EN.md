@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1787.Make%20the%20XOR%20of%20All%20Segments%20Equal%20to%20Zero/README_EN.md
 rating: 2640
 source: Weekly Contest 231 Q4
 tags:
@@ -63,6 +62,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every window of length $k$ XORing to $0$ implies $nums[i]=nums[i+k]$: the answer is periodic with period $k$ and one period XORs to $0$. Values fit in $10$ bits, so DP by residue class.
+>
+> $f[j]$ is the fewest changes so that processed groups XOR to $j$. A group is rewritten to a fresh value (cost $=$ group size) or to an existing $v$ (saving $cnt[v]$). After $k$ groups take $f[0]$.
+
+<!-- thinking:end -->
 
 Notice that after modifying the array `nums`, the XOR result of any interval of length $k$ is equal to $0$. Therefore, for any $i$, we have:
 

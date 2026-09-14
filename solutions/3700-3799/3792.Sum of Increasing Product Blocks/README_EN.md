@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3792.Sum%20of%20Increasing%20Product%20Blocks/README_EN.md
 tags:
     - Math
     - Simulation
@@ -84,6 +83,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$ and the $i$-th block is a product of $i$ consecutive integers. We multiply inside each block modulo $10^9+7$; the total work is $1+2+\cdots+n=O(n^2)$.
+
+<!-- thinking:end -->
 
 We can directly simulate the product of each block and accumulate it to the answer. Note that since the product can be very large, we need to take the modulo at each step of the calculation.
 

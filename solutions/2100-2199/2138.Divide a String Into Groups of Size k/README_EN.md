@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2138.Divide%20a%20String%20Into%20Groups%20of%20Size%20k/README_EN.md
 rating: 1273
 source: Weekly Contest 276 Q1
 tags:
@@ -70,6 +69,18 @@ Thus, the 4 groups formed are &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;,
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $s$ into blocks of length $k$ and pad the last block with $\textit{fill}$. The rule is direct.
+>
+> Take slices with step $k$ and $\texttt{ljust}$ each one.
+>
+> The number of groups is about $n/k$.
+
+<!-- thinking:end -->
 
 We can directly simulate the process described in the problem statement, dividing the string $s$ into groups of length $k$. For the last group, if it contains fewer than $k$ characters, we use the character $\textit{fill}$ to pad it.
 

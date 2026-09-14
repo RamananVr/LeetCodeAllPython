@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md
 tags:
     - Design
     - Queue
@@ -62,6 +61,14 @@ recentCounter.ping(3002);  // requests = [1, <u>100</u>, <u>3001</u>, <u>3002</u
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $t$ is strictly increasing, so a request older than $t-3000$ never returns. Store times in a queue and pop from the front while expired; the queue size is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -89,6 +96,14 @@ class RecentCounter:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The queue is amortized linear. Because times are sorted, we may keep them in an array and binary-search the first index $\ge t-3000$; the suffix length is the count. Extra space stays linear, and each query pays a logarithm.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

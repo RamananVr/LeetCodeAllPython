@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md
 tags:
     - Hash Table
     - Linked List
@@ -66,6 +65,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each distinct value’s frequency becomes a node of a new list. Frequencies are known only after a full scan.
+>
+> Count in a hash map, then build the list from those counts. Order is free, so we insert at the head.
+
+<!-- thinking:end -->
 
 We use a hash table `cnt` to record the occurrence times of each element value in the linked list, then traverse the values of the hash table to construct a new linked list.
 

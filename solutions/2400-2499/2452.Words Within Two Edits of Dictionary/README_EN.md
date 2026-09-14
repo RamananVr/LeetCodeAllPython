@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README_EN.md
 rating: 1459
 source: Biweekly Contest 90 Q2
 tags:
@@ -64,6 +63,14 @@ Applying any two edits to &quot;yes&quot; cannot make it equal to &quot;not&quot
 <!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $100$ queries and dictionary words of length $\le 100$. For each query, count mismatches against each dictionary word; fewer than three is allowed. Accept the query on the first hit.
+
+<!-- thinking:end -->
 
 We directly traverse each word $s$ in the array $\textit{queries}$, and then traverse each word $t$ in the array $\textit{dictionary}$. If there exists a word $t$ whose edit distance from $s$ is less than $3$, we add $s$ to the answer array and then exit the inner loop. If there is no such word $t$, we continue to traverse the next word $s$.
 

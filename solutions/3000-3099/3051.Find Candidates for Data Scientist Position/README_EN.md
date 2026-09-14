@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,18 @@ The output table is sorted by candidate_id in ascending order.
 <!-- solution:start -->
 
 ### Solution 1: Conditional Filtering + Grouping Statistics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A candidate must have Python, Tableau, and PostgreSQL. Skills sit on separate rows, so three equalities on one row do not work.
+>
+> Filter to those three skills, group by candidate, and keep groups whose count is exactly $3$.
+>
+> $\texttt{HAVING COUNT}=3$ after the group, then sort by id.
+
+<!-- thinking:end -->
 
 First, we filter out candidates who have the skills `Python`, `Tableau`, and `PostgreSQL`. Then, we group by `candidate_id` and count the number of skills each candidate has. Finally, we filter out candidates who have these three skills and sort them in ascending order by `candidate_id`.
 

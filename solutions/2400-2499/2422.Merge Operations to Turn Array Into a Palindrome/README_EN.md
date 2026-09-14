@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md
 tags:
     - Greedy
     - Array
@@ -68,6 +67,16 @@ It can be shown that 2 is the minimum number of operations needed.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merges add adjacent values and should be few; the array must become a palindrome. The two ends must finish equal, so pair from the outside: merge on the side whose running sum is smaller.
+>
+> Two pointers hold sums $a$ and $b$. Advance the smaller side and count a merge; on equality, move both inward. Each element is absorbed at most once.
+
+<!-- thinking:end -->
 
 Define two pointers $i$ and $j$, pointing to the beginning and end of the array respectively, use variables $a$ and $b$ to represent the values of the first and last elements, and variable $ans$ to represent the number of operations.
 

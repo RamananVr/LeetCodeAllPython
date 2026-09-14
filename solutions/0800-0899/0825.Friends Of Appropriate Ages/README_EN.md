@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README_EN.md
 tags:
     - Array
     - Two Pointers
@@ -74,6 +73,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Whether $x$ may request $y$ depends only on the two ages, which lie in $1\ldots 120$, while $n$ can be $2\cdot 10^4$. Pairing people repeats the same age pairs.
+>
+> Count people per age, then enumerate age pairs and test the three inequalities. Requests within the same age exclude self-requests, so the product is $x\cdot(y-[x=y])$.
+
+<!-- thinking:end -->
 
 We can use an array $\textit{cnt}$ of length $121$ to record the number of people of each age.
 

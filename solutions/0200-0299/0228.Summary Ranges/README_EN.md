@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0228.Summary%20Ranges/README_EN.md
 tags:
     - Array
 ---
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is sorted and unique, so a range is a maximal run of neighbors that differ by $1$. One scan can cut the runs.
+>
+> Pointers $i,j$ mark a segment until $nums[j+1]\neq nums[j]+1$, then format a singleton or $a{\to}b$.
+
+<!-- thinking:end -->
 
 We can use two pointers $i$ and $j$ to find the left and right endpoints of each interval.
 

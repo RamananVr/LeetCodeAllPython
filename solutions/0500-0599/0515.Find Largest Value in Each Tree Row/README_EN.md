@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -50,6 +49,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum of each level can be taken during a level-order walk. Enqueue the root, pop a whole level, track its maximum, and push children.
+>
+> Each finished level yields one answer. An empty tree returns an empty list. Time is linear in the number of nodes.
+
+<!-- thinking:end -->
+
 We define a queue $q$ and put the root node into the queue. Each time, we take out all the nodes of the current level from the queue, find the maximum value, and then put all the nodes of the next level into the queue until the queue is empty.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
@@ -91,6 +100,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS is the natural level scan but needs a queue. DFS can carry the depth: append when the depth equals the answer length, otherwise take a maximum.
+>
+> Preorder creates a slot the first time a depth is seen. Extra space is the recursion depth; the values match BFS.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

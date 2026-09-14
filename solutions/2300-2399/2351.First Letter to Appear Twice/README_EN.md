@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md
 rating: 1155
 source: Weekly Contest 303 Q1
 tags:
@@ -68,6 +67,16 @@ The only letter that appears twice is &#39;d&#39; so we return &#39;d&#39;.
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the first letter whose count reaches two. $s$ is short and has a duplicate, so one scan suffices.
+>
+> Increment a map or array; return as soon as some key becomes $2$.
+
+<!-- thinking:end -->
+
 We traverse the string $s$, using an array or hash table `cnt` to record the occurrence of each letter. When a letter appears twice, we return that letter.
 
 The time complexity is $O(n)$ and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
@@ -93,6 +102,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores counts. We only need “seen or not”, so one bit per letter in an integer mask, in constant space.
+
+<!-- thinking:end -->
 
 We can also use an integer `mask` to record whether each letter has appeared, where the $i$-th bit of `mask` indicates whether the $i$-th letter has appeared. When a letter appears twice, we return that letter.
 

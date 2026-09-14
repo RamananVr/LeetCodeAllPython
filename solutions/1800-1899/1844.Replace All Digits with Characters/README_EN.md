@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README_EN.md
 rating: 1300
 source: Biweekly Contest 51 Q1
 tags:
@@ -68,6 +67,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each odd-index digit shifts the previous letter. The replacements are independent.
+>
+> Walk odd indices with step $2$ and write $\textit{chr}(\textit{ord}(s[i-1])+\textit{digit})$.
+
+<!-- thinking:end -->
 
 Traverse the string, for characters at odd indices, replace them with the character that is a certain number of positions after the previous character.
 

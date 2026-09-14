@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0511.Game%20Play%20Analysis%20I/README_EN.md
 tags:
     - Database
 ---
@@ -70,6 +69,16 @@ Activity table:
 <!-- solution:start -->
 
 ### Solution 1: Group By + Min Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A player may appear on many days; we need the earliest `event_date` per player. A linear scan works, but the relational form is a group aggregate.
+>
+> `GROUP BY player_id` with `MIN(event_date)` (or the equivalent `groupby` minimum) yields the first login. One aggregation, no self-join.
+
+<!-- thinking:end -->
 
 We can use `GROUP BY` to group the `player_id` and then take the minimum `event_date` in each group as the date when the player first logged into the platform.
 

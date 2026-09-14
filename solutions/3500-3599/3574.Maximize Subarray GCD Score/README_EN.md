@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README_EN.md
 rating: 2257
 source: Biweekly Contest 158 Q3
 tags:
@@ -97,6 +96,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 1500$, so every subarray can be enumerated. Each value may be doubled once, so the GCD at most doubles, and it does so only when the positions with the fewest factors of $2$ number at most $k$.
+>
+> Precompute the $2$-adic valuation of each entry. Expand $r$ from each $l$, keep the running GCD, the minimum valuation and its multiplicity, and score $g$ or $2g$ times the length.
+
+<!-- thinking:end -->
 
 We notice that the length of the array in this problem is $n \leq 1500$, so we can enumerate all subarrays. For each subarray, calculate its GCD score and find the maximum value as the answer.
 

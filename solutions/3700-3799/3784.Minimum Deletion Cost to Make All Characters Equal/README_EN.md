@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md
 rating: 1387
 source: Weekly Contest 481 Q2
 tags:
@@ -79,6 +78,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Grouping + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The leftover string must be nonempty and monochromatic, i.e. we delete every other character. The cost of keeping letter $c$ is the total cost minus the cost of all $c$s; we take the minimum over $c$.
+
+<!-- thinking:end -->
 
 We calculate the total deletion cost for each character in the string and store it in a hash table $g$, where the key is the character and the value is the corresponding total deletion cost. We also calculate the total cost $\textit{tot}$ of deleting all characters.
 

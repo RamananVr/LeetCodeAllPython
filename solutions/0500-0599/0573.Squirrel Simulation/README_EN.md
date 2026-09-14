@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0573.Squirrel%20Simulation/README_EN.md
 tags:
     - Array
     - Math
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The squirrel carries one nut to the tree first; every other nut is a tree round-trip. Simulating the full path for each first nut repeats the same trips.
+>
+> Let $s$ be twice the sum of nut-to-tree distances. Starting with nut $(r,c)$ replaces that nut's tree leg $a$ by the squirrel-to-nut leg $b$, for $s-a+b$. Minimize over the first nut.
+
+<!-- thinking:end -->
 
 Observing the squirrel's movement path, we can see that the squirrel will first move to the position of a nut, then move to the position of the tree. After that, the total movement path of the squirrel is equal to "the sum of the distances from the remaining nuts to the tree" multiplied by $2$.
 

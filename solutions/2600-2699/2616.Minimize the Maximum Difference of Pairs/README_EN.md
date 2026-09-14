@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md
 rating: 2155
 source: Weekly Contest 340 Q3
 tags:
@@ -60,6 +59,18 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We select $p$ disjoint pairs and minimize the maximum pair difference. Searching matchings is combinatorial; $n \le 10^5$ needs a polynomial approach.
+>
+> The threshold $x$ is monotone: if $p$ pairs exist under $x$, a larger $x$ also works. After sorting, adjacent values are the cheapest pairs; taking a feasible pair immediately leaves later indices free.
+>
+> Binary-search $x$ and run that greedy check.
+
+<!-- thinking:end -->
 
 We notice that the maximum difference has monotonicity: if a maximum difference $x$ is feasible, then $x-1$ is also feasible. Therefore, we can use binary search to find the minimal feasible maximum difference.
 

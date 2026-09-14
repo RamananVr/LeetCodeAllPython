@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1869.Longer%20Contiguous%20Segments%20of%20Ones%20than%20Zeros/README_EN.md
 rating: 1204
 source: Weekly Contest 242 Q1
 tags:
@@ -73,6 +72,16 @@ The segment of 1s is not longer, so return false.
 <!-- solution:start -->
 
 ### Solution 1: Two Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compare the longest run of ones with the longest run of zeros. One pass can track both, but two helpers are clearer.
+>
+> $f(x)$ scans $s$ and records the longest consecutive $x$. The answer is whether $f(1)>f(0)$.
+
+<!-- thinking:end -->
 
 We design a function $f(x)$, which represents the length of the longest consecutive substring in string $s$ composed of $x$. If $f(1) > f(0)$, then return `true`, otherwise return `false`.
 

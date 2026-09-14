@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1395.Count%20Number%20of%20Teams/README_EN.md
 rating: 1343
 source: Weekly Contest 182 Q2
 tags:
@@ -72,6 +71,14 @@ tags:
 
 ### Solution 1: Enumerate Middle Element
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count strictly increasing or decreasing triples. $n \le 1000$ makes a triple loop cubic. Fix the middle rating $b$: $l$ smaller values on the left times $r$ larger on the right are the increasing teams; the complementary counts are the decreasing ones. Two linear scans per midpoint suffice.
+
+<!-- thinking:end -->
+
 We can enumerate each element $rating[i]$ in the array $rating$ as the middle element, then count the number of elements $l$ that are smaller than it on the left, and the number of elements $r$ that are larger than it on the right. The number of combat units with this element as the middle element is $l \times r + (i - l) \times (n - i - 1 - r)$. We can add this to the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Where $n$ is the length of the array $rating$.
@@ -99,6 +106,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning both sides per midpoint is $O(n^2)$. After discretizing, two Fenwick trees query “how many smaller on the left / larger on the right” in $O(\log n)$: every value starts in the right tree and moves left as $i$ advances.
+
+<!-- thinking:end -->
 
 We can use two binary indexed trees to maintain the number of elements $l$ that are smaller than each element on the left in the array $rating$, and the number of elements $r$ that are larger than it on the right. Then count the number of combat units with this element as the middle element as $l \times r + (i - l) \times (n - i - 1 - r)$, and add this to the answer.
 
@@ -155,6 +170,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3: Recursion + Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Fenwick trees need discretization. Memoizing by index, remaining picks, and direction counts increasing or decreasing completions: from $i$ we try every later $j$ that respects the order. $O(n)$ states and $O(n)$ transitions match the first method's bound, expressed as recursion.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

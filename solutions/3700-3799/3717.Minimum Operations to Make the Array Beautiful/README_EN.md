@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3717.Minimum%20Operations%20to%20Make%20the%20Array%20Beautiful/README_EN.md
 tags:
     - Array
     - Dynamic Programming
@@ -75,6 +74,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Later entries may only increase and must become multiples of the previous one. With $n\le 100$ and $nums[i]\le 50$, the raised values stay in a small range. DP stores the value written at the previous index and its cost; from each such value we try multiples of it that are at least $x$ and within a constant cap.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

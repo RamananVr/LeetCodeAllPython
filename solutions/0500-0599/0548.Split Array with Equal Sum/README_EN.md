@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -60,6 +59,16 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into four equal-sum parts, discarding the three cut elements. Four nested cuts are $O(n^4)$.
+>
+> Fix the middle cut $j$, store equal-pair sums from the left in a set, and look for the same sum on the right. Prefix sums make each segment $O(1)$. One loop over $j$ plus two linear scans is enough.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README_EN.md
 rating: 2381
 source: Biweekly Contest 91 Q4
 tags:
@@ -65,6 +64,14 @@ Under the given constraints, the string can be split into two parts:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate the Number of Segments + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each part carries a $<j/k>$ suffix inside a length cap $limit$. With $n\le 10^4$, try $k=1,2,\ldots$: the digit lengths of indices and of $k$, plus three symbols per part, accumulate in $O(1)$. When leftover capacity is at least $n$, slice the message and append the tails.
+
+<!-- thinking:end -->
 
 We denote the length of the string `message` as $n$, and the number of segments as $k$.
 

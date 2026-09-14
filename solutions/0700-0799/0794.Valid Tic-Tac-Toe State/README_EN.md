@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README_EN.md
 tags:
     - Array
     - Matrix
@@ -70,6 +69,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether a $3\times 3$ board can arise from X-first play. Nine cells: count marks and who has a line.
+>
+> X has $o$ or $o+1$ marks. A win for X requires $x=o+1$; a win for O requires $x=o$. Those counts also rule out both winning at once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

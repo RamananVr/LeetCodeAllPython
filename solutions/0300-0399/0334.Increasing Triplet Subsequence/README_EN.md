@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README_EN.md
 tags:
     - Greedy
     - Array
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether an increasing triplet of indices exists. Trying every middle index is $O(n^2)$. We only need a smaller left value and a candidate second value.
+>
+> Keep $mi<mid$. A value above $mid$ finishes the triplet; otherwise update $mi$ if it is no larger, else update $mid$. The old index of $mid$ need not be stored: it already sits after a smaller $mi$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

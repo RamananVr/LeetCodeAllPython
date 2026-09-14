@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md
 rating: 2391
 source: Weekly Contest 299 Q4
 tags:
@@ -84,6 +83,16 @@ We cannot obtain a smaller score than 0.
 <!-- solution:start -->
 
 ### Solution 1: DFS + Subtree XOR Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting two edges yields three components; the score is the range of their XORs. $n \le 1000$, so pairing edges and recomputing XOR is heavy. The whole-tree XOR $s$ is fixed, and a component XOR equals a subtree XOR after rooting.
+>
+> Delete one edge first to get the root-side XOR $s_1$. DFS inside that block; each subtree XOR $s_2$ is the second cut. The three values are $s\oplus s_1$, $s_2$, and $s_1\oplus s_2$. Trying every root and neighbor covers all unordered edge pairs.
+
+<!-- thinking:end -->
 
 We denote the XOR sum of the tree as $s$, i.e., $s = \text{nums}[0] \oplus \text{nums}[1] \oplus \ldots \oplus \text{nums}[n-1]$.
 

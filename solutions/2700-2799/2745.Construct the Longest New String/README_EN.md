@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README_EN.md
 rating: 1607
 source: Biweekly Contest 107 Q2
 tags:
@@ -60,6 +59,16 @@ That string has length 14, and we can show that it is impossible to construct a 
 <!-- solution:start -->
 
 ### Solution 1: Case Discussion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Concatenate $x$ copies of $AA$, $y$ of $BB$, and $z$ of $AB$ without $AAA$ or $BBB$, and maximize the length. Searching the order is heavy when the counts reach $50$.
+>
+> $AB$ is safe on both ends and can be placed freely; $AA$ and $BB$ must alternate. The larger of $x$ and $y$ can exceed the other by at most one. The three comparisons close into a constant-time formula.
+
+<!-- thinking:end -->
 
 We observe that the string 'AA' can only be followed by 'BB', and the string 'AB' can be placed at the beginning or end of the string. Therefore:
 

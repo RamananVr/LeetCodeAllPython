@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1288.Remove%20Covered%20Intervals/README_EN.md
 rating: 1375
 source: Biweekly Contest 15 Q2
 tags:
@@ -56,6 +55,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We drop intervals covered by another. Sorting by rising left end and, on ties, falling right end, an earlier interval cannot be covered by a later narrower one. We keep the largest right end seen: a strictly larger current right end is not covered. Sorting reduces 2-D containment to a 1-D right-end test.
+
+<!-- thinking:end -->
 
 We can sort the intervals in ascending order by their left endpoints, and if the left endpoints are the same, sort them in descending order by their right endpoints.
 

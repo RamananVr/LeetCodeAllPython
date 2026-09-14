@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/README_EN.md
 tags:
     - Bit Manipulation
     - Array
@@ -61,6 +60,18 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is a partition of the width, and vertical cracks of adjacent rows must not align. Height and brick types are limited, so we list all one-row layouts and their compatibility.
+>
+> DFS builds sequences of brick lengths summing to $\textit{width}$. Two sequences are incompatible if they share a prefix sum other than $0$ and $\textit{width}$. Row-to-row transfer is path counting on that graph: $\textit{dp}[i][j]$ is the number of ways to use layout $j$ on row $i$.
+>
+> Initialize the first row with ones, add compatible predecessors, and sum the last row modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

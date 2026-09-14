@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README_EN.md
 tags:
     - Database
 ---
@@ -115,6 +114,18 @@ Similarly, we can see that users 2 and 3 listened to songs 10, 11, and 12 on the
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A recommendation needs at least three shared songs on the same day and no existing friendship. Friendship is undirected, so a one-way table would miss the reverse edge.
+>
+> We union both directions of $\texttt{Friendship}$, self-join $\texttt{Listens}$ on day and song with distinct users, and reject pairs that already appear as friends.
+>
+> Grouping by day and user pair, counting distinct songs, and keeping those with count at least $3$ produces the recommendations; $\texttt{DISTINCT}$ collapses repeats across days.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

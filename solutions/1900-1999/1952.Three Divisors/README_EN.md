@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1952.Three%20Divisors/README_EN.md
 rating: 1203
 source: Weekly Contest 252 Q1
 tags:
@@ -56,6 +55,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A number has exactly three positive divisors iff it is the square of a prime. $n$ is small, so counting divisors in $2..n-1$ and asking whether that count is $1$ suffices.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -73,6 +80,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A linear scan wastes time near the upper bound. Enumerating up to $\sqrt{n}$ counts each pair once (or once for a square) and checks whether the total is $3$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

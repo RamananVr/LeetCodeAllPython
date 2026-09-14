@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3317.Find%20the%20Number%20of%20Possible%20Ways%20for%20an%20Event/README_EN.md
 rating: 2413
 source: Biweekly Contest 141 Q4
 tags:
@@ -88,6 +87,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Performers occupy at most $x$ nonempty stages, and each stage then chooses one of $y$ scores. With $n,x \le 1000$, we can DP on people versus stages used.
+>
+> Person $i$ either joins one of the $j$ existing stages or opens a new one among the $x-j+1$ unused stages. These cases partition every assignment.
+>
+> After $n$ people, each $j$ is multiplied by $y^j$ for the stage scores, and the sum is taken modulo $10^9+7$.
+
+<!-- thinking:end -->
 
 We define $f[i][j]$ to represent the number of ways to arrange the first $i$ performers into $j$ programs. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$.
 

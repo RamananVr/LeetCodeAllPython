@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README_EN.md
 rating: 2397
 source: Weekly Contest 443 Q3
 tags:
@@ -88,6 +87,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Palindrome Centers + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer still comes from a palindrome in one string, or from pairing a prefix of $s$ with a prefix of reversed $t$ and then extending one side. The constraints are larger, yet center expansion plus an $O(mn)$ matching DP remains sufficient.
+>
+> Reverse $t$, precompute $g_1$ and $g_2$, and let $f[i][j]$ grow equal prefixes before attaching a leftover palindromic core.
+
+<!-- thinking:end -->
 
 According to the problem description, the concatenated palindrome string can be composed entirely of string $s$, entirely of string $t$, or a combination of both strings $s$ and $t$. Additionally, there may be extra palindromic substrings in either string $s$ or $t$.
 

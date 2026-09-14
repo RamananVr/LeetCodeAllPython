@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2883.Drop%20Missing%20Data/README_EN.md
 tags:
     - Pandas
 ---
@@ -62,6 +61,14 @@ Student with id 217 havs empty value in the name column, so it will be removed.<
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Missing data means a null `name`. Filtering with `notnull()` on that column drops those rows without a full-frame `dropna`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

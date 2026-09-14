@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0190.Reverse%20Bits/README_EN.md
 tags:
     - Bit Manipulation
     - Divide and Conquer
@@ -90,6 +89,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse the $32$ bits of an unsigned integer. Pull each bit and write it to the mirrored index. Scan $32$ times from the low end: take $n$'s lowest bit, write it at position $31-i$, then shift $n$ right. The width is fixed.
+
+<!-- thinking:end -->
 
 We can extract each bit of $n$ from the lowest bit to the highest bit, and then place it at the corresponding position of $\textit{ans}$.
 

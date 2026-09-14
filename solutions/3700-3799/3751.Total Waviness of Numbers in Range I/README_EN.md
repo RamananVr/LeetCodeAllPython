@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README_EN.md
 rating: 1404
 source: Biweekly Contest 170 Q2
 tags:
@@ -96,6 +95,14 @@ In the range <code>[198, 202]</code>:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The upper bound is only $10^5$, so we may strip digits of every integer. Numbers shorter than $3$ digits contribute $0$; each interior digit is a peak or valley when it differs strictly from both neighbors, and we sum over $[num1,num2]$.
+
+<!-- thinking:end -->
 
 We define a helper function $f(x)$ to calculate the waviness value of integer $x$. In this function, we store each digit of integer $x$ in an array $\textit{nums}$. If the number has fewer than 3 digits, the waviness value is 0. Otherwise, we iterate through each non-leading and non-trailing digit in the array $\textit{nums}$, determine whether it is a peak or valley, and count the waviness value.
 

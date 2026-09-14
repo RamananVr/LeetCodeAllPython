@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0019.Remove%20Nth%20Node%20From%20End%20of%20List/README_EN.md
 tags:
     - Linked List
     - Two Pointers
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Fast and Slow Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to count the length $L$, then walk $L-n$ steps and delete. $sz\le 30$ would pass, but the follow-up asks for one pass.
+>
+> Until we reach the end we do not know where the $n$-th node from the end is, and deletion still needs its predecessor. Give the fast pointer a head start of $n$ steps, then move both; when fast hits the tail, slow sits on the predecessor. A dummy node makes deleting the head the same as deleting a middle node.
+>
+> So one walk with fast and slow locates and removes the node.
+
+<!-- thinking:end -->
 
 We define two pointers `fast` and `slow`, both initially pointing to the dummy head node of the linked list.
 

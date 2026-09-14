@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,16 @@ Output table is ordered by week_of_month in ascending order.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Recursion + Left Join + Date Functions
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, Fridays with no purchase must show $0$. A recursive CTE lists every November day, left-joins $Purchases$, keeps Fridays, and $IFNULL(SUM,0)$.
+>
+> The date spine stays complete, so empty Fridays are not dropped by the group.
+
+<!-- thinking:end -->
 
 We can generate a table `T` that contains all dates in November 2023 using recursion, then use a left join to connect `T` and the `Purchases` table by date. Finally, group and sum according to the requirements of the problem.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README_EN.md
 rating: 1217
 source: Weekly Contest 216 Q1
 tags:
@@ -64,6 +63,14 @@ The strings are the same, so return true.</pre>
 
 ### Solution 1: String Concatenation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether concatenating the two arrays yields the same string. The total length is tiny, so $\texttt{join}$ and compare.
+
+<!-- thinking:end -->
+
 Concatenate the strings in the two arrays into two strings, then compare whether the two strings are equal.
 
 The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the total length of the strings in the arrays.
@@ -85,6 +92,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Direct Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 builds two new strings. Four pointers walk the original arrays character by character in $O(1)$ extra space: mismatch fails, and finishing a word advances to the next piece.
+
+<!-- thinking:end -->
 
 In Solution 1, we concatenated the strings in the two arrays into two new strings, which has additional space overhead. We can also directly traverse the two arrays and compare the characters one by one.
 

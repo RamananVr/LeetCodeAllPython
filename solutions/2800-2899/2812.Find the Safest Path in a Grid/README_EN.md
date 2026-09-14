@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md
 rating: 2153
 source: Weekly Contest 357 Q3
 tags:
@@ -85,6 +84,14 @@ It can be shown that there are no other paths with a higher safeness factor.
 <!-- solution:start -->
 
 ### Solution 1: BFS + Sorting + Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The safeness of a path is the minimum distance to a thief on it, and we want the maximum such value. Multi-source BFS from every thief yields per-cell distances. Adding cells from large distance to small in a union-find structure, the first time start and end become connected is the answer.
+
+<!-- thinking:end -->
 
 We can first find out the positions of all thieves, and then start multi-source BFS from these positions to get the shortest distance from each position to the thieves. Then sort in descending order according to the distance, and add each position to the union-find set one by one. If the start and end points are in the same connected component, the current distance is the answer.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0289.Game%20of%20Life/README_EN.md
 tags:
     - Array
     - Matrix
@@ -73,6 +72,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: In-place marking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The next state depends on the current eight neighbors; writing immediately would spoil cells not yet processed. Use sentinels: live-to-dead as $2$, dead-to-live as $-1$, and treat positives as live when counting.
+>
+> A second pass maps $2$ to $0$ and $-1$ to $1$, all in place.
+
+<!-- thinking:end -->
 
 Let's define two new states. State $2$ indicates that the living cell becomes dead in the next state, and state $-1$ indicates that the dead cell becomes alive in the next state. Therefore, for the current grid we are traversing, if the grid is greater than $0$, it means that the current grid is a living cell, otherwise it is a dead cell.
 

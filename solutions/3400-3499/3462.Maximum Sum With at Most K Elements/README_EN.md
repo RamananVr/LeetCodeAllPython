@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3462.Maximum%20Sum%20With%20at%20Most%20K%20Elements/README_EN.md
 rating: 1416
 source: Weekly Contest 438 Q2
 tags:
@@ -81,6 +80,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min-Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row may contribute at most $\textit{limits}[i]$ entries, and we take at most $k$ in total. The largest admissible cells should be chosen.
+>
+> Sort each row, keep its $\textit{limit}$ largest values, then pick the $k$ largest among those candidates.
+>
+> A min-heap of size $k$ receives the row candidates from large to small and evicts the smallest when it overflows. The heap sum is the answer.
+
+<!-- thinking:end -->
 
 We can use a priority queue (min-heap) $\textit{pq}$ to maintain the largest $k$ elements.
 

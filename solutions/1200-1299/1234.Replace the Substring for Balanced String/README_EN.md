@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README_EN.md
 rating: 1877
 source: Weekly Contest 159 Q3
 tags:
@@ -65,6 +64,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Balance means each of the four letters occurs $n/4$ times. $n \le 10^5$ forbids enumerating the replaced substring. The outside of a window is balanced iff the window covers every excess letter, and a longer window is easier to satisfy, so the condition is monotone.
+>
+> We count the whole string; if it is already balanced the answer is $0$. Otherwise the right end swallows a letter (decrementing the outside count) and, while the outside is legal, the left end shrinks and we record the shortest window. Two pointers maintain the shortest cover whose exterior is balanced.
+
+<!-- thinking:end -->
 
 First, we use a hash table or array `cnt` to count the number of each character in string $s$. If the count of all characters does not exceed $n/4$, then the string $s$ is balanced, and we directly return $0$.
 

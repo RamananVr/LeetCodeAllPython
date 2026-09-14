@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README_EN.md
 rating: 1418
 source: Weekly Contest 253 Q2
 tags:
@@ -70,6 +69,16 @@ The total number of stones in [2,3,3,4] is 12.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation halves a pile (rounding down). Minimizing the remainder means always hitting the current largest pile, which a max-heap maintains.
+>
+> Store negated sizes, replace the top with half of itself $k$ times, then negate the sum.
+
+<!-- thinking:end -->
 
 According to the problem description, in order to minimize the total number of remaining stones, we need to remove as many stones as possible from the stone piles. Therefore, we should always choose the pile with the most stones for removal.
 

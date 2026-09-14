@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README_EN.md
 rating: 1567
 source: Weekly Contest 409 Q2
 tags:
@@ -86,6 +85,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The graph starts as the path $0\to 1\to\cdots\to n-1$; after each forward edge we want the distance from $0$ to $n-1$. $n,q\le 500$, so a fresh shortest path per query is acceptable.
+>
+> Edges have weight $1$, so BFS from $0$ after each insertion records the distance. The total time is $O(q(n+q))$.
+
+<!-- thinking:end -->
 
 We first build a directed graph $\textit{g}$, where $\textit{g}[i]$ represents the list of cities that can be reached from city $i$. Initially, each city $i$ has a one-way road to city $i + 1$.
 

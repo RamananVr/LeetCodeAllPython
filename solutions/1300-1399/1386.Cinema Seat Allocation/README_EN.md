@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md
 rating: 1636
 source: Biweekly Contest 22 Q2
 tags:
@@ -81,6 +80,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A family occupies four consecutive seats ($2$–$5$, $4$–$7$, or $6$–$9$). $n$ reaches $10^9$, so empty rows cannot be scanned. An unreserved row fits two families and contributes $2(n-|d|)$. A reserved row is a $10$-bit mask; we try the three windows in order, claiming a mask when it is free so two families do not share a seat.
+
+<!-- thinking:end -->
 
 We use a hash table $d$ to store all the reserved seats, where the key is the row number, and the value is the state of the reserved seats in that row, i.e., a binary number. The $j$-th bit being $1$ means the $j$-th seat is reserved, and $0$ means the $j$-th seat is not reserved.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1422.Maximum%20Score%20After%20Splitting%20a%20String/README_EN.md
 rating: 1237
 source: Weekly Contest 186 Q1
 tags:
@@ -66,6 +65,16 @@ left = &quot;01110&quot; and right = &quot;1&quot;, score = 2 + 1 = 3
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 500$ allows recounting at every split, but the score is only zeros on the left plus ones on the right.
+>
+> Start with the total number of ones on the right. Moving the cut: a $0$ increments the left, a $1$ decrements the right. Track the maximum $l+r$, and never cut after the last character.
+
+<!-- thinking:end -->
 
 We use two variables $l$ and $r$ to record the number of 0s in the left substring and the number of 1s in the right substring, respectively. Initially, $l = 0$, and $r$ is equal to the number of 1s in the string $s$.
 

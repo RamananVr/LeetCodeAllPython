@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3633.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20I/README_EN.md
 rating: 1342
 source: Biweekly Contest 162 Q1
 tags:
@@ -133,6 +132,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One land ride and one water ride are required, in either order. Pairwise enumeration is quadratic. The first category only needs the ride that finishes earliest.
+>
+> That earliest finish is $\textit{minEnd}=\min(s+d)$. A ride in the second category then ends at $\max(s,\textit{minEnd})+d$; take the minimum over those.
+>
+> Evaluate land-then-water and water-then-land and keep the smaller. Each side is a linear scan.
+
+<!-- thinking:end -->
 
 We can consider two orders of rides: first land rides then water rides, or first water rides then land rides.
 

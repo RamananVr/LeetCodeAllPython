@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -85,6 +84,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Crystals already light their reachable set. We want the fewest extra runes from a lit node that light the whole digraph. With $n \le 10^5$ we first BFS the lit closure.
+>
+> The remaining nodes are processed in reverse DFS finishing order, i.e. sources of the residual DAG first.
+>
+> Each still-dark node in that order needs one new rune; a BFS then extends the closure. Every added edge therefore covers a new residual source.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

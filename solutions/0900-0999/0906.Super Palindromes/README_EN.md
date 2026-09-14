@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md
 tags:
     - Math
     - String
@@ -55,6 +54,16 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A super-palindrome is $x=p^2$ inside $[L,R]\subseteq[1,10^{18})$. Testing every square in that range is impossible. $p$ itself must be a palindrome below $10^9$, so its first half has size at most about $10^5$.
+>
+> Precompute every palindrome obtained by mirroring a prefix (with or without a middle digit), then keep those $p^2$ that lie in $[L,R]$ and are palindromes.
+
+<!-- thinking:end -->
 
 According to the problem description, we assume that the super palindrome number $x = p^2 \in [1, 10^{18})$, where $p$ is a palindrome number, so $p \in [1, 10^9)$. We can enumerate the first half of the palindrome number $p$, then reverse it, and concatenate it to get all palindrome numbers, which are recorded in the array $ps$.
 

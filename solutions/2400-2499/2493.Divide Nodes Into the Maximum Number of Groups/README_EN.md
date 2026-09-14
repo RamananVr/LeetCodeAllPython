@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md
 rating: 2415
 source: Weekly Contest 322 Q4
 tags:
@@ -75,6 +74,14 @@ It can be shown that no grouping is possible.
 <!-- solution:start -->
 
 ### Solution 1: BFS + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent group numbers must differ by $1$, so the graph is bipartite and a component's best grouping is its maximum BFS depth. With $n\le 500$, BFS from every start: a distance gap other than $1$ fails. Use the smallest index as the component root, keep the best depth seen, and sum over roots.
+
+<!-- thinking:end -->
 
 Given that the graph provided by the problem may be disconnected, we need to process each connected component, find the maximum number of groups in each connected component, and accumulate them to get the final result.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md
 rating: 1521
 source: Biweekly Contest 46 Q1
 tags:
@@ -66,6 +65,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A nice substring contains both cases of every letter that appears. $n$ is small enough to try all substrings.
+>
+> Fix the left end $i$, extend rightward, and store characters in a set. When every letter has both cases and the window is longer, record it. Ties keep the earlier substring.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -94,6 +103,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans the set for each window, paying an extra $C$ factor. With $26$ letters, two bitmasks for lower and upper case suffice; the window is nice iff the masks are equal.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README_EN.md
 tags:
     - Array
     - Math
@@ -58,6 +57,16 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count contiguous strictly increasing subarrays. Grouped by the right end, the count is the current run length; left ends need not be enumerated.
+>
+> Keep the increasing length $cnt$ ending here: grow it when the value rises, else reset to $1$, and add $cnt$ to the answer.
+
+<!-- thinking:end -->
 
 We can enumerate the number of strictly increasing subarrays ending at each element and then sum them up.
 

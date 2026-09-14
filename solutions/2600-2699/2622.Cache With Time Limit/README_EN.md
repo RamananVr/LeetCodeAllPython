@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2622.Cache%20With%20Time%20Limit/README_EN.md
 tags:
     - JavaScript
 ---
@@ -82,6 +81,18 @@ At t=250, count() returns 0 because the cache is empty.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Entries expire; reads and counts must ignore stale keys. Sweeping the whole map on every call is allowed at this size, but expiry is just a timestamp check.
+>
+> Store $[value, expire]$ and compare `Date.now()` on access. `set` overwrites the key, refreshes the deadline, and reports whether the key already existed.
+>
+> `count` filters entries that are still live; an eager purge is unnecessary.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

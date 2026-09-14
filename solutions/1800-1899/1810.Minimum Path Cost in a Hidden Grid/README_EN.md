@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
@@ -111,6 +110,16 @@ We now know that the target is the cell (1, 0), and the minimum total cost to re
 <!-- solution:start -->
 
 ### Solution 1: DFS Graph Construction + Heap-Optimized Dijkstra Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is hidden; we may only probe with $\textit{canMove}$, $\textit{move}$, and $\textit{isTarget}$, and each step has a cost. Searching for a shortest path while exploring would mix exploration cost with true path cost.
+>
+> The grid is at most $100\times 100$, so place the start at $(100,100)$, DFS with reverse moves to reconstruct the graph, store the enter-cost of each cell, and record the target. Edge weights are non-negative, so Dijkstra from the start yields the minimum cost; if DFS never sees the target, return $-1$.
+
+<!-- thinking:end -->
 
 We observe that the grid size is $m \times n$, where $m, n \leq 100$. Therefore, we can initialize the starting coordinates as $(sx, sy) = (100, 100)$ and assume the grid size is $200 \times 200$. Then, we can use depth-first search (DFS) to explore the entire grid and construct a 2D array $g$ representing the grid, where $g[i][j]$ represents the movement cost from the starting point $(sx, sy)$ to coordinates $(i, j)$. If a cell is unreachable, we set its value to $-1$. We store the target coordinates in $\textit{target}$, and if the target cannot be reached, then $\textit{target} = (-1, -1)$.
 

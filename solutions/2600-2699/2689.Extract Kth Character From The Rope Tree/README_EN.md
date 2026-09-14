@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -88,6 +87,16 @@ You can see that S[root] = &quot;ropetree&quot;. So S[root][7], which represents
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rope stores pieces at the leaves and lengths at internal nodes. We need the $k$-th character. The tree is small enough to rebuild the full string, though a length-guided walk would also work.
+>
+> DFS returns `val` at a leaf and the concatenation of both children otherwise; the answer is index $k-1$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0467.Unique%20Substrings%20in%20Wraparound%20String/README_EN.md
 tags:
     - String
     - Dynamic Programming
@@ -63,6 +62,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count unique contiguous substrings of the infinite wraparound string. Enumerating and hashing every substring is quadratic. Among runs that end with the same letter, a shorter one is contained in a longer one.
+>
+> Let $f[c]$ be the longest valid run ending at $c$; the answer is the sum of $f$. While scanning, grow $k$ when consecutive letters differ by $1$ modulo $26$, otherwise reset.
+>
+> Keeping only the maximum $k$ per ending letter drops duplicates.
+
+<!-- thinking:end -->
 
 We can define an array $f$ of length $26$, where $f[i]$ represents the length of the longest consecutive substring ending with the $i$th character. The answer is the sum of all elements in $f$.
 

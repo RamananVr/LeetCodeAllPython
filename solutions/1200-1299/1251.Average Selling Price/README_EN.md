@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1251.Average%20Selling%20Price/README_EN.md
 tags:
     - Database
 ---
@@ -97,6 +96,16 @@ Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 <!-- solution:start -->
 
 ### Solution 1: Left Join + Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Average price is $\sum price\times units / \sum units$, and prices have date ranges. A left join of $Prices$ to $UnitsSold$ keeps purchases whose date lies in $[start,end]$ for that product, including products with no sales.
+>
+> Grouping by product, $IFNULL$ turns a null weighted mean into $0$. The join enforces the date window; the group computes the weighted average.
+
+<!-- thinking:end -->
 
 We can use a left join to join the `Prices` table and the `UnitsSold` table on `product_id`, and the condition that `purchase_date` is between `start_date` and `end_date`. Then, we can use `GROUP BY` to group by `product_id` for aggregation, and use the `AVG` function to calculate the average price. Note that if a product has no sales records, the `AVG` function will return `NULL`, so we can use the `IFNULL` function to convert it to $0$.
 

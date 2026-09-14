@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md
 tags:
     - Two Pointers
     - String
@@ -57,6 +56,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Discuss Different Cases
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exactly one insert, delete, or replace should turn $s$ into $t$. A length gap above $1$ is impossible. $n\le 10^4$. Assume $s$ is at least as long as $t$. At the first mismatch: equal lengths compare the suffixes (replace); unequal lengths compare $s$ without that character to the rest of $t$ (delete). If they match throughout, $s$ must be exactly one character longer.
+
+<!-- thinking:end -->
 
 Let $m$ represent the length of string $s$, and $n$ represent the length of string $t$. We can assume that $m$ is always greater than or equal to $n$.
 

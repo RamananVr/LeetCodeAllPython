@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README_EN.md
 rating: 1443
 source: Weekly Contest 494 Q2
 tags:
@@ -92,6 +91,20 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in part I, except the difference must be positive. An all-same-parity array may still be copied.
+>
+> To obtain all odds we must subtract a larger opposite-parity value. If the smallest odd is less than some even, that even cannot become a positive odd difference, nor stay even while the rest become odd.
+>
+> Hence existence of an even smaller than the minimal odd fails; otherwise a construction exists.
+>
+> If there is no odd, the array is already all even and succeeds.
+
+<!-- thinking:end -->
 
 If all elements in $\textit{nums1}$ are either all odd or all even, we can directly set $\textit{nums2}$ equal to $\textit{nums1}$, which satisfies the condition.
 

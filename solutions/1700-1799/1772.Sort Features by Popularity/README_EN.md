@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1772.Sort%20Features%20by%20Popularity/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Custom Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Popularity is the number of responses that mention a feature (once per response). Sort $\textit{features}$ by that count descending, stably.
+>
+> Dedup words in each response with a set, increment a counter, and sort by $-cnt[w]$ so ties keep the original order.
+
+<!-- thinking:end -->
 
 We traverse `responses`, and for each word in `responses[i]`, we temporarily store it in a hash table `vis`. Next, we record the words in `vis` into the hash table `cnt`, recording the number of times each word appears.
 

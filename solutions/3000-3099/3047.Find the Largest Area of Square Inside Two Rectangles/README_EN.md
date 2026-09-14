@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md
 rating: 1601
 source: Weekly Contest 386 Q2
 tags:
@@ -85,6 +84,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n \le 10^3$ rectangles, and the square must lie in the intersection of some pair. Its side is limited by the smaller of that intersection’s width and height.
+>
+> The intersection’s width and height are $O(1)$, so we enumerate pairs and take the maximum of $\min(w,h)^2$.
+>
+> A non-positive intersection contributes $0$.
+
+<!-- thinking:end -->
 
 We can enumerate two rectangles, where the coordinates of the bottom left and top right corners of rectangle 1 are $(x_1, y_1)$ and $(x_2, y_2)$ respectively, and the coordinates of the bottom left and top right corners of rectangle 2 are $(x_3, y_3)$ and $(x_4, y_4)$ respectively.
 

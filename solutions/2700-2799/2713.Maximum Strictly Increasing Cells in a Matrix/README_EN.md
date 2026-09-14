@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md
 rating: 2387
 source: Weekly Contest 347 Q4
 tags:
@@ -80,6 +79,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From a cell we may move to a strictly larger value in the same row or column, and we want the longest path. There are up to $10^5$ cells; building an explicit graph and memoizing would pay a large out-degree.
+>
+> A smaller value cannot be reached from a larger one, so we process values in increasing order. Cells of equal value never move to each other: compute each cell from the current row/column maxima, then write the new maxima back so equals do not pollute one another.
+
+<!-- thinking:end -->
 
 Based on the problem description, the value of the cells we move through in sequence must strictly increase. Therefore, we can use a hash table $g$ to record the positions of all cells corresponding to each value, and then traverse from the smallest to the largest value.
 

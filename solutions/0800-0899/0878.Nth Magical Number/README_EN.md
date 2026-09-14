@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0878.Nth%20Magical%20Number/README_EN.md
 tags:
     - Math
     - Binary Search
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $n$-th positive integer divisible by $a$ or $b$, with $n$ up to $10^9$. Listing multiples is too slow. The count of magical numbers $\le x$ is $x/a+x/b-x/\mathrm{lcm}(a,b)$, monotone in $x$.
+>
+> Binary-search the least $x$ whose count is $n$, then reduce modulo $10^9+7$. The bound $(a+b)\cdot n$ is sufficient.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

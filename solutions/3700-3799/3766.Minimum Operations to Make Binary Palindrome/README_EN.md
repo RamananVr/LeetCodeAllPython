@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README_EN.md
 rating: 1656
 source: Biweekly Contest 171 Q2
 tags:
@@ -158,6 +157,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums[i]\le 5000$, so the nearest binary palindrome stays in a modest range. We precompute every binary palindrome below $2^{14}$ and, for each $x$, binary-search the two neighbors and take the smaller absolute difference.
+
+<!-- thinking:end -->
 
 We observe that the range of numbers given in the problem is only $[1, 5000]$. Therefore, we directly preprocess all binary palindromic numbers in the range $[0, 2^{14})$ and store them in an array, denoted as $\textit{p}$.
 

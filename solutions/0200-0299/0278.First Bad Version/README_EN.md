@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0278.First%20Bad%20Version/README_EN.md
 tags:
     - Binary Search
     - Interactive
@@ -55,6 +54,16 @@ Then 4 is the first bad version.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Once a version is bad, every later one is bad. If $isBadVersion(\textit{mid})$ then the first bad version lies in the left half including $\textit{mid}$; otherwise it lies to the right.
+>
+> The search stops at $l=r$, the first bad version.
+
+<!-- thinking:end -->
 
 We define the left boundary of the binary search as $l = 1$ and the right boundary as $r = n$.
 

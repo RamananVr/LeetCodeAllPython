@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1446.Consecutive%20Characters/README_EN.md
 rating: 1165
 source: Biweekly Contest 26 Q1
 tags:
@@ -52,6 +51,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Traversal and Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 500$. Scan once, grow $t$ while adjacent characters match, reset on a change, and keep the maximum.
+
+<!-- thinking:end -->
 
 We define a variable $\textit{t}$ to represent the length of the current consecutive characters, initially $\textit{t}=1$.
 

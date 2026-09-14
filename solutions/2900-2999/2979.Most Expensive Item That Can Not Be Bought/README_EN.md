@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md
 tags:
     - Math
     - Dynamic Programming
@@ -55,6 +54,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Chicken McNugget Theorem
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both denominations are primes, hence coprime; representable amounts are $a\cdot primeOne+b\cdot primeTwo$. The Chicken McNugget theorem names the largest non-representable integer $ab-a-b$, so a knapsack is unnecessary.
+>
+> Return the product minus the two primes.
+
+<!-- thinking:end -->
 
 According to the Chicken McNugget Theorem, for two coprime positive integers $a$ and $b$, the largest number that cannot be expressed as a combination of $a$ and $b$ is $ab - a - b$.
 

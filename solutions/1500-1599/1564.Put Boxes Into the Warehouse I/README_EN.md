@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README_EN.md
 tags:
     - Greedy
     - Array
@@ -78,6 +77,16 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boxes may only be pushed in from the left and cannot pass a shorter room. $n\le 10^5$, so we cannot try permutations. Room $i$ is limited by the shortest room on its left.
+>
+> Precompute $left[i]=\min(warehouse[0..i])$ and sort the boxes. Smaller boxes go as deep as they still fit: a right pointer walks left to the first $left[j]\ge boxes[i]$, then both pointers advance. Taller leftover rooms stay available for larger boxes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

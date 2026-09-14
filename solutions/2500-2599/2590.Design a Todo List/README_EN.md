@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2590.Design%20a%20Todo%20List/README_EN.md
 tags:
     - Design
     - Array
@@ -76,6 +75,16 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorted Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tasks are per user, unfinished ones must be listed by due date, and we must filter by tag and complete by id. The operation limit allows a linear scan to complete a task.
+>
+> A hash map stores a sorted list per user of $(\textit{due},\textit{desc},\textit{tags},\textit{id},\textit{done})$. Insertions stay ordered by due date. Queries skip completed items; completion marks the matching id.
+
+<!-- thinking:end -->
 
 We use a hash table $tasks$ to record the set of tasks for each user, where the key is the user ID and the value is a sorted set sorted by the deadline of the task. In addition, we use a variable $i$ to record the current task ID.
 

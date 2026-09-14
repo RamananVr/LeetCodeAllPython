@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README_EN.md
 tags:
     - Hash Table
     - String
@@ -61,6 +60,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether two words differ in exactly one position. The total number of characters is at most $10^5$, so pairwise scans are quadratic.
+>
+> Replace each index of a word by a wildcard to form a pattern that ignores that position. If the pattern is already in a set, another word differs from this one only there. A hash set makes the lookup expected constant time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

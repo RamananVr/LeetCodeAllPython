@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0635.Design%20Log%20Storage%20System/README_EN.md
 tags:
     - Design
     - Hash Table
@@ -72,6 +71,16 @@ logSystem.retrieve(&quot;2016:01:01:01:01:01&quot;, &quot;2017:01:01:23:00:00&qu
 <!-- solution:start -->
 
 ### Solution 1: String Comparison
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Queries filter timestamps at a chosen granularity. Parsing into integers and truncating fields is verbose.
+>
+> The stamp is a fixed-length string whose lexicographic order matches time. Slice to the granularity length and compare `start[:i] <= ts[:i] <= end[:i]`. `put` just appends.
+
+<!-- thinking:end -->
 
 Store the `id` and `timestamp` of the logs as tuples in an array. Then in the `retrieve()` method, truncate the corresponding parts of `start` and `end` based on `granularity`, and traverse the array, adding the `id` that meets the conditions to the result array.
 

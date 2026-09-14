@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README_EN.md
 tags:
     - Database
 ---
@@ -68,6 +67,16 @@ Teams table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The league needs every ordered pair of distinct teams. A self-join of $Teams$ excluding equal names lists them.
+>
+> Take the Cartesian product of $t1$ and $t2$ with $t1.team\_name \ne t2.team\_name$ as home and away.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

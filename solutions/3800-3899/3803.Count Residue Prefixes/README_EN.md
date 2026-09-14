@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3803.Count%20Residue%20Prefixes/README_EN.md
 rating: 1248
 source: Weekly Contest 484 Q1
 tags:
@@ -85,6 +84,20 @@ A <strong>prefix</strong> of a string is a <strong>non-empty substring</strong> 
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each prefix must be checked for whether its distinct-character count equals its length modulo $3$. $|s| \le 100$ allows rescanning every prefix, but that recounts the same characters.
+>
+> Prefixes nest: the $i$-th prefix adds one character to the previous one, so the distinct set is monotone.
+>
+> We keep a set of seen characters, update its size after each index, and compare with $i \bmod 3$.
+>
+> A single left-to-right pass counts every residue prefix.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{st}$ to record the set of distinct characters that have appeared in the current prefix. We iterate through each character $c$ in the string $s$, add it to the set $\textit{st}$, and then check if the length of the current prefix modulo $3$ equals the size of the set $\textit{st}$. If they are equal, it means the current prefix is a residue prefix, and we increment the answer by $1$.
 

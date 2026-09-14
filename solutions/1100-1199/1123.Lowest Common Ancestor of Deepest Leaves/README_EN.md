@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1123.Lowest%20Common%20Ancestor%20of%20Deepest%20Leaves/README_EN.md
 rating: 1607
 source: Weekly Contest 145 Q2
 tags:
@@ -78,6 +77,14 @@ Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The LCA of the deepest leaves depends on the two subtree depths: the answer stays on the deeper side, or is the current node if the depths match. One post-order DFS returns both that LCA and the depth, so we never collect deepest leaves and then run a second LCA.
+
+<!-- thinking:end -->
 
 We design a function `dfs(root)` that returns a tuple `(l, d)`, where `l` is the deepest common ancestor of node `root`, and `d` is the depth of node `root`. The execution logic of the function `dfs(root)` is as follows:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0971.Flip%20Binary%20Tree%20To%20Match%20Preorder%20Traversal/README_EN.md
 tags:
     - Tree
     - Depth-First Search
@@ -67,6 +66,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After some child flips, the preorder should equal $\textit{voyage}$. Values are unique, so the current node must match $\textit{voyage}[i]$. If a left child exists and is not the next expected value, we must flip and visit the right child first. One DFS advances the index; failure returns $[-1]$.
+
+<!-- thinking:end -->
 
 We can traverse the entire tree using depth-first search, using an index $i$ to record the current node's index in the $\textit{voyage}$ array. If the value of the current node does not equal $\textit{voyage}[i]$, it means that it is impossible to match after flipping, we mark $\textit{ok}$ as `false` and return immediately. Otherwise, we increment $i$ by $1$, then check if the current node has a left child. If it does not, or if the value of the left child equals $\textit{voyage}[i]$, we recursively traverse the current left and right children; otherwise, we need to flip the current node and then recursively traverse the current right and left children.
 

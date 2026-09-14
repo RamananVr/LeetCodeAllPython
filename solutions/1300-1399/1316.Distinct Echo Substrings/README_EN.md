@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md
 rating: 1836
 source: Biweekly Contest 17 Q4
 tags:
@@ -56,6 +55,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct substrings of the form $xx$. For $n \le 2000$, comparing both halves of every even-length substring character-wise is nearly $O(n^3)$. Equality of two pieces is $O(1)$ with string hashes.
+>
+> After a prefix-hash build, every even interval is tested by hashing its two halves; a set of those hashes is the number of distinct echo substrings.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

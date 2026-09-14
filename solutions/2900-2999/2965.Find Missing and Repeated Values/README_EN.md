@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README_EN.md
 rating: 1244
 source: Weekly Contest 376 Q1
 tags:
@@ -58,6 +57,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $n \times n$ matrix should hold $1 \ldots n^2$ once each, but one value repeats and one is missing. $n \le 50$, so a count array of length $n^2+1$ and two scans suffice.
+>
+> Frequency $2$ is the repeat, frequency $0$ the missing value. No closed form is required.
+
+<!-- thinking:end -->
 
 We create an array $cnt$ of length $n^2 + 1$ to count the frequency of each number in the matrix.
 

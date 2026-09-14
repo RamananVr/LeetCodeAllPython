@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README_EN.md
 rating: 1311
 source: Biweekly Contest 133 Q2
 tags:
@@ -76,6 +75,18 @@ It is impossible to make all elements equal to 1.</p>
 <!-- solution:start -->
 
 ### Solution 1: Sequential Traversal + Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation flips a window of length $3$. A $0$ that is not flipped immediately can never be covered by a later window.
+>
+> Flip at every remaining $0$ on indices $i,i+1,i+2$; if $i+2$ is past the end the instance is impossible.
+>
+> Scan left to right, XOR the next two entries, and count. Return $-1$ on overflow, otherwise the count.
+
+<!-- thinking:end -->
 
 We notice that the first position in the array that is $0$ must undergo a flip operation, otherwise, it cannot be turned into $1$. Therefore, we can sequentially traverse the array, and each time we encounter $0$, we flip the next two elements and accumulate one operation count.
 

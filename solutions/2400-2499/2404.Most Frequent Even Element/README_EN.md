@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README_EN.md
 rating: 1259
 source: Weekly Contest 310 Q1
 tags:
@@ -63,6 +62,14 @@ We return the smallest one, which is 2.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 2000$, one pass can count even frequencies. We need the most frequent even, breaking ties by the smallest value. A hash map of counts plus a linear scan of the pairs is enough; sorting is unnecessary.
+
+<!-- thinking:end -->
 
 We use a hash table $cnt$ to count the occurrence of all even elements, and then find the even element with the highest occurrence and the smallest value.
 

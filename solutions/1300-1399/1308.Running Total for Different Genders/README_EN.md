@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README_EN.md
 tags:
     - Database
 ---
@@ -94,6 +93,14 @@ The fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A running score per gender and day would re-scan earlier rows if computed from scratch for every pair. A window $\mathrm{SUM}$ partitioned by gender and ordered by day accumulates every preceding (and current) score in one pass, which is exactly $\textit{total}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

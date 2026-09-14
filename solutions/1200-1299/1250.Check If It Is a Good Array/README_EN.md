@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README_EN.md
 rating: 1983
 source: Weekly Contest 161 Q4
 tags:
@@ -67,6 +66,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Mathematics (Bézout's Identity)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bézout's identity: $a_1 x_1+\cdots+a_n x_n=1$ has integer solutions iff $\gcd(a_1,\ldots,a_n)=1$. $n \le 10^5$ forbids subset search.
+>
+> One gcd over the whole array suffices. If any coprime subset exists, the gcd of all numbers is $1$ as well, so we need not isolate that subset.
+
+<!-- thinking:end -->
 
 First, consider the situation where we select two numbers. If the selected numbers are $a$ and $b$, then according to the problem's requirements, we need to satisfy $a \times x + b \times y = 1$, where $x$ and $y$ are any integers.
 

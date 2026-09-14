@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README_EN.md
 rating: 1231
 source: Biweekly Contest 29 Q2
 tags:
@@ -67,6 +66,14 @@ tags:
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$. Scan $1$ through $n$, decrement $k$ on each divisor, and return when $k$ hits $0$. If none remains, return $-1$.
+
+<!-- thinking:end -->
+
 A "factor" is a number that can divide another number. Therefore, we only need to enumerate from $1$ to $n$, find all numbers that can divide $n$, and then return the $k$-th one.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
@@ -93,6 +100,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Optimized Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is $O(n)$. Divisors come in pairs. Enumerate up to $\lfloor\sqrt{n}\rfloor$ for the small ones; if $k$ remains, walk $i$ downward and emit $n/i$ for the large ones, in $O(\sqrt{n})$.
+
+<!-- thinking:end -->
 
 We can observe that if $n$ has a factor $x$, then $n$ must also have a factor $n/x$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0363.Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K/README_EN.md
 tags:
     - Array
     - Binary Search
@@ -59,6 +58,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate Boundaries + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum sub-rectangle sum no larger than $k$. Four nested loops are $O(m^2n^2)$. Fix the top and bottom, compress columns, and the problem is a 1D max subarray sum $\le k$.
+>
+> An ordered set of prefixes: for sum $s$ find the least $t\ge s-k$, so $s-t$ is $\le k$ and as large as possible. $O(m^2)$ row pairs and $O(n\log n)$ per pair.
+
+<!-- thinking:end -->
 
 We can enumerate the upper and lower boundaries $i$ and $j$ of the rectangle, then calculate the sum of the elements in each column within this boundary, and record it in the array $nums$. The problem is transformed into how to find the maximum subarray sum not exceeding $k$ in the array $nums$.
 

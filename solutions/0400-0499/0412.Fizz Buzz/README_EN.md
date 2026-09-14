@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0412.Fizz%20Buzz/README_EN.md
 tags:
     - Math
     - String
@@ -50,6 +49,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The output is a direct transcription of $1..n$ under a few divisibility rules, so a single pass is enough.
+>
+> Test divisibility by $15$ before $3$ or $5$, then fall back to the decimal representation. Checking $15$ first prevents writing only one of the two words when both apply.
+
+<!-- thinking:end -->
 
 We iterate through each integer from 1 to $n$. For each integer, we check whether it is a multiple of both 3 and 5, or just a multiple of 3, or just a multiple of 5. Based on the check result, we add the corresponding string to the answer array.
 

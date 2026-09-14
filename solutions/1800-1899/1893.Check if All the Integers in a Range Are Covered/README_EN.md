@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README_EN.md
 rating: 1307
 source: Biweekly Contest 54 Q1
 tags:
@@ -60,6 +59,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether every integer in $[left,right]$ lies in some given interval. The domain is at most $50$, so a difference array suffices.
+>
+> Add $1$ at each left endpoint and $-1$ just after the right. The prefix sum is the coverage at that point; a zero inside $[left,right]$ means the range is not fully covered.
+
+<!-- thinking:end -->
 
 We can use the idea of a difference array to create a difference array $\textit{diff}$ of length $52$.
 

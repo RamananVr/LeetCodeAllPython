@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README_EN.md
 rating: 1298
 source: Weekly Contest 467 Q2
 tags:
@@ -78,6 +77,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick at most $k$ distinct values and emit them in strictly decreasing order. The largest distinct values are optimal.
+>
+> Sort, scan from the right, skip a value equal to its neighbor, and collect until $k$ values are taken.
+>
+> Right-to-left order is decreasing; skipping duplicates keeps them distinct.
+
+<!-- thinking:end -->
 
 We first sort the array $\textit{nums}$, then iterate from the end to the beginning, selecting the largest $k$ distinct elements. Since we require a strictly decreasing order, we skip duplicate elements during selection.
 

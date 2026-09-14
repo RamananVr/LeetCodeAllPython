@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md
 tags:
     - Stack
     - String
@@ -82,6 +81,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to keep stripping $()$, $[]$, and $\{\}$ until nothing changes. Correct, but worst-case $O(n^2)$. $n\le 10^4$ might pass, yet the writing is clumsy.
+>
+> Matching is last-opened-first-closed, so we need LIFO. A left bracket waits for its right counterpart; a right bracket must pair with the nearest unmatched left. The stack should be empty at the end, or some left bracket never closed.
+>
+> So we push left brackets and, on a right bracket, pop and compare.
+
+<!-- thinking:end -->
 
 Traverse the bracket string $s$. When encountering a left bracket, push the current left bracket into the stack; when encountering a right bracket, pop the top element of the stack (if the stack is empty, directly return `false`), and judge whether it matches. If it does not match, directly return `false`.
 

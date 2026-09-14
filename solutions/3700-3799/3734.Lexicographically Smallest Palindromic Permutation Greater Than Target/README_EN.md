@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README_EN.md
 rating: 2330
 source: Weekly Contest 474 Q4
 tags:
@@ -95,6 +94,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindromic permutation is determined by its left half and at most one odd center; more than one odd frequency is impossible. We want the smallest palindrome strictly larger than $\textit{target}$, so the left half is built like the next permutation: match the first half of $\textit{target}$ as far as possible, raise the first feasible position, and mirror the left half to the right.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

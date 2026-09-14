@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1464.Maximum%20Product%20of%20Two%20Elements%20in%20an%20Array/README_EN.md
 rating: 1121
 source: Weekly Contest 191 Q1
 tags:
@@ -64,6 +63,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 500$. Enumerate every unordered pair and keep the maximum of $(a-1)(b-1)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -86,6 +93,14 @@ class Solution:
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is quadratic. The product grows with the two values, so sort and take the last two.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -104,6 +119,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 still sorts. One pass that keeps the largest and second-largest values is enough.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

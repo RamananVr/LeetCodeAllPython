@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README_EN.md
 tags:
     - Array
     - Hash Table
@@ -51,6 +50,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest subarray summing to $k$. A double loop is $O(n^2)$. The sum is a prefix difference $s_i-s_j=k$, so we want the leftmost $s_j=s_i-k$.
+>
+> Store the first index of each prefix (including $0\mapsto -1$). When $s-k$ exists, update the length by $i-j$; write $s$ only if unseen so the leftmost endpoint stays.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{d}$ to record the first occurrence index of each prefix sum in the array $\textit{nums}$, initializing $\textit{d}[0] = -1$. Additionally, we define a variable $\textit{s}$ to keep track of the current prefix sum.
 

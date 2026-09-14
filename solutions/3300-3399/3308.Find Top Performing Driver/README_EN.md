@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README_EN.md
 tags:
     - Database
 ---
@@ -143,6 +142,18 @@ Each row includes a trip&#39;s ID, the vehicle used, the distance covered (in mi
 <!-- solution:start -->
 
 ### Solution 1: Equi-join + Grouping + Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each fuel type we need the driver with the best rating, then the largest distance, then the fewest accidents, keeping ties. Joining $\textit{Drivers}$, $\textit{Vehicles}$, and $\textit{Trips}$ and grouping by fuel type and driver yields those three aggregates.
+>
+> A plain $\textit{GROUP BY}$ with $\textit{MAX}$ cannot return every tied $\textit{driver\_id}$.
+>
+> We therefore rank the aggregates by rating descending, distance descending, and accidents ascending, keep $\textit{rk}=1$, and order by fuel type.
+
+<!-- thinking:end -->
 
 We can use equi-join to join the `Drivers` table with the `Vehicles` table on `driver_id`, and then join with the `Trips` table on `vehicle_id`. Next, we group by `fuel_type` and `driver_id` to calculate each driver's average rating, total mileage, and total accident count. Then, using the `RANK()` window function, we rank the drivers of each fuel type in descending order of rating, descending order of total mileage, and ascending order of total accident count. Finally, we filter out the driver ranked 1 for each fuel type.
 

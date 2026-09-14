@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README_EN.md
 rating: 1266
 source: Weekly Contest 314 Q1
 tags:
@@ -88,6 +87,14 @@ The tasks with the longest time are tasks 0 and 1. The employees that worked on 
 
 ### Solution 1: Direct Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{logs}$ is strictly increasing by leave time, so the $i$-th task lasts $leaveTime_i$ minus the previous leave. At most $500$ entries, one pass tracks the longest duration and the smallest id.
+
+<!-- thinking:end -->
+
 We use a variable $last$ to record the end time of the last task, a variable $mx$ to record the longest working time, and a variable $ans$ to record the employee with the longest working time and the smallest $id$. Initially, all three variables are $0$.
 
 Next, we traverse the array $logs$. For each employee, we subtract the end time of the last task from the time the employee completes the task to get the working time $t$ of this employee. If $mx$ is less than $t$, or $mx$ equals $t$ and the $id$ of this employee is less than $ans$, then we update $mx$ and $ans$. Then we update $last$ to be the end time of the last task plus $t$. Continue to traverse until the entire array is traversed.
@@ -119,6 +126,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 rebuilds leave times by accumulation. Storing the previous $leaveTime$ and subtracting is the same duration, with one fewer arithmetic step.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

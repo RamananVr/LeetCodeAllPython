@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0571.Find%20Median%20Given%20Frequency%20of%20Numbers/README_EN.md
 tags:
     - Database
 ---
@@ -66,6 +65,16 @@ If we decompress the Numbers table, we will get [0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value has a frequency; the median is the middle of the expanded sequence. Expanding the rows is unnecessary.
+>
+> Prefix frequencies from the left (`rk1`) and the right (`rk2`), with $s$ the total count. Rows with $rk1 \ge s/2$ and $rk2 \ge s/2$ are the middle value or the two middle values; average them. `ROUND(..., 1)` keeps one decimal.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

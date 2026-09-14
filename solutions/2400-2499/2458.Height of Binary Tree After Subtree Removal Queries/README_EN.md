@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README_EN.md
 rating: 2298
 source: Weekly Contest 317 Q4
 tags:
@@ -81,6 +80,16 @@ The height of the tree is 2 (The path 1 -&gt; 3 -&gt; 2).
 
 ### Solution 1: Two DFS Traversals
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query deletes a non-root subtree; $n\le 10^5$ and $q\le 10^4$ forbid recomputing the height. After removing $x$, the height is the longest root-to-leaf path that avoids $x$, i.e. the better of sibling-side depths and forks higher up.
+>
+> A first DFS stores subtree heights $d$. A second DFS carries $\textit{rest}$, the height if the current node is deleted: going left, $\textit{rest}$ competes with $\textit{depth}$ plus the right height (and symmetrically). Store the value in $\textit{res}[val]$.
+
+<!-- thinking:end -->
+
 First, we perform a DFS traversal to determine the depth of each node, which we store in a hash table $d$, where $d[x]$ represents the depth of node $x$.
 
 Then we design a function $dfs(root, depth, rest)$, where:
@@ -145,6 +154,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: One DFS + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 fills every deletion height with two DFS passes. One DFS can record each node's deepest descendant per level and sort the level. For query $q$, if it owns the level maximum, use the second maximum; otherwise keep the first. A singleton level falls back to $level-1$.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

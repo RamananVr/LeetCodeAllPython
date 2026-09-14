@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README_EN.md
 rating: 2201
 source: Weekly Contest 471 Q3
 tags:
@@ -76,6 +75,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Prefix Sum + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The alphabet is only $\{a,b,c\}$ and $n\le 10^5$, so the quadratic scan of the previous problem no longer fits. Balanced substrings fall into one, two, or three distinct letters: a single letter is a longest run; two letters reduce to a zero difference after dropping the third; three letters use the first occurrence of the pair $(c_a-c_b,c_b-c_c)$.
+
+<!-- thinking:end -->
 
 The answer is divided into the following three cases:
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README_EN.md
 tags:
     - Database
 ---
@@ -76,6 +75,16 @@ Thus only customers 1 and 4 have positive revenue in the year 2021.
 <!-- solution:start -->
 
 ### Solution 1: WHERE Clause
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need customers whose $2021$ revenue is positive. Both $year$ and $revenue$ are already columns, so no join or aggregation is required.
+>
+> A $\textit{WHERE}$ clause on the year and the sign of revenue, projecting $customer\_id$, answers the query.
+
+<!-- thinking:end -->
 
 We can directly use the `WHERE` clause to filter out the customers whose `year` is `2021` and `revenue` is greater than $0$.
 

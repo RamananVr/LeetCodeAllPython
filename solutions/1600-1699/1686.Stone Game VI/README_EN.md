@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md
 rating: 2000
 source: Biweekly Contest 41 Q3
 tags:
@@ -88,6 +87,16 @@ Bob wins.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players alternate taking a stone, scoring their own value and denying the opponent's. The comparison should count both “I gain $a_i$” and “they lose $b_i$”, so take stones in decreasing $a_i+b_i$.
+>
+> After that sort Alice takes even indices and Bob odd ones; compare the two scores for $1$, $0$, or $-1$.
+
+<!-- thinking:end -->
 
 The optimal strategy for picking stones is to maximize one's own score while making the opponent lose as much as possible. Therefore, we create an array $vals$, where $vals[i] = (aliceValues[i] + bobValues[i], i)$ represents the total value and index of the $i$-th stone. Then we sort $vals$ in descending order by total value.
 

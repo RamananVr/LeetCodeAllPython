@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2623.Memoize/README_EN.md
 tags:
     - JavaScript
 ---
@@ -96,6 +95,18 @@ values = [[5],[]]
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Identical arguments should reuse the previous result. Calling the original function every time would inflate the call count. Primitive tuples can serve as object keys.
+>
+> A map keyed by the argument list returns a hit immediately and stores a miss after computing.
+>
+> `args in cache` stringifies the array, which is enough for the numeric arguments in this problem.
+
+<!-- thinking:end -->
 
 <!-- solution:end -->
 

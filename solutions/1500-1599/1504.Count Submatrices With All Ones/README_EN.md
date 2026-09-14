@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README_EN.md
 rating: 1845
 source: Weekly Contest 196 Q3
 tags:
@@ -68,6 +67,16 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24.
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting all-$1$ submatrices by enumerating four borders and scanning the interior is far too slow. Even a 2D prefix-sum check over every pair of corners is $O(m^2 n^2)$. With side length up to $150$, we need to drop one nested loop.
+>
+> After fixing the bottom-right cell $(i,j)$, a submatrix is determined by how far we extend upward. Precompute $g[i][j]$ as the run of ones ending at that cell in its row. Walking $k$ upward from $i$ and taking the running minimum of $g[k][j]$ gives the legal width for each height; add that width at every step. Each corner is then processed in $O(m)$, for $O(m^2 n)$ overall.
+
+<!-- thinking:end -->
 
 We can enumerate the bottom-right corner $(i, j)$ of the matrix, and then enumerate the first row $k$ upwards. The width of the matrix with $(i, j)$ as the bottom-right corner in each row is $\min_{k \leq i} \textit{g}[k][j]$, where $\textit{g}[k][j]$ represents the width of the matrix with $(k, j)$ as the bottom-right corner in the $k$-th row.
 

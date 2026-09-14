@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md
 rating: 2030
 source: Biweekly Contest 88 Q4
 tags:
@@ -71,6 +70,16 @@ Since there does not exist any pair that satisfies the conditions, we return 0.
 <!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The inequality $nums1[i]-nums2[i]\le nums1[j]-nums2[j]+\textit{diff}$ for $i<j$ cannot be double-looped at $n\le 10^5$. With $v=a-b$ we count prior $v_i\le v_j+\textit{diff}$.
+>
+> After a shift, a Fenwick tree stores seen $v$. For each $j$ from left to right, query the prefix up to $v_j+\textit{diff}$, then insert $v_j$.
+
+<!-- thinking:end -->
 
 We can transform the inequality in the problem to $nums1[i] - nums2[i] \leq nums1[j] - nums2[j] + diff$. Therefore, if we calculate the difference between the corresponding elements of the two arrays and get another array $nums$, the problem is transformed into finding the number of pairs in $nums$ that satisfy $nums[i] \leq nums[j] + diff$.
 

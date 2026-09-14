@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -49,6 +48,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS (Depth-First Search)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every BST on $1..n$. Once the root is $v$, the left subtree uses only $[1,v-1]$ and the right only $[v+1,n]$; the two sides are independent. Split by interval: enumerate the root, generate all left and right shapes, then take the Cartesian product. An empty interval is a null tree. $n \le 8$, Catalan numbers stay small, so search is enough.
+
+<!-- thinking:end -->
 
 We design a function $dfs(i, j)$ that returns all feasible binary search trees composed of $[i, j]$, so the answer is $dfs(1, n)$.
 

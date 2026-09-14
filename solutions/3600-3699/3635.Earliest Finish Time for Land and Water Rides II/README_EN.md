@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3635.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20II/README_EN.md
 rating: 1869
 source: Biweekly Contest 162 Q3
 tags:
@@ -133,6 +132,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The constraints match the previous problem at a larger size, and the optimum is unchanged: the first category contributes only its earliest finish, then the second category is scanned once.
+>
+> For each order compute $\textit{minEnd}$ and $\min(\max(s,\textit{minEnd})+d)$, then keep the smaller of the two orders.
+>
+> Pairwise matching of rides is unnecessary; the time stays linear in the two lengths.
+
+<!-- thinking:end -->
 
 We can consider two orders of rides: first land rides then water rides, or first water rides then land rides.
 

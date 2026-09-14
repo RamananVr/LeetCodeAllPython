@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README_EN.md
 rating: 1287
 source: Weekly Contest 475 Q1
 tags:
@@ -81,6 +80,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For sorted indices the triple distance equals $2(k-i)$, so the best triple of one value is three consecutive occurrences. Group indices by value and slide a window of length $3$ on each list; $n\le 100$ is ample.
+
+<!-- thinking:end -->
 
 We can use a hash table $\textit{g}$ to store the list of indices for each number in the array. While traversing the array, we add each number's index to its corresponding list in the hash table. Define a variable $\textit{ans}$ to store the answer, with an initial value of infinity $\infty$.
 

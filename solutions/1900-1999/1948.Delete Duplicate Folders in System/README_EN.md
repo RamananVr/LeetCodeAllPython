@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README_EN.md
 rating: 2533
 source: Weekly Contest 251 Q4
 tags:
@@ -102,6 +101,18 @@ Note that the returned array can be in a different order as the order does not m
 <!-- solution:start -->
 
 ### Solution 1: Trie + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Identical folder subtrees (including names) must all be deleted. Comparing every pair of serializations is too slow.
+>
+> Insert every path into a trie, then DFS-encode each node as the sorted concatenation of child names and encodings. Nodes that share an encoding mark each other deleted.
+>
+> A second DFS skips deleted nodes and emits surviving root-to-node paths.
+
+<!-- thinking:end -->
 
 We can use a trie to store the folder structure, where each node in the trie contains the following data:
 

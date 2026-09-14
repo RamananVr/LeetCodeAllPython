@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1165.Single-Row%20Keyboard/README_EN.md
 rating: 1199
 source: Biweekly Contest 7 Q1
 tags:
@@ -57,6 +56,14 @@ Total time = 2 + 1 + 1 = 4.
 <!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move costs the absolute index difference on the keyboard. Map characters to positions, start at index $0$, add $|\textit{pos}[c]-i|$ and move the finger. There is no need to scan the keyboard string on every letter.
+
+<!-- thinking:end -->
 
 We can use a hash table or an array $pos$ of length $26$ to store the position of each character on the keyboard, where $pos[c]$ represents the position of character $c$ on the keyboard.
 

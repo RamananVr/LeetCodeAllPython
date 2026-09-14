@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md
 tags:
     - Database
 ---
@@ -68,6 +67,18 @@ Output table is ordered by email_domains in ascending order.
 <!-- solution:start -->
 
 ### Solution 1: Using `SUBSTRING_INDEX` Function + Grouping Statistics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count domains of addresses that end with `.com`. The domain is the part after `@`.
+>
+> Split out the domain, then keep `.com` so local hosts are dropped. Group and count by domain.
+>
+> The code takes the last split segment, filters with `contains('.com')`, and groups.
+
+<!-- thinking:end -->
 
 First, we filter out all emails ending with `.com`, then use the `SUBSTRING_INDEX` function to extract the domain name of the email. Finally, we use `GROUP BY` to count the number of each domain.
 

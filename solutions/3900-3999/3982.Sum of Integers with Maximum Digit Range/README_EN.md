@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3982.Sum%20of%20Integers%20with%20Maximum%20Digit%20Range/README_EN.md
 rating: 1200
 source: Weekly Contest 509 Q1
 tags:
@@ -124,6 +123,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digit range is the largest digit minus the smallest. $n\le 100$, so peel each value, compute $b-a$, and keep the best range $\textit{mx}$: a strictly larger range resets the answer, a tie adds the number.
+>
+> One pass suffices.
+
+<!-- thinking:end -->
 
 We traverse the array $\textit{nums}$. For each integer $x$, we extract its digits to find the largest digit $b$ and the smallest digit $a$, then compute the digit range $r = b - a$. If $r$ is greater than the current maximum digit range $\textit{mx}$, we update $\textit{mx} = r$ and reset the answer to $x$; if $r$ equals $\textit{mx}$, we add $x$ to the answer.
 

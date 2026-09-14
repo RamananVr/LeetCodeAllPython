@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README_EN.md
 rating: 2358
 source: Weekly Contest 221 Q4
 tags:
@@ -59,6 +58,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Offline Query + Binary Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the maximum $x_i\oplus nums[j]$ among values $\le m_i$. Scanning the array per query is $O(nq)$ and fails for $n,q\le 10^5$.
+>
+> Queries are independent of one another and of the order of $nums$. Sorting by $m_i$ lets us insert eligible numbers monotonically into one structure.
+>
+> Sort $nums$ and insert values $\le m_i$ into a binary trie with a moving pointer. Walking opposite bits on the trie yields the maximum XOR; an empty trie answers $-1$.
+
+<!-- thinking:end -->
 
 From the problem description, we know that each query is independent and the result of the query is irrelevant to the order of elements in $nums$. Therefore, we consider sorting all queries in ascending order of $m_i$, and also sorting $nums$ in ascending order.
 

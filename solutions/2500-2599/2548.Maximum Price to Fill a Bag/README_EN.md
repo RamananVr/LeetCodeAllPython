@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README_EN.md
 tags:
     - Greedy
     - Array
@@ -68,6 +67,16 @@ It can be proved that 55.0 is the maximum total price that we can achieve.
 <!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Items may be taken in any fraction of their weight. We maximize price and return $-1$ if the capacity cannot be filled. This is the fractional knapsack: higher unit price first.
+>
+> Sorting by $w/p$ ascending is unit price descending. Take $\min(w,\textit{capacity})$ of each item and add the proportional price. Leftover capacity means the total weight is insufficient.
+
+<!-- thinking:end -->
 
 We sort the items in descending order by unit price, and then take out the items one by one until the backpack is full.
 

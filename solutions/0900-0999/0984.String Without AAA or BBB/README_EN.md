@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README_EN.md
 tags:
     - Greedy
     - String
@@ -54,6 +53,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build a string with $a$ `'a'`s and $b$ `'b'`s that avoids `aaa`/`bbb`. The more frequent letter should be emitted in pairs, separated by the rarer one, so it does not clump. Append `aab` when $a>b$, `bba` when $b>a$, `ab` when equal, then the leftover singles.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

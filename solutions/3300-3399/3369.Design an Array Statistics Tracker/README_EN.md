@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3369.Design%20an%20Array%20Statistics%20Tracker/README_EN.md
 tags:
     - Design
     - Queue
@@ -103,6 +102,18 @@ statisticsTracker.getMode(); // return 5</div>
 <!-- solution:start -->
 
 ### Solution 1: Queue + Hash Table + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must enqueue, drop the oldest value, and query mean, median, and mode in $O(\log n)$ over $10^5$ operations.
+>
+> A queue keeps insertion order; $s$ is the sum for the mean; $\textit{sl}$ is a sorted list for the median; another sorted list ordered by $(-\textit{cnt},\textit{value})$ yields the mode.
+>
+> Frequency updates delete the old pair before inserting the new one so the mode set stays consistent.
+
+<!-- thinking:end -->
 
 We define a queue $\textit{q}$ to store the added numbers, a variable $\textit{s}$ to store the sum of all numbers, a hash table $\textit{cnt}$ to store the occurrence count of each number, an ordered set $\textit{sl}$ to store all numbers, and an ordered set $\textit{sl2}$ to store all numbers and their occurrence counts, sorted by occurrence count in descending order and by value in ascending order.
 

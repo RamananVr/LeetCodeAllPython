@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1967.Number%20of%20Strings%20That%20Appear%20as%20Substrings%20in%20Word/README_EN.md
 rating: 1231
 source: Weekly Contest 254 Q1
 tags:
@@ -72,6 +71,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both the patterns and the word are short, so testing $p$ as a substring of $\textit{word}$ and summing the hits is enough.
+
+<!-- thinking:end -->
 
 Traverse each string $p$ in the array $\textit{patterns}$ and check if it is a substring of $\textit{word}$. If it is, increment the answer by one.
 

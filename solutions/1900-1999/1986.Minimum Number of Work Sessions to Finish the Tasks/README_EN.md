@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1986.Minimum%20Number%20of%20Work%20Sessions%20to%20Finish%20the%20Tasks/README_EN.md
 rating: 1995
 source: Weekly Contest 256 Q3
 tags:
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: State Compression Dynamic Programming + Subset Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tasks must fill sessions of capacity $\textit{sessionTime}$, using as few sessions as possible. $n\le 14$ admits subset DP.
+>
+> Mark subsets that fit in one session, then for each mask $i$ try every submask $j$: if $j$ is feasible, $f[i]=\min(f[i\oplus j]+1)$.
+>
+> $f[2^n-1]$ is the session count.
+
+<!-- thinking:end -->
 
 We note that $n$ does not exceed $14$, so we can consider using state compression dynamic programming to solve this problem.
 

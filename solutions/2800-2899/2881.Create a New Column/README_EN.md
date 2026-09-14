@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2881.Create%20a%20New%20Column/README_EN.md
 tags:
     - Pandas
 ---
@@ -67,6 +66,14 @@ A new column bonus is created by doubling the value in the column salary.</pre>
 <!-- solution:start -->
 
 ### Solution 1: Direct Calculation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bonus is twice the salary. A vectorized assignment `salary * 2` creates the column without a Python loop.
+
+<!-- thinking:end -->
 
 We can directly calculate the double of `salary` and then store the result in the `bonus` column.
 

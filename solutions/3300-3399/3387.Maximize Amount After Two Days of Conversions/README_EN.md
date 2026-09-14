@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README_EN.md
 rating: 1787
 source: Weekly Contest 428 Q2
 tags:
@@ -115,6 +114,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two days use two rate graphs; we may convert freely and want the most of the starting currency back. The currency set is tiny, so a DFS from the start yields the best amount of every currency that day.
+>
+> Each rate is bidirectional with $r$ and $1/r$. The input has no arbitrage cycle, so one traversal is the maximum multiplier from the start.
+>
+> Day one produces $d1[a]$; day two converts $a$ back with $1/d2[a]$. The answer is the maximum of $d1[a]/d2[a]$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

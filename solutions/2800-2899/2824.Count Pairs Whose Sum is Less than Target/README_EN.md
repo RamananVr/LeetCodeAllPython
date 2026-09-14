@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2824.Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target/README_EN.md
 rating: 1165
 source: Biweekly Contest 111 Q1
 tags:
@@ -66,6 +65,14 @@ Note that (0, 3) is not counted since nums[0] + nums[3] is not strictly less tha
 <!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A double loop is acceptable for small $n$, yet after sorting we can, for each right index $j$, binary-search how many $i<j$ satisfy $nums[i]+nums[j]<target$.
+
+<!-- thinking:end -->
 
 First, we sort the array $nums$. Then, for each $j$, we use binary search in the range $[0, j)$ to find the first index $i$ that is greater than or equal to $target - nums[j]$. All indices $k$ in the range $[0, i)$ meet the condition, so the answer increases by $i$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md
 rating: 2234
 source: Weekly Contest 479 Q4
 tags:
@@ -104,6 +103,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score of a connected subgraph containing $i$ is good vertices minus bad ones, so we keep only children with positive contribution. A tree DP computes the downward score at every root; rerooting then folds in the positive contribution from the parent side to obtain each vertex's global maximum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

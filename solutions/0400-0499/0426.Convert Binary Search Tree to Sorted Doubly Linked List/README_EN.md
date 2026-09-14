@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md
 tags:
     - Stack
     - Tree
@@ -64,6 +63,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In-order traversal of a BST is sorted. Collecting nodes into an array then wiring them uses extra memory. The problem asks for an in-place circular list, reusing $\textit{left}/\textit{right}$ as pred/succ.
+>
+> During in-order, link $\textit{prev}$ with the current node and remember the first node as $\textit{head}$. Afterwards connect $\textit{head}$ with the last node to close the circle.
+>
+> Left–root–right makes the link order match the sorted sequence; a null $\textit{prev}$ identifies the head.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

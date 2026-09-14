@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md
 rating: 1992
 source: Weekly Contest 211 Q2
 tags:
@@ -91,6 +90,16 @@ There is no way to obtain a string that is lexicographically smaller than &quot;
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add and rotate generate a graph with out-degree two. Length is at most $100$ and the alphabet is digits, so the reachable set is small enough for BFS.
+>
+> From $s$, add $a$ (mod $10$) on odd indices and rotate right by $b$, deduplicate with a set, and keep the lexicographically smallest string seen.
+
+<!-- thinking:end -->
+
 Since the data scale of this problem is relatively small, we can use BFS to brute-force search all possible states and then take the lexicographically smallest state.
 
 <!-- tabs:start -->
@@ -125,6 +134,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 searches the graph and pays for a queue and hash set. Addition has period $10$ and rotation at most $n$; when $b$ is even, addition never touches even indices.
+>
+> Enumerate at most $n$ rotations and $10$ additions on odd positions; if $b$ is odd, nest another $10$ additions on even positions, and take the minimum string.
+
+<!-- thinking:end -->
 
 We observe that for the addition operation, a digit will return to its original state after at most $10$ additions; for the rotation operation, the string will also return to its original state after at most $n$ rotations.
 

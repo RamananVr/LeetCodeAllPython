@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README_EN.md
 rating: 2763
 source: Weekly Contest 440 Q4
 tags:
@@ -76,6 +75,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumeration + Maintaining Minimum and Second Minimum Values
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid subarray cannot contain both ends of any conflicting pair. We delete exactly one pair and want as many valid subarrays as possible. The scan must be linear.
+>
+> With no deletion, a left end $a$ cannot reach the smallest conflicting right end $b_1$ seen from $a$ rightward. It contributes $b_1-a$.
+>
+> Deleting the pair that created $b_1$ replaces it by the second smallest $b_2$ and adds $b_2-b_1$. Those extras are grouped by $b_1$; we add the best extra to the no-deletion total.
+
+<!-- thinking:end -->
 
 We store all conflicting pairs $(a, b)$ (assuming $a < b$) in a list $g$, where $g[a]$ represents the set of all numbers $b$ that conflict with $a$.
 

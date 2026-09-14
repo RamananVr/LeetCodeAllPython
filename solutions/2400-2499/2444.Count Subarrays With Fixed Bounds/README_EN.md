@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md
 rating: 2092
 source: Weekly Contest 315 Q4
 tags:
@@ -64,6 +63,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Enumerate the Right Endpoint
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $n\le 10^5$, a fixed-bound subarray stays inside $[\textit{minK},\textit{maxK}]$ and contains both extrema. For a right end $i$, the left end must be after the last out-of-range index and at most the earlier of the last $\textit{minK}$ and $\textit{maxK}$.
+>
+> Keep those three indices $k,j_1,j_2$ and add $\max(0,\min(j_1,j_2)-k)$. Each right end is $O(1)$.
+
+<!-- thinking:end -->
 
 According to the problem description, we know that all elements of a bounded subarray are within the range $[\textit{minK}, \textit{maxK}]$, and the minimum value must be $\textit{minK}$, while the maximum value must be $\textit{maxK}$.
 

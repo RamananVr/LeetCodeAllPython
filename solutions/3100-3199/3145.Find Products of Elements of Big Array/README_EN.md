@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3145.Find%20Products%20of%20Elements%20of%20Big%20Array/README_EN.md
 rating: 2859
 source: Biweekly Contest 130 Q4
 tags:
@@ -109,6 +108,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Binary Search + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The big array concatenates the set-bit powers of every positive integer. A product over $[L,R]$ is a power of two whose exponent is a range sum, and indices reach $10^{15}$.
+>
+> Prefix power sums $f(i)$ give the range as $f(R+1)-f(L)$. Length and power-sum of $1..x$ have closed forms by highest bit, so the $x$ owning an index can be binary-searched.
+>
+> Precompute $50$-bit prefix counts and sums, search the largest $x$ whose strong array is shorter than $i$, then add the leftover low bits. Each query returns $2^{f(R+1)-f(L)}\bmod \textit{mod}$.
+
+<!-- thinking:end -->
 
 The continuous positive integer numbers correspond to the strong integer array, forming the array $\textit{bignums}$. The problem requires us to find the result of the product of the subarray $\textit{bignums}[\textit{left}..\textit{right}]$ modulo $\textit{mod}$ for each query $[\textit{left}, \textit{right}, \textit{mod}]$. Since each element of the subarray is a power of 2, this is equivalent to finding the sum of the powers $\textit{power}$ of the subarray, and then calculating $2^{\textit{power}} \bmod \textit{mod}$. For example, for the subarray $[1, 4, 8]$, i.e., $[2^0, 2^2, 2^3]$, the sum of the powers is $0 + 2 + 3 = 5$, so $2^5 \bmod \textit{mod}$ is the result we need.
 

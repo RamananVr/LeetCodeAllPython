@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md
 rating: 1294
 source: Weekly Contest 329 Q2
 tags:
@@ -65,6 +64,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reorder students by the $k$-th exam score, descending. Rows are independent, so one sort with key $-x[k]$ suffices.
+
+<!-- thinking:end -->
 
 We directly sort $\textit{score}$ in descending order based on the scores in the $k$-th column, and then return the result.
 

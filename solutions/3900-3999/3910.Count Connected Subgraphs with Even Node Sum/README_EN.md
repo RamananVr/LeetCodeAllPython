@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README_EN.md
 rating: 1859
 source: Biweekly Contest 181 Q3
 tags:
@@ -152,6 +151,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bitmask Enumeration + DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting connected induced subgraphs is hard in general, but $n\le 13$ leaves only $2^n-1\le 8191$ nonempty subsets, which we can test one by one.
+>
+> Drop odd node-sums first. For an even subset, mark nodes outside it in a bitmask $\textit{vis}$, then DFS from any included vertex, staying inside the subset. If $\textit{vis}$ ends with all $n$ bits set, the induced subgraph is connected.
+>
+> Adjacency lists keep each DFS $O(n+m)$, so the total is $O(2^n(n+m))$.
+
+<!-- thinking:end -->
 
 Notice that the number of nodes in the problem does not exceed $13$, so we can enumerate all non-empty subsets $s$ of nodes. For each subset, we calculate the total sum of node values and check whether its induced subgraph is connected.
 

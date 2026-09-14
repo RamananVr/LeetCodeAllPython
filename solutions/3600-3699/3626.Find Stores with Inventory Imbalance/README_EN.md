@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README_EN.md
 tags:
     - Database
 ---
@@ -165,6 +164,18 @@ Each row represents the inventory of a specific product at a specific store.
 <!-- solution:start -->
 
 ### Solution 1: Window Functions + Joins
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Imbalance means a store has at least three products and the most expensive item's stock is strictly below the cheapest item's. A manual per-store scan easily mishandles ties on price.
+>
+> Keep stores with enough distinct products. Sort inventory by $(\textit{store\_id},\textit{price},\textit{quantity})$ and take the first row per store in each direction; quantity descending breaks price ties uniquely.
+>
+> Join the two frames, keep rows whose expensive quantity is smaller, round the ratio to two decimals, join store metadata, and sort by ratio then name.
+
+<!-- thinking:end -->
 
 We can use window functions to calculate the most expensive and cheapest products for each store, and use joins to filter out stores with inventory imbalance. The specific steps are as follows:
 

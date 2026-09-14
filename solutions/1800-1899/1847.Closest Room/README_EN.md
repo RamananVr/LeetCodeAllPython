@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1847.Closest%20Room/README_EN.md
 rating: 2081
 source: Biweekly Contest 51 Q4
 tags:
@@ -72,6 +71,16 @@ Query = [2,5]: Room number 3 is the only room with a size of at least 5. The ans
 <!-- solution:start -->
 
 ### Solution 1: Offline Query + Ordered Set + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query wants the room whose id is closest to $\textit{preferred}$ among those with area at least $\textit{minSize}$. Scanning every room per query is too slow for $n,k\le 10^5$.
+>
+> Queries are independent, so process them offline in increasing $\textit{minSize}$. Sort rooms by area and keep still-valid ids in an ordered set, deleting rooms that fall below the current threshold. Binary search the two neighbors of $\textit{preferred}$ in that set.
+
+<!-- thinking:end -->
 
 We notice that the order of queries does not affect the answer, and the problem involves the size relationship of room areas. Therefore, we can sort the queries in ascending order of minimum area, so that we can process each query from small to large. Also, we sort the rooms in ascending order of area.
 

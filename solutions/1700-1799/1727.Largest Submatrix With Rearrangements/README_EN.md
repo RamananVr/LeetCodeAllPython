@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README_EN.md
 rating: 1926
 source: Weekly Contest 224 Q3
 tags:
@@ -67,6 +66,18 @@ The largest submatrix of 1s, in bold, has an area of 3.
 <!-- solution:start -->
 
 ### Solution 1: Preprocessing + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Columns may be reordered; we want the largest all-ones submatrix. $m\cdot n\le 10^5$ forbids trying permutations.
+>
+> Reordering changes column order, not the upward run of ones in a column. After rewriting each $1$ as that height, a row is a histogram.
+>
+> Sort the row descending. The $k$-th largest height $v$ forms a $v\times k$ all-ones block. Take the maximum over rows.
+
+<!-- thinking:end -->
 
 Since the matrix can be rearranged by columns, we can preprocess each column of the matrix first.
 

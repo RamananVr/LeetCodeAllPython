@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README_EN.md
 rating: 1940
 source: Weekly Contest 272 Q4
 tags:
@@ -90,6 +89,18 @@ Note that there can be other ways to make the array K-increasing, but none of th
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k$-increasing only constrains subsequences whose indices share the same residue modulo $k$. The $k$ groups are independent, and the answer is the sum of their operation counts. In one group, an operation may rewrite any value, so the minimum edits equal the length minus the longest non-decreasing subsequence.
+>
+> With $n\le 10^5$, a quadratic LIS on each group is too slow. Ties are allowed, so $\texttt{bisect\_right}$ on a patience array computes the longest non-decreasing length in $O(L\log L)$.
+>
+> We therefore process $\textit{arr}[i::k]$ for each $i<k$ and sum “group length minus LIS length”.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

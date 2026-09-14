@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3528.Unit%20Conversion%20I/README_EN.md
 rating: 1579
 source: Biweekly Contest 155 Q2
 tags:
@@ -76,6 +75,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n-1$ conversions and a unique path from $0$, so the graph is a tree rooted at $0$. We need how many units of $i$ equal one unit of $0$.
+>
+> Store multipliers in an adjacency list and DFS from the root, multiplying modulo $10^9+7$ into $\textit{ans}[i]$.
+
+<!-- thinking:end -->
 
 Since the problem guarantees that unit 0 can be converted to any other unit through a unique conversion path, we can use Depth-First Search (DFS) to traverse all unit conversion relationships. Additionally, since the length of the $\textit{conversions}$ array is $n - 1$, representing $n - 1$ conversion relationships, we can treat the unit conversion relationships as a tree, where the root node is unit 0, and the other nodes are the other units.
 

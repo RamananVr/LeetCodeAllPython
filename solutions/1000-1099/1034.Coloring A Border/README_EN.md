@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1034.Coloring%20A%20Border/README_EN.md
 rating: 1578
 source: Weekly Contest 134 Q2
 tags:
@@ -61,6 +60,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the connected component of $(row,col)$ and test which cells lie on its border. $m,n\le 50$ allows one search. A border cell either sits on the grid edge or has a differently colored neighbor.
+>
+> DFS walks the component. For each cell, an out-of-range or differently colored neighbor means it is a border and is painted $\textit{color}$. A visited grid avoids re-entry.
+>
+> Starting from the given cell finishes the recoloring.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

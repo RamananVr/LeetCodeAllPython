@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README_EN.md
 tags:
     - Concurrency
 ---
@@ -71,6 +70,14 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 <!-- solution:start -->
 
 ### Solution 1: Multithreading + Semaphore
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The stream is $010203\ldots$: a zero precedes every number, and odd/even prints are exclusive. Only semaphore $z$ starts at $1$. After `zero` prints, it wakes `odd` or `even` by parity; that thread prints and wakes `zero` again, rotating control among the three threads.
+
+<!-- thinking:end -->
 
 We use three semaphores $z$, $e$, and $o$ to control the execution order of the three threads, where $z$ is initially set to $1$, and $e$ and $o$ are set to $0$.
 

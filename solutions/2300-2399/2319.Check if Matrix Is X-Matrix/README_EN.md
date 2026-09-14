@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md
 rating: 1200
 source: Weekly Contest 299 Q1
 tags:
@@ -63,6 +62,16 @@ Thus, grid is not an X-Matrix.
 <!-- solution:start -->
 
 ### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An X-matrix needs nonzero diagonals and zeros elsewhere. $n \le 100$, so a full scan decides it.
+>
+> If $i=j$ or $i+j=n-1$, reject a zero; otherwise reject a nonzero. Return as soon as a cell fails; no extra structure is required.
+
+<!-- thinking:end -->
 
 We can directly traverse the matrix and check if each element satisfies the conditions of an $X$ matrix. If any element does not satisfy the conditions, return $\textit{false}$ immediately. If all elements satisfy the conditions after traversal, return $\textit{true}$.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README_EN.md
 rating: 2104
 source: Biweekly Contest 66 Q4
 tags:
@@ -86,6 +85,16 @@ The total number of plots is 7 + 6 = 13.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pyramid rests on three cells below, so height DP works. $mn \le 10^5$ forbids verifying every apex. $f[i][j]$ is the tallest pyramid peaked there (the cell itself is height $0$ and counts nothing).
+>
+> Bottom-up: a fertile interior cell gets $1+$ the min of the three below, and that height is added (size $h$ yields $h$ pyramids). Inverted pyramids use the same recurrence from the top, reusing $f$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

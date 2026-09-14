@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README_EN.md
 rating: 1828
 source: Weekly Contest 227 Q3
 tags:
@@ -76,6 +75,16 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step takes the first character of one string. The lexicographically largest merge chooses the side whose remaining suffix is larger, not merely the larger next character.
+>
+> Two pointers compare $word1[i:]$ and $word2[j:]$, append the winner's first character, and concatenate whatever remains.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

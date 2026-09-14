@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/README_EN.md
 rating: 2561
 source: Weekly Contest 261 Q4
 tags:
@@ -73,6 +72,18 @@ The lexicographically smallest subsequence among them is &quot;eet&quot;.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 5 \times 10^4$, enumerating $k$-length subsequences is impossible. A monotone stack yields the lexicographically smallest subsequence, but we must keep length $k$ and at least $repetition$ copies of $letter$.
+>
+> A pop is legal only if leftover characters can still fill $k$ slots and the chosen plus remaining $letter$s still meet $repetition$. Track suffix letter counts and the stack count.
+>
+> Scan left to right, then read the first $k$ stack characters. The code tabs are empty; the reasoning follows this constrained stack.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

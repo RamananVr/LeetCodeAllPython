@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1256.Encode%20Number/README_EN.md
 rating: 1561
 source: Biweekly Contest 13 Q1
 tags:
@@ -53,6 +52,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The table is $0,1,00,01,\ldots$, i.e. all binary strings in order. The bits of $num+1$ without the leading $1$ are exactly the $num$-th such string. $num$ reaches $10^9$, so we cannot list them; one bit trick suffices.
+
+<!-- thinking:end -->
 
 We add one to $num$, then convert it to a binary string and remove the highest bit $1$.
 

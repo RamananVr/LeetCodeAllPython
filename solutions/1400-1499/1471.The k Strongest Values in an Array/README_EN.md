@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1471.The%20k%20Strongest%20Values%20in%20an%20Array/README_EN.md
 rating: 1332
 source: Weekly Contest 192 Q2
 tags:
@@ -93,6 +92,14 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 <!-- solution:start -->
 
 ### Solution 1: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strength is distance to the median, ties broken by value. $n\le 10^5$. Sort to read $m=arr[(n-1)//2]$, then sort by $(-|x-m|,-x)$ and take $k$ elements.
+
+<!-- thinking:end -->
 
 We first sort the array $\textit{arr}$ and then find the median $m$ of the array.
 

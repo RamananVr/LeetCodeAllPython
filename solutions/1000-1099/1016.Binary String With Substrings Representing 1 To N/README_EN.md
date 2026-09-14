@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1016.Binary%20String%20With%20Substrings%20Representing%201%20To%20N/README_EN.md
 rating: 1779
 source: Weekly Contest 129 Q4
 tags:
@@ -47,6 +46,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can be $10^9$, so testing every binary representation in $[1,n]$ is impossible. $s$ has length at most $1000$, so it cannot cover more than a thousand distinct values and $n>1000$ is immediately false.
+>
+> If the binary form of $x$ occurs in $s$, then $\lfloor x/2\rfloor$ (drop the last bit) occurs as well. It is enough to check the upper half $[\lfloor n/2\rfloor+1,n]$.
+>
+> Under $n\le 1000$ we test those integers with ordinary substring search.
+
+<!-- thinking:end -->
 
 We observe that the length of string $s$ does not exceed $1000$, so string $s$ can represent at most $1000$ binary integers. Therefore, if $n \gt 1000$, then $s$ definitely cannot represent the binary representation of all integers in the range $[1,.. n]$.
 

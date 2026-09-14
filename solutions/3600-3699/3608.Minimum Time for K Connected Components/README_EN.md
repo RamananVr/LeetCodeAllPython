@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md
 rating: 1892
 source: Weekly Contest 457 Q3
 tags:
@@ -103,6 +102,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After time $t$, edges with weight greater than $t$ vanish. Rebuilding the graph for every candidate $t$ is impossible for $m\le 10^5$ and weights up to $10^9$.
+>
+> Edges only disappear, so the number of components is monotone. Adding edges from largest weight to smallest is time running backwards.
+>
+> Start with $n$ components and decrement on each successful union. When the next union would drop below $k$, the current edge time is the smallest $t$ that still leaves at least $k$ components. If the count never falls below $k$, the answer is $0$.
+
+<!-- thinking:end -->
 
 We can sort the edges by time in ascending order, then starting from the edge with the largest time, add edges to the graph one by one, while using a union-find data structure to maintain the number of connected components in the current graph. When the number of connected components is less than $k$, the current time is the minimum time we are looking for.
 

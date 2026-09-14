@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2380.Time%20Needed%20to%20Rearrange%20a%20Binary%20String/README_EN.md
 rating: 1481
 source: Biweekly Contest 85 Q2
 tags:
@@ -68,6 +67,16 @@ so we return 0.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each second every $01$ becomes $10$ at once. $n \le 1000$ and at most $n$ rounds, so repeated replacement passes.
+>
+> Loop $replace(01,10)$ until none remain; the iteration count is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -89,6 +98,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is quadratic in the worst case. Each $1$ is moving left through zeros. One scan counts zeros seen: a $1$ finishes at the max of “one more than the previous $1$” and the zero count.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

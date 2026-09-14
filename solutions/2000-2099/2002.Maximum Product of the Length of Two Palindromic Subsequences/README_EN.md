@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2002.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Subsequences/README_EN.md
 rating: 1869
 source: Weekly Contest 258 Q3
 tags:
@@ -69,6 +68,18 @@ The product of their lengths is: 5 * 5 = 25.
 <!-- solution:start -->
 
 ### Solution 1: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 12$ there are only $2^n$ subsequences, so enumeration fits. Requiring disjoint index sets naively costs about $4^n$.
+>
+> For each mask, two pointers skip unused bits and test whether the subsequence is a palindrome, stored in $p$.
+>
+> If mask $i$ is palindromic, enumerate submasks $j$ of its complement and take the product of popcounts. Submask enumeration totals $3^n$, which together with the $2^n n$ preprocess is acceptable.
+
+<!-- thinking:end -->
 
 We notice that the length of the string $s$ does not exceed $12$, so we can use the method of binary enumeration to enumerate all subsequences of $s$. Suppose the length of $s$ is $n$, we can use $2^n$ binary numbers of length $n$ to represent all subsequences of $s$. For each binary number, the $i$-th bit being $1$ means the $i$-th character of $s$ is in the subsequence, and $0$ means it is not in the subsequence. For each binary number, we judge whether it is a palindrome subsequence and record it in the array $p$.
 

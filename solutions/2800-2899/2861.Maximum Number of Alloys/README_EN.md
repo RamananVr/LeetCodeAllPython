@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md
 rating: 1981
 source: Weekly Contest 363 Q3
 tags:
@@ -91,6 +90,14 @@ It can be proven that we can create at most 2 alloys.
 <!-- solution:start -->
 
 ### Solution 1: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every alloy must come from one machine. Cost grows with the number produced, so for each machine we binary-search the largest $x$ whose extra-metal cost stays within budget, then take the best $x$ over machines.
+
+<!-- thinking:end -->
 
 We note that all alloys need to be made by the same machine, so we can enumerate which machine to use to make the alloy.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README_EN.md
 tags:
     - Tree
     - Binary Search Tree
@@ -80,6 +79,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inserting from the root each time costs $O(n)$ per value and $O(n^2)$ overall. That fails for $n\le 10^5$.
+>
+> A new key attaches under the nearest already-inserted predecessor or successor, so its depth is one plus the larger of those two depths. Pointers are unnecessary if neighbor depths can be queried in a sorted set.
+>
+> A sorted map stores inserted values and depths, with sentinels $0$ and $+\infty$. Each $v$ looks up its two neighbors, records the new depth, and updates the answer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

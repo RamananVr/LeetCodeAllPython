@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README_EN.md
 tags:
     - Database
 ---
@@ -83,6 +82,16 @@ Product 3 is sold in Shop and Souq with prices of 1000 and 1900.
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The inverse of the previous problem: store names are columns and must become $(\textit{product\_id}, \textit{store}, \textit{price})$ rows, dropping null prices. Column names are unknown, so they come from $\textit{information\_schema.columns}$.
+>
+> Each non-$\textit{product\_id}$ column becomes a $\textit{SELECT}$ that names the store and filters non-null prices; $\textit{UNION}$ concatenates them into one prepared statement.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

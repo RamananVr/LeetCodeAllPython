@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1141.User%20Activity%20for%20the%20Past%2030%20Days%20I/README_EN.md
 tags:
     - Database
 ---
@@ -79,6 +78,14 @@ Activity table:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct users per day in the $30$ days ending `2019-07-27`. The `WHERE` clause bounds the date window, then `GROUP BY` the day and `COUNT(DISTINCT user_id)`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

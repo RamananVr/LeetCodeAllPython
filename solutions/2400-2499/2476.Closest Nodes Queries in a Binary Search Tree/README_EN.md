@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README_EN.md
 rating: 1596
 source: Weekly Contest 320 Q2
 tags:
@@ -70,6 +69,14 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: In-order Traversal + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inorder of a BST is sorted. With $n,q\le 10^5$, binary-search each query for the greatest value $\le x$ and the least $\ge x$, using $-1$ when missing.
+
+<!-- thinking:end -->
 
 Since the problem provides a binary search tree, we can obtain a sorted array through in-order traversal. Then for each query, we can find the maximum value less than or equal to the query value and the minimum value greater than or equal to the query value through binary search.
 

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1934.Confirmation%20Rate/README_EN.md
 tags:
     - Database
 ---
@@ -104,6 +103,16 @@ User 2 made 2 requests where one was confirmed and the other timed out. The conf
 <!-- solution:start -->
 
 ### Solution 1: Left Join + Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rate is confirmed actions over all confirmation rows; users with no rows must show $0.00$. An inner join would drop those signups.
+>
+> Left-join $\texttt{Confirmations}$ onto $\texttt{Signups}$, group by $\texttt{user\_id}$, and take a conditional sum over the count, filling nulls with $\texttt{IFNULL}$ and rounding to two decimals.
+
+<!-- thinking:end -->
 
 We can use a left join to join the `Signups` table and the `Confirmations` table on `user_id`, and then use `GROUP BY` to group by `user_id` for aggregation.
 

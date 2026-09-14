@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md
 rating: 1523
 source: Biweekly Contest 50 Q3
 tags:
@@ -78,6 +77,16 @@ tags:
 
 ### Solution 1: Bitwise Operation + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for a $k<2^{\textit{maximumBit}}$ maximizing the XOR with the current prefix XOR, then drops the last element. Recomputing the XOR from scratch is $O(n^2)$. With $n\le 10^5$ this will not pass.
+>
+> Precompute the XOR $xs$ of the whole array. When deleting from the back, $k$ should flip every $0$-bit of $xs$ inside the allowed width. Build $k$ bit by bit, then fold the removed value out of $xs$.
+
+<!-- thinking:end -->
+
 First, we preprocess the XOR sum $xs$ of the array `nums`, i.e., $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$.
 
 Next, we enumerate each element $x$ in the array `nums` from back to front. The current XOR sum is $xs$. We need to find a number $k$ such that the value of $xs \oplus k$ is as large as possible, and $k \lt 2^{maximumBit}$.
@@ -112,6 +121,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Enumeration Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 walks $maximumBit$ bits. The optimum sets every allowed bit of $xs\oplus k$ to $1$, so $k=xs\oplus(2^{\textit{maximumBit}}-1)$. One XOR per query makes the scan linear.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first preprocess the XOR sum $xs$ of the array `nums`, i.e., $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$.
 

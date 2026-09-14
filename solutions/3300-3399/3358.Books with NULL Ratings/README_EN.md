@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md
 tags:
     - Database
 ---
@@ -86,6 +85,16 @@ The result is ordered by book_id in ascending order</div>
 <!-- solution:start -->
 
 ### Solution 1: Conditional Filtering
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We list books whose rating is missing, ordered by $\textit{book\_id}$, and keep only the requested columns.
+>
+> Filter with $\textit{isnull}$ on $\textit{rating}$, select the four columns, and sort. No join or aggregation is required.
+
+<!-- thinking:end -->
 
 We directly filter out books where `rating` is `NULL`, then sort them in ascending order by `book_id`.
 

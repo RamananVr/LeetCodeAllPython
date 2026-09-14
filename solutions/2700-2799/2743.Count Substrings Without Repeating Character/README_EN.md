@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README_EN.md
 tags:
     - Hash Table
     - String
@@ -64,6 +63,16 @@ And it can be shown that there are no special substrings with a length of at lea
 <!-- solution:start -->
 
 ### Solution 1: Counting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count substrings whose characters are all distinct. Testing every pair of endpoints is quadratic and too slow for $n\le 10^5$.
+>
+> After the right end takes a character, move the left end until that character’s count is $1$. Every substring that ends at the right end and stays inside the window is legal, so we add the window length.
+
+<!-- thinking:end -->
 
 We use two pointers $j$ and $i$ to represent the left and right boundaries of the current substring, and an array $cnt$ of length $26$ to count the occurrence of each character in the current substring. We traverse the string from left to right. Each time we traverse to position $i$, we increase the occurrence of $s[i]$, and then check whether $s[i]$ appears at least twice. If so, we need to decrease the occurrence of $s[j]$ and move $j$ one step to the right, until the occurrence of $s[i]$ does not exceed once. In this way, we get the length of the longest special substring ending with $s[i]$, which is $i - j + 1$, so the number of special substrings ending with $s[i]$ is $i - j + 1$. Finally, we add up the number of special substrings ending at each position to get the answer.
 

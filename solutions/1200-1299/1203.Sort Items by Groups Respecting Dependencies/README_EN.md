@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md
 rating: 2418
 source: Weekly Contest 155 Q4
 tags:
@@ -69,6 +68,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A single topological sort on items can split a group, so items from the same group need not stay together. With $n \le 3\times 10^4$ we need linear-time graph construction.
+>
+> Constraints sit on two layers: groups precede other groups, and items precede other items inside a group. Ungrouped items become singleton groups. Cross-group dependencies become group edges; same-group dependencies become item edges.
+>
+> We topologically sort groups first, then items inside each group in that order. A cycle at either layer means no answer. The two graphs separate “groups stay contiguous” from “item order”, each handled by Kahn's algorithm.
+
+<!-- thinking:end -->
 
 First, we traverse the array $group$. For each project, if it does not belong to any group, we create a new group for it with the ID $m$, and increment $m$. This ensures that all projects belong to some group. Then, we use an array $groupItems$ to record the projects contained in each group. The array index is the group ID, and the array value is the list of projects in the group.
 

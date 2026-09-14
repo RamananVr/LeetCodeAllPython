@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3385.Minimum%20Time%20to%20Break%20Locks%20II/README_EN.md
 tags:
     - Breadth-First Search
     - Graph
@@ -181,6 +180,18 @@ tags:
 <!-- solution:start -->
 
 ### Solution 1
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in part I, lock $i$ in position $j+1$ costs $\lceil a[i]/(j+1) \rceil$, but $n \le 80$ rules out subset DP. This is a min-cost matching between locks and order slots.
+>
+> The left part is locks, the right part is orders $1..n$, and an edge weight is the time of that assignment. Source and sink edges have capacity $1$.
+>
+> A min-cost max-flow of $n$ units is the minimum total time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

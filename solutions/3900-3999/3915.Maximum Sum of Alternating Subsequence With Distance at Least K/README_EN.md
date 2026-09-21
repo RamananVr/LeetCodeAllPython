@@ -111,7 +111,7 @@ tags:
 >
 > Let $f[i][0]$ be the best alternating subsequence ending at $i$ as a valley, and $f[i][1]$ as a peak. A valley may follow only a larger peak, a peak only a smaller valley, and the indices must differ by at least $k$.
 >
-> Two Fenwick trees store prefix maxima of $f[\cdot][0]$ and suffix maxima of $f[\cdot][1]$ over the value domain. At index $i$ we query states up to $i-k$, then insert the state at $i-k+1$, which enforces the distance constraint.
+> Two Fenwick trees store prefix maxima of $f[\cdot][0]$ and suffix maxima of $f[\cdot][1]$ over the discretized value domain. At index $i$ we first insert the state at $i-k$, then query; every predecessor used in a transition is then at least $k$ away.
 
 <!-- thinking:end -->
 
@@ -138,68 +138,54 @@ The final answer is $\max_{0 \leq i < n}\max(f[i][0],\ f[i][1])$.
 The transitions involve dynamic prefix/suffix maximum queries over a value domain, which can be maintained efficiently with two **Binary Indexed Trees (BITs)**:
 
 - BIT $\text{bit}_0$: indexed by value, maintains the prefix maximum of $f[\cdot][0]$, used to query cases where $\text{nums}[j] < \text{nums}[i]$.
-- BIT $\text{bit}_1$: indexed by $M + 1 - \text{val}$ (reversed, where $M = \max(\text{nums})$ ), maintains the prefix maximum of $f[\cdot][1]$, equivalent to a suffix maximum over the value domain, used to query cases where $\text{nums}[j] > \text{nums}[i]$.
+- BIT $\text{bit}_1$: indexed by $m + 1 - \textit{rank}$ (reversed, where $m$ is the number of distinct values), maintains the prefix maximum of $f[\cdot][1]$, equivalent to a suffix maximum over the value domain, used to query cases where $\text{nums}[j] > \text{nums}[i]$.
 
-To ensure only indices $j \leq i - k$ participate in transitions, when processing index $i$, we insert the state of index $i - k$ into the BITs using a sliding pointer.
+To ensure only indices $j \leq i - k$ participate in transitions, when processing index $i$, we first insert the state of index $i - k$ into the BITs, then query.
 
-The time complexity is $O(n \log M)$ and the space complexity is $O(M)$, where $n$ is the length of the array and $M = \max(\text{nums})$.
+The time complexity is $O(n \log m)$ and the space complexity is $O(n + m)$, where $n$ is the length of the array and $m$ is the number of distinct values.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-class FenwickTree:
-    def __init__(self, n):
+class BinaryIndexedTree:
+    def __init__(self, n: int):
         self.n = n
-        self.tree = [0] * (n + 1)
+        self.c = [0] * (n + 1)
 
-    def update(self, index: int, val: int) -> None:
-        while index <= self.n:
-            self.tree[index] = max(self.tree[index], val)
-            index += index & (-index)  # 往后更新
+    def update(self, x: int, val: int) -> None:
+        while x <= self.n:
+            self.c[x] = max(self.c[x], val)
+            x += x & -x
 
-    def preSum(self, pos):
-        # 按照预期的方式求前缀最大值
+    def query(self, x: int) -> int:
         ans = 0
-        while pos >= 1:
-            ans = max(ans, self.tree[pos])
-            pos -= pos & (-pos)
+        while x > 0:
+            ans = max(ans, self.c[x])
+            x -= x & -x
         return ans
 
 class Solution:
-    def maxAlternatingSum(self, nums: list[int], k: int) -> int:
-        stl = sorted(set(nums))  # 将nums中不同的数字进行排序
-        rank = {
-            v: i + 1 for i, v in enumerate(stl)
-        }  # 将nums中的值快速转换成stl中的索引
-        fwt0 = FenwickTree(len(stl))
-        fwt1 = FenwickTree(len(stl))
-
+    def maxAlternatingSum(self, nums: List[int], k: int) -> int:
+        vals = sorted(set(nums))
+        m = len(vals)
+        rank = {v: i + 1 for i, v in enumerate(vals)}
+        bit0 = BinaryIndexedTree(m)
+        bit1 = BinaryIndexedTree(m)
         n = len(nums)
         f = [[0, 0] for _ in range(n)]
-        res = nums[0]
-        for i in range(n):
-            f[i][0] = f[i][1] = nums[i]
+        ans = 0
+        for i, x in enumerate(nums):
             if i >= k:
-                indx = rank[nums[i]]  # 找到nums[i]在stl中的索引
-                f[i][1] = max(
-                    f[i][1], fwt0.preSum(indx - 1) + nums[i]
-                )  # indx-1即表示小于nums[i]的部分
-                f[i][0] = max(
-                    f[i][0], fwt1.preSum(len(stl) - indx) + nums[i]
-                )  # len(stl)-indx即表示在倒序列表中大于nums[i]的部分
-
-            if i - k + 1 >= 0:
-                indx = rank[nums[i - k + 1]]
-                fwt0.update(indx, f[i - k + 1][0])  # 在正序列表中更新i-k+1位置的值
-                fwt1.update(
-                    len(stl) - indx + 1, f[i - k + 1][1]
-                )  # 在倒序列表中更新i-k+1位置的值
-
-            res = max(res, f[i][0], f[i][1])  # 更新答案
-
-        return res
+                r = rank[nums[i - k]]
+                bit0.update(r, f[i - k][0])
+                bit1.update(m + 1 - r, f[i - k][1])
+            r = rank[x]
+            f[i][0] = x + bit1.query(m - r)
+            f[i][1] = x + bit0.query(r - 1)
+            ans = max(ans, f[i][0], f[i][1])
+        return ans
 ```
 
 <!-- tabs:end -->

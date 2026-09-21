@@ -117,7 +117,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- thinking:start -->
 
@@ -129,12 +129,30 @@ tags:
 
 <!-- thinking:end -->
 
+After removing any non-overlapping prefix and suffix, the remainder is a non-empty subarray. The task is to count subarrays whose product modulo $k$ equals $0, 1, \ldots, k-1$.
+
+Let $f[r]$ be the number of subarrays ending at the current index whose product is $r$ modulo $k$. Scan $x = \textit{nums}[i]$ from left to right and use $g$ for the new ending-at-$i$ state: move each $f[r]$ to $g[(r \times x) \bmod k]$, then add the singleton subarray $[x]$ into $g[x \bmod k]$. Add $g$ into the answer and set $f \leftarrow g$.
+
+The time complexity is $O(n \times k)$ and the space complexity is $O(k)$, where $n$ is the length of $\textit{nums}$.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def resultArray(self, nums: list[int], k: int) -> list[int]:
+        ans = [0] * k
+        f = [0] * k
+        for x in nums:
+            g = [0] * k
+            for r, cnt in enumerate(f):
+                g[r * x % k] += cnt
+            g[x % k] += 1
+            for r, cnt in enumerate(g):
+                ans[r] += cnt
+            f = g
+        return ans
 ```
 
 <!-- tabs:end -->

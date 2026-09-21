@@ -194,6 +194,8 @@ Unlike method 1, which partitions the window into three sets, this approach keep
 
 Each `addElement` call takes $O(\log m)$ time, and each `calculateMKAverage` call takes $O(1)$ time. The space complexity is $O(m)$.
 
+In Java, C++, and Go, $num\le 10^5$, so a Fenwick tree of frequencies supports rank and $k$-th queries in logarithmic time and matches the ordered-set operations.
+
 <!-- tabs:start -->
 
 #### Python3

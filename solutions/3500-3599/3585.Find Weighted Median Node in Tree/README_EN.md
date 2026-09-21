@@ -212,7 +212,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: LCA + Binary Lifting
 
 <!-- thinking:start -->
 
@@ -224,12 +224,80 @@ tags:
 
 <!-- thinking:end -->
 
+Root the tree at node $0$. Use BFS to compute each node's depth $\textit{depth}$, parent $p$, and weighted distance $\textit{dist}$ from the root, and build the binary lifting table $f[i][j]$ as the $2^j$-th ancestor of $i$.
+
+For a query $(u, v)$: if $u = v$, the answer is $u$. Otherwise let $x = \textit{lca}(u, v)$ and $W = \textit{dist}[u] + \textit{dist}[v] - 2 \cdot \textit{dist}[x]$. The weighted median is the first node on the path starting from $u$ whose prefix weight is at least $W / 2$. We compare $2 \cdot \textit{pref} \ge W$ to avoid floating-point arithmetic.
+
+- If $2 \cdot (\textit{dist}[u] - \textit{dist}[x]) \ge W$, the median lies on $u \to x$ (including $x$). Lift from $u$ to the farthest ancestor $k$ that still satisfies $2 \cdot (\textit{dist}[u] - \textit{dist}[k]) < W$, then take one parent step to $p[k]$.
+- Otherwise the median lies on $x \to v$ (excluding $x$). Lift from $v$ to the highest node whose depth is greater than $x$ and $2 \cdot (\textit{dist}[u] + \textit{dist}[k] - 2 \cdot \textit{dist}[x]) \ge W$.
+
+The time complexity is $O((n + q) \times \log n)$, and the space complexity is $O(n \times \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findMedian(
+        self, n: int, edges: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
+        m = n.bit_length()
+        g = [[] for _ in range(n)]
+        for u, v, w in edges:
+            g[u].append((v, w))
+            g[v].append((u, w))
+        f = [[0] * m for _ in range(n)]
+        p = [0] * n
+        depth = [0] * n
+        dist = [0] * n
+        q = deque([0])
+        while q:
+            i = q.popleft()
+            f[i][0] = p[i]
+            for j in range(1, m):
+                f[i][j] = f[f[i][j - 1]][j - 1]
+            for j, w in g[i]:
+                if j != p[i]:
+                    p[j] = i
+                    depth[j] = depth[i] + 1
+                    dist[j] = dist[i] + w
+                    q.append(j)
+        ans = []
+        for u, v in queries:
+            if u == v:
+                ans.append(u)
+                continue
+            x, y = u, v
+            if depth[x] < depth[y]:
+                x, y = y, x
+            for j in range(m - 1, -1, -1):
+                if depth[x] - depth[y] >= (1 << j):
+                    x = f[x][j]
+            for j in range(m - 1, -1, -1):
+                if f[x][j] != f[y][j]:
+                    x, y = f[x][j], f[y][j]
+            if x != y:
+                x = p[x]
+            w = dist[u] + dist[v] - 2 * dist[x]
+            if 2 * (dist[u] - dist[x]) >= w:
+                cur = u
+                for j in range(m - 1, -1, -1):
+                    k = f[cur][j]
+                    if depth[k] >= depth[x] and 2 * (dist[u] - dist[k]) < w:
+                        cur = k
+                ans.append(p[cur])
+            else:
+                cur = v
+                for j in range(m - 1, -1, -1):
+                    k = f[cur][j]
+                    if (
+                        depth[k] > depth[x]
+                        and 2 * (dist[u] + dist[k] - 2 * dist[x]) >= w
+                    ):
+                        cur = k
+                ans.append(cur)
+        return ans
 ```
 
 <!-- tabs:end -->

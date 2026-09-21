@@ -71,7 +71,7 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + DFS
 
 <!-- thinking:start -->
 
@@ -82,6 +82,19 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 > Map each original node to its copy: create the copy first, then recurse on left, right, and $\textit{random}$. A hit in the map returns the existing copy.
 
 <!-- thinking:end -->
+
+We use a hash table $\textit{seen}$ to record the correspondence between each node in the original tree and its copy, then perform a depth-first search.
+
+Define $\text{dfs}(root)$ to return the copy of $root$:
+
+- If $root$ is null, return null;
+- If $root$ is already in $\textit{seen}$, return $\textit{seen}[root]$;
+- Otherwise create a copy node $\textit{copy}$, set $\textit{seen}[root] = \textit{copy}$, then recurse on the left child, right child, and $\textit{random}$ pointer;
+- Finally return $\textit{copy}$.
+
+The main function returns $\text{dfs}(root)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -97,20 +110,20 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 #         self.random = random
 
 class Solution:
-    def copyRandomBinaryTree(self, root: 'Optional[Node]') -> 'Optional[NodeCopy]':
-        def dfs(root):
+    def copyRandomBinaryTree(self, root: "Optional[Node]") -> "Optional[NodeCopy]":
+        def dfs(root: Optional[Node]) -> Optional[NodeCopy]:
             if root is None:
                 return None
-            if root in mp:
-                return mp[root]
+            if root in seen:
+                return seen[root]
             copy = NodeCopy(root.val)
-            mp[root] = copy
+            seen[root] = copy
             copy.left = dfs(root.left)
             copy.right = dfs(root.right)
             copy.random = dfs(root.random)
             return copy
 
-        mp = {}
+        seen = {}
         return dfs(root)
 ```
 

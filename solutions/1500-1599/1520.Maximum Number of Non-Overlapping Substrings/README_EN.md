@@ -69,7 +69,7 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
 
 <!-- thinking:start -->
 
@@ -77,16 +77,54 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 >
 > We want as many non-overlapping substrings as possible, each containing every occurrence of the characters it uses. $n\le 10^5$, so we cannot test every substring.
 >
-> Each character has a first and last index. Starting from a left boundary, expand the interval to the rightmost occurrence of every character inside it, producing a minimal legal segment. These segments form an interval graph; picking them greedily by right endpoint maximizes the count and yields the lexicographically smallest concatenation.
+> Each character has a first and last index. Starting from a left boundary, expand the interval to the rightmost occurrence of every character inside it, producing a minimal legal segment. These segments form an interval graph; picking them greedily by right endpoint maximizes the count and minimizes the total length.
 
 <!-- thinking:end -->
+
+We first use arrays or hash tables $\textit{first}$ and $\textit{last}$ to record the first and last occurrence of each letter in $s$.
+
+Next, enumerate every letter $c$ that appears, taking $\textit{first}[c]$ as a candidate left bound $l$ and $\textit{last}[c]$ as the initial right bound $r$. Scan from $l$ to $r$. For each letter $ch$ encountered:
+
+- If $\textit{first}[ch] < l$, this letter also occurs before $l$, so the current interval cannot cover all of its occurrences and is invalid;
+- Otherwise update $r = \max(r, \textit{last}[ch])$ to include every occurrence of $ch$.
+
+If the scan finishes successfully, we obtain a valid substring interval $[l, r]$.
+
+These valid intervals can only be disjoint or nested; they never partially overlap. Therefore we sort them by right endpoint in ascending order and pick greedily: let $\textit{end}$ be the right endpoint of the last chosen interval, initially $-1$. Traverse the sorted intervals from left to right; if the current left endpoint is greater than $\textit{end}$, append the corresponding substring to the answer and update $\textit{end}$.
+
+Sorting by right endpoint always chooses the interval that finishes earliest, so we obtain the maximum number of non-overlapping substrings. Nested shorter intervals have smaller right endpoints and are chosen first, so the total length is also minimized.
+
+The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here $n$ is the length of $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxNumOfSubstrings(self, s: str) -> List[str]:
+        first, last = {}, {}
+        for i, c in enumerate(s):
+            if c not in first:
+                first[c] = i
+            last[c] = i
+        segs = []
+        for l in first.values():
+            r, i = last[s[l]], l
+            while i <= r:
+                if first[s[i]] < l:
+                    break
+                r = max(r, last[s[i]])
+                i += 1
+            if i > r:
+                segs.append((l, r))
+        segs.sort(key=lambda x: x[1])
+        ans, end = [], -1
+        for l, r in segs:
+            if l > end:
+                ans.append(s[l : r + 1])
+                end = r
+        return ans
 ```
 
 <!-- tabs:end -->

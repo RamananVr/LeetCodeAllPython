@@ -62,19 +62,37 @@ The image above shows the 5 different ways {(0,2),(2,3)}, {(0,1),(1,3)}, {(0,1),
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Drawing $k$ non-overlapping (but possibly touching) segments on $n$ points is awkward to enumerate by endpoints. Process points left to right and split states by whether the last segment ends at the current point.
+> We need exactly $k$ non-overlapping segments on $n$ points, and adjacent segments may share an endpoint. Enumerating both endpoints of every segment blows up even for $n,k\le 1000$, and we would still have to keep the segments ordered and disjoint.
 >
-> Let $f[i][j]$ be ways to place $j$ segments on the first $i$ points with the last segment not ending at $i$, and $g[i][j]$ the ways where it does. Transitions use only the two kinds of state at $i-1$: inherit $j$ segments, or extend / start a new length-$1$ segment.
+> Segments lie on a line, so we can process points from left to right and split the state by whether the current point is the right endpoint of some segment. Let $f[i][j]$ be the ways to place $j$ segments on the first $i$ points without ending at $i$, and $g[i][j]$ the ways that do end at $i$.
 >
-> Start from $f[1][0]=1$ and return $f[n][k]+g[n][k]$ modulo $10^9+7$.
+> Transitions then use only the two kinds of state at $i-1$: if we do not end at $i$, we inherit every placement of $j$ segments; if we do, we either extend a segment that already ended at $i-1$, or start a new length-$1$ segment covering $i-1$ and $i$.
 
 <!-- thinking:end -->
+
+Let $f[i][j]$ be the number of ways to build $j$ segments using the first $i$ points such that the last segment does not end at $i$, and let $g[i][j]$ be the number of ways where the last segment does end at $i$. Initially $f[1][0]=1$.
+
+For $f[i][j]$, the $j$-th segment does not end at $i$, so the first $i-1$ points already contain $j$ segments:
+
+$$
+f[i][j] = f[i-1][j] + g[i - 1][j]
+$$
+
+For $g[i][j]$, the $j$-th segment ends at $i$. There are two sources, which we add together: extend a $j$-th segment that already ended at $i-1$ (length greater than $1$), or start a new segment covering $i-1$ and $i$ after placing $j-1$ segments on the first $i-1$ points (length $1$). When $j=0$ there is no right endpoint, so the second source is omitted. Thus for $j \ge 1$:
+
+$$
+g[i][j] = g[i - 1][j] + f[i - 1][j - 1] + g[i - 1][j - 1]
+$$
+
+The answer is $f[n][k]+g[n][k]$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$.
 
 <!-- tabs:start -->
 
@@ -92,11 +110,9 @@ class Solution:
                 f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod
                 g[i][j] = g[i - 1][j]
                 if j:
-                    g[i][j] += f[i - 1][j - 1]
+                    g[i][j] += f[i - 1][j - 1] + g[i - 1][j - 1]
                     g[i][j] %= mod
-                    g[i][j] += g[i - 1][j - 1]
-                    g[i][j] %= mod
-        return (f[-1][-1] + g[-1][-1]) % mod
+        return (f[n][k] + g[n][k]) % mod
 ```
 
 <!-- tabs:end -->

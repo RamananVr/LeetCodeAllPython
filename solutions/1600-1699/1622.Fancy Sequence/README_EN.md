@@ -71,73 +71,76 @@ fancy.getIndex(2); // return 20
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Segment Tree
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> We must append, add to or multiply the whole current prefix, and query one index, up to $10^5$ times. Updating every element on each call is too slow.
+> We keep appending values, then add or multiply every value already in the sequence, and query one index. There are up to $10^5$ operations, so scanning the whole sequence each time is too slow.
 >
-> Append writes a new rightmost position; add and multiply are affine range updates on $[1,\textit{idx}]$. A segment tree stores a value and lazy tags $(\textit{mul},\textit{add})$, composing multiply before add.
+> Both updates hit the prefix that is already present, and a query asks for a single position, so a segment tree fits. Each node stores the range sum and the pending multiply and add that have not been pushed to its children.
 >
-> Nodes are created on demand over $[1,10^5]$: append is a point write, `addAll`/`multAll` update a prefix, and `getIndex` is a point query, all modulo $10^9+7$.
+> The length is at most $10^5$, so we create nodes on demand over $[1,10^5]$. `append` updates one point, `addAll` and `multAll` update the current prefix, and `getIndex` reads one point, all modulo $10^9+7$.
 
 <!-- thinking:end -->
+
+By the problem statement, `append` inserts a number at the end, `addAll` adds the same value to every current number, `multAll` multiplies every current number by the same value, and `getIndex` reads one position. That is range add, range multiply, and a point query, which a segment tree can maintain.
+
+Each node stores:
+
+- `v`: the sum of the numbers in this range;
+- `mul`: a pending multiply not yet pushed to the children, initially $1$;
+- `add`: a pending add not yet pushed to the children, initially $0$.
+
+The two tags mean: every number in the range should first be multiplied by `mul`, then increased by `add`. If two updates land on the same range, we merge the tags instead of walking to the leaves. After “multiply by $m_1$ then add $a_1$” and “multiply by $m_2$ then add $a_2$”:
+
+$$
+(x \cdot m_1 + a_1)\cdot m_2 + a_2 = x\cdot (m_1 m_2) + (a_1 m_2 + a_2)
+$$
+
+so the new multiply is $m_1 m_2$ and the new add is $a_1 m_2 + a_2$.
+
+Hence, multiplying a range by $m$ multiplies the node’s `v`, `mul`, and `add` by $m$; adding $inc$ increases `v` by $\textit{length} \times inc$ and `add` by $inc$. Pushing down applies the same “multiply then add” rule to both children. In the code, add and multiply are one operation: add-only is “multiply by $1$ then add $inc$”, and multiply-only is “multiply by $m$ then add $0$”.
+
+Indices are $1$-based and the length is at most $10^5$, so we create nodes over $[1,10^5]$ on demand. `append` increments $n$ and adds $val$ at position $n$; `addAll` and `multAll` update $[1,n]$; `getIndex` queries position $idx+1$. All arithmetic is modulo $10^9+7$.
+
+The time complexity is $O(m \log n)$, and the space complexity is $O(m \log n)$, where $m$ is the number of operations and $n \le 10^5$ is the length bound.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-MOD = int(1e9 + 7)
+MOD = 10**9 + 7
 
 class Node:
+    __slots__ = "left", "right", "l", "r", "mid", "v", "add", "mul"
+
     def __init__(self, l, r):
-        self.left = None
-        self.right = None
-        self.l = l
-        self.r = r
+        self.left = self.right = None
+        self.l, self.r = l, r
         self.mid = (l + r) >> 1
-        self.v = 0
-        self.add = 0
+        self.v = self.add = 0
         self.mul = 1
 
 class SegmentTree:
     def __init__(self):
-        self.root = Node(1, int(1e5 + 1))
+        self.root = Node(1, 10**5 + 1)
 
-    def modifyAdd(self, l, r, inc, node=None):
+    def modify(self, l, r, mul, add, node=None):
         if l > r:
             return
         if node is None:
             node = self.root
         if node.l >= l and node.r <= r:
-            node.v = (node.v + (node.r - node.l + 1) * inc) % MOD
-            node.add += inc
+            self.apply(node, mul, add)
             return
         self.pushdown(node)
         if l <= node.mid:
-            self.modifyAdd(l, r, inc, node.left)
+            self.modify(l, r, mul, add, node.left)
         if r > node.mid:
-            self.modifyAdd(l, r, inc, node.right)
-        self.pushup(node)
-
-    def modifyMul(self, l, r, m, node=None):
-        if l > r:
-            return
-        if node is None:
-            node = self.root
-        if node.l >= l and node.r <= r:
-            node.v = (node.v * m) % MOD
-            node.add = (node.add * m) % MOD
-            node.mul = (node.mul * m) % MOD
-            return
-        self.pushdown(node)
-        if l <= node.mid:
-            self.modifyMul(l, r, m, node.left)
-        if r > node.mid:
-            self.modifyMul(l, r, m, node.right)
+            self.modify(l, r, mul, add, node.right)
         self.pushup(node)
 
     def query(self, l, r, node=None):
@@ -155,6 +158,11 @@ class SegmentTree:
             v = (v + self.query(l, r, node.right)) % MOD
         return v
 
+    def apply(self, node, mul, add):
+        node.v = (node.v * mul + (node.r - node.l + 1) * add) % MOD
+        node.add = (node.add * mul + add) % MOD
+        node.mul = node.mul * mul % MOD
+
     def pushup(self, node):
         node.v = (node.left.v + node.right.v) % MOD
 
@@ -163,14 +171,9 @@ class SegmentTree:
             node.left = Node(node.l, node.mid)
         if node.right is None:
             node.right = Node(node.mid + 1, node.r)
-        left, right = node.left, node.right
-        if node.add != 0 or node.mul != 1:
-            left.v = (left.v * node.mul + (left.r - left.l + 1) * node.add) % MOD
-            right.v = (right.v * node.mul + (right.r - right.l + 1) * node.add) % MOD
-            left.add = (left.add * node.mul + node.add) % MOD
-            right.add = (right.add * node.mul + node.add) % MOD
-            left.mul = (left.mul * node.mul) % MOD
-            right.mul = (right.mul * node.mul) % MOD
+        if node.add or node.mul != 1:
+            self.apply(node.left, node.mul, node.add)
+            self.apply(node.right, node.mul, node.add)
             node.add = 0
             node.mul = 1
 
@@ -181,23 +184,82 @@ class Fancy:
 
     def append(self, val: int) -> None:
         self.n += 1
-        self.tree.modifyAdd(self.n, self.n, val)
+        self.tree.modify(self.n, self.n, 1, val)
 
     def addAll(self, inc: int) -> None:
-        self.tree.modifyAdd(1, self.n, inc)
+        self.tree.modify(1, self.n, 1, inc)
 
     def multAll(self, m: int) -> None:
-        self.tree.modifyMul(1, self.n, m)
+        self.tree.modify(1, self.n, m, 0)
 
     def getIndex(self, idx: int) -> int:
         return -1 if idx >= self.n else self.tree.query(idx + 1, idx + 1)
+```
 
-# Your Fancy object will be instantiated and called as such:
-# obj = Fancy()
-# obj.append(val)
-# obj.addAll(inc)
-# obj.multAll(m)
-# param_4 = obj.getIndex(idx)
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Math + Modular Inverse
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The segment tree still walks $O(\log n)$ nodes on every update. `addAll` and `multAll` always hit every number already in the sequence, and a newly appended number is not changed by earlier adds or multiplies.
+>
+> So every number already present will go through the same later adds and multiplies. We only need two global variables: how much those numbers should still be multiplied by, and how much should then be added. The array stores the value before those operations; a query multiplies and adds to recover the true value. The modulus is prime, so division by $a$ becomes multiplication by the modular inverse (Fermat’s little theorem).
+
+<!-- thinking:end -->
+
+Every `addAll` and `multAll` applies to all numbers that exist at that moment, and a number appended later is not affected by earlier updates. Therefore the pending multiply and add for every current number can be described by two global variables: multiply by $a$, then add $b$. Initially $a=1$ and $b=0$.
+
+The array `nums` does not store the current true values. It stores the values before multiplying by $a$ and adding $b$, so that at any time
+
+$$
+\text{true value} = (a \times \textit{nums}[i] + b) \bmod (10^9+7)
+$$
+
+The operations then become:
+
+- `append(val)`: this new number has not gone through the current $a$ and $b$, so we store an $x$ with $a \times x + b = \textit{val}$, i.e. $x = (\textit{val} - b) \times a^{-1}$;
+- `addAll(inc)`: every true value increases by $inc$, so we add $inc$ to $b$;
+- `multAll(m)`: every true value is multiplied by $m$, so both $a$ and $b$ are multiplied by $m$;
+- `getIndex(idx)`: return $-1$ if the index is out of range, otherwise $a \times \textit{nums}[idx] + b$.
+
+Here $a^{-1}$ is the modular inverse of $a$ modulo $10^9+7$. The modulus is prime, so Fermat’s little theorem gives $a^{-1} \equiv a^{MOD-2} \pmod{MOD}$.
+
+All operations except the inverse in `append` run in $O(1)$ time; the inverse is $O(\log MOD)$. The space complexity is $O(n)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Fancy:
+    def __init__(self):
+        self.mod = 10**9 + 7
+        self.nums = []
+        self.a = 1
+        self.b = 0
+
+    def append(self, val: int) -> None:
+        x = (val - self.b) * pow(self.a, self.mod - 2, self.mod) % self.mod
+        self.nums.append(x)
+
+    def addAll(self, inc: int) -> None:
+        self.b = (self.b + inc) % self.mod
+
+    def multAll(self, m: int) -> None:
+        self.a = self.a * m % self.mod
+        self.b = self.b * m % self.mod
+
+    def getIndex(self, idx: int) -> int:
+        if idx >= len(self.nums):
+            return -1
+        return (self.a * self.nums[idx] + self.b) % self.mod
 ```
 
 <!-- tabs:end -->

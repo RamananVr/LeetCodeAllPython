@@ -58,19 +58,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Array
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> The length between two equal letters is the gap between that letter's first and a later occurrence. The string is short, but keeping only the first index of each letter already yields a linear solution.
+> The length between two equal letters is the gap between that letter's first occurrence and a later one. The string is short, but keeping only the first index of each letter already yields a linear solution.
 >
-> On seeing $c$ again, update the answer with $i - d[c] - 1$ and do not overwrite the first index, so the span stays maximal.
+> On seeing a character again, update the answer with $i - d[j] - 1$ and do not overwrite the first index, so the span stays maximal.
 >
-> A hash table (or a length-$26$ array) stores first positions; if nothing pairs, the answer stays $-1$.
+> Because $s$ contains only lowercase letters, a length-$26$ array is enough; if nothing appears twice, the answer stays $-1$.
 
 <!-- thinking:end -->
+
+Since $s$ contains only lowercase English letters, we can use an array $d$ of length $26$ to store the first index of each character, initially filled with $-1$.
+
+Traverse $s$. For the character $c$ at index $i$, let $j$ be the offset of $c$ from `a`. If $d[j] = -1$, this is the first time we see $c$, so set $d[j] = i$; otherwise update the answer with $i - d[j] - 1$, i.e. $ans = \max(ans, i - d[j] - 1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of $s$ and $C = 26$ is the size of the alphabet.
 
 <!-- tabs:start -->
 
@@ -79,13 +85,14 @@ tags:
 ```python
 class Solution:
     def maxLengthBetweenEqualCharacters(self, s: str) -> int:
-        d = {}
+        d = [-1] * 26
         ans = -1
         for i, c in enumerate(s):
-            if c in d:
-                ans = max(ans, i - d[c] - 1)
+            j = ord(c) - ord("a")
+            if d[j] == -1:
+                d[j] = i
             else:
-                d[c] = i
+                ans = max(ans, i - d[j] - 1)
         return ans
 ```
 

@@ -110,6 +110,86 @@ The [Rabin-Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algo
 
 Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O(n+m)$, and the space complexity is $O(1)$.
 
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, m = len(haystack), len(needle)
+        mod = (1 << 31) - 1
+        target = sha = 0
+        multi = 1
+        for i in range(m):
+            target = (target * 256 + ord(needle[i])) % mod
+        for _ in range(1, m):
+            multi = multi * 256 % mod
+        left = 0
+        for right in range(n):
+            sha = (sha * 256 + ord(haystack[right])) % mod
+            if right - left + 1 < m:
+                continue
+            if sha == target and haystack[left : right + 1] == needle:
+                return left
+            sha = (sha - ord(haystack[left]) * multi % mod + mod) % mod
+            left += 1
+        return -1
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: KMP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 makes a window comparison expected $O(1)$, but it still hashes modulo a prime and must verify the raw strings on a collision. We want a worst-case linear scan without hashing.
+>
+> After a mismatch we need not rewind $\textit{haystack}$ to the start of the window. The prefix function of $\textit{needle}$ stores the longest proper border of the matched prefix, so we know where in the pattern to resume.
+>
+> Build $\textit{next}$ for $\textit{needle}$, then scan $\textit{haystack}$ once, falling back only along $\textit{next}$. Time $O(n+m)$ and extra space $O(m)$.
+
+<!-- thinking:end -->
+
+Compute the prefix function $\textit{next}$ of $\textit{needle}$, where $\textit{next}[i]$ is the longest proper border of $\textit{needle}[0..i]$. Scan $\textit{haystack}$: equal characters grow the match length, and a mismatch jumps it to $\textit{next}[j-1]$. When the match length reaches $m$, return the start index $i-m+1$.
+
+The time complexity is $O(n+m)$ and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $\textit{haystack}$ and $\textit{needle}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, m = len(haystack), len(needle)
+        nxt = [0] * m
+        j = 0
+        for i in range(1, m):
+            while j and needle[i] != needle[j]:
+                j = nxt[j - 1]
+            if needle[i] == needle[j]:
+                j += 1
+            nxt[i] = j
+        j = 0
+        for i, ch in enumerate(haystack):
+            while j and ch != needle[j]:
+                j = nxt[j - 1]
+            if ch == needle[j]:
+                j += 1
+            if j == m:
+                return i - m + 1
+        return -1
+```
+
+<!-- tabs:end -->
+
 <!-- solution:end -->
 
 <!-- problem:end -->

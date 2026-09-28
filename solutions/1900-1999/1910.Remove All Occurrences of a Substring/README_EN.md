@@ -68,7 +68,7 @@ Now s has no occurrences of &quot;xy&quot;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brute Force
 
 <!-- thinking:start -->
 
@@ -92,6 +92,48 @@ class Solution:
         while part in s:
             s = s.replace(part, '', 1)
         return s
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rescans the whole string after every deletion. Each deletion shortens $s$ by at least one character, so there can be $O(n)$ rounds and the total time is $O(n^2)$.
+>
+> While reading left to right, any remaining occurrence of $\textit{part}$ that is leftmost must end at the character just read. An earlier match would already have been removed.
+>
+> Keep the surviving characters on a stack. After each push, pop the last $m$ characters when they equal $\textit{part}$. One pass performs every leftmost deletion.
+
+<!-- thinking:end -->
+
+Scan $s$ from left to right and store the characters that have not been removed in a string $st$. Append the current character. If $st$ has length at least $m = |\textit{part}|$ and its last $m$ characters are $\textit{part}$, delete those $m$ characters. After the scan, $st$ is the answer.
+
+This matches Solution 1. At every moment $st$ contains no occurrence of $\textit{part}$, so the next match must end at the character just appended, which is the leftmost occurrence in what remains.
+
+The time complexity is $O(n \times m)$ and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of $s$ and $\textit{part}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def removeOccurrences(self, s: str, part: str) -> str:
+        m = len(part)
+        st = []
+        for c in s:
+            st.append(c)
+            if len(st) >= m and ''.join(st[-m:]) == part:
+                del st[-m:]
+        return ''.join(st)
 ```
 
 <!-- tabs:end -->

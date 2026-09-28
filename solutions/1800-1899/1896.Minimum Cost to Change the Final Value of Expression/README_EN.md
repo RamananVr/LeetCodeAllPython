@@ -96,12 +96,73 @@ The new expression evaluates to 0.</pre>
 
 <!-- thinking:end -->
 
+Represent each subexpression by $(\textit{val},\textit{cost})$: its current boolean value and the minimum edits that flip it. A digit costs $1$ to flip.
+
+$\&$ and $|$ have the same precedence and associate left to right; parentheses bind tighter. Two stacks store subexpressions and operators. An operator reduces any pending operator of the same precedence, and a closing parenthesis reduces until the matching opening parenthesis.
+
+Let the two sides be $(v_1,c_1)$ and $(v_2,c_2)$.
+
+- For $\&$ with both sides $1$, the value is $1$ and the flip cost is $\min(c_1,c_2)$.
+- With both sides $0$, the value is $0$. Flipping both operands costs $c_1+c_2$; changing $\&$ to $|$ and flipping one operand costs $1+\min(c_1,c_2)$.
+- With exactly one $0$, the value is $0$. Flip that $0$, or change $\&$ to $|$, and take the cheaper cost.
+- The three cases for $|$ are dual to the cases above.
+
+After the expression is reduced, the top $\textit{cost}$ is the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the expression.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minOperationsToFlip(self, expression: str) -> int:
+        def merge(a, b, op):
+            v1, c1 = a
+            v2, c2 = b
+            if op == '&':
+                val = v1 & v2
+                if v1 == 1 and v2 == 1:
+                    cost = min(c1, c2)
+                elif v1 == 0 and v2 == 0:
+                    cost = min(c1 + c2, 1 + min(c1, c2))
+                else:
+                    cost = min(c1 if v1 == 0 else c2, 1)
+            else:
+                val = v1 | v2
+                if v1 == 0 and v2 == 0:
+                    cost = min(c1, c2)
+                elif v1 == 1 and v2 == 1:
+                    cost = min(c1 + c2, 1 + min(c1, c2))
+                else:
+                    cost = min(c1 if v1 == 1 else c2, 1)
+            return val, cost
 
+        nums = []
+        ops = []
+
+        def apply():
+            b = nums.pop()
+            a = nums.pop()
+            nums.append(merge(a, b, ops.pop()))
+
+        for c in expression:
+            if c == '(':
+                ops.append(c)
+            elif c in '01':
+                nums.append((int(c), 1))
+            elif c in '&|':
+                while ops and ops[-1] in '&|':
+                    apply()
+                ops.append(c)
+            else:
+                while ops[-1] != '(':
+                    apply()
+                ops.pop()
+        while ops:
+            apply()
+        return nums[-1][1]
 ```
 
 <!-- tabs:end -->

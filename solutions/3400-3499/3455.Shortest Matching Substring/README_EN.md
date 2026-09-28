@@ -103,12 +103,69 @@ tags:
 
 <!-- thinking:end -->
 
+Split the pattern on its two stars into literals $a$, $b$, and $c$. Any of them may be empty. KMP lists every starting index of each literal in $s$. An empty literal matches at every index $0,1,\ldots,n$.
+
+For each start $i$ of $a$, advance a pointer to the earliest start $j$ of $b$ with $j\ge i+|a|$, then to the earliest start $k$ of $c$ with $k\ge j+|b|$. That match has length $k+|c|-i$. The minimum over all starts is the answer, or $-1$ when no match exists.
+
+A later $b$ can only push $c$ further right, so the earliest $b$ and the earliest $c$ are optimal for a fixed $i$.
+
+The time complexity is $O(n+m)$ and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of $s$ and $p$.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def shortestMatchingSubstring(self, s: str, p: str) -> int:
+        def starts(pat: str):
+            if not pat:
+                return list(range(len(s) + 1))
+            m = len(pat)
+            lps = [0] * m
+            length = 0
+            i = 1
+            while i < m:
+                if pat[i] == pat[length]:
+                    length += 1
+                    lps[i] = length
+                    i += 1
+                elif length:
+                    length = lps[length - 1]
+                else:
+                    i += 1
+            res = []
+            i = j = 0
+            n = len(s)
+            while i < n:
+                if s[i] == pat[j]:
+                    i += 1
+                    j += 1
+                    if j == m:
+                        res.append(i - m)
+                        j = lps[j - 1]
+                elif j:
+                    j = lps[j - 1]
+                else:
+                    i += 1
+            return res
 
+        a, b, c = p.split('*')
+        A, B, C = starts(a), starts(b), starts(c)
+        la, lb, lc = len(a), len(b), len(c)
+        ans = len(s) + 1
+        j = k = 0
+        for i in A:
+            while j < len(B) and B[j] < i + la:
+                j += 1
+            if j == len(B):
+                break
+            while k < len(C) and C[k] < B[j] + lb:
+                k += 1
+            if k == len(C):
+                break
+            ans = min(ans, C[k] + lc - i)
+        return -1 if ans > len(s) else ans
 ```
 
 <!-- tabs:end -->

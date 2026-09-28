@@ -68,7 +68,7 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- thinking:start -->
 
@@ -76,9 +76,23 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 >
 > A valid length-$n$ record limits absences and consecutive lates. Enumerating $3^n$ strings is impossible for $n$ up to $10^5$.
 >
-> The state is only (days filled, absences used, current late streak), all tiny. Memoized $dfs(i,j,k)$ may place one `A` if $j=0$, an `L` if $k<2$, or a `P` that resets the streak. Reduce modulo $10^9+7$.
+> Six numbers are enough: absences used ($0$ or $1$) and the current late streak ($0$, $1$, or $2$). A top-down search still chains $n$ calls and overflows the stack on the largest $n$.
+>
+> So we walk the days backward. $f(j,k)$ is the number of ways to finish the remaining days with $j$ absences already used and late streak $k$. After the last day that value is $1$. One day earlier, place `P` (streak returns to $0$), an `A` when $j=0$, or an `L` when $k<2$. The answer is $f(0,0)$ modulo $10^9+7$.
 
 <!-- thinking:end -->
+
+Let $f(j,k)$ be the number of ways to fill every remaining day when $j$ absences are already used and the current late streak is $k$. With no days left, $f(j,k)=1$. The answer is $f(0,0)$ after $n$ backward steps.
+
+Each step replaces the table by the three choices:
+
+- present, which resets the streak: $f(j,0)$;
+- absent, only when $j=0$: $f(1,0)$;
+- late, only when $k<2$: $f(j,k+1)$.
+
+Write the new values into a fresh table so the previous day is not overwritten. Take every sum modulo $10^9+7$.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -87,22 +101,20 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 ```python
 class Solution:
     def checkRecord(self, n: int) -> int:
-        @cache
-        def dfs(i, j, k):
-            if i >= n:
-                return 1
-            ans = 0
-            if j == 0:
-                ans += dfs(i + 1, j + 1, 0)
-            if k < 2:
-                ans += dfs(i + 1, j, k + 1)
-            ans += dfs(i + 1, j, 0)
-            return ans % mod
-
         mod = 10**9 + 7
-        ans = dfs(0, 0, 0)
-        dfs.cache_clear()
-        return ans
+        f = [[1] * 3 for _ in range(2)]
+        for _ in range(n):
+            g = [[0] * 3 for _ in range(2)]
+            for j in range(2):
+                for k in range(3):
+                    ans = f[j][0]
+                    if j == 0:
+                        ans += f[1][0]
+                    if k < 2:
+                        ans += f[j][k + 1]
+                    g[j][k] = ans % mod
+            f = g
+        return f[0][0]
 ```
 
 <!-- tabs:end -->
@@ -117,9 +129,9 @@ class Solution:
 
 > **Thinking**
 >
-> Memoization is already polynomial, but recursion has a larger constant. The same triple can be filled bottom-up.
+> The previous method keeps only the six suffix counts. This one records every prefix so the day index stays explicit.
 >
-> $dp[i][j][k]$ is the number of ways for the first $i+1$ days with $j$ absences and a late streak of $k$. Transitions place `A`, `L`, or `P` from day $i-1$. Sum every $(j,k)$ on the last day. No call stack.
+> $dp[i][j][k]$ is the number of ways for the first $i+1$ days with $j$ absences and a late streak of $k$. Transitions place `A`, `L`, or `P` from day $i-1$. Sum every $(j,k)$ on the last day.
 
 <!-- thinking:end -->
 

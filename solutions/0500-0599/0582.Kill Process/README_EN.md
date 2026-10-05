@@ -101,4 +101,44 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Killing a process also kills every descendant. The parent links arrive as two parallel arrays, and $n$ can be $5 \times 10^4$, so each process should first store its children. Collecting descendants by recursion along a parent chain uses a call depth equal to the process count and overflows Python once the chain reaches length $1000$. A stack therefore holds the processes still to visit: a popped process is recorded, and its children are pushed in reverse so the collection order matches a preorder walk of the child lists. The process tree has no cycle, so each process is pushed once.
+
+<!-- thinking:end -->
+
+Build a graph $g$ from $pid$ and $ppid$, where $g[i]$ is the list of child processes of process $i$. Start at process $kill$ and walk with an explicit stack. When process $i$ is popped, append it to the answer and push its children in reverse order, so the earlier child is popped next. Every descendant is collected once. The problem accepts the ids in any order.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of processes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
+        g = defaultdict(list)
+        for i, p in zip(pid, ppid):
+            g[p].append(i)
+        ans = []
+        stk = [kill]
+        while stk:
+            i = stk.pop()
+            ans.append(i)
+            for j in reversed(g[i]):
+                stk.append(j)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

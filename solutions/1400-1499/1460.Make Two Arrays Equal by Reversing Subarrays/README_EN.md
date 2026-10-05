@@ -104,7 +104,7 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 sorts. Values lie in $1$–$1000$, so comparing frequencies is enough and runs in linear time.
+> Method 1 sorts. Values lie in $1$– $1000$, so comparing frequencies is enough and runs in linear time.
 
 <!-- thinking:end -->
 

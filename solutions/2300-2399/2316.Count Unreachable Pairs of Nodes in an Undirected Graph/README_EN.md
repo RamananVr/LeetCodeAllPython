@@ -107,4 +107,65 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unreachable pairs sit in different components. With $n \le 10^5$ we cannot enumerate pairs. The count is the product of component sizes.
+>
+> Recursing from a node into each neighbor reaches depth equal to the component size on a chain. In Python the generator inside `sum` adds another frame, so a few hundred nodes already overflow the call stack. A component's size does not depend on visit order.
+>
+> Each component therefore uses an explicit stack: a node is marked when it is pushed, counted when it is popped, and only unmarked neighbors are pushed. Multiply the size $t$ by the sum $s$ of earlier sizes, then add $t$ into $s$.
+
+<!-- thinking:end -->
+
+For any two nodes in an undirected graph, if there is a path between them, then they are mutually reachable.
+
+An explicit stack finds the number of nodes $t$ in each connected component. Starting from an unvisited node, we mark a node when pushing it, count it when popping it, and push only unmarked neighbors. Multiply $t$ by the number of nodes $s$ in all previous components to obtain the unreachable pairs $s \times t$, then add $t$ to $s$. Repeat until every node has been visited.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPairs(self, n: int, edges: List[List[int]]) -> int:
+        def dfs(i: int) -> int:
+            if vis[i]:
+                return 0
+            vis[i] = True
+            stk = [i]
+            cnt = 0
+            while stk:
+                u = stk.pop()
+                cnt += 1
+                for j in g[u]:
+                    if not vis[j]:
+                        vis[j] = True
+                        stk.append(j)
+            return cnt
+
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = [False] * n
+        ans = s = 0
+        for i in range(n):
+            t = dfs(i)
+            ans += s * t
+            s += t
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

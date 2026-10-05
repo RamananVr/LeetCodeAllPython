@@ -111,15 +111,68 @@ class Solution:
 
 > **Thinking**
 >
-> Recursion uses the call stack. An explicit stack must push children from right to left so the leftmost child pops first.
+> Solution 1 already walks preorder with an explicit stack, pushing children from right to left so the leftmost child pops first.
 >
-> Pop-and-visit, then push children reversed. The order matches recursive preorder without call-stack limits.
+> This section is the same walk. Pop a node, record it, then push its children in reverse. The order matches the preorder definition.
 
 <!-- thinking:end -->
 
-We can also solve this problem iteratively.
+This section uses the same explicit stack.
 
 We use a stack to help us get the pre-order traversal. We first push the root node into the stack. Since the pre-order traversal is root, left subtree, right subtree, and the characteristic of the stack is first in last out, we first add the node's value to the answer, then push each of the node's children into the stack in the order from right to left. We continue this process until the stack is empty.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children[::-1]:
+                stk.append(child)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> N-ary preorder records the root, then the children from left to right. Recursion on a chain of height $1000$ exhausts the call stack, and $1000$ is the height limit.
+>
+> The bottleneck is that chain: each call steps into the single next child, so the depth tracks the height.
+>
+> Preorder records the current node before visiting children, so the walk does not wait for a child to return.
+>
+> An explicit stack holds the nodes still to visit. Pop a node, append its value, then push its children from right to left so the leftmost child pops first. An empty tree returns an empty list.
+
+<!-- thinking:end -->
+
+Simulate preorder with a stack. Push the root, and after popping a node append its value, then push its children from right to left until the stack is empty.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 

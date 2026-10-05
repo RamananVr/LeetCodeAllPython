@@ -154,4 +154,64 @@ class ThroneInheritance:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Preorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The given $\textit{Successor}$ walks to the oldest child not yet listed, then backtracks to the parent. Simulating that definition on every query rescans children and becomes quadratic once the number of births reaches $10^5$. The same recurrence is a preorder walk of a multi-way tree: write the person, then visit children in birth order. Death does not reshape the tree; it only omits a name. Recursion along a birth chain uses a call depth equal to the family size and overflows Python once the chain reaches length $1000$. The query therefore uses a stack. A popped person is appended when still alive, and that person's children are pushed from last to first so the oldest child is popped next.
+
+<!-- thinking:end -->
+
+The inheritance order is a preorder traversal of a multi-way tree. A hash table $g$ stores each person's children in birth order, and a set $dead$ stores the people who have died.
+
+- When calling `birth(parentName, childName)`, append `childName` to the child list of `parentName`.
+- When calling `death(name)`, add `name` to $dead$.
+- When calling `getInheritanceOrder()`, the stack starts with the king. After `x` is popped, append `x` when `x` is not in $dead$, then push the children of `x` from last to first so birth order is preserved.
+
+In terms of time complexity, both `birth` and `death` have a time complexity of $O(1)$, and `getInheritanceOrder` has a time complexity of $O(n)$. The space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class ThroneInheritance:
+
+    def __init__(self, kingName: str):
+        self.king = kingName
+        self.dead = set()
+        self.g = defaultdict(list)
+
+    def birth(self, parentName: str, childName: str) -> None:
+        self.g[parentName].append(childName)
+
+    def death(self, name: str) -> None:
+        self.dead.add(name)
+
+    def getInheritanceOrder(self) -> List[str]:
+        ans = []
+        stk = [self.king]
+        while stk:
+            x = stk.pop()
+            if x not in self.dead:
+                ans.append(x)
+            for y in reversed(self.g[x]):
+                stk.append(y)
+        return ans
+
+# Your ThroneInheritance object will be instantiated and called as such:
+# obj = ThroneInheritance(kingName)
+# obj.birth(parentName,childName)
+# obj.death(name)
+# param_3 = obj.getInheritanceOrder()
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -108,4 +108,57 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit Stack Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves are only right or down. We may flip at most one non-endpoint cell to disconnect $(0,0)$ from the exit. Trying every flip is cubic. Two internally vertex-disjoint paths cannot be cut by a single flip. Search down-first, zero the visited cells, restore the two ends, and search again. There can be $1000$ rows, and the first move is always down, so a recursive search has depth $m$. An explicit stack keeps that order: push the right neighbor, then the cell below.
+
+<!-- thinking:end -->
+
+The search uses an explicit stack, clears a cell when it is entered, and handles the cell below before the cell to the right.
+
+First, we search once with an explicit stack to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $a$. During the search, we set the value of the visited cells to $0$ to prevent revisiting.
+
+Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and search once more with an explicit stack to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $b$. During the search, we set the value of the visited cells to $0$ to avoid revisiting.
+
+Finally, if both $a$ and $b$ are `true`, we return `false`, otherwise, we return `true`.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+        def dfs() -> bool:
+            stk = [(0, 0)]
+            while stk:
+                i, j = stk.pop()
+                if i >= m or j >= n or grid[i][j] == 0:
+                    continue
+                grid[i][j] = 0
+                if i == m - 1 and j == n - 1:
+                    return True
+                stk.append((i, j + 1))
+                stk.append((i + 1, j))
+            return False
+
+        m, n = len(grid), len(grid[0])
+        a = dfs()
+        grid[0][0] = grid[-1][-1] = 1
+        b = dfs()
+        return not (a and b)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

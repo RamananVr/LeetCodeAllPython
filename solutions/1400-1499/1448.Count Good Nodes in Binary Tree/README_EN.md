@@ -108,4 +108,53 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is good when no larger value appears on the path from the root. With $n$ up to $10^5$, one walk that carries the path maximum $mx$ is enough: count the node when its value is at least $mx$, then update $mx$.
+>
+> The walk enters the left child first. A left chain can be $n$ nodes long, so recursion overflows before the count is finished. Each node is compared only with the maximum on its own path, so the two children do not depend on each other.
+>
+> The nodes still to visit fit on an explicit stack together with the $mx$ from above. After a pop, a value at least $mx$ is counted and $mx$ becomes that value; the right child is pushed, then the left child, both with this $mx$, so the left child is handled first.
+>
+> The initial $mx$ is below the lower bound $-10^4$, so the root is always good. Each node is pushed once.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+        ans = 0
+        stk = [(root, -1000000)]
+        while stk:
+            node, mx = stk.pop()
+            if node is None:
+                continue
+            if mx <= node.val:
+                ans += 1
+                mx = node.val
+            stk.append((node.right, mx))
+            stk.append((node.left, mx))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

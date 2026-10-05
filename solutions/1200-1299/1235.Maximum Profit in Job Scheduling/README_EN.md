@@ -133,11 +133,11 @@ class Solution:
 
 > **Thinking**
 >
-> Memoization jumps forward by start time. Sorting by end time instead, $dp[i]$ is the best profit among the first $i$ jobs: skip inherits $dp[i-1]$; take adds $dp[j]$ for the last job that ends before this start, with $j$ still from binary search. Bottom-up removes recursion; the meaning matches Solution 1.
+> Solution 1 sorts by start and fills one suffix table. Sorting by end instead, $dp[i]$ is the best profit among the first $i$ jobs: skip inherits $dp[i-1]$; take adds $dp[j]$ for the last job that ends before this start, with $j$ still from binary search.
 
 <!-- thinking:end -->
 
-We can also change the memoization search in Solution 1 to dynamic programming.
+Solution 1 sorts by start and fills a suffix table. Here we sort by end and define a prefix table.
 
 First, sort the jobs, this time we sort by end time in ascending order, then define $dp[i]$, which represents the maximum profit that can be obtained from the first $i$ jobs. The answer is $dp[n]$. Initialize $dp[0]=0$.
 
@@ -172,6 +172,57 @@ class Solution:
             j = bisect_right(jobs, s, hi=i, key=lambda x: x[0])
             dp[i + 1] = max(dp[i], dp[j] + p)
         return dp[n]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Jobs must not overlap. $n \le 5\times 10^4$ rules out subset search. Whether we take job $i$ only affects jobs that start no earlier than its end.
+>
+> After sorting by start, skipping calls $i+1$ before it returns, so the chain has length $n$ and overflows the stack.
+>
+> Later indices are known if we walk from the end. Let $f[i]$ be the best profit from job $i$, with $f[n]=0$, and binary-search the next compatible job while filling $i$ from $n-1$ down to $0$.
+
+<!-- thinking:end -->
+
+First, we sort the jobs by start time in ascending order. Let $f[i]$ be the maximum profit that can be obtained starting from the $i$-th job. The answer is $f[0]$, and $f[n] = 0$.
+
+Fill $i$ from $n - 1$ down to $0$. For the $i$-th job we can skip it, which keeps $f[i + 1]$, or take it. Binary search finds the first job $j$ that starts at or after $end_i$. Taking it earns $profit[i] + f[j]$. Take the larger of the two:
+
+$$
+f[i]=\max(f[i+1],profit[i]+f[j])
+$$
+
+Where $j$ is the smallest index that satisfies $startTime[j] \ge endTime[i]$. Because $j > i$, $f[j]$ is already filled.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
+        jobs = sorted(zip(startTime, endTime, profit))
+        n = len(profit)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            _, e, p = jobs[i]
+            j = bisect_left(jobs, e, lo=i + 1, key=lambda x: x[0])
+            f[i] = max(f[i + 1], p + f[j])
+        return f[0]
 ```
 
 <!-- tabs:end -->

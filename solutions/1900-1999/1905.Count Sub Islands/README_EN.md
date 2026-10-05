@@ -103,4 +103,56 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An island of $\textit{grid2}$ is a sub-island only when every land cell is also land in $\textit{grid1}$. Cells that are not grouped by connectivity cannot be counted as one island.
+>
+> Recursing along a snake of $1000$ land cells overflows the call stack, and $m,n\le 500$ can hold that snake.
+>
+> The check only has to walk the whole island, zero $\textit{grid2}$, and AND the matching $\textit{grid1}$ cells. It does not need a recursive return.
+>
+> When a remaining $1$ is found, push it onto an explicit stack. Pop a cell, AND it with $\textit{grid1}$, and push each neighboring land cell after marking it. The sum of these results is the number of sub-islands.
+
+<!-- thinking:end -->
+
+Scan every cell of `grid2`. When it is still $1$, walk that island with an explicit stack, set `grid2` to $0$ along the way, and AND the matching `grid1` cells. A result of $1$ means the island is a sub-island.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrices `grid1` and `grid2`, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        def flood(i: int, j: int) -> int:
+            ok = 1
+            grid2[i][j] = 0
+            stk = [(i, j)]
+            while stk:
+                i, j = stk.pop()
+                ok &= grid1[i][j]
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
+                        grid2[x][y] = 0
+                        stk.append((x, y))
+            return ok
+
+        m, n = len(grid1), len(grid1[0])
+        dirs = (-1, 0, 1, 0, -1)
+        return sum(flood(i, j) for i in range(m) for j in range(n) if grid2[i][j])
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

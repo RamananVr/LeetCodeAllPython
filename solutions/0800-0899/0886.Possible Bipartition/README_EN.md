@@ -105,9 +105,7 @@ class Solution:
 
 > **Thinking**
 >
-> Coloring uses a recursion stack. Union-find encodes “must be in the same group”: all people disliked by $i$ should share a group, and none of them may share $i$’s group.
->
-> If $i$ is already unioned with a neighbor, fail; otherwise merge those neighbors under one representative.
+> Solution 1 already colors the graph with an explicit stack. Union-find does not store colors. It merges people who must share a group: everyone disliked by one person should share a group, and none of them may share that person's group. If that person is already in the same set as a neighbor, the partition fails; otherwise those neighbors are merged under one representative.
 
 <!-- thinking:end -->
 
@@ -134,6 +132,51 @@ class Solution:
                 if find(i) == find(j):
                     return False
                 p[find(j)] = find(g[i][0])
+        return True
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit-Stack Coloring
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> People who dislike each other cannot share a group, so the dislike graph must be bipartite. With $n\le 2000$, recursion along a chain of dislikes uses a call depth equal to the number of people and overflows Python once the chain reaches length $1000$. A graph is bipartite exactly when two colors can cover it with every edge joining different colors. A stack therefore expands each component: an uncolored person is colored $1$ and pushed, a popped person fails the search when a neighbor already has the same color, and an uncolored neighbor is colored $3$ minus the current color and pushed. A partition exists when every component is colored.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+        g = defaultdict(list)
+        for a, b in dislikes:
+            a, b = a - 1, b - 1
+            g[a].append(b)
+            g[b].append(a)
+        color = [0] * n
+        for start in range(n):
+            if color[start]:
+                continue
+            color[start] = 1
+            stk = [start]
+            while stk:
+                i = stk.pop()
+                for j in g[i]:
+                    if color[j] == color[i]:
+                        return False
+                    if color[j] == 0:
+                        color[j] = 3 - color[i]
+                        stk.append(j)
         return True
 ```
 

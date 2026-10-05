@@ -89,7 +89,7 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2: Binary search
+### Solution 2: Two Pointers
 
 <!-- thinking:start -->
 
@@ -98,6 +98,12 @@ class Solution:
 > The answer is a contiguous slice. Shrink the farther endpoint until the window has length $k$; the slice is already sorted.
 
 <!-- thinking:end -->
+
+The $k$ elements closest to $x$ in a sorted array form one contiguous subarray.
+
+Set pointers $l$ and $r$ at the two ends. Compare $x - arr[l]$ with $arr[r - 1] - x$ and drop the farther end until $r - l = k$.
+
+The time complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -121,7 +127,7 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Binary Search
 
 <!-- thinking:start -->
 
@@ -130,6 +136,10 @@ class Solution:
 > Two pointers are linear. The best left bound in $[0,n-k]$ is monotone: compare $x-arr[mid]$ with $arr[mid+k]-x$ and binary-search it.
 
 <!-- thinking:end -->
+
+On top of method 2, binary-search the left boundary of the window of length $k$ over $[0, n - k]$. At $\textit{mid}$, move the window left when $x - arr[\textit{mid}] \le arr[\textit{mid} + k] - x$, and right otherwise.
+
+The time complexity is $O(\log n)$.
 
 <!-- tabs:start -->
 

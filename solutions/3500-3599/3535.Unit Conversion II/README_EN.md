@@ -128,4 +128,57 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Modular Inverse
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n - 1$ conversions and a unique path from $0$, so the graph is a directed tree rooted at $0$. With $n \le 10^5$, recursing from the root and multiplying along the way reaches depth $n$ on a chain and overflows the call stack. Each unit's factor relative to $0$ depends only on that path.
+>
+> An explicit stack of $(unit, accumulated\ factor)$ therefore starts at $(0, 1)$. Popping a frame writes $\textit{res}[i]$, and each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+>
+> A query asks for a ratio between two units. The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{MOD-2}$.
+
+<!-- thinking:end -->
+
+The conversion relations form a directed tree rooted at $0$. An explicit stack walks from the root. Each frame is $(unit, accumulated\ factor)$, starting from $(0, 1)$. Popping a frame writes `res[i]`, the number of units of type $i$ that equal $1$ unit of type $0$. Each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+
+For a query $(unitA, unitB)$, the answer is $\frac{res[unitB]}{res[unitA]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.
+
+The time complexity is $O(n + q \log MOD)$ and the space complexity is $O(n)$, where $n$ is the number of unit types and $q$ is the number of queries.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def queryConversions(
+        self, conversions: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
+        mod = 10**9 + 7
+        n = len(conversions) + 1
+        g = [[] for _ in range(n)]
+        for s, t, w in conversions:
+            g[s].append((t, w))
+        res = [0] * n
+        stk = [(0, 1)]
+        while stk:
+            s, mul = stk.pop()
+            res[s] = mul
+            for t, w in g[s]:
+                stk.append((t, mul * w % mod))
+        ans = []
+        for x, y in queries:
+            ans.append(res[y] * pow(res[x], mod - 2, mod) % mod)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

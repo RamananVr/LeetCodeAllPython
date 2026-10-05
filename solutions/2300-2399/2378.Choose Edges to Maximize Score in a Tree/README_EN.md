@@ -124,4 +124,66 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Choose a set of non-adjacent tree edges with maximum weight. With $n \le 10^5$, deciding each edge by recursion from the root is too deep: a chain makes the call depth $n$.
+>
+> Each node needs two values: the best weight $a$ when the edge to its parent is taken, and the best weight $b$ when that edge is not taken. Taking the parent edge forbids every edge to a child, so $a$ is the sum of the children's $b$ values. Leaving it free allows at most one child edge, and the gain of switching that child is its $a$ minus its $b$ plus the edge weight.
+>
+> An explicit stack of $(node, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store $a$ and $b$. The root has no parent edge, so the answer is the root's $b$.
+
+<!-- thinking:end -->
+
+For each node $i$ we compute two values $(a, b)$. The value $a$ is the maximum weight of selected edges in the subtree when the edge between $i$ and its parent is selected. The value $b$ is that weight when the edge is not selected. An explicit stack walks from the root in postorder and writes the pair when the node is left.
+
+For the current node $i$:
+
+- If the edge between $i$ and its parent is selected, then none of the edges between $i$ and its children can be selected. In this case $a$ is the sum of the $b$ values of all children.
+- If that edge is not selected, then at most one edge from $i$ to a child can be selected. In this case $b$ is the selected child's $a$, plus the $b$ values of the other children, plus the weight of the selected edge. A negative gain leaves the edge unselected.
+
+The root has no parent edge, so the answer is the root's $b$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxScore(self, edges: List[List[int]]) -> int:
+        n = len(edges)
+        g = [[] for _ in range(n)]
+        for i, (p, w) in enumerate(edges[1:], 1):
+            g[p].append((i, w))
+        down = [(0, 0)] * n
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j, _ in g[i]:
+                    stk.append((j, 0))
+            else:
+                a = b = t = 0
+                for j, w in g[i]:
+                    x, y = down[j]
+                    a += y
+                    b += y
+                    t = max(t, x - y + w)
+                b += t
+                down[i] = (a, b)
+        return down[0][1]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

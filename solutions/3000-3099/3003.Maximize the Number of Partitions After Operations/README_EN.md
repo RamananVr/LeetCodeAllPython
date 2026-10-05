@@ -155,4 +155,90 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10^4$ and at most one character may change. Trying every change and then cutting the longest valid prefixes is about $O(n^2 |\Sigma|)$, which is tight.
+>
+> The unchanged transition always calls the next index first. The chain from index $0$ to $n$ has length $n$. Python raises RecursionError at $n=1500$, and Java and Node overflow at $n=8000$.
+>
+> A segment is cut when it would contain more than $k$ distinct letters, and only one change is available, so few masks are actually reached at one index. Each state also depends only on the next index.
+>
+> Record the reachable pairs $(\textit{cur}, t)$ from the left, then fill their maximum partition counts from the right. A finished string is worth $1$. If adding the current letter exceeds $k$, open a new segment and add $1$; while a change remains, also try every replacement letter.
+
+<!-- thinking:end -->
+
+State $(\textit{cur}, t)$ means the open segment already contains the letter mask $\textit{cur}$, and $t$ changes remain. The answer is the value of $(0, 1)$ at index $0$.
+
+First mark the states reachable at every index, starting from $(0, 1)$. Let $v = 1 \ll (s[i] - 'a')$ be the bit of the current letter.
+
+- Let $\textit{nxt} = \textit{cur} \mid v$. If $\textit{nxt}$ has more than $k$ bits, the open segment ends here: the next mask is $v$ and $t$ is unchanged. Otherwise the next mask is $\textit{nxt}$.
+- If $t = 1$, also replace $s[i]$ by every lowercase letter. For letter $j$, let $\textit{nxt} = \textit{cur} \mid (1 \ll j)$. When that mask has more than $k$ bits, the next state is mask $1 \ll j$ with no change left. Otherwise the next state is mask $\textit{nxt}$ with no change left.
+
+Then let $i$ run from $n - 1$ down to $0$ and evaluate the same transitions. At $i = n$ the string is finished and the value is $1$. A transition that cuts the open segment adds $1$ to the successor's value.
+
+The time complexity is $O(n \times |\Sigma| \times k)$, and the space complexity is $O(n \times |\Sigma| \times k)$, where $n$ is the length of $s$ and $|\Sigma|$ is the alphabet size.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxPartitionsAfterOperations(self, s: str, k: int) -> int:
+        n = len(s)
+        masks = [1 << (ord(c) - ord("a")) for c in s]
+        reach = [set() for _ in range(n + 1)]
+        reach[0].add((0, 1))
+        for i, v in enumerate(masks):
+            for cur, t in reach[i]:
+                nxt = cur | v
+                if nxt.bit_count() > k:
+                    reach[i + 1].add((v, t))
+                else:
+                    reach[i + 1].add((nxt, t))
+                if t:
+                    for j in range(26):
+                        bit = 1 << j
+                        nxt = cur | bit
+                        if nxt.bit_count() > k:
+                            reach[i + 1].add((bit, 0))
+                        else:
+                            reach[i + 1].add((nxt, 0))
+
+        def get(i: int, cur: int, t: int) -> int:
+            if i == n:
+                return 1
+            return f[i][(cur, t)]
+
+        f = [dict() for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            v = masks[i]
+            for cur, t in reach[i]:
+                nxt = cur | v
+                if nxt.bit_count() > k:
+                    ans = get(i + 1, v, t) + 1
+                else:
+                    ans = get(i + 1, nxt, t)
+                if t:
+                    for j in range(26):
+                        bit = 1 << j
+                        nxt = cur | bit
+                        if nxt.bit_count() > k:
+                            ans = max(ans, get(i + 1, bit, 0) + 1)
+                        else:
+                            ans = max(ans, get(i + 1, nxt, 0))
+                f[i][(cur, t)] = ans
+        return f[0][(0, 1)]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

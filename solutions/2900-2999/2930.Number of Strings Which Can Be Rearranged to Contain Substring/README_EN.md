@@ -170,4 +170,62 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$n$ string is good when a rearrangement contains $leet$, so the counts of $l$, $e$, and $t$ must reach $1$, $2$, and $1$. Counting those strings by multinomial coefficients overcounts the overlapping cases. The useful state is only the capped counts, $2 \times 3 \times 2$ possibilities, and a string of length $i$ depends only on length $i - 1$.
+>
+> Recursing on the remaining length chains $n$ calls. For $n \le 10^5$ that overflows the call stack, and storing every layer in a C++ variable-length array puts about $9.6$MB on the stack.
+>
+> Two layers of $12$ states are enough. The empty string contributes $1$ only to the quota $(1, 2, 1)$. Each longer string appends one of $23$ other letters, or $l$, $e$, or $t$ under those caps. After $n$ characters, the state $(0, 0, 0)$ is the answer.
+
+<!-- thinking:end -->
+
+Let $f(i, l, e, t)$ be the number of strings of length $i$ that already contain at least $l$ letters `'l'`, $e$ letters `'e'`, and $t$ letters `'t'`. The three counts are capped at $1$, $2$, and $1$. The answer is $f(n, 0, 0, 0)$.
+
+For $i = 0$, only $f(0, 1, 2, 1) = 1$. Every other state is $0$.
+
+For $i \ge 1$, the last character is one of the $23$ letters other than `'l'`, `'e'`, and `'t'`, or it is one of those three letters:
+
+$$
+f(i, l, e, t) = 23 \cdot f(i - 1, l, e, t) + f(i - 1, \min(1, l + 1), e, t) + f(i - 1, l, \min(2, e + 1), t) + f(i - 1, l, e, \min(1, t + 1))
+$$
+
+Each value is reduced modulo $10^9 + 7$. Layer $i$ reads only layer $i - 1$, so the implementation keeps two arrays of $12$ states.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stringCount(self, n: int) -> int:
+        mod = 10**9 + 7
+        f = [[[0] * 2 for _ in range(3)] for _ in range(2)]
+        f[1][2][1] = 1
+        for _ in range(n):
+            g = [[[0] * 2 for _ in range(3)] for _ in range(2)]
+            for l in range(2):
+                for e in range(3):
+                    for t in range(2):
+                        a = f[l][e][t] * 23
+                        b = f[min(1, l + 1)][e][t]
+                        c = f[l][min(2, e + 1)][t]
+                        d = f[l][e][min(1, t + 1)]
+                        g[l][e][t] = (a + b + c + d) % mod
+            f = g
+        return f[0][0][0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

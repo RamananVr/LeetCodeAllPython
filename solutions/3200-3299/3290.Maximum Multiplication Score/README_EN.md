@@ -106,4 +106,53 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a$ has four entries; we pick four increasing indices in $b$ and maximize the dot product. $|b|\le 10^5$ forbids $O(n^4)$ index tuples. There are only four stages, so the position in $b$ is the other axis.
+>
+> From stage $i$ at $b[j]$, the next choice is either $b[j+1]$ with the same stage, or $b[j+1]$ at stage $i+1$ after adding $a[i]\times b[j]$. A search of that recurrence still calls $j+1$ before it returns, so the chain has depth $n$ and overflows the stack.
+>
+> Column $j+1$ is known if we walk from the end of $b$. Let $f[i][j]$ be the best score, with $f[i][n]$ equal to $0$ once every entry of $a$ is used and negative infinity otherwise.
+>
+> Fill $j$ from $n-1$ down to $0$ and return $f[0][0]$.
+
+<!-- thinking:end -->
+
+Let $f[i][j]$ be the maximum score starting from the $i$-th element of array $a$ and the $j$-th element of array $b$. The answer is $f[0][0]$.
+
+If $j = n$, array $b$ is finished. The value is $0$ when array $a$ is also finished, and negative infinity otherwise. If $i = m$, array $a$ is finished, so the remaining suffix of $b$ scores $0$.
+
+Otherwise we either skip $b[j]$, which scores $f[i][j + 1]$, or take it, which scores $a[i] \times b[j] + f[i + 1][j + 1]$. $f[i][j]$ is the larger of the two.
+
+We calculate $f$ from $j = n - 1$ down to $0$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxScore(self, a: List[int], b: List[int]) -> int:
+        m, n = len(a), len(b)
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(m):
+            f[i][n] = -inf
+        for j in range(n - 1, -1, -1):
+            for i in range(m - 1, -1, -1):
+                f[i][j] = max(f[i][j + 1], a[i] * b[j] + f[i + 1][j + 1])
+        return f[0][0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

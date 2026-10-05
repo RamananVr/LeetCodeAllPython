@@ -128,11 +128,67 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 memoizes a search along decreasing distances. We can instead DP in increasing $\textit{dist}$ order so smaller nodes finish first and update their predecessors. Same counts, no recursion.
+> Solution 1 already fills the counts in increasing $\textit{dist}$ order. This section is the same recurrence: closer nodes finish first, then each farther neighbour adds those counts.
 
 <!-- thinking:end -->
 
 After distances to $n$ are known, iterate nodes by increasing distance and accumulate restricted paths.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+        g = defaultdict(list)
+        for u, v, w in edges:
+            g[u].append((v, w))
+            g[v].append((u, w))
+        dist = [inf] * (n + 1)
+        dist[n] = 0
+        q = [(0, n)]
+        mod = 10**9 + 7
+        while q:
+            _, u = heappop(q)
+            for v, w in g[u]:
+                if dist[v] > dist[u] + w:
+                    dist[v] = dist[u] + w
+                    heappush(q, (dist[v], v))
+        arr = list(range(1, n + 1))
+        arr.sort(key=lambda i: dist[i])
+        f = [0] * (n + 1)
+        f[n] = 1
+        for i in arr:
+            for j, _ in g[i]:
+                if dist[i] > dist[j]:
+                    f[i] = (f[i] + f[j]) % mod
+        return f[1]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dijkstra + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A restricted path must strictly decrease the distance to $n$. Memoizing a walk toward closer nodes follows one chain on a path graph, and $n$ reaches $2\times 10^4$, past the recursion limit.
+>
+> The bottleneck is that chain: every call steps to a strictly closer node that has not been finished.
+>
+> Those edges form a DAG, so the count at a node depends only on neighbours with a smaller distance.
+>
+> Dijkstra from $n$ fills $\textit{dist}$. Sorting nodes by increasing distance and adding each closer neighbour's count finishes dependencies before they are used. The total is reduced modulo $10^9+7$, and $f[n]=1$.
+
+<!-- thinking:end -->
+
+Compute distances to node $n$, then accumulate restricted paths in increasing-distance order.
 
 <!-- tabs:start -->
 

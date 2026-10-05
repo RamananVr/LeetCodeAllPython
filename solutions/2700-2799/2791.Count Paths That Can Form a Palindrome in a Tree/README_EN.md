@@ -111,4 +111,54 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path can be rearranged into a palindrome exactly when at most one letter has an odd count. With $n \le 10^5$, enumerating pairs is $O(n^2)$, and recursing into each child from the root is too deep: a chain makes the call depth $n$.
+>
+> The parity of letters from the root to a node packs into a bitmask, and the parity on the path between two nodes is the XOR of those masks. A palindrome allows at most one bit set. The root mask $0$ is placed in the counter first.
+>
+> An explicit stack runs a preorder. After a node is popped, each child mask is the parent mask XOR the edge letter. We add the counts of the same mask and of the masks that differ by one bit, then store the child mask and push the child. Each pair is counted only at the node visited later, so the order of siblings does not change the answer.
+
+<!-- thinking:end -->
+
+An explicit stack walks the tree in preorder from the root. The root mask $0$ is stored in the hash map first. For each edge, the child mask is the parent mask XOR the edge letter. Paths that form a palindrome with an already visited node are added to the answer, and the child mask is then recorded.
+
+The time complexity is $O(n \times |\Sigma|)$ and the space complexity is $O(n)$, where $|\Sigma|$ is the alphabet size.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append((i, 1 << (ord(s[i]) - ord('a'))))
+        ans = 0
+        cnt = Counter({0: 1})
+        stk = [(0, 0)]
+        while stk:
+            i, xor = stk.pop()
+            for j, v in g[i]:
+                x = xor ^ v
+                ans += cnt[x]
+                for k in range(26):
+                    ans += cnt[x ^ (1 << k)]
+                cnt[x] += 1
+                stk.append((j, x))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

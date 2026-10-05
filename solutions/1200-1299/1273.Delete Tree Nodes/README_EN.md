@@ -110,4 +110,58 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree whose values sum to $0$ is deleted. With $n \le 10^4$, one bottom-up pass is enough: sum children's values and surviving sizes, then zero the size if this subtree sums to $0$. Recursing into each child is too deep: a chain makes the call depth $n$.
+>
+> An explicit stack of $(node, state)$ runs that postorder. On entry we push the exit marker and then the children; on exit we add each child's sum and surviving size, and zero the size when the sum is $0$. The root's surviving size is the answer.
+
+<!-- thinking:end -->
+
+First, we convert the tree into a graph $g$, where $g[i]$ represents all the child nodes of node $i$.
+
+Then an explicit stack walks the tree in postorder. When node $i$ is left, we add the sum and the surviving size of each child. If the accumulated sum is zero, we set this subtree's surviving size to zero. The answer is the surviving size of the root.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def deleteTreeNodes(self, nodes: int, parent: List[int], value: List[int]) -> int:
+        g = [[] for _ in range(nodes)]
+        for i in range(1, nodes):
+            g[parent[i]].append(i)
+        sub = [(0, 0)] * nodes
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j in g[i]:
+                    stk.append((j, 0))
+            else:
+                s, m = value[i], 1
+                for j in g[i]:
+                    t, c = sub[j]
+                    s += t
+                    m += c
+                if s == 0:
+                    m = 0
+                sub[i] = (s, m)
+        return sub[0][1]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

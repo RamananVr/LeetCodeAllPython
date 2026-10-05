@@ -133,4 +133,65 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tree has $n \le 5 \times 10^4$ nodes, so rechecking every subtree for a single color would repeat work. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> A subtree is monochromatic only when the root matches every child and every child's subtree is itself monochromatic. That test waits until the children are finished.
+>
+> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, combine the children's colors and sizes, and update the answer only when the whole subtree is one color.
+
+<!-- thinking:end -->
+
+First, according to the edge information given in the problem, we construct an adjacency list $g$, where $g[a]$ represents all adjacent nodes of node $a$. Then we create an array $size$ of length $n$, where $size[a]$ represents the number of nodes in the subtree with node $a$ as the root.
+
+An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. Every node's $size$ starts at $1$. On exit, $ok$ records whether the subtree is monochromatic and starts true. For each child $b$, $ok$ becomes the conjunction of its current value, $colors[a] = colors[b]$, and the child's own monochromatic flag, and $size[b]$ is added to $size[a]$. If $ok$ is still true, $size[a]$ updates the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumSubtreeSize(self, edges: List[List[int]], colors: List[int]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        size = [1] * n
+        ok = [False] * n
+        ans = 0
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                good = True
+                for b in g[a]:
+                    if b != fa:
+                        good = good and colors[a] == colors[b] and ok[b]
+                        size[a] += size[b]
+                if good:
+                    ans = max(ans, size[a])
+                ok[a] = good
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

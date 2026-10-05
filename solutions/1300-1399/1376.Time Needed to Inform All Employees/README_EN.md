@@ -109,4 +109,59 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The reporting lines form a tree rooted at the head, and an edge costs that employee's inform time. With $n \le 10^5$, recursing from the head to score every subtree is too deep: a chain makes the call depth $n$.
+>
+> The time for employee $i$ to inform a whole subtree is $i$'s own inform time plus the slowest direct report. A leaf has no reports, so that time is $0$. The value depends only on results that are already known for the children.
+>
+> An explicit stack starts at $\textit{headID}$ and walks $(employee, state)$ in postorder. On entry we push the exit marker and then the reports, and on exit we store the maximum of $\textit{informTime}[i] + \textit{time}[j]$. The head's time is the answer.
+
+<!-- thinking:end -->
+
+We first build an adjacent list $g$ according to the $manager$ array, where $g[i]$ represents all direct subordinates of employee $i$.
+
+The time for employee $i$ to inform the whole subtree is $\textit{informTime}[i]$ plus the maximum time among the direct reports, or $0$ when there are no reports. An explicit stack walks from $\textit{headID}$ in postorder and writes that time when the node is left. The answer is the head's time.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of employees.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numOfMinutes(
+        self, n: int, headID: int, manager: List[int], informTime: List[int]
+    ) -> int:
+        g = [[] for _ in range(n)]
+        for i, x in enumerate(manager):
+            if x != -1:
+                g[x].append(i)
+        time = [0] * n
+        stk = [(headID, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j in g[i]:
+                    stk.append((j, 0))
+            else:
+                ans = 0
+                for j in g[i]:
+                    ans = max(ans, time[j] + informTime[i])
+                time[i] = ans
+        return time[headID]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

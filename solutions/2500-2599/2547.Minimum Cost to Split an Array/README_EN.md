@@ -148,4 +148,48 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every partition is exponential. The array length reaches $1000$, and the first right end tried is the current index, so the search always continues at the next index and has depth $n$. The minimum cost from index $i$ depends only on later suffixes. Let $f[i]$ be that cost, with $f[n]=0$, and scan right endpoints from the end, tracking how many values occur once and updating with $k+(j-i+1)-\textit{one}+f[j+1]$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the minimum cost of splitting from index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, enumerate the right end $j$ of the current piece. An array $\textit{cnt}$ counts occurrences in $nums[i..j]$, and $\textit{one}$ counts values that occur once. The importance of this piece is $k + j - i + 1 - \textit{one}$, and $f[i]$ is the minimum of that importance plus $f[j+1]$. The answer is $f[0]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minCost(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            cnt = Counter()
+            one = 0
+            ans = inf
+            for j in range(i, n):
+                cnt[nums[j]] += 1
+                if cnt[nums[j]] == 1:
+                    one += 1
+                elif cnt[nums[j]] == 2:
+                    one -= 1
+                ans = min(ans, k + j - i + 1 - one + f[j + 1])
+            f[i] = ans
+        return f[0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

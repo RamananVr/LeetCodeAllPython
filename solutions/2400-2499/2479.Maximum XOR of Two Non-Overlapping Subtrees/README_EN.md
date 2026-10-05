@@ -144,4 +144,97 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Binary Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is the maximum XOR of two disjoint subtree sums, and $n$ reaches $5\times 10^4$. Recursing down a chain for the sums and again for the trie walk exhausts the call stack.
+>
+> The bottleneck is those two chains: each call steps to the next child, so the depth tracks $n$.
+>
+> A subtree sum depends only on its children. A query is valid only against a finished subtree that does not overlap the current one, which means the current sum must be inserted after its children.
+>
+> Both walks use an explicit stack. The first accumulates $s[i]$ after the children. The second searches a $48$-bit binary trie on pop, then inserts $s[i]$ once the children are done. Sums reach about $10^{14}$, so each bit still prefers the opposite branch.
+
+<!-- thinking:end -->
+
+An explicit stack computes each subtree sum. A second stack queries a binary trie before inserting that sum, so the two subtrees do not overlap.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 2
+
+    def insert(self, x):
+        node = self
+        for i in range(47, -1, -1):
+            v = (x >> i) & 1
+            if node.children[v] is None:
+                node.children[v] = Trie()
+            node = node.children[v]
+
+    def search(self, x):
+        node = self
+        res = 0
+        for i in range(47, -1, -1):
+            v = (x >> i) & 1
+            if node is None:
+                return res
+            if node.children[v ^ 1]:
+                res = res << 1 | 1
+                node = node.children[v ^ 1]
+            else:
+                res <<= 1
+                node = node.children[v]
+        return res
+
+class Solution:
+    def maxXor(self, n: int, edges: List[List[int]], values: List[int]) -> int:
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        s = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in reversed(g[i]):
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                t = values[i]
+                for j in g[i]:
+                    if j != fa:
+                        t += s[j]
+                s[i] = t
+        ans = 0
+        tree = Trie()
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                ans = max(ans, tree.search(s[i]))
+                stk.append((i, fa, 1))
+                for j in reversed(g[i]):
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                tree.insert(s[i])
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

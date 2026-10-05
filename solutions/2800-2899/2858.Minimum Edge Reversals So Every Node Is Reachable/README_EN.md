@@ -127,4 +127,54 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Rerooting + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every node as root we want the fewest reversals that make the whole tree reachable from that node. With $n \le 10^5$, searching once per root is $O(n^2)$, and recursing from $0$ to count backward edges is too deep: a chain makes the call depth $n$.
+>
+> Store a directed edge $x \to y$ as weight $1$ when walking from $x$ to $y$ and weight $-1$ when walking back. While the root is $0$, a negative weight on the step to a child means the edge points away from the child and must be reversed. Moving the root to child $j$ changes the answer to $ans[i] + k$: weight $1$ was already correct and now needs a reversal, weight $-1$ was a reversal and is no longer needed.
+>
+> Both walks use an explicit stack and go from a parent to its children. The first walk only adds the backward edges into $ans[0]$. The second writes each new root with that increment. A frame is $(node, parent)$, and a child is processed only after its parent's answer is known.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minEdgeReversals(self, n: int, edges: List[List[int]]) -> List[int]:
+        ans = [0] * n
+        g = [[] for _ in range(n)]
+        for x, y in edges:
+            g[x].append((y, 1))
+            g[y].append((x, -1))
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j, k in g[i]:
+                if j != fa:
+                    if k < 0:
+                        ans[0] += 1
+                    stk.append((j, i))
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j, k in g[i]:
+                if j != fa:
+                    ans[j] = ans[i] + k
+                    stk.append((j, i))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

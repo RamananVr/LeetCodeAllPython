@@ -133,4 +133,46 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each word is attached to the left or the right, and equal letters that meet count once. There can be $1000$ words, and trying the right side first always moves to the next index, so the search has depth $n$. Only the current first and last letters affect later choices. Let $f[i][a][b]$ be the extra length from word $i$ with those ends, set $f[n]$ to $0$, and fill decreasing $i$ over every pair of ends.
+
+<!-- thinking:end -->
+
+Let $f[i][a][b]$ be the shortest extra length when connecting from word $i$, with the string so far starting with $a$ and ending with $b$. The boundary is $f[n][a][b]=0$. For $i$ from $n-1$ down to $1$, and for every pair of ends $a,b$, try both sides. Appending $words[i]$ saves one character when its first character equals $b$, and the new end is its last character. Prepending saves one character when its last character equals $a$, and the new start is its first character. $f[i][a][b]$ is the shorter of those two lengths plus $|words[i]|$. The answer is $|words[0]| + f[1][words[0][0]][words[0][|words[0]|-1]]$.
+
+The time complexity is $O(n \times |\Sigma|^2)$, and the space complexity is $O(n \times |\Sigma|^2)$. Here, $n$ is the number of words, and $|\Sigma|$ is the alphabet size, which is $26$ in this problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimizeConcatenatedLength(self, words: List[str]) -> int:
+        n = len(words)
+        f = [[[0] * 26 for _ in range(26)] for _ in range(n + 1)]
+        for i in range(n - 1, 0, -1):
+            s = words[i]
+            m = len(s)
+            c, d = ord(s[0]) - 97, ord(s[-1]) - 97
+            for a in range(26):
+                for b in range(26):
+                    x = f[i + 1][a][d] - (c == b)
+                    y = f[i + 1][c][b] - (d == a)
+                    f[i][a][b] = m + min(x, y)
+        a, b = ord(words[0][0]) - 97, ord(words[0][-1]) - 97
+        return len(words[0]) + f[1][a][b]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

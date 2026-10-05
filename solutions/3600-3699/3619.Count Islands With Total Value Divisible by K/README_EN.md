@@ -118,4 +118,63 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An island is a 4-connected component of positive cells, and the answer depends only on whether each component sum is divisible by $k$. A recursive walk that adds a cell and then zeroes it computes that sum and keeps the same cell out of a second island.
+>
+> The product $m \times n$ reaches $10^5$. A snaking island makes one recursive call per cell, so the call stack overflows before the sum is finished. Zeroing a cell is only a visit mark; a neighbor still belongs to the island exactly when it is still positive.
+>
+> The cells waiting to be expanded fit on an explicit stack. A cell’s value is added and the cell is zeroed before it is pushed, then its four still-positive neighbors are pushed after the pop. The sum matches the recursive walk, while the stack depth stays under our control. One island can total $10^{11}$, so the accumulator is a 64-bit integer.
+>
+> Scanning the grid and starting a walk from every remaining positive cell counts the islands whose sum is divisible by $k$. Each cell is pushed at most once.
+
+<!-- thinking:end -->
+
+We walk each island with an explicit stack. Starting from a still-positive cell $(i, j)$, record its value in the sum $s$, set the cell to $0$, and push its coordinates. Each pop checks the four neighbors. A neighbor that is still positive is added into $s$, zeroed, and pushed. When the stack is empty, $s$ is the island’s total value. Zeroing before the push keeps a cell from being counted twice.
+
+The main loop scans the grid. Every remaining positive cell starts one walk, and the answer increases when $s \bmod k = 0$. The sum is stored in a 64-bit integer so that $10^5$ cells of value up to $10^6$ do not overflow.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countIslands(self, grid: List[List[int]], k: int) -> int:
+        def flood(i: int, j: int) -> int:
+            s = grid[i][j]
+            grid[i][j] = 0
+            stk = [(i, j)]
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                        s += grid[x][y]
+                        grid[x][y] = 0
+                        stk.append((x, y))
+            return s
+
+        m, n = len(grid), len(grid[0])
+        dirs = (-1, 0, 1, 0, -1)
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] and flood(i, j) % k == 0:
+                    ans += 1
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

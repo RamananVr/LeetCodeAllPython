@@ -136,4 +136,58 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Ordered Set + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An odd jump goes to the smallest value on the right that is at least the current one; an even jump goes to the largest that is at most the current. $n$ can reach $2 \times 10^4$. When every value is equal, each jump lands on the next index, so the call chain is as long as $n$ and exceeds the default recursion limit.
+>
+> Walking from right to left, the ordered map holds only indexes farther to the right, so $g[i][0/1]$ is either a larger index or $-1$.
+>
+> Reachability depends only on $(i,\text{parity})$ and only on a position to the right. Let $f[i][k]$ mean a jump of parity $k$ from $i$ can reach the end. Both cells of $f[n-1]$ are true. $i$ runs from $n-2$ down to $0$, and a real successor copies the opposite parity at that successor. The answer counts the true cells $f[i][1]$.
+
+<!-- thinking:end -->
+
+We first use an ordered set to preprocess the positions that can be jumped to from each position, recorded in array $g$, where $g[i][1]$ and $g[i][0]$ represent the positions that can be jumped to when the current position is an odd jump or an even jump, respectively. If no position can be jumped to, then both $g[i][1]$ and $g[i][0]$ are $-1$. The map stores only indexes to the right, so $g[i][k]$ is either $-1$ or strictly greater than $i$.
+
+Let $f[i][k]$ mean that, starting at index $i$ with the next jump of parity $k$, we can reach the end of the array. Both $f[n-1][0]$ and $f[n-1][1]$ are true. For $i$ from $n-2$ down to $0$, if $g[i][k] \neq -1$, then $f[i][k] = f[g[i][k]][k \oplus 1]$; otherwise $f[i][k]$ is false. The state on the right is already known when it is read.
+
+The answer is the number of indexes $i$ for which $f[i][1]$ is true.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def oddEvenJumps(self, arr: List[int]) -> int:
+        n = len(arr)
+        g = [[-1] * 2 for _ in range(n)]
+        sd = SortedDict()
+        for i in range(n - 1, -1, -1):
+            j = sd.bisect_left(arr[i])
+            g[i][1] = sd.values()[j] if j < len(sd) else -1
+            j = sd.bisect_right(arr[i]) - 1
+            g[i][0] = sd.values()[j] if j >= 0 else -1
+            sd[arr[i]] = i
+        f = [[False] * 2 for _ in range(n)]
+        f[-1][0] = f[-1][1] = True
+        for i in range(n - 2, -1, -1):
+            for k in range(2):
+                j = g[i][k]
+                if j != -1:
+                    f[i][k] = f[j][k ^ 1]
+        return sum(f[i][1] for i in range(n))
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

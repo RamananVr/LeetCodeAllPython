@@ -124,7 +124,7 @@ class Solution:
 
 > **Thinking**
 >
-> Memoization expands in call order. Filling $f[i]$ from shorter bars to taller ones makes every legal $j$ already computed, so the same transition becomes iterative DP without a recursion stack.
+> Solution 1 already fills this table from shorter bars to taller ones. The transition below is that same table.
 
 <!-- thinking:end -->
 
@@ -137,6 +137,51 @@ We enumerate $i$ in the order of the tuples $(x, i)$, and enumerate all valid ju
 The final answer is $\max_{0 \leq i < n} f[i]$.
 
 The time complexity is $O(n \log n + n \times d)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{arr}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxJumps(self, arr: List[int], d: int) -> int:
+        n = len(arr)
+        f = [1] * n
+        for x, i in sorted(zip(arr, range(n))):
+            for j in range(i - 1, -1, -1):
+                if i - j > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+            for j in range(i + 1, n):
+                if j - i > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+        return max(f)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Sorting + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Expanding every jump onto a shorter bar is exponential. The array length can reach $1000$, and the first call from a bar always lands on the next shorter neighbor, so the chain has depth $n$. A jump lands only on a strictly shorter index, and every index in between must also be strictly shorter, so $f[i]$ depends only on shorter indices. Sorting the indices by height makes every legal $j$ already final when $i$ is filled, and the update is $f[i] = \max(f[i], 1 + f[j])$ with each entry starting at $1$. The answer is the largest entry.
+
+<!-- thinking:end -->
+
+We let $f[i]$ be the maximum number of indices that can be visited starting from index $i$, and set $f[i] = 1$ initially.
+
+Sort the indices in increasing order of $\text{arr}[i]$. When index $i$ is processed, scan left and right until the distance exceeds $d$ or a bar at least as tall as $\text{arr}[i]$ appears. For each legal index $j$ on that scan, update $f[i] = \max(f[i], 1 + f[j])$. Shorter bars have already been processed, so $f[j]$ is final.
+
+The answer is the maximum value of $f[i]$.
+
+The time complexity is $O(n \log n + n \times d)$, and the space complexity is $O(n)$, where $n$ is the length of $\text{arr}$.
 
 <!-- tabs:start -->
 

@@ -64,11 +64,11 @@ tags:
 
 > **Thinking**
 >
-> With $n\le 1000$, fix the left end and extend, keeping an LCM. The LCM is nondecreasing; counting the times it equals $k$ is enough.
+> With $n \le 1000$, fix the left end and extend to the right. A subarray whose LCM is $k$ can contain only divisors of $k$, so the first element that does not divide $k$ ends the segment. Until then the running LCM itself divides $k$ and stays at most $k$. Multiplying before dividing by the GCD overflows a 32-bit product even when the true LCM still fits, and the wrapped value can equal $k$.
 
 <!-- thinking:end -->
 
-Enumerate each number as the first number of the subarray, and then enumerate each number as the last number of the subarray. Calculate the least common multiple of this subarray. If the least common multiple equals $k$, then increment the answer by one.
+Enumerate each index as the left end and extend to the right. Stop at the first value that does not divide $k$. While extending, the running LCM stays a divisor of $k$; count the positions where it equals $k$.
 
 The time complexity is $O(n^2)$. Here, $n$ is the length of the array.
 
@@ -77,16 +77,18 @@ The time complexity is $O(n^2)$. Here, $n$ is the length of the array.
 #### Python3
 
 ```python
+from math import lcm
+
 class Solution:
     def subarrayLCM(self, nums: List[int], k: int) -> int:
-        n = len(nums)
         ans = 0
-        for i in range(n):
-            a = nums[i]
+        for i in range(len(nums)):
+            a = 1
             for b in nums[i:]:
-                x = lcm(a, b)
-                ans += x == k
-                a = x
+                if k % b:
+                    break
+                a = lcm(a, b)
+                ans += a == k
         return ans
 ```
 

@@ -142,9 +142,9 @@ class Solution:
 
 > **Thinking**
 >
-> The recursion in Solution 1 becomes an explicit table and drops the call stack. $f[i][j]$ is ways to build the first $i$ characters of $\textit{target}$ from the first $j$ columns.
+> Solution 1 fills a suffix table, so each state reads a later column. The same choice can be stored as a prefix: ways to build the first $i$ characters of $\textit{target}$ from the first $j$ columns.
 >
-> Skip column $j$ as $f[i][j-1]$, or take it as $f[i-1][j-1]\times \textit{cnt}[j-1][\textit{target}[i-1]]$, with $f[0][\cdot]=1$.
+> Skipping column $j-1$ copies $f[i][j-1]$. Taking it multiplies $f[i-1][j-1]$ by that column's count. With $f[0][\cdot]=1$, fill $i$ and $j$ in increasing order.
 
 <!-- thinking:end -->
 
@@ -181,6 +181,61 @@ class Solution:
                 )
                 f[i][j] %= mod
         return f[m][n]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Preprocessing + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words share one length, and letters in the same column are interchangeable. Backtracking over the words repeats work once $m$ and $n$ reach $1000$.
+>
+> Count letter $c$ in column $j$ as $\textit{cnt}[j][c]$. Building $\textit{target}[i:]$ either skips column $j$ or uses it for the current character and multiplies by that count.
+>
+> Both choices read a later column. Walking from column $0$ to column $n$ is a chain of length $n$. Python raises RecursionError when $n=1000$.
+>
+> Fill a table instead. $f[i][j]$ is still the number of ways to build $\textit{target}[i:]$ from column $j$ onward. A finished target is $1$ and running out of columns is $0$, so set $f[m][j]=1$ first. Decreasing $i$ and $j$ leaves $f[i][j+1]$ and $f[i+1][j+1]$ already known.
+
+<!-- thinking:end -->
+
+Each string in $words$ has the same length $n$, so preprocess $cnt$, where $cnt[j][c]$ is the number of times character $c$ appears in column $j$.
+
+Let $f[i][j]$ be the number of ways to build $target[i,..]$ starting from column $j$. The answer is $f[0][0]$.
+
+When $i = m$, every character of $target$ has been chosen, so the value is $1$. When $j = n$ and $i < m$, the columns are exhausted before the target is finished, so the value is $0$. Set $f[m][j] = 1$ for $0 \leq j \leq n$, and leave every other cell at $0$.
+
+For the remaining states, let $i$ run from $m - 1$ down to $0$ and $j$ from $n - 1$ down to $0$. Skipping column $j$ contributes $f[i][j + 1]$. Taking it contributes $f[i + 1][j + 1] \times cnt[j][target[i] - 'a']$. Add the two contributions and reduce modulo $10^9 + 7$ to obtain $f[i][j]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here $m$ is the length of $target$, and $n$ is the length of each string in $words$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numWays(self, words: List[str], target: str) -> int:
+        m, n = len(target), len(words[0])
+        cnt = [[0] * 26 for _ in range(n)]
+        for w in words:
+            for j, c in enumerate(w):
+                cnt[j][ord(c) - ord('a')] += 1
+        mod = 10**9 + 7
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for j in range(n + 1):
+            f[m][j] = 1
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                ans = f[i + 1][j + 1] * cnt[j][ord(target[i]) - ord('a')]
+                f[i][j] = (ans + f[i][j + 1]) % mod
+        return f[0][0]
 ```
 
 <!-- tabs:end -->

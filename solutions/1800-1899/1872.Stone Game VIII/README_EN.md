@@ -146,7 +146,9 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 only looks one step to the right. Iterate from the end: $f$ starts as $s[n-1]$, then $f=\max(f,s[i]-f)$ for $i=n-2,\ldots,1$. Extra space becomes constant.
+> Solution 1 fills a linear table from the end, and each cell only reads the next one. That table rolls into one scalar.
+>
+> $f$ starts as $s[n-1]$, then $f=\max(f,s[i]-f)$ for $i=n-2,\ldots,1$. Extra space becomes constant.
 
 <!-- thinking:end -->
 
@@ -184,6 +186,56 @@ class Solution:
         for i in range(len(s) - 2, 0, -1):
             f = max(f, s[i] - f)
         return f
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Prefix Sum + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move merges a prefix of at least two piles and scores the new prefix sum; both players maximize the score difference. $n\le 10^5$ forbids searching every cut.
+>
+> From index $i$ the current player takes $s[i]$ and leaves $i+1$, or postpones the cut. That recurrence always calls $i+1$ first, so the chain has length $n$ and overflows the stack.
+>
+> The next index is known if we walk from the end. Let $f[i]$ be the best difference on $stones[i:]$, with $f[n-1]=s[n-1]$, and fill $i$ from $n-2$ down to $1$.
+
+<!-- thinking:end -->
+
+According to the problem description, each time we take the leftmost $x$ stones, add their sum to our score, and then put a stone with this sum value on the leftmost side, it is equivalent to merging these $x$ stones into a stone with this sum value, and the prefix sum remains unchanged.
+
+We can use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $stones$, where $s[i]$ represents the sum of the elements $stones[0..i]$.
+
+Let $f[i]$ be the maximum score difference the current player can get on $stones[i:]$. The answer is $f[1]$, because Alice must start by taking at least the first two stones. Set $f[n - 1] = s[n - 1]$: only one pile remains, so the player takes it.
+
+Fill $i$ from $n - 2$ down to $1$. Postponing the cut keeps $f[i + 1]$. Taking $stones[0..i]$ scores $s[i]$ and leaves the opponent with $f[i + 1]$, so the difference is $s[i] - f[i + 1]$. Take the larger one:
+
+$$
+f[i] = \max(f[i + 1], s[i] - f[i + 1])
+$$
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $stones$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stoneGameVIII(self, stones: List[int]) -> int:
+        s = list(accumulate(stones))
+        n = len(s)
+        f = [0] * n
+        f[-1] = s[-1]
+        for i in range(n - 2, 0, -1):
+            f[i] = max(f[i + 1], s[i] - f[i + 1])
+        return f[1]
 ```
 
 <!-- tabs:end -->

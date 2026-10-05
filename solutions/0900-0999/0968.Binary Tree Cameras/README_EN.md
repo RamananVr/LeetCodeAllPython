@@ -115,4 +115,80 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP on an Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A camera covers itself, its parent, and its children, so the minimum depends on how each node is covered. Bottom-up, the three states are “has a camera”, “covered by a child”, and “uncovered”. On a short tree, returning those three minima is enough, and the root may not stay uncovered.
+>
+> The tree can contain $1000$ nodes. A left chain makes this postorder walk recurse once per node and overflow the call stack.
+>
+> The three states of a node depend only on the three states of its children, so children must be finished before their parent.
+>
+> An explicit stack performs that postorder walk. On entry it pushes an exit marker and the two children; on exit it writes the node’s states with the original three formulas. The answer is the smaller of the root’s first two states.
+
+<!-- thinking:end -->
+
+For each node, we define three states:
+
+- `a`: The current node has a camera
+- `b`: The current node does not have a camera, but is monitored by its children
+- `c`: The current node does not have a camera and is not monitored by its children
+
+A null node corresponds to $(inf, 0, 0)$, where $inf$ is a very large number used for an impossible situation.
+
+We walk the binary tree in postorder with an explicit stack. On entry we push an exit marker, then the right child and the left child. On exit the children’s states are already stored as $[la, lb, lc]$ and $[ra, rb, rc]$.
+
+- If the current node has a camera, then its left and right children must be in a monitored state, i.e., $a = \min(la, lb, lc) + \min(ra, rb, rc) + 1$.
+- If the current node does not have a camera but is monitored by its children, then one or both of the children must have a camera, i.e., $b = \min(la + rb, lb + ra, la + ra)$.
+- If the current node does not have a camera and is not monitored by its children, then the children must be monitored by their children, i.e., $c = lb + rb$.
+
+The root must not stay uncovered, so the answer is $\min(a, b)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minCameraCover(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        stk = [(root, 0)]
+        sub = {}
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.right, 0))
+                stk.append((node.left, 0))
+                continue
+            la, lb, lc = sub[id(node.left)] if node.left is not None else (inf, 0, 0)
+            ra, rb, rc = sub[id(node.right)] if node.right is not None else (inf, 0, 0)
+            a = min(la, lb, lc) + min(ra, rb, rc) + 1
+            b = min(la + rb, lb + ra, la + ra)
+            c = lb + rb
+            sub[id(node)] = (a, b, c)
+        a, b, _ = sub[id(root)]
+        return min(a, b)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

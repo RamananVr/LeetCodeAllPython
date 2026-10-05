@@ -137,4 +137,59 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Hash Set and Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find two nodes whose values sum to $k$. Inorder plus two pointers works after collecting every value. A set of values already seen is enough: if $k$ minus the current value is present, return true. On a short tree one depth-first walk does this, and the BST order is not required.
+>
+> The tree can contain $10^4$ nodes. A left chain makes this walk recurse once per node and overflow the call stack.
+>
+> Each node depends only on values already visited. The children do not need to return before the node is checked.
+>
+> An explicit stack keeps that depth-first order. Pop a node, test $k$ minus its value, then store the value and push the right child and the left child. The set belongs to this call only.
+
+<!-- thinking:end -->
+
+A hash set stores values already visited, and an explicit stack walks the tree depth-first. When a node is popped, return true if $k$ minus its value is already in the set. Otherwise store the value and push the non-null right child and left child.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        vis = set()
+        stk = []
+        if root is not None:
+            stk.append(root)
+        while stk:
+            node = stk.pop()
+            if k - node.val in vis:
+                return True
+            vis.add(node.val)
+            if node.right is not None:
+                stk.append(node.right)
+            if node.left is not None:
+                stk.append(node.left)
+        return False
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

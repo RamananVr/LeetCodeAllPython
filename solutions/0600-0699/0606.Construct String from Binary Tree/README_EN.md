@@ -110,4 +110,68 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Preorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A preorder string with parentheses can be built by recursion: a leaf is just the value, a missing right child wraps only the left, and otherwise both children are wrapped. That is correct on a short tree.
+>
+> The tree can contain $10^4$ nodes. A left chain makes this walk recurse once per node and overflow the call stack. Returning each subtree as a new string also copies the same characters many times.
+>
+> The characters are already ordered by the preorder walk and the empty-parenthesis rule, so a subtree does not need to return a finished string.
+>
+> One buffer and an explicit stack follow that order. On entry the walk writes the current value; if the node is not a leaf it writes `(`, then pushes an exit marker and the left child. After the left subtree it writes `)`, and wraps the right child the same way when one exists. A leaf leaves only its value, and a missing left child leaves an empty pair.
+
+<!-- thinking:end -->
+
+An explicit stack writes the preorder string into one buffer. On entry we write the node value. A leaf stops there. Otherwise we write `(`, push a marker meaning the left subtree is finished, and push the left child. When that marker pops we write `)`. If a right child exists, we write `(` and push that child with its own closing marker.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def tree2str(self, root: Optional[TreeNode]) -> str:
+        parts = []
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if state == 0:
+                if node is None:
+                    continue
+                parts.append(str(node.val))
+                if node.left is None and node.right is None:
+                    continue
+                parts.append('(')
+                stk.append((node, 1))
+                stk.append((node.left, 0))
+                continue
+            if state == 1:
+                parts.append(')')
+                if node.right is not None:
+                    parts.append('(')
+                    stk.append((node, 2))
+                    stk.append((node.right, 0))
+                continue
+            parts.append(')')
+        return ''.join(parts)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

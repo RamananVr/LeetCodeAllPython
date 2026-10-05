@@ -146,4 +146,64 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Trie + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Matching every word at every index repeats shared prefixes, so the words go into a trie and one walk lists every match end. $\textit{target}$ has length $2000$, and the walk calls the next index on the first character, so the search has depth $n$. The minimum cost of suffix $i$ depends only on later suffixes. Let $f[i]$ be that cost, with $f[n]=0$, and scan from the right, adding a node's $\textit{cost}$ to $f[j+1]$.
+
+<!-- thinking:end -->
+
+Insert every word into a trie. Each node stores $\textit{children}$ for the next letters and a $\textit{cost}$ equal to the cheapest word ending at that node, or infinity when no word ends there.
+
+Let $f[i]$ be the minimum cost of building $\textit{target}$ from index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, walk from the root along $\textit{target}[i:]$. The walk stops when the next character has no child. Otherwise the node is reached and $f[i]$ is updated with $\textit{cost}+f[j+1]$. If $f[0]$ is still infinite, return $-1$; otherwise return $f[0]$.
+
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of $\textit{target}$, and $L$ is the sum of the lengths of all words in the $\textit{words}$ array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children: List[Optional[Trie]] = [None] * 26
+        self.cost = inf
+
+    def insert(self, word: str, cost: int):
+        node = self
+        for c in word:
+            idx = ord(c) - ord("a")
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.cost = min(node.cost, cost)
+
+class Solution:
+    def minimumCost(self, target: str, words: List[str], costs: List[int]) -> int:
+        trie = Trie()
+        for word, cost in zip(words, costs):
+            trie.insert(word, cost)
+        n = len(target)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            node = trie
+            for j in range(i, n):
+                idx = ord(target[j]) - ord("a")
+                if node.children[idx] is None:
+                    break
+                node = node.children[idx]
+                f[i] = min(f[i], node.cost + f[j + 1])
+        return f[0] if f[0] < inf else -1
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

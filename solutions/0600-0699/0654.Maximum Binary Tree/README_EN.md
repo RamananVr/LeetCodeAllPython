@@ -233,4 +233,152 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The root is the maximum of an interval, and both children follow the same rule. $n \le 1000$, so a linear scan for each maximum is acceptable in time. On an increasing array the maximum is always at the right end, so the first call always handles the remaining $n-1$ elements on the left and the depth is $n$, past the default recursion limit.
+>
+> The root of a segment depends only on its two endpoints, so the subarray does not need to be copied.
+>
+> Store pending half-open intervals $[l, r)$ on an explicit stack, together with which side of the parent they hang from. Pop an interval, scan for its maximum, create the node, then push the right interval and the left interval. An empty interval is skipped.
+
+<!-- thinking:end -->
+
+Scan the half-open interval $[l, r)$ for the index $i$ of the maximum, and make $nums[i]$ the root. The left child is the interval $[l, i)$ and the right child is $[i + 1, r)$. Pending intervals live on an explicit stack: after a root is created, push the right interval and then the left interval. Empty intervals are skipped. The first interval is $[0, n)$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        n = len(nums)
+        root = None
+        stk = [(0, n, None, 0)]
+        while stk:
+            l, r, parent, side = stk.pop()
+            if l >= r:
+                continue
+            i = l
+            for j in range(l + 1, r):
+                if nums[j] > nums[i]:
+                    i = j
+            node = TreeNode(nums[i])
+            if parent is None:
+                root = node
+            elif side == 0:
+                parent.left = node
+            else:
+                parent.right = node
+            stk.append((i + 1, r, node, 1))
+            stk.append((l, i, node, 0))
+        return root
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 5: Segment Tree + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already builds the tree with an explicit stack, but each maximum is still a linear scan. A segment tree answers a range maximum in $O(\log n)$. The left interval can still form a chain of length $n$, so those two child intervals go on the same explicit stack. The total time is $O(n \log n)$.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        d = {v: i for i, v in enumerate(nums, 1)}
+        tree = SegmentTree(nums)
+        root = None
+        stk = [(1, len(nums), None, 0)]
+        while stk:
+            l, r, parent, side = stk.pop()
+            if l > r:
+                continue
+            val = tree.query(1, l, r)
+            node = TreeNode(val)
+            i = d[val]
+            if parent is None:
+                root = node
+            elif side == 0:
+                parent.left = node
+            else:
+                parent.right = node
+            stk.append((i + 1, r, node, 1))
+            stk.append((l, i - 1, node, 0))
+        return root
+
+class Node:
+    def __init__(self):
+        self.l = 0
+        self.r = 0
+        self.v = 0
+
+class SegmentTree:
+    def __init__(self, nums):
+        self.nums = nums
+        n = len(nums)
+        self.tr = [Node() for _ in range(n << 2)]
+        self.build(1, 1, n)
+
+    def build(self, u, l, r):
+        self.tr[u].l, self.tr[u].r = l, r
+        if l == r:
+            self.tr[u].v = self.nums[l - 1]
+            return
+        mid = (l + r) >> 1
+        self.build(u << 1, l, mid)
+        self.build(u << 1 | 1, mid + 1, r)
+        self.pushup(u)
+
+    def query(self, u, l, r):
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].v
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        v = 0
+        if l <= mid:
+            v = max(v, self.query(u << 1, l, r))
+        if r > mid:
+            v = max(v, self.query(u << 1 | 1, l, r))
+        return v
+
+    def pushup(self, u):
+        self.tr[u].v = max(self.tr[u << 1].v, self.tr[u << 1 | 1].v)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

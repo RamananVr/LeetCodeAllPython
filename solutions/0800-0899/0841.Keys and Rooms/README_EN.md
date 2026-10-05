@@ -110,9 +110,7 @@ class Solution:
 
 > **Thinking**
 >
-> The same reachability is a queue: BFS from $0$, enqueueing rooms unlocked by the current keys.
->
-> A visited set still prevents repeats. The only change from DFS is the explicit queue.
+> Solution 1 follows keys with an explicit stack. The same reachability is a queue: start at $0$ and enqueue a room when a key to it is found and that room is still unvisited. The visited marks still drop duplicate keys, and the answer still compares the visited count with $n$.
 
 <!-- thinking:end -->
 
@@ -140,6 +138,48 @@ class Solution:
             vis.add(i)
             q.extend(j for j in rooms[i])
         return len(vis) == len(rooms)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rooms form a directed graph whose edges are keys. The question is whether room $0$ reaches every room. With $n \le 1000$, one traversal is enough. Following a chain of keys by recursion uses a call depth equal to the room count and overflows Python once the chain reaches length $1000$. A stack therefore holds the rooms still to open: a popped room is skipped when it was already visited, and otherwise it is marked and its keys are pushed. Duplicate keys may push the same room again, and the mark expands it only once. Every room is reachable when the visited count equals $n$.
+
+<!-- thinking:end -->
+
+Start at room $0$ and walk the reachable rooms with an explicit stack. The stack begins with $0$. When room $i$ is popped, skip it if it has already been visited; otherwise mark it and push the room behind each key found in $i$. A repeated key only pushes that room again, and the later pop is skipped.
+
+Finally, check whether every room was visited. If so, return true; otherwise some room cannot be reached.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ is the number of nodes, and $m$ is the number of edges.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        n = len(rooms)
+        vis = [False] * n
+        stk = [0]
+        while stk:
+            i = stk.pop()
+            if vis[i]:
+                continue
+            vis[i] = True
+            for j in rooms[i]:
+                stk.append(j)
+        return all(vis)
 ```
 
 <!-- tabs:end -->

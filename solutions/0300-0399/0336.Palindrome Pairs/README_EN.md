@@ -71,7 +71,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Map
 
 <!-- thinking:start -->
 

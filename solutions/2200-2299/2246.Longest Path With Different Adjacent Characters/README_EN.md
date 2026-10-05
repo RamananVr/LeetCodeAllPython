@@ -111,4 +111,63 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest tree path whose adjacent labels differ. With $n \le 10^5$, recursing from the root for every downward chain is too deep: a chain makes the call depth $n$.
+>
+> Such a path either stays inside one subtree or joins two downward chains at one vertex. When a node is left, each child's downward length is already known. The chain can be attached only when $s[i] \neq s[j]$, and its length is the child's length plus one. Join that chain with the best one already seen, then keep the longer of the two as this node's downward chain.
+>
+> An explicit stack of $(node, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we update the answer and the downward length. Adding one at the end counts the nodes on the path.
+
+<!-- thinking:end -->
+
+First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
+
+An explicit stack walks from the root in postorder. When node $i$ is left, each child $j$ contributes $x$, one more than the longest chain downward from $j$. If $s[i] \neq s[j]$, update the answer with $ans = \max(ans, mx + x)$ and then set $mx = \max(mx, x)$. Here $mx$ is the longest downward chain from $i$ whose first step has a different character.
+
+Finally, we return $ans + 1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPath(self, parent: List[int], s: str) -> int:
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        down = [0] * n
+        ans = 0
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                stk.append((i, 1))
+                for j in g[i]:
+                    stk.append((j, 0))
+            else:
+                mx = 0
+                for j in g[i]:
+                    x = down[j] + 1
+                    if s[i] != s[j]:
+                        ans = max(ans, mx + x)
+                        mx = max(mx, x)
+                down[i] = mx
+        return ans + 1
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

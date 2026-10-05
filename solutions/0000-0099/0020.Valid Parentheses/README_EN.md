@@ -86,23 +86,19 @@ tags:
 
 > **Thinking**
 >
-> The first idea is to keep stripping $()$, $[]$, and $\{\}$ until nothing changes. Correct, but worst-case $O(n^2)$. $n\le 10^4$ might pass, yet the writing is clumsy.
+> Repeatedly deleting adjacent pairs $()$, $[]$, and $\{\}$ until nothing is left is correct, but each pass rescans the string. With $n \le 10^4$, deeply nested input falls to $O(n^2)$ and can easily time out.
 >
-> Matching is last-opened-first-closed, so we need LIFO. A left bracket waits for its right counterpart; a right bracket must pair with the nearest unmatched left. The stack should be empty at the end, or some left bracket never closed.
+> The bottleneck is that a match is more than two neighboring characters. A later opener must close first, while an earlier one stays open. Once the brackets cross, as in $([)]$, deleting neighbors cannot reduce the string to empty.
 >
-> So we push left brackets and, on a right bracket, pop and compare.
+> Matching is therefore last-in, first-out: the only legal partner of the current closer is the most recent unmatched opener. A stack keeps those unfinished matches. An opener pushes its closer, so the closer allowed next sits on top, and a closer is compared only with that top. A mismatch means the type or the order is already wrong, and a non-empty stack at the end means some opener never closed.
 
 <!-- thinking:end -->
 
-Traverse the bracket string $s$. When encountering a left bracket, push the current left bracket into the stack; when encountering a right bracket, pop the top element of the stack (if the stack is empty, directly return `false`), and judge whether it matches. If it does not match, directly return `false`.
+We use a hash table $\textit{d}$ to map each opening bracket to its closing bracket, and a stack $\textit{stk}$ to store closers that have not been matched yet. Scan $s$ from left to right. When the current character is an opening bracket, push the corresponding closer from $\textit{d}$ onto $\textit{stk}$. When it is a closing bracket, return `false` if $\textit{stk}$ is empty or the popped top is different from that character.
 
-Alternatively, when encountering a left bracket, you can push the corresponding right bracket into the stack; when encountering a right bracket, pop the top element of the stack (if the stack is empty, directly return `false`), and judge whether they are equal. If they do not match, directly return `false`.
+After the scan, return `true` if $\textit{stk}$ is empty: every pair has been closed in the right type and order. If the stack still holds a closer, some opening bracket was never matched, so return `false`.
 
-> The difference between the two methods is only the timing of bracket conversion, one is when pushing into the stack, and the other is when popping out of the stack.
-
-At the end of the traversal, if the stack is empty, it means the bracket string is valid, return `true`; otherwise, return `false`.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the bracket string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 
@@ -112,11 +108,11 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 class Solution:
     def isValid(self, s: str) -> bool:
         stk = []
-        d = {'()', '[]', '{}'}
+        d = {'(': ')', '[': ']', '{': '}'}
         for c in s:
-            if c in '({[':
-                stk.append(c)
-            elif not stk or stk.pop() + c not in d:
+            if c in d:
+                stk.append(d[c])
+            elif not stk or stk.pop() != c:
                 return False
         return not stk
 ```

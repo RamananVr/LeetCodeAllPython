@@ -160,4 +160,74 @@ class LockingTree:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Lock and unlock update one node. Upgrade requires the node and its ancestors to be unlocked and at least one descendant to be locked, then unlocks every descendant and locks the node. With $n\le 2000$, ancestors can be climbed through parent pointers. Recursion through descendants overflows Python once a chain reaches length $1000$. Whether a descendant is locked does not depend on visit order, so every child only needs to be seen. After the ancestor check, a stack starts with the children of the current node. A popped node is unlocked when it is locked, that fact is recorded, and its children are pushed. The node is locked for the user only after at least one lock was cleared.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class LockingTree:
+    def __init__(self, parent: List[int]):
+        n = len(parent)
+        self.locked = [-1] * n
+        self.parent = parent
+        self.children = [[] for _ in range(n)]
+        for son, fa in enumerate(parent[1:], 1):
+            self.children[fa].append(son)
+
+    def lock(self, num: int, user: int) -> bool:
+        if self.locked[num] == -1:
+            self.locked[num] = user
+            return True
+        return False
+
+    def unlock(self, num: int, user: int) -> bool:
+        if self.locked[num] == user:
+            self.locked[num] = -1
+            return True
+        return False
+
+    def upgrade(self, num: int, user: int) -> bool:
+        x = num
+        while x != -1:
+            if self.locked[x] != -1:
+                return False
+            x = self.parent[x]
+
+        find = False
+        stk = list(self.children[num])
+        while stk:
+            x = stk.pop()
+            if self.locked[x] != -1:
+                self.locked[x] = -1
+                find = True
+            for y in self.children[x]:
+                stk.append(y)
+        if not find:
+            return False
+        self.locked[num] = user
+        return True
+
+# Your LockingTree object will be instantiated and called as such:
+# obj = LockingTree(parent)
+# param_1 = obj.lock(num,user)
+# param_2 = obj.unlock(num,user)
+# param_3 = obj.upgrade(num,user)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -158,4 +158,59 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Re-rooting DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The root is unknown, and each guess is a directed edge. A node is valid when at least $k$ guesses match after it becomes the root. With $n\le 10^5$, a separate walk from every root is quadratic, and recursion along a chain overflows Python once the chain reaches length $1000$. Moving the root across one edge changes only that edge: from parent $i$ to child $j$, $(i,j)$ is no longer parent-to-child and $(j,i)$ becomes parent-to-child. The first stack therefore starts at $0$ and adds each guess whose direction matches the parent-child edge, producing $cnt$. The second stack stores the adjusted count in the frame. A popped node is counted when that value is at least $k$, and the child receives $cnt-(i,j)+(j,i)$.
+
+<!-- thinking:end -->
+
+Turn $edges$ into an adjacency list $g$, and store $guesses$ in a hash map $gs$. An explicit stack walks the tree from node $0$. When the walk moves to a child $j$, add the multiplicity of $(i,j)$ in $gs$ to $cnt$. After this walk, $cnt$ is the number of correct guesses with root $0$.
+
+The second stack reroots the tree. Each frame stores a node, its parent, and the number of correct guesses when that node is the root. It starts with $(0,-1,cnt)$. When node $i$ is popped, add $1$ to the answer if the stored count is at least $k$. For a neighbor $j$, $(i,j)$ is no longer parent-to-child and $(j,i)$ becomes parent-to-child, so the count passed to $j$ is $c-gs[(i,j)]+gs[(j,i)]$.
+
+The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def rootCount(
+        self, edges: List[List[int]], guesses: List[List[int]], k: int
+    ) -> int:
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        gs = Counter((u, v) for u, v in guesses)
+        cnt = 0
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j in g[i]:
+                if j != fa:
+                    cnt += gs[(i, j)]
+                    stk.append((j, i))
+        ans = 0
+        walk = [(0, -1, cnt)]
+        while walk:
+            i, fa, c = walk.pop()
+            ans += c >= k
+            for j in g[i]:
+                if j != fa:
+                    walk.append((j, i, c - gs[(i, j)] + gs[(j, i)]))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

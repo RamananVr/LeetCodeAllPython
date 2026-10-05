@@ -136,4 +136,69 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every root-to-leaf path must keep at least one unselected node; the remaining values may add to the score. Enumerating select or skip at each vertex while enforcing every path grows with the number of paths and does not fit $n \le 2 \times 10^4$. Once the choice is localized to a subtree, skipping the current node takes each child subtree whole, and taking it requires every child subtree to stay valid; both choices depend only on the subtree sum and the valid score, so child order does not matter. Filling that pair by recursion along a chain uses a call depth equal to the node count and overflows Python's recursion limit. The stack therefore stores $(node, parent, state)$: state $0$ pushes the exit marker and then the children, and state $1$ writes the pair after the children are ready. A leaf stores second value $0$, an internal node takes $\max(values[i]+b, a)$, and the answer is the second value at the root.
+
+<!-- thinking:end -->
+
+The problem asks us to select some nodes so that the sum of their values is maximized, and every path from the root to a leaf keeps at least one node unselected.
+
+We record two quantities for each subtree with tree DP and fill them in postorder on an explicit stack. For node $i$, the first value is the sum of every node in the subtree, and the second value is the maximum score the subtree can obtain while satisfying the path constraint. A leaf has no child, so it can leave an unselected node only by skipping itself: the first value is $values[i]$ and the second value is $0$. An internal node has two choices. Skipping $i$ takes every node in each child subtree, scoring the sum of those subtree sums $a$. Taking $i$ requires each child subtree to stay valid on its own, scoring $values[i]$ plus the sum of the child scores $b$. We keep the larger of the two.
+
+Each stack frame is $(i, fa, state)$. When $state = 0$, we push $(i, fa, 1)$ and then push every neighbor other than the parent with state $0$, so the children finish first. When $state = 1$, we read the finished child results and write node $i$ by the rule above. The order in which children are pushed does not change the answer.
+
+The answer is the second value at the root.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumScoreAfterOperations(
+        self, edges: List[List[int]], values: List[int]
+    ) -> int:
+        n = len(values)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        sub = [(0, 0)] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                a = b = 0
+                leaf = True
+                for j in g[i]:
+                    if j != fa:
+                        leaf = False
+                        aa, bb = sub[j]
+                        a += aa
+                        b += bb
+                if leaf:
+                    sub[i] = (values[i], 0)
+                else:
+                    sub[i] = (values[i] + a, max(values[i] + b, a))
+        return sub[0][1]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

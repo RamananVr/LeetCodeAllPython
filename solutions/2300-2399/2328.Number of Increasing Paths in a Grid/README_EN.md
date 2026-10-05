@@ -119,4 +119,57 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Sorting + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strictly increasing paths may start at any cell. The grid has up to $10^5$ cells. Memoizing a walk toward larger neighbors follows one chain on a strictly increasing row of length $1000$, and both $m$ and $n$ can be $1000$, which exhausts the call stack.
+>
+> The bottleneck is that chain: every call steps into a strictly larger neighbor that has not been finished.
+>
+> The count at a cell depends only on strictly larger neighbors, so those edges form a DAG.
+>
+> Sort cells by decreasing value. Set $f[i][j]=1$, then add the finished counts of the four larger neighbors and reduce modulo $10^9+7$. The sum of every $f[i][j]$, reduced again, is the number of paths.
+
+<!-- thinking:end -->
+
+Let $f[i][j]$ be the number of strictly increasing paths that start at row $i$ and column $j$. A cell contributes one path by itself, so the initial value is $1$. It may also step to a strictly larger neighbor, which gives
+
+$$
+f[i][j] = 1 + \sum_{\substack{(x,y)\sim(i,j)\\ grid[i][j] < grid[x][y]}} f[x][y] \pmod{10^9+7}.
+$$
+
+A larger cell does not depend on the current one. Processing cells from largest value to smallest finishes those neighbors first. The answer is $\sum f[i][j]$ modulo $10^9+7$.
+
+The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$. Here $m$ and $n$ are the number of rows and columns.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPaths(self, grid: List[List[int]]) -> int:
+        mod = 10**9 + 7
+        m, n = len(grid), len(grid[0])
+        f = [[1] * n for _ in range(m)]
+        cells = [(grid[i][j], i, j) for i in range(m) for j in range(n)]
+        cells.sort(reverse=True)
+        dirs = (-1, 0, 1, 0, -1)
+        for _, i, j in cells:
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid[i][j] < grid[x][y]:
+                    f[i][j] = (f[i][j] + f[x][y]) % mod
+        return sum(sum(row) for row in f) % mod
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

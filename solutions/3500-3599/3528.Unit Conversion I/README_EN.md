@@ -122,4 +122,56 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n - 1$ conversions and a unique path from $0$, so the graph is a tree rooted at $0$. We need how many units of $i$ equal one unit of $0$, modulo $10^9 + 7$.
+>
+> With $n \le 10^5$, recursing from the root into the next unit reaches depth $n$ on a chain and overflows the call stack. Each unit's factor depends only on the unique path from the root, so sibling order does not matter.
+>
+> An explicit stack of $(unit, accumulated\ factor)$ therefore starts at $(0, 1)$. Popping a frame writes the factor into the answer, and each successor is pushed with the current factor multiplied by the edge weight, modulo $10^9 + 7$.
+
+<!-- thinking:end -->
+
+The problem guarantees that unit 0 can be converted to any other unit through a unique conversion path, and the length of $\textit{conversions}$ is $n - 1$, so the conversions form a directed tree rooted at $0$.
+
+We can use an adjacency list $g$ to represent the unit conversion relationships, where $g[i]$ represents the units that unit $i$ can convert to and the corresponding conversion factors.
+
+An explicit stack then walks from the root. Each frame is $(unit, accumulated\ factor)$, starting from $(0, 1)$. Popping a frame writes the factor into the answer. For each successor $t$ with edge weight $w$, we push $(t, \textit{mul} \times w \bmod (10^9 + 7))$.
+
+Finally, we return the answer array.
+
+The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of units.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def baseUnitConversions(self, conversions: List[List[int]]) -> List[int]:
+        mod = 10**9 + 7
+        n = len(conversions) + 1
+        g = [[] for _ in range(n)]
+        for s, t, w in conversions:
+            g[s].append((t, w))
+        ans = [0] * n
+        stk = [(0, 1)]
+        while stk:
+            s, mul = stk.pop()
+            ans[s] = mul
+            for t, w in g[s]:
+                stk.append((t, mul * w % mod))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

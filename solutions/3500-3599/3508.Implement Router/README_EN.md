@@ -122,7 +122,7 @@ router.forwardPacket(); // There are no packets left, return <code>[]</code>.</d
 
 > **Thinking**
 >
-> The router must reject duplicates, evict the oldest packet by arrival, and count by destination and time window. Pack a triple into an integer for $O(1)$ membership; keep the cache in a queue and pop the front when full.
+> The router must reject duplicates, evict the oldest packet by arrival, and count by destination and time window. Source and destination are at most $2\times 10^5$ and a timestamp is at most $10^9$, so the triple needs $18+18+30$ bits and does not fit in one $64$-bit word. The set therefore stores the triple itself. The cache stays in a queue and drops the front once it is full.
 >
 > Timestamps for one destination are appended in order, and forwarding only advances a left pointer, so $\textit{getCount}$ is a binary search on the unforwarded suffix.
 
@@ -171,8 +171,8 @@ class Router:
         self.idx[d] += 1
         return [s, d, t]
 
-    def f(self, a: int, b: int, c: int) -> int:
-        return a << 46 | b << 29 | c
+    def f(self, a: int, b: int, c: int) -> tuple:
+        return (a, b, c)
 
     def getCount(self, destination: int, startTime: int, endTime: int) -> int:
         ls = self.d[destination]

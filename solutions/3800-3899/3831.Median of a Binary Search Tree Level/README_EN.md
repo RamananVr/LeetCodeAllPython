@@ -137,4 +137,63 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Inorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The median of one BST level takes the upper middle value when the count is even. Collecting that level and sorting it is correct, and $n$ can be $2 \times 10^5$.
+>
+> Inorder visits the left child first. A chain of that length recurses once per node and overflows the call stack.
+>
+> Inorder of a BST is already nondecreasing, so the values of the chosen level appear in sorted order and do not need another sort. A node only needs its own depth.
+>
+> An explicit stack performs the inorder walk. On entry it pushes an exit marker and the left child; on exit, a node whose depth equals $\textit{level}$ is appended, and then the right child is pushed. The median is $\textit{nums}[\lfloor |\textit{nums}|/2 \rfloor]$, or $-1$ when the level is empty.
+
+<!-- thinking:end -->
+
+The median is a sorted middle value, and an inorder walk of a binary search tree is already sorted, so the values on the requested level can be collected in that order. When the count is even, index $\lfloor |\textit{nums}|/2 \rfloor$ is the larger of the two middle values.
+
+An explicit stack carries the current node, its depth, and whether its left subtree has been expanded. On entry we push an exit marker and the left child. On exit, if the depth equals $\textit{level}$, the node value is appended to $\textit{nums}$, and then the right child is pushed.
+
+An empty $\textit{nums}$ returns $-1$; otherwise the middle entry is the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelMedian(self, root: Optional[TreeNode], level: int) -> int:
+        nums = []
+        stk = [(root, 0, 0)]
+        while stk:
+            node, i, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, i, 1))
+                stk.append((node.left, i + 1, 0))
+                continue
+            if i == level:
+                nums.append(node.val)
+            stk.append((node.right, i + 1, 0))
+        return nums[len(nums) // 2] if nums else -1
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -188,15 +188,19 @@ sQL.ins(&quot;two&quot;, [&quot;fourth&quot;, &quot;fifth&quot;, &quot;sixth&quo
 
 > **Thinking**
 >
-> We must insert rows by table name and read cells by $1$-based row and column. The workload is bounded by the number of operations, so a full relational engine is unnecessary.
+> Each table needs a stable row id, a column count, and a way to drop a row without renumbering the others. At most $2000$ insertions and deletions occur, so a relational engine is unnecessary.
 >
-> A hash map from table name to a list of rows is enough: $rowId$ indexes $rowId-1$. Deleted rows are never selected, so $\textit{deleteRow}$ can be a no-op.
+> A dense list indexed by $rowId-1$ still returns a deleted cell, and $\textit{exp}$ would keep that row. Ids also keep increasing after a removal, so a freed slot cannot be reused.
+>
+> Map each table name to the cells keyed by row id, and store the column count together with the next id.
+>
+> $\textit{ins}$ appends a row only when the table exists and the width matches. $\textit{rmv}$ drops that id. $\textit{sel}$ returns $\texttt{<null>}$ when the table, row, or column is missing. $\textit{exp}$ walks the surviving ids in order and joins each row with its id.
 
 <!-- thinking:end -->
 
-Create a hash table `tables` to store the mapping of table names to table data rows. Directly simulate the operations in the problem.
+Record the column count of each table, and store live rows in a hash map keyed by row id. Simulate $\textit{ins}$, $\textit{rmv}$, $\textit{sel}$, and $\textit{exp}$ directly.
 
-The time complexity of each operation is $O(1)$, and the space complexity is $O(n)$.
+Insertion, deletion, and selection are $O(1)$ on average. Exporting a table scans the rows that are still present. The space is proportional to the number of inserted cells.
 
 <!-- tabs:start -->
 
@@ -205,22 +209,41 @@ The time complexity of each operation is $O(1)$, and the space complexity is $O(
 ```python
 class SQL:
     def __init__(self, names: List[str], columns: List[int]):
-        self.tables = defaultdict(list)
+        self.cols = dict(zip(names, columns))
+        self.rows = {name: {} for name in names}
+        self.nxt = {name: 1 for name in names}
 
-    def insertRow(self, name: str, row: List[str]) -> None:
-        self.tables[name].append(row)
+    def ins(self, name: str, row: List[str]) -> bool:
+        if name not in self.cols or len(row) != self.cols[name]:
+            return False
+        i = self.nxt[name]
+        self.rows[name][i] = row
+        self.nxt[name] = i + 1
+        return True
 
-    def deleteRow(self, name: str, rowId: int) -> None:
-        pass
+    def rmv(self, name: str, rowId: int) -> None:
+        if name in self.rows:
+            self.rows[name].pop(rowId, None)
 
-    def selectCell(self, name: str, rowId: int, columnId: int) -> str:
-        return self.tables[name][rowId - 1][columnId - 1]
+    def sel(self, name: str, rowId: int, columnId: int) -> str:
+        row = self.rows.get(name, {}).get(rowId)
+        if row is None or columnId < 1 or columnId > len(row):
+            return '<null>'
+        return row[columnId - 1]
+
+    def exp(self, name: str) -> List[str]:
+        if name not in self.rows:
+            return []
+        return [
+            ','.join([str(i), *self.rows[name][i]]) for i in sorted(self.rows[name])
+        ]
 
 # Your SQL object will be instantiated and called as such:
 # obj = SQL(names, columns)
-# obj.insertRow(name,row)
-# obj.deleteRow(name,rowId)
-# param_3 = obj.selectCell(name,rowId,columnId)
+# param_1 = obj.ins(name,row)
+# obj.rmv(name,rowId)
+# param_3 = obj.sel(name,rowId,columnId)
+# param_4 = obj.exp(name)
 ```
 
 <!-- tabs:end -->

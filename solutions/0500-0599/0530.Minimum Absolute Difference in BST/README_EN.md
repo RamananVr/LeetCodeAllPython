@@ -101,4 +101,62 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Inorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The minimum pairwise difference on a general tree needs all pairs. In a BST, inorder is sorted, so the minimum lies between adjacent values. Recursing inorder and subtracting the predecessor is correct on a short tree.
+>
+> The tree can contain $10^4$ nodes. A left chain makes this walk recurse once per node and overflow the call stack.
+>
+> Each node only needs the previous value. The walk does not need a return value, as long as the left subtree is finished before the node and the right subtree comes after.
+>
+> An explicit stack performs that inorder walk. On entry it pushes an exit marker and the left child; on exit it updates the answer with the current value minus the predecessor and pushes the right child. The predecessor starts at $-\infty$, so the first node does not become the answer.
+
+<!-- thinking:end -->
+
+The minimum difference between any two node values of a binary search tree is the minimum gap between adjacent values in its increasing inorder sequence.
+
+An explicit stack walks the tree in that order, and $\textit{pre}$ stores the previous value, initially $-\infty$. On entry we push an exit marker and the left child. On exit we update the answer with the current value minus $\textit{pre}$, store the current value in $\textit{pre}$, and push the right child.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        pre = -inf
+        ans = inf
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.left, 0))
+                continue
+            ans = min(ans, node.val - pre)
+            pre = node.val
+            stk.append((node.right, 0))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

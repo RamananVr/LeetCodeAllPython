@@ -130,4 +130,49 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every partition is exponential. The string length can reach $10^5$, and each digit is from $1$ to $9$, so whenever the current digit is at most $k$ the first call always lands on the next index and the chain has depth $n$. A piece cannot grow once its value exceeds $k$, so the fewest pieces from index $i$ depend only on later indices. Let $f[i]$ be that count, with $f[n]=0$, and fill $i$ from $n-1$ down to $0$: accumulate the substring value, update from each end that stays within $k$ using $f[j+1]$, then add one. If $f[0]$ is still at least the sentinel, return $-1$.
+
+<!-- thinking:end -->
+
+We let $f[i]$ be the minimum number of partitions starting from index $i$ of string $s$, with $f[n] = 0$. The answer is $f[0]$.
+
+Scan $i$ from $n - 1$ down to $0$. Accumulate the integer value of the substring starting at $i$, and stop once it exceeds $k$. For each end $j$ whose value is at most $k$, update $f[i]$ with $f[j + 1]$, then add one to $f[i]$.
+
+If $f[0]$ is at least the preset upper bound, there is no good partition and we return $-1$. Otherwise we return $f[0]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumPartition(self, s: str, k: int) -> int:
+        n = len(s)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            v = 0
+            for j in range(i, n):
+                v = v * 10 + int(s[j])
+                if v > k:
+                    break
+                f[i] = min(f[i], f[j + 1])
+            f[i] += 1
+        return f[0] if f[0] < inf else -1
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

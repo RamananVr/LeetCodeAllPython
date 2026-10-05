@@ -88,19 +88,27 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Subarrays + Binary Indexed Tree
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> At most $k$ arbitrary swaps means we may replace the smallest entries of some subarray by the largest entries outside it. $n\le 1500$ lets us enumerate $[l,r]$ and swap up to $k$ inside-minima with outside-maxima.
+> A swap helps the chosen subarray only when it brings in a larger value from outside. With $n \le 1500$ every segment can be enumerated; sorting the inside and the outside of each one would add another $O(n \log n)$ and push the total to $O(n^3 \log n)$.
 >
-> For each segment take those two $k$-sets, sort, and apply the improving prefix. A heap can maintain them while the right end grows.
+> Once the inside is ordered ascending and the outside descending, the gains are monotone. If the $t$-th pair still has the smaller value inside, the first $t$ pairs are all worth swapping; once a pair does not increase the sum, later pairs do not either. How many swaps to take can be found by binary search.
 >
-> This directory has no implemented solution yet; the walkthrough stops at “enumerate a segment plus a top-$k$ exchange”.
+> After coordinate compression, two Fenwick trees store the counts and sums inside and outside the segment, so the smallest or largest values can be read by rank. With the left end fixed, extending the right end moves the current value from the outside tree into the inside tree.
 
 <!-- thinking:end -->
+
+Deduplicate and sort the values in $\textit{nums}$, and use that list as the compressed value domain. Two Fenwick trees keep, for the inside and the outside, how many times each value occurs and what those occurrences sum to. Either tree can report the $k$-th smallest value, or the sum of the smallest or largest several values, in $O(\log n)$.
+
+Enumerate the left end $l$. Every element starts outside the segment. The right end $r$ runs from $l$ to $n - 1$: move $\textit{nums}[r]$ from the outside tree into the inside tree and add it to the segment sum $s$.
+
+Let $c$ be the number of elements inside. At most $t = \min(k, c, n - c)$ swaps are possible. Binary search the largest $mid$ in $[1, t]$ such that the $mid$-th smallest inside value is strictly smaller than the $mid$-th largest outside value, and call it $best$. If $best > 0$, a candidate is $s$ plus the sum of the $best$ largest outside values, minus the sum of the $best$ smallest inside values. The answer is the maximum candidate over all segments.
+
+The time complexity is $O(n^2 \log^2 n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

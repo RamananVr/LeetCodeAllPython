@@ -168,4 +168,80 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit Stacks
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bob follows the unique path from $bob$ to the root $0$, and Alice walks from $0$ to a leaf. The answer is her maximum net income. With $n\le 10^5$, recursion along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. The path is unique, so the search does not need to return through every frame. A stack rooted at $0$ records each parent, and walking those parents writes Bob's arrival time into $ts$. Every other node keeps the sentinel $n$. Alice's score at node $i$ depends only on her time $t$ and $ts[i]$, so the second walk is a pre-order stack. A popped node adds half the gate, the whole gate, or nothing. A node whose only neighbor is its parent is a leaf, and that score updates the answer.
+
+<!-- thinking:end -->
+
+The tree has one path from $bob$ to $0$. An explicit stack walks the tree from node $0$ and records each node's parent. Walking from $bob$ along those parents then sets $ts$ to the step $t$ at which Bob arrives. Nodes that are not on this path keep the initial value $n$, meaning Bob never opens them.
+
+A second explicit stack moves Alice from $0$ toward a leaf. Each frame stores a node, its parent, the arrival time $t$, and the income $v$ collected before entering the node. After node $i$ is popped, the income has three cases:
+
+1. The time $t$ for Alice to reach node $i$ is the same as the time $ts[i]$ for Bob to reach node $i$. In this case, Alice and Bob open the door at node $i$ at the same time, and the score Alice gets is $v + \frac{amount[i]}{2}$.
+2. The time $t$ for Alice to reach node $i$ is less than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice opens the door at node $i$, and the score Alice gets is $v + amount[i]$.
+3. The time $t$ for Alice to reach node $i$ is greater than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice does not open the door at node $i$, and the score Alice gets is $v$, which remains unchanged.
+
+If $i$ has only one neighbor and that neighbor is its parent, then $i$ is a leaf and the current score updates the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def mostProfitablePath(
+        self, edges: List[List[int]], bob: int, amount: List[int]
+    ) -> int:
+        n = len(edges) + 1
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        parent = [-1] * n
+        seen = [False] * n
+        seen[0] = True
+        stk = [0]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if not seen[j]:
+                    seen[j] = True
+                    parent[j] = i
+                    stk.append(j)
+        ts = [n] * n
+        x, t = bob, 0
+        while x != -1:
+            ts[x] = t
+            x = parent[x]
+            t += 1
+        ans = -inf
+        walk = [(0, -1, 0, 0)]
+        while walk:
+            i, fa, t, v = walk.pop()
+            if t == ts[i]:
+                v += amount[i] // 2
+            elif t < ts[i]:
+                v += amount[i]
+            if len(g[i]) == 1 and g[i][0] == fa:
+                ans = max(ans, v)
+                continue
+            for j in g[i]:
+                if j != fa:
+                    walk.append((j, i, t + 1, v))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

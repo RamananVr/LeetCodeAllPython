@@ -104,4 +104,61 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each node is compared with the sum of every descendant. A fresh walk per node is quadratic. Post-order already has both subtree sums when a node is finished, so one traversal can test the node and pass the total upward.
+>
+> $n$ reaches $10^5$. Post-order enters the left child first, so a left chain overflows the call stack before the sums are done. Values reach $10^5$, and a subtree sum can reach $10^{10}$, which does not fit in a 32-bit integer.
+>
+> The descendant sum is known only after both children return. An explicit stack separates “expand the children” from “both children have returned,” and the completion step reads the two subtree sums. Those sums are 64-bit integers. When their total equals the node, the answer increases, and the node’s own value is added for its parent.
+>
+> Each node is pushed once. A missing child contributes $0$.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def equalToDescendants(self, root: Optional[TreeNode]) -> int:
+        ans = 0
+        stk = [(root, 0)]
+        sub = {}
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                if node.right is not None:
+                    stk.append((node.right, 0))
+                if node.left is not None:
+                    stk.append((node.left, 0))
+                continue
+            l = sub[id(node.left)] if node.left is not None else 0
+            r = sub[id(node.right)] if node.right is not None else 0
+            if l + r == node.val:
+                ans += 1
+            sub[id(node)] = node.val + l + r
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

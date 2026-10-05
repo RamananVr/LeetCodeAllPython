@@ -110,4 +110,66 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Inorder
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mode is the value with the highest frequency. Hashing every node fits $n \le 10^4$ in time, but ignores that the tree is a BST.
+>
+> Inorder visits the left child first. A chain of $10^4$ nodes recurses once per node and overflows the call stack.
+>
+> Inorder is non-decreasing, so equal values are adjacent. The predecessor, the current run length, and the best frequency are enough; the walk does not need a return value.
+>
+> An explicit stack performs the inorder walk. On entry it pushes an exit marker and the left child; on exit the run length updates the answer, and then the right child is pushed. A longer run replaces the answer, and a tie appends the value.
+
+<!-- thinking:end -->
+
+An inorder walk of a binary search tree is non-decreasing, so equal values are adjacent. An explicit stack carries that walk together with the previous value, the current run length, and the best frequency. On entry we push an exit marker and the left child. On exit the run grows by one when the value matches its predecessor and otherwise restarts at $1$. A longer run replaces the answer, a tie appends the value, and then the right child is pushed.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findMode(self, root: TreeNode) -> List[int]:
+        prev = None
+        mx = cnt = 0
+        ans = []
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.left, 0))
+                continue
+            cnt = cnt + 1 if prev == node.val else 1
+            if cnt > mx:
+                ans = [node.val]
+                mx = cnt
+            elif cnt == mx:
+                ans.append(node.val)
+            prev = node.val
+            stk.append((node.right, 0))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

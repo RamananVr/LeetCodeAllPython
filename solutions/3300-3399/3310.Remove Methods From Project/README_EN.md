@@ -150,4 +150,68 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit-Stack Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Methods reachable from $k$ along call edges are suspicious, yet we must not remove a node that a clean method still invokes. With $n \le 10^5$, linear traversals are enough.
+>
+> Recursing from $k$ into each callee reaches depth $n$ on a chain and overflows the call stack. Both the suspicious set and the later cleared set depend only on reachability, so neighbor order does not matter.
+>
+> Both passes therefore use an explicit stack. The first marks the directed closure of $k$, marking a node when it is pushed. The second starts from every still-unmarked node and, along undirected edges, clears any node a clean method can reach. Only nodes that remain marked are removed; the rest form the answer.
+
+<!-- thinking:end -->
+
+An explicit stack starts from $k$ and follows directed call edges, recording suspicious methods in $\textit{suspicious}$ and marking a node when it is pushed. We then scan from $0$ to $n - 1$. From each non-suspicious method, another explicit stack follows undirected edges and marks every reachable method as non-suspicious. Finally, we return all non-suspicious methods.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ represent the number of methods and the number of call relationships, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def remainingMethods(
+        self, n: int, k: int, invocations: List[List[int]]
+    ) -> List[int]:
+        f = [[] for _ in range(n)]
+        g = [[] for _ in range(n)]
+        for a, b in invocations:
+            f[a].append(b)
+            f[b].append(a)
+            g[a].append(b)
+        suspicious = [False] * n
+        suspicious[k] = True
+        stk = [k]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if not suspicious[j]:
+                    suspicious[j] = True
+                    stk.append(j)
+        vis = [False] * n
+        for i in range(n):
+            if suspicious[i] or vis[i]:
+                continue
+            vis[i] = True
+            stk = [i]
+            while stk:
+                u = stk.pop()
+                for j in f[u]:
+                    if not vis[j]:
+                        suspicious[j] = False
+                        vis[j] = True
+                        stk.append(j)
+        return [i for i in range(n) if not suspicious[i]]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

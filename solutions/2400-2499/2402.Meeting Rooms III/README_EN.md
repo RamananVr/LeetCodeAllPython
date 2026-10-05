@@ -92,7 +92,7 @@ Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 >
 > With $n\le 100$ and $m\le 10^5$, scanning every room for each meeting is $O(mn)$ and tight. Start times are distinct, so meetings must be assigned in time order.
 >
-> Idle rooms are chosen by the smallest index; busy rooms leave by earliest end time. Two heaps maintain these sets. After sorting meetings by start, return finished rooms to the idle heap; take the smallest idle index if any, otherwise delay the earliest-ending room by the meeting length.
+> Idle rooms are chosen by the smallest index; busy rooms leave by earliest end time. Two heaps maintain these sets. After sorting meetings by start, return finished rooms to the idle heap; take the smallest idle index if any, otherwise delay the earliest-ending room by the meeting length. A delayed end time is the previous end plus the duration, and a long chain exceeds $2^{31}$, so that timestamp is 64-bit.
 
 <!-- thinking:end -->
 

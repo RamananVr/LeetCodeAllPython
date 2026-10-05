@@ -112,4 +112,57 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zigzag must alternate left and right as it descends. Carrying the length of a path that last stepped left ($l$) or right ($r$), then recursing, is enough on a short tree: the left child continues with $r+1$ and a zero right length, and the right child is symmetric.
+>
+> The tree can contain $5\times 10^4$ nodes. A chain recurses once per node and overflows the call stack.
+>
+> The lengths at a node depend only on the parent's other direction, and the answer is a running maximum, so the walk does not need a return value.
+>
+> An explicit stack stores each node with the $l$ and $r$ of the step that reached it. After a node is popped, the maximum is updated and its children are pushed with those new lengths. The left child is pushed last, so it is visited first.
+
+<!-- thinking:end -->
+
+We walk the tree with an explicit stack. Each frame stores the current node and the zigzag lengths $l$ and $r$ of the step that arrived there.
+
+After a node is popped, $\max(l, r)$ updates the answer. A left child is pushed with left length $r+1$ and right length $0$; a right child is pushed with right length $l+1$ and left length $0$. The root starts with both lengths equal to $0$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def longestZigZag(self, root: TreeNode) -> int:
+        ans = 0
+        stk = [(root, 0, 0)]
+        while stk:
+            node, l, r = stk.pop()
+            if node is None:
+                continue
+            ans = max(ans, l, r)
+            stk.append((node.right, 0, l + 1))
+            stk.append((node.left, r + 1, 0))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -80,7 +80,7 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 > **Thinking**
 >
-> Each player takes $1$–$3$ piles. Plain recursion on $n\le 5\times 10^4$ recomputes the same suffixes many times.
+> Each player takes $1$– $3$ piles. Plain recursion on $n\le 5\times 10^4$ recomputes the same suffixes many times.
 >
 > The current player maximizes “stones taken this turn minus the opponent's best difference on the rest”. Let $dfs(i)$ be that value from index $i$, trying the three prefixes.
 >
@@ -124,6 +124,65 @@ class Solution:
             return ans
 
         res = dfs(0)
+        if res == 0:
+            return 'Tie'
+        return 'Alice' if res > 0 else 'Bob'
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each player takes $1$–$3$ piles. Trying every line of play is exponential, and $n\le 5\times 10^4$.
+>
+> The current player maximizes the stones taken this turn minus the opponent's best difference on the rest. That difference from index $i$ depends only on the three later starts $i+1$, $i+2$, and $i+3$.
+>
+> Searching the recurrence still calls the next index before it returns, so the chain has depth $n$ and overflows the stack.
+>
+> Those later values are known if we walk from the end. Let $f[i]$ be the best difference from $i$, fill $i$ from $n-1$ down to $0$, and read the sign of $f[0]$.
+
+<!-- thinking:end -->
+
+We define $f[i]$ as the maximum score difference that the current player can obtain when playing the game in the range $[i, n)$. If $f[0] > 0$, Alice wins; if $f[0] < 0$, Bob wins; otherwise the two players tie.
+
+$f[i]$ is calculated as follows:
+
+- If $i \geq n$, there are no stones left, so the value is $0$;
+- Otherwise, we enumerate the index $j$ of the last pile taken by the current player, where $i \le j < \min(i + 3, n)$. The current player takes every pile in $[i, j]$ and scores $\sum_{k=i}^{j} \textit{stoneValue}[k]$. The opponent's best difference on the rest is $f[j + 1]$, so the current difference is that sum minus $f[j + 1]$. The current player takes the maximum:
+
+$$
+f[i] = \max_{i \le j < \min(i+3, n)} \left\{\sum_{k=i}^{j} \textit{stoneValue}[k] - f[j + 1]\right\}
+$$
+
+We calculate $f$ from $i = n - 1$ down to $0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of piles of stones.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stoneGameIII(self, stoneValue: List[int]) -> str:
+        n = len(stoneValue)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            ans = -inf
+            s = 0
+            for j in range(i, min(i + 3, n)):
+                s += stoneValue[j]
+                ans = max(ans, s - f[j + 1])
+            f[i] = ans
+        res = f[0]
         if res == 0:
             return 'Tie'
         return 'Alice' if res > 0 else 'Bob'

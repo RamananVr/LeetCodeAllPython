@@ -136,4 +136,70 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At each node we may subtract $k$ or right-shift the coins once more. The shift applies to the unprocessed subtree, and coins are at most $10^4$, so about $14$ shifts wipe them out. With $n \le 10^5$, recursing from the root at the same shift is too deep: a chain makes the call depth $n$.
+>
+> The best score of node $i$ after $j$ shifts depends only on the children's scores after $j$ shifts and after $j + 1$ shifts. One choice takes $(coins[i] \gg j) - k$ and keeps shift $j$ below; the other takes $coins[i] \gg (j + 1)$ and uses shift $j + 1$, stopping once $j$ reaches $14$.
+>
+> An explicit stack of $(node, parent, state)$ runs the postorder. After the children are left, we fill this node's table for shifts $0$ through $14$. The answer is the root's score at shift $0$.
+
+<!-- thinking:end -->
+
+First, we construct a graph $g$ based on the edges given in the problem, where $g[i]$ represents all adjacent nodes of node $i$.
+
+$f[i][j]$ is the maximum score of the subtree at node $i$ after the coins have been shifted right by $j$ bits. An explicit stack walks from the root in postorder and fills a node only after its children are filled. For each shift $j$ with $0 \le j \le 14$:
+
+If we collect the current node's coins by the first method, its score is $(coins[i] >> j) - k$, plus $f[c][j]$ for every child $c$.
+
+If we collect them by the second method, its score is $coins[i] >> (j + 1)$. When $j < 14$, we also add $f[c][j + 1]$ for every child. Coins are at most $10^4$, so after $14$ shifts the remainder is $0$.
+
+$f[i][j]$ is the larger of the two methods. The answer is $f[0][0]$.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Where $M$ represents the maximum value of $coins[i]$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+        n = len(coins)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        f = [[0] * 15 for _ in range(n)]
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for c in g[i]:
+                    if c != fa:
+                        stk.append((c, i, 0))
+            else:
+                for j in range(15):
+                    a = (coins[i] >> j) - k
+                    b = coins[i] >> (j + 1)
+                    for c in g[i]:
+                        if c != fa:
+                            a += f[c][j]
+                            if j < 14:
+                                b += f[c][j + 1]
+                    f[i][j] = max(a, b)
+        return f[0][0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

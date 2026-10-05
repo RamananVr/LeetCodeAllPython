@@ -113,9 +113,9 @@ class Solution:
 
 > **Thinking**
 >
-> DFS may recurse on the order of $2.5\times 10^5$ cells. Connectivity does not depend on search order.
+> Solution 1 already floods from the border with an explicit stack. Connectivity does not depend on search order, so a queue can clear the same cells by layers.
 >
-> A queue of border land cells runs the same flood in BFS, clearing reachable cells and counting what remains.
+> Pop a cell and mark each neighboring $1$. After the borders are processed, the remaining $1$s are still the enclaves.
 
 <!-- thinking:end -->
 
@@ -207,6 +207,61 @@ class Solution:
             for i in range(m)
             for j in range(n)
         )
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An enclave is land that cannot reach the border. Testing every land cell separately repeats the same search. With $m,n\le 500$, the complement is the land connected to the border.
+>
+> Recursing along a border-connected snake of about a thousand cells exhausts the call stack before the flood finishes.
+>
+> The flood only needs to mark reachable cells as $0$. It does not wait on a return value.
+>
+> An explicit stack holds the cells still to clear. Pop a cell and push each neighboring $1$ after marking it. After all four borders are processed, the remaining $1$s are enclaves.
+
+<!-- thinking:end -->
+
+Flood from every land cell on the four borders with an explicit stack, marking reachable cells as $0$. The number of $1$s left is the answer.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
+        def flood(i: int, j: int):
+            stk = [(i, j)]
+            grid[i][j] = 0
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                        grid[x][y] = 0
+                        stk.append((x, y))
+
+        m, n = len(grid), len(grid[0])
+        dirs = (-1, 0, 1, 0, -1)
+        for j in range(n):
+            for i in (0, m - 1):
+                if grid[i][j]:
+                    flood(i, j)
+        for i in range(m):
+            for j in (0, n - 1):
+                if grid[i][j]:
+                    flood(i, j)
+        return sum(sum(row) for row in grid)
 ```
 
 <!-- tabs:end -->

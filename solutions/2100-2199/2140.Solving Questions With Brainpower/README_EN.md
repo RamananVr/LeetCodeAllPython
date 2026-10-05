@@ -128,11 +128,61 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 is already linear but uses a recursion stack. The same transition fills a table from the back.
+> The suffix optimum depends only on later indexes, so the same transition is a backward loop.
 >
 > Let $f[i]$ be the best score from $i$. Then $f[i]=\max(f[i+1],p+f[i+b+1])$, treating out-of-range as $0$.
 >
 > Compute from $n-1$ down to $0$ and return $f[0]$.
+
+<!-- thinking:end -->
+
+We define $f[i]$ as the maximum score that can be obtained starting from the $i$-th problem. Therefore, the answer is $f[0]$.
+
+Considering $f[i]$, let the score of the $i$-th problem be $p$, and the number of problems to skip be $b$. If we solve the $i$-th problem, then we need to solve the problem after skipping $b$ problems, thus $f[i] = p + f[i + b + 1]$. If we skip the $i$-th problem, then we start solving from the $(i + 1)$-th problem, thus $f[i] = f[i + 1]$. We take the maximum value of the two. The state transition equation is as follows:
+
+$$
+f[i] = \max(p + f[i + b + 1], f[i + 1])
+$$
+
+We calculate the values of $f$ from back to front, and finally return $f[0]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def mostPoints(self, questions: List[List[int]]) -> int:
+        n = len(questions)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            p, b = questions[i]
+            j = i + b + 1
+            f[i] = max(f[i + 1], p + (0 if j > n else f[j]))
+        return f[0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each question may be solved or skipped; solving it jumps $\textit{brainpower}$ questions ahead. Enumerating those paths is exponential, and $n\le 10^5$.
+>
+> The best score from index $i$ depends only on the later indexes $i+1$ and $i+b+1$. A memoized search still calls the next index before it returns, so the first chain has depth $n$ and overflows the stack.
+>
+> Later states are already known if we walk from the end. Let $f[i]=\max(f[i+1], p+f[i+b+1])$, and treat every index past $n$ as $0$.
+>
+> Fill $i$ from $n-1$ down to $0$ and return $f[0]$.
 
 <!-- thinking:end -->
 

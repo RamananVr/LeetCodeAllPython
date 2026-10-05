@@ -164,7 +164,7 @@ class Solution:
 
 > **Thinking**
 >
-> To avoid recursion depth, replace the DFS with BFS: enqueue an unseen node, flood its component, and increment. Time stays $O(n+m)$.
+> Solution 1 expands each component with an explicit stack. A queue expands the same component in breadth-first order, and each new search still increments the count. Time stays $O(n + m)$.
 
 <!-- thinking:end -->
 
@@ -201,6 +201,56 @@ class Solution:
                         vis.add(b)
                         q.append(b)
             ans += 1
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of connected components is the number of searches that start at an unvisited node and cover its component. With $n \le 2000$, one $O(n + m)$ traversal is enough. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. Each new component is therefore expanded on a stack: a node is marked when it is pushed, and unvisited neighbors are pushed after it is popped. Marking on push keeps every node out of the stack more than once. Each new start increments the answer.
+
+<!-- thinking:end -->
+
+Build an adjacency list $g$ from the given edges. $g[i]$ holds every neighbor of node $i$.
+
+Scan the nodes. When node $i$ is still unvisited, increment the answer, push $i$, and mark it visited. While the stack is not empty, pop node $u$ and push every neighbor that has not been visited, marking it at the same time. That search covers the component of $i$. Continue with the next unvisited node until every node has been seen. The order of the neighbors does not change the number of components.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = [False] * n
+        ans = 0
+        for i in range(n):
+            if vis[i]:
+                continue
+            ans += 1
+            stk = [i]
+            vis[i] = True
+            while stk:
+                u = stk.pop()
+                for v in g[u]:
+                    if not vis[v]:
+                        vis[v] = True
+                        stk.append(v)
         return ans
 ```
 

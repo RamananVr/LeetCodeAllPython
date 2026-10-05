@@ -80,7 +80,7 @@ tags:
 >
 > We must add one edge between two trees to minimize the new diameter. With $n,m\le 10^5$, trying every pair of endpoints and recomputing the diameter is $nm$ work and is not viable.
 >
-> The new diameter is one of two kinds: it stays inside an original tree, hence $\max(d_1,d_2)$; or it crosses the new edge, in which case the optimum joins points near the two centers and has length equal to the sum of the two radii plus one. It remains only to compute each diameter. From an arbitrary node walk to a farthest node $a$, then from $a$ to a farthest node $b$; the $a$–$b$ path is a diameter. Two DFS passes per tree are linear.
+> The new diameter is one of two kinds: it stays inside an original tree, hence $\max(d_1,d_2)$; or it crosses the new edge, in which case the optimum joins points near the two centers and has length equal to the sum of the two radii plus one. It remains only to compute each diameter. From an arbitrary node walk to a farthest node $a$, then from $a$ to a farthest node $b$; the $a$– $b$ path is a diameter. Two DFS passes per tree are linear.
 
 <!-- thinking:end -->
 
@@ -125,6 +125,75 @@ class Solution:
         ans = a = 0
         dfs(0, -1, 0)
         dfs(a, -1, 0)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Two Explicit-Stack Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must add one edge between two trees to minimize the new diameter. With $n,m\le 10^5$, trying every pair of endpoints and recomputing the diameter is $nm$ work and is not viable. Recursing from an arbitrary node to a farthest node is too deep as well: a chain makes the call depth $n$.
+>
+> The new diameter is one of two kinds: it stays inside an original tree, hence $\max(d_1,d_2)$; or it crosses the new edge, in which case the optimum joins points near the two centers and has length equal to the sum of the two radii plus one. It remains only to compute each diameter.
+>
+> An explicit stack walks from an arbitrary node to a farthest node $a$, then from $a$ to a farthest node $b$. The $a$–$b$ path is a diameter. Two passes per tree are linear.
+
+<!-- thinking:end -->
+
+We denote $d_1$ and $d_2$ as the diameters of the two trees, respectively. Then, the diameter of the merged tree can be one of the following two cases:
+
+1. The diameter of the merged tree is the diameter of one of the original trees, i.e., $\max(d_1, d_2)$;
+2. The diameter of the merged tree passes through both of the original trees. We calculate the radii of the original two trees as $r_1 = \lceil \frac{d_1}{2} \rceil$ and $r_2 = \lceil \frac{d_2}{2} \rceil$, respectively. Then, the diameter of the merged tree is $r_1 + r_2 + 1$.
+
+We take the maximum of these two cases.
+
+When calculating the diameter of a tree, we use two explicit-stack passes. First, we arbitrarily select a node and walk from this node to find the farthest node from it, denoted as node $a$. Then, we walk from node $a$ to find the farthest node from node $a$, denoted as node $b$. It can be proven that the path between node $a$ and node $b$ is the diameter of the tree.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes in the two trees, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumDiameterAfterMerge(
+        self, edges1: List[List[int]], edges2: List[List[int]]
+    ) -> int:
+        d1 = self.treeDiameter(edges1)
+        d2 = self.treeDiameter(edges2)
+        return max(d1, d2, (d1 + 1) // 2 + (d2 + 1) // 2 + 1)
+
+    def treeDiameter(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+
+        def farthest(start: int) -> tuple:
+            ans, node = 0, start
+            stk = [(start, -1, 0)]
+            while stk:
+                i, fa, t = stk.pop()
+                if ans < t:
+                    ans = t
+                    node = i
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, t + 1))
+            return ans, node
+
+        _, a = farthest(0)
+        ans, _ = farthest(a)
         return ans
 ```
 

@@ -127,4 +127,53 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The path from $1$ to a deepest leaf has $d$ edges. Each edge is $1$ or $2$, and the cost is odd iff an odd number of them are $1$. Other edges are free. The number of odd-sized subsets of $d$ elements is $2^{d-1}$ ($0$ when $d = 0$).
+>
+> With $n \le 10^5$, recursing from the root into each child reaches depth $n$ on a chain and overflows the call stack. That depth is only the number of edges from the root, so sibling order does not change the maximum.
+>
+> An explicit stack of $(node, parent, depth)$ therefore starts at node $1$ with depth $0$. Popping a frame updates the maximum depth, and every neighbor other than the parent is pushed with the depth increased by one. A fast power then evaluates $2^{d-1}$.
+
+<!-- thinking:end -->
+
+First, we build an adjacency list $g$ from the edges, where $g[u]$ contains all neighbors of node $u$.
+
+An explicit stack then computes the depth $d$ of the tree. Each frame is $(node, parent, depth)$, starting from node $1$ at depth $0$. Popping a frame updates $d$ with the current depth, and every neighbor other than the parent is pushed with the depth increased by one. The answer is the number of ways to choose an odd number of elements from $d$. According to a well-known combinatorial identity, that number is $2^{d-1}$. Therefore, we can compute the answer using fast exponentiation.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def assignEdgeWeights(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n + 1)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        stk = [(1, 0, 0)]
+        d = 0
+        while stk:
+            i, fa, dep = stk.pop()
+            d = max(d, dep)
+            for j in g[i]:
+                if j != fa:
+                    stk.append((j, i, dep + 1))
+        return pow(2, d - 1, 10**9 + 7)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

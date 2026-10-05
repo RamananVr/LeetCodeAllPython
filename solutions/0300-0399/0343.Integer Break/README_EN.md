@@ -97,7 +97,7 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 1: Mathematics
+### Solution 2: Mathematics
 
 <!-- thinking:start -->
 

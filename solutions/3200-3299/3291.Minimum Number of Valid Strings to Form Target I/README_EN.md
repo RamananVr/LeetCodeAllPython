@@ -164,4 +164,63 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Trie + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every word at every index repeats prefixes. $|target|$ can reach $5\times 10^3$, and whenever $\textit{target}[i]$ is the first letter of some word the first call always lands on $i+1$, so the chain has depth $n$. A piece must be a prefix of some word, so the fewest pieces from $i$ depend only on later indices. Store the words in a trie, set $f[n]=0$, and fill $i$ from $n-1$ down to $0$: walk $\textit{target}$ down the trie and update $f[i]$ with $1+f[j+1]$ at every existing node. If $f[0]$ is still at least the sentinel, return $-1$.
+
+<!-- thinking:end -->
+
+We store every string in $\textit{words}$ in a trie. Let $f[i]$ be the minimum number of strings needed starting from index $i$ of $\textit{target}$, with $f[n] = 0$. The answer is $f[0]$.
+
+Scan $i$ from $n - 1$ down to $0$. Starting from the trie root, walk down $\textit{target}[i..]$. Each time the walk enters an existing node, that prefix is a valid string, and we update $f[i]$ with $1 + f[j + 1]$.
+
+If $f[0]$ is at least the preset upper bound, $\textit{target}$ cannot be formed and we return $-1$. Otherwise we return $f[0]$.
+
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of $\textit{target}$, and $L$ is the total length of all valid strings.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children: List[Optional[Trie]] = [None] * 26
+
+    def insert(self, w: str):
+        node = self
+        for i in map(lambda c: ord(c) - 97, w):
+            if node.children[i] is None:
+                node.children[i] = Trie()
+            node = node.children[i]
+
+class Solution:
+    def minValidStrings(self, words: List[str], target: str) -> int:
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        n = len(target)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            node = trie
+            for j in range(i, n):
+                k = ord(target[j]) - 97
+                if node.children[k] is None:
+                    break
+                node = node.children[k]
+                f[i] = min(f[i], 1 + f[j + 1])
+        return f[0] if f[0] < inf else -1
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

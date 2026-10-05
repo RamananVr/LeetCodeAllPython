@@ -127,4 +127,65 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Enumeration + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair is counted at hub $a$ when the two paths share no edge and both distances are divisible by $\textit{signalSpeed}$. With $n \le 1000$, valid nodes that lie in different branches of a fixed hub pair with each other. The number of nodes in one branch whose distance from $a$ is divisible does not depend on visit order, so one walk is enough. Recursing along a chain uses a call depth equal to the node count and overflows Python at $n = 1000$. The stack therefore stores $(node, parent, distance)$: a divisible distance is counted on pop, and the other neighbors are pushed with the edge weight added. For each neighbor of hub $a$ this yields a count $t$; we add $s \cdot t$ and then fold $t$ into the running total $s$.
+
+<!-- thinking:end -->
+
+Build an adjacency list $g$ from the given edges. $g[a]$ stores the neighbors of node $a$ together with the edge weights.
+
+Enumerate each node $a$ as the hub. For every neighbor $b$, an explicit stack counts how many nodes in $b$'s branch have a distance to $a$ divisible by $\textit{signalSpeed}$. Each frame is $(node, parent, distance)$. The walk starts at $b$ with the weight of edge $(a, b)$. When a frame is popped, a divisible distance increments the count, and every neighbor other than the parent is pushed with that edge weight added to the distance. Let $s$ be the number of valid nodes already found in earlier branches. Those nodes each pair with the $t$ nodes of the current branch, so the answer increases by $s \times t$, and then $t$ is added to $s$. The order of the branches does not change the number of pairs.
+
+After every hub has been enumerated, the array holds the number of connectable pairs at each node.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPairsOfConnectableServers(
+        self, edges: List[List[int]], signalSpeed: int
+    ) -> List[int]:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b, w in edges:
+            g[a].append((b, w))
+            g[b].append((a, w))
+
+        def count(start: int, fa: int, dist: int) -> int:
+            cnt = 0
+            stk = [(start, fa, dist)]
+            while stk:
+                a, parent, ws = stk.pop()
+                if ws % signalSpeed == 0:
+                    cnt += 1
+                for b, w in g[a]:
+                    if b != parent:
+                        stk.append((b, a, ws + w))
+            return cnt
+
+        ans = [0] * n
+        for a in range(n):
+            s = 0
+            for b, w in g[a]:
+                t = count(b, a, w)
+                ans[a] += s * t
+                s += t
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -120,4 +120,41 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every split is exponential. The array length reaches $1000$, and the next piece always starts strictly to the right, so a search from the left has depth $n$. A piece is valid exactly when the GCD of its endpoints is greater than $1$, so the answer from index $i$ depends only on later answers. Let $f[i]$ be the fewest pieces starting at $i$, with $f[n]=0$, and scan right endpoints from the end of the array, updating with $1+f[j+1]$ whenever $\gcd(nums[i], nums[j])>1$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the minimum number of pieces starting at index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, enumerate the right endpoint $j$ ($i \leq j < n$). If $\gcd(nums[i], nums[j]) > 1$, the range $[i, j]$ is one valid piece, and $f[i]$ is updated with $1 + f[j + 1]$. If $f[0]$ is still infinite, no valid split exists and the answer is $-1$; otherwise the answer is $f[0]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validSubarraySplit(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [inf] * (n + 1)
+        f[n] = 0
+        for i in range(n - 1, -1, -1):
+            for j in range(i, n):
+                if gcd(nums[i], nums[j]) > 1:
+                    f[i] = min(f[i], 1 + f[j + 1])
+        return f[0] if f[0] < inf else -1
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

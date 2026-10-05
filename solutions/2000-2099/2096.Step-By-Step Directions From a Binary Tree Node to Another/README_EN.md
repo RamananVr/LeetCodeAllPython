@@ -204,4 +204,171 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Explicit-Stack Lowest Common Ancestor
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest path goes through the lowest common ancestor. Every step above that ancestor is `U`, and the descent from the ancestor to the destination is `L` or `R`. Three linear walks fit $n \le 10^5$.
+>
+> Both the ancestor search and the direction search enter the left child first. A left chain can be $n$ nodes long, so recursion overflows before the direction string is finished.
+>
+> The ancestor is known only after both subtrees return: the current node is the ancestor when both sides found a target, otherwise the non-empty side is passed upward. An explicit stack separates “expand both children” from “both children have returned,” and the direction search pushes a backtrack marker before the left child. A failed left subtree rewrites the last step to `R` and searches the right child, stopping when the target is found.
+>
+> The length of the start path is the number of `U`s, concatenated with the path from the ancestor to the destination.
+
+<!-- thinking:end -->
+
+An explicit stack finds the lowest common ancestor of $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{node}$. State $0$ expands the two children, and state $1$ decides the ancestor after both sides return: the current node when both sides are non-empty, otherwise the non-empty side. The same stack then walks from $\textit{node}$, recording `L` to the left and rewriting that step to `R` when the left subtree misses the target. The number of steps from $\textit{startValue}$ back to $\textit{node}$ is the number of `U`s, followed by the direction string from $\textit{node}$ to $\textit{destValue}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def getDirections(
+        self, root: Optional[TreeNode], startValue: int, destValue: int
+    ) -> str:
+        def lca(root: Optional[TreeNode], p: int, q: int):
+            ret = {}
+            stk = [(root, 0)]
+            while stk:
+                node, state = stk.pop()
+                if state == 0:
+                    if node is None:
+                        continue
+                    if node.val in (p, q):
+                        ret[id(node)] = node
+                        continue
+                    stk.append((node, 1))
+                    stk.append((node.right, 0))
+                    stk.append((node.left, 0))
+                else:
+                    left = ret.get(id(node.left)) if node.left is not None else None
+                    right = ret.get(id(node.right)) if node.right is not None else None
+                    if left and right:
+                        ret[id(node)] = node
+                    else:
+                        ret[id(node)] = left or right
+            return ret.get(id(root))
+
+        def dfs(start: Optional[TreeNode], x: int, path: List[str]) -> bool:
+            stk = [(start, 0)]
+            while stk:
+                node, state = stk.pop()
+                if state == 0:
+                    if node is None:
+                        continue
+                    if node.val == x:
+                        return True
+                    path.append('L')
+                    stk.append((node, 1))
+                    stk.append((node.left, 0))
+                elif state == 1:
+                    path[-1] = 'R'
+                    stk.append((node, 2))
+                    stk.append((node.right, 0))
+                else:
+                    path.pop()
+            return False
+
+        node = lca(root, startValue, destValue)
+        path_to_start: List[str] = []
+        path_to_dest: List[str] = []
+        dfs(node, startValue, path_to_start)
+        dfs(node, destValue, path_to_dest)
+        return 'U' * len(path_to_start) + ''.join(path_to_dest)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit-Stack Root Paths
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 still runs a separate ancestor search and then walks twice from that ancestor. Paths from the root share a prefix, and stripping it is the same as climbing back to the ancestor and then descending, so the dedicated ancestor search can be dropped.
+>
+> The two direction searches can still follow a chain of length $n$, so they use the same explicit stack: push a backtrack marker, then the left child, and rewrite the last step to `R` when the left subtree fails.
+>
+> After the common prefix of length $i$ is removed, the answer is $(|\textit{start}|-i)$ `U`s plus the destination suffix.
+
+<!-- thinking:end -->
+
+An explicit stack walks from $\textit{root}$ to $\textit{startValue}$ and to $\textit{destValue}$, producing $\textit{pathToStart}$ and $\textit{pathToDest}$. A failed left subtree rewrites the last step to `R` before the right child is searched, so the strings match the previous depth-first order. After the longest common prefix is removed, the remaining length of $\textit{pathToStart}$ is the number of `U`s, and the remaining part of $\textit{pathToDest}$ is the downward path. Concatenate the two pieces.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def getDirections(
+        self, root: Optional[TreeNode], startValue: int, destValue: int
+    ) -> str:
+        def dfs(start: Optional[TreeNode], x: int, path: List[str]) -> bool:
+            stk = [(start, 0)]
+            while stk:
+                node, state = stk.pop()
+                if state == 0:
+                    if node is None:
+                        continue
+                    if node.val == x:
+                        return True
+                    path.append('L')
+                    stk.append((node, 1))
+                    stk.append((node.left, 0))
+                elif state == 1:
+                    path[-1] = 'R'
+                    stk.append((node, 2))
+                    stk.append((node.right, 0))
+                else:
+                    path.pop()
+            return False
+
+        path_to_start: List[str] = []
+        path_to_dest: List[str] = []
+        dfs(root, startValue, path_to_start)
+        dfs(root, destValue, path_to_dest)
+        i = 0
+        while (
+            i < len(path_to_start)
+            and i < len(path_to_dest)
+            and path_to_start[i] == path_to_dest[i]
+        ):
+            i += 1
+        return 'U' * (len(path_to_start) - i) + ''.join(path_to_dest[i:])
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

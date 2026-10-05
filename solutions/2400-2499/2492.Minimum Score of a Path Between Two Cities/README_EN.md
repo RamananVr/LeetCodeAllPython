@@ -76,7 +76,7 @@ It can be shown that no other path has less score.
 
 > **Thinking**
 >
-> Edges may be reused and $1$ is connected to $n$. A path's score is its lightest edge, and any $1$–$n$ walk can reach every edge of that component, so the answer is the minimum weight in the component of $1$.
+> Edges may be reused and $1$ is connected to $n$. A path's score is its lightest edge, and any $1$– $n$ walk can reach every edge of that component, so the answer is the minimum weight in the component of $1$.
 >
 > DFS from $1$, updating the answer on every edge.
 
@@ -125,7 +125,7 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 already finds that minimum. The same visit order can be a BFS queue; only the traversal changes.
+> Method 1 already finds that minimum with an explicit stack. The same visited set also works with a queue and expands the component layer by layer.
 
 <!-- thinking:end -->
 
@@ -156,6 +156,56 @@ class Solution:
                     if not vis[b]:
                         vis[b] = True
                         q.append(b)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges may be reused and $1$ is connected to $n$. A path's score is its lightest edge, and any $1$–$n$ walk can reach every edge of that component, so the answer is the minimum weight in the component of $1$. With $n \le 10^5$, recursing through that component is too deep: a chain makes the call depth $n$.
+>
+> An explicit stack starts at $1$. When a city is popped and still unvisited, every incident edge updates the minimum and unvisited neighbors are pushed.
+
+<!-- thinking:end -->
+
+According to the problem description, each edge can be traversed multiple times, and it is guaranteed that node $1$ and node $n$ are in the same connected component. Therefore, the problem is actually asking for the minimum edge weight in the connected component containing node $1$.
+
+We first build an undirected graph $g$ from $\textit{roads}$, then walk from node $1$ with an explicit stack. When a node is popped, we update the answer with $\textit{ans} = \min(\textit{ans}, w)$ for each of its edges and push its unvisited neighbors.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minScore(self, n: int, roads: List[List[int]]) -> int:
+        g = [[] for _ in range(n + 1)]
+        for a, b, w in roads:
+            g[a].append((b, w))
+            g[b].append((a, w))
+        ans = inf
+        vis = [False] * (n + 1)
+        stk = [1]
+        while stk:
+            a = stk.pop()
+            if vis[a]:
+                continue
+            vis[a] = True
+            for b, w in g[a]:
+                ans = min(ans, w)
+                if not vis[b]:
+                    stk.append(b)
         return ans
 ```
 

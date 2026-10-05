@@ -113,4 +113,57 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path costs the sum of node prices minus the smaller endpoint, and prices are positive, so that is the path sum minus one endpoint. With $n \le 10^5$, enumerating paths is $O(n^2)$, and recursing from the root for the two downward chains is too deep: a chain makes the call depth $n$.
+>
+> Each node keeps two values: the longest downward chain $a$ that still includes the far endpoint, and the longest chain $b$ after that endpoint is dropped. The best path through the node joins one of those chains with a child's chain of the other kind, $a$ with $d$ or $b$ with $c$.
+>
+> An explicit stack of $(node, parent, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we update the answer from the children's two chains and store this node's $a$ and $b$.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        down = [(0, 0)] * n
+        ans = 0
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                a, b = price[i], 0
+                for j in g[i]:
+                    if j != fa:
+                        c, d = down[j]
+                        ans = max(ans, a + d, b + c)
+                        a = max(a, price[i] + c)
+                        b = max(b, price[i] + d)
+                down[i] = (a, b)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

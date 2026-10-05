@@ -115,7 +115,7 @@ class Solution:
 
 > **Thinking**
 >
-> A deep recursion may overflow on a long path. BFS with a queue and the same visited set expands until the destination appears or the queue empties.
+> Method 1 expands with an explicit stack in depth-first order. A queue expands level by level with the same visited marks: the source is enqueued, and a dequeued vertex that is the destination succeeds. Unvisited neighbors are enqueued. An empty queue means the destination is unreachable.
 
 <!-- thinking:end -->
 
@@ -167,7 +167,7 @@ class Solution:
 
 > **Thinking**
 >
-> When the path itself is unused, union-find merges every edge and compares the two roots, avoiding recursion entirely.
+> When the path itself is unused, union-find merges every edge and compares the two roots. There is no walk over the graph.
 
 <!-- thinking:end -->
 
@@ -215,6 +215,59 @@ class Solution:
         for u, v in edges:
             uf.union(u, v)
         return uf.find(source) == uf.find(destination)
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need connectivity between two vertices. With $n \le 2 \times 10^5$, an adjacency-list walk with a visited mark reports success on reaching the destination, in linear time.
+>
+> Recursing from the source into each neighbor reaches depth $n$ on a chain and overflows the call stack. Connectivity does not depend on the order of neighbors.
+>
+> An explicit stack therefore returns immediately when the source is the destination. Otherwise a vertex is marked when it is pushed. After a pop, a neighbor that is the destination succeeds, and only unmarked neighbors are pushed. An empty stack means the destination is unreachable.
+
+<!-- thinking:end -->
+
+We first convert $\textit{edges}$ into an adjacency list $g$. If $\textit{source}$ is $\textit{destination}$, we return $\textit{true}$ immediately. Otherwise an explicit stack starts at the source: a vertex is recorded in $\textit{vis}$ when it is pushed, a neighbor that is the destination returns $\textit{true}$, and only unmarked neighbors are pushed. An empty stack means there is no path.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validPath(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
+        if source == destination:
+            return True
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        vis = [False] * n
+        vis[source] = True
+        stk = [source]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if j == destination:
+                    return True
+                if not vis[j]:
+                    vis[j] = True
+                    stk.append(j)
+        return False
 ```
 
 <!-- tabs:end -->

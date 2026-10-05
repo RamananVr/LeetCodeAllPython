@@ -150,4 +150,74 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree with fewer than three nodes places $1$ coin; otherwise it places the maximum product of three costs, or $0$ when that product is negative. The maximum is either the three largest costs or the two smallest costs times the largest. A subtree may contain $n$ nodes, so the full list cannot be sent upward, and each subtree keeps only the two smallest and three largest costs. Merging those lists by recursion along a chain uses a call depth equal to the node count and overflows Python once $n$ reaches $1000$, while $n$ can be $2 \times 10^4$. The stack stores $(node, parent, state)$: state $0$ pushes the exit marker and then the children, and state $1$ merges, sorts, and trims the child lists before writing the current answer.
+
+<!-- thinking:end -->
+
+There are two cases for the number of coins placed at node $a$:
+
+- If the subtree of $a$ has fewer than $3$ nodes, place $1$ coin.
+- If the subtree has at least $3$ nodes, take $3$ different nodes, place their maximum cost product at $a$, and place $0$ when that product is negative.
+
+When every cost is positive, the product uses the $3$ largest costs. When negatives appear, the two smallest costs times the largest cost must also be considered. Each subtree therefore keeps only its $2$ smallest costs and its $3$ largest costs.
+
+Build the graph from $edges$ and set every answer to $1$. An explicit stack processes nodes in postorder. Each frame is $(a, fa, state)$. When $state = 0$, push $(a, fa, 1)$ and then push every neighbor other than the parent with state $0$. When $state = 1$, merge $cost[a]$ with the already trimmed lists of the children and sort the result into $res$ of length $m$:
+
+- If $m \ge 3$, the number of coins at $a$ is $\max(0, res[m - 1] \times res[m - 2] \times res[m - 3], res[0] \times res[1] \times res[m - 1])$; otherwise it stays $1$.
+- If $m > 5$, keep only the first $2$ elements and the last $3$ elements of $res$ for the parent to merge.
+
+The merged list is sorted again, so the order in which children are pushed does not change the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
+        n = len(cost)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = [1] * n
+        sub = [None] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                res = [cost[a]]
+                for b in g[a]:
+                    if b != fa:
+                        res.extend(sub[b])
+                res.sort()
+                if len(res) >= 3:
+                    ans[a] = max(
+                        res[-3] * res[-2] * res[-1], res[0] * res[1] * res[-1], 0
+                    )
+                if len(res) > 5:
+                    res = res[:2] + res[-3:]
+                sub[a] = res
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

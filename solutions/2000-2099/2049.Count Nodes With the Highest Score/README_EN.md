@@ -138,4 +138,69 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Removing a node scores the product of the remaining component sizes. $n$ can reach $10^5$. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> The product needs every child's subtree size, and the component above the node has size $n$ minus that subtree.
+>
+> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, multiply the child subtree sizes, then multiply by $n-cnt$ when a component remains above, and track the maximum score and how many nodes reach it.
+
+<!-- thinking:end -->
+
+First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $ans$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
+
+An explicit stack walks the tree from root $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $cnt = 1$ and $score = 1$. Multiply each child's subtree size into $score$ and add it to $cnt$. If $n - cnt > 0$, also multiply $n - cnt$ into $score$. If $score$ is greater than $mx$, set $mx$ to $score$ and $ans$ to $1$; if they are equal, add $1$ to $ans$. Store $cnt$ as the current node's subtree size.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countHighestScoreNodes(self, parents: List[int]) -> int:
+        n = len(parents)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parents[i]].append(i)
+        ans = mx = 0
+        sz = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                cnt = score = 1
+                for j in g[i]:
+                    if j != fa:
+                        t = sz[j]
+                        score *= t
+                        cnt += t
+                if n - cnt:
+                    score *= n - cnt
+                if mx < score:
+                    mx = score
+                    ans = 1
+                elif mx == score:
+                    ans += 1
+                sz[i] = cnt
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

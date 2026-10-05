@@ -122,11 +122,11 @@ class Solution:
 
 > **Thinking**
 >
-> The recursion becomes interval DP. $f[i][j]$ has the same meaning and needs shorter intervals first: fill decreasing $i$ and increasing $j$. The answer is $f[0][n-1]$.
+> Solution 1 already fills this interval with decreasing $i$ and increasing $j$. The $f[i][j]$ below is that same table.
 
 <!-- thinking:end -->
 
-We can convert the memoization search in Solution 1 into dynamic programming. We define $f[i][j]$ as the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. Therefore, the answer is $f[0][n - 1]$.
+Solution 1 already fills this transition with decreasing $i$ and increasing $j$. Define $f[i][j]$ as the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. Therefore, the answer is $f[0][n - 1]$.
 
 The state transition equation is as follows:
 
@@ -137,6 +137,44 @@ $$
 When calculating $f[i][j]$, we need to ensure that $f[i + 1][j]$ and $f[i][j - 1]$ have been calculated. Therefore, we need to enumerate $i$ in descending order and $j$ in ascending order.
 
 Finally, the answer is $f[0][n - 1]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of stones.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def stoneGameVII(self, stones: List[int]) -> int:
+        s = list(accumulate(stones, initial=0))
+        n = len(stones)
+        f = [[0] * n for _ in range(n)]
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                a = s[j + 1] - s[i + 1] - f[i + 1][j]
+                b = s[j] - s[i] - f[i][j - 1]
+                f[i][j] = max(a, b)
+        return f[0][-1]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating both players' choices is exponential. There can be $1000$ stones, and the branch that removes the left stone first always advances the left endpoint, so the search has depth $n$. The current player's advantage on $[i,j]$ depends only on shorter intervals. Let $f[i][j]$ store that difference, with a single stone worth $0$, and fill decreasing $i$ and increasing $j$: removing the left end scores $s[j+1]-s[i+1]-f[i+1][j]$, removing the right end scores $s[j]-s[i]-f[i][j-1]$, and the state keeps the larger one.
+
+<!-- thinking:end -->
+
+Precompute the prefix sums $s$, where $s[i]$ is the sum of the first $i$ stones. Let $f[i][j]$ be the score difference between the current player and the opponent on $stones[i], stones[i + 1], \dots, stones[j]$. A single stone has difference $0$. For $i$ from $n-2$ down to $0$, and for each $i$ with $j$ from $i+1$ to $n-1$, the shorter states $f[i+1][j]$ and $f[i][j-1]$ are already known. Removing the left stone scores $s[j+1]-s[i+1]-f[i+1][j]$, and removing the right stone scores $s[j]-s[i]-f[i][j-1]$. $f[i][j]$ is the larger of the two. The answer is $f[0][n-1]$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of stones.
 

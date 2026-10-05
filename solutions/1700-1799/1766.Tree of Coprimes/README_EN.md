@@ -133,4 +133,75 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Preprocessing + Enumeration + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each node we want the closest ancestor whose value is coprime with it. With $n\le 10^5$ and values in $[1,50]$, one ancestor stack per value is enough. Recursing into each child from the root is too deep: a chain makes the call depth $n$.
+>
+> Precompute coprime pairs in $1..50$. On a visit, look at the stack top of every value coprime to $nums[i]$ and take the deepest.
+>
+> The explicit stack stores $(node, parent, depth, next child)$. Before walking to a child we push $(i,\textit{depth})$ onto the stack of $nums[i]$ and pop it after that child is finished, so the top stays the nearest ancestor.
+
+<!-- thinking:end -->
+
+Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
+
+Next, an explicit stack walks the tree in preorder from the root. For each node $i$, enumerate the values coprime to $nums[i]$ and take the ancestor $t$ of maximum depth among those stack tops; that is the nearest coprime ancestor. The stack array $stks$ has length $51$, and $stks[v]$ records nodes of value $v$ on the current root path together with their depths. Before walking to a child, push $(i,\textit{depth})$ onto $stks[nums[i]]$, and pop it after that child is finished.
+
+The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$. Where $n$ is the number of nodes, and $M$ is the maximum value of $nums[i]$, in this problem $M = 50$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        f = [[] for _ in range(51)]
+        for i in range(1, 51):
+            for j in range(1, 51):
+                if gcd(i, j) == 1:
+                    f[i].append(j)
+        stks = [[] for _ in range(51)]
+        ans = [-1] * n
+        stk = [(0, -1, 0, 0)]
+        while stk:
+            i, fa, depth, k = stk[-1]
+            if k == 0:
+                t = mx = -1
+                for v in f[nums[i]]:
+                    cur = stks[v]
+                    if cur and cur[-1][1] > mx:
+                        t, mx = cur[-1]
+                ans[i] = t
+            else:
+                jprev = g[i][k - 1]
+                if jprev != fa:
+                    stks[nums[i]].pop()
+            while k < len(g[i]) and g[i][k] == fa:
+                k += 1
+            if k == len(g[i]):
+                stk.pop()
+                continue
+            j = g[i][k]
+            stk[-1] = (i, fa, depth, k + 1)
+            stks[nums[i]].append((i, depth))
+            stk.append((j, i, depth + 1, 0))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

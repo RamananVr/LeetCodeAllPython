@@ -115,7 +115,7 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 recurses. The same adjacency list can be walked with BFS from $0$, adding the edge cost when a new neighbor is first seen.
+> Method 1 already walks the same adjacency list with an explicit stack. BFS leaves $0$ level by level and adds the edge cost the first time a neighbor is seen, so the visit order differs from the stack.
 
 <!-- thinking:end -->
 
@@ -147,119 +147,54 @@ class Solution:
         return ans
 ```
 
-```java
-class Solution {
-    public int minReorder(int n, int[][] connections) {
-        List<int[]>[] g = new List[n];
-        Arrays.setAll(g, k -> new ArrayList<>());
-        for (var e : connections) {
-            int a = e[0], b = e[1];
-            g[a].add(new int[] {b, 1});
-            g[b].add(new int[] {a, 0});
-        }
-        Deque<Integer> q = new ArrayDeque<>();
-        q.offer(0);
-        boolean[] vis = new boolean[n];
-        vis[0] = true;
-        int ans = 0;
-        while (!q.isEmpty()) {
-            int a = q.poll();
-            for (var e : g[a]) {
-                int b = e[0], c = e[1];
-                if (!vis[b]) {
-                    vis[b] = true;
-                    q.offer(b);
-                    ans += c;
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
+<!-- tabs:end -->
 
-```cpp
-class Solution {
-public:
-    int minReorder(int n, vector<vector<int>>& connections) {
-        vector<pair<int, int>> g[n];
-        for (auto& e : connections) {
-            int a = e[0], b = e[1];
-            g[a].emplace_back(b, 1);
-            g[b].emplace_back(a, 0);
-        }
-        queue<int> q{{0}};
-        vector<bool> vis(n);
-        vis[0] = true;
-        int ans = 0;
-        while (q.size()) {
-            int a = q.front();
-            q.pop();
-            for (auto& [b, c] : g[a]) {
-                if (!vis[b]) {
-                    vis[b] = true;
-                    q.push(b);
-                    ans += c;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
+<!-- solution:end -->
 
-```go
-func minReorder(n int, connections [][]int) (ans int) {
-	g := make([][][2]int, n)
-	for _, e := range connections {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], [2]int{b, 1})
-		g[b] = append(g[b], [2]int{a, 0})
-	}
-	q := []int{0}
-	vis := make([]bool, n)
-	vis[0] = true
-	for len(q) > 0 {
-		a := q[0]
-		q = q[1:]
-		for _, e := range g[a] {
-			b, c := e[0], e[1]
-			if !vis[b] {
-				vis[b] = true
-				q = append(q, b)
-				ans += c
-			}
-		}
-	}
-	return
-}
-```
+<!-- solution:start -->
 
-```ts
-function minReorder(n: number, connections: number[][]): number {
-    const g: [number, number][][] = Array.from({ length: n }, () => []);
-    for (const [a, b] of connections) {
-        g[a].push([b, 1]);
-        g[b].push([a, 0]);
-    }
+### Solution 3: Explicit Stack
 
-    const q: number[] = [0];
-    const vis = new Set<number>();
-    vis.add(0);
+<!-- thinking:start -->
 
-    let ans = 0;
-    while (q.length) {
-        const a = q.pop()!;
-        for (const [b, c] of g[a]) {
-            if (!vis.has(b)) {
-                vis.add(b);
-                q.push(b);
-                ans += c;
-            }
-        }
-    }
-    return ans;
-}
+> **Thinking**
+>
+> Ignoring direction, the graph is a tree. Walking outward from $0$, an original forward edge must be reversed. $n$ can reach $5\times 10^4$. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> The cost of a tree edge is known as soon as the walk leaves its parent, so the total does not have to wait for the subtree to return.
+>
+> An explicit stack starts at $0$. After a node is popped, each neighbor that is not the parent adds its edge cost and is pushed. A forward edge costs $1$ and a reverse edge costs $0$.
+
+<!-- thinking:end -->
+
+The route map given in the problem has $n$ nodes and $n-1$ edges. If we ignore the direction of the edges, then these $n$ nodes form a tree. The problem requires us to change the direction of some edges so that each node can reach node $0$.
+
+We might as well consider starting from node $0$ and reaching all other nodes. The direction is opposite to the problem description, which means that when we build the graph, for the directed edge $[a, b]$, we should regard it as the directed edge $[b, a]$. That is to say, if it is from $a$ to $b$, we need to change the direction once; if it is from $b$ to $a$, no direction change is needed.
+
+An explicit stack walks the tree from node $0$. After a node is popped, each neighbor that is not the parent adds its edge weight to the answer and is pushed. A forward edge has weight $1$, and a reverse edge has weight $0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in connections:
+            g[a].append((b, 1))
+            g[b].append((a, 0))
+        ans = 0
+        stk = [(0, -1)]
+        while stk:
+            a, fa = stk.pop()
+            for b, c in g[a]:
+                if b != fa:
+                    ans += c
+                    stk.append((b, a))
+        return ans
 ```
 
 <!-- tabs:end -->

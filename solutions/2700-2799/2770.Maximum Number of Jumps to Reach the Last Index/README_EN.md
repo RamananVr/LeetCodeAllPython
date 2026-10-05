@@ -128,4 +128,41 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every jump sequence is exponential. The array length reaches $1000$, and a legal step to the next index is always tried first, so the search has depth $n$. The most jumps from index $i$ depend only on later indexes. Let $f[i]$ be that number, with $f[n-1]=0$, and scan landing indexes from the right, updating with $1+f[j]$ when the absolute difference is at most $target$. A still-negative $f[0]$ means the end is unreachable, so the answer is $-1$.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the maximum number of jumps from index $i$ to the end. Set $f[n-1]=0$ and every earlier entry to $-\infty$. For $i$ from $n-2$ down to $0$, enumerate a landing index $j$ ($i < j < n$). If $|nums[i]-nums[j]| \leq target$, update $f[i]$ with $1+f[j]$. If $f[0]$ is still negative, the end cannot be reached and the answer is $-1$; otherwise the answer is $f[0]$.
+
+Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumJumps(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        f = [-inf] * n
+        f[-1] = 0
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                if abs(nums[i] - nums[j]) <= target:
+                    f[i] = max(f[i], 1 + f[j])
+        return -1 if f[0] < 0 else f[0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

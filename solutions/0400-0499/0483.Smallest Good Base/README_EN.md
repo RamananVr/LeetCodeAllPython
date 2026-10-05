@@ -57,7 +57,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search
 
 <!-- thinking:start -->
 

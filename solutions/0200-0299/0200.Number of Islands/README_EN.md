@@ -115,9 +115,9 @@ class Solution:
 
 > **Thinking**
 >
-> DFS already counts components, but the recursion depth can reach $O(mn)$. The same 4-connectivity can be expanded with a queue.
+> Solution 1 already clears each component with an explicit stack. The same 4-connectivity can be expanded with a queue.
 >
-> The scan order stays the same; only the search becomes explicit BFS, and space is bounded by the queue.
+> The scan order matches Solution 1. The extra space is still the size of the frontier.
 
 <!-- thinking:end -->
 
@@ -210,6 +210,61 @@ class Solution:
             for i in range(m)
             for j in range(n)
         )
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting every cell with value $1$ as its own island would double-count 4-connected land. With $m,n \le 300$, a full scan is acceptable, but each component must be cleared in one search.
+>
+> Recursing along a snake of $1000$ land cells overflows the call stack, and a $300\times 300$ grid can hold that snake.
+>
+> Clearing an island does not need a return value. It only rewrites 4-connected $1$s to $0$.
+>
+> When a $1$ is found, push it onto an explicit stack. Pop a cell and push each neighboring $1$ after marking it. Each time a search starts, add one to the answer.
+
+<!-- thinking:end -->
+
+Scan every cell. When the value is `'1'`, flood the island with an explicit stack, rewrite connected land to `'0'`, and add one to the answer.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def flood(i: int, j: int):
+            stk = [(i, j)]
+            grid[i][j] = '0'
+            while stk:
+                i, j = stk.pop()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
+                        grid[x][y] = '0'
+                        stk.append((x, y))
+
+        ans = 0
+        dirs = (-1, 0, 1, 0, -1)
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    flood(i, j)
+                    ans += 1
+        return ans
 ```
 
 <!-- tabs:end -->

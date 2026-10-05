@@ -125,4 +125,76 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Infection spreads along parent and child edges, so the minutes needed are the farthest distance from $start$. Recording those edges and then returning a depth is correct on a short tree.
+>
+> The tree can contain $10^5$ nodes. A left chain makes both walks recurse once per node, which exceeds the call stack.
+>
+> Each walk only needs the current node and its parent, and a node's depth is one plus the maximum depth of its other neighbors. Those values can sit beside an explicit stack.
+>
+> The first stack records every parent edge in an undirected adjacency list, using the distinct node values as keys. The second stack enters a node, pushes its neighbors, and on exit writes one plus the maximum neighbor depth. The depth stored for $start$ is the answer.
+
+<!-- thinking:end -->
+
+We traverse the binary tree with an explicit stack and record each parent-child edge in an undirected adjacency list $g$. Node values are distinct, so they are the graph keys.
+
+A second explicit stack then walks outward from $start$. On entry it pushes an exit marker and every neighbor except the parent; on exit the depth is one plus the maximum depth of those neighbors. The depth stored for $start$ is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
+        g = defaultdict(list)
+        stk = [(root, None)]
+        while stk:
+            node, fa = stk.pop()
+            if node is None:
+                continue
+            if fa:
+                g[node.val].append(fa.val)
+                g[fa.val].append(node.val)
+            stk.append((node.right, node))
+            stk.append((node.left, node))
+
+        dist = {}
+        walk = [(start, -1, 0)]
+        while walk:
+            node, fa, state = walk.pop()
+            nxts = g[node]
+            if state == 0:
+                walk.append((node, fa, 1))
+                for nxt in reversed(nxts):
+                    if nxt != fa:
+                        walk.append((nxt, node, 0))
+                continue
+            best = 0
+            for nxt in nxts:
+                if nxt != fa:
+                    best = max(best, 1 + dist[nxt])
+            dist[node] = best
+        return dist[start]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -162,4 +162,68 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Toggling an edge flips both endpoints. $n$ can reach $10^5$, so searching subsets of edges is impossible. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> A leaf that mismatches the target must toggle the edge to its parent. That demand is known only after the whole subtree has been finished.
+>
+> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, start from whether the node differs from the target; each child edge that must be toggled negates that demand and is recorded.
+>
+> If the root still needs a flip, there is no solution; otherwise the sorted chosen edge indices form a shortest valid sequence.
+
+<!-- thinking:end -->
+
+We define an adjacency list $g$ to represent the tree, where $g[a]$ stores all adjacent nodes of node $a$ and the indices of the corresponding edges.
+
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, $\text{rev}$ records whether the edge from the current node to its parent still needs a toggle. It starts as $\text{start}[a] \ne \text{target}[a]$. For each child $b$, if that subtree still needs the edge $[a, b]$ toggled, append the edge index $i$ and negate $\text{rev}$. The root has no parent. If the root's $\text{rev}$ is still true, converting $\text{start}$ to $\text{target}$ is impossible and the result is $[-1]$. Otherwise sort the answer and return it.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumFlips(
+        self, n: int, edges: List[List[int]], start: str, target: str
+    ) -> List[int]:
+        g = [[] for _ in range(n)]
+        for i, (a, b) in enumerate(edges):
+            g[a].append((b, i))
+            g[b].append((a, i))
+        ans = []
+        need = [False] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b, _ in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                rev = start[a] != target[a]
+                for b, i in g[a]:
+                    if b != fa and need[b]:
+                        ans.append(i)
+                        rev = not rev
+                need[a] = rev
+        if need[0]:
+            return [-1]
+        ans.sort()
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

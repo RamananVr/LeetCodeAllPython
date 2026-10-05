@@ -99,4 +99,68 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Hash Table + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree sum is the left sum plus the right sum plus the node value, so both children must be known first. Rescanning each subtree repeats work. Returning the sum from a postorder recursion is correct on a short tree.
+>
+> The tree can contain $10^4$ nodes. A left chain makes this postorder walk recurse once per node and overflow the call stack.
+>
+> Each sum depends only on the two children, so children must be finished before their parent. Frequencies can be counted in a hash table during the walk.
+>
+> An explicit stack performs that postorder walk. On entry it pushes an exit marker and the two children; on exit it writes the subtree sum into the hash table. After the walk, the sums with the highest frequency are the answer.
+
+<!-- thinking:end -->
+
+A hash table $\textit{cnt}$ records how often each subtree sum appears. An explicit stack walks the binary tree in postorder. On entry we push an exit marker, then the right child and the left child. On exit the children's sums are already stored, the current sum is those two plus the node value, and $\textit{cnt}$ is updated.
+
+Finally we keep every subtree sum whose frequency is maximal.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findFrequentTreeSum(self, root: Optional[TreeNode]) -> List[int]:
+        cnt = Counter()
+        sub = {}
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.right, 0))
+                stk.append((node.left, 0))
+                continue
+            l = sub[id(node.left)] if node.left is not None else 0
+            r = sub[id(node.right)] if node.right is not None else 0
+            s = l + r + node.val
+            cnt[s] += 1
+            sub[id(node)] = s
+        if not cnt:
+            return []
+        mx = max(cnt.values())
+        return [k for k, v in cnt.items() if v == mx]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

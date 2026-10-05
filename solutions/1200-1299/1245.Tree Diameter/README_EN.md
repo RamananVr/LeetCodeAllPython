@@ -109,4 +109,61 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit Stack Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The diameter is the number of edges on a longest simple path. With $n \le 10^4$, trying every pair of endpoints is too slow. The farthest vertex from any start is an endpoint of some diameter, and a second walk from that endpoint yields the length. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. Each search therefore stores $(node, parent, distance)$ on a stack: a larger distance on pop records the current node, then the other neighbors are pushed at distance one greater. The first search from $0$ finds endpoint $a$, and the farthest distance from $a$ is the diameter.
+
+<!-- thinking:end -->
+
+We start at node $0$ and use an explicit stack to find the farthest node $a$, then repeat the search from $a$. The farthest distance in the second search is the diameter of the tree.
+
+Each stack frame is $(i, fa, t)$: the walk has reached node $i$ from parent $fa$ after $t$ edges. When the frame is popped, a larger $t$ replaces the farthest node and the answer, and every neighbor other than the parent is pushed at distance $t + 1$. The tree has no cycle, so each node is pushed once. Which tied endpoint is recorded does not change the length found by the second search.
+
+Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the number of nodes.
+
+Similar problems:
+
+- [1522. Diameter of N-Ary Tree 🔒](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md)
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def treeDiameter(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+
+        def farthest(start: int) -> (int, int):
+            ans = 0
+            node = start
+            stk = [(start, -1, 0)]
+            while stk:
+                i, fa, t = stk.pop()
+                if ans < t:
+                    ans = t
+                    node = i
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, t + 1))
+            return node, ans
+
+        node, _ = farthest(0)
+        return farthest(node)[1]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

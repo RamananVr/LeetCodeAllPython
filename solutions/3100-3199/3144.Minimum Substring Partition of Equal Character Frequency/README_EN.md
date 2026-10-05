@@ -183,7 +183,7 @@ class Solution:
 
 > **Thinking**
 >
-> Memoization still pays recursion and cache overhead. The same transition has no aftereffect.
+> Solution 2 already fills this minimum from the end of the string. The same transition can be written on prefixes.
 >
 > Let $f[i]$ be the fewest pieces for the prefix of length $i$. For each right end $i$, expand left to $j$ and relax $f[i+1]$ with $f[j]+1$ when the piece is balanced.
 >
@@ -191,7 +191,7 @@ class Solution:
 
 <!-- thinking:end -->
 
-We can convert the memoized search into dynamic programming. Define the state $f[i]$ as the minimum number of substrings required to partition the first $i$ characters. Initially, $f[0] = 0$, and the rest $f[i] = +\infty$ or $f[i] = n$.
+The minimum number of pieces can also be stored on prefixes. Define the state $f[i]$ as the minimum number of substrings required to partition the first $i$ characters. Initially, $f[0] = 0$, and the rest $f[i] = +\infty$ or $f[i] = n$.
 
 Next, we enumerate $i$ from $0$ to $n-1$. For each $i$, we maintain a hash table $\textit{cnt}$ to represent the frequency of each character in the current substring. Additionally, we maintain two variables $k$ and $m$ to represent the number of distinct characters in the current substring and the maximum frequency of any character, respectively. For a substring $s[j..i]$, if $i-j+1 = m \times k$, then this substring is a balanced substring. At this point, we can partition from $j$, so $f[i+1] = \min(f[i+1], f[j] + 1)$.
 
@@ -218,6 +218,94 @@ class Solution:
                 if i - j + 1 == len(cnt) * m:
                     f[i + 1] = min(f[i + 1], f[j] + 1)
         return f[n]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Dynamic Programming + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every partition is exponential. The string length reaches $1000$, and a single character is already a balanced piece, so the first transition always moves to the next index and the search has depth $n$. Whether a piece is balanced depends only on the frequencies inside it, so the answer from index $i$ depends only on later answers. Let $f[i]$ be the fewest pieces starting at $i$, with $f[n]=0$, and scan right endpoints from the end, updating with $1+f[j+1]$ when $freq$ contains only one frequency.
+
+<!-- thinking:end -->
+
+Let $f[i]$ be the minimum number of substrings starting at index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, keep a hash table $\textit{cnt}$ of character frequencies in the current piece and a hash table $\textit{freq}$ of how often each frequency occurs. Enumerate the right endpoint $j$ from $i$ to $n-1$, append $s[j]$, and update both tables. If $\textit{freq}$ has size $1$, then $s[i..j]$ is balanced and $f[i]$ is updated with $1+f[j+1]$. Every character can stand alone, so $n-i$ is a valid upper bound. The answer is $f[0]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumSubstringsInPartition(self, s: str) -> int:
+        n = len(s)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            cnt = defaultdict(int)
+            freq = defaultdict(int)
+            ans = n - i
+            for j in range(i, n):
+                if cnt[s[j]]:
+                    freq[cnt[s[j]]] -= 1
+                    if not freq[cnt[s[j]]]:
+                        freq.pop(cnt[s[j]])
+                cnt[s[j]] += 1
+                freq[cnt[s[j]]] += 1
+                if len(freq) == 1:
+                    ans = min(ans, 1 + f[j + 1])
+            f[i] = ans
+        return f[0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 5: Dynamic Programming (Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 deletes the old frequency and inserts the new one on every appended character. Balance is the same as the piece length equaling the maximum frequency times the number of distinct letters, so one $\textit{cnt}$ is enough. The answer at index $i$ still depends only on the right, so $f[i]$ is filled from the end. While extending $j$, track the number of distinct letters $k$ and the maximum frequency $m$, and update with $1+f[j+1]$ when $j-i+1=k\cdot m$.
+
+<!-- thinking:end -->
+
+The $\textit{freq}$ table in Solution 1 can be dropped. Keep only the character counts $\textit{cnt}$, the number of distinct letters $k$, and the maximum frequency $m$. $f[i]$ is still the fewest pieces starting at index $i$, with $f[n]=0$. Scan the start index from the right and extend $j$ to the right. If $j-i+1 = m \times k$, then $s[i..j]$ is balanced and $f[i]$ is updated with $1+f[j+1]$. The answer is $f[0]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumSubstringsInPartition(self, s: str) -> int:
+        n = len(s)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            cnt = defaultdict(int)
+            m = 0
+            ans = n - i
+            for j in range(i, n):
+                cnt[s[j]] += 1
+                m = max(m, cnt[s[j]])
+                if j - i + 1 == m * len(cnt):
+                    ans = min(ans, 1 + f[j + 1])
+            f[i] = ans
+        return f[0]
 ```
 
 <!-- tabs:end -->

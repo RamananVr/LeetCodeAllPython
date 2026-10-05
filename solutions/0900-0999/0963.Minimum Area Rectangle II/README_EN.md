@@ -69,11 +69,17 @@ tags:
 
 > **Thinking**
 >
-> The smallest area of a (possibly rotated) rectangle, $n\le 50$, allows enumerating three vertices. With a right angle at $p_1$, if $\overrightarrow{p_1p_2}\perp\overrightarrow{p_1p_3}$, the fourth point is the vector sum. A hash set tests its existence in $O(1)$; the area is the product of the two side lengths.
+> The smallest area of a (possibly rotated) rectangle, $n\le 50$, allows enumerating three vertices. With a right angle at $p_1$, the fourth corner is the vector sum of the two edges.
+>
+> The packed key $x \times 40001 + y$ repeats once a coordinate leaves $[0, 4 \times 10^4]$, and the sum of two squared edges exceeds $2^{31}-1$.
+>
+> Inside that square the key is unique, and those squares fit in a 64-bit integer.
+>
+> The fourth corner is accepted only when both coordinates lie in range and the key is present. Squared edge lengths are accumulated in 64 bits before the square root.
 
 <!-- thinking:end -->
 
-We use a hash table to store all the points, then enumerate three points $p_1 = (x_1, y_1)$, $p_2 = (x_2, y_2)$, $p_3 = (x_3, y_3)$, where $p_2$ and $p_3$ are the two endpoints of the diagonal of the rectangle. If the line formed by $p_1$ and $p_2$ and the line formed by $p_1$ and $p_3$ are perpendicular, and the fourth point $(x_4, y_4)=(x_2 - x_1 + x_3, y_2 - y_1 + y_3)$ exists in the hash table, then we have found a rectangle. At this point, we can calculate the area of the rectangle and update the answer.
+We use a hash table to store all the points, then enumerate three points $p_1 = (x_1, y_1)$, $p_2 = (x_2, y_2)$, $p_3 = (x_3, y_3)$. If $\overrightarrow{p_1p_2}$ and $\overrightarrow{p_1p_3}$ are perpendicular, the fourth corner is $(x_4, y_4)=(x_2 - x_1 + x_3, y_2 - y_1 + y_3)$. Coordinates lie in $[0, 4 \times 10^4]$, and the packed key $x \times 40001 + y$ is unique only inside that square, so this corner counts only when both coordinates fall in range and the key is present. The squared edge lengths are summed in 64-bit integers, since each sum can exceed $2^{31}-1$, and the area is the square root of their product.
 
 Finally, if a rectangle that satisfies the conditions is found, return the minimum area among them. Otherwise, return $0$.
 
@@ -99,7 +105,7 @@ class Solution:
                             x3, y3 = points[k]
                             x4 = x2 - x1 + x3
                             y4 = y2 - y1 + y3
-                            if (x4, y4) in s:
+                            if 0 <= x4 <= 40000 and 0 <= y4 <= 40000 and (x4, y4) in s:
                                 v21 = (x2 - x1, y2 - y1)
                                 v31 = (x3 - x1, y3 - y1)
                                 if v21[0] * v31[0] + v21[1] * v31[1] == 0:

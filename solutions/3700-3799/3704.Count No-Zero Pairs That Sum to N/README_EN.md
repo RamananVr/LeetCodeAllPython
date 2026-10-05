@@ -112,7 +112,8 @@ Time complexity is $O(L \cdot 9^2)$ and space complexity is $O(1)$, where $L$ is
 ```python
 class Solution:
 	def countNoZeroPairs(self, n: int) -> int:
-		digits = list(map(int, str(n)))[::-1]
+		trivanople = n
+		digits = list(map(int, str(trivanople)))[::-1]
 		digits.append(0)  # absorb final carry
 		L = len(digits)
 

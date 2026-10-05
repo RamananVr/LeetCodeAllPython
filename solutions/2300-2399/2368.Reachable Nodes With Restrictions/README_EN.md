@@ -122,7 +122,7 @@ class Solution:
 
 > **Thinking**
 >
-> DFS may overflow on a deep tree. The same visited set works with a queue BFS and avoids recursion depth.
+> Method 1 already walks with an explicit stack. The same visited set also works with a queue and counts reachable nodes layer by layer.
 
 <!-- thinking:end -->
 
@@ -157,6 +157,62 @@ class Solution:
                 if j not in vis:
                     q.append(j)
                     vis.add(j)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From node $0$ on a tree we cannot enter restricted nodes. With $n \le 10^5$, one traversal is enough. Treat restricted nodes as already visited so the walk never crosses them. Recursing to the next node is too deep: a chain makes the call depth $n$.
+>
+> After the adjacency list is built, an explicit stack runs a depth-first walk. When a node is popped and still unvisited, it counts toward the answer and its unvisited neighbors are pushed.
+
+<!-- thinking:end -->
+
+First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents the list of nodes adjacent to node $i$. Then we define a hash table $vis$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $vis$.
+
+Next, an explicit stack walks from node $0$. When node $i$ is popped and still unvisited, we add it to $vis$, count it, and push its unvisited neighbors.
+
+Finally, we return the number of nodes counted.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def reachableNodes(
+        self, n: int, edges: List[List[int]], restricted: List[int]
+    ) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = [False] * n
+        for i in restricted:
+            vis[i] = True
+        ans = 0
+        stk = [0]
+        while stk:
+            i = stk.pop()
+            if vis[i]:
+                continue
+            vis[i] = True
+            ans += 1
+            for j in g[i]:
+                if not vis[j]:
+                    stk.append(j)
         return ans
 ```
 

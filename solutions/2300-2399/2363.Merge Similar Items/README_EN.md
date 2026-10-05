@@ -110,7 +110,7 @@ class Solution:
         cnt = Counter()
         for v, w in chain(items1, items2):
             cnt[v] += w
-        return sorted(cnt.items())
+        return [[v, w] for v, w in sorted(cnt.items())]
 ```
 
 <!-- tabs:end -->

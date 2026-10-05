@@ -131,11 +131,11 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 is memoized recursion. Sorting by end time lets us tabulate $f[i][j]$ as the best using the first $i$ events and $j$ slots, binary-searching the last non-conflicting event. Same complexity, no recursion stack.
+> Solution 1 sorts by start and fills a suffix table. Sorting by end instead, $f[i][j]$ is the best using the first $i$ events and $j$ slots, binary-searching the last non-conflicting event.
 
 <!-- thinking:end -->
 
-We can convert the memoization approach in Solution 1 to dynamic programming.
+Solution 1 sorts by start and fills a suffix table. Here we sort by end and define a prefix table.
 
 First, sort the events, this time by end time in ascending order. Then define $f[i][j]$ as the maximum total value by attending at most $j$ events among the first $i$ events. The answer is $f[n][k]$.
 
@@ -169,6 +169,58 @@ class Solution:
             for j in range(1, k + 1):
                 f[i][j] = max(f[i - 1][j], f[p][j - 1] + val)
         return f[n][k]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Attend at most $k$ non-overlapping events for maximum total value. $k \times n \le 10^6$, so $n$ itself can be $10^6$ and listing subsets is impossible.
+>
+> After sorting by start, skipping calls $i+1$ with the same remaining slots before it returns, so the chain has length $n$ and overflows the stack.
+>
+> Later events and a smaller slot count are known if we walk backward. Let $f[i][c]$ be the best value from event $i$ with $c$ slots left, and fill $i$ from $n-1$ down to $0$.
+
+<!-- thinking:end -->
+
+First, we sort the events by their start time in ascending order. Let $f[i][c]$ be the maximum total value achievable by attending at most $c$ events starting from the $i$-th event. The answer is $f[0][k]$, and $f[n][c] = 0$.
+
+Fill $i$ from $n - 1$ down to $0$. If we do not attend the $i$-th event, the maximum value is $f[i + 1][c]$. If $c > 0$ and we attend it, binary search finds the first event $j$ whose start time is greater than the end time of the $i$-th event. The value is then $f[j][c - 1] + \text{value}[i]$. Take the larger of the two:
+
+$$
+f[i][c] = \max(f[i + 1][c], f[j][c - 1] + \text{value}[i])
+$$
+
+Here, $j$ is the index of the first event whose start time is greater than the end time of the $i$-th event. Because $j > i$, $f[j]$ is already filled.
+
+The time complexity is $O(n \times \log n + n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the number of events.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxValue(self, events: List[List[int]], k: int) -> int:
+        events.sort()
+        n = len(events)
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            _, ed, val = events[i]
+            j = bisect_right(events, ed, lo=i + 1, key=lambda x: x[0])
+            for c in range(k + 1):
+                f[i][c] = f[i + 1][c]
+                if c:
+                    f[i][c] = max(f[i][c], f[j][c - 1] + val)
+        return f[0][k]
 ```
 
 <!-- tabs:end -->

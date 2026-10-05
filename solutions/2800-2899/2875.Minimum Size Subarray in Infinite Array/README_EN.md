@@ -75,7 +75,7 @@ It can be proven that there is no subarray with sum equal to target = 3.
 
 > **Thinking**
 >
-> The array repeats forever, so $target$ is some number of full cycles plus a shortest leftover (or a shortest wrap that complements a cycle). Strip as many full sums as possible, then on one prefix-sum pass a hash map finds the shortest segment equal to the remainder or to $s$ minus the remainder.
+> The array repeats forever, so $target$ is some number of full cycles plus a shortest leftover (or a shortest wrap that complements a cycle). Strip as many full sums as possible, then on one prefix-sum pass a hash map finds the shortest segment equal to the remainder or to $s$ minus the remainder. A prefix of values up to $10^5$ can exceed $2^{31}-1$, so the map key is a 64-bit integer. A 32-bit key matches sums $2^{32}$ apart and reports a subarray that is not there.
 
 <!-- thinking:end -->
 

@@ -175,4 +175,58 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each section must contain exactly two seats, and a divider may sit on the plants between sections. Trying every pattern of cuts is exponential, and the corridor length is up to $10^5$.
+>
+> The number of ways from position $i$ with $k$ seats already in the open section depends only on position $i+1$. A search of that recurrence still calls $i+1$ before it returns, so the chain has depth $n$ and overflows the stack.
+>
+> The later position is known if we walk backward. Let $f[i][k]$ be that number of ways. A seat moves the count to $k+1$; a count above $2$ is $0$; when the count is $2$ we add the choice of starting a new section.
+>
+> Fill $i$ from $n-1$ down to $0$, with $f[n][2]=1$, and return $f[0][0]$.
+
+<!-- thinking:end -->
+
+Let $f[i][k]$ be the number of ways to divide the suffix of the corridor starting at position $i$, when the open section already contains $k$ seats. The answer is $f[0][0]$.
+
+If $i = n$, the corridor is finished. The value is $1$ when $k = 2$ and $0$ otherwise, so $f[n][2] = 1$.
+
+Otherwise, let $nk$ be $k+1$ when $\textit{corridor}[i]$ is a seat and $k$ when it is a plant. If $nk > 2$, this section already has a third seat, so $f[i][k] = 0$. Otherwise we can continue the section, which contributes $f[i + 1][nk]$. When $nk = 2$ we may also place a divider and start the next section empty, which contributes $f[i + 1][0]$. The two contributions are added modulo $10^9 + 7$.
+
+We calculate $f$ from $i = n - 1$ down to $0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the corridor.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfWays(self, corridor: str) -> int:
+        mod = 10**9 + 7
+        n = len(corridor)
+        f = [[0, 0, 0] for _ in range(n + 1)]
+        f[n][2] = 1
+        for i in range(n - 1, -1, -1):
+            for k in range(3):
+                nk = k + (corridor[i] == "S")
+                if nk > 2:
+                    continue
+                f[i][k] = f[i + 1][nk]
+                if nk == 2:
+                    f[i][k] = (f[i][k] + f[i + 1][0]) % mod
+        return f[0][0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

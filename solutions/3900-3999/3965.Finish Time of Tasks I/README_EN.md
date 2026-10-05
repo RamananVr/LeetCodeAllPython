@@ -195,4 +195,65 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tasks form a tree rooted at $0$. A non-leaf finish time needs the earliest and latest finish times among its children, plus its own $\textit{baseTime}$. With $n \le 10^5$, every child must be finished before the current node is computed. Recursing along a chain uses a call depth equal to the node count and overflows Python once the chain reaches length $1000$. The stack stores $(node, state)$: state $0$ writes $\textit{baseTime}[i]$ for a leaf, and otherwise pushes the exit marker and then the children; state $1$ reads $\textit{earliest}$ and $\textit{latest}$, spends $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$, and finishes at $\textit{latest}$ plus that duration. Child order does not change the earliest or latest value.
+
+<!-- thinking:end -->
+
+Build the tree from $\textit{edges}$ and store each node's children in an adjacency list $g$. An edge $u \to v$ means $u$ is the parent of $v$.
+
+Starting at the root $0$, an explicit stack computes every finish time in postorder:
+
+- A leaf's finish time is $\textit{baseTime}[i]$.
+- After every child of a non-leaf is known, let $\textit{earliest}$ and $\textit{latest}$ be the minimum and maximum child finish times.
+- The task's own duration is $\textit{ownDuration} = (\textit{latest} - \textit{earliest}) + \textit{baseTime}[i]$.
+- The finish time of task $i$ is $\textit{latest} + \textit{ownDuration}$.
+
+The answer is the finish time of the root. It is guaranteed to be less than $2^{53}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+        fin = [0] * n
+        stk = [(0, 0)]
+        while stk:
+            i, state = stk.pop()
+            if state == 0:
+                if not g[i]:
+                    fin[i] = baseTime[i]
+                else:
+                    stk.append((i, 1))
+                    for j in g[i]:
+                        stk.append((j, 0))
+            else:
+                earliest, latest = inf, -inf
+                for j in g[i]:
+                    a = fin[j]
+                    earliest = min(earliest, a)
+                    latest = max(latest, a)
+                own = (latest - earliest) + baseTime[i]
+                fin[i] = latest + own
+        return fin[0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

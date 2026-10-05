@@ -139,4 +139,68 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is good when every child subtree has the same size. $n$ can reach $10^5$, so recomputing subtrees at every node is quadratic. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> A subtree size is known only after every child has been finished.
+>
+> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, read each child's subtree size. If those sizes match, the current node is good, and its own subtree size is stored. The unrooted tree is rooted at $0$.
+
+<!-- thinking:end -->
+
+First, we construct the adjacency list $\textit{g}$ of the tree based on the given edges $\textit{edges}$, where $\textit{g}[a]$ represents all the neighboring nodes of node $a$.
+
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, each child's subtree size is already stored. Initialize $\textit{pre} = -1$, $\textit{cnt} = 1$, and $\textit{ok} = 1$. For each child, add its subtree size to $\textit{cnt}$. If that size differs from $\textit{pre}$, set $\textit{ok}$ to $0$. Then add $\textit{ok}$ to the answer and store $\textit{cnt}$ as the current node's subtree size.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countGoodNodes(self, edges: List[List[int]]) -> int:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = 0
+        sz = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                pre = -1
+                cnt = ok = 1
+                for b in g[a]:
+                    if b != fa:
+                        cur = sz[b]
+                        cnt += cur
+                        if pre < 0:
+                            pre = cur
+                        elif pre != cur:
+                            ok = 0
+                ans += ok
+                sz[a] = cnt
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

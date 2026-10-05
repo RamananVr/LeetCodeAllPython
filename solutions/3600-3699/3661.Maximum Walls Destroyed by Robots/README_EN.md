@@ -175,4 +175,70 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each robot fires left or right, clipped by its $\textit{distance}$ and by neighbors. Trying all $2^n$ assignments does not fit $n\le 10^5$.
+>
+> After sorting by position, robot $i$'s reachable interval depends only on robot $i+1$'s direction. $f[i][j]$ is the best total through robot $i$ when that next direction is $j$: the better of a left shot plus $f[i-1][0]$ and a right shot plus $f[i-1][1]$.
+>
+> Searching that recurrence still chains $n$ calls and overflows the stack. The two states are filled from $i=0$ upward, and binary search counts the walls inside each clipped interval.
+
+<!-- thinking:end -->
+
+We first store each robot with its range in an array and sort them by robot position. We also sort the wall positions.
+
+Define $f[i][j]$ as the number of walls that can be destroyed after considering robot $i$, when the next robot fires in direction $j$ (0 for left, 1 for right). The answer is $f[n - 1][1]$. There is no next robot when $i = n - 1$, so either value of $j$ gives the same result. When $i = 0$ there is no earlier state, and that prefix is 0.
+
+We fill $f$ for $i$ from $0$ to $n - 1$. For the current robot there are two firing directions.
+
+If it fires **left**, the range is $[\text{left}, \text{robot}[i][0]]$. Binary search counts the walls in that range. The total is $f[i - 1][0] + \text{count}$, where $\text{count}$ is the number of walls this robot destroys by firing left.
+
+If it fires **right**, the range is $[\text{robot}[i][0], \text{right}]$. Binary search counts the walls in that range. The total is $f[i - 1][1] + \text{count}$, where $\text{count}$ is the number of walls this robot destroys by firing right.
+
+$f[i][j]$ is the larger of those two totals.
+
+Time complexity $O(n \times \log n + m \times \log m + n \times \log m)$, space complexity $O(n)$. Where $n$ and $m$ are the numbers of robots and walls respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxWalls(self, robots: List[int], distance: List[int], walls: List[int]) -> int:
+        n = len(robots)
+        arr = sorted(zip(robots, distance), key=lambda x: x[0])
+        walls.sort()
+        f = [[0, 0] for _ in range(n)]
+        for i in range(n):
+            for j in range(2):
+                left = arr[i][0] - arr[i][1]
+                if i:
+                    left = max(left, arr[i - 1][0] + 1)
+                l = bisect_left(walls, left)
+                r = bisect_left(walls, arr[i][0] + 1)
+                ans = (f[i - 1][0] if i else 0) + r - l
+                right = arr[i][0] + arr[i][1]
+                if i + 1 < n:
+                    if j == 0:
+                        right = min(right, arr[i + 1][0] - arr[i + 1][1] - 1)
+                    else:
+                        right = min(right, arr[i + 1][0] - 1)
+                l = bisect_left(walls, arr[i][0])
+                r = bisect_left(walls, right + 1)
+                ans = max(ans, (f[i - 1][1] if i else 0) + r - l)
+                f[i][j] = ans
+        return f[n - 1][1]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

@@ -106,4 +106,54 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We start at $0$, collect every apple, and return, so each used edge is walked twice. With $n \le 10^5$, recursing from the root to score every subtree is too deep: a chain makes the call depth $n$.
+>
+> A subtree with no apple and no further work can be skipped. After the children are done, add their round-trip costs; if this node has an apple or that sum is positive, add the cost of the incoming edge, which is $0$ at the root and $2$ elsewhere.
+>
+> An explicit stack of $(node, parent, state)$ runs the postorder. On entry we push the exit marker and then the children, and on exit we store that cost. The root's cost is the answer.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        cost = [0] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            u, fa, state = stk.pop()
+            if state == 0:
+                stk.append((u, fa, 1))
+                for v in g[u]:
+                    if v != fa:
+                        stk.append((v, u, 0))
+            else:
+                nxt = 0
+                for v in g[u]:
+                    if v != fa:
+                        nxt += cost[v]
+                if hasApple[u] or nxt:
+                    cost[u] = nxt if u == 0 else nxt + 2
+        return cost[0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

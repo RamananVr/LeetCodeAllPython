@@ -141,4 +141,73 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Enumeration + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Connect node $i$ in the first tree to some node $j$ in the second; a target is any node within distance $k$. With $n, m, k \le 1000$, one walk from every start is $O(n^2 + m^2)$ and fits the limits.
+>
+> Recursing into each child and decreasing the remaining depth by one reaches depth $n$ on a chain when $k$ is close to $n$, which overflows the call stack. The count depends only on whether a node falls inside the budget, so sibling order does not matter.
+>
+> Each start therefore uses an explicit stack of $(node, parent, remaining\ depth)$. Popping a frame counts that node; a remaining depth of $0$ stops the walk, and otherwise each neighbor other than the parent is pushed with the budget decreased by one. The second tree's budget is $k - 1$ and does not depend on $i$, so its maximum is added to every start in the first tree.
+
+<!-- thinking:end -->
+
+According to the problem description, to maximize the number of target nodes for node $i$, we must connect node $i$ to one of the nodes $j$ in the second tree. Therefore, the number of target nodes for node $i$ can be divided into two parts:
+
+- In the first tree, the number of nodes reachable from node $i$ within a depth of $k$.
+- In the second tree, the maximum number of nodes reachable from any node $j$ within a depth of $k - 1$.
+
+To count nodes within a depth budget $d$ from a start, an explicit stack stores $(node, parent, remaining\ depth)$. Popping a frame counts that node. If the remaining depth is positive, each neighbor that is not the parent is pushed with the budget decreased by one. Let $t$ be the maximum count in the second tree with $d = k - 1$. For each node $i$ in the first tree, add $t$ to the count obtained with $d = k$.
+
+The time complexity is $O(n^2 + m^2)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes in the two trees, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxTargetNodes(
+        self, edges1: List[List[int]], edges2: List[List[int]], k: int
+    ) -> List[int]:
+        def build(edges: List[List[int]]) -> List[List[int]]:
+            n = len(edges) + 1
+            g = [[] for _ in range(n)]
+            for a, b in edges:
+                g[a].append(b)
+                g[b].append(a)
+            return g
+
+        def dfs(g: List[List[int]], a: int, fa: int, d: int) -> int:
+            if d < 0:
+                return 0
+            stk = [(a, fa, d)]
+            cnt = 0
+            while stk:
+                u, p, rem = stk.pop()
+                cnt += 1
+                if rem == 0:
+                    continue
+                for b in g[u]:
+                    if b != p:
+                        stk.append((b, u, rem - 1))
+            return cnt
+
+        g2 = build(edges2)
+        m = len(edges2) + 1
+        t = max(dfs(g2, i, -1, k - 1) for i in range(m))
+        g1 = build(edges1)
+        n = len(edges1) + 1
+        return [dfs(g1, i, -1, k) + t for i in range(n)]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

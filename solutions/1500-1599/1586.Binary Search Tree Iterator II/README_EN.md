@@ -146,4 +146,79 @@ class BSTIterator:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit-Stack Inorder + Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The iterator must support both $next$ and $prev$ for up to $10^5$ calls. A stack that only stores the path to the current node can walk forward, but stepping back needs a predecessor search. Flattening the tree into a sorted array and moving an index is correct on a short tree.
+>
+> The tree can contain $10^5$ nodes. A left chain makes this inorder walk recurse once per node and overflow the call stack.
+>
+> Inorder of a BST is already nondecreasing. Each node finishes its left subtree, records itself, then visits the right subtree, and no return value is required.
+>
+> An explicit stack performs that inorder walk and writes the values into $nums$. The cursor $i$ starts at $-1$. $next$ and $prev$ move $i$ by one and return $nums[i]$; the bounds of $i$ answer whether another step exists.
+
+<!-- thinking:end -->
+
+An explicit stack walks the binary search tree inorder and stores every node value in an array $nums$. On entry we push an exit marker and the left child; on exit we append the node value and push the right child. The cursor $i$ starts at $-1$. Each $next()$ adds $1$ to $i$ and returns $nums[i]$; each $prev()$ subtracts $1$ from $i$ and returns $nums[i]$.
+
+In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $next()$ and $prev()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class BSTIterator:
+    def __init__(self, root: Optional[TreeNode]):
+        self.nums = []
+        stk = [(root, 0)]
+        while stk:
+            node, state = stk.pop()
+            if node is None:
+                continue
+            if state == 0:
+                stk.append((node, 1))
+                stk.append((node.left, 0))
+                continue
+            self.nums.append(node.val)
+            stk.append((node.right, 0))
+        self.i = -1
+
+    def hasNext(self) -> bool:
+        return self.i < len(self.nums) - 1
+
+    def next(self) -> int:
+        self.i += 1
+        return self.nums[self.i]
+
+    def hasPrev(self) -> bool:
+        return self.i > 0
+
+    def prev(self) -> int:
+        self.i -= 1
+        return self.nums[self.i]
+
+# Your BSTIterator object will be instantiated and called as such:
+# obj = BSTIterator(root)
+# param_1 = obj.hasNext()
+# param_2 = obj.next()
+# param_3 = obj.hasPrev()
+# param_4 = obj.prev()
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

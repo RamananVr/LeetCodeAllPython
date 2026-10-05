@@ -122,4 +122,56 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Binary Search + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Taking damage $x$ forbids every other value in $[x-2,x+2]$, while equal copies of $x$ may all be taken. $n$ can be $10^5$, so subsets of the distinct damages are exponential.
+>
+> After sorting, skipping the current value always calls a later index first. When the damages are distinct and adjacent, that call advances by $1$, so the chain has length $n$ and overflows the stack.
+>
+> Later indexes are known if we walk backward. Let $f[i]$ be the best damage from index $i$: skipping lands on $i+\textit{cnt}[x]$, and taking lands on the first value greater than $x+2$, which binary search stores ahead of time.
+
+<!-- thinking:end -->
+
+Sort $\textit{power}$ and record the count of each damage in a hash table $\textit{cnt}$. For every index $i$, binary search stores in $\textit{nxt}[i]$ the first position whose value is greater than $\textit{power}[i] + 2$.
+
+Let $f[i]$ be the maximum damage obtainable from index $i$, with $f[n] = 0$. The answer is $f[0]$.
+
+Fill $i$ from $n - 1$ down to $0$. Write $x = \textit{power}[i]$. Skipping every copy of $x$ yields $f[i + \textit{cnt}[x]]$. Taking those copies yields $x \times \textit{cnt}[x] + f[\textit{nxt}[i]]$. An index past $n$ contributes $0$. Take the larger value:
+
+$$
+f[i] = \max(f[i + \textit{cnt}[x]],\ x \times \textit{cnt}[x] + f[\textit{nxt}[i]])
+$$
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{power}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumTotalDamage(self, power: List[int]) -> int:
+        n = len(power)
+        cnt = Counter(power)
+        power.sort()
+        nxt = [bisect_right(power, x + 2, lo=i + 1) for i, x in enumerate(power)]
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            j = i + cnt[power[i]]
+            a = f[j] if j <= n else 0
+            b = power[i] * cnt[power[i]] + f[nxt[i]]
+            f[i] = max(a, b)
+        return f[0]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

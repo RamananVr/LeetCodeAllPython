@@ -124,13 +124,66 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 is already $O(mn)$, but recursion pays a call stack and cache constants. At length $2000$, both hurt.
->
-> What it lacks is the same transition written bottom-up. $f[i][j]$ is the table form of $dfs(i, j)$: fill the empty-string/`*` border first, then the rest. Same asymptotics, more stable constants.
+> Solution 1 already fills this match table from shorter prefixes to longer ones. The $f[i][j]$ below is that same table.
 
 <!-- thinking:end -->
 
-We can convert the memoization search in Solution 1 into dynamic programming.
+Solution 1 already fills this table from shorter prefixes to longer ones.
+
+Define $f[i][j]$ to represent whether the first $i$ characters of string $s$ match the first $j$ characters of string $p$. Initially, $f[0][0] = \textit{true}$, indicating that two empty strings are matching. For $j \in [1, n]$, if $p[j-1] = '*'$, then $f[0][j] = f[0][j-1]$.
+
+Next, we consider the case of $i \in [1, m]$ and $j \in [1, n]$:
+
+- If $p[j-1] = '*'$, then $f[i][j] = f[i-1][j] \lor f[i][j-1] \lor f[i-1][j-1]$.
+- Otherwise, $f[i][j] = (p[j-1] = '?' \lor s[i-1] = p[j-1]) \land f[i-1][j-1]$.
+
+The final answer is $f[m][n]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of the strings $s$ and $p$, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+        f = [[False] * (n + 1) for _ in range(m + 1)]
+        f[0][0] = True
+        for j in range(1, n + 1):
+            if p[j - 1] == "*":
+                f[0][j] = f[0][j - 1]
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if p[j - 1] == "*":
+                    f[i][j] = f[i - 1][j] or f[i][j - 1] or f[i - 1][j - 1]
+                else:
+                    f[i][j] = f[i - 1][j - 1] and (
+                        p[j - 1] == "?" or s[i - 1] == p[j - 1]
+                    )
+        return f[m][n]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Matching one character at a time is the natural first idea: a literal or `?` consumes one character, and `*` consumes the empty string or any run. Both strings can have length $2000$, and the first move on `*` is always $dfs(i+1, j)$, so that chain is as deep as $|s|$ and exceeds the default recursion limit.
+>
+> The same index pair is asked repeatedly, and whether two prefixes match depends only on shorter prefixes.
+>
+> Let $f[i][j]$ mean the first $i$ characters of $s$ match the first $j$ characters of $p$. The empty pair is true, and a run of `*` on the pattern inherits along $j$. Filling $i$ and $j$ from small to large works because a `*` reads the cell above, the cell to the left, and the diagonal, while a literal or `?` reads only the diagonal.
+
+<!-- thinking:end -->
 
 Define $f[i][j]$ to represent whether the first $i$ characters of string $s$ match the first $j$ characters of string $p$. Initially, $f[0][0] = \textit{true}$, indicating that two empty strings are matching. For $j \in [1, n]$, if $p[j-1] = '*'$, then $f[0][j] = f[0][j-1]$.
 

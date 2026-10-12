@@ -111,4 +111,58 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 still walks $O(m)$ rows upward at every bottom-right cell and adds the running minimum width, so the total stays $O(m^2 \times n)$. With side length $150$, that inner scan is the remaining cost.
+>
+> A narrower width on the same column caps every row above it, so those rows do not need another pass. One strictly increasing stack of widths per column makes the stack top the nearest smaller width above the current cell. Between that top and the current row the minimum width is $g[i][j]$, and the answer at the top and above is already stored. Each cell is pushed and popped at most once, which turns the upward scan into amortized $O(1)$.
+
+<!-- thinking:end -->
+
+We still preprocess a 2D array $g$, where $g[i][j]$ is the number of consecutive $1$s from column $j$ to the left in row $i$.
+
+The count is then taken column by column. For column $j$, scan row $i$ from top to bottom and keep a monotonic stack of triples $(w, r, c)$: the width $w$, the row $r$, and the number $c$ of all-$1$ submatrices whose bottom-right corner is $(r, j)$. Widths on the stack stay strictly increasing.
+
+When handling $g[i][j]$, pop every stack top whose width is at least the current value. If the stack is empty, every row from $0$ through $i$ has minimum width $g[i][j]$, so there are $g[i][j] \times (i + 1)$ submatrices with bottom-right corner $(i, j)$. Otherwise let the top be $(w, r, c)$. The contribution of row $r$ and above is already stored in $c$, and every row from $r + 1$ through $i$ has minimum width $g[i][j]$, so the count is $c + g[i][j] \times (i - r)$. Add this value to the answer, then push the current width, the row index, and the count onto the stack.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numSubmat(self, mat: List[List[int]]) -> int:
+        m, n = len(mat), len(mat[0])
+        g = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                if mat[i][j]:
+                    g[i][j] = 1 if j == 0 else 1 + g[i][j - 1]
+        ans = 0
+        for j in range(n):
+            stk = []
+            for i in range(m):
+                cur = g[i][j]
+                while stk and stk[-1][0] >= cur:
+                    stk.pop()
+                cnt = cur * (i + 1)
+                if stk:
+                    cnt = stk[-1][2] + cur * (i - stk[-1][1])
+                ans += cnt
+                stk.append((cur, i, cnt))
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

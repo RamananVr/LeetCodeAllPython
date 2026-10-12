@@ -1,6 +1,12 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1570
+source: Weekly Contest 521 Q2
+tags:
+    - Array
+    - Hash Table
+    - Counting
 ---
 
 <!-- problem:start -->

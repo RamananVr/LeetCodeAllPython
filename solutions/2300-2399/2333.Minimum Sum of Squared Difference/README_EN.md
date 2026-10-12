@@ -67,17 +67,27 @@ Note that, there are other ways to obtain the minimum of the sum of square diffe
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Counting
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Each move decreases some $|nums1_i-nums2_i|$ by one, $k_1+k_2$ times in total, minimizing the sum of squares. $n \le 10^5$ and up to $2 \times 10^9$ moves forbid stepping one by one.
+> One $\pm 1$ on either array decreases the absolute difference at that index by one, so $k_1$ and $k_2$ form a single budget $k$. With $n \le 10^5$ and up to $2 \times 10^9$ operations, simulating each step or maintaining a heap of the current maxima is too slow.
 >
-> Squares are convex, so large diffs should be flattened first. Binary-search a cap $x$ that $k$ moves can enforce, then spend leftovers on entries still equal to $x$. If the total diff is already $\le k$, the answer is $0$.
+> The square is strictly convex, so the same operation reduces the sum of squares by more when it is applied to a larger difference. Differences lie in $[0, 10^5]$, and equal values can be lowered together.
+>
+> Count the frequency of each difference and scan from the largest downward: if the remaining budget covers a whole level, merge that level into the next lower value; otherwise spend what is left and stop. When the sum of differences is already at most $k$, the answer is $0$.
 
 <!-- thinking:end -->
+
+Set $k = k_1 + k_2$ and let $d_i = |nums1_i - nums2_i|$. If the sum of these differences is at most $k$, every difference can be reduced to $0$ and the answer is $0$.
+
+Otherwise, record the frequency of each difference in $cnt$, and let $m$ be the maximum difference. Scan $v$ downward from $m$: this level contains $cnt[v]$ values, and $\textit{take} = \min(cnt[v], k)$ of them can be decreased by one. Move those $\textit{take}$ counts to $v - 1$ and subtract $\textit{take}$ from $k$. Stop when $k$ is exhausted.
+
+The answer is $\sum_v v^2 \cdot cnt[v]$.
+
+The time complexity is $O(n + M)$ and the space complexity is $O(M)$, where $n$ is the array length and $M$ is the maximum difference. In this problem, $M \le 10^5$.
 
 <!-- tabs:start -->
 
@@ -88,27 +98,26 @@ class Solution:
     def minSumSquareDiff(
         self, nums1: List[int], nums2: List[int], k1: int, k2: int
     ) -> int:
-        d = [abs(a - b) for a, b in zip(nums1, nums2)]
         k = k1 + k2
-        if sum(d) <= k:
+        s = mx = 0
+        cnt = [0] * 100001
+        for a, b in zip(nums1, nums2):
+            v = abs(a - b)
+            cnt[v] += 1
+            s += v
+            mx = max(mx, v)
+        if s <= k:
             return 0
-        left, right = 0, max(d)
-        while left < right:
-            mid = (left + right) >> 1
-            if sum(max(v - mid, 0) for v in d) <= k:
-                right = mid
-            else:
-                left = mid + 1
-        for i, v in enumerate(d):
-            d[i] = min(left, v)
-            k -= max(0, v - left)
-        for i, v in enumerate(d):
+        for v in range(mx, 0, -1):
+            if cnt[v] == 0:
+                continue
+            take = min(cnt[v], k)
+            k -= take
+            cnt[v] -= take
+            cnt[v - 1] += take
             if k == 0:
                 break
-            if v == left:
-                k -= 1
-                d[i] -= 1
-        return sum(v * v for v in d)
+        return sum(v * v * cnt[v] for v in range(mx + 1))
 ```
 
 <!-- tabs:end -->

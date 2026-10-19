@@ -97,11 +97,12 @@ The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, wh
 ```python
 class Solution:
     def maxAlternatingSum(self, nums: List[int]) -> int:
-        nums.sort(key=lambda x: x * x)
-        n = len(nums)
-        s1 = sum(x * x for x in nums[: n // 2])
-        s2 = sum(x * x for x in nums[n // 2 :])
-        return s2 - s1
+        nums = [x * x for x in nums]
+        nums.sort()
+        ans, m = 0, len(nums) >> 1
+        for i, x in enumerate(nums):
+            ans += -x if i < m else x
+        return ans
 ```
 
 <!-- tabs:end -->

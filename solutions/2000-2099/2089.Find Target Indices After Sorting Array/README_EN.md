@@ -92,4 +92,44 @@ class Solution:
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts the whole array to recover indices, so the time stays $O(n \log n)$. Those indices depend only on where $target$ would sit after sorting, not on the order among the other values.
+>
+> The number of values strictly less than $target$ is the start of that contiguous range, and the number of values equal to $target$ is its length. Both counts come from one pass over the original array, which removes the comparison sort.
+
+<!-- thinking:end -->
+
+After sorting into non-decreasing order, every value equal to $target$ occupies one contiguous index range. The start of the range equals the number of elements strictly less than $target$, and the length equals the number of elements equal to $target$.
+
+Scan $\textit{nums}$ once and store the two counts in $\textit{less}$ and $\textit{equal}$. The answer is every integer in $[\textit{less}, \textit{less} + \textit{equal})$. The range is empty when $\textit{equal} = 0$.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        less = equal = 0
+        for x in nums:
+            if x < target:
+                less += 1
+            elif x == target:
+                equal += 1
+        return list(range(less, less + equal))
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

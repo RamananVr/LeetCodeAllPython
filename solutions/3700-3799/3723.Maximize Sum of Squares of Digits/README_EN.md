@@ -101,7 +101,7 @@ tags:
 
 > **Thinking**
 >
-> With a fixed digit sum, the sum of squares is maximized by using as many $9$s as possible. If $9\times num<sum$ there is no solution; otherwise we write as many $9$s as we can, place the remainder in the next digit, and pad with zeros to length $num$, which also yields the numerically largest such integer.
+> Enumerating every $\text{num}$-digit integer whose digits sum to $\text{sum}$ and then comparing scores cannot finish when $\text{num}$ reaches $2\times 10^5$. The candidate set grows exponentially with the length, and the score still depends on how the digits are spread out, so the comparison itself is the bottleneck. Squaring is convex on the non-negative integers, so a fixed sum produces a larger sum of squares when the digits are concentrated; the optimal multiset is therefore as many $9$s as possible plus at most one remainder. Writing those larger digits from the high end leaves the score unchanged and selects the numerically largest integer among ties, which is why the answer is assembled directly in that order.
 
 <!-- thinking:end -->
 

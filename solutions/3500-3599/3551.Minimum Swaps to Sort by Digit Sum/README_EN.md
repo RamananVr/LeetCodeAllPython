@@ -87,17 +87,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Permutation Cycles
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> The target order is uniquely given by $(\textit{digitSum}(x), x)$. The minimum number of swaps in a permutation is $n$ minus the number of cycles.
->
-> Map each value to its index in the sorted array and walk those pointers, marking visits. Each cycle of length $\ell$ needs $\ell-1$ swaps, so the total is $n$ minus the cycle count.
+> Any two positions may be swapped. Computing the target order and then moving each misplaced value into place is correct on the samples, but $n$ reaches $10^5$ and a fresh scan at every step is quadratic. Under arbitrary swaps, the minimum count is given by the cycle decomposition of the permutation from the current array to the target order: a cycle of length $\ell$ needs $\ell-1$ swaps, so the total is $n$ minus the number of cycles. The target order is fixed by $(\textit{digitSum}(x), x)$, so we sort to build a map from each value to its destination index and walk that map cycle by cycle; both the hash table and the traversal order come from the permutation itself.
 
 <!-- thinking:end -->
+
+We first compute the digit sum of each element, pair it with the element, and sort these pairs in ascending order of digit sum. When two digit sums are equal, the smaller value comes first. The sorted order is the target sequence.
+
+Let $n$ be the length of the array. Treat the original array as a permutation: the value at index $i$ should move to its index in the target sequence. If this permutation contains $c$ cycles, the minimum number of swaps is $n - c$. We store each value's target index in a hash table. Starting from every unvisited index, we repeatedly jump to the index where the current value belongs, until we reach a visited index and thus close one cycle. The answer starts at $n$ and decreases by one for each cycle.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

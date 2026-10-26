@@ -93,31 +93,70 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Simulation
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> $k$ is sortable iff $k$ divides $n$ and each block of length $k$ can be rotated so the concatenation is nondecreasing. $n \le 10^5$.
+> Trying every rotation of every block for each divisor $k$ costs $O(k^2)$ per block, which is too slow when $n \le 10^5$.
 >
-> There are few divisors; enumerate them. For each $k$, a block must be a rotation, and neighboring blocks must join monotonically.
+> Those repeated rotations are the bottleneck. A block can be cycled into non-decreasing order exactly when it has at most one strict circular descent. After every block is rotated that way, the concatenation is globally non-decreasing exactly when, at every boundary, the maximum on the left does not exceed the minimum on the right.
 >
-> Global monotonicity means the chosen rotations concatenate in order. Check each position against the cyclic order, or compare adjacent blocks after their minimal rotations.
+> Both quantities sit on the block boundaries.
 >
-> Sum the divisors that pass.
+> We precompute the prefix maximum, the suffix minimum, and a prefix sum of adjacent descents, then enumerate the divisors of $n$ and judge each block in $O(1)$ time.
 
 <!-- thinking:end -->
+
+First build three auxiliary arrays. $\textit{prefMax}[i]$ is the maximum of $\textit{nums}[0..i-1]$, with $\textit{prefMax}[0] = 0$. $\textit{suffMin}[i]$ is the minimum of $\textit{nums}[i..n-1]$. $\textit{prefDrop}[i]$ counts how many index pairs $(0,1),\ldots,(i-1,i)$ satisfy $\textit{nums}[j-1] > \textit{nums}[j]$.
+
+Then enumerate every divisor $k$ of $n$ and split the array into blocks of length $k$. For a block starting at $i$, the number of adjacent descents inside the block is $\textit{prefDrop}[i+k-1] - \textit{prefDrop}[i]$, plus one more when $\textit{nums}[i+k-1] > \textit{nums}[i]$. If this total is at most $1$ and $\textit{prefMax}[i] \le \textit{suffMin}[i]$, the block can be cyclically rotated onto the already ordered prefix. When every block passes, add $k$ to the answer.
+
+The time complexity is $O(n + \sigma(n))$ and the space complexity is $O(n)$, where $n$ is the length of the array and $\sigma(n)$ is the sum of all positive divisors of $n$.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def sortableIntegers(self, nums: list[int]) -> int:
+        n = len(nums)
+        pref_max = [0] * (n + 1)
+        for i, x in enumerate(nums):
+            pref_max[i + 1] = max(pref_max[i], x)
+        suff_min = [10**9] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            suff_min[i] = min(nums[i], suff_min[i + 1])
+        pref_drop = [0] * n
+        for i in range(1, n):
+            pref_drop[i] = pref_drop[i - 1] + (nums[i - 1] > nums[i])
 
+        def check(k: int) -> bool:
+            for start in range(0, n, k):
+                end = start + k - 1
+                drops = pref_drop[end] - pref_drop[start]
+                if nums[end] > nums[start]:
+                    drops += 1
+                if drops > 1 or pref_max[start] > suff_min[start]:
+                    return False
+            return True
+
+        ans = 0
+        i = 1
+        while i <= n // i:
+            if n % i == 0:
+                if check(i):
+                    ans += i
+                other = n // i
+                if i != other and check(other):
+                    ans += other
+            i += 1
+        return ans
 ```
 
 <!-- tabs:end -->
-
 <!-- solution:end -->
 
 <!-- problem:end -->

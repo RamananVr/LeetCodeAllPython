@@ -56,37 +56,40 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Simulation
+### Solution 1: Prefix Sum
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Days together are the length of the intersection of two date intervals. Dates are $\texttt{MM-DD}$, so string order matches calendar order: the intersection starts at the later arrival and ends at the earlier departure.
+> Days together are the length of the intersection of two closed intervals. Scanning every day of the year fits the constraints, but the inputs are $\texttt{MM-DD}$ strings, so both comparison and counting need one shared index.
 >
-> The year is not a leap year. Convert each date to a day-of-year with the month-length table, then subtract and add one. An empty intersection yields zero.
+> Adding the preceding month lengths on each conversion repeats the same constant work. Lexicographic order of this format matches the calendar, so the overlap runs from the later arrival to the earlier departure. Month lengths in a non-leap year are fixed; once their prefix sums $f$ are known, month $m$ and day $d$ is day $f_{m-1}+d$ of the year.
+>
+> The two endpoints are converted through $f$, then subtracted and adjusted by one. If the start falls after the end, the intersection is empty.
 
 <!-- thinking:end -->
 
-We convert the dates into days, and then calculate the number of days both people are in Rome.
+We take the later arrival and the earlier departure, map both dates to a day of the year with the month-length prefix, and return the length of that closed interval.
 
-The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is a constant.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+f = list(accumulate([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], initial=0))
+
 class Solution:
     def countDaysTogether(
         self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str
     ) -> int:
-        a = max(arriveAlice, arriveBob)
-        b = min(leaveAlice, leaveBob)
-        days = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
-        x = sum(days[: int(a[:2]) - 1]) + int(a[3:])
-        y = sum(days[: int(b[:2]) - 1]) + int(b[3:])
-        return max(y - x + 1, 0)
+        start = max(arriveAlice, arriveBob)
+        end = min(leaveAlice, leaveBob)
+        d1 = f[int(start[:2]) - 1] + int(start[3:])
+        d2 = f[int(end[:2]) - 1] + int(end[3:])
+        return max(d2 - d1 + 1, 0)
 ```
 
 <!-- tabs:end -->

@@ -72,14 +72,57 @@ difficulty: Hard
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both arrays can contain $5 \times 10^4$ intervals, so enumerating subsets cannot check that every real point of every target is covered. Coordinates only go up to $10^5$, and a difference array could mark the union of the targets, but points in the gaps between those pieces have no coverage requirement.
+>
+> Targets overlap, and the gaps separate them. Once a left-to-right sweep records how far the selected intervals already reach, the next choice depends only on the next real point that must still lie in some selected interval.
+>
+> After both arrays are sorted by left endpoint, if coverage already reaches $\textit{cur}$, the next required point of target $[l, r]$ is $\max(l, \textit{cur})$. Extend from $\textit{cur}$ when that point lies inside the target. When $l$ is farther right, the open interval between them belongs to no target, so those points do not need to be covered. Every available interval that contains the point has a left endpoint no larger than the point, and the one with the farthest right endpoint can replace any other choice without increasing how many intervals are still needed.
+>
+> The required point only moves right, so one pointer can scan the available intervals by left endpoint. An interval that does not extend past the covered position cannot fill the real points that remain inside the target.
+
+<!-- thinking:end -->
+
+Sort $\textit{availableIntervals}$ and $\textit{targetIntervals}$ by left endpoint. $\textit{cur}$ is the rightmost point already covered and starts at $0$. Pointer $i$ scans the available intervals from left to right.
+
+Process each target $[l, r]$ in that order. The target is already covered when $\textit{cur} \ge r$. Otherwise set $\textit{uncover} = \max(l, \textit{cur})$, and let $\textit{nxt}$ be the maximum right endpoint among available intervals whose left endpoint is at most $\textit{uncover}$. If $\textit{nxt} < \textit{uncover}$, no available interval contains that point. If $\textit{nxt} = \textit{cur}$, coverage cannot move any farther right. Both cases return $-1$. Otherwise select the interval with that farthest right endpoint, set $\textit{cur} = \textit{nxt}$, and add $1$ to the answer, until $\textit{cur} \ge r$.
+
+Closed intervals form one continuous cover only when they meet at an endpoint. If one selected interval ends where the next begins, no real point between them is missing. If the next left endpoint is at least $1$ larger than the previous right endpoint and that gap lies inside a target, the real points in the gap are uncovered and the search returns $-1$.
+
+Each interval is scanned once. The time complexity is $O(n \log n + m \log m)$ and the space complexity is $O(\log n + \log m)$, where $n$ and $m$ are the numbers of available intervals and target intervals.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minSelection(
+        self, availableIntervals: list[list[int]], targetIntervals: list[list[int]]
+    ) -> int:
+        availableIntervals.sort(key=lambda x: x[0])
+        targetIntervals.sort(key=lambda x: x[0])
+        ans = cur = 0
+        i = 0
+        for l, r in targetIntervals:
+            while cur < r:
+                uncover = max(l, cur)
+                nxt = cur
+                while (
+                    i < len(availableIntervals) and availableIntervals[i][0] <= uncover
+                ):
+                    nxt = max(nxt, availableIntervals[i][1])
+                    i += 1
+                if nxt < uncover or nxt == cur:
+                    return -1
+                cur = nxt
+                ans += 1
+        return ans
 ```
 
 <!-- tabs:end -->

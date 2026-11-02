@@ -102,7 +102,7 @@ User 11 did not subscribe in 2021.
 >
 > Count accounts subscribed in 2021 that have no valid 2021 stream. A left join on account id keeps subscriptions without streams.
 >
-> A subscription covers 2021 iff $start \le 2021 \le end$. A stream is invalid if its year is not 2021 or it falls after `end_date`.
+> A subscription covers 2021 iff $\textit{start} \le 2021 \le \textit{end}$. A stream is invalid if its year is not 2021 or it falls after `end_date`.
 >
 > `COUNT` then tallies rows passing the `WHERE`.
 
@@ -115,9 +115,8 @@ User 11 did not subscribe in 2021.
 ```sql
 # Write your MySQL query statement below
 SELECT COUNT(sub.account_id) AS accounts_count
-FROM
-    Subscriptions AS sub
-    LEFT JOIN Streams USING (account_id)
+FROM Subscriptions AS sub
+LEFT JOIN Streams USING (account_id)
 WHERE
     YEAR(start_date) <= 2021
     AND YEAR(end_date) >= 2021

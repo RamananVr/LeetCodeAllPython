@@ -99,7 +99,7 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 
 The core idea of this problem is to find all people who eventually know the secret by simulating the propagation process through meetings. We can treat each meeting as an edge in an undirected graph, where each participant is a node in the graph, and the meeting time is the "timestamp" of the edge connecting the nodes. At each time point, we traverse all meetings and use Breadth-First Search (BFS) to simulate the propagation of the secret.
 
-We create a boolean array $\textit{vis}$ to record whether each person knows the secret. Initially, $\textit{vis}[0] = \text{true}$ and $\textit{vis}[\textit{firstPerson}] = \text{true}$, indicating that person 0 and $\textit{firstPerson}$ already know the secret.
+We create a boolean array $\textit{vis}$ to record whether each person knows the secret. Initially, $\textit{vis}[0] = \textit{true}$ and $\textit{vis}[\textit{firstPerson}] = \textit{true}$, indicating that person 0 and $\textit{firstPerson}$ already know the secret.
 
 We first sort the meetings by time to ensure that we process meetings in the correct order during each traversal.
 
@@ -109,7 +109,7 @@ Then, we use BFS to propagate the secret. For all participants at the current ti
 
 When all meetings are processed, we traverse the $\textit{vis}$ array, add the IDs of all people who know the secret to the result list, and return it.
 
-The time complexity is $O(m \times \log m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of meetings and the number of experts, respectively.
+The time complexity is $O(m \log m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of meetings and the number of experts, respectively.
 
 <!-- tabs:start -->
 

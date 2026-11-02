@@ -88,17 +88,17 @@ So the answer is 3.
 >
 > Find the shortest path from $s$ to any marked vertex in a directed weighted graph. $n$ is small enough for Dijkstra on an adjacency matrix without a heap.
 >
-> Repeatedly pick the closest unused vertex and relax its outgoing edges, then take the minimum $dist$ among marked vertices, or $-1$ if it stays infinite.
+> Repeatedly pick the closest unused vertex and relax its outgoing edges, then take the minimum $\textit{dist}$ among marked vertices, or $-1$ if it stays infinite.
 
 <!-- thinking:end -->
 
 First, we construct an adjacency matrix $g$ based on the edge information provided in the problem, where $g[i][j]$ represents the distance from node $i$ to node $j$. If such an edge does not exist, then $g[i][j]$ is positive infinity.
 
-Then, we can use Dijkstra's algorithm to find the shortest distance from the starting point $s$ to all nodes, denoted as $dist$.
+Then, we can use Dijkstra's algorithm to find the shortest distance from the starting point $s$ to all nodes, denoted as $\textit{dist}$.
 
 Finally, we traverse all the marked nodes and find the marked node with the smallest distance. If the distance is positive infinity, we return $-1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of nodes.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

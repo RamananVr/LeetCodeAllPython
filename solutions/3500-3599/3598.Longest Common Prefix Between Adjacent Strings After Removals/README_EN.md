@@ -105,7 +105,7 @@ tags:
 
 > **Thinking**
 >
-> Deleting $words[i]$ drops the pairs $(i-1,i)$ and $(i,i+1)$ and may add $(i-1,i+1)$. The global maximum adjacent LCP can be stored in an ordered multiset.
+> Deleting $\textit{words}[i]$ drops the pairs $(i-1,i)$ and $(i,i+1)$ and may add $(i-1,i+1)$. The global maximum adjacent LCP can be stored in an ordered multiset.
 >
 > Precompute every adjacent LCP. For each $i$, remove the affected pairs, insert the bridge pair, read the maximum, then roll back. Skip out-of-range indices at the ends.
 
@@ -127,7 +127,7 @@ First, we compute the longest common prefix lengths for all adjacent string pair
 
 In this way, after removing each string, we can quickly compute the longest common prefix length between adjacent string pairs.
 
-The time complexity is $O(L + n \times \log n)$, and the space complexity is $O(n)$, where $L$ is the total length of all strings and $n$ is the number of strings.
+The time complexity is $O(L + n \log n)$, and the space complexity is $O(n)$, where $L$ is the total length of all strings and $n$ is the number of strings.
 
 <!-- tabs:start -->
 

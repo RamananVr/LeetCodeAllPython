@@ -139,7 +139,7 @@ John attended the Math exam 1 time, the Physics exam 1 time, and the Programming
 
 > **Thinking**
 >
-> We count exams per student per subject, including zeros. A Cartesian product of students and subjects left-joins exam rows and groups by student and subject. The left join keeps combinations with no exam; $COUNT$ turns a null join into zero.
+> We count exams per student per subject, including zeros. A Cartesian product of students and subjects left-joins exam rows and groups by student and subject. The left join keeps combinations with no exam; $\textit{COUNT}$ turns a null join into zero.
 
 <!-- thinking:end -->
 
@@ -152,10 +152,9 @@ We can first join the `Students` table and the `Subjects` table to obtain all co
 ```sql
 # Write your MySQL query statement below
 SELECT student_id, student_name, subject_name, COUNT(e.student_id) AS attended_exams
-FROM
-    Students
-    JOIN Subjects
-    LEFT JOIN Examinations AS e USING (student_id, subject_name)
+FROM Students
+JOIN Subjects
+LEFT JOIN Examinations AS e USING (student_id, subject_name)
 GROUP BY 1, 3
 ORDER BY 1, 3;
 ```

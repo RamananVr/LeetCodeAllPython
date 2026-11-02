@@ -77,7 +77,7 @@ Box 10 has the most number of balls with 2 balls.
 >
 > A box is indexed by digit sum. Numbers are at most $10^5$, so digit sums stay below $50$ and fit a fixed counter.
 >
-> Enumerate $[\textit{lowLimit},\textit{highLimit}]$, add digits, increment $cnt[y]$, and return the maximum bucket.
+> Enumerate $[\textit{lowLimit},\textit{highLimit}]$, add digits, increment $\textit{cnt}[y]$, and return the maximum bucket.
 
 <!-- thinking:end -->
 
@@ -85,7 +85,7 @@ Observing the problem's data range, the maximum number of balls does not exceed 
 
 The answer is the maximum value in the array $\textit{cnt}$.
 
-The time complexity is $O(n \times \log_{10}m)$. Here, $n = \textit{highLimit} - \textit{lowLimit} + 1$, and $m = \textit{highLimit}$.
+The time complexity is $O(n \log_{10}m)$, where $n = \textit{highLimit} - \textit{lowLimit} + 1$, and $m = \textit{highLimit}$.
 
 <!-- tabs:start -->
 

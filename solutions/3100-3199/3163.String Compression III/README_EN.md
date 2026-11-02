@@ -95,7 +95,7 @@ We can use two pointers to count the consecutive occurrences of each character. 
 
 Finally, return the result.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 
@@ -129,7 +129,7 @@ class Solution:
 >
 > Method 1 uses a grouping helper. Two pointers can cut on a letter change or when the run reaches $9$, without intermediate lists.
 >
-> Keep the run start $j$. When $i$ hits the end, a new letter, or length $9$, emit $i-j$ and $word[j]$ and set $j=i$.
+> Keep the run start $j$. When $i$ hits the end, a new letter, or length $9$, emit $i-j$ and $\textit{word}[j]$ and set $j=i$.
 >
 > The scan ends at $n$. Same linear bound, closer to the “at most nine” wording.
 

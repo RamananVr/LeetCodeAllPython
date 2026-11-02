@@ -72,7 +72,7 @@ tags:
 >
 > Each value becomes $+k$ or $-k$; $2^n$ assignments are impossible. After sorting, smaller numbers should take $+k$ and larger ones $-k$, so an optimal split is a prefix of $+k$ and a suffix of $-k$.
 >
-> For each cut $i$, the new minimum is $\min(nums[0]+k,\,nums[i]-k)$ and the new maximum is $\max(nums[i-1]+k,\,nums[-1]-k)$. Keep the smallest gap, including the original one.
+> For each cut $i$, the new minimum is $\min(\textit{nums}[0]+k,\,\textit{nums}[i]-k)$ and the new maximum is $\max(\textit{nums}[i-1]+k,\,\textit{nums}[-1]-k)$. Keep the smallest gap, including the original one.
 
 <!-- thinking:end -->
 
@@ -80,7 +80,7 @@ According to the problem requirements, we need to find the minimum difference be
 
 Therefore, we can first sort the array, then enumerate each element in the array, divide it into two parts, one part increased by $k$ and the other part decreased by $k$, and calculate the difference between the maximum and minimum values. Finally, take the minimum value among all differences.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

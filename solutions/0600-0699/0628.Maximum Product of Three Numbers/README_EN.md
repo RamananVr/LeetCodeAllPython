@@ -78,7 +78,7 @@ tags:
 >
 > The maximum product of three numbers is either the three largest values or the two smallest (possibly negative) times the largest. Sorting is cheap for $n\le 10^4$.
 >
-> After sorting, compare $nums[-1]\times nums[-2]\times nums[-3]$ with $nums[-1]\times nums[0]\times nums[1]$.
+> After sorting, compare $\textit{nums}[-1]\times \textit{nums}[-2]\times \textit{nums}[-3]$ with $\textit{nums}[-1]\times \textit{nums}[0]\times \textit{nums}[1]$.
 
 <!-- thinking:end -->
 
@@ -89,7 +89,7 @@ First, we sort the array $\textit{nums}$, and then discuss two cases:
 
 Finally, return the maximum of the two cases.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -124,7 +124,7 @@ We can avoid sorting the array by maintaining five variables: $\textit{mi1}$ and
 
 Finally, return $\max(\textit{mi1} \times \textit{mi2} \times \textit{mx1}, \textit{mx1} \times \textit{mx2} \times \textit{mx3})$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

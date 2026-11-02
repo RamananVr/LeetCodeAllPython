@@ -124,7 +124,7 @@ tags:
 >
 > Each step multiplies the current minimum by $\textit{multiplier}$, breaking ties by the smaller index. $n$ and $k$ are tiny, so $k$ simulations suffice. A linear scan for the min would pass; a heap matches the rule.
 >
-> Store $(value,index)$, pop the min, multiply in place, and push back. After $k$ rounds the array is the answer.
+> Store $(\textit{value},\textit{index})$, pop the min, multiply in place, and push back. After $k$ rounds the array is the answer.
 
 <!-- thinking:end -->
 
@@ -132,7 +132,7 @@ We can use a min-heap to maintain the elements in the array $\textit{nums}$. Eac
 
 Finally, we return the array $\textit{nums}$.
 
-The time complexity is $O((n + k) \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O((n + k) \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

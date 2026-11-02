@@ -99,9 +99,9 @@ Customer 3: The first year is 2017, and the last year is 2018
 
 > **Thinking**
 >
-> Customers whose yearly totals are strictly increasing. After summing $price$ per customer and year, a strictly increasing series makes $YEAR-RANK(\textit{total})$ constant.
+> Customers whose yearly totals are strictly increasing. After summing $\textit{price}$ per customer and year, a strictly increasing series makes $\textit{YEAR}-\textit{RANK}(\textit{total})$ constant.
 >
-> Window $RANK()$ on the yearly total, then keep customers for whom that difference has a single distinct value.
+> Window $\textit{RANK}()$ on the yearly total, then keep customers for whom that difference has a single distinct value.
 
 <!-- thinking:end -->
 
@@ -111,21 +111,20 @@ Customer 3: The first year is 2017, and the last year is 2018
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_id
-FROM
-    (
-        SELECT
-            customer_id,
-            YEAR(order_date),
-            SUM(price) AS total,
-            YEAR(order_date) - RANK() OVER (
+SELECT customer_id
+FROM (
+    SELECT
+        customer_id,
+        YEAR(order_date),
+        SUM(price) AS total,
+        YEAR(order_date) -
+            RANK() OVER (
                 PARTITION BY customer_id
                 ORDER BY SUM(price)
             ) AS rk
-        FROM Orders
-        GROUP BY customer_id, YEAR(order_date)
-    ) AS t
+    FROM Orders
+    GROUP BY customer_id, YEAR(order_date)
+) AS t
 GROUP BY customer_id
 HAVING COUNT(DISTINCT rk) = 1;
 ```

@@ -91,7 +91,7 @@ class Solution:
 
 > **Thinking**
 >
-> Polynomial hashes may collide. Concatenating $s$ with its reverse and computing KMP $next$ makes the last $next$ value the longest palindromic prefix length.
+> Polynomial hashes may collide. Concatenating $s$ with its reverse and computing KMP $\textit{next}$ makes the last $\textit{next}$ value the longest palindromic prefix length.
 >
 > The same construction then runs in linear time without modular hashing.
 
@@ -99,7 +99,7 @@ class Solution:
 
 According to the problem description, we need to reverse the string $s$ to obtain the string $\textit{rev}$, and then find the longest common part of the suffix of the string $\textit{rev}$ and the prefix of the string $s$. We can use the KMP algorithm to concatenate the string $s$ and the string $\textit{rev}$ and find the longest common part of the longest prefix and the longest suffix.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

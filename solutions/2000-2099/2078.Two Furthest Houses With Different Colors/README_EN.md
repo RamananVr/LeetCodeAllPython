@@ -77,7 +77,7 @@ House 0 has color 0, and house 1 has color 1. The distance between them is abs(0
 >
 > $n \le 100$ allows all pairs, yet an optimum always uses an endpoint: if the two ends share a color, the farthest opposite-colored houses pair with the other end.
 >
-> Compare $colors[0]$ and $colors[-1]$; if equal, walk inward to the first different color and take the larger span.
+> Compare $\textit{colors}[0]$ and $\textit{colors}[-1]$; if equal, walk inward to the first different color and take the larger span.
 
 <!-- thinking:end -->
 
@@ -85,7 +85,7 @@ We can observe that if the first and last houses have different colors, the maxi
 
 If the first and last houses have the same color, we can scan from the left to find the first house with a different color (let its index be $i$), and scan from the right to find the first house with a different color (let its index be $j$). The maximum distance is then $\max(n - i - 1, j)$.
 
-The time complexity is $O(n)$, where $n$ is the number of houses. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of houses.
 
 <!-- tabs:start -->
 

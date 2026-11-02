@@ -75,7 +75,7 @@ tags:
 >
 > The sign of the product depends only on zeros and the number of negatives. Computing the full product can overflow.
 >
-> Keep a running sign $ans$, return $0$ on a zero, and flip $ans$ on a negative. The scan yields the sign without multiplying the values themselves.
+> Keep a running sign $\textit{ans}$, return $0$ on a zero, and flip $\textit{ans}$ on a negative. The scan yields the sign without multiplying the values themselves.
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ Then we traverse each element $v$ in the array. If $v$ is a negative number, we 
 
 After the traversal is over, we return `ans`.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

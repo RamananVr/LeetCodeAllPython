@@ -79,9 +79,9 @@ tags:
 
 > **Thinking**
 >
-> Each step changes the row or the column, and we want to sit at $dest$ after $k$ steps. The grid can be $10^9$ on a side, so per-cell states are impossible. Relative to $source$ there are only four kinds of cells: itself, same column, same row, or neither.
+> Each step changes the row or the column, and we want to sit at $\textit{dest}$ after $k$ steps. The grid can be $10^9$ on a side, so per-cell states are impossible. Relative to $\textit{source}$ there are only four kinds of cells: itself, same column, same row, or neither.
 >
-> A four-vector $f$ stores the number of ways to each kind; one step mixes only these four kinds, with coefficients from $n$ and $m$. After $k$ iterations, pick the component that matches how $dest$ sits relative to $source$.
+> A four-vector $f$ stores the number of ways to each kind; one step mixes only these four kinds, with coefficients from $n$ and $m$. After $k$ iterations, pick the component that matches how $\textit{dest}$ sits relative to $\textit{source}$.
 
 <!-- thinking:end -->
 
@@ -107,7 +107,7 @@ $$
 
 We loop $k$ times, and finally check whether `source` and `dest` are in the same row or column, and return the corresponding state.
 
-The time complexity is $O(k)$, where $k$ is the number of moves. The space complexity is $O(1)$.
+The time complexity is $O(k)$, and the space complexity is $O(1)$, where $k$ is the number of moves.
 
 <!-- tabs:start -->
 

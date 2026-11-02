@@ -95,7 +95,7 @@ tags:
 >
 > The square hole is limited by the longest run of consecutive removable horizontal bars and of vertical bars; the side is one plus the shorter of those runs. $n$ and $m$ may be $10^9$, so the grid cannot be simulated; at most $100$ bars are removable.
 >
-> Sort $hBars$ and $vBars$, scan the longest adjacent-difference-$1$ run, add one, take the minimum of the two sides, and square it.
+> Sort $\textit{hBars}$ and $\textit{vBars}$, scan the longest adjacent-difference-$1$ run, add one, take the minimum of the two sides, and square it.
 
 <!-- thinking:end -->
 
@@ -107,7 +107,7 @@ For the array $\textit{nums}$, we first sort it, then iterate through the array.
 
 After finding the lengths of the longest consecutive increasing subsequences in $\textit{hBars}$ and $\textit{vBars}$, we take the minimum of the two as the side length of the square, and then calculate the area of the square.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hBars}$ or $\textit{vBars}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hBars}$ or $\textit{vBars}$.
 
 <!-- tabs:start -->
 

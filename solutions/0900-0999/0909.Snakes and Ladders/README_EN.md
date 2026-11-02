@@ -93,7 +93,7 @@ This is the lowest possible number of moves to reach the last square, so return 
 
 We can use the Breadth-First Search (BFS) method, starting from the starting point, moving forward 1 to 6 steps each time, and then checking for snakes or ladders. If there are any, move to the destination of the snake or ladder; otherwise, move to the next square.
 
-Specifically, we use a queue $\textit{q}$ to store the current reachable square numbers, initially putting number $1$ into the queue. At the same time, we use a set $\textit{vis}$ to record the squares that have been reached to avoid revisiting them, initially adding number $1$ to the set $\textit{vis}$.
+Specifically, we use a queue $q$ to store the current reachable square numbers, initially putting number $1$ into the queue. At the same time, we use a set $\textit{vis}$ to record the squares that have been reached to avoid revisiting them, initially adding number $1$ to the set $\textit{vis}$.
 
 In each operation, we take out the square number $x$ at the front of the queue. If $x$ is the endpoint, we can return the current number of steps. Otherwise, we move $x$ forward 1 to 6 steps, setting the new number as $y$. If $y$ falls outside the board, we skip it directly. Otherwise, we need to find the row and column corresponding to $y$. Since the row numbers decrease from bottom to top, and the column numbers depend on the parity of the row, we need to perform some calculations to get the row and column corresponding to $y$.
 
@@ -101,7 +101,7 @@ If the square corresponding to $y$ has a snake or ladder, we need to move to the
 
 If we ultimately cannot reach the endpoint, we return $-1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the side of the board.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the side of the board.
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ Maximum length is 4.
 
 > **Thinking**
 >
-> Concatenated subsequences must have unique letters. $|arr|\le 16$, so $2^{16}$ subsets are enumerable. Twenty-six letters fit in one integer mask.
+> Concatenated subsequences must have unique letters. $|\textit{arr}|\le 16$, so $2^{16}$ subsets are enumerable. Twenty-six letters fit in one integer mask.
 >
 > Starting from the empty mask, each internally unique string is merged with an existing mask only when their bitwise AND is zero. The answer is the maximum popcount among reachable masks. Bit operations make set algebra constant-time.
 
@@ -91,7 +91,7 @@ Then we traverse the array $\textit{arr}$. For each string $t$, we use an intege
 
 Finally, we return the answer.
 
-The time complexity is $O(2^n + L)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the string array, and $L$ is the sum of the lengths of all strings in the array.
+The time complexity is $O(2^n + L)$, and the space complexity is $O(2^n)$, where $n$ is the length of the string array, and $L$ is the sum of the lengths of all strings in the array.
 
 <!-- tabs:start -->
 

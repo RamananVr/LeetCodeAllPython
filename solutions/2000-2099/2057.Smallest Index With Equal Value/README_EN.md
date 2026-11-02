@@ -73,7 +73,7 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 > **Thinking**
 >
-> With $n \le 100$, find the least $i$ such that $i \bmod 10 = nums[i]$, or $-1$.
+> With $n \le 100$, find the least $i$ such that $i \bmod 10 = \textit{nums}[i]$, or $-1$.
 >
 > A single left-to-right scan is enough.
 
@@ -83,7 +83,7 @@ We directly traverse the array. For each index $i$, we check if it satisfies $i 
 
 If we traverse the entire array and do not find a satisfying index, we return $-1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

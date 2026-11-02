@@ -86,13 +86,13 @@ tags:
 
 > **Thinking**
 >
-> $diff[i][j]=onesRow_i+onesCol_j-zerosRow_i-zerosCol_j$, and zeros are width or height minus ones. With $mn\le 10^5$, count ones per row and column, then fill every cell.
+> $\textit{diff}[i][j]=\textit{onesRow}_i+\textit{onesCol}_j-\textit{zerosRow}_i-\textit{zerosCol}_j$, and zeros are width or height minus ones. With $mn\le 10^5$, count ones per row and column, then fill every cell.
 
 <!-- thinking:end -->
 
 We can solve this problem by simulating the process as described in the problem statement.
 
-The time complexity is $O(m \times n)$, and if we ignore the space used by the answer, the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

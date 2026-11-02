@@ -58,7 +58,7 @@ The first occurrence is at index 0, so we return 0.
 
 > **Thinking**
 >
-> The first idea is to try every start $i$ in $haystack$ and test whether the length-$m$ slice equals $needle$. With $n,m \le 10^4$, the worst case $O((n-m)m)$ is about $10^8$ and usually passes.
+> The first idea is to try every start $i$ in $\textit{haystack}$ and test whether the length-$m$ slice equals $\textit{needle}$. With $n,m \le 10^4$, the worst case $O((n-m)m)$ is about $10^8$ and usually passes.
 >
 > The bottleneck is paying $m$ character comparisons at many near-matches. Smarter matchers amortize toward linear time, but this size does not force them yet.
 >
@@ -70,7 +70,7 @@ The first occurrence is at index 0, so we return 0.
 
 We compare the string `needle` with each character of the string `haystack` as the starting point. If we find a matching index, we return it directly.
 
-Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O((n-m) \times m)$, and the space complexity is $O(1)$.
+Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O((n-m)m)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -100,9 +100,9 @@ class Solution:
 >
 > Solution 1 may compare all $m$ characters at every start, approaching $O(nm)$. We want the next window to reuse work from the last one.
 >
-> A fixed-length substring can be rolling-hashed: add the incoming character, drop the outgoing one, update in $O(1)$. When the window hash equals $needle$'s hash, compare the raw strings to rule out a collision.
+> A fixed-length substring can be rolling-hashed: add the incoming character, drop the outgoing one, update in $O(1)$. When the window hash equals $\textit{needle}$'s hash, compare the raw strings to rule out a collision.
 >
-> One scan of $haystack$ then costs expected $O(n+m)$.
+> One scan of $\textit{haystack}$ then costs expected $O(n+m)$.
 
 <!-- thinking:end -->
 
@@ -159,7 +159,7 @@ class Solution:
 
 Compute the prefix function $\textit{next}$ of $\textit{needle}$, where $\textit{next}[i]$ is the longest proper border of $\textit{needle}[0..i]$. Scan $\textit{haystack}$: equal characters grow the match length, and a mismatch jumps it to $\textit{next}[j-1]$. When the match length reaches $m$, return the start index $i-m+1$.
 
-The time complexity is $O(n+m)$ and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $\textit{haystack}$ and $\textit{needle}$.
+The time complexity is $O(n+m)$, and the space complexity is $O(m)$, where $n$ and $m$ are the lengths of $\textit{haystack}$ and $\textit{needle}$.
 
 <!-- tabs:start -->
 

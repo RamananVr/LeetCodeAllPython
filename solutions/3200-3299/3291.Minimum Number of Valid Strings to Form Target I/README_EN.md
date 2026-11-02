@@ -98,7 +98,7 @@ tags:
 
 > **Thinking**
 >
-> Concatenate prefixes of $\textit{words}$ to form $\textit{target}$ with as few pieces as possible. $|target|\le 5\times 10^3$ and total word length $10^5$; trying every word at every index repeats prefixes.
+> Concatenate prefixes of $\textit{words}$ to form $\textit{target}$ with as few pieces as possible. $|\textit{target}|\le 5\times 10^3$ and total word length $10^5$; trying every word at every index repeats prefixes.
 >
 > Store every word in a trie. From $i$, walk $\textit{target}$ down the trie; each existing node is a cut, plus $\textit{dfs}(j+1)$. After memoization each start walks at most $O(n)$.
 
@@ -111,11 +111,11 @@ We design a function $\textit{dfs}(i)$, which represents the minimum number of s
 The function $\textit{dfs}(i)$ is calculated as follows:
 
 - If $i \geq n$, it means the string $\textit{target}$ has been completely traversed, so we return $0$;
-- Otherwise, we can find valid strings in the trie that start with $\textit{target}[i]$, and then recursively calculate $\textit{dfs}(i + \text{len}(w))$, where $w$ is the valid string found. We take the minimum of these values and add $1$ as the return value of $\textit{dfs}(i)$.
+- Otherwise, we can find valid strings in the trie that start with $\textit{target}[i]$, and then recursively calculate $\textit{dfs}(i + \textit{len}(w))$, where $w$ is the valid string found. We take the minimum of these values and add $1$ as the return value of $\textit{dfs}(i)$.
 
 To avoid redundant calculations, we use memoization.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of the string $\textit{target}$, and $L$ is the total length of all valid strings.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of the string $\textit{target}$, and $L$ is the total length of all valid strings.
 
 <!-- tabs:start -->
 
@@ -172,7 +172,7 @@ class Solution:
 
 > **Thinking**
 >
-> Trying every word at every index repeats prefixes. $|target|$ can reach $5\times 10^3$, and whenever $\textit{target}[i]$ is the first letter of some word the first call always lands on $i+1$, so the chain has depth $n$. A piece must be a prefix of some word, so the fewest pieces from $i$ depend only on later indices. Store the words in a trie, set $f[n]=0$, and fill $i$ from $n-1$ down to $0$: walk $\textit{target}$ down the trie and update $f[i]$ with $1+f[j+1]$ at every existing node. If $f[0]$ is still at least the sentinel, return $-1$.
+> Trying every word at every index repeats prefixes. $|\textit{target}|$ can reach $5\times 10^3$, and whenever $\textit{target}[i]$ is the first letter of some word the first call always lands on $i+1$, so the chain has depth $n$. A piece must be a prefix of some word, so the fewest pieces from $i$ depend only on later indices. Store the words in a trie, set $f[n]=0$, and fill $i$ from $n-1$ down to $0$: walk $\textit{target}$ down the trie and update $f[i]$ with $1+f[j+1]$ at every existing node. If $f[0]$ is still at least the sentinel, return $-1$.
 
 <!-- thinking:end -->
 
@@ -182,7 +182,7 @@ Scan $i$ from $n - 1$ down to $0$. Starting from the trie root, walk down $\text
 
 If $f[0]$ is at least the preset upper bound, $\textit{target}$ cannot be formed and we return $-1$. Otherwise we return $f[0]$.
 
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of $\textit{target}$, and $L$ is the total length of all valid strings.
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, where $n$ is the length of $\textit{target}$, and $L$ is the total length of all valid strings.
 
 <!-- tabs:start -->
 

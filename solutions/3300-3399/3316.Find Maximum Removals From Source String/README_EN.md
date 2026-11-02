@@ -123,12 +123,12 @@ We define $f[i][j]$ to represent the maximum number of deletions in the first $i
 
 For $f[i][j]$, we have two choices:
 
-- We can skip the $i$-th character of $\textit{source}$, in which case $f[i][j] = f[i-1][j] + \text{int}(i-1 \in \textit{targetIndices})$;
+- We can skip the $i$-th character of $\textit{source}$, in which case $f[i][j] = f[i-1][j] + \textit{int}(i-1 \in \textit{targetIndices})$;
 - If $\textit{source}[i-1] = \textit{pattern}[j-1]$, we can match the $i$-th character of $\textit{source}$, in which case $f[i][j] = \max(f[i][j], f[i-1][j-1])$.
 
 The final answer is $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $\textit{source}$ and $\textit{pattern}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of $\textit{source}$ and $\textit{pattern}$, respectively.
 
 <!-- tabs:start -->
 

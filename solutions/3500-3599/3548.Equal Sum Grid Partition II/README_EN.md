@@ -124,7 +124,7 @@ tags:
 
 We can first enumerate horizontal partition lines, compute the element sum of each resulting part, and use hash maps to record the occurrence count of elements in each part.
 
-For each partition line, we need to determine whether the sums of the two parts are equal, or whether removing one cell can make them equal. If the sums are equal, we directly return $\text{true}$. If the sums are not equal, we compute their difference $\textit{diff}$. If $\textit{diff}$ exists in the hash map of the larger part and satisfies the connectivity condition after removing that cell, we also return $\text{true}$.
+For each partition line, we need to determine whether the sums of the two parts are equal, or whether removing one cell can make them equal. If the sums are equal, we directly return $\textit{true}$. If the sums are not equal, we compute their difference $\textit{diff}$. If $\textit{diff}$ exists in the hash map of the larger part and satisfies the connectivity condition after removing that cell, we also return $\textit{true}$.
 
 The connectivity condition can be checked using the following criteria:
 
@@ -136,7 +136,7 @@ Satisfying any one of the above conditions guarantees that the part remains conn
 
 We also need to enumerate vertical partition lines, which is similar to the horizontal case. To simplify the enumeration of vertical partition lines, we can first transpose the matrix and then apply the same logic.
 
-The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -110,7 +110,7 @@ We can use Depth-First Search (DFS) to traverse the tree and compute the entire 
 
 Then, we use string hashing to compute the hash values of both $\textit{dfsStr}$ and the reverse of $\textit{dfsStr}$ to check if it is a palindrome.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -178,7 +178,7 @@ class Solution:
 >
 > A node's character is appended only when the node is left, so its interval covers exactly the descendants written first. Children have to be processed in the adjacency-list order, or the endpoints will not match the recursive traversal.
 >
-> An explicit stack of $(node, state)$ runs that postorder. On entry we push the exit marker and then the children in reverse, so they still pop from left to right, and on exit we record $[l, r]$. Hashes of the string and of its reverse compare the first half of $[l, r]$ with the matching half of the reverse in $O(1)$.
+> An explicit stack of $(\textit{node}, \textit{state})$ runs that postorder. On entry we push the exit marker and then the children in reverse, so they still pop from left to right, and on exit we record $[l, r]$. Hashes of the string and of its reverse compare the first half of $[l, r]$ with the matching half of the reverse in $O(1)$.
 
 <!-- thinking:end -->
 
@@ -186,7 +186,7 @@ An explicit stack walks the tree in postorder. When a node is left, its characte
 
 Then, we use string hashing to compute the hash values of both $\textit{dfsStr}$ and the reverse of $\textit{dfsStr}$ to check whether each interval is a palindrome.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

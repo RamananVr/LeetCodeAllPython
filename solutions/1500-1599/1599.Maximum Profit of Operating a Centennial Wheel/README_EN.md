@@ -91,13 +91,13 @@ The profit was never positive, so return -1.
 >
 > Each turn boards at most four people and pays a running cost; we want the first turn that attains the maximum profit. Customers arrive in batches of length up to $10^5$, so we must simulate every turn and cannot skip the waiting line.
 >
-> Keep the waiting count and the running profit: each turn adds new arrivals, boards $\min(4,wait)$ people, and updates profit. A strictly larger profit records the turn index. Stop when both the queue and the remaining batches are empty. If profit never goes positive, return $-1$.
+> Keep the waiting count and the running profit: each turn adds new arrivals, boards $\min(4,\textit{wait})$ people, and updates profit. A strictly larger profit records the turn index. Stop when both the queue and the remaining batches are empty. If profit never goes positive, return $-1$.
 
 <!-- thinking:end -->
 
 We directly simulate the rotation process of the Ferris wheel. Each time it rotates, we add up the waiting customers and the newly arrived customers, then at most $4$ people get on the ride, update the number of waiting customers and profit, and record the maximum profit and its corresponding number of rotations.
 
-The time complexity is $O(n)$, where $n$ is the length of the `customers` array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the `customers` array.
 
 <!-- tabs:start -->
 

@@ -68,7 +68,7 @@ tags:
 >
 > The complementary residue is unchanged; a map or a length-$24$ array works.
 >
-> Scan left to right, add $cnt[(24-x\bmod 24)\bmod 24]$, then increment $cnt[x\bmod 24]$.
+> Scan left to right, add $\textit{cnt}[(24-x\bmod 24)\bmod 24]$, then increment $\textit{cnt}[x\bmod 24]$.
 
 <!-- thinking:end -->
 
@@ -78,7 +78,7 @@ Iterate through the array $\textit{hours}$. For each hour $x$, we can find the n
 
 After iterating through the array $\textit{hours}$, we can obtain the number of index pairs that meet the problem requirements.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{hours}$. The space complexity is $O(C)$, where $C=24$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the array $\textit{hours}$, and $C=24$.
 
 <!-- tabs:start -->
 

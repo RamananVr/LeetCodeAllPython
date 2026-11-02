@@ -70,10 +70,10 @@ tags:
 
 This problem is a template for two-dimensional prefix sum.
 
-We define $s[i][j]$ as the sum of the elements in the first $i$ rows and the first $j$ columns of the matrix $mat$. The calculation formula for $s[i][j]$ is:
+We define $s[i][j]$ as the sum of the elements in the first $i$ rows and the first $j$ columns of the matrix $\textit{mat}$. The calculation formula for $s[i][j]$ is:
 
 $$
-s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + mat[i-1][j-1]
+s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + \textit{mat}[i-1][j-1]
 $$
 
 In this way, we can quickly calculate the sum of elements in any rectangular area through the $s$ array.
@@ -84,7 +84,7 @@ $$
 s[x_2+1][y_2+1] - s[x_1][y_2+1] - s[x_2+1][y_1] + s[x_1][y_1]
 $$
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

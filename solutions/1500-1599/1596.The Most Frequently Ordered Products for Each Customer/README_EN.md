@@ -141,7 +141,7 @@ John (customer 5) did not order anything, so we do not include them in the resul
 >
 > For each customer, list every product tied for the highest order count. We must aggregate by person and product, then keep the top frequency inside each group.
 >
-> Group by $customer\_id,product\_id$, $RANK$ by count descending, keep $rk=1$, and join $Products$ for the name. $RANK$ preserves every tied winner.
+> Group by $\textit{customer\_id},\textit{product\_id}$, $\textit{RANK}$ by count descending, keep $rk=1$, and join $\textit{Products}$ for the name. $\textit{RANK}$ preserves every tied winner.
 
 <!-- thinking:end -->
 
@@ -166,9 +166,8 @@ WITH
         GROUP BY 1, 2
     )
 SELECT customer_id, product_id, product_name
-FROM
-    T
-    JOIN Products USING (product_id)
+FROM T
+JOIN Products USING (product_id)
 WHERE rk = 1;
 ```
 

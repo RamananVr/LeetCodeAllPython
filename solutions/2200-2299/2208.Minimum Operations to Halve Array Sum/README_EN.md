@@ -76,7 +76,7 @@ It can be shown that we cannot reduce the sum by at least half in less than 3 op
 >
 > Each operation halves one value; we want the sum to drop by at least half in as few moves as possible. $n \le 10^5$ rules out searching sequences. The decrement equals half of the chosen value, so every step should take the current maximum.
 >
-> Keep the numbers in a max-heap and let $s = \mathrm{sum}(nums)/2$ be the remaining reduction. Repeatedly pop $t$, subtract $t/2$ from $s$, and push $t/2$ back, until $s \le 0$. The number of pops is the answer.
+> Keep the numbers in a max-heap and let $s = \textit{sum}(\textit{nums})/2$ be the remaining reduction. Repeatedly pop $t$, subtract $t/2$ from $s$, and push $t/2$ back, until $s \le 0$. The number of pops is the answer.
 
 <!-- thinking:end -->
 
@@ -84,7 +84,7 @@ According to the problem description, each operation will halve a number in the 
 
 Therefore, we first calculate the total sum $s$ that the array needs to reduce, and then use a priority queue (max heap) to maintain all the numbers in the array. Each time we take the maximum value $t$ from the priority queue, halve it, and then put the halved number back into the priority queue, while updating $s$, until $s \le 0$. The number of operations at this time is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

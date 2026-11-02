@@ -66,7 +66,7 @@ tags:
 >
 > The intersection must keep multiplicities, the min of the two counts. Unlike 349, we cannot unique the values.
 >
-> Count $nums1$, then scan $nums2$: while a remainder exists, emit it and decrement. The length is the sum of those minima.
+> Count $\textit{nums1}$, then scan $\textit{nums2}$: while a remainder exists, emit it and decrement. The length is the sum of those minima.
 
 <!-- thinking:end -->
 
@@ -74,7 +74,7 @@ We can use a hash table $\textit{cnt}$ to count the occurrences of each element 
 
 After the iteration is finished, we return the answer array.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

@@ -60,9 +60,9 @@ There may exists other ways to achieve this answer too.</pre>
 >
 > A window can be made uniform with at most $k$ changes iff its length minus the majority count is at most $k$. Trying every pair of ends is $O(n^2)$.
 >
-> Expand the right end while tracking the maximum frequency $\textit{mx}$. When $r-l+1-\textit{mx}>k$, shift the left end by one. The longest legal window has length $n-l$.
+> Expand the right end while tracking the maximum frequency $mx$. When $r-l+1-mx>k$, shift the left end by one. The longest legal window has length $n-l$.
 >
-> There is no need to decrease $\textit{mx}$ on a left move: we only want the maximum length, and an overestimate of $\textit{mx}$ only makes the test stricter.
+> There is no need to decrease $mx$ on a left move: we only want the maximum length, and an overestimate of $mx$ only makes the test stricter.
 
 <!-- thinking:end -->
 
@@ -72,7 +72,7 @@ We iterate through the string, updating the right boundary `r` of the window eac
 
 Finally, the answer is $n - l$, where $n$ is the length of the string.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, the character set is uppercase English letters, so $|\Sigma| = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, the character set is uppercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

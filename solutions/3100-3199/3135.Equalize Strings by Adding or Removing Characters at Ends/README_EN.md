@@ -111,11 +111,11 @@ tags:
 
 > **Thinking**
 >
-> Only prefixes and suffixes may be deleted or appended, so a contiguous common substring must be kept. Testing every substring of $initial$ inside $target$ is $O(m^2n)$.
+> Only prefixes and suffixes may be deleted or appended, so a contiguous common substring must be kept. Testing every substring of $\textit{initial}$ inside $\textit{target}$ is $O(m^2n)$.
 >
-> The operation count is the discarded prefix/suffix of $initial$ plus the missing sides of $target$, i.e. $m+n-2\cdot mx$ for the longest common substring length $mx$.
+> The operation count is the discarded prefix/suffix of $\textit{initial}$ plus the missing sides of $\textit{target}$, i.e. $m+n-2\cdot mx$ for the longest common substring length $mx$.
 >
-> Standard DP: $f[i][j]$ is the common substring ending at $initial[i-1]$ and $target[j-1]$, extending when the letters match. The answer uses the global maximum $mx$.
+> Standard DP: $f[i][j]$ is the common substring ending at $\textit{initial}[i-1]$ and $\textit{target}[j-1]$, extending when the letters match. The answer uses the global maximum $mx$.
 
 <!-- thinking:end -->
 
@@ -134,7 +134,7 @@ $$
 
 Then $mx = \max f[i][j]$, and the final answer is $m + n - 2 \times mx$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of the strings `initial` and `target`, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of the strings `initial` and `target`, respectively.
 
 <!-- tabs:start -->
 

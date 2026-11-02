@@ -99,17 +99,17 @@ tags:
 
 > **Thinking**
 >
-> $nums2$ is $nums1$ after adding one common integer. Matching permutations to recover the shift needs a sort or a map.
+> $\textit{nums2}$ is $\textit{nums1}$ after adding one common integer. Matching permutations to recover the shift needs a sort or a map.
 >
 > A uniform add does not change which elements are smallest, so the shift equals the difference of minima.
 >
-> Return $\min(nums2)-\min(nums1)$ after a linear scan.
+> Return $\min(\textit{nums2})-\min(\textit{nums1})$ after a linear scan.
 
 <!-- thinking:end -->
 
 We can find the minimum value of each array, then return the difference between the two minimum values.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

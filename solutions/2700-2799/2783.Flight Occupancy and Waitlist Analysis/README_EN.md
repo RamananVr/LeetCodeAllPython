@@ -100,7 +100,7 @@ Passengers table:
 >
 > For each flight, count confirmed seats and waitlisted passengers. An inner join would drop flights with no passengers, and bookings are capped by capacity.
 >
-> Left-join passengers onto flights and group by $flight\_id$: $LEAST(count, capacity)$ is booked, $GREATEST(count-capacity, 0)$ is waitlisted, then order by flight id.
+> Left-join passengers onto flights and group by $\textit{flight\_id}$: $\textit{LEAST}(\textit{count}, \textit{capacity})$ is booked, $\textit{GREATEST}(\textit{count}-\textit{capacity}, 0)$ is waitlisted, then order by flight id.
 
 <!-- thinking:end -->
 
@@ -114,9 +114,8 @@ SELECT
     flight_id,
     LEAST(COUNT(passenger_id), capacity) AS booked_cnt,
     GREATEST(COUNT(passenger_id) - capacity, 0) AS waitlist_cnt
-FROM
-    Flights
-    LEFT JOIN Passengers USING (flight_id)
+FROM Flights
+LEFT JOIN Passengers USING (flight_id)
 GROUP BY 1
 ORDER BY 1;
 ```

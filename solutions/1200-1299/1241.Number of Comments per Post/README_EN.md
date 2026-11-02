@@ -88,7 +88,7 @@ The comment with id 6 is a comment on a deleted post with id 7 so we ignored it.
 
 > **Thinking**
 >
-> A post is a submission with a null $parent\_id$; a comment points at some post's $sub\_id$. A self-join pairs each post with its children; a left join keeps posts with no comments. After $DISTINCT$, we count by post so a duplicate comment row is not counted twice.
+> A post is a submission with a null $\textit{parent\_id}$; a comment points at some post's $\textit{sub\_id}$. A self-join pairs each post with its children; a left join keeps posts with no comments. After $\textit{DISTINCT}$, we count by post so a duplicate comment row is not counted twice.
 
 <!-- thinking:end -->
 
@@ -101,9 +101,8 @@ The comment with id 6 is a comment on a deleted post with id 7 so we ignored it.
 WITH
     t AS (
         SELECT DISTINCT s1.sub_id AS post_id, s2.sub_id AS sub_id
-        FROM
-            Submissions AS s1
-            LEFT JOIN Submissions AS s2 ON s1.sub_id = s2.parent_id
+        FROM Submissions AS s1
+        LEFT JOIN Submissions AS s2 ON s1.sub_id = s2.parent_id
         WHERE s1.parent_id IS NULL
     )
 SELECT post_id, COUNT(sub_id) AS number_of_comments

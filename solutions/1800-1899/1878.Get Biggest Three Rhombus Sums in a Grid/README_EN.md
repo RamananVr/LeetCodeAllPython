@@ -89,19 +89,19 @@ tags:
 
 We can preprocess to get two prefix sum arrays $s_1$ and $s_2$, where $s_1[i][j]$ represents the sum of the elements on the upper left diagonal ending at $(i, j)$, and $s_2[i][j]$ represents the sum of the elements on the upper right diagonal ending at $(i, j)$.
 
-Next, we enumerate each position $(i, j)$, first add $grid[i][j]$ to the ordered set $ss$, and then enumerate the length $k$ of the diamond. The sum of the diamond with $(i, j)$ as the center and a side length of $k$ is:
+Next, we enumerate each position $(i, j)$, first add $\textit{grid}[i][j]$ to the ordered set $ss$, and then enumerate the length $k$ of the diamond. The sum of the diamond with $(i, j)$ as the center and a side length of $k$ is:
 
 $$
 \begin{aligned}
 &\quad s_1[i + k][j] - s_1[i][j - k] + s_1[i][j + k] - s_1[i - k][j] \\
 &+ s_2[i][j - k] - s_2[i - k][j] + s_2[i + k][j] - s_2[i][j + k] \\
-&- grid[i + k - 1][j - 1] + grid[i - k - 1][j - 1]
+&- \textit{grid}[i + k - 1][j - 1] + \textit{grid}[i - k - 1][j - 1]
 \end{aligned}
 $$
 
 We add this value to the ordered set $ss$, while ensuring that the size of the ordered set $ss$ does not exceed $3$. Finally, we output the elements in the ordered set $ss$ in reverse order.
 
-The time complexity is $O(m \times n \times \min(m, n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn \min(m, n))$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

@@ -86,17 +86,17 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 
 > **Thinking**
 >
-> A window reports its $x$-th smallest value if negative, otherwise $0$. Values lie in $[-50,50]$, so sorting every window is unnecessary. $O(nk\log k)$ is tight for $n \le 10^5$.
+> A window reports its $x$-th smallest value if negative, otherwise $0$. Values lie in $[-50,50]$, so sorting every window is unnecessary. $O(nk \log k)$ is tight for $n \le 10^5$.
 >
 > A size-$101$ count array tracks the window. Scanning from the negative side until the prefix count reaches $x$ yields that order statistic; if none is negative, return $0$.
 
 <!-- thinking:end -->
 
-We notice that the range of elements in the array $nums$ is $[-50,50]$. Therefore, we can use an array of length $101$, denoted as $cnt$, to count the occurrences of each number in $[-50,50]$. Due to the presence of negative numbers, we can add $50$ to each number to make them all non-negative, so we can use the array $cnt$ to count the occurrences of each number.
+We notice that the range of elements in the array $\textit{nums}$ is $[-50,50]$. Therefore, we can use an array of length $101$, denoted as $\textit{cnt}$, to count the occurrences of each number in $[-50,50]$. Due to the presence of negative numbers, we can add $50$ to each number to make them all non-negative, so we can use the array $\textit{cnt}$ to count the occurrences of each number.
 
-Next, we traverse the array $nums$, maintaining a sliding window of length $k$. The occurrence times of all elements in the window are recorded in the array $cnt$. Then we traverse the array $cnt$ to find the $x$-th smallest number, which is the beauty value of the current sliding window. If there is no $x$-th smallest number, then the beauty value is $0$.
+Next, we traverse the array $\textit{nums}$, maintaining a sliding window of length $k$. The occurrence times of all elements in the window are recorded in the array $\textit{cnt}$. Then we traverse the array $\textit{cnt}$ to find the $x$-th smallest number, which is the beauty value of the current sliding window. If there is no $x$-th smallest number, then the beauty value is $0$.
 
-The time complexity is $O(n \times 50)$, and the space complexity is $O(100)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(50n)$, and the space complexity is $O(100)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -138,7 +138,7 @@ class Solution:
 >
 > Solution 1 needs a tiny value range. Twin heaps keep the $x$ smallest values on one side so the heap top is the candidate beauty, with lazy deletion for values that leave the window.
 >
-> The same $x$-th smallest is then $O(n\log k)$ even for a larger domain; here it replaces the count array.
+> The same $x$-th smallest is then $O(n \log k)$ even for a larger domain; here it replaces the count array.
 
 <!-- thinking:end -->
 
@@ -162,7 +162,7 @@ In the `prune(pq)` method, if the top element of the heap is in the delayed dele
 
 In the `rebalance()` method, if the size of the smaller queue is greater than $x$, add the top element of the smaller queue to the larger queue and call the `prune()` method to ensure that the top element of the smaller queue is not in the delayed deletion dictionary. If the size of the smaller queue is less than $x$ and the size of the larger queue is greater than $0$, add the top element of the larger queue to the smaller queue and call the `prune()` method to ensure that the top element of the larger queue is not in the delayed deletion dictionary.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `nums`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
 
 Similar problems:
 

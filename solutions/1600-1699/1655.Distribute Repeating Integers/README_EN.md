@@ -83,9 +83,9 @@ tags:
 >
 > There are at most $10$ customers, and each value's stock must be given entirely to some of them. A bit mask records who is already served.
 >
-> Collect frequencies into $arr$ and precompute subset sums $s[j]$ of $\textit{quantity}$. $f[i][j]$ is whether the first $i$ values can serve customer set $j$.
+> Collect frequencies into $\textit{arr}$ and precompute subset sums $s[j]$ of $\textit{quantity}$. $f[i][j]$ is whether the first $i$ values can serve customer set $j$.
 >
-> Give a subset $k$ of $j$ to value $i$ when $s[k]\le arr[i]$ and the rest was already feasible. The answer is $f[n-1][2^m-1]$.
+> Give a subset $k$ of $j$ to value $i$ when $s[k]\le \textit{arr}[i]$ and the rest was already feasible. The answer is $f[n-1][2^m-1]$.
 
 <!-- thinking:end -->
 
@@ -101,7 +101,7 @@ Considering `f[i][j]`, if there exists a subset `k` in `j` such that `s[k] <= ar
 
 The answer is `f[n-1][2^m-1]`.
 
-The time complexity is `O(n * 3^m)`, and the space complexity is `O(n * 2^m)`. Here, `n` is the number of different integers in the array `nums`, and `m` is the length of the array `quantity`.
+The time complexity is $O(n 3^m)$, and the space complexity is $O(n 2^m)$, where $n$ is the number of different integers in the array `nums`, and $m$ is the length of the array `quantity`.
 
 <!-- tabs:start -->
 

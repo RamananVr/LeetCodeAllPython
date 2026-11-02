@@ -113,7 +113,7 @@ LCHouse3: 1 unit of LC-T-Shirt.
 >
 > Compute each warehouse's total volume. Volume is the product of a product's dimensions and the stored unit count; those columns live in two tables.
 >
-> Join on $product\_id$, group by warehouse name, and sum $width\times length\times height\times units$.
+> Join on $\textit{product\_id}$, group by warehouse name, and sum $\textit{width}\times \textit{length}\times \textit{height}\times \textit{units}$.
 
 <!-- thinking:end -->
 
@@ -128,9 +128,8 @@ We can use an inner join to join the `Warehouse` table and the `Products` table 
 SELECT
     name AS warehouse_name,
     SUM(width * length * height * units) AS volume
-FROM
-    Warehouse
-    JOIN Products USING (product_id)
+FROM Warehouse
+JOIN Products USING (product_id)
 GROUP BY 1;
 ```
 

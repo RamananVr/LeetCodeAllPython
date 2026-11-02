@@ -64,7 +64,7 @@ We can use the Breadth-First Search (BFS) method to traverse the nodes of each l
 
 Specifically, we define a queue $q$, initially adding the root node to the queue. Each time, we take out all the nodes in the queue, calculate their average value, add it to the answer array, and then add their child nodes to the queue. Repeat this process until the queue is empty.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -106,7 +106,7 @@ class Solution:
 
 > **Thinking**
 >
-> BFS needs a queue. DFS can accumulate $(sum, count)$ by depth and divide at the end, with the same result.
+> BFS needs a queue. DFS can accumulate $(\textit{sum}, \textit{count})$ by depth and divide at the end, with the same result.
 
 <!-- thinking:end -->
 
@@ -114,7 +114,7 @@ We can also use the Depth-First Search (DFS) method to calculate the average val
 
 Specifically, we define an array $s$, where $s[i]$ is a tuple representing the sum of node values and the number of nodes at the $i$-th level. We perform a depth-first search on the tree. For each node, we add the node's value to the corresponding $s[i]$ and increment the node count by one. Finally, for each $s[i]$, we calculate the average value and add it to the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

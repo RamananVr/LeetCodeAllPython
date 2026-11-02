@@ -151,7 +151,7 @@ manager_id is null for the top-level manager (CEO).
 >
 > Levels expand top-down from the current manager set. Team size and budget must wait until children are done, so we fold in reverse id (or postorder).
 >
-> Mark the CEO as level $1$, recurse to tag direct reports as $level+1$, accumulate $\textit{team\_size}$ and $\textit{budget}$, and sort by level, budget descending, then name.
+> Mark the CEO as level $1$, recurse to tag direct reports as $\textit{level}+1$, accumulate $\textit{team\_size}$ and $\textit{budget}$, and sort by level, budget descending, then name.
 
 <!-- thinking:end -->
 
@@ -166,9 +166,8 @@ WITH RECURSIVE
         SELECT employee_id, manager_id, 1 AS level, salary FROM Employees
         UNION ALL
         SELECT a.employee_id, b.manager_id, level + 1, a.salary
-        FROM
-            level_cte a
-            JOIN Employees b ON b.employee_id = a.manager_id
+        FROM level_cte a
+        JOIN Employees b ON b.employee_id = a.manager_id
     ),
     employee_with_level AS (
         SELECT a.employee_id, a.employee_name, a.salary, b.level
@@ -183,15 +182,14 @@ SELECT
     a.level,
     COALESCE(b.team_size, 0) AS team_size,
     a.salary + COALESCE(b.budget, 0) AS budget
-FROM
-    employee_with_level a
-    LEFT JOIN (
-        SELECT manager_id AS employee_id, COUNT(*) AS team_size, SUM(salary) AS budget
-        FROM level_cte
-        WHERE manager_id IS NOT NULL
-        GROUP BY manager_id
-    ) b
-        ON a.employee_id = b.employee_id
+FROM employee_with_level a
+LEFT JOIN (
+    SELECT manager_id AS employee_id, COUNT(*) AS team_size, SUM(salary) AS budget
+    FROM level_cte
+    WHERE manager_id IS NOT NULL
+    GROUP BY manager_id
+) b
+    ON a.employee_id = b.employee_id
 ORDER BY level, budget DESC, employee_name;
 ```
 

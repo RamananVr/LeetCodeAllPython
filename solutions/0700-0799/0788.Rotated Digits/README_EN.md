@@ -84,7 +84,7 @@ We first use an array $d$ of length 10 to record the rotated digits correspondin
 
 Then, we traverse each digit $v$ of the number $x$. If $v$ is not a valid digit, it means $x$ is not a good number, and we directly return $\textit{false}$. Otherwise, we add the rotated digit $d[v]$ corresponding to the digit $v$ to $y$. Finally, we check whether $x$ and $y$ are equal. If they are not equal, it means $x$ is a good number, and we return $\textit{true}$.
 
-The time complexity is $O(n \times \log n)$, where $n$ is the given number. The space complexity is $O(1)$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the given number.
 
 Similar problems:
 
@@ -127,7 +127,7 @@ class Solution:
 >
 > Solution 1 scales poorly past $10^4$. Validity depends only on digits, so digit DP counts $[1,n]$.
 >
-> $dfs(i,ok,limit)$: $ok$ means a $2/5/6/9$ has appeared. Skip illegal digits; at the end return $ok$.
+> $\textit{dfs}(i,ok,\textit{limit})$: $ok$ means a $2/5/6/9$ has appeared. Skip illegal digits; at the end return $ok$.
 
 <!-- thinking:end -->
 
@@ -138,7 +138,7 @@ This problem essentially asks for the number of numbers in the given range $[l, 
 For the range $[l, ..r]$ problem, we generally convert it to the problem of $[1, ..r]$ and then subtract the result of $[1, ..l - 1]$, i.e.:
 
 $$
-ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+\textit{ans} = \sum_{i=1}^{r} \textit{ans}_i -  \sum_{i=1}^{l-1} \textit{ans}_i
 $$
 
 However, for this problem, we only need to find the value for the range $[1, ..r]$.
@@ -147,17 +147,17 @@ Here, we use memoized search to implement Digit DP. We search from the starting 
 
 The basic steps are as follows:
 
-We convert the number $n$ to a string $s$. Then we define a function $\textit{dfs}(i, \textit{ok}, \textit{limit})$, where $i$ represents the digit position, $\textit{ok}$ indicates whether the current number satisfies the problem's conditions, and $\textit{limit}$ is a boolean indicating whether the digits that can be filled are restricted.
+We convert the number $n$ to a string $s$. Then we define a function $\textit{dfs}(i, ok, \textit{limit})$, where $i$ represents the digit position, $ok$ indicates whether the current number satisfies the problem's conditions, and $\textit{limit}$ is a boolean indicating whether the digits that can be filled are restricted.
 
 The function executes as follows:
 
-If $i$ is greater than or equal to the length of the string $s$, return $\textit{ok}$;
+If $i$ is greater than or equal to the length of the string $s$, return $ok$;
 
 Otherwise, we get the current digit $up$. If $\textit{limit}$ is $\textit{true}$, $up$ is the current digit; otherwise, $up$ is $9$;
 
-Next, we iterate over $[0, ..up]$. If $j$ is a valid digit $[0, 1, 8]$, we recursively call $\textit{dfs}(i + 1, \textit{ok}, \textit{limit} \land j = \textit{up})$; if $j$ is a valid digit $[2, 5, 6, 9]$, we recursively call $\textit{dfs}(i + 1, 1, \textit{limit} \land j = \textit{up})$. We sum all the results of the recursive calls and return.
+Next, we iterate over $[0, ..up]$. If $j$ is a valid digit $[0, 1, 8]$, we recursively call $\textit{dfs}(i + 1, ok, \textit{limit} \land j = up)$; if $j$ is a valid digit $[2, 5, 6, 9]$, we recursively call $\textit{dfs}(i + 1, 1, \textit{limit} \land j = up)$. We sum all the results of the recursive calls and return.
 
-The time complexity is $O(\log n \times D)$, and the space complexity is $O(\log n)$. Here, $D = 10$.
+The time complexity is $O(D \log n)$, and the space complexity is $O(\log n)$, where $D = 10$.
 
 Similar problems:
 

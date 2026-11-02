@@ -61,15 +61,15 @@ tags:
 
 > **Thinking**
 >
-> We must buy exactly two chocolates without exceeding $money$ and maximize the leftover. Enumerating pairs is fine for $n\le 50$, but the answer depends only on the two cheapest prices.
+> We must buy exactly two chocolates without exceeding $\textit{money}$ and maximize the leftover. Enumerating pairs is fine for $n\le 50$, but the answer depends only on the two cheapest prices.
 >
-> Sort and take the sum $cost$ of the first two. If $cost>money$ we buy nothing; otherwise the leftover is $money-cost$.
+> Sort and take the sum $\textit{cost}$ of the first two. If $\textit{cost}>\textit{money}$ we buy nothing; otherwise the leftover is $\textit{money}-\textit{cost}$.
 
 <!-- thinking:end -->
 
-We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $cost$ of buying two chocolates. If this cost is greater than the money we have, then we return `money`. Otherwise, we return `money - cost`.
+We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $\textit{cost}$ of buying two chocolates. If this cost is greater than the money we have, then we return `money`. Otherwise, we return `money - cost`.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `prices`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array `prices`.
 
 <!-- tabs:start -->
 
@@ -95,13 +95,13 @@ class Solution:
 
 > **Thinking**
 >
-> Sorting costs $O(n\log n)$ when only the two smallest values are needed. A single scan that tracks the current minimum and second minimum yields the same $cost$ in linear time.
+> Sorting costs $O(n \log n)$ when only the two smallest values are needed. A single scan that tracks the current minimum and second minimum yields the same $\textit{cost}$ in linear time.
 
 <!-- thinking:end -->
 
 We can find the two smallest prices in one pass, and then calculate the cost.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `prices`.
 
 <!-- tabs:start -->
 

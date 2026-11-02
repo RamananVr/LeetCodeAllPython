@@ -117,9 +117,9 @@ tags:
 >
 > A good subarray's OR equals some element inside it. $n \le 10^5$ forbids enumerating intervals.
 >
-> If the OR equals $nums[i]$, every value in the interval is a bit-subset of $nums[i]$ and the interval contains $i$. Treat $i$ as the OR witness.
+> If the OR equals $\textit{nums}[i]$, every value in the interval is a bit-subset of $\textit{nums}[i]$ and the interval contains $i$. Treat $i$ as the OR witness.
 >
-> Monotonic stacks find the farthest left and right bounds where interior values remain subsets of $nums[i]$. The contribution is $(i-l[i])\cdot(r[i]-i)$.
+> Monotonic stacks find the farthest left and right bounds where interior values remain subsets of $\textit{nums}[i]$. The contribution is $(i-l[i])\cdot(r[i]-i)$.
 >
 > Each element is counted on the intervals for which it is the stack-wise controller of the OR.
 
@@ -135,7 +135,7 @@ $$
 
 That is, every element in the subarray must be a subset of $\textit{nums}[i]$ (in terms of bits). We can use a monotonic stack to find the left boundary $l[i]$ and right boundary $r[i]$ for each element $\textit{nums}[i]$, such that all elements in the interval $(l[i], r[i])$ satisfy the above condition, while $\textit{nums}[l[i]]$ and $\textit{nums}[r[i]]$ do not. The number of subarrays with $\textit{nums}[i]$ as the bitwise OR result is then $(i - l[i]) \cdot (r[i] - i)$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -98,7 +98,7 @@ Orders table:
 
 > **Thinking**
 >
-> Customers who bought $A$ and $B$ but never $C$. Left-join customers to orders, group by customer, and require $\mathrm{SUM}(\textit{product}=A)>0$, the same for $B$, and a zero sum for $C$.
+> Customers who bought $A$ and $B$ but never $C$. Left-join customers to orders, group by customer, and require $\textit{SUM}(\textit{product}=A)>0$, the same for $B$, and a zero sum for $C$.
 
 <!-- thinking:end -->
 
@@ -111,9 +111,8 @@ We can use `LEFT JOIN` to join the `Customers` table and the `Orders` table, the
 ```sql
 # Write your MySQL query statement below
 SELECT customer_id, customer_name
-FROM
-    Customers
-    LEFT JOIN Orders USING (customer_id)
+FROM Customers
+LEFT JOIN Orders USING (customer_id)
 GROUP BY 1
 HAVING SUM(product_name = 'A') > 0 AND SUM(product_name = 'B') > 0 AND SUM(product_name = 'C') = 0
 ORDER BY 1;

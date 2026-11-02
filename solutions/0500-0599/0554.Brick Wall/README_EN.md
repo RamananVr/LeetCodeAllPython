@@ -59,7 +59,7 @@ tags:
 
 > **Thinking**
 >
-> A vertical line that never cuts a brick's interior crosses $(\text{rows} - \text{rows aligned on that gap})$ bricks. Recounting rows per gap repeats work.
+> A vertical line that never cuts a brick's interior crosses $(\textit{rows} - \text{rows aligned on that gap})$ bricks. Recounting rows per gap repeats work.
 >
 > Prefix-sum each row except the last brick and count gap positions. The most frequent gap is crossed least often; the answer is rows minus that frequency. The wall's edges are excluded, or the line would cross zero bricks. A gap is a sum of widths up to $2^{31}-1$, so it can exceed $2^{31}-1$. Java and C++ keep that sum in a 64-bit integer; a 32-bit sum treats positions $2^{32}$ apart as one gap.
 
@@ -71,7 +71,7 @@ Traverse each row, and for each brick in the current row, add it to the current 
 
 Finally, we traverse $\textit{cnt}$ to find the prefix sum that appears the most times, which represents the situation where the least number of bricks are crossed. The final answer is the number of rows in the brick wall minus the number of bricks crossed.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of rows and the number of bricks in the brick wall, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of rows and the number of bricks in the brick wall, respectively.
 
 <!-- tabs:start -->
 

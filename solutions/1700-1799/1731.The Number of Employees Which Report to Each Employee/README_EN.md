@@ -103,7 +103,7 @@ Employees table:
 >
 > Employees point to a manager via $\textit{reports\_to}$. We need each manager's report count and average age.
 >
-> Self-join reports to managers, then $\mathrm{COUNT}$ and $\mathrm{ROUND}(\mathrm{AVG}(\textit{age}))$ grouped by the manager.
+> Self-join reports to managers, then $\textit{COUNT}$ and $\textit{ROUND}(\textit{AVG}(\textit{age}))$ grouped by the manager.
 
 <!-- thinking:end -->
 
@@ -120,9 +120,8 @@ SELECT
     e2.name,
     COUNT(1) AS reports_count,
     ROUND(AVG(e1.age)) AS average_age
-FROM
-    Employees AS e1
-    JOIN Employees AS e2 ON e1.reports_to = e2.employee_id
+FROM Employees AS e1
+JOIN Employees AS e2 ON e1.reports_to = e2.employee_id
 GROUP BY 1
 ORDER BY 1;
 ```

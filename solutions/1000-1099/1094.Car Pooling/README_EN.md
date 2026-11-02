@@ -75,7 +75,7 @@ The maximum occupancy is 5, which never exceeds capacity = 5.
 
 > **Thinking**
 >
-> Each trip adds passengers on $[from,to)$. We need the load never to exceed capacity. Locations are at most $1000$, so a difference array is enough.
+> Each trip adds passengers on $[\textit{from},to)$. We need the load never to exceed capacity. Locations are at most $1000$, so a difference array is enough.
 >
 > Add at the start, subtract at the end, then prefix-sum and test every position against $\textit{capacity}$.
 >
@@ -85,7 +85,7 @@ The maximum occupancy is 5, which never exceeds capacity = 5.
 
 We can use the idea of a difference array, adding the number of passengers to the starting point of each trip and subtracting from the end point. Finally, we just need to check whether the prefix sum of the difference array does not exceed the maximum passenger capacity of the car.
 
-The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ is the number of trips, and $M$ is the maximum end point in the trips. In this problem, $M \le 1000$.
+The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is the number of trips, and $M$ is the maximum end point in the trips. In this problem, $M \le 1000$.
 
 <!-- tabs:start -->
 

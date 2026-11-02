@@ -95,7 +95,7 @@ tags:
 
 > **Thinking**
 >
-> Positive integers append to $seen$; a run of $-1$s means the $k$-th last seen value. A counter $k$ grows on $-1$ and resets on a positive number; if $k$ exceeds the length of $seen$, the answer is $-1$.
+> Positive integers append to $\textit{seen}$; a run of $-1$s means the $k$-th last seen value. A counter $k$ grows on $-1$ and resets on a positive number; if $k$ exceeds the length of $\textit{seen}$, the answer is $-1$.
 
 <!-- thinking:end -->
 
@@ -108,7 +108,7 @@ We traverse the array $\textit{nums}$:
 - If the current element $x = -1$, we increment $k$ by 1. If $k$ is greater than the length of $\textit{seen}$, we append $-1$ to $\textit{ans}$; otherwise, we append the $k$-th element from the end of $\textit{seen}$ to $\textit{ans}$.
 - If the current element $x$ is a positive integer, we reset $k$ to 0 and append $x$ to the end of $\textit{seen}$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

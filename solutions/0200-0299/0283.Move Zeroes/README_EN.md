@@ -51,7 +51,7 @@ tags:
 >
 > Zeros must go to the end while nonzeros keep their order. Let $k$ be the next slot for a nonzero.
 >
-> Each nonzero is swapped with $nums[k]$ and $k$ advances, so the prefix of length $k$ is the original nonzero sequence.
+> Each nonzero is swapped with $\textit{nums}[k]$ and $k$ advances, so the prefix of length $k$ is the original nonzero sequence.
 
 <!-- thinking:end -->
 
@@ -61,7 +61,7 @@ Then we iterate through the array $\textit{nums}$, and each time we encounter a 
 
 This way, we can ensure that the first $k$ elements of $\textit{nums}$ are non-zero, and their relative order is the same as in the original array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

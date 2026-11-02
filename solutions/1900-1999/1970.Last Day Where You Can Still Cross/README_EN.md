@@ -82,7 +82,7 @@ The last day where it is possible to cross from top to bottom is on day 3.
 >
 > The last day one can walk from the top row to the bottom is monotone: if day $k$ works, so does every earlier day. Binary-search $k$ and BFS on the remaining land.
 >
-> For mid $k$, flood the first $k$ cells, start from every dry cell in row $0$, and test whether row $row-1$ is reached.
+> For mid $k$, flood the first $k$ cells, start from every dry cell in row $0$, and test whether row $\textit{row}-1$ is reached.
 >
 > Each check is linear in the grid; the number of checks is logarithmic.
 
@@ -90,9 +90,9 @@ The last day where it is possible to cross from top to bottom is on day 3.
 
 We note that if we can walk from the top row to the bottom row on day $k$, then for any $0 < k' < k$, we can also walk from the top row to the bottom row on day $k'$. This exhibits monotonicity, so we can use binary search to find the largest $k$ such that we can walk from the top row to the bottom row on day $k$.
 
-We define the left boundary of the binary search as $l = 1$ and the right boundary as $r = |cells|$, where $|cells|$ represents the length of the array $\textit{cells}$. Then, we perform binary search on $k$. For each $k$, we take the first $k$ elements of $\textit{cells}$, turn the corresponding cells into water, and then use breadth-first search (BFS) to try to walk from the top row to the bottom row. If we can reach the bottom row, it means we can walk from the top row to the bottom row on day $k$, so we update the left boundary $l$ to $k$. Otherwise, we update the right boundary $r$ to $k - 1$.
+We define the left boundary of the binary search as $l = 1$ and the right boundary as $r = |\textit{cells}|$, where $|\textit{cells}|$ represents the length of the array $\textit{cells}$. Then, we perform binary search on $k$. For each $k$, we take the first $k$ elements of $\textit{cells}$, turn the corresponding cells into water, and then use breadth-first search (BFS) to try to walk from the top row to the bottom row. If we can reach the bottom row, it means we can walk from the top row to the bottom row on day $k$, so we update the left boundary $l$ to $k$. Otherwise, we update the right boundary $r$ to $k - 1$.
 
-The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ represent the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ represent the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -148,7 +148,7 @@ class Solution:
 
 We can first initialize all land cells as $1$, then traverse the array $\textit{cells}$ in reverse order, turning each corresponding land cell into $0$ and merging it with the adjacent land cells (up, down, left, right). We also need to maintain two virtual nodes $s$ and $t$, representing the virtual nodes for the top row and the bottom row, respectively. If $s$ and $t$ are connected in the union-find set, it means we can walk from the top row to the bottom row on day $i$.
 
-The time complexity is $O(m \times n \times \alpha(m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ represent the number of rows and columns of the matrix, respectively, and $\alpha$ represents the inverse Ackermann function.
+The time complexity is $O(mn \alpha(mn))$, and the space complexity is $O(mn)$, where $m$ and $n$ represent the number of rows and columns of the matrix, respectively, and $\alpha$ represents the inverse Ackermann function.
 
 <!-- tabs:start -->
 

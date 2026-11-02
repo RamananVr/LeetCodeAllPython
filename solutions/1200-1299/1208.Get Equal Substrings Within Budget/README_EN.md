@@ -84,11 +84,11 @@ We can create an array $f$ of length $n + 1$, where $f[i]$ represents the sum of
 
 Note that the length has monotonicity, i.e., if there exists a substring of length $x$ that satisfies the condition, then a substring of length $x - 1$ must also satisfy the condition. Therefore, we can use binary search to find the maximum length.
 
-We define a function $check(x)$, which indicates whether there exists a substring of length $x$ that satisfies the condition. In this function, we only need to enumerate all substrings of length $x$ and check whether they satisfy the condition. If there exists a substring that satisfies the condition, the function returns `true`, otherwise it returns `false`.
+We define a function $\textit{check}(x)$, which indicates whether there exists a substring of length $x$ that satisfies the condition. In this function, we only need to enumerate all substrings of length $x$ and check whether they satisfy the condition. If there exists a substring that satisfies the condition, the function returns `true`, otherwise it returns `false`.
 
-Next, we define the left boundary $l$ of binary search as $0$ and the right boundary $r$ as $n$. In each step, we let $mid = \lfloor \frac{l + r + 1}{2} \rfloor$. If the return value of $check(mid)$ is `true`, we update the left boundary to $mid$, otherwise we update the right boundary to $mid - 1$. After the binary search, the left boundary we get is the answer.
+Next, we define the left boundary $l$ of binary search as $0$ and the right boundary $r$ as $n$. In each step, we let $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$. If the return value of $\textit{check}(\textit{mid})$ is `true`, we update the left boundary to $\textit{mid}$, otherwise we update the right boundary to $\textit{mid} - 1$. After the binary search, the left boundary we get is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of string $s$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -128,7 +128,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 uses an $O(n)$ prefix array and $O(n\log n)$ time. Costs are non-negative, so extending the right end only increases the cost and advancing the left end only decreases it. Two pointers maintain the longest feasible window in one pass, in linear time and constant extra space.
+> Solution 1 uses an $O(n)$ prefix array and $O(n \log n)$ time. Costs are non-negative, so extending the right end only increases the cost and advancing the left end only decreases it. Two pointers maintain the longest feasible window in one pass, in linear time and constant extra space.
 
 <!-- thinking:end -->
 
@@ -136,7 +136,7 @@ We can maintain two pointers $l$ and $r$, initially $l = r = 0$; maintain a vari
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -168,7 +168,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 2 may shrink and then grow the window, and it stores the answer explicitly. Only the maximum length is required, so we can let the left pointer move only forward and keep the window monotone. The final $n-l$ is that maximum, without a separate $ans$ variable.
+> Solution 2 may shrink and then grow the window, and it stores the answer explicitly. Only the maximum length is required, so we can let the left pointer move only forward and keep the window monotone. The final $n-l$ is that maximum, without a separate $\textit{ans}$ variable.
 
 <!-- thinking:end -->
 
@@ -178,7 +178,7 @@ Specifically, we use two pointers $l$ and $r$ to point to the left and right end
 
 Finally, return $n - l$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

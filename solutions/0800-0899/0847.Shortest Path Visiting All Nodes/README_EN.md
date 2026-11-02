@@ -107,7 +107,7 @@ class Solution:
 
 > **Thinking**
 >
-> Plain BFS expands by layer. An admissible heuristic — the number of still-unvisited nodes — lets a priority queue pop $dist+h$ first.
+> Plain BFS expands by layer. An admissible heuristic — the number of still-unvisited nodes — lets a priority queue pop $\textit{dist}+h$ first.
 >
 > Relaxation is still unit-weight shortest paths, so optimality is kept; full masks tend to appear earlier once most nodes are visited.
 

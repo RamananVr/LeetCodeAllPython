@@ -118,14 +118,14 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, a stable subarray is defined as a subarray without inversion pairs, meaning the elements in the subarray are arranged in non-decreasing order. Therefore, we can divide the array into several non-decreasing segments, using an array $\text{seg}$ to record the starting position of each segment. At the same time, we need a prefix sum array $\text{s}$ to record the number of stable subarrays within each segment.
+According to the problem description, a stable subarray is defined as a subarray without inversion pairs, meaning the elements in the subarray are arranged in non-decreasing order. Therefore, we can divide the array into several non-decreasing segments, using an array $\textit{seg}$ to record the starting position of each segment. At the same time, we need a prefix sum array $s$ to record the number of stable subarrays within each segment.
 
 Then, for each query $[l, r]$, there may be 3 cases:
 
 1. The query interval $[l, r]$ is completely contained within a single segment. In this case, the number of stable subarrays can be directly calculated using the formula $\frac{(k + 1) \cdot k}{2}$, where $k = r - l + 1$.
 2. The query interval $[l, r]$ spans multiple segments. In this case, we need to separately calculate the number of stable subarrays in the left incomplete segment, the right incomplete segment, and the complete segments in the middle, then add them together to get the final result.
 
-The time complexity is $O((n + q) \log n)$, where $n$ is the length of the array and $q$ is the number of queries. The space complexity is $O(n)$.
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

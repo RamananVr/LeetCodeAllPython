@@ -92,11 +92,11 @@ Otherwise, we need to consider the situation at the current position $i$:
 
 - If $\textit{corridor}[i] = \text{'S'}$, it means the current position is a seat, and we increment $k$ by $1$.
 - If $k > 2$, it means the number of screens placed at the current position exceeds $2$, so return $0$.
-- Otherwise, we can choose not to place a screen, i.e., $\textit{dfs}(i + 1, k)$. If $k = 2$, we can also choose to place a screen, i.e., $\textit{dfs}(i + 1, 0)$. We add the results of these two cases and take the result modulo $10^9 + 7$, i.e., $\textit{ans} = (\textit{ans} + \textit{dfs}(i + 1, k)) \bmod \text{mod}$.
+- Otherwise, we can choose not to place a screen, i.e., $\textit{dfs}(i + 1, k)$. If $k = 2$, we can also choose to place a screen, i.e., $\textit{dfs}(i + 1, 0)$. We add the results of these two cases and take the result modulo $10^9 + 7$, i.e., $\textit{ans} = (\textit{ans} + \textit{dfs}(i + 1, k)) \bmod \textit{mod}$.
 
 Finally, we return $\textit{dfs}(0, 0)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the corridor.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the corridor.
 
 <!-- tabs:start -->
 
@@ -151,7 +151,7 @@ When we encounter a seat, we increment $\textit{cnt}$ by $1$. If $\textit{cnt}$ 
 
 Finally, if $\textit{cnt}$ is greater than $0$ and $\textit{cnt}$ is even, return $\textit{ans}$; otherwise, return $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the corridor. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the corridor.
 
 <!-- tabs:start -->
 
@@ -201,7 +201,7 @@ Otherwise, let $nk$ be $k+1$ when $\textit{corridor}[i]$ is a seat and $k$ when 
 
 We calculate $f$ from $i = n - 1$ down to $0$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the corridor.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the corridor.
 
 <!-- tabs:start -->
 

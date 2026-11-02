@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1167
+source: Biweekly Contest 194 Q1
 ---
 
 <!-- problem:start -->
@@ -112,7 +114,7 @@ Index $i$ is a peak exactly when $0<i<n-1$ and $\textit{nums}[i]$ is strictly gr
 
 Scan $i$ from $1$ to $n-2$. Add the current value when it is greater than both neighbors, and subtract it when it is smaller than both neighbors. Every other position leaves the answer unchanged.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

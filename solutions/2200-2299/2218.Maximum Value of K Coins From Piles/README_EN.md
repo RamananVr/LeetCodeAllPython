@@ -83,7 +83,7 @@ $$
 
 where $0 \leq h \leq j$, and $s[h]$ represents the value sum of taking the first $h$ coins from the $i$-th pile.
 
-The time complexity is $O(k \times L)$, and the space complexity is $O(n \times k)$. Here, $L$ is the total number of coins, and $n$ is the number of piles.
+The time complexity is $O(k \times L)$, and the space complexity is $O(nk)$, where $L$ is the total number of coins, and $n$ is the number of piles.
 
 <!-- tabs:start -->
 

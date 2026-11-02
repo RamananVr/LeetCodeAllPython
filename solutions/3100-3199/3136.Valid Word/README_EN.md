@@ -96,7 +96,7 @@ tags:
 >
 > No automaton is required. A non-alphanumeric character fails immediately; letters are classified by a vowel set.
 >
-> Reject short strings, then track $has\_vowel$ and $has\_consonant$. Both flags must be true at the end.
+> Reject short strings, then track $\textit{has\_vowel}$ and $\textit{has\_consonant}$. Both flags must be true at the end.
 
 <!-- thinking:end -->
 
@@ -106,7 +106,7 @@ Next, we iterate through the string, checking if each character is a letter or a
 
 Finally, if both `has_vowel` and `has_consonant` are `true`, we return `true`. Otherwise, we return `false`.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

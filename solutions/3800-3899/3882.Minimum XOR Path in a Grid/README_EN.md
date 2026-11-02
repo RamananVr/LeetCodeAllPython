@@ -101,27 +101,107 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Move only right or down and minimize the path XOR. At most $1000$ cells, values below $2^{10}$.
+> Moves are only right or down, and the goal is the minimum XOR of a whole path. There are at most $1000$ cells and values are below $2^{10}$, but the number of paths still grows exponentially with the row and column counts, so enumerating paths does not fit.
 >
-> A usual shortest path fails: the next cost depends on the current XOR, so comparison optimality does not hold.
+> XOR has no optimal substructure under numeric comparison. A smaller prefix XOR can become larger after later cells are appended, so every XOR that has already occurred must be kept.
 >
-> A state is $(\textit{cell},\textit{xor})$. The XOR universe is $1024$, about $10^6$ states, enough for BFS or DP to the lower-right minimum.
+> After a cell is reached, later choices depend only on the current XOR. A state $(i,j,k)$ records whether cell $(i,j)$ is reachable with path XOR $k$. Since $k < 1024$, there are about $10^6$ states.
 >
-> Transitions are only right and down.
+> Transitions go only right or down, so a row-major scan finds the upper and left cells already finished. A boolean array $f[i][j][k]$ stores reachability; a cell of value $x$ is entered from XOR $k \oplus x$. The smallest $k$ that is true at the lower-right cell is the answer.
 
 <!-- thinking:end -->
+
+Define $f[i][j][k]$ as whether cell $(i, j)$ is reachable from $(0, 0)$ with the bitwise XOR of every cell on the path equal to $k$.
+
+Let $M$ be the maximum value in the grid. Every path XOR lies in $[0, mx)$, where $mx = 2^{b}$ and $b$ is the bit length of $M$. When $M = 0$, $b = 0$ and $mx = 1$. Cell values are at most $1023$, so $mx \le 1024$.
+
+The path at the start contains only that cell, so $f[0][0][\textit{grid}[0][0]] = \textit{true}$.
+
+Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it is not the start, every $k \in [0, mx)$ is considered. Because $(k \oplus x) \oplus x = k$, the XOR before entering the cell is $k \oplus x$:
+
+- If $i > 0$ and $f[i - 1][j][k \oplus x]$ is true, the cell can be entered from above, and $f[i][j][k] = \textit{true}$.
+- If $j > 0$ and $f[i][j - 1][k \oplus x]$ is true, the cell can be entered from the left, and $f[i][j][k] = \textit{true}$.
+
+Moves are only right or down, so the upper and left cells are already finished when $(i, j)$ is scanned. The answer is the smallest $k$ for which $f[m - 1][n - 1][k]$ is true. At least one path from the upper-left cell to the lower-right cell exists, so this $k$ is guaranteed.
+
+The time complexity is $O(mn mx)$, and the space complexity is $O(mn mx)$, where $m$ and $n$ are the number of rows and columns, and $mx \le 1024$.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minCost(self, grid: list[list[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        mx = 1 << (max(max(row) for row in grid)).bit_length()
+        f = [[[False] * mx for _ in range(n)] for _ in range(m)]
+        f[0][0][grid[0][0]] = True
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if i > 0 or j > 0:
+                    for k in range(mx):
+                        if i > 0 and f[i - 1][j][k ^ x]:
+                            f[i][j][k] = True
+                        if j > 0 and f[i][j - 1][k ^ x]:
+                            f[i][j][k] = True
+        return next(k for k in range(mx) if f[m - 1][n - 1][k])
+```
 
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming (Rolling Array)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 keeps every reachable XOR of every cell, so the space grows with $mn$. Cell $(i, j)$ reads only the cell above and the cell to the left, and a row-major scan finishes both first. The previous row is still complete when the current row begins, and the current row only needs the left neighbor already written, so two rolling rows are enough. The transition still looks back at $k \oplus x$ for a cell of value $x$, the answer is still the smallest reachable XOR at the lower-right cell, and the space drops to $O(n mx)$.
+
+<!-- thinking:end -->
+
+Define $f[i \bmod 2][j][k]$ as whether row $i$ and column $j$ are reachable from $(0, 0)$ with the bitwise XOR of every cell on the path equal to $k$. The value of $mx$ matches Solution 1, and the start cell again has $f[0][0][\textit{grid}[0][0]] = \textit{true}$.
+
+Cells are processed in row-major order. For cell $(i, j)$ with value $x$, if it is not the start, every $k \in [0, mx)$ is considered. The row index is taken modulo $2$, so the current slot may still hold an older row. Each $k$ is therefore cleared first, then set with the same conditions as Solution 1:
+
+- If $i > 0$ and $f[(i - 1) \bmod 2][j][k \oplus x]$ is true, the cell can be entered from above, and $f[i \bmod 2][j][k] = \textit{true}$.
+- If $j > 0$ and $f[i \bmod 2][j - 1][k \oplus x]$ is true, the cell can be entered from the left, and $f[i \bmod 2][j][k] = \textit{true}$.
+
+Row $i$ is stored at index $i \bmod 2$, the previous row stays at $(i - 1) \bmod 2$, and the left cell shares that row. The answer is the smallest $k$ for which $f[(m - 1) \bmod 2][n - 1][k]$ is true. At least one path from the upper-left cell to the lower-right cell exists, so this $k$ is guaranteed.
+
+The time complexity is $O(mn mx)$, and the space complexity is $O(n mx)$, where $m$ and $n$ are the number of rows and columns, and $mx \le 1024$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minCost(self, grid: list[list[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        mx = 1 << (max(max(row) for row in grid)).bit_length()
+        f = [[[False] * mx for _ in range(n)] for _ in range(2)]
+        f[0][0][grid[0][0]] = True
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                if i > 0 or j > 0:
+                    for k in range(mx):
+                        f[i & 1][j][k] = False
+                        if i > 0 and f[(i - 1) & 1][j][k ^ x]:
+                            f[i & 1][j][k] = True
+                        if j > 0 and f[i & 1][j - 1][k ^ x]:
+                            f[i & 1][j][k] = True
+        return next(k for k in range(mx) if f[(m - 1) & 1][n - 1][k])
 ```
 
 <!-- tabs:end -->

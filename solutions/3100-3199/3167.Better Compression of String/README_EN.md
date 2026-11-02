@@ -86,13 +86,13 @@ tags:
 >
 > Only $26$ letters appear, so counts can be accumulated and then emitted in key order. Two pointers parse each number.
 >
-> Index $i$ sits on a letter, $j$ consumes digits into $cnt$, and the answer joins sorted $k+v$ pairs.
+> Index $i$ sits on a letter, $j$ consumes digits into $\textit{cnt}$, and the answer joins sorted $k+v$ pairs.
 
 <!-- thinking:end -->
 
 We can use a hash table to count the frequency of each character, and then use two pointers to traverse the `compressed` string, adding the frequency of each character to the hash table. Finally, we concatenate the characters and frequencies into a string in alphabetical order.
 
-The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string `compressed`, and $|\Sigma|$ is the size of the character set. Here, the character set is lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n + |\Sigma| \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string `compressed`, and $|\Sigma|$ is the size of the character set. Here, the character set is lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

@@ -65,9 +65,9 @@ tags:
 
 > **Thinking**
 >
-> The subsequence must keep order and use a fixed $difference$. $n \le 10^5$ rules out subset enumeration. The longest chain ending at $x$ depends only on the chain ending at $x-difference$, which, if it exists, has already been seen.
+> The subsequence must keep order and use a fixed $\textit{difference}$. $n \le 10^5$ rules out subset enumeration. The longest chain ending at $x$ depends only on the chain ending at $x-\textit{difference}$, which, if it exists, has already been seen.
 >
-> Scanning left to right, set $f[x]=f[x-difference]+1$. A hash map indexes the predecessor by value; one pass yields every ending length, and we take the maximum.
+> Scanning left to right, set $f[x]=f[x-\textit{difference}]+1$. A hash map indexes the predecessor by value; one pass yields every ending length, and we take the maximum.
 
 <!-- thinking:end -->
 
@@ -77,7 +77,7 @@ Traverse the array $\textit{arr}$, and for each element $x$, update $f[x]$ to be
 
 After the traversal, return the maximum value in $f$ as the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

@@ -112,7 +112,7 @@ We can hire all three juniors with the remaining budget.
 >
 > The budget is fixed at $70000$ and Seniors are hired before Juniors. Subset enumeration does not scale. Within each class, hiring in increasing salary order maximizes headcount.
 >
-> A window prefix $cur$ is the cumulative cost of hiring through that employee. Seniors with $cur \le 70000$ are accepted; Junior prefixes add the Senior spend first.
+> A window prefix $\textit{cur}$ is the cumulative cost of hiring through that employee. Seniors with $\textit{cur} \le 70000$ are accepted; Junior prefixes add the Senior spend first.
 >
 > Two CTEs compute those running sums, then `UNION ALL` counts rows still within budget.
 
@@ -136,8 +136,7 @@ WITH
         SELECT
             employee_id,
             IFNULL(
-                SELECT
-                    MAX(cur)
+                SELECT MAX(cur)
                 FROM s
                 WHERE cur <= 70000,
                 0

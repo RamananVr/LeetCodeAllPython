@@ -110,15 +110,15 @@ We can use an equi-join to join the `Employee` table and the `Department` table 
 ```sql
 # Write your MySQL query statement below
 SELECT d.name AS department, e.name AS employee, salary
-FROM
-    Employee AS e
-    JOIN Department AS d ON e.departmentId = d.id
+FROM Employee AS e
+JOIN Department AS d ON e.departmentId = d.id
 WHERE
-    (d.id, salary) IN (
-        SELECT departmentId, MAX(salary)
-        FROM Employee
-        GROUP BY 1
-    );
+    (d.id, salary) IN
+        (
+            SELECT departmentId, MAX(salary)
+            FROM Employee
+            GROUP BY 1
+        );
 ```
 
 #### Pandas
@@ -179,9 +179,8 @@ WITH
                 PARTITION BY d.name
                 ORDER BY salary DESC
             ) AS rk
-        FROM
-            Employee AS e
-            JOIN Department AS d ON e.departmentId = d.id
+        FROM Employee AS e
+        JOIN Department AS d ON e.departmentId = d.id
     )
 SELECT department, employee, salary
 FROM T

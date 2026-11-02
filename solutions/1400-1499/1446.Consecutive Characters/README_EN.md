@@ -60,13 +60,13 @@ tags:
 
 <!-- thinking:end -->
 
-We define a variable $\textit{t}$ to represent the length of the current consecutive characters, initially $\textit{t}=1$.
+We define a variable $t$ to represent the length of the current consecutive characters, initially $t=1$.
 
-Next, we traverse the string $s$ starting from the second character. If the current character is the same as the previous character, then $\textit{t} = \textit{t} + 1$, and update the answer $\textit{ans} = \max(\textit{ans}, \textit{t})$; otherwise, set $\textit{t} = 1$.
+Next, we traverse the string $s$ starting from the second character. If the current character is the same as the previous character, then $t = t + 1$, and update the answer $\textit{ans} = \max(\textit{ans}, t)$; otherwise, set $t = 1$.
 
 Finally, return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

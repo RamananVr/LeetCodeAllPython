@@ -108,15 +108,15 @@ tags:
 
 <!-- thinking:end -->
 
-The problem requires us to find all subsequences $\textit{S}$ in the given array $\textit{nums}$, and then calculate the number of ways for each subsequence $\textit{T}$ such that the sum of $\textit{T}$ equals $\textit{k}$.
+The problem requires us to find all subsequences $S$ in the given array $\textit{nums}$, and then calculate the number of ways for each subsequence $T$ such that the sum of $T$ equals $k$.
 
 We define $f[i][j]$ to represent the number of ways to form subsequences with the first $i$ numbers such that the sum of each subsequence equals $j$. Initially, $f[0][0] = 1$, and all other positions are $0$.
 
 For the $i$-th number $x$, there are three cases:
 
-1. Not in the subsequence $\textit{S}$, in which case $f[i][j] = f[i-1][j]$;
-2. In the subsequence $\textit{S}$, but not in the subsequence $\textit{T}$, in which case $f[i][j] = f[i-1][j]$;
-3. In the subsequence $\textit{S}$, and in the subsequence $\textit{T}$, in which case $f[i][j] = f[i-1][j-x]$.
+1. Not in the subsequence $S$, in which case $f[i][j] = f[i-1][j]$;
+2. In the subsequence $S$, but not in the subsequence $T$, in which case $f[i][j] = f[i-1][j]$;
+3. In the subsequence $S$, and in the subsequence $T$, in which case $f[i][j] = f[i-1][j-x]$.
 
 In summary, the state transition equation is:
 
@@ -126,7 +126,7 @@ $$
 
 The final answer is $f[n][k]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
 
 <!-- tabs:start -->
 
@@ -167,7 +167,7 @@ class Solution:
 
 In the state transition equation from Solution 1, the value of $f[i][j]$ only depends on $f[i-1][j]$ and $f[i-1][j-x]$. Therefore, we can optimize the first dimension of the space, reducing the space complexity to $O(k)$.
 
-Time complexity is $O(n \times k)$, and space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
+The time complexity is $O(nk)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
 
 <!-- tabs:start -->
 

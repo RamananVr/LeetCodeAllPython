@@ -63,7 +63,7 @@ tags:
 
 > **Thinking**
 >
-> Count pairs $i<j$ with $nums1[i]+nums1[j]>nums2[i]+nums2[j]$. This is $a[i]+a[j]>0$ for $a=nums1-nums2$. A nested loop is $O(n^2)$ and too slow for $n\le 10^5$.
+> Count pairs $i<j$ with $\textit{nums1}[i]+\textit{nums1}[j]>\textit{nums2}[i]+\textit{nums2}[j]$. This is $a[i]+a[j]>0$ for $a=\textit{nums1}-\textit{nums2}$. A nested loop is $O(n^2)$ and too slow for $n\le 10^5$.
 >
 > Sort $a$ and move $r$ from the right: advance $l$ until $a[l]+a[r]>0$, then all indices in $[l,r)$ pair with $r$. Each pointer travels once.
 
@@ -75,7 +75,7 @@ For the array $\textit{nums}$, we need to find all pairs $(i, j)$ that satisfy $
 
 We can sort the array $\textit{nums}$ and then use the two-pointer method. Initialize the left pointer $l = 0$ and the right pointer $r = n - 1$. Each time, we check if $\textit{nums}[l] + \textit{nums}[r]$ is less than or equal to $0$. If it is, we move the left pointer to the right in a loop until $\textit{nums}[l] + \textit{nums}[r] > 0$. At this point, all pairs with the left pointer at $l$, $l + 1$, $l + 2$, $\cdots$, $r - 1$ and the right pointer at $r$ satisfy the condition, and there are $r - l$ such pairs. We add these pairs to the answer. Then, move the right pointer to the left and continue the above process until $l \ge r$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

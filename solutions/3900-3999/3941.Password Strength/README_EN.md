@@ -88,9 +88,9 @@ tags:
 
 <!-- thinking:end -->
 
-We store each character in the input string in a hash set $\textit{st}$, so we can quickly ensure each distinct character is counted only once.
+We store each character in the input string in a hash set $st$, so we can quickly ensure each distinct character is counted only once.
 
-Then, we iterate through each character in $\textit{st}$ and compute the password strength according to the rules:
+Then, we iterate through each character in $st$ and compute the password strength according to the rules:
 
 - If the character is a lowercase letter ('a' to 'z'), add 1 point.
 - If the character is an uppercase letter ('A' to 'Z'), add 2 points.
@@ -99,7 +99,7 @@ Then, we iterate through each character in $\textit{st}$ and compute the passwor
 
 Finally, return the computed password strength.
 
-The time complexity is $O(n)$, where $n$ is the length of the input string. The space complexity is $O(m)$, where $m$ is the number of distinct characters in the input string.
+The time complexity is $O(n)$, and the space complexity is $O(m)$, where $n$ is the length of the input string, and $m$ is the number of distinct characters in the input string.
 
 <!-- tabs:start -->
 

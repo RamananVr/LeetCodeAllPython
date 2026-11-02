@@ -108,7 +108,7 @@ The execution logic of the function $\textit{dfs}(i, j, k)$ is as follows:
 - If $i \ge n$, it means all positions are filled. If $j = 0$, it means the condition is satisfied, so return $1$, otherwise return $0$;
 - Otherwise, we can choose to fill with an odd or even number, calculate the number of ways for both, and return their sum.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ and $k$ are the parameters given in the problem.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the parameters given in the problem.
 
 <!-- tabs:start -->
 
@@ -170,7 +170,7 @@ f[i][j][1] &= \left( f[i - 1][j][0] + f[i - 1][j][1] \right) \times \textit{cnt1
 \end{aligned}
 $$
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ and $k$ are the parameters given in the problem.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ and $k$ are the parameters given in the problem.
 
 <!-- tabs:start -->
 
@@ -215,7 +215,7 @@ class Solution:
 
 We observe that the computation of $f[i]$ only depends on $f[i - 1]$, allowing us to optimize the space usage with a rolling array.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(k)$, where $n$ and $k$ are the parameters given in the problem.
+The time complexity is $O(nk)$, and the space complexity is $O(k)$, where $n$ and $k$ are the parameters given in the problem.
 
 <!-- tabs:start -->
 

@@ -75,11 +75,11 @@ So the answer is [1,3].
 
 <!-- thinking:end -->
 
-We directly traverse the index $i \in [1, n-2]$. For each index $i$, if $mountain[i-1] < mountain[i]$ and $mountain[i + 1] < mountain[i]$, then $mountain[i]$ is a peak, and we add index $i$ to the answer array.
+We directly traverse the index $i \in [1, n-2]$. For each index $i$, if $\textit{mountain}[i-1] < \textit{mountain}[i]$ and $\textit{mountain}[i + 1] < \textit{mountain}[i]$, then $\textit{mountain}[i]$ is a peak, and we add index $i$ to the answer array.
 
 After the traversal ends, we return the answer array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -86,7 +86,7 @@ Suppose a binary number is represented as $B_{n-1}B_{n-2}...B_2B_1B_0$, and its 
 
 So what is the inverse transformation from Gray code to binary code?
 
-We can observe that the most significant bit of the Gray code is kept, so $B_{n-1} = G_{n-1}$; and $B_{n-2} = G_{n-2} \oplus B_{n-1} = G_{n-2} \oplus G_{n-1}$; and for other bits $B_i = G_{i} \oplus G_{i+1} \cdots \oplus G_{n-1}$, where $i=0,1,2..,n-2$. Therefore, we can use the following function $rev(x)$ to obtain its binary code:
+We can observe that the most significant bit of the Gray code is kept, so $B_{n-1} = G_{n-1}$; and $B_{n-2} = G_{n-2} \oplus B_{n-1} = G_{n-2} \oplus G_{n-1}$; and for other bits $B_i = G_{i} \oplus G_{i+1} \cdots \oplus G_{n-1}$, where $i=0,1,2..,n-2$. Therefore, we can use the following function $\textit{rev}(x)$ to obtain its binary code:
 
 ```java
 int rev(int x) {
@@ -98,7 +98,7 @@ int rev(int x) {
 }
 ```
 
-The time complexity is $O(\log n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

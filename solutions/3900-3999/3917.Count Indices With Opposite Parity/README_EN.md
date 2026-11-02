@@ -86,13 +86,13 @@ tags:
 
 <!-- thinking:end -->
 
-We first count the number of even and odd elements in the array $\textit{nums}$, denoted as $cnt[0]$ and $cnt[1]$ respectively.
+We first count the number of even and odd elements in the array $\textit{nums}$, denoted as $\textit{cnt}[0]$ and $\textit{cnt}[1]$ respectively.
 
-Then, we traverse the array $\textit{nums}$ from left to right. For index $i$, we first decrement $cnt[\textit{nums}[i] \bmod 2]$ by 1, then assign $cnt[\textit{nums}[i] \bmod 2 \oplus 1]$ to $ans[i]$.
+Then, we traverse the array $\textit{nums}$ from left to right. For index $i$, we first decrement $\textit{cnt}[\textit{nums}[i] \bmod 2]$ by 1, then assign $\textit{cnt}[\textit{nums}[i] \bmod 2 \oplus 1]$ to $\textit{ans}[i]$.
 
-After the traversal, return the answer array $ans$.
+After the traversal, return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space complexity of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

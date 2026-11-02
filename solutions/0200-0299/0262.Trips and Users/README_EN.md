@@ -131,7 +131,7 @@ On 2013-10-03:
 >
 > We need the daily cancellation rate over three days, counting only trips whose client and driver are not banned. Join $\textit{Users}$ twice to drop banned people.
 >
-> Group by $request\_at$ and take $\mathrm{AVG}(\textit{status}\neq\texttt{completed})$, rounded to two decimals.
+> Group by $\textit{request\_at}$ and take $\textit{AVG}(\textit{status}\neq\texttt{completed})$, rounded to two decimals.
 
 <!-- thinking:end -->
 
@@ -191,10 +191,9 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
 SELECT
     request_at AS Day,
     ROUND(AVG(status != 'completed'), 2) AS 'Cancellation Rate'
-FROM
-    Trips AS t
-    JOIN Users AS u1 ON (t.client_id = u1.users_id AND u1.banned = 'No')
-    JOIN Users AS u2 ON (t.driver_id = u2.users_id AND u2.banned = 'No')
+FROM Trips AS t
+JOIN Users AS u1 ON (t.client_id = u1.users_id AND u1.banned = 'No')
+JOIN Users AS u2 ON (t.driver_id = u2.users_id AND u2.banned = 'No')
 WHERE request_at BETWEEN '2013-10-01' AND '2013-10-03'
 GROUP BY request_at;
 ```

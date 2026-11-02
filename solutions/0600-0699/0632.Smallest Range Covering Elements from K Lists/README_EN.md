@@ -66,7 +66,7 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 >
 > We need one element from each of $k$ sorted lists so the covering range is shortest. Index combinations do not scale.
 >
-> Flatten $(value, group)$ pairs and sort. The task is the shortest window that covers all $k$ groups; expand the right end and shrink the left while a counter still sees $k$ groups.
+> Flatten $(\textit{value}, \textit{group})$ pairs and sort. The task is the shortest window that covers all $k$ groups; expand the right end and shrink the left while a counter still sees $k$ groups.
 
 <!-- thinking:end -->
 
@@ -74,7 +74,7 @@ We construct a data item $(x, i)$ for each number $x$ and its group $i$, and sto
 
 Next, we traverse each data item in $t$, focusing on the group to which each number belongs. We use a hash table to record the groups of numbers within the sliding window. If the number of groups is $k$, it means the current window meets the problem's requirements. At this point, we calculate the start and end positions of the window and update the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of numbers in all arrays.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the total number of numbers in all arrays.
 
 <!-- tabs:start -->
 

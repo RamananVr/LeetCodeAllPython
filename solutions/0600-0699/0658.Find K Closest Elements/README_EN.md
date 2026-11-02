@@ -66,7 +66,7 @@ tags:
 
 > **Thinking**
 >
-> We need the $k$ closest values to $x$, reported in sorted order. Sorting by distance then taking $k$ is $O(n\log n)$.
+> We need the $k$ closest values to $x$, reported in sorted order. Sorting by distance then taking $k$ is $O(n \log n)$.
 >
 > Sort by $|v-x|$, keep $k$ elements, and sort those by value.
 
@@ -101,7 +101,7 @@ class Solution:
 
 The $k$ elements closest to $x$ in a sorted array form one contiguous subarray.
 
-Set pointers $l$ and $r$ at the two ends. Compare $x - arr[l]$ with $arr[r - 1] - x$ and drop the farther end until $r - l = k$.
+Set pointers $l$ and $r$ at the two ends. Compare $x - \textit{arr}[l]$ with $\textit{arr}[r - 1] - x$ and drop the farther end until $r - l = k$.
 
 The time complexity is $O(n)$.
 
@@ -133,11 +133,11 @@ class Solution:
 
 > **Thinking**
 >
-> Two pointers are linear. The best left bound in $[0,n-k]$ is monotone: compare $x-arr[mid]$ with $arr[mid+k]-x$ and binary-search it.
+> Two pointers are linear. The best left bound in $[0,n-k]$ is monotone: compare $x-\textit{arr}[\textit{mid}]$ with $\textit{arr}[\textit{mid}+k]-x$ and binary-search it.
 
 <!-- thinking:end -->
 
-On top of method 2, binary-search the left boundary of the window of length $k$ over $[0, n - k]$. At $\textit{mid}$, move the window left when $x - arr[\textit{mid}] \le arr[\textit{mid} + k] - x$, and right otherwise.
+On top of method 2, binary-search the left boundary of the window of length $k$ over $[0, n - k]$. At $\textit{mid}$, move the window left when $x - \textit{arr}[\textit{mid}] \le \textit{arr}[\textit{mid} + k] - x$, and right otherwise.
 
 The time complexity is $O(\log n)$.
 

@@ -117,9 +117,9 @@ Since seller_ids 2 and 3 have the same count of one item each, they both will be
 
 > **Thinking**
 >
-> We need, for each seller, the number of distinct items whose brand differs from the seller’s favorite, then the sellers that attain the maximum. Joining orders, users, and items aligns the three tables; the filter $item_brand \neq favorite_brand$ and a group on $seller_id$ remain.
+> We need, for each seller, the number of distinct items whose brand differs from the seller’s favorite, then the sellers that attain the maximum. Joining orders, users, and items aligns the three tables; the filter $\textit{item}_\textit{brand} \neq \textit{favorite}_\textit{brand}$ and a group on $\textit{seller}_id$ remain.
 >
-> $COUNT(DISTINCT item_id)$ yields $num_items$. Comparing against a subquery $MAX(num_items)$ avoids mixing the aggregate with the filter in one layer. Sort by seller id.
+> $\textit{COUNT}(\textit{DISTINCT} \textit{item}_id)$ yields $\textit{num}_\textit{items}$. Comparing against a subquery $\textit{MAX}(\textit{num}_\textit{items})$ avoids mixing the aggregate with the filter in one layer. Sort by seller id.
 
 <!-- thinking:end -->
 
@@ -134,10 +134,9 @@ We can use equijoin to connect the `Orders` table and the `Users` table accordin
 WITH
     T AS (
         SELECT seller_id, COUNT(DISTINCT item_id) AS num_items
-        FROM
-            Orders
-            JOIN Users USING (seller_id)
-            JOIN Items USING (item_id)
+        FROM Orders
+        JOIN Users USING (seller_id)
+        JOIN Items USING (item_id)
         WHERE item_brand != favorite_brand
         GROUP BY 1
     )

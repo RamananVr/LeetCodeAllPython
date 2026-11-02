@@ -83,7 +83,7 @@ So the answer is [&quot;ab&quot;,&quot;cd&quot;].</pre>
 
 > **Thinking**
 >
-> High access means at least three visits in one hour. After grouping by name, convert $HHMM$ to minutes and sort; three consecutive times lie in a $60$-minute window iff $t[i]-t[i-2] < 60$.
+> High access means at least three visits in one hour. After grouping by name, convert $\textit{HHMM}$ to minutes and sort; three consecutive times lie in a $60$-minute window iff $t[i]-t[i-2] < 60$.
 >
 > A hash map stores the timestamps, then one linear pass after sorting decides. $n \le 100$ makes grouping and sorting cheap.
 
@@ -95,7 +95,7 @@ For each employee, we sort all their access times in ascending order. Then we tr
 
 Finally, we return the answer array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of access records.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of access records.
 
 <!-- tabs:start -->
 

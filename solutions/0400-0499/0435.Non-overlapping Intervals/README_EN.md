@@ -74,7 +74,7 @@ tags:
 
 <!-- thinking:end -->
 
-We first sort the intervals in ascending order by their right boundary. We use a variable $\textit{pre}$ to record the right boundary of the previous interval and a variable $\textit{ans}$ to record the number of intervals that need to be removed. Initially, $\textit{ans} = \textit{intervals.length}$.
+We first sort the intervals in ascending order by their right boundary. We use a variable $\textit{pre}$ to record the right boundary of the previous interval and a variable $\textit{ans}$ to record the number of intervals that need to be removed. Initially, $\textit{ans} = \textit{intervals}.\textit{length}$.
 
 Then we iterate through the intervals. For each interval:
 
@@ -83,7 +83,7 @@ Then we iterate through the intervals. For each interval:
 
 Finally, we return $\textit{ans}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 

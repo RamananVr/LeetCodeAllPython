@@ -131,7 +131,7 @@ Each row of this table contains information about calls, comprising of contact_i
 >
 > Each call type keeps its three longest calls, then the rows are sorted by type, formatted duration, and first name, all descending. A dense rank would keep a shorter call once earlier ties fill the first places.
 >
-> Equi-join contacts to calls and assign $\textit{RANK}$ by $duration$ within each type. Ties share a rank and the next rank skips, so only ranks of at most $3$ remain.
+> Equi-join contacts to calls and assign $\textit{RANK}$ by $\textit{duration}$ within each type. Ties share a rank and the next rank skips, so only ranks of at most $3$ remain.
 >
 > Format the seconds as `HH:MM:SS` and sort all three output columns descending. The window decides membership; the sort decides order.
 
@@ -154,9 +154,8 @@ WITH
                 PARTITION BY type
                 ORDER BY duration DESC
             ) AS rk
-        FROM
-            Calls AS c1
-            JOIN Contacts AS c2 ON c1.contact_id = c2.id
+        FROM Calls AS c1
+        JOIN Contacts AS c2 ON c1.contact_id = c2.id
     )
 SELECT
     first_name,

@@ -80,9 +80,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can simulate the process described in the problem: iterate through each pair of adjacent digits in the string and compute their absolute difference. If any pair has an absolute difference greater than 2, return $\text{false}$. If no such pair is found after the traversal, return $\text{true}$.
+We can simulate the process described in the problem: iterate through each pair of adjacent digits in the string and compute their absolute difference. If any pair has an absolute difference greater than 2, return $\textit{false}$. If no such pair is found after the traversal, return $\textit{true}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

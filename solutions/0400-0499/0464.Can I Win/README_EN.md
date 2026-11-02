@@ -76,7 +76,7 @@ Same with other integers chosen by the first player, the second player will alwa
 >
 > Players draw without replacement from $1..n$ and the first to reach the target wins. $n\le 20$, so the state is the used set; a raw game tree repeats positions.
 >
-> If the total is too small, nobody can win. Otherwise $dfs(\textit{mask},s)$ tries each unused $i$: a win if $s+i$ already meets the target or the opponent loses afterwards. Memoize on $\textit{mask}$.
+> If the total is too small, nobody can win. Otherwise $\textit{dfs}(\textit{mask},s)$ tries each unused $i$: a win if $s+i$ already meets the target or the opponent loses afterwards. Memoize on $\textit{mask}$.
 >
 > A bit mask packs the set; at most $2^{n}$ subproblems. The total check skips a hopeless search.
 
@@ -94,7 +94,7 @@ If no choice can make the current player win, then the current player is losing,
 
 To avoid repeated calculations, we use a hash table `f` to record the calculated states, where the key is `mask`, and the value is whether the current player can win.
 
-The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$. Where $n$ is `maxChoosableInteger`.
+The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$, where $n$ is `maxChoosableInteger`.
 
 <!-- tabs:start -->
 

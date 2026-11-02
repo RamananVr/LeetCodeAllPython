@@ -126,7 +126,7 @@ Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smal
 
 > **Thinking**
 >
-> Two scalars stacked as one column: the user with the most ratings (lexicographically smallest on a tie) and the February $2020$ movie with the highest average (same tie-break). Each side is a join, group, order, and $\mathrm{LIMIT}\,1$; $\mathrm{UNION\ ALL}$ concatenates them.
+> Two scalars stacked as one column: the user with the most ratings (lexicographically smallest on a tie) and the February $2020$ movie with the highest average (same tie-break). Each side is a join, group, order, and $\textit{LIMIT}\,1$; $\textit{UNION ALL}$ concatenates them.
 
 <!-- thinking:end -->
 
@@ -138,9 +138,8 @@ Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smal
 # Write your MySQL query statement below
 (
     SELECT name AS results
-    FROM
-        Users
-        JOIN MovieRating USING (user_id)
+    FROM Users
+    JOIN MovieRating USING (user_id)
     GROUP BY user_id
     ORDER BY COUNT(1) DESC, name
     LIMIT 1
@@ -148,9 +147,8 @@ Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smal
 UNION ALL
 (
     SELECT title
-    FROM
-        MovieRating
-        JOIN Movies USING (movie_id)
+    FROM MovieRating
+    JOIN Movies USING (movie_id)
     WHERE DATE_FORMAT(created_at, '%Y-%m') = '2020-02'
     GROUP BY movie_id
     ORDER BY AVG(rating) DESC, title

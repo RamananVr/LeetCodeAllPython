@@ -77,11 +77,11 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 
 <!-- thinking:end -->
 
-We can iterate through the string $s$ and use an array $\textit{ans}$ to record the current answer. For each character $\textit{s[i]}$, if $i < 2$ or $s[i]$ is not equal to $s[i - 1]$, or $s[i]$ is not equal to $s[i - 2]$, we add $s[i]$ to $\textit{ans}$.
+We can iterate through the string $s$ and use an array $\textit{ans}$ to record the current answer. For each character $s[i]$, if $i < 2$ or $s[i]$ is not equal to $s[i - 1]$, or $s[i]$ is not equal to $s[i - 2]$, we add $s[i]$ to $\textit{ans}$.
 
 Finally, we concatenate the characters in $\textit{ans}$ to get the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

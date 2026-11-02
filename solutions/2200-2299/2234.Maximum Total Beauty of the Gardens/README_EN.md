@@ -92,7 +92,7 @@ Note that Alice could make all the gardens complete but in this case, she would 
 
 > **Thinking**
 >
-> A garden is either filled to $\textit{target}$ (perfect) or left imperfect, in which case we want its minimum as large as possible. $n \le 10^5$ and $newFlowers$ is up to $10^{10}$. Once the number of perfect gardens is fixed, leftover flowers should raise a prefix of the imperfect ones.
+> A garden is either filled to $\textit{target}$ (perfect) or left imperfect, in which case we want its minimum as large as possible. $n \le 10^5$ and $\textit{newFlowers}$ is up to $10^{10}$. Once the number of perfect gardens is fixed, leftover flowers should raise a prefix of the imperfect ones.
 >
 > Sort and prefix-sum. Enumerate the final perfect count $x$, pay to complete the most expensive gardens, then binary-search how far the remaining flowers can raise the imperfect prefix. The extra flowers are shared evenly but stay below $\textit{target}$. Maximize $x\cdot\textit{full}+y\cdot\textit{partial}$.
 
@@ -108,7 +108,7 @@ We update the remaining flowers $\textit{newFlowers}$. If it is less than $0$, i
 
 Otherwise, we perform a binary search in the range $[0,..n-x-1]$ to find the maximum index of the imperfect gardens that can be turned into perfect gardens. Let the index be $l$, then the number of flowers needed is $\textit{cost} = \textit{flowers}[l] \times (l + 1) - s[l + 1]$, where $s[i]$ is the sum of the first $i$ numbers in the $\textit{flowers}$ array. If we can still increase the minimum value, we calculate the increase $\frac{\textit{newFlowers} - \textit{cost}}{l + 1}$, and ensure that the final minimum value does not exceed $\textit{target}-1$. That is, the minimum value $y = \min(\textit{flowers}[l] + \frac{\textit{newFlowers} - \textit{cost}}{l + 1}, \textit{target} - 1)$. Then the beauty value of the garden is $x \times \textit{full} + y \times \textit{partial}$. The answer is the maximum of all beauty values.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $\textit{flowers}$ array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{flowers}$ array.
 
 <!-- tabs:start -->
 

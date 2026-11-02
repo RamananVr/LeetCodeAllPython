@@ -61,9 +61,9 @@ tags:
 
 > **Thinking**
 >
-> Replace indices $[a,b]$ of $list1$ with $list2$. Find the predecessor of $a$ and node $b$, link the predecessor to $list2$'s head, then $list2$'s tail to $b$'s successor.
+> Replace indices $[a,b]$ of $\textit{list1}$ with $\textit{list2}$. Find the predecessor of $a$ and node $b$, link the predecessor to $\textit{list2}$'s head, then $\textit{list2}$'s tail to $b$'s successor.
 >
-> Two pointers walk the needed steps, a third scan finds $list2$'s end, and $b.\textit{next}$ is cleared.
+> Two pointers walk the needed steps, a third scan finds $\textit{list2}$'s end, and $b.\textit{next}$ is cleared.
 
 <!-- thinking:end -->
 
@@ -73,7 +73,7 @@ In the implementation, we use two pointers $p$ and $q$, both initially pointing 
 
 Then we move pointers $p$ and $q$ forward, until pointer $p$ points to the node before the $a$-th node in `list1`, and pointer $q$ points to the $b$-th node in `list1`. At this point, we set the `next` pointer of $p$ to the head node of `list2`, and set the `next` pointer of the tail node of `list2` to the node pointed to by the `next` pointer of $q$. This completes the operation required by the problem.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the lengths of `list1` and `list2` respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of `list1` and `list2` respectively.
 
 <!-- tabs:start -->
 

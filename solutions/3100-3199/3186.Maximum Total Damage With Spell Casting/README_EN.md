@@ -80,7 +80,7 @@ tags:
 >
 > After sorting the choice is: skip every copy of the current value, or take them all and jump to the first value $>x+2$. That jump is a binary search.
 >
-> Memoize $dfs(i)=\max(dfs(i+cnt[x]),\,x\cdot cnt[x]+dfs(nxt[i]))$. Each distinct damage expands once.
+> Memoize $\textit{dfs}(i)=\max(\textit{dfs}(i+\textit{cnt}[x]),\,x\cdot \textit{cnt}[x]+\textit{dfs}(\textit{nxt}[i]))$. Each distinct damage expands once.
 
 <!-- thinking:end -->
 
@@ -90,11 +90,11 @@ Next, we define a function $\textit{dfs}$ to calculate the maximum damage value 
 
 In the $\textit{dfs}$ function, we can choose to skip the current damage value, so we can skip all the same damage values of the current one and directly jump to $i + \textit{cnt}[x]$, obtaining a damage value of $\textit{dfs}(i + \textit{cnt}[x])$; or we can choose to use the current damage value, so we can use all the same damage values of the current one and then jump to the index of the next damage value, obtaining a damage value of $x \times \textit{cnt}[x] + \textit{dfs}(\textit{nxt}[i])$, where $\textit{nxt}[i]$ represents the index of the first damage value greater than $x + 2$. We take the maximum of these two cases as the return value of the function.
 
-To avoid repeated calculations, we can use memoization, storing the results that have already been calculated in an array $\textit{f}$. Thus, when calculating $\textit{dfs}(i)$, if $\textit{f}[i]$ is not $0$, we directly return $\textit{f}[i]$.
+To avoid repeated calculations, we can use memoization, storing the results that have already been calculated in an array $f$. Thus, when calculating $\textit{dfs}(i)$, if $f[i]$ is not $0$, we directly return $f[i]$.
 
 The answer is $\textit{dfs}(0)$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{power}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{power}$.
 
 <!-- tabs:start -->
 
@@ -148,7 +148,7 @@ $$
 f[i] = \max(f[i + \textit{cnt}[x]],\ x \times \textit{cnt}[x] + f[\textit{nxt}[i]])
 $$
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{power}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{power}$.
 
 <!-- tabs:start -->
 

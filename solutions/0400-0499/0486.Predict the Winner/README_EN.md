@@ -86,7 +86,7 @@ tags:
 >
 > Players take from the two ends; the first player wins if her score is at least the second's. The game tree repeats the same interval.
 >
-> $dfs(i,j)$ is the best score gap on $[i,j]$: take the left end for $nums[i]-dfs(i+1,j)$, or the right end symmetrically. The first player wins iff $dfs(0,n-1)\ge 0$.
+> $\textit{dfs}(i,j)$ is the best score gap on $[i,j]$: take the left end for $\textit{nums}[i]-\textit{dfs}(i+1,j)$, or the right end symmetrically. The first player wins iff $\textit{dfs}(0,n-1)\ge 0$.
 >
 > There are $O(n^2)$ intervals; memoization makes every leftover interval optimal for the player to move.
 
@@ -103,7 +103,7 @@ Finally, we only need to check if $\textit{dfs}(0, n - 1) \geq 0$.
 
 To avoid repeated calculations, we can use memoization. We use an array $f$ to record all the values of $\textit{dfs}(i, j)$. When the function is called again, we can directly retrieve the answer from $f$ without recalculating it.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -150,7 +150,7 @@ Therefore, the state transition equation is $f[i][j] = \max(\textit{nums}[i] - f
 
 Finally, we only need to check if $f[0][n - 1] \geq 0$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problem:
 

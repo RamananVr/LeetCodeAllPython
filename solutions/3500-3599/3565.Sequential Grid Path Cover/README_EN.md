@@ -82,13 +82,13 @@ tags:
 
 <!-- thinking:end -->
 
-Note that the matrix size does not exceed $6 \times 6$, so we can use state compression to represent the visited cells. We can use an integer $\textit{st}$ to represent the visited cells, where the $i$-th bit being 1 means cell $i$ has been visited, and 0 means it has not been visited.
+Note that the matrix size does not exceed $6 \times 6$, so we can use state compression to represent the visited cells. We can use an integer $st$ to represent the visited cells, where the $i$-th bit being 1 means cell $i$ has been visited, and 0 means it has not been visited.
 
 Next, we iterate through each cell as a starting point. If the cell is 0 or 1, we start a depth-first search (DFS) from that cell. In the DFS, we add the current cell to the path and mark it as visited. Then, we check the value of the current cell. If it equals $v$, we increment $v$ by 1. Next, we try to move in four directions to adjacent cells. If the adjacent cell has not been visited and its value is 0 or $v$, we continue the DFS.
 
 If the DFS successfully finds a complete path, we return that path. If a complete path cannot be found, we backtrack, undo the visit mark for the current cell, and try other directions.
 
-The time complexity is $O(m^2 \times n^2)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(m^2n^2)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

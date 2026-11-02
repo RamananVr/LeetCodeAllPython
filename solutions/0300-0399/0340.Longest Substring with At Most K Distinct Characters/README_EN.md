@@ -59,13 +59,13 @@ tags:
 
 <!-- thinking:end -->
 
-We can use the idea of a sliding window, with a hash table $\textit{cnt}$ to record the occurrence count of each character within the window, and $\textit{l}$ to denote the left boundary of the window.
+We can use the idea of a sliding window, with a hash table $\textit{cnt}$ to record the occurrence count of each character within the window, and $l$ to denote the left boundary of the window.
 
-Iterate through the string, adding the character at the right boundary to the hash table each time. If the number of distinct characters in the hash table exceeds $k$, remove the character at the left boundary from the hash table, then update the left boundary $\textit{l}$.
+Iterate through the string, adding the character at the right boundary to the hash table each time. If the number of distinct characters in the hash table exceeds $k$, remove the character at the left boundary from the hash table, then update the left boundary $l$.
 
 Finally, return the length of the string minus the length of the left boundary.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Here, $n$ is the length of the string.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

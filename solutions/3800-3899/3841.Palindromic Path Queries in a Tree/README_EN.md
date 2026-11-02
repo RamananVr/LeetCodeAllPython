@@ -100,27 +100,138 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Euler Tour + Binary Indexed Tree + Binary Lifting
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> A path can be rearranged into a palindrome iff at most one character has odd frequency. $n,q \le 5 \times 10^4$ forbids walking each path.
+> A path can be rearranged into a palindrome iff at most one character has an odd count. With $n$ and the number of queries at most $5 \times 10^4$, walking each path is too slow.
 >
-> Parity of letter counts is a $26$-bit mask. The path mask is the XOR of the two rootward prefixes, cancelling the LCA.
+> The bottleneck is supporting point updates while still reading the parity of every letter on an arbitrary path.
 >
-> Updating a node's character changes rootward masks in a structured way, which a tree difference or Euler-tour structure can maintain.
+> Pack the $26$ letter parities into a bitmask. The path mask is the XOR of the two rootward prefixes, then the XOR of the LCA's character: the shared prefix and the LCA itself both cancel. Writing each node's mask at its Euler enter and exit times makes a prefix of an XOR Fenwick tree equal the rootward mask.
 >
-> A query fetches the LCA and checks that the path mask has at most one bit set; an update rewrites the character and the masks.
+> Binary lifting finds the LCA. The path is palindromic when the mask has at most one bit set. An update XORs the difference of the old and new masks at that node's enter and exit times.
 
 <!-- thinking:end -->
+
+We store the parity of each character in a $26$-bit mask: bit $c$ is $1$ when character $c$ occurs an odd number of times. The characters on a path can be rearranged into a palindrome if and only if this mask has at most one bit set, including the all-zero mask. Equivalently, the bitwise AND of the mask and the mask minus one is $0$.
+
+Let $\textit{pref}(u)$ be the XOR of the masks from the root to node $u$, inclusive. If $w$ is the lowest common ancestor of $u$ and $v$, the mask of the path from $u$ to $v$ is
+
+$$\textit{pref}(u) \oplus \textit{pref}(v) \oplus \textit{bit}[w].$$
+
+The portion from the root to $w$ appears once in each prefix and cancels. Node $w$ itself also cancels, so we XOR $\textit{bit}[w]$ to put it back on the path.
+
+We maintain $\textit{pref}(u)$ with an Euler tour and an XOR binary indexed tree. During the DFS we record the entry time $\textit{tin}[u]$ and the exit time $\textit{tout}[u]$, and add $\textit{bit}[u]$ at both positions. A prefix query that ends at $\textit{tin}[u]$ counts each node on the path from the root to $u$ exactly once: its entry time lies inside the prefix and its exit time lies outside. A subtree that has already been fully exited is counted twice and cancels. The tree accumulates from index $1$, so $\textit{query}(\textit{tin}[u] + 1)$ in the code is $\textit{pref}(u)$.
+
+When the character of node $u$ changes, let $\delta$ be the XOR of the old and new masks, and XOR $\delta$ at $\textit{tin}[u]$ and $\textit{tout}[u]$. The LCA is precomputed with binary lifting and each query takes $O(\log n)$.
+
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of operations.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.tree = [0] * (n + 1)
 
+    def update(self, i: int, delta: int) -> None:
+        i += 1
+        while i <= self.n:
+            self.tree[i] ^= delta
+            i += i & -i
+
+    def query(self, i: int) -> int:
+        res = 0
+        while i:
+            res ^= self.tree[i]
+            i -= i & -i
+        return res
+
+class Solution:
+    def palindromePath(
+        self, n: int, edges: list[list[int]], s: str, queries: list[str]
+    ) -> list[bool]:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+
+        parent = [-1] * n
+        depth = [0] * n
+        tin = [0] * n
+        tout = [0] * n
+        timer = 0
+
+        def dfs(u: int, p: int) -> None:
+            nonlocal timer
+            parent[u] = p
+            tin[u] = timer
+            timer += 1
+            for v in g[u]:
+                if v != p:
+                    depth[v] = depth[u] + 1
+                    dfs(v, u)
+            tout[u] = timer
+
+        dfs(0, -1)
+
+        m = n.bit_length()
+        up = [parent[:]]
+        up[0][0] = 0
+        for j in range(1, m):
+            prev = up[-1]
+            up.append([prev[prev[i]] for i in range(n)])
+
+        def lca(u: int, v: int) -> int:
+            if depth[u] < depth[v]:
+                u, v = v, u
+            d = depth[u] - depth[v]
+            j = 0
+            while d:
+                if d & 1:
+                    u = up[j][u]
+                d >>= 1
+                j += 1
+            if u == v:
+                return u
+            for j in range(m - 1, -1, -1):
+                if up[j][u] != up[j][v]:
+                    u = up[j][u]
+                    v = up[j][v]
+            return parent[u]
+
+        bit = [1 << (ord(c) - ord("a")) for c in s]
+        tree = BinaryIndexedTree(n)
+
+        for u in range(n):
+            tree.update(tin[u], bit[u])
+            tree.update(tout[u], bit[u])
+
+        ans = []
+        for q in queries:
+            op, a, b = q.split()
+            u = int(a)
+            if op == "update":
+                x = bit[u]
+                y = 1 << (ord(b) - ord("a"))
+                if x != y:
+                    delta = x ^ y
+                    tree.update(tin[u], delta)
+                    tree.update(tout[u], delta)
+                    bit[u] = y
+            else:
+                v = int(b)
+                w = lca(u, v)
+                mask = tree.query(tin[u] + 1) ^ tree.query(tin[v] + 1) ^ bit[w]
+                ans.append(mask & (mask - 1) == 0)
+
+        return ans
 ```
 
 <!-- tabs:end -->

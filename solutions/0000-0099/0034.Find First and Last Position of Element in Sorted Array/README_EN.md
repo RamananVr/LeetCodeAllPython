@@ -57,13 +57,13 @@ tags:
 >
 > The array is non-decreasing, so the two endpoints are separate binary-search questions; we need not find both in one pass.
 >
-> The left endpoint is the first index $\ge target$; the right endpoint is the first index $\ge target+1$, minus one. Two lower-bound queries suffice; if they land on the same index, $target$ is absent.
+> The left endpoint is the first index $\ge \textit{target}$; the right endpoint is the first index $\ge \textit{target}+1$, minus one. Two lower-bound queries suffice; if they land on the same index, $\textit{target}$ is absent.
 
 <!-- thinking:end -->
 
 We can perform two binary searches to find the left boundary and the right boundary.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

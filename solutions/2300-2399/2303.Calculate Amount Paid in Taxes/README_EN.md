@@ -86,15 +86,15 @@ You have no income to tax, so you have to pay a total of $0 in taxes.
 
 > **Thinking**
 >
-> Brackets increase by upper bound and the last one covers all income, so the tax is determined by how much of $income$ falls in each band. There are at most $100$ brackets, so a single scan suffices.
+> Brackets increase by upper bound and the last one covers all income, so the tax is determined by how much of $\textit{income}$ falls in each band. There are at most $100$ brackets, so a single scan suffices.
 >
-> The taxable base of bracket $i$ is $\min(income, upper_i)$ minus the previous upper bound (or zero if the band is not reached). Multiply by the rate, accumulate, and divide by $100$. No backtracking or precomputation is required.
+> The taxable base of bracket $i$ is $\min(\textit{income}, \textit{upper}_i)$ minus the previous upper bound (or zero if the band is not reached). Multiply by the rate, accumulate, and divide by $100$. No backtracking or precomputation is required.
 
 <!-- thinking:end -->
 
 We traverse `brackets`, and for each tax bracket, we calculate the tax amount for that bracket, then accumulate it.
 
-The time complexity is $O(n)$, where $n$ is the length of `brackets`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of `brackets`.
 
 <!-- tabs:start -->
 

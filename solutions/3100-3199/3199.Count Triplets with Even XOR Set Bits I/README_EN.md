@@ -71,7 +71,7 @@ Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, r
 >
 > The parity of the XOR popcount is the parity of the three individual popcounts, so each array collapses to two buckets.
 >
-> Count $bit\_count\bmod 2$ in $a,b,c$, then add $cnt1[i]cnt2[j]cnt3[k]$ over even $i+j+k$.
+> Count $\textit{bit\_count}\bmod 2$ in $a,b,c$, then add $\textit{cnt1}[i]\textit{cnt2}[j]\textit{cnt3}[k]$ over even $i+j+k$.
 
 <!-- thinking:end -->
 
@@ -83,7 +83,7 @@ Then, we enumerate the parity of the number of $1$s in the binary representation
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of arrays `a`, `b`, `c`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of arrays `a`, `b`, `c`.
 
 <!-- tabs:start -->
 

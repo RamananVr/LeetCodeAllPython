@@ -78,7 +78,7 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 >
 > The sentence is at most $200$ characters. After splitting on spaces, check that numeric tokens strictly increase and ignore the rest.
 >
-> Keep the previous number $pre$; fail if the current value is $\le pre$.
+> Keep the previous number $\textit{pre}$; fail if the current value is $\le \textit{pre}$.
 
 <!-- thinking:end -->
 
@@ -86,7 +86,7 @@ We can split the string $s$ into several words by spaces. Then, for each word, c
 
 If the traversal ends, it means that the numbers in the string are strictly increasing, so return `true`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

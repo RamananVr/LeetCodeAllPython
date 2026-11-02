@@ -89,7 +89,7 @@ Index 2, 4, 6, 7 is also a correct answer.
 >
 > The hidden array is bits; a query on four distinct indices returns a code for how many zeros versus ones they contain. We must return an index of the majority value with a tight query budget, so we cannot read the array.
 >
-> Let $x=query(0,1,2,3)$. For each $i\ge 4$, $query(0,1,2,i)=x$ means $i$ matches index $3$; otherwise it does not. Three further queries compare $0,1,2$ with $3$. The larger class is the majority; a tie returns $-1$. Besides index $3$, a dissenting index is remembered in $k$ for the answer.
+> Let $x=\textit{query}(0,1,2,3)$. For each $i\ge 4$, $\textit{query}(0,1,2,i)=x$ means $i$ matches index $3$; otherwise it does not. Three further queries compare $0,1,2$ with $3$. The larger class is the majority; a tie returns $-1$. Besides index $3$, a dissenting index is remembered in $k$ for the answer.
 
 <!-- thinking:end -->
 
@@ -101,7 +101,7 @@ Then, we need to check whether the elements at indices $0, 1, 2$ are the same as
 
 Finally, if $a = b$, it means the number of $0$s and $1$s in the array are equal, so we return $-1$; otherwise, if $a > b$, we return $3$, otherwise we return $k$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

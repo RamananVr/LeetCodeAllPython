@@ -207,7 +207,7 @@ tags:
 >
 > $(c,m)$ and $(m,c)$ are the same pair, so visited characters must be marked.
 >
-> Count frequencies, then for each unseen $c$ add $|freq(c)-freq(m)|$ and mark $c$.
+> Count frequencies, then for each unseen $c$ add $|\textit{freq}(c)-\textit{freq}(m)|$ and mark $c$.
 >
 > A missing mirror contributes frequency $0$.
 
@@ -215,11 +215,11 @@ tags:
 
 We first use a hash table $\textit{freq}$ to count the frequency of each character in string $s$.
 
-Then, we iterate over each key-value pair $(c, v)$ in $\textit{freq}$, where $c$ is the character and $v$ is the number of times character $c$ appears in string $s$. For each character $c$, we compute its mirror character $m$ and calculate $|freq(c) - freq(m)|$. To avoid counting mirror pairs twice, we use a hash set $\textit{vis}$ to track already-visited characters.
+Then, we iterate over each key-value pair $(c, v)$ in $\textit{freq}$, where $c$ is the character and $v$ is the number of times character $c$ appears in string $s$. For each character $c$, we compute its mirror character $m$ and calculate $|\textit{freq}(c) - \textit{freq}(m)|$. To avoid counting mirror pairs twice, we use a hash set $\textit{vis}$ to track already-visited characters.
 
 Finally, we return the sum of absolute differences over all distinct mirror pairs.
 
-The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the set of distinct characters in string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of string $s$, and $\Sigma$ is the set of distinct characters in string $s$.
 
 <!-- tabs:start -->
 

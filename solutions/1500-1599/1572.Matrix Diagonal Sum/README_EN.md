@@ -72,7 +72,7 @@ Notice that element mat[1][1] = 5 is counted only once.
 >
 > Sum both diagonals of a square matrix; the center of an odd order would be counted twice. $n$ is small: take the two diagonal entries per row and skip the duplicate center.
 >
-> Row $i$ contributes $row[i]$ and $row[n-i-1]$. When those indices coincide, add once; otherwise add both. A single row scan finishes the sum.
+> Row $i$ contributes $\textit{row}[i]$ and $\textit{row}[n-i-1]$. When those indices coincide, add once; otherwise add both. A single row scan finishes the sum.
 
 <!-- thinking:end -->
 
@@ -80,7 +80,7 @@ We can traverse each row $\textit{row}[i]$ of the matrix. For each row, we calcu
 
 After traversing all rows, we get the answer.
 
-The time complexity is $O(n)$, where $n$ is the number of rows in the matrix. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of rows in the matrix.
 
 <!-- tabs:start -->
 

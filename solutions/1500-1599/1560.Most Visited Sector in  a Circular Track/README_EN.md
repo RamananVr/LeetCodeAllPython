@@ -71,7 +71,7 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 >
 > We walk a circular track along given segments and want the most visited sectors. Full laps add the same count to every sector; only the leftover walk from the first start to the last end creates a difference.
 >
-> If the start index is at most the end, that leftover is the closed interval $[rounds[0],rounds[-1]]$. Otherwise it wraps past $n$ and is the union of $[1,rounds[-1]]$ and $[rounds[0],n]$. Listing the union avoids simulating laps.
+> If the start index is at most the end, that leftover is the closed interval $[\textit{rounds}[0],\textit{rounds}[-1]]$. Otherwise it wraps past $n$ and is the union of $[1,\textit{rounds}[-1]]$ and $[\textit{rounds}[0],n]$. Listing the union avoids simulating laps.
 
 <!-- thinking:end -->
 
@@ -81,7 +81,7 @@ If $\textit{rounds}[0] \leq \textit{rounds}[m]$, then the sectors from $\textit{
 
 Otherwise, the sectors from $1$ to $\textit{rounds}[m]$ and the sectors from $\textit{rounds}[0]$ to $n$ form the union of the most passed sectors, and we can return the union of these two intervals.
 
-The time complexity is $O(n)$, where $n$ is the number of sectors. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of sectors.
 
 <!-- tabs:start -->
 

@@ -65,11 +65,11 @@ Thus, the closest number to 0 in the array is 1.
 
 <!-- thinking:end -->
 
-We define a variable $\textit{d}$ to record the current minimum distance, initially $\textit{d}=\infty$. Then we traverse the array, for each element $x$, we calculate $y=|x|$. If $y \lt d$ or $y=d$ and $x \gt \textit{ans}$, we update the answer $\textit{ans}=x$ and $\textit{d}=y$.
+We define a variable $d$ to record the current minimum distance, initially $d=\infty$. Then we traverse the array, for each element $x$, we calculate $y=|x|$. If $y \lt d$ or $y=d$ and $x \gt \textit{ans}$, we update the answer $\textit{ans}=x$ and $d=y$.
 
 After the traversal, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

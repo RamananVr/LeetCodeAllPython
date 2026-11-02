@@ -81,7 +81,7 @@ The root node evaluates to True, so we return true.</pre>
 >
 > Leaves are booleans; inner nodes are OR or AND. At most $1000$ nodes, so evaluate by definition.
 >
-> A missing left child is a leaf. Otherwise recurse on both children and apply $or$ or $and$ from the node value. Each node is visited once.
+> A missing left child is a leaf. Otherwise recurse on both children and apply $or$ or $\textit{and}$ from the node value. Each node is visited once.
 
 <!-- thinking:end -->
 
@@ -92,7 +92,7 @@ For the current node $\textit{root}$:
 - If its left child is null, it means the current node is a leaf node. If the value of the current node is $1$, then return $\textit{true}$; otherwise, return $\textit{false}$;
 - If the value of the current node is $2$, then return the logical OR of the recursion results of its left and right children; otherwise, return the logical AND of the recursion results of its left and right children.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

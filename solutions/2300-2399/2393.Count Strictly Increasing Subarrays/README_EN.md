@@ -64,7 +64,7 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 >
 > Count contiguous strictly increasing subarrays. Grouped by the right end, the count is the current run length; left ends need not be enumerated.
 >
-> Keep the increasing length $cnt$ ending here: grow it when the value rises, else reset to $1$, and add $cnt$ to the answer.
+> Keep the increasing length $\textit{cnt}$ ending here: grow it when the value rises, else reset to $1$, and add $\textit{cnt}$ to the answer.
 
 <!-- thinking:end -->
 
@@ -74,7 +74,7 @@ We use a variable $\textit{cnt}$ to record the number of strictly increasing sub
 
 After the traversal, return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -66,9 +66,9 @@ tags:
 
 > **Thinking**
 >
-> Only two alternating targets exist: $0101\ldots$ and $1010\ldots$. If one needs $cnt$ flips, the other needs $n-cnt$.
+> Only two alternating targets exist: $0101\ldots$ and $1010\ldots$. If one needs $\textit{cnt}$ flips, the other needs $n-\textit{cnt}$.
 >
-> Count mismatches against $0101\ldots$ in one pass and return $\min(cnt,n-cnt)$.
+> Count mismatches against $0101\ldots$ in one pass and return $\min(\textit{cnt},n-\textit{cnt})$.
 
 <!-- thinking:end -->
 
@@ -76,7 +76,7 @@ According to the problem, if the number of operations needed to obtain the alter
 
 Therefore, we only need to traverse the string $s$ once, count the value of $\textit{cnt}$, and the answer is $\min(\textit{cnt}, n - \textit{cnt})$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -106,7 +106,7 @@ tags:
 >
 > Precompute, for both directions, the longest alternating length ending at $i$ and starting at $i$.
 >
-> Take the no-deletion maximum, then try each deletion and add the matching prefix and suffix only when $nums[i-1]$ and $nums[i+1]$ still alternate.
+> Take the no-deletion maximum, then try each deletion and add the matching prefix and suffix only when $\textit{nums}[i-1]$ and $\textit{nums}[i+1]$ still alternate.
 
 <!-- thinking:end -->
 
@@ -118,7 +118,7 @@ Next, we initialize the answer as $\max(\max(l_1), \max(l_2))$, which represents
 
 Then, we enumerate the position $i$ of the element to be removed. If after removing position $i$, positions $i-1$ and $i+1$ can still form an alternating relationship, we can add $l_1[i-1]$ and $r_1[i+1]$ (or $l_2[i-1]$ and $r_2[i+1]$) together to update the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

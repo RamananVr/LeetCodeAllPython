@@ -141,7 +141,7 @@ John doesn&#39;t have any contacts.
 
 > **Thinking**
 >
-> Each invoice needs the customer name, the number of contacts, and how many of those emails appear in the customer table. Left-join invoices to customers for the name, to contacts for every email, then to customers again on that email; a successful join is a trusted contact. Grouping by invoice, $\mathrm{COUNT}$ ignores nulls, so the two counts separate automatically.
+> Each invoice needs the customer name, the number of contacts, and how many of those emails appear in the customer table. Left-join invoices to customers for the name, to contacts for every email, then to customers again on that email; a successful join is a trusted contact. Grouping by invoice, $\textit{COUNT}$ ignores nulls, so the two counts separate automatically.
 
 <!-- thinking:end -->
 
@@ -157,11 +157,10 @@ SELECT
     price,
     COUNT(t3.user_id) AS contacts_cnt,
     COUNT(t4.email) AS trusted_contacts_cnt
-FROM
-    Invoices AS t1
-    LEFT JOIN Customers AS t2 ON t1.user_id = t2.customer_id
-    LEFT JOIN Contacts AS t3 ON t1.user_id = t3.user_id
-    LEFT JOIN Customers AS t4 ON t3.contact_email = t4.email
+FROM Invoices AS t1
+LEFT JOIN Customers AS t2 ON t1.user_id = t2.customer_id
+LEFT JOIN Contacts AS t3 ON t1.user_id = t3.user_id
+LEFT JOIN Customers AS t4 ON t3.contact_email = t4.email
 GROUP BY invoice_id
 ORDER BY invoice_id;
 ```

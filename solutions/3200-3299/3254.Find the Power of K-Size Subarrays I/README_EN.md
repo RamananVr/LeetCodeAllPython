@@ -95,13 +95,13 @@ tags:
 
 We define an array $f$, where $f[i]$ represents the length of the continuous increasing subsequence ending at the $i$-th element. Initially, $f[i] = 1$.
 
-Next, we traverse the array $\textit{nums}$ to calculate the values of the array $f$. If $nums[i] = nums[i - 1] + 1$, then $f[i] = f[i - 1] + 1$; otherwise, $f[i] = 1$.
+Next, we traverse the array $\textit{nums}$ to calculate the values of the array $f$. If $\textit{nums}[i] = \textit{nums}[i - 1] + 1$, then $f[i] = f[i - 1] + 1$; otherwise, $f[i] = 1$.
 
 Then, we traverse the array $f$ in the range $[k - 1, n)$. If $f[i] \ge k$, we add $\textit{nums}[i]$ to the answer array; otherwise, we add $-1$.
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of the array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -138,7 +138,7 @@ Let pointer $j$ be the start of the current segment whose adjacent differences a
 
 When $i \ge k - 1$, the current window is $[i - k + 1,\ i]$. If $i - k + 1 < j$, some adjacent pair in the window differs by more than $1$, so the power is $-1$; otherwise the window is consecutive integers in increasing order, and the power is the maximum value $\textit{nums}[i]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- solution:end -->
 

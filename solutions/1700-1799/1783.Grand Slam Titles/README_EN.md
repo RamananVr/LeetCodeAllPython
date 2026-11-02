@@ -100,7 +100,7 @@ Player 3 (Novak) did not win anything, we did not include them in the result tab
 >
 > Four slam winners sit in wide columns; we need a per-player title count. Unpivot the four columns, then join players.
 >
-> $\mathrm{UNION\ ALL}$ the four winner ids, join $\textit{Players}$, and $\mathrm{COUNT}$ by player.
+> $\textit{UNION ALL}$ the four winner ids, join $\textit{Players}$, and $\textit{COUNT}$ by player.
 
 <!-- thinking:end -->
 
@@ -127,9 +127,8 @@ WITH
         FROM Championships
     )
 SELECT player_id, player_name, COUNT(1) AS grand_slams_count
-FROM
-    T
-    JOIN Players USING (player_id)
+FROM T
+JOIN Players USING (player_id)
 GROUP BY 1;
 ```
 
@@ -145,7 +144,7 @@ GROUP BY 1;
 
 > **Thinking**
 >
-> Instead of unpivoting, cross join players to championships and sum four $\mathrm{CASE}$ expressions, dropping zeros with $\mathrm{HAVING}$. No intermediate table; each player scans the four columns.
+> Instead of unpivoting, cross join players to championships and sum four $\textit{CASE}$ expressions, dropping zeros with $\textit{HAVING}$. No intermediate table; each player scans the four columns.
 
 <!-- thinking:end -->
 
@@ -164,26 +163,28 @@ SELECT
                 WHEN Wimbledon = player_id THEN 1
                 ELSE 0
             END
-        ) + (
-            CASE
-                WHEN Fr_open = player_id THEN 1
-                ELSE 0
-            END
-        ) + (
-            CASE
-                WHEN US_open = player_id THEN 1
-                ELSE 0
-            END
-        ) + (
-            CASE
-                WHEN Au_open = player_id THEN 1
-                ELSE 0
-            END
-        )
+        ) +
+            (
+                CASE
+                    WHEN Fr_open = player_id THEN 1
+                    ELSE 0
+                END
+            ) +
+            (
+                CASE
+                    WHEN US_open = player_id THEN 1
+                    ELSE 0
+                END
+            ) +
+            (
+                CASE
+                    WHEN Au_open = player_id THEN 1
+                    ELSE 0
+                END
+            )
     ) AS grand_slams_count
-FROM
-    Championships
-    CROSS JOIN Players
+FROM Championships
+CROSS JOIN Players
 GROUP BY player_id
 HAVING grand_slams_count > 0;
 ```

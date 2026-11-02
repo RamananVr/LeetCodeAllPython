@@ -63,7 +63,7 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 
 > **Thinking**
 >
-> A falling path cannot reuse a column on the next row. $n \le 200$ allows $O(n^3)$. The best way to end row $i$ in column $j$ is the previous row's minimum excluding $j$, plus $grid[i][j]$.
+> A falling path cannot reuse a column on the next row. $n \le 200$ allows $O(n^3)$. The best way to end row $i$ in column $j$ is the previous row's minimum excluding $j$, plus $\textit{grid}[i][j]$.
 >
 > We keep only the previous $n$ values and add “min except this column” in place. A rolling array drops the row dimension.
 
@@ -79,7 +79,7 @@ The answer is $\min_{0 \leq j < n} f[n][j]$. After rolling, only the last row re
 
 $f[i][j]$ depends only on the previous row, so we keep two arrays $f$ and $g$ of length $n$.
 
-The time complexity is $O(n^3)$ and the space complexity is $O(n)$, where $n$ is the number of rows.
+The time complexity is $O(n^3)$, and the space complexity is $O(n)$, where $n$ is the number of rows.
 
 <!-- tabs:start -->
 

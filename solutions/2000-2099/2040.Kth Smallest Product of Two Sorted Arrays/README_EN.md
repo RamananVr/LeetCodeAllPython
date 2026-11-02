@@ -80,7 +80,7 @@ The 3<sup>rd</sup> smallest product is -6.
 >
 > There are up to $2.5 \times 10^9$ products, so they cannot be listed. The $k$-th is monotone in a threshold $p$: the count of products $\le p$ never decreases.
 >
-> Binary-search $p$ on $[-M,M]$. For each $x$ in $nums1$, positives use $nums2[i] \le p/x$, negatives reverse the inequality, and zeros contribute the whole array when $p \ge 0$. Sortedness lets each count be a binary search.
+> Binary-search $p$ on $[-M,M]$. For each $x$ in $\textit{nums1}$, positives use $\textit{nums2}[i] \le p/x$, negatives reverse the inequality, and zeros contribute the whole array when $p \ge 0$. Sortedness lets each count be a binary search.
 >
 > `bisect_left` returns the smallest $p$ whose count is at least $k$.
 
@@ -98,7 +98,7 @@ The key to the problem is how to calculate the number of products less than or e
 
 This way, we can find the $k$-th smallest product through binary search.
 
-The time complexity is $O(m \times \log n \times \log M)$, where $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$, respectively, and $M$ is the maximum absolute value in $\textit{nums1}$ and $\textit{nums2}$.
+The time complexity is $O(m \log n \log M)$, where $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$, respectively, and $M$ is the maximum absolute value in $\textit{nums1}$ and $\textit{nums2}$.
 
 <!-- tabs:start -->
 

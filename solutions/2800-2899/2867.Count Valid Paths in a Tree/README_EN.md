@@ -91,7 +91,7 @@ It can be shown that there are only 6 valid paths.
 
 <!-- thinking:end -->
 
-We can preprocess to get all the prime numbers in $[1, n]$, where $prime[i]$ indicates whether $i$ is a prime number.
+We can preprocess to get all the prime numbers in $[1, n]$, where $\textit{prime}[i]$ indicates whether $i$ is a prime number.
 
 Next, we build a graph $g$ based on the two-dimensional integer array, where $g[i]$ represents all the neighbor nodes of node $i$. If both nodes of an edge are not prime numbers, we merge these two nodes into the same connected component.
 
@@ -99,7 +99,7 @@ Then, we enumerate all prime numbers $i$ in the range of $[1, n]$, considering a
 
 Since $i$ is already a prime number, if $i$ is an endpoint of the path, we only need to accumulate the sizes of all connected components adjacent to node $i$. If $i$ is a middle point on the path, we need to accumulate the product of the sizes of any two adjacent connected components.
 
-The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes, and $\alpha$ is the inverse function of the Ackermann function.
+The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, where $n$ is the number of nodes, and $\alpha$ is the inverse function of the Ackermann function.
 
 <!-- tabs:start -->
 
@@ -177,7 +177,7 @@ class Solution:
 
 Build the tree and DFS from the root. Each subtree returns the number of paths with zero or one prime, and a prime node multiplies contributions from adjacent subtrees.
 
-The time complexity is $O(n \log \log n)$ and the space complexity is $O(n)$.
+The time complexity is $O(n \log \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

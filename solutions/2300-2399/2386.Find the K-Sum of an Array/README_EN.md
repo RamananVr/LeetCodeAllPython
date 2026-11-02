@@ -70,7 +70,7 @@ The 5-Sum of the array is 2.
 >
 > We want the $k$-th largest subsequence sum. The maximum $mx$ is the sum of positives; every other sum is $mx$ minus some subsequence of absolute values. $n \le 10^5$ and $k \le 2000$ forbid $2^n$ enumeration.
 >
-> Sort absolute values and expand subsequence sums in nondecreasing order with a min-heap: from $(s,i)$ push “add $nums[i]$” and “replace $nums[i-1]$ by $nums[i]$”. After $k-1$ pops the heap top is the $k$-th smallest amount to subtract.
+> Sort absolute values and expand subsequence sums in nondecreasing order with a min-heap: from $(s,i)$ push “add $\textit{nums}[i]$” and “replace $\textit{nums}[i-1]$ by $\textit{nums}[i]$”. After $k-1$ pops the heap top is the $k$-th smallest amount to subtract.
 
 <!-- thinking:end -->
 
@@ -84,7 +84,7 @@ Each time, we extract the top of the heap and insert two new situations: one is 
 
 Since the array is sorted in ascending order, this method can traverse all subarray sums in order without omission.
 
-The time complexity is $O(n \times \log n + k \times \log k)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(n)$.
+The time complexity is $O(n \log n + k \log k)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

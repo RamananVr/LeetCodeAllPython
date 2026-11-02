@@ -64,7 +64,7 @@ tags:
 >
 > All but two values appear twice, so the XOR of the array is the XOR $xs$ of those two. They differ, so $xs$ has a $1$ bit.
 >
-> Group by the $\mathrm{lowbit}$ of $xs$; the two targets land in different groups. XOR the group that has that bit to get $a$, then $b=xs\oplus a$.
+> Group by the $\textit{lowbit}$ of $xs$; the two targets land in different groups. XOR the group that has that bit to get $a$, then $b=xs\oplus a$.
 
 <!-- thinking:end -->
 
@@ -79,7 +79,7 @@ Since these two numbers are not equal, there is at least one bit that is 1 in th
 
 Perform XOR operation on each group separately to obtain the two numbers $a$ and $b$ that only appear once.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

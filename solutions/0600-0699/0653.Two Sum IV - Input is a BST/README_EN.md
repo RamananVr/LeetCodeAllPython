@@ -60,7 +60,7 @@ tags:
 >
 > Find two nodes summing to $k$. Inorder plus two pointers works after collecting values.
 >
-> A set of seen values during a walk is enough: if $k-val$ is present, return true. The BST order is not required.
+> A set of seen values during a walk is enough: if $k-\textit{val}$ is present, return true. The BST order is not required.
 
 <!-- thinking:end -->
 
@@ -157,7 +157,7 @@ class Solution:
 
 A hash set stores values already visited, and an explicit stack walks the tree depth-first. When a node is popped, return true if $k$ minus its value is already in the set. Otherwise store the value and push the non-null right child and left child.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ tags:
 >
 > From index $i$, extending $j$ can test balance with frequency maps: a piece is legal when only one frequency remains. The optimum depends only on the start index.
 >
-> Memoize $dfs(i)$: maintain $cnt$ and $freq$, and when $freq$ has size $1$ take $1+dfs(j+1)$. The empty suffix returns $0$.
+> Memoize $\textit{dfs}(i)$: maintain $\textit{cnt}$ and $\textit{freq}$, and when $\textit{freq}$ has size $1$ take $1+\textit{dfs}(j+1)$. The empty suffix returns $0$.
 
 <!-- thinking:end -->
 
@@ -89,7 +89,7 @@ Then we enumerate $j$ from $i$ to $n-1$, representing the end position of the cu
 
 To avoid repeated calculations, we use memoized search.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -134,15 +134,15 @@ class Solution:
 >
 > Method 1 keeps a second map of frequency-of-frequencies, which adds constants and fiddly updates.
 >
-> Balance is equivalent to length equaling (maximum frequency) times (number of distinct letters). Only $cnt$ and that maximum $m$ are required.
+> Balance is equivalent to length equaling (maximum frequency) times (number of distinct letters). Only $\textit{cnt}$ and that maximum $m$ are required.
 >
-> While extending $j$, update $m$ and recurse when $j-i+1=m\cdot|cnt|$. The state is still the start index, with a shorter inner loop.
+> While extending $j$, update $m$ and recurse when $j-i+1=m\cdot|\textit{cnt}|$. The state is still the start index, with a shorter inner loop.
 
 <!-- thinking:end -->
 
 We can optimize Solution 1 by not maintaining the $\textit{freq}$ hash table. Instead, we only need to maintain a hash table $\textit{cnt}$, which represents the frequency of each character in the current substring. Additionally, we maintain two variables $k$ and $m$ to represent the number of distinct characters in the current substring and the maximum frequency of any character, respectively. For a substring $s[i..j]$, if $j-i+1 = m \times k$, then this substring is a balanced substring.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -197,7 +197,7 @@ Next, we enumerate $i$ from $0$ to $n-1$. For each $i$, we maintain a hash table
 
 The final answer is $f[n]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -232,13 +232,13 @@ class Solution:
 
 > **Thinking**
 >
-> Enumerating every partition is exponential. The string length reaches $1000$, and a single character is already a balanced piece, so the first transition always moves to the next index and the search has depth $n$. Whether a piece is balanced depends only on the frequencies inside it, so the answer from index $i$ depends only on later answers. Let $f[i]$ be the fewest pieces starting at $i$, with $f[n]=0$, and scan right endpoints from the end, updating with $1+f[j+1]$ when $freq$ contains only one frequency.
+> Enumerating every partition is exponential. The string length reaches $1000$, and a single character is already a balanced piece, so the first transition always moves to the next index and the search has depth $n$. Whether a piece is balanced depends only on the frequencies inside it, so the answer from index $i$ depends only on later answers. Let $f[i]$ be the fewest pieces starting at $i$, with $f[n]=0$, and scan right endpoints from the end, updating with $1+f[j+1]$ when $\textit{freq}$ contains only one frequency.
 
 <!-- thinking:end -->
 
 Let $f[i]$ be the minimum number of substrings starting at index $i$, with $f[n]=0$. For $i$ from $n-1$ down to $0$, keep a hash table $\textit{cnt}$ of character frequencies in the current piece and a hash table $\textit{freq}$ of how often each frequency occurs. Enumerate the right endpoint $j$ from $i$ to $n-1$, append $s[j]$, and update both tables. If $\textit{freq}$ has size $1$, then $s[i..j]$ is balanced and $f[i]$ is updated with $1+f[j+1]$. Every character can stand alone, so $n-i$ is a valid upper bound. The answer is $f[0]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -284,7 +284,7 @@ class Solution:
 
 The $\textit{freq}$ table in Solution 1 can be dropped. Keep only the character counts $\textit{cnt}$, the number of distinct letters $k$, and the maximum frequency $m$. $f[i]$ is still the fewest pieces starting at index $i$, with $f[n]=0$. Scan the start index from the right and extend $j$ to the right. If $j-i+1 = m \times k$, then $s[i..j]$ is balanced and $f[i]$ is updated with $1+f[j+1]$. The answer is $f[0]$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

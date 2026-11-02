@@ -78,12 +78,12 @@ Next, we use memoization search to implement digit DP. We search from the starti
 
 The basic steps are as follows:
 
-1. We convert the number $n$ into a string $num$, where $num[0]$ is the highest digit and $num[len - 1]$ is the lowest digit.
-2. Based on the problem information, we design a function $dfs(pos, mask, limit)$, where $pos$ represents the current processing position, $mask$ represents the digits that have appeared in the current number, and $limit$ represents whether there is a limit at the current position. If $limit$ is true, then the digit at the current position cannot exceed $num[pos]$.
+1. We convert the number $n$ into a string $\textit{num}$, where $\textit{num}[0]$ is the highest digit and $\textit{num}[\textit{len} - 1]$ is the lowest digit.
+2. Based on the problem information, we design a function $\textit{dfs}(\textit{pos}, \textit{mask}, \textit{limit})$, where $\textit{pos}$ represents the current processing position, $\textit{mask}$ represents the digits that have appeared in the current number, and $\textit{limit}$ represents whether there is a limit at the current position. If $\textit{limit}$ is true, then the digit at the current position cannot exceed $\textit{num}[\textit{pos}]$.
 
-The answer is $dfs(0, 0, true)$.
+The answer is $\textit{dfs}(0, 0, \textit{true})$.
 
-The time complexity is $O(m \times 2^{10} \times 10)$, and the space complexity is $O(m \times 2^{10})$. Where $m$ is the number of digits in $b$.
+The time complexity is $O(10m 2^{10})$, and the space complexity is $O(m 2^{10})$, where $m$ is the number of digits in $b$.
 
 <!-- tabs:start -->
 
@@ -133,7 +133,7 @@ class Solution:
 
 Since $1 \le a \le b \le 1000$, we can enumerate every integer in $[a, b]$ and check whether its digits are unique.
 
-The time complexity is $O((b - a + 1) \times \log b)$, and the space complexity is $O(1)$.
+The time complexity is $O((b - a + 1) \log b)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

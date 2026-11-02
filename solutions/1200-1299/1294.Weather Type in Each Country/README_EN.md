@@ -127,7 +127,7 @@ We know nothing about the average weather_state in Spain in November so we do no
 
 > **Thinking**
 >
-> We want each country's November $2019$ average temperature as Cold/Warm/Hot. Join weather to countries, filter that month, $AVG$ by country, and bin with $CASE$.
+> We want each country's November $2019$ average temperature as Cold/Warm/Hot. Join weather to countries, filter that month, $\textit{AVG}$ by country, and bin with $\textit{CASE}$.
 
 <!-- thinking:end -->
 
@@ -144,9 +144,8 @@ SELECT
         WHEN AVG(weather_state) >= 25 THEN 'Hot'
         ELSE 'Warm'
     END AS weather_type
-FROM
-    Weather AS w
-    JOIN Countries USING (country_id)
+FROM Weather AS w
+JOIN Countries USING (country_id)
 WHERE DATE_FORMAT(day, '%Y-%m') = '2019-11'
 GROUP BY 1;
 ```

@@ -62,13 +62,13 @@ tags:
 
 <!-- thinking:end -->
 
-We define a hash table $cnt$ to store the occurrence count of all substrings of length $10$.
+We define a hash table $\textit{cnt}$ to store the occurrence count of all substrings of length $10$.
 
 We iterate through all substrings of length $10$ in the string $s$. For the current substring $t$, we update its count in the hash table. If the count of $t$ is $2$, we add it to the answer.
 
 After the iteration, we return the answer array.
 
-The time complexity is $O(n \times 10)$, and the space complexity is $O(n \times 10)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(10n)$, and the space complexity is $O(10n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -105,7 +105,7 @@ class Solution:
 
 This method essentially combines sliding window and hash. Similar to 0028. Find the Index of the First Occurrence in a String, this problem can use a hash function to reduce the time complexity of counting subsequences to $O(1)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- solution:end -->
 

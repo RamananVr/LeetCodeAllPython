@@ -78,7 +78,7 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 >
 > Boxes may enter from either end and still cannot pass a shorter room. $n\le 10^5$ forbids assigning ends by brute force. Room $i$'s usable height is itself capped by the shortest room on the better of the two approach paths.
 >
-> Precompute the running minima $left[i]$ and $right[i]$, then set the capacity to $\min(warehouse[i],\max(left[i],right[i]))$. Sort capacities with the boxes and match the smallest box to the shortest still-tall-enough room.
+> Precompute the running minima $\textit{left}[i]$ and $\textit{right}[i]$, then set the capacity to $\min(\textit{warehouse}[i],\max(\textit{left}[i],\textit{right}[i]))$. Sort capacities with the boxes and match the smallest box to the shortest still-tall-enough room.
 
 <!-- thinking:end -->
 
@@ -86,7 +86,7 @@ First, we preprocess the warehouse to get the maximum height of each room. Then,
 
 Finally, we return the number of boxes that can be placed.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the warehouse.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the warehouse.
 
 <!-- tabs:start -->
 

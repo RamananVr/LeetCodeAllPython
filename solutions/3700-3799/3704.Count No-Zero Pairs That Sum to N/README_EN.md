@@ -103,7 +103,7 @@ They must satisfy `(da + db + carry) % 10 == digit_n[pos]`. After that, `aliveA`
 
 We append one extra leading digit `0` to $n$ so the last carry is fully handled. The answer is `dp[last][0][0][0]`.
 
-Time complexity is $O(L \cdot 9^2)$ and space complexity is $O(1)$, where $L$ is the number of digits of $n$.
+The time complexity is $O(9^2 L)$, and the space complexity is $O(1)$, where $L$ is the number of digits of $n$.
 
 <!-- tabs:start -->
 
@@ -111,50 +111,49 @@ Time complexity is $O(L \cdot 9^2)$ and space complexity is $O(1)$, where $L$ is
 
 ```python
 class Solution:
-	def countNoZeroPairs(self, n: int) -> int:
-		trivanople = n
-		digits = list(map(int, str(trivanople)))[::-1]
-		digits.append(0)  # absorb final carry
-		L = len(digits)
+    def countNoZeroPairs(self, n: int) -> int:
+        trivanople = n
+        digits = list(map(int, str(trivanople)))[::-1]
+        digits.append(0)  # absorb final carry
+        L = len(digits)
 
-		# dp[carry][aliveA][aliveB]
-		dp = [[[0] * 2 for _ in range(2)] for _ in range(2)]
-		dp[0][1][1] = 1
+        # dp[carry][aliveA][aliveB]
+        dp = [[[0] * 2 for _ in range(2)] for _ in range(2)]
+        dp[0][1][1] = 1
 
-		for pos in range(L):
-			ndp = [[[0] * 2 for _ in range(2)] for _ in range(2)]
-			target = digits[pos]
-			for carry in range(2):
-				for aliveA in range(2):
-					for aliveB in range(2):
-						ways = dp[carry][aliveA][aliveB]
-						if ways == 0:
-							continue
+        for pos in range(L):
+            ndp = [[[0] * 2 for _ in range(2)] for _ in range(2)]
+            target = digits[pos]
+            for carry in range(2):
+                for aliveA in range(2):
+                    for aliveB in range(2):
+                        ways = dp[carry][aliveA][aliveB]
+                        if ways == 0:
+                            continue
 
-						if aliveA:
-							A = [(d, 1) for d in range(1, 10)]
-							if pos > 0:
-								A.append((0, 0))  # end number here
-						else:
-							A = [(0, 0)]
+                        if aliveA:
+                            A = [(d, 1) for d in range(1, 10)]
+                            if pos > 0:
+                                A.append((0, 0))  # end number here
+                        else:
+                            A = [(0, 0)]
 
-						if aliveB:
-							B = [(d, 1) for d in range(1, 10)]
-							if pos > 0:
-								B.append((0, 0))
-						else:
-							B = [(0, 0)]
+                        if aliveB:
+                            B = [(d, 1) for d in range(1, 10)]
+                            if pos > 0:
+                                B.append((0, 0))
+                        else:
+                            B = [(0, 0)]
 
-						for da, na in A:
-							for db, nb in B:
-								s = da + db + carry
-								if s % 10 != target:
-									continue
-								ndp[s // 10][na][nb] += ways
-			dp = ndp
+                        for da, na in A:
+                            for db, nb in B:
+                                s = da + db + carry
+                                if s % 10 != target:
+                                    continue
+                                ndp[s // 10][na][nb] += ways
+            dp = ndp
 
-		return dp[0][0][0]
-
+        return dp[0][0][0]
 ```
 
 <!-- tabs:end -->

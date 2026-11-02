@@ -78,7 +78,7 @@ Since Ryan and Christine received an equal number of votes, we will display thei
 
 > **Thinking**
 >
-> Each voter's ballot is split equally among that voter's non-null candidates. A window `COUNT` yields weight $1/\mathrm{cnt}$, a grouped `SUM` totals each candidate, and `RANK` keeps every first-place name, ordered alphabetically.
+> Each voter's ballot is split equally among that voter's non-null candidates. A window `COUNT` yields weight $1/\textit{cnt}$, a grouped `SUM` totals each candidate, and `RANK` keeps every first-place name, ordered alphabetically.
 
 <!-- thinking:end -->
 
@@ -95,14 +95,13 @@ Note that there may be multiple candidates ranking first in the result set, so w
 WITH
     T AS (
         SELECT candidate, SUM(vote) AS tot
-        FROM
-            (
-                SELECT
-                    candidate,
-                    1 / (COUNT(candidate) OVER (PARTITION BY voter)) AS vote
-                FROM Votes
-                WHERE candidate IS NOT NULL
-            ) AS t
+        FROM (
+            SELECT
+                candidate,
+                1 / (COUNT(candidate) OVER (PARTITION BY voter)) AS vote
+            FROM Votes
+            WHERE candidate IS NOT NULL
+        ) AS t
         GROUP BY 1
     ),
     P AS (

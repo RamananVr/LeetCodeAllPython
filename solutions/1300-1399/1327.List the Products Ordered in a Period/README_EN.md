@@ -111,7 +111,7 @@ Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 
 > **Thinking**
 >
-> We need product names whose February $2020$ order units are at least $100$. Join orders to products, keep that month with a date format filter, sum $\textit{unit}$ per product, and retain rows whose total meets the threshold via $\mathrm{HAVING}$.
+> We need product names whose February $2020$ order units are at least $100$. Join orders to products, keep that month with a date format filter, sum $\textit{unit}$ per product, and retain rows whose total meets the threshold via $\textit{HAVING}$.
 
 <!-- thinking:end -->
 
@@ -122,9 +122,8 @@ Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 ```sql
 # Write your MySQL query statement below
 SELECT product_name, SUM(unit) AS unit
-FROM
-    Orders AS o
-    JOIN Products AS p ON o.product_id = p.product_id
+FROM Orders AS o
+JOIN Products AS p ON o.product_id = p.product_id
 WHERE DATE_FORMAT(order_date, '%Y-%m') = '2020-02'
 GROUP BY o.product_id
 HAVING unit >= 100;

@@ -64,11 +64,11 @@ Result = 32 - 11 = 21
 
 We use two variables $x$ and $y$ to record the product of the digits and the sum of the digits respectively. At the beginning, $x=1,y=0$.
 
-When $n \gt 0$, each time we take the $mod$ of $n$ by $10$ to get the current digit $v$, and continue the next loop by dividing $n$ by $10$. In each loop, we update $x = x \times v$, $y = y + v$.
+When $n \gt 0$, each time we take the $\textit{mod}$ of $n$ by $10$ to get the current digit $v$, and continue the next loop by dividing $n$ by $10$. In each loop, we update $x = x \times v$, $y = y + v$.
 
 Finally, we return $x - y$.
 
-The time complexity is $O(\log n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

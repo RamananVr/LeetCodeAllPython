@@ -61,9 +61,9 @@ tags:
 
 > **Thinking**
 >
-> We may reorder one array and want the minimum of $\sum nums1[i]\cdot nums2[i]$. For positive numbers, large values should pair with small ones.
+> We may reorder one array and want the minimum of $\sum \textit{nums1}[i]\cdot \textit{nums2}[i]$. For positive numbers, large values should pair with small ones.
 >
-> Sort $nums1$ ascending and $nums2$ descending, then sum the pairwise products.
+> Sort $\textit{nums1}$ ascending and $\textit{nums2}$ descending, then sum the pairwise products.
 
 <!-- thinking:end -->
 
@@ -71,7 +71,7 @@ Since both arrays consist of positive integers, to minimize the sum of products,
 
 Therefore, we sort the array $\textit{nums1}$ in ascending order and the array $\textit{nums2}$ in descending order. Then, we multiply the corresponding elements of the two arrays and sum the results.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums1}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums1}$.
 
 <!-- tabs:start -->
 

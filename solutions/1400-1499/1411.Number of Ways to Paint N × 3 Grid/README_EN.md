@@ -67,9 +67,9 @@ We classify all possible states for each row. According to the principle of symm
 - When the state is $010$ type: The possible states for the next row are: $101$, $102$, $121$, $201$, $202$. These $5$ states can be summarized as $3$ $010$ types and $2$ $012$ types.
 - When the state is $012$ type: The possible states for the next row are: $101$, $120$, $121$, $201$. These $4$ states can be summarized as $2$ $010$ types and $2$ $012$ types.
 
-In summary, we can get: $newf0 = 3 \times f0 + 2 \times f1$, $newf1 = 2 \times f0 + 2 \times f1$.
+In summary, we can get: $\textit{newf0} = 3 \times \textit{f0} + 2 \times \textit{f1}$, $\textit{newf1} = 2 \times \textit{f0} + 2 \times \textit{f1}$.
 
-The time complexity is $O(n)$, where $n$ is the number of rows in the grid. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of rows in the grid.
 
 <!-- tabs:start -->
 
@@ -119,7 +119,7 @@ The final answer is the sum of $f[n][j]$, where $j$ is any legal state.
 
 We notice that $f[i][j]$ is only related to $f[i - 1][k]$, so we can use a rolling array to optimize the space complexity.
 
-The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $O(3^m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O((m + n) 3^{2m})$, and the space complexity is $O(3^m)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

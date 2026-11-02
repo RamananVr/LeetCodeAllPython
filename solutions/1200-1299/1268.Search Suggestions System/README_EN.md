@@ -72,7 +72,7 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 >
 > After each extra letter we want the three lexicographically smallest products with that prefix. There are $1000$ products: sort, then insert into a trie, each node keeping at most three indices in insertion order — the top three for that prefix.
 >
-> Walking $searchWord$ maps those index lists back to names. Sorting makes insertion order lexicographic; the trie locates prefixes.
+> Walking $\textit{searchWord}$ maps those index lists back to names. Sorting makes insertion order lexicographic; the trie locates prefixes.
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ Each node of the trie maintains the following information:
 
 During the search, we start from the root node of the trie, find the index array corresponding to each prefix, and store it in the result array. Finally, we only need to map each index in the index array to the `products` array.
 
-The time complexity is $O(L \times \log n + m)$, and the space complexity is $O(L)$. Where $L$ is the sum of the lengths of all strings in the `products` array, and $n$ and $m$ are the lengths of the `products` array and `searchWord`, respectively.
+The time complexity is $O(L \log n + m)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the `products` array, and $n$ and $m$ are the lengths of the `products` array and `searchWord`, respectively.
 
 <!-- tabs:start -->
 

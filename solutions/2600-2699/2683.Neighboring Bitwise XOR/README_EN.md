@@ -84,7 +84,7 @@ derived[1] = original[1] &oplus; original[0] = 1
 
 > **Thinking**
 >
-> $derived[i]=a[i]\oplus a[i+1]$ may or may not come from some $a$. Reconstructing from $a[0]$ would pass for $n \le 10^5$, yet every $a_i$ appears twice in the XOR of $derived$, so $\bigoplus derived=0$ is necessary and sufficient.
+> $\textit{derived}[i]=a[i]\oplus a[i+1]$ may or may not come from some $a$. Reconstructing from $a[0]$ would pass for $n \le 10^5$, yet every $a_i$ appears twice in the XOR of $\textit{derived}$, so $\bigoplus \textit{derived}=0$ is necessary and sufficient.
 >
 > One XOR fold decides it.
 
@@ -107,7 +107,7 @@ $$
 
 Therefore, as long as the XOR sum of all elements in the derived array is $0$, there must exist an original binary array that meets the requirements.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

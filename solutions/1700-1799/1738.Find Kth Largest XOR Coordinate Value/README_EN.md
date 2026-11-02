@@ -77,7 +77,7 @@ tags:
 >
 > The value at $(i,j)$ is the XOR of the prefix rectangle. Recomputing each rectangle is $O(m^2n^2)$ and fails for $m,n\le 1000$.
 >
-> 2D prefix XOR obeys $s[i][j]=s[i-1][j]\oplus s[i][j-1]\oplus s[i-1][j-1]\oplus matrix[i-1][j-1]$, so all values are listed in $O(mn)$.
+> 2D prefix XOR obeys $s[i][j]=s[i-1][j]\oplus s[i][j-1]\oplus s[i-1][j-1]\oplus \textit{matrix}[i-1][j-1]$, so all values are listed in $O(mn)$.
 >
 > Select the $k$-th largest from that list by sorting or a heap.
 
@@ -86,18 +86,18 @@ tags:
 We define a two-dimensional prefix XOR array $s$, where $s[i][j]$ represents the XOR result of the elements in the first $i$ rows and the first $j$ columns of the matrix, i.e.,
 
 $$
-s[i][j] = \bigoplus_{0 \leq x \leq i, 0 \leq y \leq j} matrix[x][y]
+s[i][j] = \bigoplus_{0 \leq x \leq i, 0 \leq y \leq j} \textit{matrix}[x][y]
 $$
 
 And $s[i][j]$ can be calculated from the three elements $s[i - 1][j]$, $s[i][j - 1]$ and $s[i - 1][j - 1]$, i.e.,
 
 $$
-s[i][j] = s[i - 1][j] \oplus s[i][j - 1] \oplus s[i - 1][j - 1] \oplus matrix[i - 1][j - 1]
+s[i][j] = s[i - 1][j] \oplus s[i][j - 1] \oplus s[i - 1][j - 1] \oplus \textit{matrix}[i - 1][j - 1]
 $$
 
 We traverse the matrix, calculate all $s[i][j]$, then sort them, and finally return the $k$th largest element. If you don't want to use sorting, you can also use the quick selection algorithm, which can optimize the time complexity.
 
-The time complexity is $O(m \times n \times \log (m \times n))$ or $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn \log (mn))$ or $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

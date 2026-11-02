@@ -100,7 +100,7 @@ We define $f[i][j][k]$ to represent the maximum profit on the first $i$ days, wi
 - If $k = 1$, it means we are holding a stock.
 - If $k = 2$, it means we are holding a short position.
 
-Initially, for any $j \in [1, k]$, we have $f[0][j][1] = -prices[0]$ and $f[0][j][2] = prices[0]$. This means buying a stock or opening a short position on day 0.
+Initially, for any $j \in [1, k]$, we have $f[0][j][1] = -\textit{prices}[0]$ and $f[0][j][2] = \textit{prices}[0]$. This means buying a stock or opening a short position on day 0.
 
 Next, we update $f[i][j][k]$ using state transitions. For each day $i$ and each transaction $j$, we update according to the current state $k$:
 
@@ -119,15 +119,15 @@ That is, for $1 \leq i < n$ and $1 \leq j \leq k$, we have the following state t
 
 $$
 \begin{aligned}
-f[i][j][0] &= \max(f[i - 1][j][0], f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]) \\
-f[i][j][1] &= \max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]) \\
-f[i][j][2] &= \max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i])
+f[i][j][0] &= \max(f[i - 1][j][0], f[i - 1][j][1] + \textit{prices}[i], f[i - 1][j][2] - \textit{prices}[i]) \\
+f[i][j][1] &= \max(f[i - 1][j][1], f[i - 1][j - 1][0] - \textit{prices}[i]) \\
+f[i][j][2] &= \max(f[i - 1][j][2], f[i - 1][j - 1][0] + \textit{prices}[i])
 \end{aligned}
 $$
 
 Finally, we return $f[n - 1][k][0]$, which is the maximum profit after at most $k$ transactions and not holding any stock at the end of $n$ days.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the length of the array $\textit{prices}$ and $k$ is the maximum number of transactions.
+The time complexity is $O(nk)$, and the space complexity is $O(nk)$, where $n$ is the length of the array $\textit{prices}$ and $k$ is the maximum number of transactions.
 
 <!-- tabs:start -->
 

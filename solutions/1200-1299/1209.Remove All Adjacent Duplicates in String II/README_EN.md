@@ -72,7 +72,7 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 >
 > A stack keeps surviving characters and their run lengths in left-to-right order. Matching the top increments the count; reaching $k$ pops the run, i.e. one erasure.
 >
-> We store $(char, count)$ and take the count modulo $k$ so a full run pops immediately. After one pass the stack is the final string.
+> We store $(\textit{char}, \textit{count})$ and take the count modulo $k$ so a full run pops immediately. After one pass the stack is the final string.
 
 <!-- thinking:end -->
 
@@ -80,7 +80,7 @@ We can traverse the string $s$, maintaining a stack that stores the characters a
 
 After traversing the string $s$, the elements remaining in the stack form the final result. We can pop the elements from the stack one by one, concatenate them into a string, and that's our answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

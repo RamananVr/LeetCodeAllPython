@@ -78,15 +78,15 @@ Note that only one of the two unmatched 1s is counted as a cow since the non-bul
 
 <!-- thinking:end -->
 
-We create two counters, $cnt1$ and $cnt2$, to count the occurrence of each digit in the secret number and the friend's guess respectively. At the same time, we create a variable $x$ to count the number of bulls.
+We create two counters, $\textit{cnt1}$ and $\textit{cnt2}$, to count the occurrence of each digit in the secret number and the friend's guess respectively. At the same time, we create a variable $x$ to count the number of bulls.
 
 Then we iterate through the secret number and the friend's guess. If the current digit is the same, we increment $x$ by one. Otherwise, we increment the count of the current digit in the secret number and the friend's guess respectively.
 
-Finally, we iterate through each digit in $cnt1$, take the minimum count of the current digit in $cnt1$ and $cnt2$, and add this minimum value to the variable $y$.
+Finally, we iterate through each digit in $\textit{cnt1}$, take the minimum count of the current digit in $\textit{cnt1}$ and $\textit{cnt2}$, and add this minimum value to the variable $y$.
 
 In the end, we return the values of $x$ and $y$.
 
-The time complexity is $O(n)$, where $n$ is the length of the secret number and the friend's guess. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set. In this problem, the character set is digits, so $|\Sigma| = 10$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the secret number and the friend's guess, and $|\Sigma|$ is the size of the character set. In this problem, the character set is digits, so $|\Sigma| = 10$.
 
 <!-- tabs:start -->
 

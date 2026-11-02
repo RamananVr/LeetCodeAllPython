@@ -189,7 +189,7 @@ tags:
 
 > **Thinking**
 >
-> There are quadratically many subarrays, so $n = 10^5$ rules out enumeration. The complement of $|sum - \textit{goal}| \ge k$ is $|sum - \textit{goal}| < k$; subtracting that count from the total is cleaner.
+> There are quadratically many subarrays, so $n = 10^5$ rules out enumeration. The complement of $|\textit{sum} - \textit{goal}| \ge k$ is $|\textit{sum} - \textit{goal}| < k$; subtracting that count from the total is cleaner.
 >
 > Prefix sums turn a subarray sum into a difference of two points. For each right endpoint we need how many earlier prefix sums fall inside a numeric interval.
 >
@@ -211,7 +211,7 @@ that is, $s[L]$ lies in the closed interval $[s[R] - \textit{goal} - k + 1,\, s[
 
 Enumerate the prefix sums $v = s[R]$ from left to right. Among the prefix sums already inserted, query how many fall in $[a, b]$ and subtract that from the answer, then insert $v$. For discretization we sort $s$ and locate Binary Indexed Tree indices by binary search.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 

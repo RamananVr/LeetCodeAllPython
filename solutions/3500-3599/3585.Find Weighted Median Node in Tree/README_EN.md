@@ -220,7 +220,7 @@ tags:
 >
 > The weighted median is the first vertex on $u \to v$ whose prefix weight from $u$ is at least half the path. $n,q \le 10^5$ call for LCA and weighted prefixes.
 >
-> After $lca$ and the total $W$, binary-lift on $u \to lca$ or $lca \to v$ to the farthest node whose prefix is still $< W/2$, then take one more step.
+> After $\textit{lca}$ and the total $W$, binary-lift on $u \to \textit{lca}$ or $\textit{lca} \to v$ to the farthest node whose prefix is still $< W/2$, then take one more step.
 
 <!-- thinking:end -->
 
@@ -231,7 +231,7 @@ For a query $(u, v)$: if $u = v$, the answer is $u$. Otherwise let $x = \textit{
 - If $2 \cdot (\textit{dist}[u] - \textit{dist}[x]) \ge W$, the median lies on $u \to x$ (including $x$). Lift from $u$ to the farthest ancestor $k$ that still satisfies $2 \cdot (\textit{dist}[u] - \textit{dist}[k]) < W$, then take one parent step to $p[k]$.
 - Otherwise the median lies on $x \to v$ (excluding $x$). Lift from $v$ to the highest node whose depth is greater than $x$ and $2 \cdot (\textit{dist}[u] + \textit{dist}[k] - 2 \cdot \textit{dist}[x]) \ge W$.
 
-The time complexity is $O((n + q) \times \log n)$, and the space complexity is $O(n \times \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
+The time complexity is $O((n + q) \log n)$, and the space complexity is $O(n \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
 
 <!-- tabs:start -->
 

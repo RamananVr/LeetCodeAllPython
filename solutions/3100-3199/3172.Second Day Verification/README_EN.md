@@ -112,9 +112,9 @@ Each row of this table contains the text ID, email ID, signup action, and action
 >
 > Users who verified on the day after signup are required. Emails and texts live in two tables.
 >
-> Inner-join on $email\_id$ with $DATEDIFF=1$ and `signup_action='Verified'` applies every constraint at once.
+> Inner-join on $\textit{email\_id}$ with $\textit{DATEDIFF}=1$ and `signup_action='Verified'` applies every constraint at once.
 >
-> Select $user\_id$ in ascending order. No grouping is needed.
+> Select $\textit{user\_id}$ in ascending order. No grouping is needed.
 
 <!-- thinking:end -->
 
@@ -127,12 +127,11 @@ We can join the two tables and then use the `DATEDIFF` function to calculate whe
 ```sql
 # Write your MySQL query statement below
 SELECT user_id
-FROM
-    Emails AS e
-    JOIN texts AS t
-        ON e.email_id = t.email_id
-        AND DATEDIFF(action_date, signup_date) = 1
-        AND signup_action = 'Verified'
+FROM Emails AS e
+JOIN texts AS t
+    ON e.email_id = t.email_id
+    AND DATEDIFF(action_date, signup_date) = 1
+    AND signup_action = 'Verified'
 ORDER BY 1;
 ```
 

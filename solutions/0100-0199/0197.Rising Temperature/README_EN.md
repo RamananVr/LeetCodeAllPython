@@ -99,10 +99,9 @@ def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
 ```sql
 # Write your MySQL query statement below
 SELECT w1.id
-FROM
-    Weather AS w1
-    JOIN Weather AS w2
-        ON DATEDIFF(w1.recordDate, w2.recordDate) = 1 AND w1.temperature > w2.temperature;
+FROM Weather AS w1
+JOIN Weather AS w2
+    ON DATEDIFF(w1.recordDate, w2.recordDate) = 1 AND w1.temperature > w2.temperature;
 ```
 
 <!-- tabs:end -->
@@ -117,7 +116,7 @@ FROM
 
 > **Thinking**
 >
-> Solution 1 uses a date-difference function. Joining on $\textit{SUBDATE}(w1.\textit{recordDate},1)=w2.\textit{recordDate}$ lines up “yesterday” as an equality, which some planners handle more easily.
+> Solution 1 uses a date-difference function. Joining on $\textit{SUBDATE}(\textit{w1}.\textit{recordDate},1)=\textit{w2}.\textit{recordDate}$ lines up “yesterday” as an equality, which some planners handle more easily.
 
 <!-- thinking:end -->
 
@@ -128,10 +127,8 @@ FROM
 ```sql
 # Write your MySQL query statement below
 SELECT w1.id
-FROM
-    Weather AS w1
-    JOIN Weather AS w2
-        ON SUBDATE(w1.recordDate, 1) = w2.recordDate AND w1.temperature > w2.temperature;
+FROM Weather AS w1
+JOIN Weather AS w2 ON SUBDATE(w1.recordDate, 1) = w2.recordDate AND w1.temperature > w2.temperature;
 ```
 
 <!-- tabs:end -->

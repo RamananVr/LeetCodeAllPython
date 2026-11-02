@@ -95,7 +95,7 @@ number of jumps.
 
 > **Thinking**
 >
-> An odd jump goes to the smallest value on the right that is at least the current one; an even jump goes to the largest that is at most the current. Counting starts that reach the end by simulating each path would repeat states. Walking right to left, an ordered map of seen values yields the next index $g[i][0/1]$ in $O(\log n)$. Reachability depends only on $(i,\text{parity})$, so memoized DFS suffices.
+> An odd jump goes to the smallest value on the right that is at least the current one; an even jump goes to the largest that is at most the current. Counting starts that reach the end by simulating each path would repeat states. Walking right to left, an ordered map of seen values yields the next index $g[i][0/1]$ in $O(\log n)$. Reachability depends only on $(i,\textit{parity})$, so memoized DFS suffices.
 
 <!-- thinking:end -->
 
@@ -103,7 +103,7 @@ We first use an ordered set to preprocess the positions that can be jumped to fr
 
 Then using memoization search, starting from each position with the current being an odd jump, we determine whether we can jump to the end of the array. If we can, then increment the result by one.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -148,7 +148,7 @@ class Solution:
 >
 > Walking from right to left, the ordered map holds only indexes farther to the right, so $g[i][0/1]$ is either a larger index or $-1$.
 >
-> Reachability depends only on $(i,\text{parity})$ and only on a position to the right. Let $f[i][k]$ mean a jump of parity $k$ from $i$ can reach the end. Both cells of $f[n-1]$ are true. $i$ runs from $n-2$ down to $0$, and a real successor copies the opposite parity at that successor. The answer counts the true cells $f[i][1]$.
+> Reachability depends only on $(i,\textit{parity})$ and only on a position to the right. Let $f[i][k]$ mean a jump of parity $k$ from $i$ can reach the end. Both cells of $f[n-1]$ are true. $i$ runs from $n-2$ down to $0$, and a real successor copies the opposite parity at that successor. The answer counts the true cells $f[i][1]$.
 
 <!-- thinking:end -->
 
@@ -158,7 +158,7 @@ Let $f[i][k]$ mean that, starting at index $i$ with the next jump of parity $k$,
 
 The answer is the number of indexes $i$ for which $f[i][1]$ is true.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

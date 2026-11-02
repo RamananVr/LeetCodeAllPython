@@ -81,7 +81,7 @@ We return the array [2,1].
 >
 > Each operation replaces $x$ in the array by a fresh $y$; there are $10^5$ operations. Linear search for $x$ is too slow. Values are unique, so a hash map from value to index is enough.
 >
-> On $[x,y]$ write $y$ at $nums[d[x]]$ and set $d[y]$ to that index. The old key $d[x]$ can stay; it will not be queried again.
+> On $[x,y]$ write $y$ at $\textit{nums}[d[x]]$ and set $d[y]$ to that index. The old key $d[x]$ can stay; it will not be queried again.
 
 <!-- thinking:end -->
 
@@ -89,7 +89,7 @@ First, we use a hash table $d$ to record the indices of each number in the array
 
 Finally, we return $\textit{nums}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array $\textit{nums}$ and the operation array $\textit{operations}$, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the array $\textit{nums}$ and the operation array $\textit{operations}$, respectively.
 
 <!-- tabs:start -->
 

@@ -80,9 +80,9 @@ Thus only customers 1 and 4 have positive revenue in the year 2021.
 
 > **Thinking**
 >
-> We only need customers whose $2021$ revenue is positive. Both $year$ and $revenue$ are already columns, so no join or aggregation is required.
+> We only need customers whose $2021$ revenue is positive. Both $\textit{year}$ and $\textit{revenue}$ are already columns, so no join or aggregation is required.
 >
-> A $\textit{WHERE}$ clause on the year and the sign of revenue, projecting $customer\_id$, answers the query.
+> A $\textit{WHERE}$ clause on the year and the sign of revenue, projecting $\textit{customer\_id}$, answers the query.
 
 <!-- thinking:end -->
 
@@ -94,8 +94,7 @@ We can directly use the `WHERE` clause to filter out the customers whose `year` 
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_id
+SELECT customer_id
 FROM Customers
 WHERE year = '2021' AND revenue > 0;
 ```

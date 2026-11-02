@@ -80,7 +80,7 @@ Then, use the second operation on the third and sixth elements to make s = &quot
 >
 > Type 1 makes the string circular; type 2 flips bits to an alternating pattern. Comparing every rotation bit by bit is $O(n^2)$ and too slow for $n\le 10^5$.
 >
-> Only two targets exist, and their costs sum to $n$. A window of length $n$ on the circular string is one rotation; slide it while updating the mismatch count and keep $\min(cnt,n-cnt)$.
+> Only two targets exist, and their costs sum to $n$. A window of length $n$ on the circular string is one rotation; slide it while updating the mismatch count and keep $\min(\textit{cnt},n-\textit{cnt})$.
 
 <!-- thinking:end -->
 
@@ -94,7 +94,7 @@ Next, we enumerate each substring of length $n$ and update the value of $\textit
 
 Finally, return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

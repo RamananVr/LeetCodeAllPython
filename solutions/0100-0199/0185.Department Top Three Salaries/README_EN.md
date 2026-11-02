@@ -163,8 +163,7 @@ FROM
 WHERE
     Employee.DepartmentId = Department.Id
     AND (
-        SELECT
-            COUNT(DISTINCT e2.Salary)
+        SELECT COUNT(DISTINCT e2.Salary)
         FROM Employee AS e2
         WHERE e2.Salary > Employee.Salary AND Employee.DepartmentId = e2.DepartmentId
     ) < 3;
@@ -182,7 +181,7 @@ WHERE
 
 > **Thinking**
 >
-> Solution 1 rescans the department for every employee. $\textit{DENSE\_RANK}$ partitioned by department and ordered by salary descending, then $\textit{rk}\le 3$, is the top three bands including ties.
+> Solution 1 rescans the department for every employee. $\textit{DENSE\_RANK}$ partitioned by department and ordered by salary descending, then $rk\le 3$, is the top three bands including ties.
 
 <!-- thinking:end -->
 
@@ -203,9 +202,8 @@ WITH
         FROM Employee
     )
 SELECT d.name AS Department, t.name AS Employee, salary AS Salary
-FROM
-    T AS t
-    JOIN Department AS d ON t.departmentId = d.id
+FROM T AS t
+JOIN Department AS d ON t.departmentId = d.id
 WHERE rk <= 3;
 ```
 

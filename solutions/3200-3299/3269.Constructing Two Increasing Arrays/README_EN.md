@@ -80,7 +80,7 @@ tags:
 >
 > Two arrays must become strictly increasing with prescribed parities, minimizing the final maximum. $m,n\le 1000$ would allow guessing that maximum, but filling has optimal substructure.
 >
-> $f[i][j]$ is the smallest achievable maximum after $i$ values of $nums1$ and $j$ of $nums2$. The next write attaches to one array the least integer larger than the current maximum with the right parity. Boundaries follow one array; the interior takes the better of the two attachments.
+> $f[i][j]$ is the smallest achievable maximum after $i$ values of $\textit{nums1}$ and $j$ of $\textit{nums2}$. The next write attaches to one array the least integer larger than the current maximum with the right parity. Boundaries follow one array; the interior takes the better of the two attachments.
 
 <!-- thinking:end -->
 
@@ -94,7 +94,7 @@ If $i > 0$ and $j > 0$, then the value of $f[i][j]$ can be derived from both $f[
 
 Finally, return $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

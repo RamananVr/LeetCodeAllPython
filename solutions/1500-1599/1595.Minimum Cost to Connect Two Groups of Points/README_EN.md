@@ -106,12 +106,12 @@ Consider $f[i][j]$ where $i \geq 1$. We enumerate each point $k$ in the second g
 In both cases, we take the minimum transition value:
 
 $$
-f[i][j] = \min_{k \in \{0, 1, \cdots, n - 1\}} \{f[i][j \oplus 2^k], f[i - 1][j \oplus 2^k], f[i - 1][j]\} + cost[i - 1][k]
+f[i][j] = \min_{k \in \{0, 1, \cdots, n - 1\}} \{f[i][j \oplus 2^k], f[i - 1][j \oplus 2^k], f[i - 1][j]\} + \textit{cost}[i - 1][k]
 $$
 
 Finally, we return $f[m][2^n - 1]$.
 
-The time complexity is $O(m \times n \times 2^n)$ and the space complexity is $O(m \times 2^n)$, where $m$ and $n$ are the number of points in the first group and the second group, respectively.
+The time complexity is $O(mn 2^n)$, and the space complexity is $O(m 2^n)$, where $m$ and $n$ are the number of points in the first group and the second group, respectively.
 
 <!-- tabs:start -->
 
@@ -146,7 +146,7 @@ class Solution:
 
 > **Thinking**
 >
-> Layer $i$ reads only layer $i-1$ and values already filled in the same layer, so two rolling arrays drop the memory from $O(m\cdot 2^n)$ to $O(2^n)$ without changing the recurrence.
+> Layer $i$ reads only layer $i-1$ and values already filled in the same layer, so two rolling arrays drop the memory from $O(m 2^n)$ to $O(2^n)$ without changing the recurrence.
 
 <!-- thinking:end -->
 

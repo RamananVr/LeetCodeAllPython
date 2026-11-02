@@ -96,13 +96,13 @@ tags:
 >
 > Building the full zigzag and then taking even positions needs an extra array. A toggling flag can decide inclusion while we walk.
 >
-> We scan row by row, reverse odd rows in place, and append a cell only when $\textit{ok}$ is true, flipping $\textit{ok}$ after each cell. The flag carries across rows, so no global index is required.
+> We scan row by row, reverse odd rows in place, and append a cell only when $ok$ is true, flipping $ok$ after each cell. The flag carries across rows, so no global index is required.
 
 <!-- thinking:end -->
 
 We traverse each row. If the current row index is odd, we reverse the elements of that row. Then, we traverse the elements of the row and add them to the answer array according to the rules specified in the problem.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{grid}$, respectively. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the 2D array $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 

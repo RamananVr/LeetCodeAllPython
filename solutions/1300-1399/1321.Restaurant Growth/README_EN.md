@@ -89,7 +89,7 @@ Customer table:
 
 > **Thinking**
 >
-> Each date needs the sum and daily average over the inclusive $7$-day window ending that day, and the window must be full. Aggregate amount by day, then a $\mathrm{ROWS}\,6\,\mathrm{PRECEDING}$ window sum along the ordered dates, dropping the first six ranks, yields every valid seven-day average.
+> Each date needs the sum and daily average over the inclusive $7$-day window ending that day, and the window must be full. Aggregate amount by day, then a $\textit{ROWS}\,6\,\textit{PRECEDING}$ window sum along the ordered dates, dropping the first six ranks, yields every valid seven-day average.
 
 <!-- thinking:end -->
 
@@ -108,12 +108,11 @@ WITH
                 ROWS 6 PRECEDING
             ) AS amount,
             RANK() OVER (ORDER BY visited_on) AS rk
-        FROM
-            (
-                SELECT visited_on, SUM(amount) AS amount
-                FROM Customer
-                GROUP BY visited_on
-            ) AS tt
+        FROM (
+            SELECT visited_on, SUM(amount) AS amount
+            FROM Customer
+            GROUP BY visited_on
+        ) AS tt
     )
 SELECT visited_on, amount, ROUND(amount / 7, 2) AS average_amount
 FROM t
@@ -147,9 +146,8 @@ SELECT
     a.visited_on,
     SUM(b.amount) AS amount,
     ROUND(SUM(b.amount) / 7, 2) AS average_amount
-FROM
-    (SELECT DISTINCT visited_on FROM customer) AS a
-    JOIN customer AS b ON DATEDIFF(a.visited_on, b.visited_on) BETWEEN 0 AND 6
+FROM (SELECT DISTINCT visited_on FROM customer) AS a
+JOIN customer AS b ON DATEDIFF(a.visited_on, b.visited_on) BETWEEN 0 AND 6
 WHERE a.visited_on >= (SELECT MIN(visited_on) FROM customer) + 6
 GROUP BY 1
 ORDER BY 1;

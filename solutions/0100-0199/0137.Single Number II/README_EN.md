@@ -53,7 +53,7 @@ tags:
 
 We can enumerate each binary bit $i$, and for each binary bit, we calculate the sum of all numbers on that bit. If the sum of the numbers on that bit can be divided by 3, then the number that only appears once on that bit is 0, otherwise it is 1.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array and the range of elements in the array, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the length of the array and the range of elements in the array, respectively.
 
 The C++ implementation adds INT_MIN for the sign bit instead of left-shifting a signed integer into overflow.
 
@@ -124,7 +124,7 @@ $$
 
 The final result is $b$, because when the binary bit of $b$ is 1, it means that the number appears only once.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -153,7 +153,7 @@ class Solution:
 
 > **Thinking**
 >
-> If extra space is allowed, the unique value is $(3\sum_{\mathrm{unique}}-\sum_{\mathrm{all}})/2$. Deduplicate, sum twice, and divide. Direct, but $O(n)$ space.
+> If extra space is allowed, the unique value is $(3\sum_{\textit{unique}}-\sum_{\textit{all}})/2$. Deduplicate, sum twice, and divide. Direct, but $O(n)$ space.
 
 <!-- thinking:end -->
 

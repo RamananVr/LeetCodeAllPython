@@ -75,11 +75,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can traverse the array $nums$, maintain a window of size $k$, use a hash table $cnt$ to count the occurrence of each element in the window, and use a variable $s$ to sum all elements in the window. If the number of different elements in $cnt$ is greater than or equal to $m$, then we update the answer $ans = \max(ans, s)$.
+We can traverse the array $\textit{nums}$, maintain a window of size $k$, use a hash table $\textit{cnt}$ to count the occurrence of each element in the window, and use a variable $s$ to sum all elements in the window. If the number of different elements in $\textit{cnt}$ is greater than or equal to $m$, then we update the answer $\textit{ans} = \max(\textit{ans}, s)$.
 
 After the traversal ends, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

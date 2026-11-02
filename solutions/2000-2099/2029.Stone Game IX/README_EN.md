@@ -87,7 +87,7 @@ Alice loses the game because the sum of the removed stones (15) is divisible by 
 >
 > Opening with $1$ yields the optimal stream $1,1,2,1,2,\ldots$ (symmetric for $2$). After folding in the zeros, Alice wins if the length is odd and the two nonzero piles are not tied empty.
 >
-> Test $cnt$ and the swapped $(cnt[0],cnt[2],cnt[1])$; either opening suffices.
+> Test $\textit{cnt}$ and the swapped $(\textit{cnt}[0],\textit{cnt}[2],\textit{cnt}[1])$; either opening suffices.
 
 <!-- thinking:end -->
 
@@ -101,7 +101,7 @@ First, let's consider the case where Alice removes a stone with a remainder of $
 
 For the case where Alice removes a stone with a remainder of $2$ in the first round, we can draw a similar conclusion.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{stones}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{stones}$.
 
 <!-- tabs:start -->
 
@@ -149,9 +149,9 @@ As in Solution 1, count the residues of stone values modulo $3$. Alice's first m
 
 For each opening, both players follow the optimal residue sequence: starting with $1$ gives $1, 1, 2, 1, 2, \ldots$; starting with $2$ is symmetric. When the required residue runs out, Alice wins if the remaining residue-$0$ stones make the current turn count odd.
 
-Return $\text{true}$ if either opening lets Alice win.
+Return $\textit{true}$ if either opening lets Alice win.
 
-The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{stones}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{stones}$.
 
 <!-- solution:end -->
 

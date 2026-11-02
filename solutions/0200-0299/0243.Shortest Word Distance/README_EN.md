@@ -54,7 +54,7 @@ tags:
 
 > **Thinking**
 >
-> $word1\neq word2$, so the shortest distance is the gap between their latest indices. Track those two positions and update the minimum as we scan.
+> $\textit{word1}\neq \textit{word2}$, so the shortest distance is the gap between their latest indices. Track those two positions and update the minimum as we scan.
 
 <!-- thinking:end -->
 

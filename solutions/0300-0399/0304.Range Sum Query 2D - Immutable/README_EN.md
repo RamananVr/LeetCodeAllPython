@@ -82,7 +82,7 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 We use $s[i + 1][j + 1]$ to represent the sum of all elements in the upper left part of the $i$th row and $j$th column, where indices $i$ and $j$ both start from $0$. We can get the following prefix sum formula:
 
 $$
-s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]
+s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + \textit{nums}[i][j]
 $$
 
 Then, the sum of the elements of the rectangle with $(x_1, y_1)$ and $(x_2, y_2)$ as the upper left corner and lower right corner respectively is:
@@ -93,7 +93,7 @@ $$
 
 In the initialization method, we preprocess the prefix sum array $s$, and in the query method, we directly return the result of the above formula.
 
-The time complexity for initializing is $O(m \times n)$, and the time complexity for querying is $O(1)$. The space complexity is $O(m \times n)$.
+The time complexity for initializing is $O(mn)$, and the time complexity for querying is $O(1)$. The space complexity is $O(mn)$.
 
 <!-- tabs:start -->
 

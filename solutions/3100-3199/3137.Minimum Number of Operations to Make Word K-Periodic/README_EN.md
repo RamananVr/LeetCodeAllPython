@@ -117,13 +117,13 @@ font-size: 0.85rem;
 >
 > The operation count is the number of blocks minus the frequency of the most common block. Counting is enough; the string need not be rewritten.
 >
-> Slice $word$ with step $k$, take the maximum count, and return $n/k$ minus that maximum.
+> Slice $\textit{word}$ with step $k$, take the maximum count, and return $n/k$ minus that maximum.
 
 <!-- thinking:end -->
 
 We can divide the string `word` into substrings of length $k$, then count the occurrence of each substring, and finally return $n/k$ minus the count of the most frequently occurring substring.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string `word`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
 

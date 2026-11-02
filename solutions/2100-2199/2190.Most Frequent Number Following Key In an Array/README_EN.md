@@ -78,13 +78,13 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 
 <!-- thinking:end -->
 
-We use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each $\textit{target}$, and use a variable $\textit{mx}$ to maintain the maximum number of occurrences of $\textit{target}$. Initially, $\textit{mx} = 0$.
+We use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each $\textit{target}$, and use a variable $mx$ to maintain the maximum number of occurrences of $\textit{target}$. Initially, $mx = 0$.
 
-Traverse the array $\textit{nums}$. If $\textit{nums}[i] = \textit{key}$, increment the count of $\textit{nums}[i + 1]$ in $\textit{cnt}[\textit{nums}[i + 1]]$. If $\textit{mx} \lt \textit{cnt}[\textit{nums}[i + 1]]$, update $\textit{mx} = \textit{cnt}[\textit{nums}[i + 1]]$ and update the answer $\textit{ans} = \textit{nums}[i + 1]$.
+Traverse the array $\textit{nums}$. If $\textit{nums}[i] = \textit{key}$, increment the count of $\textit{nums}[i + 1]$ in $\textit{cnt}[\textit{nums}[i + 1]]$. If $mx \lt \textit{cnt}[\textit{nums}[i + 1]]$, update $mx = \textit{cnt}[\textit{nums}[i + 1]]$ and update the answer $\textit{ans} = \textit{nums}[i + 1]$.
 
 After the traversal, return the answer $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value of the elements in the array $\textit{nums}$, respectively.
+The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value of the elements in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 

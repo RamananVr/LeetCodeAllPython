@@ -74,12 +74,12 @@ The state transition equation is:
 $$
 dp[i + 1][j + 1] =
 \begin{cases}
-0 & \textit{if } matrix[i][j] = '0' \\
-\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 & \textit{if } matrix[i][j] = '1'
+0 & \textit{if } \textit{matrix}[i][j] = '0' \\
+\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 & \textit{if } \textit{matrix}[i][j] = '1'
 \end{cases}
 $$
 
-The time complexity is $O(m\times n)$, and the space complexity is $O(m\times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

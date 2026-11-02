@@ -101,7 +101,7 @@ It can be proven, that there are only 2 possible sets of closing branches.
 
 > **Thinking**
 >
-> After closing a subset of branches, remaining pairwise shortest paths must be at most $maxDistance$. $n \le 10$ yields $2^n$ masks. For each mask run Floyd on the surviving edges and test distances inside the subset.
+> After closing a subset of branches, remaining pairwise shortest paths must be at most $\textit{maxDistance}$. $n \le 10$ yields $2^n$ masks. For each mask run Floyd on the surviving edges and test distances inside the subset.
 >
 > Parallel edges keep the lighter one. The empty set and singletons are valid (diagonals are set to $0$).
 
@@ -111,7 +111,7 @@ We notice that $n \leq 10$, so we might as well consider using the method of bin
 
 For each subset of departments, we can use the Floyd algorithm to calculate the shortest distance between the remaining departments, and then judge whether it meets the requirements of the problem. Specifically, we first enumerate the middle point $k$, then enumerate the starting point $i$ and the ending point $j$. If $g[i][k] + g[k][j] < g[i][j]$, then we update $g[i][j]$ with the shorter distance $g[i][k] + g[k][j]$.
 
-The time complexity is $O(2^n \times (n^3 + m))$, and the space complexity is $O(n^2)$. Here, $n$ and $m$ are the number of departments and the number of roads, respectively.
+The time complexity is $O(2^n(n^3 + m))$, and the space complexity is $O(n^2)$, where $n$ and $m$ are the number of departments and the number of roads, respectively.
 
 <!-- tabs:start -->
 

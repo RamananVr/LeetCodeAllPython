@@ -84,7 +84,7 @@ We return [-1,-1] since neither integer has any integer greater than it.
 >
 > The second greater is the second strictly larger value to the right. At $n\le 10^5$, processing from large to small means every index already stored is a larger value. The second index to the right of $i$ in a sorted set is the answer.
 >
-> Sort $(value,index)$ descending. For each index, bisect the ordered index set and read the element two positions later.
+> Sort $(\textit{value},\textit{index})$ descending. For each index, bisect the ordered index set and read the element two positions later.
 
 <!-- thinking:end -->
 
@@ -92,7 +92,7 @@ We can convert the elements in the array into pairs $(x, i)$, where $x$ is the v
 
 Next, we traverse the sorted array, maintaining an ordered set that stores the indices of the elements. When we traverse to the element $(x, i)$, the indices of all elements greater than $x$ are already in the ordered set. We only need to find the index $j$ of the next element after $i$ in the ordered set, then the element corresponding to $j$ is the second largest element of $x$. Then, we add $i$ to the ordered set. Continue to traverse the next element.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -138,26 +138,22 @@ We maintain two decreasing monotonic stacks:
 
 Algorithm:
 
-As we iterate through the array `nums`, for current element $nums[k]$, have these steps:
+As we iterate through the array `nums`, for current element $\textit{nums}[k]$, have these steps:
 
-1. While `stackTwo` is not empty and its top element is less than $nums[k]$,
+1. While `stackTwo` is not empty and its top element is less than $\textit{nums}[k]$,
    these top elements have found their second next greater element.
-   Pop them and record $nums[k]$ as the answer for their respective indices.
+   Pop them and record $\textit{nums}[k]$ as the answer for their respective indices.
 
-2. While `stackOne` is not empty and its top element is less than $nums[k]$,
+2. While `stackOne` is not empty and its top element is less than $\textit{nums}[k]$,
    these top elements have found their first next greater element.
    Pop them to move them to a temporary list/vector called `transporter`.
 
 3. Pop all elements from the back of `transporter` and push them onto `stackTwo`.
    These elements will naturally maintain the decreasing order in `stackTwo`.
 
-4. Push current element $nums[k]$ into `stackOne` for future comparisons.
+4. Push current element $\textit{nums}[k]$ into `stackOne` for future comparisons.
 
-Our time complexity is $O(n)$, where $n$ is the length of the array nums.
-
-This is because each element is pushed and popped across two stacks for at most 4 times in total.
-
-Space complexity is $O(n)$, as all elements must be stored across two stacks.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`. Each element is pushed and popped across the two stacks at most $4$ times in total.
 
 <!-- tabs:start -->
 

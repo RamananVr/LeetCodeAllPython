@@ -67,7 +67,7 @@ tags:
 >
 > Count substrings that contain only ones. $n\le 10^5$, so we cannot list all $O(n^2)$ substrings. Runs of ones separated by zeros are independent.
 >
-> A run of length $k$ contributes $k(k+1)/2$ substrings, which is the same as maintaining the current run length $cur$: each extra $1$ increments $cur$ and adds $cur$ to the answer; a $0$ resets it. No explicit segmentation is required.
+> A run of length $k$ contributes $k(k+1)/2$ substrings, which is the same as maintaining the current run length $\textit{cur}$: each extra $1$ increments $\textit{cur}$ and adds $\textit{cur}$ to the answer; a $0$ resets it. No explicit segmentation is required.
 
 <!-- thinking:end -->
 
@@ -75,7 +75,7 @@ We traverse the string $s$, using a variable $\textit{cur}$ to record the curren
 
 After the traversal is complete, return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 Similar problems:
 

@@ -115,7 +115,7 @@ Luis did not received any transfer, credit = $800
 >
 > Report each user's final credit and whether the limit was breached. Credits change via outgoing transfers, incoming transfers, and the opening balance; three separate updates easily drop users with no transactions.
 >
-> Record payments as negative amounts, receipts as positive ones, and $UNION\ ALL$ them with each user's opening credit. Grouping by user yields the closing balance, and users without activity keep their initial row. The sign of the sum tells whether the limit was breached.
+> Record payments as negative amounts, receipts as positive ones, and $\textit{UNION ALL}$ them with each user's opening credit. Grouping by user yields the closing balance, and users without activity keep their initial row. The sign of the sum tells whether the limit was breached.
 
 <!-- thinking:end -->
 
@@ -130,15 +130,14 @@ SELECT
     user_name,
     SUM(t.credit) AS credit,
     IF(SUM(t.credit) < 0, 'Yes', 'No') AS credit_limit_breached
-FROM
-    (
-        SELECT paid_by AS user_id, -amount AS credit FROM Transactions
-        UNION ALL
-        SELECT paid_to AS user_id, amount AS credit FROM Transactions
-        UNION ALL
-        SELECT user_id, credit FROM Users
-    ) AS t
-    JOIN Users AS u ON t.user_id = u.user_id
+FROM (
+    SELECT paid_by AS user_id, -amount AS credit FROM Transactions
+    UNION ALL
+    SELECT paid_to AS user_id, amount AS credit FROM Transactions
+    UNION ALL
+    SELECT user_id, credit FROM Users
+) AS t
+JOIN Users AS u ON t.user_id = u.user_id
 GROUP BY t.user_id;
 ```
 

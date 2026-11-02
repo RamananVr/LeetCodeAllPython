@@ -72,9 +72,9 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 
 <!-- thinking:end -->
 
-Since $\textit{arr}$ is a permutation of $[0,..,n-1]$, if the maximum value $\textit{mx}$ among the numbers traversed so far is equal to the current index $i$, it means a split can be made, and the answer is incremented.
+Since $\textit{arr}$ is a permutation of $[0,..,n-1]$, if the maximum value $mx$ among the numbers traversed so far is equal to the current index $i$, it means a split can be made, and the answer is incremented.
 
-Time complexity is $O(n)$, and space complexity is $O(1)$. Where $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -103,7 +103,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 uses $value=index$, which fails with duplicates. The monotonic stack of chunk maxima is the same as problem 768.
+> Solution 1 uses $\textit{value}=\textit{index}$, which fails with duplicates. The monotonic stack of chunk maxima is the same as problem 768.
 >
 > A smaller new value merges earlier chunks; the stack length is the answer.
 
@@ -115,7 +115,7 @@ According to the problem, we can find that from left to right, each chunk has a 
 
 This solution can not only solve this problem but also solve the problem 768. Max Chunks To Make Sorted II. You can try it yourself.
 
-Time complexity is $O(n)$, and space complexity is $O(n)$. Where $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

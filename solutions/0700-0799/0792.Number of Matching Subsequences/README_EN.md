@@ -104,7 +104,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 slices leftover strings. Store $(word\_index, matched\_len)$ instead; same buckets, less allocation.
+> Solution 1 slices leftover strings. Store $(\textit{word\_index}, \textit{matched\_len})$ instead; same buckets, less allocation.
 
 <!-- thinking:end -->
 
@@ -144,7 +144,7 @@ class Solution:
 >
 > Bucketing keeps all words live. Alternatively, store every index of each letter in $s$ and binary-search the next position for each character of $w$.
 >
-> A test is $O(|w|\log n)$ and needs no queues.
+> A test is $O(|w| \log n)$ and needs no queues.
 
 <!-- thinking:end -->
 

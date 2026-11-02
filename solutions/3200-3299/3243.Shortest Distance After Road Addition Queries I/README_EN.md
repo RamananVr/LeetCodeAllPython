@@ -96,13 +96,13 @@ tags:
 
 <!-- thinking:end -->
 
-We first build a directed graph $\textit{g}$, where $\textit{g}[i]$ represents the list of cities that can be reached from city $i$. Initially, each city $i$ has a one-way road to city $i + 1$.
+We first build a directed graph $g$, where $g[i]$ represents the list of cities that can be reached from city $i$. Initially, each city $i$ has a one-way road to city $i + 1$.
 
 Then, for each query $[u, v]$, we add $v$ to the list of reachable cities from $u$, and then use BFS to find the shortest path length from city $0$ to city $n - 1$, adding the result to the answer array.
 
 Finally, we return the answer array.
 
-The time complexity is $O(q \times (n + q))$, and the space complexity is $O(n + q)$. Here, $n$ and $q$ are the number of cities and the number of queries, respectively.
+The time complexity is $O(q(n + q))$, and the space complexity is $O(n + q)$, where $n$ and $q$ are the number of cities and the number of queries, respectively.
 
 <!-- tabs:start -->
 

@@ -113,7 +113,7 @@ $$
 
 The final answer is $\sum_{i=0}^{4}f[i]$. Note that the answer may be very large, so we need to take the modulus of $10^9+7$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the number of vowels. In this problem, $C=5$.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of the string, and $C$ is the number of vowels. In this problem, $C=5$.
 
 <!-- tabs:start -->
 
@@ -151,7 +151,7 @@ class Solution:
 
 <!-- thinking:end -->
 
-The time complexity is $O(C^3 \times \log n)$, and the space complexity is $O(C^2)$. Here, $C$ is the number of vowels. In this problem, $C=5$.
+The time complexity is $O(C^3 \log n)$, and the space complexity is $O(C^2)$, where $C$ is the number of vowels. In this problem, $C=5$.
 
 <!-- tabs:start -->
 

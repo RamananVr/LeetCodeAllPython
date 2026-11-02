@@ -56,7 +56,7 @@ tags:
 
 > **Thinking**
 >
-> $|path|\le 10^4$. Walk the path and store visited cells. A step that lands on a stored cell crosses the path.
+> $|\textit{path}|\le 10^4$. Walk the path and store visited cells. A step that lands on a stored cell crosses the path.
 
 <!-- thinking:end -->
 

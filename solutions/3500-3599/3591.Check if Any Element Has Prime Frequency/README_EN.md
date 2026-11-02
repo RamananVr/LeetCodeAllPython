@@ -90,9 +90,9 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table $\text{cnt}$ to count the frequency of each element. Then, we iterate through the values in $\text{cnt}$ and check if any of them is a prime number. If there is a prime, return `true`; otherwise, return `false`.
+We use a hash table $\textit{cnt}$ to count the frequency of each element. Then, we iterate through the values in $\textit{cnt}$ and check if any of them is a prime number. If there is a prime, return `true`; otherwise, return `false`.
 
-The time complexity is $O(n \times \sqrt{M})$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$ and $M$ is the maximum
+The time complexity is $O(n \sqrt{M})$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

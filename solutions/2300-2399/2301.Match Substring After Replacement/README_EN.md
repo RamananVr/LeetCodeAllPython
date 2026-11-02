@@ -82,7 +82,7 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 
 > **Thinking**
 >
-> Each mapping is a single replacement, so we only need to try every alignment of $sub$ inside $s$ and check characters one by one. $|s| \le 5000$, so the product of alignments and substring length is about $2.5 \times 10^7$, which is acceptable.
+> Each mapping is a single replacement, so we only need to try every alignment of $\textit{sub}$ inside $s$ and check characters one by one. $|s| \le 5000$, so the product of alignments and substring length is about $2.5 \times 10^7$, which is acceptable.
 >
 > A character may map to several replacements; scanning the mapping list at every position repeats work. Store the reachable set of each old character in a hash table, then test “equal or replaceable” in $O(1)$ per pair.
 
@@ -90,11 +90,11 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 
 First, we use a hash table $d$ to record the set of characters that each character can be replaced with.
 
-Then we enumerate all substrings of length $sub$ in $s$, and judge whether the string $sub$ can be obtained by replacement. If it can, return `true`, otherwise enumerate the next substring.
+Then we enumerate all substrings of length $\textit{sub}$ in $s$, and judge whether the string $\textit{sub}$ can be obtained by replacement. If it can, return `true`, otherwise enumerate the next substring.
 
-At the end of the enumeration, it means that $sub$ cannot be obtained by replacing any substring in $s$, so return `false`.
+At the end of the enumeration, it means that $\textit{sub}$ cannot be obtained by replacing any substring in $s$, so return `false`.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$. Here, $m$ and $n$ are the lengths of the strings $s$ and $sub$ respectively, and $C$ is the size of the character set.
+The time complexity is $O(mn)$, and the space complexity is $O(C^2)$, where $m$ and $n$ are the lengths of the strings $s$ and $\textit{sub}$ respectively, and $C$ is the size of the character set.
 
 <!-- tabs:start -->
 
@@ -130,7 +130,7 @@ class Solution:
 
 Since the character set only contains uppercase and lowercase English letters and numbers, we can directly use a $128 \times 128$ array $d$ to record the set of characters that each character can be replaced with.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$.
+The time complexity is $O(mn)$, and the space complexity is $O(C^2)$.
 
 <!-- tabs:start -->
 

@@ -72,9 +72,9 @@ Teams table:
 
 > **Thinking**
 >
-> The league needs every ordered pair of distinct teams. A self-join of $Teams$ excluding equal names lists them.
+> The league needs every ordered pair of distinct teams. A self-join of $\textit{Teams}$ excluding equal names lists them.
 >
-> Take the Cartesian product of $t1$ and $t2$ with $t1.team\_name \ne t2.team\_name$ as home and away.
+> Take the Cartesian product of $\textit{t1}$ and $\textit{t2}$ with $\textit{t1}.\textit{team\_name} \ne \textit{t2}.\textit{team\_name}$ as home and away.
 
 <!-- thinking:end -->
 
@@ -85,9 +85,8 @@ Teams table:
 ```sql
 # Write your MySQL query statement below
 SELECT t1.team_name AS home_team, t2.team_name AS away_team
-FROM
-    Teams AS t1
-    JOIN Teams AS t2
+FROM Teams AS t1
+JOIN Teams AS t2
 WHERE t1.team_name != t2.team_name;
 ```
 

@@ -87,9 +87,9 @@ Cost of paint the first and last house (10 + 1) = 11.
 
 > **Thinking**
 >
-> Paint $m$ houses into exactly $target$ neighborhoods, paying only for unpainted houses. The state is house $i$, color $j$, and neighborhood count $k$.
+> Paint $m$ houses into exactly $\textit{target}$ neighborhoods, paying only for unpainted houses. The state is house $i$, color $j$, and neighborhood count $k$.
 >
-> A pre-painted house is free and fixed; otherwise try each color and add $cost$. Same color keeps $k$, a new color increments it. The answer is the min over colors at $f[m-1][\cdot][target]$, or $-1$.
+> A pre-painted house is free and fixed; otherwise try each color and add $\textit{cost}$. Same color keeps $k$, a new color increments it. The answer is the min over colors at $f[m-1][\cdot][\textit{target}]$, or $-1$.
 
 <!-- thinking:end -->
 
@@ -111,7 +111,7 @@ $$
 
 Finally, we return $f[m - 1][j][\textit{target}]$, where $j \in [1,..n]$. If all values of $f[m - 1][j][\textit{target}]$ are $\infty$, then return $-1$.
 
-The time complexity is $O(m \times n^2 \times \textit{target})$, and the space complexity is $O(m \times n \times \textit{target})$. Here, $m$, $n$, and $\textit{target}$ represent the number of houses, the number of colors, and the number of blocks, respectively.
+The time complexity is $O(mn^2 \textit{target})$, and the space complexity is $O(mn \textit{target})$, where $m$, $n$, and $\textit{target}$ represent the number of houses, the number of colors, and the number of blocks, respectively.
 
 <!-- tabs:start -->
 

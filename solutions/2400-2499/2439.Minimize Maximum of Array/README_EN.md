@@ -78,13 +78,13 @@ It is optimal to leave nums as is, and since 10 is the maximum value, we return 
 >
 > An operation moves value from $i$ to $i-1$, i.e. excess flows left. Minimizing the final maximum at $n\le 10^5$ is a binary search on that cap $mx$.
 >
-> Scan right to left: anything above $mx$ is forwarded. The guess is feasible iff $nums[0]$ plus the leftover forwarded amount is still $\le mx$.
+> Scan right to left: anything above $mx$ is forwarded. The guess is feasible iff $\textit{nums}[0]$ plus the leftover forwarded amount is still $\le mx$.
 
 <!-- thinking:end -->
 
 To minimize the maximum value of the array, it is intuitive to use binary search. We binary search for the maximum value $mx$ of the array, and find the smallest $mx$ that satisfies the problem requirements.
 
-The time complexity is $O(n \times \log M)$, where $n$ is the length of the array, and $M$ is the maximum value in the array.
+The time complexity is $O(n \log M)$, where $n$ is the length of the array, and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

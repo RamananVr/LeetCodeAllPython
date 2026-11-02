@@ -71,7 +71,7 @@ tags:
 >
 > At $10^5$ records, enumerating every triple per employee is heavier than needed. “Three uses in one hour” is equivalent, after sorting, to some three consecutive times spanning at most $60$ minutes.
 >
-> Group times by name, convert $\texttt{HH:MM}$ to minutes, sort, and test $\textit{ts}[i+2]-\textit{ts}[i] \le 60$.
+> Group times by name, convert $\texttt{HH:MM}$ to minutes, sort, and test $ts[i+2]-ts[i] \le 60$.
 >
 > A hash table $d$ stores each person's times; skip anyone with fewer than three stamps, then sort the alerted names lexicographically.
 
@@ -83,7 +83,7 @@ Then we traverse the hash table. For each employee, we first check whether the n
 
 Finally, we sort the answer array in lexicographical order to get the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of clock-in records.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of clock-in records.
 
 <!-- tabs:start -->
 

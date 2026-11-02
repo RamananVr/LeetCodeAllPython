@@ -66,7 +66,7 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 >
 > The diagonal length is determined by $l^2+w^2$, and the area is $l \times w$. A strictly larger squared sum uniquely owns the longest diagonal; equal sums compete on area.
 >
-> We therefore keep the best squared sum $\textit{mx}$ and its area $\textit{ans}$. When the squared sum grows we replace the area; when it ties we take the larger area.
+> We therefore keep the best squared sum $mx$ and its area $\textit{ans}$. When the squared sum grows we replace the area; when it ties we take the larger area.
 
 <!-- thinking:end -->
 
@@ -76,7 +76,7 @@ We can iterate through all the rectangles, calculate the square of their diagona
 
 After the iteration, we return the recorded maximum area.
 
-The time complexity is $O(n)$, where $n$ is the number of rectangles. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of rectangles.
 
 <!-- tabs:start -->
 

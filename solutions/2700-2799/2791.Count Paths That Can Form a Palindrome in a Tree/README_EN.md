@@ -129,7 +129,7 @@ class Solution:
 
 An explicit stack walks the tree in preorder from the root. The root mask $0$ is stored in the hash map first. For each edge, the child mask is the parent mask XOR the edge letter. Paths that form a palindrome with an already visited node are added to the answer, and the child mask is then recorded.
 
-The time complexity is $O(n \times |\Sigma|)$ and the space complexity is $O(n)$, where $|\Sigma|$ is the alphabet size.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(n)$, where $|\Sigma|$ is the alphabet size.
 
 <!-- tabs:start -->
 

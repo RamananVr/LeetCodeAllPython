@@ -61,7 +61,7 @@ tags:
 
 > **Thinking**
 >
-> We need $nums[0]<nums[1]>nums[2]<\cdots$ and may reorder in place.
+> We need $\textit{nums}[0]<\textit{nums}[1]>\textit{nums}[2]<\cdots$ and may reorder in place.
 >
 > Sort, then fill even indices from the median downward and odd indices from the end downward. Reversed halves keep equal values from sitting next to each other.
 
@@ -101,7 +101,7 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 sorts in $O(n\log n)$ and uses an extra array. Values lie in $[0,5000]$: count-sort, then emit large values onto odd indices first and even indices next. Peaks get large numbers in linear time.
+> Method 1 sorts in $O(n \log n)$ and uses an extra array. Values lie in $[0,5000]$: count-sort, then emit large values onto odd indices first and even indices next. Peaks get large numbers in linear time.
 
 <!-- thinking:end -->
 

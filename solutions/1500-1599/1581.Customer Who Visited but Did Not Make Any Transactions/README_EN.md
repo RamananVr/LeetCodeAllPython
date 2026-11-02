@@ -108,7 +108,7 @@ As we can see, users with IDs 30 and 96 visited the mall one time without making
 >
 > Count, per customer, visits that have no transaction. Purchases live in another table, so we need visits without a matching row.
 >
-> A subquery lists every $visit\_id$ that appears in $Transactions$; the outer query keeps the complement and groups by customer.
+> A subquery lists every $\textit{visit\_id}$ that appears in $\textit{Transactions}$; the outer query keeps the complement and groups by customer.
 
 <!-- thinking:end -->
 
@@ -138,7 +138,7 @@ GROUP BY 1;
 
 > **Thinking**
 >
-> $NOT\ IN$ is awkward with nulls on some engines. A left join from $Visits$ to $Transactions$ leaves $amount$ null on unmatched visits; filtering those rows and grouping yields the same counts and composes more easily with extra columns.
+> $\textit{NOT IN}$ is awkward with nulls on some engines. A left join from $\textit{Visits}$ to $\textit{Transactions}$ leaves $\textit{amount}$ null on unmatched visits; filtering those rows and grouping yields the same counts and composes more easily with extra columns.
 
 <!-- thinking:end -->
 
@@ -151,9 +151,8 @@ We can also use a left join to join the `Visits` table and the `Transactions` ta
 ```sql
 # Write your MySQL query statement below
 SELECT customer_id, COUNT(1) AS count_no_trans
-FROM
-    Visits
-    LEFT JOIN Transactions USING (visit_id)
+FROM Visits
+LEFT JOIN Transactions USING (visit_id)
 WHERE amount IS NULL
 GROUP BY 1;
 ```

@@ -91,7 +91,7 @@ Thus, we return 4.
 >
 > The adjacent differences fix the hidden array up to a translation; the start must keep every value inside $[\textit{lower},\textit{upper}]$. Trying every start and replaying the differences is unnecessary.
 >
-> Build prefix sums from a dummy start of $0$ and record $\textit{mi}$ and $\textit{mx}$. A real start $x$ must satisfy $\textit{lower}-\textit{mi}\le x\le \textit{upper}-\textit{mx}$; the count is that length, or zero if empty.
+> Build prefix sums from a dummy start of $0$ and record $mi$ and $mx$. A real start $x$ must satisfy $\textit{lower}-mi\le x\le \textit{upper}-mx$; the count is that length, or zero if empty.
 >
 > One pass maintains the prefix extrema.
 
@@ -101,7 +101,7 @@ Since the array $\textit{differences}$ is already determined, the difference bet
 
 Let's assume the first element of the array $\textit{hidden}$ is $0$. Then, $\textit{hidden}[i] = \textit{hidden}[i - 1] + \textit{differences}[i - 1]$, where $1 \leq i \leq n$. Let the maximum value of the array $\textit{hidden}$ be $mx$ and the minimum value be $mi$. If $mx - mi \leq \textit{upper} - \textit{lower}$, then we can construct a valid $\textit{hidden}$ array. The number of possible constructions is $\textit{upper} - \textit{lower} - (mx - mi) + 1$. Otherwise, it is impossible to construct a valid $\textit{hidden}$ array, and we return $0$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{differences}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{differences}$.
 
 <!-- tabs:start -->
 

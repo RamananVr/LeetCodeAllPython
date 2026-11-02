@@ -117,11 +117,11 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 
 <!-- thinking:end -->
 
-We can assume that the robot starts from the coordinate $(0, 0)$. Then, we can use DFS to find all reachable coordinates and record them in the hash table $vis$. In addition, we also need to record the coordinates of the endpoint $target$.
+We can assume that the robot starts from the coordinate $(0, 0)$. Then, we can use DFS to find all reachable coordinates and record them in the hash table $\textit{vis}$. In addition, we also need to record the coordinates of the endpoint $\textit{target}$.
 
 If the endpoint cannot be found, we directly return $-1$. Otherwise, we can use BFS to find the shortest path.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 Similar problems:
 

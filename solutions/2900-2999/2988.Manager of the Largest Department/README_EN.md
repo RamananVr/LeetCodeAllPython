@@ -80,7 +80,7 @@ Output table is ordered by dep_id in ascending order.
 
 > **Thinking**
 >
-> Count employees per department, join to manager rows, and keep departments whose count equals the global maximum. The subquery $MAX(cnt)$ avoids aggregating managers again after the join.
+> Count employees per department, join to manager rows, and keep departments whose count equals the global maximum. The subquery $\textit{MAX}(\textit{cnt})$ avoids aggregating managers again after the join.
 >
 > Sort by department id.
 
@@ -101,9 +101,8 @@ WITH
         GROUP BY 1
     )
 SELECT emp_name AS manager_name, t.dep_id
-FROM
-    T AS t
-    JOIN Employees AS e ON t.dep_id = e.dep_id AND e.position = 'Manager'
+FROM T AS t
+JOIN Employees AS e ON t.dep_id = e.dep_id AND e.position = 'Manager'
 WHERE cnt = (SELECT MAX(cnt) FROM T)
 ORDER BY 2;
 ```

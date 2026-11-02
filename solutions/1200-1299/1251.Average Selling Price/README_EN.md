@@ -101,9 +101,9 @@ Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 
 > **Thinking**
 >
-> Average price is $\sum price\times units / \sum units$, and prices have date ranges. A left join of $Prices$ to $UnitsSold$ keeps purchases whose date lies in $[start,end]$ for that product, including products with no sales.
+> Average price is $\sum \textit{price}\times \textit{units} / \sum \textit{units}$, and prices have date ranges. A left join of $\textit{Prices}$ to $\textit{UnitsSold}$ keeps purchases whose date lies in $[\textit{start},\textit{end}]$ for that product, including products with no sales.
 >
-> Grouping by product, $IFNULL$ turns a null weighted mean into $0$. The join enforces the date window; the group computes the weighted average.
+> Grouping by product, $\textit{IFNULL}$ turns a null weighted mean into $0$. The join enforces the date window; the group computes the weighted average.
 
 <!-- thinking:end -->
 
@@ -118,10 +118,9 @@ We can use a left join to join the `Prices` table and the `UnitsSold` table on `
 SELECT
     p.product_id,
     IFNULL(ROUND(SUM(price * units) / SUM(units), 2), 0) AS average_price
-FROM
-    Prices AS p
-    LEFT JOIN UnitsSold AS u
-        ON p.product_id = u.product_id AND purchase_date BETWEEN start_date AND end_date
+FROM Prices AS p
+LEFT JOIN UnitsSold AS u
+    ON p.product_id = u.product_id AND purchase_date BETWEEN start_date AND end_date
 GROUP BY 1;
 ```
 

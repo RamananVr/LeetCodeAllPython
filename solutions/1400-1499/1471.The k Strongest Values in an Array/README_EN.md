@@ -97,7 +97,7 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 
 > **Thinking**
 >
-> Strength is distance to the median, ties broken by value. $n\le 10^5$. Sort to read $m=arr[(n-1)//2]$, then sort by $(-|x-m|,-x)$ and take $k$ elements.
+> Strength is distance to the median, ties broken by value. $n\le 10^5$. Sort to read $m=\textit{arr}[(n-1)//2]$, then sort by $(-|x-m|,-x)$ and take $k$ elements.
 
 <!-- thinking:end -->
 
@@ -105,7 +105,7 @@ We first sort the array $\textit{arr}$ and then find the median $m$ of the array
 
 Next, we sort the array according to the rules described in the problem, and finally return the first $k$ elements of the array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

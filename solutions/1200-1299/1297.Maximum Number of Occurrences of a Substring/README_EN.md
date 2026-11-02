@@ -64,15 +64,15 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 > **Thinking**
 >
-> Among substrings that obey the letter-count and length bounds, we want the maximum frequency. If a longer legal string occurs $t$ times, each of its $minSize$ prefixes occurs at least $t$ times, so we only count windows of length $minSize$ with at most $maxLetters$ distinct letters.
+> Among substrings that obey the letter-count and length bounds, we want the maximum frequency. If a longer legal string occurs $t$ times, each of its $\textit{minSize}$ prefixes occurs at least $t$ times, so we only count windows of length $\textit{minSize}$ with at most $\textit{maxLetters}$ distinct letters.
 >
-> $n \le 10^5$ and $minSize \le 26$: enumerate those windows, test the alphabet with a set, and take the maximum hash-map count.
+> $n \le 10^5$ and $\textit{minSize} \le 26$: enumerate those windows, test the alphabet with a set, and take the maximum hash-map count.
 
 <!-- thinking:end -->
 
 According to the problem description, if a long string meets the condition, then its substring of length $\textit{minSize}$ must also meet the condition. Therefore, we only need to enumerate all substrings of length $\textit{minSize}$ in $s$, then use a hash table to record the occurrence frequency of all substrings, and find the maximum frequency as the answer.
 
-The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of the string $s$ and $\textit{minSize}$, respectively. In this problem, $m$ does not exceed $26$.
+The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the lengths of the string $s$ and $\textit{minSize}$, respectively. In this problem, $m$ does not exceed $26$.
 
 <!-- tabs:start -->
 
@@ -104,7 +104,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 keys on raw strings and builds each window in $O(minSize)$. A sliding window maintains the distinct-letter count, and a string hash turns the window into an $O(1)$ integer key, for linear time.
+> Solution 1 keys on raw strings and builds each window in $O(\textit{minSize})$. A sliding window maintains the distinct-letter count, and a string hash turns the window into an $O(1)$ integer key, for linear time.
 
 <!-- thinking:end -->
 
@@ -114,7 +114,7 @@ Specifically, we define a $\textit{Hashing}$ class to preprocess the prefix hash
 
 Then, we use a sliding window to traverse the string $s$, maintaining the number of distinct letters in the current window. When the window size reaches $\textit{minSize}$, we calculate the hash value of the current substring and update its occurrence count. Next, we slide the window one position to the right and update the letter frequencies and the count of distinct letters.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

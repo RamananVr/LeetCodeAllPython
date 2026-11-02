@@ -64,7 +64,7 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 
 <!-- thinking:end -->
 
-According to the problem description, the array $arr$ is an arithmetic sequence with the first term as $1$ and the common difference as $2$. Therefore, the sum of the first $n$ terms of the array is:
+According to the problem description, the array $\textit{arr}$ is an arithmetic sequence with the first term as $1$ and the common difference as $2$. Therefore, the sum of the first $n$ terms of the array is:
 
 $$
 \begin{aligned}
@@ -80,7 +80,7 @@ $$
 \sum_{i=0}^{\frac{n}{2}} (n - (2i + 1))
 $$
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

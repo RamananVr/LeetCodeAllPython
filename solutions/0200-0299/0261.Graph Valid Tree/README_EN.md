@@ -72,7 +72,7 @@ To determine whether it is a tree, the following two conditions must be met:
 
 We can use a union-find set to determine whether there is a cycle. We traverse the edges, if two nodes are already in the same set, it means there is a cycle. Otherwise, we merge the two nodes into the same set. Then we decrease the number of connected components by one, and finally check whether the number of connected components is $1$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -112,7 +112,7 @@ class Solution:
 
 <!-- thinking:end -->
 
-We can also use depth-first search to determine whether there is a cycle. We can use an array $vis$ to record the visited nodes. During the search, we first mark the node as visited, then traverse the nodes adjacent to this node. If the adjacent node has been visited, we skip it, otherwise we recursively visit the adjacent node. Finally, we check whether all nodes have been visited. If there are nodes that have not been visited, it means that it cannot form a tree, so we return `false`.
+We can also use depth-first search to determine whether there is a cycle. We can use an array $\textit{vis}$ to record the visited nodes. During the search, we first mark the node as visited, then traverse the nodes adjacent to this node. If the adjacent node has been visited, we skip it, otherwise we recursively visit the adjacent node. Finally, we check whether all nodes have been visited. If there are nodes that have not been visited, it means that it cannot form a tree, so we return `false`.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 

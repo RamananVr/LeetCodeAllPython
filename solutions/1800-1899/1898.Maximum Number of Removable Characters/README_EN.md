@@ -85,13 +85,13 @@ Hence, the maximum k is 2.
 
 <!-- thinking:end -->
 
-We notice that if removing the characters at the first $k$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$, then removing the characters at $k \lt k' \leq \textit{removable.length}$ indices will also satisfy the condition. This monotonicity allows us to use binary search to find the maximum $k$.
+We notice that if removing the characters at the first $k$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$, then removing the characters at $k \lt k' \leq \textit{removable}.\textit{length}$ indices will also satisfy the condition. This monotonicity allows us to use binary search to find the maximum $k$.
 
-We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \textit{removable.length}$. Then we perform binary search. In each search, we take the middle value $mid = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ and check if removing the characters at the first $mid$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$. If it does, we update the left boundary $l = mid$; otherwise, we update the right boundary $r = mid - 1$.
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \textit{removable}.\textit{length}$. Then we perform binary search. In each search, we take the middle value $\textit{mid} = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ and check if removing the characters at the first $\textit{mid}$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$. If it does, we update the left boundary $l = \textit{mid}$; otherwise, we update the right boundary $r = \textit{mid} - 1$.
 
 After the binary search ends, we return the left boundary $l$.
 
-The time complexity is $O(k \times \log k)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$, and $k$ is the length of $\textit{removable}$.
+The time complexity is $O(k \log k)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$, and $k$ is the length of $\textit{removable}$.
 
 <!-- tabs:start -->
 

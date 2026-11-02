@@ -70,11 +70,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a trie to store all the roots in the dictionary. Define the trie node class $\text{Trie}$, which contains an array $\text{children}$ of length $26$ to store child nodes, and a boolean variable $\text{is\_end}$ to mark whether it is a complete root.
+We can use a trie to store all the roots in the dictionary. Define the trie node class $\textit{Trie}$, which contains an array $\textit{children}$ of length $26$ to store child nodes, and a boolean variable $\textit{is\_end}$ to mark whether it is a complete root.
 
 For each root, we insert it into the trie. For each word in the sentence, we search for its shortest root in the trie. If found, we replace the word; otherwise, we keep it unchanged.
 
-The time complexity is $O(n \times |w| + L)$, and the space complexity is $O(n \times |w|)$, where $n$ and $|w|$ are the number of roots in the dictionary and the average length, respectively, and $L$ is the total length of words in the sentence.
+The time complexity is $O(n|w| + L)$, and the space complexity is $O(n|w|)$, where $n$ and $|w|$ are the number of roots in the dictionary and the average length, respectively, and $L$ is the total length of words in the sentence.
 
 <!-- tabs:start -->
 

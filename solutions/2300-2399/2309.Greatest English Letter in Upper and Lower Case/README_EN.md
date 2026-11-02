@@ -80,7 +80,7 @@ First, we use a hash table $ss$ to record all the letters that appear in the str
 
 At the end of the enumeration, if no letter that meets the conditions is found, we return an empty string.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ and $C$ are the length of the string $s$ and the size of the character set, respectively.
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ and $C$ are the length of the string $s$ and the size of the character set, respectively.
 
 <!-- tabs:start -->
 
@@ -112,13 +112,13 @@ class Solution:
 
 <!-- thinking:end -->
 
-We can use two integers $mask1$ and $mask2$ to record the lowercase and uppercase letters that appear in the string $s$, respectively. The $i$-th bit of $mask1$ indicates whether the $i$-th lowercase letter appears, and the $i$-th bit of $mask2$ indicates whether the $i$-th uppercase letter appears.
+We can use two integers $\textit{mask1}$ and $\textit{mask2}$ to record the lowercase and uppercase letters that appear in the string $s$, respectively. The $i$-th bit of $\textit{mask1}$ indicates whether the $i$-th lowercase letter appears, and the $i$-th bit of $\textit{mask2}$ indicates whether the $i$-th uppercase letter appears.
 
-Then we perform a bitwise AND operation on $mask1$ and $mask2$. The $i$-th bit of the resulting $mask$ indicates whether the $i$-th letter appears in both uppercase and lowercase.
+Then we perform a bitwise AND operation on $\textit{mask1}$ and $\textit{mask2}$. The $i$-th bit of the resulting $\textit{mask}$ indicates whether the $i$-th letter appears in both uppercase and lowercase.
 
-Next, we just need to get the position of the highest $1$ in the binary representation of $mask$, and convert it to the corresponding uppercase letter. If all binary bits are not $1$, it means that there is no letter that appears in both uppercase and lowercase, so we return an empty string.
+Next, we just need to get the position of the highest $1$ in the binary representation of $\textit{mask}$, and convert it to the corresponding uppercase letter. If all binary bits are not $1$, it means that there is no letter that appears in both uppercase and lowercase, so we return an empty string.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

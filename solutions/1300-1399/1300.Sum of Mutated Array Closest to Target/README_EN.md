@@ -74,11 +74,11 @@ tags:
 
 We notice that the problem requires changing all values greater than `value` to `value` and then summing them up. Therefore, we can consider sorting the array `arr` first, and then calculating the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array.
 
-Next, we can enumerate all `value` values from smallest to largest. For each `value`, we can use binary search to find the index $i$ of the first element in the array that is greater than `value`. At this point, the number of elements in the array greater than `value` is $n - i$, so the number of elements in the array less than or equal to `value` is $i$. The sum of the elements in the array less than or equal to `value` is $s[i]$, and the sum of the elements in the array greater than `value` is $(n - i) \times value$. Therefore, the sum of all elements in the array is $s[i] + (n - i) \times \textit{value}$. If the absolute difference between $s[i] + (n - i) \times \textit{value}$ and `target` is less than the current minimum difference `diff`, update `diff` and `ans`.
+Next, we can enumerate all `value` values from smallest to largest. For each `value`, we can use binary search to find the index $i$ of the first element in the array that is greater than `value`. At this point, the number of elements in the array greater than `value` is $n - i$, so the number of elements in the array less than or equal to `value` is $i$. The sum of the elements in the array less than or equal to `value` is $s[i]$, and the sum of the elements in the array greater than `value` is $(n - i) \times \textit{value}$. Therefore, the sum of all elements in the array is $s[i] + (n - i) \times \textit{value}$. If the absolute difference between $s[i] + (n - i) \times \textit{value}$ and `target` is less than the current minimum difference `diff`, update `diff` and `ans`.
 
 After enumerating all `value` values, we can get the final answer `ans`.
 
-Time complexity $O(n \times \log n)$, space complexity $O(n)$. Where $n$ is the length of the array `arr`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `arr`.
 
 <!-- tabs:start -->
 

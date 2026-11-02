@@ -104,11 +104,11 @@ tags:
 
 <!-- thinking:end -->
 
-We maintain the maximum value $\text{mx}$ of the currently traversed array, and iterate through each element $x$ in the array. If $x < \text{mx}$, it means the current element can serve as the last parcel of a balanced shipment, so we increment the answer by one and reset $\text{mx}$ to 0. Otherwise, we update $\text{mx}$ to the value of the current element $x$.
+We maintain the maximum value $mx$ of the currently traversed array, and iterate through each element $x$ in the array. If $x < mx$, it means the current element can serve as the last parcel of a balanced shipment, so we increment the answer by one and reset $mx$ to 0. Otherwise, we update $mx$ to the value of the current element $x$.
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, using only constant extra space.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

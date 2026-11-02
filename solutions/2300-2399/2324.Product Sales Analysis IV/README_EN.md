@@ -109,9 +109,9 @@ User 102 spent the most money on products 1, 2, and 3.
 
 > **Thinking**
 >
-> Each user needs the product with the largest spend, keeping ties. Sum $quantity \times price$ per user and product, then rank spends descending inside each user.
+> Each user needs the product with the largest spend, keeping ties. Sum $\textit{quantity} \times \textit{price}$ per user and product, then rank spends descending inside each user.
 >
-> Join $Sales$ to $Product$, group, and keep rows with rank $1$.
+> Join $\textit{Sales}$ to $\textit{Product}$, group, and keep rows with rank $1$.
 
 <!-- thinking:end -->
 
@@ -130,9 +130,8 @@ WITH
                 PARTITION BY user_id
                 ORDER BY SUM(quantity * price) DESC
             ) AS rk
-        FROM
-            Sales
-            JOIN Product USING (product_id)
+        FROM Sales
+        JOIN Product USING (product_id)
         GROUP BY 1, 2
     )
 SELECT user_id, product_id

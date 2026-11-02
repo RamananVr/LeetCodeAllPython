@@ -59,7 +59,7 @@ tags:
 >
 > A full binary tree has $0$ or $2$ children per node, and $n\le 20$. Even $n$ is impossible; for odd $n$ we enumerate the left subtree’s size.
 >
-> Memoize $dfs(n)$: the root takes one node, the rest split between left and right. Every Cartesian pair of subtrees hangs under a new root. $n=1$ is a single node.
+> Memoize $\textit{dfs}(n)$: the root takes one node, the rest split between left and right. Every Cartesian pair of subtrees hangs under a new root. $n=1$ is a single node.
 
 <!-- thinking:end -->
 
@@ -69,7 +69,7 @@ If $n > 1$, we can enumerate the number of nodes $i$ in the left subtree, then t
 
 This process can be optimized with memoization search to avoid repeated calculations.
 
-The time complexity is $O(\frac{2^n}{\sqrt{n}})$, and the space complexity is $O(\frac{2^n}{\sqrt{n}})$. Where $n$ is the number of nodes.
+The time complexity is $O(\frac{2^n}{\sqrt{n}})$, and the space complexity is $O(\frac{2^n}{\sqrt{n}})$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

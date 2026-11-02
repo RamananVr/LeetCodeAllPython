@@ -87,11 +87,11 @@ We notice that the start of a substring that meets the conditions must be the po
 
 Therefore, we can use two arrays or hash tables `first` and `last` to record the positions where each character appears for the first time and the last time, respectively.
 
-Next, we enumerate each character `c`. Suppose the position where `c` first appears is $i$, and the position where it last appears is $mx$. Then we can start traversing from $i$. For each position $j$, we find the position $a$ where $s[j]$ first appears and the position $b$ where it last appears. If $a < i$, it means that $s[j]$ is on the left of $c$, which does not meet the enumeration conditions, and we can exit the loop directly. Otherwise, we update $mx = \max(mx, b)$. If $mx = j$ and $j - i + 1 < n$, we update the answer to $ans = \max(ans, j - i + 1)$.
+Next, we enumerate each character `c`. Suppose the position where `c` first appears is $i$, and the position where it last appears is $mx$. Then we can start traversing from $i$. For each position $j$, we find the position $a$ where $s[j]$ first appears and the position $b$ where it last appears. If $a < i$, it means that $s[j]$ is on the left of $c$, which does not meet the enumeration conditions, and we can exit the loop directly. Otherwise, we update $mx = \max(mx, b)$. If $mx = j$ and $j - i + 1 < n$, we update the answer to $\textit{ans} = \max(\textit{ans}, j - i + 1)$.
 
 Finally, return the answer.
 
-The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

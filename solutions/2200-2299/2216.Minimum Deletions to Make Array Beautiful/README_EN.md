@@ -67,9 +67,9 @@ tags:
 
 > **Thinking**
 >
-> A beautiful array has even length and $nums[2k] \neq nums[2k+1]$ for every pair. $n \le 10^5$ forbids searching deletion subsets. Pairing left to right, a pair with $nums[i]=nums[i+1]$ cannot be kept, so one element must go.
+> A beautiful array has even length and $\textit{nums}[2k] \neq \textit{nums}[2k+1]$ for every pair. $n \le 10^5$ forbids searching deletion subsets. Pairing left to right, a pair with $\textit{nums}[i]=\textit{nums}[i+1]$ cannot be kept, so one element must go.
 >
-> Delete the current $nums[i]$ (advance one step and count a deletion); if the two values differ, keep the pair and skip two indices. If the leftover length is odd, delete one more at the end.
+> Delete the current $\textit{nums}[i]$ (advance one step and count a deletion); if the two values differ, keep the pair and skip two indices. If the leftover length is odd, delete one more at the end.
 
 <!-- thinking:end -->
 
@@ -79,7 +79,7 @@ Therefore, we consider traversing the array from left to right. As long as we en
 
 Finally, we check whether the length of the array after deletion is even. If not, it means that we need to delete one more element to make the final array length even.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. We only need to traverse the array once. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -77,7 +77,7 @@ Output table is ordered by peak_calling_hour and city in descending order.</pre>
 
 > **Thinking**
 >
-> Each city needs the hour(s) with the most calls, keeping ties. Group by city and $HOUR(call_time)$, then $RANK$ by count descending and keep $rk=1$.
+> Each city needs the hour(s) with the most calls, keeping ties. Group by city and $\textit{HOUR}(\textit{call}_\textit{time})$, then $\textit{RANK}$ by count descending and keep $rk=1$.
 >
 > Order by hour and city descending. A self-join for the maximum is unnecessary.
 
@@ -97,15 +97,14 @@ WITH
                 PARTITION BY city
                 ORDER BY cnt DESC
             ) AS rk
-        FROM
-            (
-                SELECT
-                    city,
-                    HOUR(call_time) AS h,
-                    COUNT(1) AS cnt
-                FROM Calls
-                GROUP BY 1, 2
-            ) AS t
+        FROM (
+            SELECT
+                city,
+                HOUR(call_time) AS h,
+                COUNT(1) AS cnt
+            FROM Calls
+            GROUP BY 1, 2
+        ) AS t
     )
 SELECT city, h AS peak_calling_hour, cnt AS number_of_calls
 FROM T

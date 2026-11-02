@@ -66,11 +66,11 @@ Explanation: The nodes that are a distance 2 from the target node (with value 5)
 
 <!-- thinking:end -->
 
-We first use DFS to traverse the entire tree and save each node's parent node in the hash table $\textit{g}$.
+We first use DFS to traverse the entire tree and save each node's parent node in the hash table $g$.
 
 Next, we use DFS again, starting from $\textit{target}$, to search for nodes at a distance of $k$ both upwards and downwards, and add them to the result array.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

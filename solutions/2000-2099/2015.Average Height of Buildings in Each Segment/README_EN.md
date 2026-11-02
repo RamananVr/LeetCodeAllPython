@@ -106,15 +106,15 @@ We cannot group the segments together because an empty space with no buildings s
 
 <!-- thinking:end -->
 
-We can use the difference array concept, utilizing a hash table $\textit{cnt}$ to record the change in the number of buildings at each position, and another hash table $\textit{d}$ to record the change in height at each position.
+We can use the difference array concept, utilizing a hash table $\textit{cnt}$ to record the change in the number of buildings at each position, and another hash table $d$ to record the change in height at each position.
 
-Next, we sort the hash table $\textit{d}$ by its keys, use a variable $\textit{s}$ to record the current total height, and a variable $\textit{m}$ to record the current number of buildings.
+Next, we sort the hash table $d$ by its keys, use a variable $s$ to record the current total height, and a variable $m$ to record the current number of buildings.
 
-Then, we traverse the hash table $\textit{d}$. For each position, if $\textit{m}$ is not 0, it means there are buildings at the previous positions. We calculate the average height. If the average height of the buildings at the current position is the same as that of the previous buildings, we merge them; otherwise, we add the current position to the result set.
+Then, we traverse the hash table $d$. For each position, if $m$ is not 0, it means there are buildings at the previous positions. We calculate the average height. If the average height of the buildings at the current position is the same as that of the previous buildings, we merge them; otherwise, we add the current position to the result set.
 
 Finally, we return the result set.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of buildings.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of buildings.
 
 <!-- tabs:start -->
 

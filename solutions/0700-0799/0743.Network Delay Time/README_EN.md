@@ -77,15 +77,15 @@ tags:
 
 <!-- thinking:end -->
 
-We define $\textit{g}[u][v]$ to represent the edge weight from node $u$ to node $v$. If there is no edge between node $u$ and node $v$, then $\textit{g}[u][v] = +\infty$.
+We define $g[u][v]$ to represent the edge weight from node $u$ to node $v$. If there is no edge between node $u$ and node $v$, then $g[u][v] = +\infty$.
 
-We maintain an array $\textit{dist}$, where $\textit{dist}[i]$ represents the shortest path length from node $k$ to node $i$. Initially, we set all $\textit{dist}[i]$ to $+\infty$, except for $\textit{dist}[k - 1] = 0$. We define an array $\textit{vis}$, where $\textit{vis}[i]$ indicates whether node $i$ has been visited. Initially, we set all $\textit{vis}[i]$ to $\text{false}$.
+We maintain an array $\textit{dist}$, where $\textit{dist}[i]$ represents the shortest path length from node $k$ to node $i$. Initially, we set all $\textit{dist}[i]$ to $+\infty$, except for $\textit{dist}[k - 1] = 0$. We define an array $\textit{vis}$, where $\textit{vis}[i]$ indicates whether node $i$ has been visited. Initially, we set all $\textit{vis}[i]$ to $\textit{false}$.
 
-Each time, we find the unvisited node $t$ with the smallest distance, and then perform relaxation operations centered on node $t$. For each node $j$, if $\textit{dist}[j] > \textit{dist}[t] + \textit{g}[t][j]$, we update $\textit{dist}[j] = \textit{dist}[t] + \textit{g}[t][j]$.
+Each time, we find the unvisited node $t$ with the smallest distance, and then perform relaxation operations centered on node $t$. For each node $j$, if $\textit{dist}[j] > \textit{dist}[t] + g[t][j]$, we update $\textit{dist}[j] = \textit{dist}[t] + g[t][j]$.
 
 Finally, we return the maximum value in $\textit{dist}$ as the answer. If the answer is $+\infty$, it means there are unreachable nodes, and we return $-1$.
 
-The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -124,7 +124,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 scans all nodes to pick the next vertex; that is wasteful on a sparse graph. A heap pops the current best in $O(m\log m)$.
+> Solution 1 scans all nodes to pick the next vertex; that is wasteful on a sparse graph. A heap pops the current best in $O(m \log m)$.
 >
 > Store an adjacency list. Pop $(d,u)$; skip stale distances; otherwise relax neighbors onto the heap. The answer is still the max finite distance.
 
@@ -132,13 +132,13 @@ class Solution:
 
 We can use a priority queue (heap) to optimize the naive Dijkstra algorithm.
 
-We define $\textit{g}[u]$ to represent all adjacent edges of node $u$, and $\textit{dist}[u]$ to represent the shortest path length from node $k$ to node $u$. Initially, we set all $\textit{dist}[u]$ to $+\infty$, except for $\textit{dist}[k - 1] = 0$.
+We define $g[u]$ to represent all adjacent edges of node $u$, and $\textit{dist}[u]$ to represent the shortest path length from node $k$ to node $u$. Initially, we set all $\textit{dist}[u]$ to $+\infty$, except for $\textit{dist}[k - 1] = 0$.
 
-We define a priority queue $\textit{pq}$, where each element is $(\textit{d}, u)$, representing the distance $\textit{d}$ from node $u$ to node $k$. Each time, we take out the node $(\textit{d}, u)$ with the smallest distance from $\textit{pq}$. If $\textit{d} > $\textit{dist}[u]$, we skip this node. Otherwise, we traverse all adjacent edges of node $u$. For each adjacent edge $(v, w)$, if $\textit{dist}[v] > \textit{dist}[u] + w$, we update $\textit{dist}[v] = \textit{dist}[u] + w$ and add $(\textit{dist}[v], v)$ to $\textit{pq}$.
+We define a priority queue $pq$, where each element is $(d, u)$, representing the distance $d$ from node $u$ to node $k$. Each time, we take out the node $(d, u)$ with the smallest distance from $pq$. If $d > $\textit{dist}[u]$, we skip this node. Otherwise, we traverse all adjacent edges of node $u$. For each adjacent edge $(v, w)$, if $\textit{dist}[v] > \textit{dist}[u] + w$, we \textit{update} $\textit{dist}[v] = \textit{dist}[u] + w$ \textit{and} \textit{add} $(\textit{dist}[v], v)$ to $\textit{pq}$.
 
 Finally, we return the maximum value in $\textit{dist}$ as the answer. If the answer is $+\infty$, it means there are unreachable nodes, and we return $-1$.
 
-The time complexity is $O(m \times \log m + n)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(m \log m + n)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

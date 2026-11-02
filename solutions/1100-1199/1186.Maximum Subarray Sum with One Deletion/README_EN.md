@@ -64,7 +64,7 @@ tags:
 
 > **Thinking**
 >
-> A subarray may drop at most one element. Kadane from each end yields the best segment ending or starting at an index; with no deletion the answer is their maximum. Deleting $arr[i]$ adds the best left ending at $i-1$ to the best right starting at $i+1$. After filling $left$ and $right$, enumerate interior deletion points.
+> A subarray may drop at most one element. Kadane from each end yields the best segment ending or starting at an index; with no deletion the answer is their maximum. Deleting $\textit{arr}[i]$ adds the best left ending at $i-1$ to the best right starting at $i+1$. After filling $\textit{left}$ and $\textit{right}$, enumerate interior deletion points.
 
 <!-- thinking:end -->
 
@@ -72,7 +72,7 @@ We can preprocess the array $\textit{arr}$ to find the maximum subarray sum endi
 
 If we do not delete any element, then the maximum subarray sum is the maximum value in $\textit{left}[i]$ or $\textit{right}[i]$; if we delete an element, we can enumerate each position $i$ in $[1..n-2]$, calculate the value of $\textit{left}[i-1] + \textit{right}[i+1]$, and take the maximum value.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

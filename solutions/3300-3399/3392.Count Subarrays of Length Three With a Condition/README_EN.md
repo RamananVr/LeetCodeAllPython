@@ -64,7 +64,7 @@ tags:
 >
 > A length-$3$ subarray is counted when twice the sum of the wings equals the middle. With $n \le 100$ we enumerate the middle index.
 >
-> For each $i \in [1,n-2]$ we test $(nums[i-1]+nums[i+1])\times 2 = nums[i]$ and count the successes.
+> For each $i \in [1,n-2]$ we test $(\textit{nums}[i-1]+\textit{nums}[i+1])\times 2 = \textit{nums}[i]$ and count the successes.
 
 <!-- thinking:end -->
 
@@ -72,7 +72,7 @@ We traverse each subarray of length $3$ in the array $\textit{nums}$ and check i
 
 After traversing, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

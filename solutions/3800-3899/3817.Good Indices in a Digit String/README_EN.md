@@ -92,9 +92,9 @@ difficulty: Medium
 >
 > Index $i$ is good iff some substring ending at $i$ equals the decimal writing of $i$. $|s| \le 10^5$, yet that writing has length at most $6$.
 >
-> For each $i$ it suffices to compare a suffix of length $|\mathrm{str}(i)|$; other substrings cannot match.
+> For each $i$ it suffices to compare a suffix of length $|\textit{str}(i)|$; other substrings cannot match.
 >
-> We scan every index and test $s[i+1-k:i+1]$ against $\mathrm{str}(i)$.
+> We scan every index and test $s[i+1-k:i+1]$ against $\textit{str}(i)$.
 >
 > The total comparison work is linear in $n$.
 
@@ -102,7 +102,7 @@ difficulty: Medium
 
 We observe that the maximum length of string $s$ is $10^5$, and the length of the decimal representation of index $i$ is at most $6$ (since the decimal representation of $10^5$ is $100000$, which has a length of $6$). Therefore, we only need to check for each index $i$ whether the substring corresponding to its decimal representation is equal to it.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$, ignoring the space required for the answer.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

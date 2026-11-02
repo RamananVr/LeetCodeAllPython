@@ -77,9 +77,9 @@ tags:
 >
 > Queries ask for the index of the $i$-th occurrence of $x$. Scanning from the left per query is $O(nm)$.
 >
-> All occurrence indices fit in an array $ids$, after which a query is one lookup.
+> All occurrence indices fit in an array $\textit{ids}$, after which a query is one lookup.
 >
-> Collect indices of $x$, then return $ids[i-1]$ or $-1$ when $i$ is too large.
+> Collect indices of $x$, then return $\textit{ids}[i-1]$ or $-1$ when $i$ is too large.
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ According to the problem description, we can first traverse the array `nums` to 
 
 Next, we traverse the array `queries`. For each query $i$, if $i - 1$ is less than the length of `ids`, then the answer is `ids[i - 1]`, otherwise, the answer is $-1$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the arrays `nums` and `queries` respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays `nums` and `queries` respectively.
 
 <!-- tabs:start -->
 

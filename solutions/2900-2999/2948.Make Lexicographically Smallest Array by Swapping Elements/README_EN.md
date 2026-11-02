@@ -79,9 +79,9 @@ We cannot obtain a lexicographically smaller array by applying any more operatio
 
 > **Thinking**
 >
-> Values differing by at most $limit$ may be swapped, and transitivity yields connected components. After sorting, a run whose adjacent gaps are $\le limit$ is a component; different runs cannot mix.
+> Values differing by at most $\textit{limit}$ may be swapped, and transitivity yields connected components. After sorting, a run whose adjacent gaps are $\le \textit{limit}$ is a component; different runs cannot mix.
 >
-> Values inside a component may be reassigned to that component’s original indices. Sort $(value,index)$ pairs, cut runs, sort the indices, and write values back in increasing order. $n \le 10^5$.
+> Values inside a component may be reassigned to that component’s original indices. Sort $(\textit{value},\textit{index})$ pairs, cut runs, sort the indices, and write values back in increasing order. $n \le 10^5$.
 
 <!-- thinking:end -->
 
@@ -91,7 +91,7 @@ The lexicographically smallest array obtainable through swapping is thus the one
 
 We first pair each element in $\textit{nums}$ with its index to form an array of tuples, then sort by element value. We then traverse the sorted tuple array, identify the range of each subarray, sort the elements within each subarray by their original indices, and fill them back into the corresponding positions to obtain the final result.
 
-The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

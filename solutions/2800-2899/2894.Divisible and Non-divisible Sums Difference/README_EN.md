@@ -79,7 +79,7 @@ We return 0 - 15 = -15 as the answer.
 
 > **Thinking**
 >
-> $n$ is small enough to scan $[1,n]$: subtract a multiple of $m$ and add every other integer, which is exactly $num_1-num_2$.
+> $n$ is small enough to scan $[1,n]$: subtract a multiple of $m$ and add every other integer, which is exactly $\textit{num}_1-\textit{num}_2$.
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ We traverse every number in the range $[1, n]$. If it is divisible by $m$, we su
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 

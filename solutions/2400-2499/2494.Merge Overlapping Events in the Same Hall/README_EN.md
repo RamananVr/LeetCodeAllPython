@@ -82,7 +82,7 @@ Hall 3:
 
 > **Thinking**
 >
-> Per hall, merge events that overlap or touch after ordering by start day. A running $\textit{MAX}(\textit{end_day})$ is the latest end so far; if the next start is still $\le$ that value, it belongs to the same run.
+> Per hall, merge events that overlap or touch after ordering by start day. A running $\textit{MAX}(\textit{end}_\textit{day})$ is the latest end so far; if the next start is still $\le$ that value, it belongs to the same run.
 >
 > $\textit{LAG}$ flags a new run, $\textit{SUM}$ assigns a group id, then $\textit{MIN}$/$\textit{MAX}$ close each group.
 
@@ -110,10 +110,11 @@ WITH
         SELECT
             *,
             IF(
-                start_day <= LAG(cur_max_end_day) OVER (
-                    PARTITION BY hall_id
-                    ORDER BY start_day
-                ),
+                start_day <=
+                    LAG(cur_max_end_day) OVER (
+                        PARTITION BY hall_id
+                        ORDER BY start_day
+                    ),
                 0,
                 1
             ) AS start

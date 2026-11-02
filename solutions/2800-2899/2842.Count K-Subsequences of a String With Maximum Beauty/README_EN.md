@@ -114,13 +114,13 @@ Since a $k$-subsequence is a subsequence of length $k$ in the string $s$ with un
 
 Otherwise, to maximize the beauty value of the $k$-subsequence, we need to make characters with high beauty values appear as much as possible in the $k$-subsequence. Therefore, we can sort the values in $f$ in reverse order to get an array $vs$.
 
-We denote the occurrence of the $k$th character in the array $vs$ as $val$, and there are $x$ characters with an occurrence of $val$.
+We denote the occurrence of the $k$th character in the array $vs$ as $\textit{val}$, and there are $x$ characters with an occurrence of $\textit{val}$.
 
-Then we first find out the characters with occurrences greater than $val$, multiply the occurrences of each character to get the initial answer $ans$, and update the remaining number of characters to be selected to $k$. We need to select $k$ characters from $x$ characters, so the answer needs to be multiplied by the combination number $C_x^k$, and finally multiplied by $val^k$, i.e., $ans = ans \times C_x^k \times val^k$.
+Then we first find out the characters with occurrences greater than $\textit{val}$, multiply the occurrences of each character to get the initial answer $\textit{ans}$, and update the remaining number of characters to be selected to $k$. We need to select $k$ characters from $x$ characters, so the answer needs to be multiplied by the combination number $C_x^k$, and finally multiplied by $\textit{val}^k$, i.e., $\textit{ans} = \textit{ans} \times C_x^k \times \textit{val}^k$.
 
 Note that we need to use fast power and modulo operations here.
 
-The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

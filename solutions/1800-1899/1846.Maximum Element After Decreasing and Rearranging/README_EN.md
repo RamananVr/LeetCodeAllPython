@@ -88,7 +88,7 @@ The largest element in <code>arr is 3.</code>
 >
 > We may reorder and decrease (but not increase) values so that the first is $1$ and adjacent differences are at most $1$, while maximizing the last value. We should decrease as little as possible.
 >
-> Sort, force the first entry to $1$, and cap each later value at $arr[i-1]+1$. The resulting nondecreasing chain is the tallest sequence that obeys the constraints, so the last entry is the answer.
+> Sort, force the first entry to $1$, and cap each later value at $\textit{arr}[i-1]+1$. The resulting nondecreasing chain is the tallest sequence that obeys the constraints, so the last entry is the answer.
 
 <!-- thinking:end -->
 
@@ -98,7 +98,7 @@ Next, we start traversing the array from the second element. If the current elem
 
 Finally, we return the last element of the array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

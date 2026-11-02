@@ -65,7 +65,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can use a hash table or array $cnt$ to count the occurrence of each character in string $s$, then traverse string $t$. For each character, we subtract its occurrence in $cnt$. If the corresponding count is negative, it means that the occurrence of this character in $t$ is greater than in $s$, so this character is the added character.
+We can use a hash table or array $\textit{cnt}$ to count the occurrence of each character in string $s$, then traverse string $t$. For each character, we subtract its occurrence in $\textit{cnt}$. If the corresponding count is negative, it means that the occurrence of this character in $t$ is greater than in $s$, so this character is the added character.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ represents the character set. Here the character set is all lowercase letters, so $|\Sigma|=26$.
 
@@ -101,7 +101,7 @@ class Solution:
 
 We can sum the ASCII values of each character in string $t$, then subtract the sum of the ASCII values of each character in string $s$. The final result is the ASCII value of the added character.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 

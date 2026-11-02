@@ -69,15 +69,15 @@ There is no way to delete elements from nums to allow this.</pre>
 
 > **Thinking**
 >
-> After deletions the remaining minimum must divide every entry of $numsDivide$, hence it is a divisor of $x=\gcd(numsDivide)$. $n$ can be $10^5$.
+> After deletions the remaining minimum must divide every entry of $\textit{numsDivide}$, hence it is a divisor of $x=\gcd(\textit{numsDivide})$. $n$ can be $10^5$.
 >
-> Compute $x$, sort $nums$, and return the index of the first divisor of $x$. If none exists, the answer is $-1$.
+> Compute $x$, sort $\textit{nums}$, and return the index of the first divisor of $x$. If none exists, the answer is $-1$.
 
 <!-- thinking:end -->
 
 If an element can divide every value in `numsDivide`, it is a divisor of their GCD $x$. Compute $x$, sort `nums`, and return the index of the first divisor of $x$.
 
-The time complexity is $O(m + \log M + n \times \log n)$, where $n$ and $m$ are the lengths of `nums` and `numsDivide`, and $M$ is the maximum value in `numsDivide`.
+The time complexity is $O(m + \log M + n \log n)$, where $n$ and $m$ are the lengths of `nums` and `numsDivide`, and $M$ is the maximum value in `numsDivide`.
 
 <!-- tabs:start -->
 

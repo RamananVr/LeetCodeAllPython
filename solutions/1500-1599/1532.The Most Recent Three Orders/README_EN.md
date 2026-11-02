@@ -121,7 +121,7 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 >
 > List each customer's three most recent orders together with the name. Hand-picking three rows after a sort is brittle when dates tie; a window numbers rows inside each group.
 >
-> Join $Orders$ to $Customers$ on $customer\_id$, then $ROW\_NUMBER$ partitioned by customer and ordered by $order\_date$ descending. Keep ranks at most $3$, and emit name, id, and date in the required order.
+> Join $\textit{Orders}$ to $\textit{Customers}$ on $\textit{customer\_id}$, then $\textit{ROW\_NUMBER}$ partitioned by customer and ordered by $\textit{order\_date}$ descending. Keep ranks at most $3$, and emit name, id, and date in the required order.
 
 <!-- thinking:end -->
 
@@ -141,9 +141,8 @@ WITH
                 PARTITION BY customer_id
                 ORDER BY order_date DESC
             ) AS rk
-        FROM
-            Orders
-            JOIN Customers USING (customer_id)
+        FROM Orders
+        JOIN Customers USING (customer_id)
     )
 SELECT name AS customer_name, customer_id, order_id, order_date
 FROM T

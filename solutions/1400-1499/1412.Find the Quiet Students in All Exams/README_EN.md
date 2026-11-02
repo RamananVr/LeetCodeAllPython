@@ -114,9 +114,9 @@ So, we only return the information of Student 2.
 
 <!-- thinking:end -->
 
-We can use the `RANK()` window function to calculate the ascending rank $rk1$ and descending rank $rk2$ of each student in each exam, and obtain the table $T$.
+We can use the `RANK()` window function to calculate the ascending rank $\textit{rk1}$ and descending rank $\textit{rk2}$ of each student in each exam, and obtain the table $T$.
 
-Next, we can perform an inner join between the table $T$ and the table $Student$, and then group by student ID to obtain the number of times each student has a rank of $1$ in ascending order $cnt1$ and descending order $cnt2$ in all exams. If both $cnt1$ and $cnt2$ are $0$, it means that the student is in the middle of the pack in all exams.
+Next, we can perform an inner join between the table $T$ and the table $\textit{Student}$, and then group by student ID to obtain the number of times each student has a rank of $1$ in ascending order $\textit{cnt1}$ and descending order $\textit{cnt2}$ in all exams. If both $\textit{cnt1}$ and $\textit{cnt2}$ are $0$, it means that the student is in the middle of the pack in all exams.
 
 <!-- tabs:start -->
 
@@ -139,9 +139,8 @@ WITH
         FROM Exam
     )
 SELECT student_id, student_name
-FROM
-    T
-    JOIN Student USING (student_id)
+FROM T
+JOIN Student USING (student_id)
 GROUP BY 1
 HAVING SUM(rk1 = 1) = 0 AND SUM(rk2 = 1) = 0
 ORDER BY 1;

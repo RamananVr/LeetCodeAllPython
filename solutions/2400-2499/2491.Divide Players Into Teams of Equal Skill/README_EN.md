@@ -85,7 +85,7 @@ If not, it means that the skill points cannot be equal, and we directly return $
 
 At the end of the traversal, we return the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the `skill` array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the `skill` array.
 
 <!-- tabs:start -->
 
@@ -122,7 +122,7 @@ class Solution:
 
 <!-- thinking:end -->
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the `skill` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `skill` array.
 
 <!-- tabs:start -->
 

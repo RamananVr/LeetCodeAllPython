@@ -78,11 +78,11 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24.
 
 <!-- thinking:end -->
 
-We can enumerate the bottom-right corner $(i, j)$ of the matrix, and then enumerate the first row $k$ upwards. The width of the matrix with $(i, j)$ as the bottom-right corner in each row is $\min_{k \leq i} \textit{g}[k][j]$, where $\textit{g}[k][j]$ represents the width of the matrix with $(k, j)$ as the bottom-right corner in the $k$-th row.
+We can enumerate the bottom-right corner $(i, j)$ of the matrix, and then enumerate the first row $k$ upwards. The width of the matrix with $(i, j)$ as the bottom-right corner in each row is $\min_{k \leq i} g[k][j]$, where $g[k][j]$ represents the width of the matrix with $(k, j)$ as the bottom-right corner in the $k$-th row.
 
 Therefore, we can preprocess a 2D array $g[i][j]$, where $g[i][j]$ represents the number of consecutive $1$s from the $j$-th column to the left in the $i$-th row.
 
-The time complexity is $O(m^2 \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(m^2n)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -119,7 +119,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 still walks $O(m)$ rows upward at every bottom-right cell and adds the running minimum width, so the total stays $O(m^2 \times n)$. With side length $150$, that inner scan is the remaining cost.
+> Solution 1 still walks $O(m)$ rows upward at every bottom-right cell and adds the running minimum width, so the total stays $O(m^2n)$. With side length $150$, that inner scan is the remaining cost.
 >
 > A narrower width on the same column caps every row above it, so those rows do not need another pass. One strictly increasing stack of widths per column makes the stack top the nearest smaller width above the current cell. Between that top and the current row the minimum width is $g[i][j]$, and the answer at the top and above is already stored. Each cell is pushed and popped at most once, which turns the upward scan into amortized $O(1)$.
 
@@ -131,7 +131,7 @@ The count is then taken column by column. For column $j$, scan row $i$ from top 
 
 When handling $g[i][j]$, pop every stack top whose width is at least the current value. If the stack is empty, every row from $0$ through $i$ has minimum width $g[i][j]$, so there are $g[i][j] \times (i + 1)$ submatrices with bottom-right corner $(i, j)$. Otherwise let the top be $(w, r, c)$. The contribution of row $r$ and above is already stored in $c$, and every row from $r + 1$ through $i$ has minimum width $g[i][j]$, so the count is $c + g[i][j] \times (i - r)$. Add this value to the answer, then push the current width, the row index, and the count onto the stack.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

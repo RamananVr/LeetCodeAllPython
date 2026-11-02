@@ -85,7 +85,7 @@ tags:
 
 > **Thinking**
 >
-> Naively simulating the queue costs $O(\sum tickets)$. When person $k$ finishes, everyone ahead bought at most $tickets[k]$ tickets and everyone behind at most $tickets[k]-1$.
+> Naively simulating the queue costs $O(\sum \textit{tickets})$. When person $k$ finishes, everyone ahead bought at most $\textit{tickets}[k]$ tickets and everyone behind at most $\textit{tickets}[k]-1$.
 >
 > Sum $\min$ of that cap and each person's demand in one pass.
 
@@ -95,7 +95,7 @@ According to the problem description, when the $k^{th}$ person finishes buying t
 
 Therefore, we can traverse the entire queue. For the $i^{th}$ person, if $i \leq k$, the time to buy tickets is $\min(\textit{tickets}[i], \textit{tickets}[k])$; otherwise, the time to buy tickets is $\min(\textit{tickets}[i], \textit{tickets}[k] - 1)$. We sum the buying time for all people to get the result.
 
-The time complexity is $O(n)$, where $n$ is the length of the queue. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the queue.
 
 <!-- tabs:start -->
 

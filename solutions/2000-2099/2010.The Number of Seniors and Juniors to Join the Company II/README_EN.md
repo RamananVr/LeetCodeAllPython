@@ -114,9 +114,9 @@ We can hire all three juniors with the remaining budget.
 
 > **Thinking**
 >
-> The hiring rule matches problem 2004, but we output accepted $employee\_id$s rather than counts. Window prefix sums still test whether hiring through a person stays in budget.
+> The hiring rule matches problem 2004, but we output accepted $\textit{employee\_id}$s rather than counts. Window prefix sums still test whether hiring through a person stays in budget.
 >
-> Seniors spend first; Junior running sums add that spend. Select ids with $cur \le 70000$ and `UNION` them.
+> Seniors spend first; Junior running sums add that spend. Select ids with $\textit{cur} \le 70000$ and `UNION` them.
 
 <!-- thinking:end -->
 
@@ -138,8 +138,7 @@ WITH
         SELECT
             employee_id,
             IFNULL(
-                SELECT
-                    MAX(cur)
+                SELECT MAX(cur)
                 FROM s
                 WHERE cur <= 70000,
                 0
@@ -147,13 +146,11 @@ WITH
         FROM Candidates
         WHERE experience = 'Junior'
     )
-SELECT
-    employee_id
+SELECT employee_id
 FROM s
 WHERE cur <= 70000
 UNION
-SELECT
-    employee_id
+SELECT employee_id
 FROM j
 WHERE cur <= 70000;
 ```

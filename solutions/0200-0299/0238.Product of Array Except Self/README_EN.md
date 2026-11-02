@@ -52,7 +52,7 @@ tags:
 
 > **Thinking**
 >
-> The product except $nums[i]$ is the left product times the right product. Two extra arrays for prefixes and suffixes use more than constant space.
+> The product except $\textit{nums}[i]$ is the left product times the right product. Two extra arrays for prefixes and suffixes use more than constant space.
 >
 > Write prefix products into the answer left to right, then multiply a running suffix from the right, using only the output array.
 
@@ -66,7 +66,7 @@ Next, we traverse the array from right to left. For the $i$-th element, we updat
 
 After the traversal, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

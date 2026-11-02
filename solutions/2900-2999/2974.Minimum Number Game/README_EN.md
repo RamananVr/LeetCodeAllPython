@@ -73,7 +73,7 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 
 We can put the elements of the array $\textit{nums}$ into a min heap one by one. Each time, we take out two elements $a$ and $b$ from the min heap, and then sequentially put $b$ and $a$ into the answer array until the min heap is empty.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -109,7 +109,7 @@ class Solution:
 
 We can sort the array $\textit{nums}$, and then iterate through the array, swapping adjacent elements each time until the iteration is complete, and return the swapped array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

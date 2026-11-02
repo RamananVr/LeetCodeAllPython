@@ -104,7 +104,7 @@ Users 102 and 103 spent the same amount and we break the tie by their ID while u
 >
 > We need each user’s total spend, ordered by spend descending and user id ascending. Join sales to prices and aggregate by user.
 >
-> Sum $quantity \times price$ after the join, then $ORDER\ BY$ spend and $user\_id$.
+> Sum $\textit{quantity} \times \textit{price}$ after the join, then $\textit{ORDER BY}$ spend and $\textit{user\_id}$.
 
 <!-- thinking:end -->
 
@@ -115,9 +115,8 @@ Users 102 and 103 spent the same amount and we break the tie by their ID while u
 ```sql
 # Write your MySQL query statement below
 SELECT user_id, SUM(quantity * price) AS spending
-FROM
-    Sales
-    JOIN Product USING (product_id)
+FROM Sales
+JOIN Product USING (product_id)
 GROUP BY 1
 ORDER BY 2 DESC, 1;
 ```

@@ -86,7 +86,7 @@ All indices match.
 
 We can first sort the heights of the students, then compare the sorted heights with the original heights, and count the positions that are different.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of students.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of students.
 
 <!-- tabs:start -->
 
@@ -111,15 +111,15 @@ class Solution:
 
 > **Thinking**
 >
-> Comparison sort uses $O(n\log n)$ and an extra array. Heights lie in $1..100$, so counting sort builds the expected order in linear time.
+> Comparison sort uses $O(n \log n)$ and an extra array. Heights lie in $1..100$, so counting sort builds the expected order in linear time.
 >
 > Tally each height, then expand heights from $1$ to $100$ against the original array and count disagreements.
 
 <!-- thinking:end -->
 
-Since the height of the students in the problem does not exceed $100$, we can use counting sort. Here we use an array $cnt$ of length $101$ to count the number of times each height $h_i$ appears.
+Since the height of the students in the problem does not exceed $100$, we can use counting sort. Here we use an array $\textit{cnt}$ of length $101$ to count the number of times each height $h_i$ appears.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Where $n$ is the number of students, and $M$ is the maximum height of the students. In this problem, $M = 101$.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the number of students, and $M$ is the maximum height of the students. In this problem, $M = 101$.
 
 <!-- tabs:start -->
 

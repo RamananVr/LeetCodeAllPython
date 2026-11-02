@@ -80,11 +80,11 @@ tags:
 
 <!-- thinking:end -->
 
-We directly traverse the mountains starting from index $1$. If the height of the mountain to its left is greater than $threshold$, we add its index to the result array.
+We directly traverse the mountains starting from index $1$. If the height of the mountain to its left is greater than $\textit{threshold}$, we add its index to the result array.
 
 After the traversal, we return the result array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\textit{height}$. Ignoring the space consumption of the result array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{height}$.
 
 <!-- tabs:start -->
 

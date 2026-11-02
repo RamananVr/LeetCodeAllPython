@@ -67,7 +67,7 @@ tags:
 >
 > Order does not matter, so we sort. After fixing the smallest index $i$, two pointers count pairs on the right whose sum is below $\textit{target}$.
 >
-> If $nums[i]+nums[j]+nums[k]<\textit{target}$, every $k'$ in $(j,k]$ works, so we add $k-j$ and move $j$; otherwise we decrement $k$.
+> If $\textit{nums}[i]+\textit{nums}[j]+\textit{nums}[k]<\textit{target}$, every $k'$ in $(j,k]$ works, so we add $k-j$ and move $j$; otherwise we decrement $k$.
 
 <!-- thinking:end -->
 
@@ -80,7 +80,7 @@ First, we sort the array and then enumerate the first element $\textit{nums}[i]$
 
 After enumerating all $i$, we get the number of triplets that meet the condition.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ There is no occurrence of a subarray with a size more than 3 filled with 0. Ther
 >
 > Zero-filled subarrays live inside runs of zeros. $n \le 10^5$, so we count by run instead of endpoints.
 >
-> Keep the current run length $cnt$. A zero increments $cnt$ and adds it to the answer (subarrays ending here); a nonzero resets $cnt$.
+> Keep the current run length $\textit{cnt}$. A zero increments $\textit{cnt}$ and adds it to the answer (subarrays ending here); a nonzero resets $\textit{cnt}$.
 
 <!-- thinking:end -->
 
@@ -81,7 +81,7 @@ We traverse the array $\textit{nums}$ and use a variable $\textit{cnt}$ to recor
 
 After the traversal, we return the answer.
 
-Time complexity $O(n)$, where $n$ is the length of the array $\textit{nums}$. Space complexity $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 

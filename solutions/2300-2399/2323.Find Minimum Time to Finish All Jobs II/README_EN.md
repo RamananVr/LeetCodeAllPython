@@ -70,7 +70,7 @@ It can be proven that 3 days is the minimum number of days needed.
 
 > **Thinking**
 >
-> Each worker takes exactly one job; the time is the max of $\lceil jobs_i / workers_j \rceil$. Counts are equal, so only the matching matters.
+> Each worker takes exactly one job; the time is the max of $\lceil \textit{jobs}_i / \textit{workers}_j \rceil$. Counts are equal, so only the matching matters.
 >
 > Pairing a heavy job with a slow worker raises the maximum. Sort both arrays and match by index so stronger workers take heavier jobs, then take the max of the ceilings.
 
@@ -80,7 +80,7 @@ To minimize the number of days required to complete all jobs, we can try to assi
 
 Therefore, we can first sort $\textit{jobs}$ and $\textit{workers}$, then assign jobs to workers based on their indices. Finally, we calculate the maximum ratio of job time to worker time.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of jobs.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of jobs.
 
 <!-- tabs:start -->
 

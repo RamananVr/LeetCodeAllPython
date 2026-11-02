@@ -73,11 +73,11 @@ tags:
 
 <!-- thinking:end -->
 
-We use a hash table or an array of length $26$ $\text{cnt}$ to store the frequency of each character. Then, we traverse each character $\text{s[i]}$ from the beginning. If $\text{cnt[s[i]]}$ is $1$, we return $i$.
+We use a hash table or an array of length $26$ $\textit{cnt}$ to store the frequency of each character. Then, we traverse each character $s[i]$ from the beginning. If $\textit{cnt}[s[i]]$ is $1$, we return $i$.
 
 If no such character is found after the traversal, we return $-1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma|=26$.
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ is the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 

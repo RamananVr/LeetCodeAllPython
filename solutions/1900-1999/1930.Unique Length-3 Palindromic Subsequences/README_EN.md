@@ -82,7 +82,7 @@ tags:
 
 > **Thinking**
 >
-> A length-$3$ palindromic subsequence has the form $c\_c$. Enumerating triples is impossible for $n\le 10^5$.
+> A length-$3$ palindromic subsequence has the form $\textit{c\_c}$. Enumerating triples is impossible for $n\le 10^5$.
 >
 > There are only $26$ letters, so we enumerate the two ends. For a fixed $c$, the number of distinct characters strictly between its first and last occurrence is the number of distinct palindromes with those ends.
 >
@@ -94,7 +94,7 @@ Since the string contains only lowercase letters, we can directly enumerate all 
 
 After enumerating all pairs, we get the answer.
 
-The time complexity is $O(n \times |\Sigma|)$, where $n$ is the length of the string and $\Sigma$ is the size of the character set. In this problem, $|\Sigma| = 26$. The space complexity is $O(|\Sigma|)$ or $O(1)$.
+The time complexity is $O(n|\Sigma|)$, and the space complexity is $O(|\Sigma|)$ or $O(1)$, where $n$ is the length of the string and $\Sigma$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 

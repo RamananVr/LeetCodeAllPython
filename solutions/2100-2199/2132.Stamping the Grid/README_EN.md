@@ -74,7 +74,7 @@ tags:
 
 > **Thinking**
 >
-> Every stamp must sit on empty cells only, and every empty cell must be covered at least once. Marking each legal placement cell by cell is $O(mn\cdot hw)$ and too slow.
+> Every stamp must sit on empty cells only, and every empty cell must be covered at least once. Marking each legal placement cell by cell is $O(mn hw)$ and too slow.
 >
 > A 2-D prefix sum tests an $h\times w$ block in $O(1)$; successful placements are recorded in a 2-D difference array, which is then reconstructed to test coverage of every empty cell.
 >
@@ -82,11 +82,11 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, every empty cell must be covered by a stamp, and no occupied cell can be covered. Therefore, we can traverse the two-dimensional matrix, and for each cell, if all cells in the area of $stampHeight \times stampWidth$ with this cell as the upper left corner are empty (i.e., not occupied), then we can place a stamp at this cell.
+According to the problem description, every empty cell must be covered by a stamp, and no occupied cell can be covered. Therefore, we can traverse the two-dimensional matrix, and for each cell, if all cells in the area of $\textit{stampHeight} \times \textit{stampWidth}$ with this cell as the upper left corner are empty (i.e., not occupied), then we can place a stamp at this cell.
 
-To quickly determine whether all cells in an area are empty, we can use a two-dimensional prefix sum. We use $s_{i,j}$ to represent the number of occupied cells in the sub-matrix from $(1,1)$ to $(i,j)$ in the two-dimensional matrix. That is, $s_{i, j} = s_{i - 1, j} + s_{i, j - 1} - s_{i - 1, j - 1} + grid_{i-1, j-1}$.
+To quickly determine whether all cells in an area are empty, we can use a two-dimensional prefix sum. We use $s_{i,j}$ to represent the number of occupied cells in the sub-matrix from $(1,1)$ to $(i,j)$ in the two-dimensional matrix. That is, $s_{i, j} = s_{i - 1, j} + s_{i, j - 1} - s_{i - 1, j - 1} + \textit{grid}_{i-1, j-1}$.
 
-Then, with $(i, j)$ as the upper left corner, and the height and width are $stampHeight$ and $stampWidth$ respectively, the lower right coordinate of the sub-matrix is $(x, y) = (i + stampHeight - 1, j + stampWidth - 1)$. We can calculate the number of occupied cells in this sub-matrix through $s_{x, y} - s_{x, j - 1} - s_{i - 1, y} + s_{i - 1, j - 1}$. If the number of occupied cells in this sub-matrix is $0$, then we can place a stamp at $(i, j)$. After placing the stamp, all cells in this $stampHeight \times stampWidth$ area will become occupied cells. We can use a two-dimensional difference array $d$ to record this change. That is:
+Then, with $(i, j)$ as the upper left corner, and the height and width are $\textit{stampHeight}$ and $\textit{stampWidth}$ respectively, the lower right coordinate of the sub-matrix is $(x, y) = (i + \textit{stampHeight} - 1, j + \textit{stampWidth} - 1)$. We can calculate the number of occupied cells in this sub-matrix through $s_{x, y} - s_{x, j - 1} - s_{i - 1, y} + s_{i - 1, j - 1}$. If the number of occupied cells in this sub-matrix is $0$, then we can place a stamp at $(i, j)$. After placing the stamp, all cells in this $\textit{stampHeight} \times \textit{stampWidth}$ area will become occupied cells. We can use a two-dimensional difference array $d$ to record this change. That is:
 
 $$
 \begin{aligned}
@@ -99,7 +99,7 @@ $$
 
 Finally, we perform a prefix sum operation on the two-dimensional difference array $d$ to find out the number of times each cell is covered by a stamp. If a cell is not occupied and the number of times it is covered by a stamp is $0$, then we cannot place a stamp at this cell, so we need to return $\texttt{false}$. If all "unoccupied cells" are successfully covered by stamps, return $\texttt{true}$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the height and width of the two-dimensional matrix, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the height and width of the two-dimensional matrix, respectively.
 
 <!-- tabs:start -->
 

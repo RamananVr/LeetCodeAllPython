@@ -84,9 +84,9 @@ tags:
 
 > **Thinking**
 >
-> All but the last ride are rounded up; we want the smallest integer speed that finishes within $hour$. Larger speed only helps. If there are more trains than $\lceil hour\rceil$, even one hour per ride is too slow.
+> All but the last ride are rounded up; we want the smallest integer speed that finishes within $\textit{hour}$. Larger speed only helps. If there are more trains than $\lceil \textit{hour}\rceil$, even one hour per ride is too slow.
 >
-> Binary-search speed in $[1,10^7]$: sum $d/v$ (ceil except the last ride) and test against $hour$. Return $-1$ if no speed works.
+> Binary-search speed in $[1,10^7]$: sum $d/v$ (ceil except the last ride) and test against $\textit{hour}$. Return $-1$ if no speed works.
 
 <!-- thinking:end -->
 
@@ -100,7 +100,7 @@ The problem is transformed into determining whether a speed value $v$ can allow 
 
 After the binary search ends, if the left boundary exceeds $10^7$, it means we cannot arrive within the stipulated time, and we return $-1$; otherwise, we return the left boundary.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of train trips and the upper bound of the speed, respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ and $M$ are the number of train trips and the upper bound of the speed, respectively.
 
 <!-- tabs:start -->
 

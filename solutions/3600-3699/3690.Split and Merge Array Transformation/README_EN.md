@@ -86,7 +86,7 @@ source: Weekly Contest 468 Q3
 
 We can use Breadth-First Search (BFS) to solve this problem. Since the array length is at most 6, we can enumerate all possible split and merge operations to find the minimum number of operations.
 
-First, we define a queue $\textit{q}$ to store the current array states, and use a set $\textit{vis}$ to record the visited array states to avoid duplicate computations. Initially, the queue contains only the array $\textit{nums1}$.
+First, we define a queue $q$ to store the current array states, and use a set $\textit{vis}$ to record the visited array states to avoid duplicate computations. Initially, the queue contains only the array $\textit{nums1}$.
 
 Then, we perform the following steps:
 
@@ -97,7 +97,7 @@ Then, we perform the following steps:
 5. If a new array state $\textit{nxt}$ has not been visited, add it to the queue and the visited set.
 6. Repeat the above steps until the target array is found or the queue is empty.
 
-The time complexity is $O(n! \times n^4)$, and the space complexity is $O(n! \times n)$, where $n$ is the length of the array.
+The time complexity is $O(n!n^4)$, and the space complexity is $O(n!n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

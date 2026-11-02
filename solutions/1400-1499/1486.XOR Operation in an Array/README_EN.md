@@ -61,13 +61,13 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 > **Thinking**
 >
-> $n\le 1000$. Emit $start+2i$ and XOR the values together.
+> $n\le 1000$. Emit $\textit{start}+2i$ and XOR the values together.
 
 <!-- thinking:end -->
 
 We can directly simulate to calculate the XOR result of all elements in the array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

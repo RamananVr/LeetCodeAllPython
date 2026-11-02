@@ -85,7 +85,7 @@ The employees with employee_id 3, 8, and 9 do not report their work to the head 
 
 > **Thinking**
 >
-> The hierarchy is at most three levels and the CEO is id $1$. Two self-joins walk $manager\_id$ to the manager's manager; if that is $1$ and the employee is not $1$, the employee reports to the CEO. The number of joins matches the depth bound.
+> The hierarchy is at most three levels and the CEO is id $1$. Two self-joins walk $\textit{manager\_id}$ to the manager's manager; if that is $1$ and the employee is not $1$, the employee reports to the CEO. The number of joins matches the depth bound.
 
 <!-- thinking:end -->
 
@@ -100,10 +100,9 @@ Specifically, we first use a join to find the `manager_id` of the superior manag
 ```sql
 # Write your MySQL query statement below
 SELECT e1.employee_id
-FROM
-    Employees AS e1
-    JOIN Employees AS e2 ON e1.manager_id = e2.employee_id
-    JOIN Employees AS e3 ON e2.manager_id = e3.employee_id
+FROM Employees AS e1
+JOIN Employees AS e2 ON e1.manager_id = e2.employee_id
+JOIN Employees AS e3 ON e2.manager_id = e3.employee_id
 WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 ```
 

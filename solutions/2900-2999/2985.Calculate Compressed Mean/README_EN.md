@@ -71,7 +71,7 @@ The calculation is as follows:
 
 > **Thinking**
 >
-> The table already stores item counts times their frequencies, so the mean is the weighted ratio of those two sums. One $SUM$ pair and $ROUND$ to two decimals suffice.
+> The table already stores item counts times their frequencies, so the mean is the weighted ratio of those two sums. One $\textit{SUM}$ pair and $\textit{ROUND}$ to two decimals suffice.
 >
 > Orders need not be unnested.
 
@@ -85,11 +85,10 @@ We use the `SUM` function to calculate the total quantity of products and the to
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    ROUND(
-        SUM(item_count * order_occurrences) / SUM(order_occurrences),
-        2
-    ) AS average_items_per_order
+SELECT ROUND(
+    SUM(item_count * order_occurrences) / SUM(order_occurrences),
+    2
+) AS average_items_per_order
 FROM Orders;
 ```
 

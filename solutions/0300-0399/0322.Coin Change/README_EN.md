@@ -67,7 +67,7 @@ tags:
 
 > **Thinking**
 >
-> Each coin may be used any number of times; we want the fewest coins summing to $amount$. This is unbounded knapsack. A raw DFS repeats sub-amounts.
+> Each coin may be used any number of times; we want the fewest coins summing to $\textit{amount}$. This is unbounded knapsack. A raw DFS repeats sub-amounts.
 >
 > Let $f[i][j]$ be the fewest coins using the first $i$ types to make $j$. Skip type $i$ via $f[i-1][j]$; if $j\ge x$, take $f[i][j-x]+1$. $f[0][0]=0$, the rest are $\infty$; return $-1$ if impossible.
 
@@ -97,7 +97,7 @@ $$
 
 The final answer is $f[m][n]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of types of coins and the total amount, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of types of coins and the total amount, respectively.
 
 <!-- tabs:start -->
 
@@ -129,11 +129,11 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 only reads $f[i-1][j]$ and $f[i][j-x]$. Collapse to one array and iterate amounts upward so $f[j-x]$ already includes the current coin. Space becomes $O(amount)$ with the same recurrence.
+> Method 1 only reads $f[i-1][j]$ and $f[i][j-x]$. Collapse to one array and iterate amounts upward so $f[j-x]$ already includes the current coin. Space becomes $O(\textit{amount})$ with the same recurrence.
 
 <!-- thinking:end -->
 
-We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$. The time complexity remains $O(m \times n)$.
+We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$. The time complexity remains $O(mn)$.
 
 Similar problems:
 

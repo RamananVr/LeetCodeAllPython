@@ -88,7 +88,7 @@ tags:
 
 > **Thinking**
 >
-> Counting odd frequencies for every substring is $O(n^2\cdot\Sigma)$ and fails for $n\le 10^5$.
+> Counting odd frequencies for every substring is $O(n^2\Sigma)$ and fails for $n\le 10^5$.
 >
 > Ten letters fit in a 10-bit parity mask. Equal prefix xors give an even-count interval; xor differing by one bit gives exactly one odd letter.
 >
@@ -98,11 +98,11 @@ tags:
 
 Since the string contains only $10$ lowercase letters, we can use a $10$-bit integer to represent the parity of each letter count in the current prefix. The $i$-th bit is $1$ if the $i$-th letter appears an odd number of times, and $0$ if it appears an even number of times.
 
-We iterate through each character in the string. Use a variable $st$ to maintain the current prefix XOR state, and an array $cnt$ to record how many times each prefix state has appeared. Initially, $st = 0$ and $cnt[0] = 1$.
+We iterate through each character in the string. Use a variable $st$ to maintain the current prefix XOR state, and an array $\textit{cnt}$ to record how many times each prefix state has appeared. Initially, $st = 0$ and $\textit{cnt}[0] = 1$.
 
-For each character, update the prefix XOR state. If the current state has appeared $cnt[st]$ times, it means there are $cnt[st]$ substrings in which all letter counts are even, so we add $cnt[st]$ to the answer. In addition, for $0 \le i < 10$, toggling the $i$-th bit of $st$ (i.e., $st \oplus (1 << i)$) represents substrings where exactly one letter has an odd count, so we add $cnt[st \oplus (1 << i)]$ to the answer. Finally, increment the occurrence count of $st$ by $1$, and continue.
+For each character, update the prefix XOR state. If the current state has appeared $\textit{cnt}[st]$ times, it means there are $\textit{cnt}[st]$ substrings in which all letter counts are even, so we add $\textit{cnt}[st]$ to the answer. In addition, for $0 \le i < 10$, toggling the $i$-th bit of $st$ (i.e., $st \oplus (1 << i)$) represents substrings where exactly one letter has an odd count, so we add $\textit{cnt}[st \oplus (1 << i)]$ to the answer. Finally, increment the occurrence count of $st$ by $1$, and continue.
 
-The time complexity is $O(n \times \Sigma)$, and the space complexity is $O(2^{\Sigma})$, where $\Sigma = 10$ and $n$ is the length of the string.
+The time complexity is $O(n\Sigma)$, and the space complexity is $O(2^{\Sigma})$, where $\Sigma = 10$ and $n$ is the length of the string.
 
 Similar problems:
 

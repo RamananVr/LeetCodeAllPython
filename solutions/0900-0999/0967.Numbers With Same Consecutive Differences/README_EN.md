@@ -54,7 +54,7 @@ tags:
 
 > **Thinking**
 >
-> Build $n$-digit numbers whose adjacent digits differ by $k$. $n\le 9$, so DFS from a leading $1..9$ is enough. The next digit is $last\pm k$ inside $0..9$; when $k=0$ take only one branch to avoid duplicates. Collect a number once it has $n$ digits.
+> Build $n$-digit numbers whose adjacent digits differ by $k$. $n\le 9$, so DFS from a leading $1..9$ is enough. The next digit is $\textit{last}\pm k$ inside $0..9$; when $k=0$ take only one branch to avoid duplicates. Collect a number once it has $n$ digits.
 
 <!-- thinking:end -->
 
@@ -62,7 +62,7 @@ We can enumerate the first digit of all numbers of length $n$, and then use the 
 
 Specifically, we first define a boundary value $\textit{boundary} = 10^{n-1}$, which represents the minimum value of the number we need to construct. Then, we enumerate the first digit from $1$ to $9$. For each digit $i$, we recursively construct the number of length $n$ with $i$ as the first digit.
 
-The time complexity is $O(n \times 2^n \times |\Sigma|)$, where $|\Sigma|$ represents the set of digits, and in this problem $|\Sigma| = 9$. The space complexity is $O(2^n)$.
+The time complexity is $O(n 2^n|\Sigma|)$, and the space complexity is $O(2^n)$, where $|\Sigma|$ represents the set of digits, and in this problem $|\Sigma| = 9$.
 
 <!-- tabs:start -->
 

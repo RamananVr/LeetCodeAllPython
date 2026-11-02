@@ -89,7 +89,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 sorts in $O(n\log n)$. The max gap is at least $(\textit{max}-\textit{min})/(n-1)$; with that bucket width the answer can only lie between consecutive nonempty buckets.
+> Solution 1 sorts in $O(n \log n)$. The max gap is at least $(\textit{max}-\textit{min})/(n-1)$; with that bucket width the answer can only lie between consecutive nonempty buckets.
 >
 > Each bucket stores its min and max $x$; a linear scan of buckets is expected $O(n)$.
 

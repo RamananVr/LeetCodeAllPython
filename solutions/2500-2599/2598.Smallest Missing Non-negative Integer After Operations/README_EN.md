@@ -77,9 +77,9 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 
 > **Thinking**
 >
-> Adding or subtracting $\textit{value}$ any number of times replaces a number by any integer in its residue class. We want the smallest $mex$ after these operations.
+> Adding or subtracting $\textit{value}$ any number of times replaces a number by any integer in its residue class. We want the smallest $\textit{mex}$ after these operations.
 >
-> Residue $r$ can supply $r,r+\textit{value},r+2\textit{value},\ldots$. From $0$ upward we consume those residues in order; the first exhausted residue is the $mex$. Count residues and scan.
+> Residue $r$ can supply $r,r+\textit{value},r+2\textit{value},\ldots$. From $0$ upward we consume those residues in order; the first exhausted residue is the $\textit{mex}$. Count residues and scan.
 
 <!-- thinking:end -->
 
@@ -87,7 +87,7 @@ We use a hash table $\textit{cnt}$ to count the number of remainders when each n
 
 Then we traverse starting from $0$. For the current number $i$ being traversed, if $\textit{cnt}[i \bmod \textit{value}]$ is $0$, it means there is no number in the array whose remainder when modulo $\textit{value}$ is $i$, so $i$ is the MEX of the array, and we can return it directly. Otherwise, we decrement $\textit{cnt}[i \bmod \textit{value}]$ by $1$ and continue traversing.
 
-The time complexity is $O(n)$ and the space complexity is $O(\textit{value})$, where $n$ is the length of array $\textit{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(\textit{value})$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 

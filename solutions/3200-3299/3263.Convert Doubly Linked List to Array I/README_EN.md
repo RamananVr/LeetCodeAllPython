@@ -66,7 +66,7 @@ tags:
 >
 > Given the head of a doubly linked list, emit values left to right. The list is finite, so walking `next` is enough; `prev` is unused.
 >
-> Append $\textit{root.val}$ and advance until null. Linear time, constant extra space besides the answer.
+> Append $\textit{root}.\textit{val}$ and advance until null. Linear time, constant extra space besides the answer.
 
 <!-- thinking:end -->
 
@@ -74,7 +74,7 @@ We can directly traverse the linked list, adding the values of the nodes to the 
 
 After the traversal is complete, return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the linked list. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

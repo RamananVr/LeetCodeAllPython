@@ -89,7 +89,7 @@ So, the output is 1.
 
 > **Thinking**
 >
-> Group $k$ needs $k$ distinct numbers, and number $i$ may be used at most $usageLimits[i]$ times; we want the most groups. Trying every group count and matching quotas is heavy.
+> Group $k$ needs $k$ distinct numbers, and number $i$ may be used at most $\textit{usageLimits}[i]$ times; we want the most groups. Trying every group count and matching quotas is heavy.
 >
 > Sort the limits and consume from the left: whenever the running remainder can open group $k+1$, do so and subtract $k+1$, rolling the rest into the next limit. Using smaller quotas first maximizes the number of groups.
 
@@ -97,7 +97,7 @@ So, the output is 1.
 
 Sort the limits in increasing order and accumulate them. Each extra unit of remaining quota is used to try opening one more group; if it succeeds, subtract that group's cost from the running sum. The final group count is the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

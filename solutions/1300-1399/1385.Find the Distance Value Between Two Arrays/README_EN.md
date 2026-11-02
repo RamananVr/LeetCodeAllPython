@@ -81,13 +81,13 @@ For arr1[2]=8 we have:
 
 > **Thinking**
 >
-> Count values in $arr1$ whose distance to every entry of $arr2$ exceeds $d$. A double scan is $O(mn)$. After sorting $arr2$, $x$ is valid iff nothing lies in $[x-d,x+d]$: the first index $\ge x-d$ is either past the end or already greater than $x+d$.
+> Count values in $\textit{arr1}$ whose distance to every entry of $\textit{arr2}$ exceeds $d$. A double scan is $O(mn)$. After sorting $\textit{arr2}$, $x$ is valid iff nothing lies in $[x-d,x+d]$: the first index $\ge x-d$ is either past the end or already greater than $x+d$.
 
 <!-- thinking:end -->
 
 We can first sort the array $\textit{arr2}$, and then for each element $x$ in the array $\textit{arr1}$, use binary search to find the first element in the array $\textit{arr2}$ that is greater than or equal to $x - d$. If such an element exists and is less than or equal to $x + d$, it does not meet the distance requirement. Otherwise, it meets the distance requirement. We count the number of elements that meet the distance requirement, which is the answer.
 
-The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(\log n)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{arr1}$ and $\textit{arr2}$, respectively.
+The time complexity is $O((m + n) \log n)$, and the space complexity is $O(\log n)$, where $m$ and $n$ are the lengths of the arrays $\textit{arr1}$ and $\textit{arr2}$, respectively.
 
 <!-- tabs:start -->
 

@@ -109,7 +109,7 @@ Total: 3 + 4 + 10 + 0 = 17. You cannot make a dessert with a total cost of 18.
 ```python
 class Solution:
     def closestCost(
-        self, baseCosts: List[int], toppingCosts: List[int], target: int
+        self, baseCosts: list[int], toppingCosts: list[int], target: int
     ) -> int:
         def dfs(i, t):
             if i >= len(toppingCosts):
@@ -123,11 +123,8 @@ class Solution:
         arr.sort()
         d = ans = inf
 
-        # 选择一种冰激淋基料
         for x in baseCosts:
-            # 枚举子集和
             for y in arr:
-                # 二分查找
                 i = bisect_left(arr, target - x - y)
                 for j in (i, i - 1):
                     if 0 <= j < len(arr):

@@ -68,7 +68,7 @@ So we will choose the smallest k, which is 0.
 >
 > After $k$ rotations, $\textit{nums}[i]$ sits at $(i-k)\bmod n$ and scores if that index is $\ge \textit{nums}[i]$. $n\le 10^5$.
 >
-> Each value scores on a circular interval of $k$. A difference array marks $+1$/$ -1$ at the ends; the prefix is the score of each $k$.
+> Each value scores on a circular interval of $k$. A difference array marks $+1$/$-1$ at the ends; the prefix is the score of each $k$.
 >
 > Pick the smallest $k$ with the maximum score.
 
@@ -80,7 +80,7 @@ So we will choose the smallest k, which is 0.
 
 ```python
 class Solution:
-    def bestRotation(self, nums: List[int]) -> int:
+    def bestRotation(self, nums: list[int]) -> int:
         n = len(nums)
         mx, ans = -1, n
         d = [0] * n

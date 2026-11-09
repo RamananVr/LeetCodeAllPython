@@ -93,7 +93,7 @@ The time complexity is $O(L)$, and the space complexity is $O(C)$, where $L$ is 
 
 ```python
 class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
+    def findWords(self, words: list[str]) -> list[str]:
         s1 = set('qwertyuiop')
         s2 = set('asdfghjkl')
         s3 = set('zxcvbnm')
@@ -133,7 +133,7 @@ The time complexity is $O(L)$, and the space complexity is $O(C)$, where $L$ is 
 
 ```python
 class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
+    def findWords(self, words: list[str]) -> list[str]:
         ans = []
         s = "12210111011122000010020202"
         for w in words:

@@ -77,7 +77,7 @@ We use a hash table to count the number of tasks for each difficulty level. Then
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `tasks` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{tasks}$ array.
 
 <!-- tabs:start -->
 
@@ -85,7 +85,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minimumRounds(self, tasks: List[int]) -> int:
+    def minimumRounds(self, tasks: list[int]) -> int:
         cnt = Counter(tasks)
         ans = 0
         for v in cnt.values():

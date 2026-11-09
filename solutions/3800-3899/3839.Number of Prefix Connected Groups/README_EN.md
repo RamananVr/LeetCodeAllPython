@@ -133,7 +133,7 @@ The time complexity is $O(nk)$, and the space complexity is $O(n)$, where $n$ is
 
 ```python
 class Solution:
-    def prefixConnected(self, words: List[str], k: int) -> int:
+    def prefixConnected(self, words: list[str], k: int) -> int:
         cnt = Counter()
         for w in words:
             if len(w) >= k:

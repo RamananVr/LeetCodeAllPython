@@ -74,7 +74,7 @@ Applying any two edits to &quot;yes&quot; cannot make it equal to &quot;not&quot
 
 We directly traverse each word $s$ in the array $\textit{queries}$, and then traverse each word $t$ in the array $\textit{dictionary}$. If there exists a word $t$ whose edit distance from $s$ is less than $3$, we add $s$ to the answer array and then exit the inner loop. If there is no such word $t$, we continue to traverse the next word $s$.
 
-The time complexity is $O(\textit{mnl})$, where $m$ and $n$ are the lengths of the arrays $\textit{queries}$ and $\textit{dictionary}$ respectively, and $l$ is the length of the word.
+The time complexity is $O(mnl)$, where $m$ and $n$ are the lengths of the arrays $\textit{queries}$ and $\textit{dictionary}$ respectively, and $l$ is the length of the word.
 
 <!-- tabs:start -->
 
@@ -82,7 +82,7 @@ The time complexity is $O(\textit{mnl})$, where $m$ and $n$ are the lengths of t
 
 ```python
 class Solution:
-    def twoEditWords(self, queries: List[str], dictionary: List[str]) -> List[str]:
+    def twoEditWords(self, queries: list[str], dictionary: list[str]) -> list[str]:
         ans = []
         for s in queries:
             for t in dictionary:

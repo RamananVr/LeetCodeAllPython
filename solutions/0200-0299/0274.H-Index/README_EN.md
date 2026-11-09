@@ -61,9 +61,9 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 <!-- thinking:end -->
 
-We can sort the array `citations` in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $\textit{citations}[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.
+We can sort the array $\textit{citations}$ in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $\textit{citations}[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array `citations`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{citations}$.
 
 <!-- tabs:start -->
 
@@ -71,7 +71,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         citations.sort(reverse=True)
         for h in range(len(citations), 0, -1):
             if citations[h - 1] >= h:
@@ -99,7 +99,7 @@ We can use an array $\textit{cnt}$ of length $n+1$, where $\textit{cnt}[i]$ repr
 
 Then we enumerate the value $h$ from large to small, and add the element value of $\textit{cnt}$ with the index of $h$ to the variable $s$, where $s$ represents the number of papers with a reference count greater than or equal to $h$. If $s \geq h$, it means that at least $h$ papers have been cited at least $h$ times, just return $h$ directly.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `citations`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{citations}$.
 
 <!-- tabs:start -->
 
@@ -107,7 +107,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         n = len(citations)
         cnt = [0] * (n + 1)
         for x in citations:
@@ -139,7 +139,7 @@ We notice that if there is a $h$ value that satisfies at least $h$ papers are ci
 
 We define the left boundary of binary search $l=0$ and the right boundary $r=n$. Each time we take $\textit{mid} = \lfloor \frac{l + r + 1}{2} \rfloor$, where $\lfloor x \rfloor$ represents floor $x$. Then we count the number of elements in array `citations` that are greater than or equal to $\textit{mid}$, and denote it as $s$. If $s \geq \textit{mid}$, it means that at least $\textit{mid}$ papers are cited at least $\textit{mid}$ times. In this case, we change the left boundary $l$ to $\textit{mid}$. Otherwise, we change the right boundary $r$ to $\textit{mid}-1$. When the left boundary $l$ is equal to the right boundary $r$, we find the largest $h$ value, which is $l$ or $r$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of array `citations`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where $n$ is the length of array $\textit{citations}$.
 
 <!-- tabs:start -->
 
@@ -147,7 +147,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(1)$, where 
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
+    def hIndex(self, citations: list[int]) -> int:
         l, r = 0, len(citations)
         while l < r:
             mid = (l + r + 1) >> 1

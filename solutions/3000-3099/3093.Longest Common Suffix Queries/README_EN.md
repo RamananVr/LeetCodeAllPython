@@ -105,7 +105,7 @@ We traverse the string array `wordsContainer`, and insert each string in reverse
 
 Next, we traverse the string array `wordsQuery`. For each string, we search for the index of the longest common suffix string from the Trie. During the search process, if we encounter a null node, it means that there is no common suffix afterwards, and we can directly return the `idx` of the current node.
 
-The time complexity is $O(L_1|\Sigma| + L_2)$, and the space complexity is $O(L_1|\Sigma|)$, where $L_1$ and $L_2$ are the sum of the lengths of the strings in `wordsContainer` and `wordsQuery` respectively; and $\Sigma$ is the size of the character set, in this problem $\Sigma = 26$.
+The time complexity is $O(L_1|\Sigma| + L_2)$, and the space complexity is $O(L_1|\Sigma|)$, where $L_1$ and $L_2$ are the sum of the lengths of the strings in $\textit{wordsContainer}$ and $\textit{wordsQuery}$ respectively; and $\Sigma$ is the size of the character set, in this problem $\Sigma = 26$.
 
 <!-- tabs:start -->
 
@@ -145,8 +145,8 @@ class Trie:
 
 class Solution:
     def stringIndices(
-        self, wordsContainer: List[str], wordsQuery: List[str]
-    ) -> List[int]:
+        self, wordsContainer: list[str], wordsQuery: list[str]
+    ) -> list[int]:
         trie = Trie()
         for i, w in enumerate(wordsContainer):
             trie.insert(w, i)

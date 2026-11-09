@@ -86,7 +86,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def countGood(self, nums: List[int], k: int) -> int:
+    def countGood(self, nums: list[int], k: int) -> int:
         cnt = Counter()
         ans = cur = 0
         i = 0

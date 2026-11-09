@@ -80,7 +80,7 @@ The time complexity is $O(n^2)$, where $n$ is the length of the array.
 from math import lcm
 
 class Solution:
-    def subarrayLCM(self, nums: List[int], k: int) -> int:
+    def subarrayLCM(self, nums: list[int], k: int) -> int:
         ans = 0
         for i in range(len(nums)):
             a = 1

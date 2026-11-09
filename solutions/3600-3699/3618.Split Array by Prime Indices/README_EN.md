@@ -111,7 +111,7 @@ for i in range(2, m):
             primes[j] = False
 
 class Solution:
-    def splitArray(self, nums: List[int]) -> int:
+    def splitArray(self, nums: list[int]) -> int:
         return abs(sum(x if primes[i] else -x for i, x in enumerate(nums)))
 ```
 

@@ -154,7 +154,7 @@ class SegmentTree:
         return self.tr[1].length
 
 class Solution:
-    def separateSquares(self, squares: List[List[int]]) -> float:
+    def separateSquares(self, squares: list[list[int]]) -> float:
         xs = set()
         segs = []
         for x1, y1, l in squares:

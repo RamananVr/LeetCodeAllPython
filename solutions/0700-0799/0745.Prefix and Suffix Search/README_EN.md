@@ -77,7 +77,7 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 
 ```python
 class WordFilter:
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         self.d = {}
         for k, w in enumerate(words):
             n = len(w)
@@ -144,7 +144,7 @@ class Trie:
         return node.indexes
 
 class WordFilter:
-    def __init__(self, words: List[str]):
+    def __init__(self, words: list[str]):
         self.p = Trie()
         self.s = Trie()
         for i, w in enumerate(words):

@@ -135,8 +135,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def minimumFlips(
-        self, n: int, edges: List[List[int]], start: str, target: str
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], start: str, target: str
+    ) -> list[int]:
         g = [[] for _ in range(n)]
         for i, (a, b) in enumerate(edges):
             g[a].append((b, i))
@@ -193,8 +193,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def minimumFlips(
-        self, n: int, edges: List[List[int]], start: str, target: str
-    ) -> List[int]:
+        self, n: int, edges: list[list[int]], start: str, target: str
+    ) -> list[int]:
         g = [[] for _ in range(n)]
         for i, (a, b) in enumerate(edges):
             g[a].append((b, i))

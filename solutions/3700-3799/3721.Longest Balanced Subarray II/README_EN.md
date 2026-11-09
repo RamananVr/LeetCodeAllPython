@@ -117,11 +117,12 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def longestBalanced(self, nums: List[int]) -> int:
+    def longestBalanced(self, nums: list[int]) -> int:
         n = len(nums)
 
         class Node:
             __slots__ = ("l", "r", "mn", "mx", "lazy")
+
             def __init__(self):
                 self.l = self.r = 0
                 self.mn = self.mx = 0

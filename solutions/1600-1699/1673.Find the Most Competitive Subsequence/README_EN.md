@@ -71,7 +71,7 @@ We traverse the array `nums` from left to right, maintaining a stack `stk`. Duri
 
 After the traversal, the elements in the stack are the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -79,7 +79,7 @@ The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ is 
 
 ```python
 class Solution:
-    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
+    def mostCompetitive(self, nums: list[int], k: int) -> list[int]:
         stk = []
         n = len(nums)
         for i, v in enumerate(nums):

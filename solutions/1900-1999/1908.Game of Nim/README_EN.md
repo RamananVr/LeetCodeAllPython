@@ -101,7 +101,7 @@ tags:
 
 ```python
 class Solution:
-    def nimGame(self, piles: List[int]) -> bool:
+    def nimGame(self, piles: list[int]) -> bool:
         @cache
         def dfs(st):
             lst = list(st)

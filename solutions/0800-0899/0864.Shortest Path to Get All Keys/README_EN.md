@@ -113,7 +113,7 @@ During the BFS process, we take out a position $(i, j, \textit{state})$ from the
 
 Otherwise, we move from the current position in four directions (up, down, left, right). If we can move to the next position $(x, y)$, we add $(x, y, \textit{nxt})$ to the queue $q$, where $\textit{nxt}$ represents the state of the keys at the next position.
 
-Here, $(x, y)$ must first be within the grid range, i.e., $0 \leq x < m$ and $0 \leq y < n$. Secondly, if the position $(x, y)$ is a wall, i.e., `grid[x][y] == '#'`, or the position $(x, y)$ is a lock but we do not have the corresponding key, i.e., `grid[x][y] >= 'A' && grid[x][y] <= 'F' && (state >> (grid[x][y] - 'A') & 1) == 0)`, then we cannot move to the position $(x, y)`. Otherwise, we can move to the position $(x, y)`.
+Here, $(x, y)$ must first be within the grid range, i.e., $0 \leq x < m$ and $0 \leq y < n$. Secondly, if the position $(x, y)$ is a wall, i.e., `grid[x][y] == '#'`, or the position $(x, y)$ is a lock but we do not have the corresponding key, i.e., `grid[x][y] >= 'A' && grid[x][y] <= 'F' && (state >> (grid[x][y] - 'A') & 1) == 0)`, then we cannot move to the position $(x, y)$. Otherwise, we can move to the position $(x, y)$.
 
 If the search ends and we have not collected all keys, return $-1$.
 
@@ -125,11 +125,9 @@ The time complexity is $O(mn 2^k)$, and the space complexity is $O(mn 2^k)$, whe
 
 ```python
 class Solution:
-    def shortestPathAllKeys(self, grid: List[str]) -> int:
+    def shortestPathAllKeys(self, grid: list[str]) -> int:
         m, n = len(grid), len(grid[0])
-        # Find the starting point (si, sj)
         si, sj = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '@')
-        # Count the number of keys
         k = sum(v.islower() for row in grid for v in row)
         dirs = (-1, 0, 1, 0, -1)
         q = deque([(si, sj, 0)])
@@ -138,33 +136,25 @@ class Solution:
         while q:
             for _ in range(len(q)):
                 i, j, state = q.popleft()
-                # If all keys are found, return the current step count
                 if state == (1 << k) - 1:
                     return ans
 
-                # Search in the four directions
                 for a, b in pairwise(dirs):
                     x, y = i + a, j + b
                     nxt = state
-                    # Within boundary limits
                     if 0 <= x < m and 0 <= y < n:
                         c = grid[x][y]
-                        # It's a wall, or it's a lock but we don't have the key for it
                         if (
                             c == '#'
                             or c.isupper()
                             and (state & (1 << (ord(c) - ord('A')))) == 0
                         ):
                             continue
-                        # It's a key
                         if c.islower():
-                            # Update the state
                             nxt |= 1 << (ord(c) - ord('a'))
-                        # If this state has not been visited, enqueue it
                         if (x, y, nxt) not in vis:
                             vis.add((x, y, nxt))
                             q.append((x, y, nxt))
-            # Increment the step count
             ans += 1
         return -1
 ```

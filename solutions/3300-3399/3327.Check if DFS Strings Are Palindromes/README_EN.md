@@ -120,7 +120,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 class Hashing:
     __slots__ = ["mod", "h", "p"]
 
-    def __init__(self, s: List[str], base: int, mod: int):
+    def __init__(self, s: list[str], base: int, mod: int):
         self.mod = mod
         self.h = [0] * (len(s) + 1)
         self.p = [1] * (len(s) + 1)
@@ -132,7 +132,7 @@ class Hashing:
         return (self.h[r] - self.h[l - 1] * self.p[r - l + 1]) % self.mod
 
 class Solution:
-    def findAnswer(self, parent: List[int], s: str) -> List[bool]:
+    def findAnswer(self, parent: list[int], s: str) -> list[bool]:
         def dfs(i: int):
             l = len(dfsStr) + 1
             for j in g[i]:
@@ -196,7 +196,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 class Hashing:
     __slots__ = ["mod", "h", "p"]
 
-    def __init__(self, s: List[str], base: int, mod: int):
+    def __init__(self, s: list[str], base: int, mod: int):
         self.mod = mod
         self.h = [0] * (len(s) + 1)
         self.p = [1] * (len(s) + 1)
@@ -208,7 +208,7 @@ class Hashing:
         return (self.h[r] - self.h[l - 1] * self.p[r - l + 1]) % self.mod
 
 class Solution:
-    def findAnswer(self, parent: List[int], s: str) -> List[bool]:
+    def findAnswer(self, parent: list[int], s: str) -> list[bool]:
         n = len(s)
         g = [[] for _ in range(n)]
         for i in range(1, n):

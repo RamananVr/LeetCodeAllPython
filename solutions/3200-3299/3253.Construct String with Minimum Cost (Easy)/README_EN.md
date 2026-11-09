@@ -107,7 +107,7 @@ The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, whe
 ```python
 class Trie:
     def __init__(self):
-        self.children: List[Optional[Trie]] = [None] * 26
+        self.children: list[Optional[Trie]] = [None] * 26
         self.cost = inf
 
     def insert(self, word: str, cost: int):
@@ -120,7 +120,7 @@ class Trie:
         node.cost = min(node.cost, cost)
 
 class Solution:
-    def minimumCost(self, target: str, words: List[str], costs: List[int]) -> int:
+    def minimumCost(self, target: str, words: list[str], costs: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(target):
@@ -171,7 +171,7 @@ The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L)$, whe
 ```python
 class Trie:
     def __init__(self):
-        self.children: List[Optional[Trie]] = [None] * 26
+        self.children: list[Optional[Trie]] = [None] * 26
         self.cost = inf
 
     def insert(self, word: str, cost: int):
@@ -184,7 +184,7 @@ class Trie:
         node.cost = min(node.cost, cost)
 
 class Solution:
-    def minimumCost(self, target: str, words: List[str], costs: List[int]) -> int:
+    def minimumCost(self, target: str, words: list[str], costs: list[int]) -> int:
         trie = Trie()
         for word, cost in zip(words, costs):
             trie.insert(word, cost)

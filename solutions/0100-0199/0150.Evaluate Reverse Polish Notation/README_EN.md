@@ -93,7 +93,7 @@ tags:
 import operator
 
 class Solution:
-    def evalRPN(self, tokens: List[str]) -> int:
+    def evalRPN(self, tokens: list[str]) -> int:
         opt = {
             "+": operator.add,
             "-": operator.sub,
@@ -131,7 +131,7 @@ class Solution:
 
 ```python
 class Solution:
-    def evalRPN(self, tokens: List[str]) -> int:
+    def evalRPN(self, tokens: list[str]) -> int:
         nums = []
         for t in tokens:
             if len(t) > 1 or t.isdigit():

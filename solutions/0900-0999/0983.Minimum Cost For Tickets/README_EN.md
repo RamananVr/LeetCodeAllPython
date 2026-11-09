@@ -100,7 +100,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+    def mincostTickets(self, days: list[int], costs: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= n:
@@ -146,7 +146,7 @@ The time complexity is $O(m)$, and the space complexity is $O(m)$, where $m$ rep
 
 ```python
 class Solution:
-    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+    def mincostTickets(self, days: list[int], costs: list[int]) -> int:
         m = days[-1]
         f = [0] * (m + 1)
         valid = [1, 7, 30]

@@ -85,7 +85,7 @@ If not, it means that the skill points cannot be equal, and we directly return $
 
 At the end of the traversal, we return the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the `skill` array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the $\textit{skill}$ array.
 
 <!-- tabs:start -->
 
@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def dividePlayers(self, skill: List[int]) -> int:
+    def dividePlayers(self, skill: list[int]) -> int:
         skill.sort()
         t = skill[0] + skill[-1]
         i, j = 0, len(skill) - 1
@@ -122,7 +122,7 @@ class Solution:
 
 <!-- thinking:end -->
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `skill` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{skill}$ array.
 
 <!-- tabs:start -->
 
@@ -130,7 +130,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def dividePlayers(self, skill: List[int]) -> int:
+    def dividePlayers(self, skill: list[int]) -> int:
         s = sum(skill)
         m = len(skill) >> 1
         if s % m:

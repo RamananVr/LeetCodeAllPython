@@ -83,7 +83,7 @@ tags:
 >
 > Tasks arrive at times $0,1,2,\ldots$. A free server with the smallest weight (then smallest index) is chosen; if none is free we wait for the earliest one. Scanning all servers per task is too slow.
 >
-> An idle heap stores $(\textit{weight},\textit{index})$; a busy heap stores $(\textit{free time},\textit{weight},\textit{index})$. At task $j$ move finished servers back, or if none are idle take the earliest busy server and chain the new task onto it. A chained free time is a sum of task lengths and reaches $4\times 10^{10}$, so that field is a 64-bit integer.
+> An idle heap stores $(\textit{weight},\textit{index})$; a busy heap stores $(\text{free time},\textit{weight},\textit{index})$. At task $j$ move finished servers back, or if none are idle take the earliest busy server and chain the new task onto it. A chained free time is a sum of task lengths and reaches $4\times 10^{10}$, so that field is a 64-bit integer.
 
 <!-- thinking:end -->
 
@@ -92,6 +92,8 @@ We use a min-heap $\textit{idle}$ to maintain all idle servers, where each eleme
 Next, we iterate through all tasks. For the $j$-th task, we first remove all servers from $\textit{busy}$ that will be idle at or before time $j$ and add them to $\textit{idle}$. Then we take the server with the smallest weight from $\textit{idle}$, add it to $\textit{busy}$, and assign it to the $j$-th task. If $\textit{idle}$ is empty, we take the server with the earliest idle time from $\textit{busy}$, add it to $\textit{busy}$, and assign it to the $j$-th task.
 
 After iterating through all tasks, we obtain the answer array $\textit{ans}$.
+
+The Rust version uses `BinaryHeap` with `Reverse` to emulate the min-heaps: the idle heap holds $(\textit{weight}, \textit{index})$ pairs and the busy heap holds $(\textit{free\_time}, \textit{weight}, \textit{index})$ triples, so the pop order matches the description above.
 
 The time complexity is $O((n + m) \log n)$, and the space complexity is $O(n)$, where $n$ is the number of servers and $m$ is the number of tasks, and $n$ and $m$ are the number of servers and tasks, respectively.
 
@@ -105,7 +107,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
+    def assignTasks(self, servers: list[int], tasks: list[int]) -> list[int]:
         idle = [(x, i) for i, x in enumerate(servers)]
         heapify(idle)
         busy = []

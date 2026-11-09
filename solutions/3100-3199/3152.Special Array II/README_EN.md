@@ -84,7 +84,7 @@ tags:
 
 We can define an array $d$ to record the leftmost special array position for each position, initially $d[i] = i$. Then we traverse the array $\textit{nums}$ from left to right. If $\textit{nums}[i]$ and $\textit{nums}[i - 1]$ have different parities, then $d[i] = d[i - 1]$.
 
-Finally, we traverse each query and check whether $d[to] <= \textit{from}$ holds.
+Finally, we traverse each query and check whether $d[to] \le \textit{from}$ holds.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+    def isArraySpecial(self, nums: list[int], queries: list[list[int]]) -> list[bool]:
         n = len(nums)
         d = list(range(n))
         for i in range(1, n):

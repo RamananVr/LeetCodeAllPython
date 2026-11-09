@@ -81,7 +81,7 @@ Then, we enumerate the parity of the number of $1$s in the binary representation
 
 Finally, return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of arrays `a`, `b`, `c`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of arrays $a$, $b$, $c$.
 
 <!-- tabs:start -->
 
@@ -89,7 +89,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def tripletCount(self, a: List[int], b: List[int], c: List[int]) -> int:
+    def tripletCount(self, a: list[int], b: list[int], c: list[int]) -> int:
         cnt1 = Counter(x.bit_count() & 1 for x in a)
         cnt2 = Counter(x.bit_count() & 1 for x in b)
         cnt3 = Counter(x.bit_count() & 1 for x in c)

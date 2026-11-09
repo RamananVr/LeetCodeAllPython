@@ -99,8 +99,8 @@ We define $f[i]$ to represent the height sum of the beautiful tower scheme with 
 $$
 f[i]=
 \begin{cases}
-f[i-1]+\textit{heights}[i],&\textit{if } \textit{heights}[i]\geq \textit{heights}[i-1]\\
-\textit{heights}[i]\times(i-j)+f[j],&\textit{if } \textit{heights}[i]<\textit{heights}[i-1]
+f[i-1]+\textit{heights}[i],&\text{if } \textit{heights}[i]\geq \textit{heights}[i-1]\\
+\textit{heights}[i]\times(i-j)+f[j],&\text{if } \textit{heights}[i]<\textit{heights}[i-1]
 \end{cases}
 $$
 
@@ -116,7 +116,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
+    def maximumSumOfHeights(self, maxHeights: list[int]) -> int:
         n = len(maxHeights)
         stk = []
         left = [-1] * n

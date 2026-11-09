@@ -87,10 +87,10 @@ That is:
 $$
 dfs(i) = \textit{OR}
 \begin{cases}
-true,&i \ge n\\
-dfs(i+2),&i+1 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
-dfs(i+3),&i+2 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
-dfs(i+3),&i+2 < n\ \textit{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \textit{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
+\textit{true},&i \ge n\\
+dfs(i+2),&i+1 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
+dfs(i+3),&i+2 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
+dfs(i+3),&i+2 < n\ \text{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \text{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
 \end{cases}
 $$
 
@@ -104,7 +104,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         @cache
         def dfs(i: int) -> bool:
             if i >= n:
@@ -149,10 +149,10 @@ The state transition equation is as follows:
 $$
 f[i] = \textit{OR}
 \begin{cases}
-true,&i = 0\\
-f[i-2],&i-2 \ge 0\ \textit{and}\ \textit{nums}[i-1] = \textit{nums}[i-2]\\
-f[i-3],&i-3 \ge 0\ \textit{and}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3]\\
-f[i-3],&i-3 \ge 0\ \textit{and}\ \textit{nums}[i-1] - \textit{nums}[i-2] = 1\ \textit{and}\ \textit{nums}[i-2] - \textit{nums}[i-3] = 1
+\textit{true},&i = 0\\
+f[i-2],&i-2 \ge 0\ \text{and}\ \textit{nums}[i-1] = \textit{nums}[i-2]\\
+f[i-3],&i-3 \ge 0\ \text{and}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3]\\
+f[i-3],&i-3 \ge 0\ \text{and}\ \textit{nums}[i-1] - \textit{nums}[i-2] = 1\ \text{and}\ \textit{nums}[i-2] - \textit{nums}[i-3] = 1
 \end{cases}
 $$
 
@@ -164,7 +164,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         n = len(nums)
         f = [True] + [False] * n
         for i, x in enumerate(nums, 1):
@@ -202,9 +202,9 @@ Fill $i$ from $n - 1$ down to $0$. Two equal neighbors can continue from $f[i + 
 $$
 f[i] = \textit{OR}
 \begin{cases}
-f[i+2],&i+1 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
-f[i+3],&i+2 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
-f[i+3],&i+2 < n\ \textit{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \textit{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
+f[i+2],&i+1 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
+f[i+3],&i+2 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
+f[i+3],&i+2 < n\ \text{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \text{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
 \end{cases}
 $$
 
@@ -216,7 +216,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
+    def validPartition(self, nums: list[int]) -> bool:
         n = len(nums)
         f = [False] * n + [True]
         for i in range(n - 1, -1, -1):

@@ -72,7 +72,7 @@ tags:
 
 <!-- thinking:end -->
 
-We start from the root node, recursively traverse all paths from the root node to the leaf nodes, and record the path sum. When we traverse to a leaf node, if the current path sum equals `targetSum`, then we add this path to the answer.
+We start from the root node, recursively traverse all paths from the root node to the leaf nodes, and record the path sum. When we traverse to a leaf node, if the current path sum equals $\textit{targetSum}$, then we add this path to the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
@@ -88,7 +88,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> list[list[int]]:
         def dfs(root, s):
             if root is None:
                 return

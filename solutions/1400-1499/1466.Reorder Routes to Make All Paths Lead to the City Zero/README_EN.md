@@ -92,7 +92,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         def dfs(a: int, fa: int) -> int:
             return sum(c + dfs(b, a) for b, c in g[a] if b != fa)
 
@@ -115,7 +115,7 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 already walks the same adjacency list with an explicit stack. BFS leaves $0$ level by level and adds the edge cost the first time a neighbor is seen, so the visit order differs from the stack.
+> Method 1 walks the same adjacency list by recursion and counts edges that must be reversed. A chain of roads uses a call depth equal to the node count. BFS leaves $0$ level by level and adds the edge cost the first time a neighbor is seen, so the visit order differs from the recursion.
 
 <!-- thinking:end -->
 
@@ -129,7 +129,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in connections:
             g[a].append((b, 1))
@@ -181,7 +181,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in connections:
             g[a].append((b, 1))

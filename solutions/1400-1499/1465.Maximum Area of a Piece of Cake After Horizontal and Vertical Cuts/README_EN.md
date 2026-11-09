@@ -83,7 +83,7 @@ We first sort `horizontalCuts` and `verticalCuts` separately, and then traverse 
 
 Note that we need to consider the boundary cases, i.e., the first and last elements of `horizontalCuts` and `verticalCuts`.
 
-The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\log m + \log n)$, where $m$ and $n$ are the lengths of `horizontalCuts` and `verticalCuts`, respectively.
+The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(\log m + \log n)$, where $m$ and $n$ are the lengths of $\textit{horizontalCuts}$ and $\textit{verticalCuts}$, respectively.
 
 <!-- tabs:start -->
 
@@ -92,7 +92,7 @@ The time complexity is $O(m \log m + n \log n)$, and the space complexity is $O(
 ```python
 class Solution:
     def maxArea(
-        self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]
+        self, h: int, w: int, horizontalCuts: list[int], verticalCuts: list[int]
     ) -> int:
         horizontalCuts.extend([0, h])
         verticalCuts.extend([0, w])

@@ -95,7 +95,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def countVisitedNodes(self, edges: List[int]) -> List[int]:
+    def countVisitedNodes(self, edges: list[int]) -> list[int]:
         n = len(edges)
         ans = [0] * n
         vis = [0] * n

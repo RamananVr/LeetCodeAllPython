@@ -79,7 +79,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def findNumberOfLIS(self, nums: List[int]) -> int:
+    def findNumberOfLIS(self, nums: list[int]) -> int:
         n = len(nums)
         f = [1] * n
         cnt = [1] * n
@@ -154,7 +154,7 @@ class BinaryIndexedTree:
         return v, cnt
 
 class Solution:
-    def findNumberOfLIS(self, nums: List[int]) -> int:
+    def findNumberOfLIS(self, nums: list[int]) -> int:
         arr = sorted(set(nums))
         m = len(arr)
         tree = BinaryIndexedTree(m)

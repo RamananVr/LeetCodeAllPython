@@ -94,7 +94,7 @@ The pattern (&quot;home&quot;, &quot;home&quot;, &quot;home&quot;) has score 0 (
 
 First, we use a hash table $d$ to record the websites each user visits. Then we traverse $d$. For each user, we enumerate all the triplets they visited, count the occurrence of distinct triplets, and finally traverse all triplets, returning the one with the highest occurrence and the smallest lexicographic order.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$, where $n$ is the length of `username`.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$, where $n$ is the length of $\textit{username}$.
 
 <!-- tabs:start -->
 
@@ -103,8 +103,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$, where $n$
 ```python
 class Solution:
     def mostVisitedPattern(
-        self, username: List[str], timestamp: List[int], website: List[str]
-    ) -> List[str]:
+        self, username: list[str], timestamp: list[int], website: list[str]
+    ) -> list[str]:
         d = defaultdict(list)
         for user, _, site in sorted(
             zip(username, timestamp, website), key=lambda x: x[1]

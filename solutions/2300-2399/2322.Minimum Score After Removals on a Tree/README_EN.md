@@ -108,7 +108,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minimumScore(self, nums: List[int], edges: List[List[int]]) -> int:
+    def minimumScore(self, nums: list[int], edges: list[list[int]]) -> int:
         def dfs(i: int, fa: int) -> int:
             res = nums[i]
             for j in g[i]:
@@ -172,7 +172,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def minimumScore(self, nums: List[int], edges: List[List[int]]) -> int:
+    def minimumScore(self, nums: list[int], edges: list[list[int]]) -> int:
         n = len(nums)
         g = [[] for _ in range(n)]
         for a, b in edges:

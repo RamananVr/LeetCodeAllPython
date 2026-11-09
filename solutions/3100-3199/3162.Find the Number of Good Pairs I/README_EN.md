@@ -86,7 +86,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def numberOfPairs(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def numberOfPairs(self, nums1: list[int], nums2: list[int], k: int) -> int:
         return sum(x % (y * k) == 0 for x in nums1 for y in nums2)
 ```
 
@@ -110,11 +110,11 @@ class Solution:
 
 <!-- thinking:end -->
 
-We use a hash table `cnt1` to record the occurrence times of each number divided by $k$ in array `nums1`, and a hash table `cnt2` to record the occurrence times of each number in array `nums2`.
+We use a hash table $\textit{cnt1}$ to record the occurrence times of each number divided by $k$ in array $\textit{nums1}$, and a hash table `cnt2` to record the occurrence times of each number in array $\textit{nums2}$.
 
-Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, mx]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
+Next, we enumerate each number $x$ in array $\textit{nums2}$. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, mx]$, where `mx` is the maximum key value in $\textit{cnt1}$. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
 
-The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays `nums1` and `nums2` respectively, and $M$ is the maximum value in array `nums1`.
+The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ respectively, and $M$ is the maximum value in array $\textit{nums1}$.
 
 <!-- tabs:start -->
 
@@ -122,7 +122,7 @@ The time complexity is $O(n + m + (M / k) \log m)$, and the space complexity is 
 
 ```python
 class Solution:
-    def numberOfPairs(self, nums1: List[int], nums2: List[int], k: int) -> int:
+    def numberOfPairs(self, nums1: list[int], nums2: list[int], k: int) -> int:
         cnt1 = Counter(x // k for x in nums1 if x % k == 0)
         if not cnt1:
             return 0

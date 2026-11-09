@@ -89,7 +89,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def numTeams(self, rating: List[int]) -> int:
+    def numTeams(self, rating: list[int]) -> int:
         ans, n = 0, len(rating)
         for i, b in enumerate(rating):
             l = sum(a < b for a in rating[:i])
@@ -142,7 +142,7 @@ class BinaryIndexedTree:
         return s
 
 class Solution:
-    def numTeams(self, rating: List[int]) -> int:
+    def numTeams(self, rating: list[int]) -> int:
         nums = sorted(set(rating))
         m = len(nums)
         tree1 = BinaryIndexedTree(m)

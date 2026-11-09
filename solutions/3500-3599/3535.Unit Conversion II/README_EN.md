@@ -104,8 +104,8 @@ The time complexity is $O(n + q \log \textit{MOD})$, and the space complexity is
 ```python
 class Solution:
     def queryConversions(
-        self, conversions: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, conversions: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         def dfs(s: int, mul: int) -> None:
             res[s] = mul
             for t, w in g[s]:
@@ -157,8 +157,8 @@ The time complexity is $O(n + q \log \textit{MOD})$, and the space complexity is
 ```python
 class Solution:
     def queryConversions(
-        self, conversions: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+        self, conversions: list[list[int]], queries: list[list[int]]
+    ) -> list[int]:
         mod = 10**9 + 7
         n = len(conversions) + 1
         g = [[] for _ in range(n)]

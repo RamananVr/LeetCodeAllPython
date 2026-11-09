@@ -99,7 +99,7 @@ For each query, we find the lowest common ancestor of the two nodes $a$ and $b$,
 
 To find the lowest common ancestor, if $a > b$, we move $a$ to its parent node; if $a < b$, we move $b$ to its parent node. We accumulate the number of steps until $a = b$.
 
-The time complexity is $O(nm)$, where $m$ is the length of the `queries` array.
+The time complexity is $O(nm)$, where $m$ is the length of the $\textit{queries}$ array.
 
 <!-- tabs:start -->
 
@@ -107,7 +107,7 @@ The time complexity is $O(nm)$, where $m$ is the length of the `queries` array.
 
 ```python
 class Solution:
-    def cycleLengthQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+    def cycleLengthQueries(self, n: int, queries: list[list[int]]) -> list[int]:
         ans = []
         for a, b in queries:
             t = 1

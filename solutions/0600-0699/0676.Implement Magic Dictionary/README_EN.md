@@ -91,7 +91,7 @@ class Trie:
     __slots__ = "children", "is_end"
 
     def __init__(self):
-        self.children: List[Optional[Trie]] = [None] * 26
+        self.children: list[Optional[Trie]] = [None] * 26
         self.is_end = False
 
     def insert(self, w: str) -> None:
@@ -122,7 +122,7 @@ class MagicDictionary:
     def __init__(self):
         self.trie = Trie()
 
-    def buildDict(self, dictionary: List[str]) -> None:
+    def buildDict(self, dictionary: list[str]) -> None:
         for w in dictionary:
             self.trie.insert(w)
 

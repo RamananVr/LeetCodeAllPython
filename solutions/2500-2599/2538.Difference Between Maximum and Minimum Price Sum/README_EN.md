@@ -88,7 +88,7 @@ The difference between the maximum and minimum price sum is 2. It can be proved 
 
 ```python
 class Solution:
-    def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
+    def maxOutput(self, n: int, edges: list[list[int]], price: list[int]) -> int:
         def dfs(i, fa):
             a, b = price[i], 0
             for j in g[i]:
@@ -135,7 +135,7 @@ class Solution:
 
 ```python
 class Solution:
-    def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
+    def maxOutput(self, n: int, edges: list[list[int]], price: list[int]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

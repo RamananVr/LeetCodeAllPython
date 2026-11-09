@@ -67,7 +67,7 @@ tags:
 >
 > Build an object from parallel key and value arrays, stringify keys, and keep the first value on a duplicate. $\textit{Object}.\textit{fromEntries}$ would let a later pair overwrite.
 >
-> Walk the indices: stringify the key and write the value only when that key is still $\textit{undefined}$ on the object.
+> Walk the indices: stringify the key and write the value only when the object does not already have that key.
 
 <!-- thinking:end -->
 

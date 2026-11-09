@@ -91,7 +91,7 @@ We traverse each query $(x, j)$ in ascending order and perform the following ope
 
 After the above process is over, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays `intervals` and `queries` respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $\textit{intervals}$ and $\textit{queries}$ respectively.
 
 <!-- tabs:start -->
 
@@ -99,7 +99,7 @@ The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(
 
 ```python
 class Solution:
-    def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+    def minInterval(self, intervals: list[list[int]], queries: list[int]) -> list[int]:
         n, m = len(intervals), len(queries)
         intervals.sort()
         queries = sorted((x, i) for i, x in enumerate(queries))

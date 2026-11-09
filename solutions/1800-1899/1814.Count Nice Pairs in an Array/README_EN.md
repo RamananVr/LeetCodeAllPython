@@ -85,7 +85,7 @@ The time complexity is $O(n \log M)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def countNicePairs(self, nums: List[int]) -> int:
+    def countNicePairs(self, nums: list[int]) -> int:
         def rev(x):
             y = 0
             while x:
@@ -120,7 +120,7 @@ class Solution:
 
 ```python
 class Solution:
-    def countNicePairs(self, nums: List[int]) -> int:
+    def countNicePairs(self, nums: list[int]) -> int:
         def rev(x):
             y = 0
             while x:

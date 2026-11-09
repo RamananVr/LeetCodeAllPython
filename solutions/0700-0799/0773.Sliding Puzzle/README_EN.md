@@ -95,7 +95,7 @@ Encode the board as a string and BFS legal moves until `123450` is reached.
 
 ```python
 class Solution:
-    def slidingPuzzle(self, board: List[List[int]]) -> int:
+    def slidingPuzzle(self, board: list[list[int]]) -> int:
         t = [None] * 6
 
         def gets():
@@ -125,7 +125,7 @@ class Solution:
         if start == end:
             return 0
         vis = {start}
-        q = deque([(start)])
+        q = deque([start])
         ans = 0
         while q:
             ans += 1
@@ -167,7 +167,7 @@ Check inversion parity, then search with a Manhattan-distance heuristic.
 
 ```python
 class Solution:
-    def slidingPuzzle(self, board: List[List[int]]) -> int:
+    def slidingPuzzle(self, board: list[list[int]]) -> int:
         m, n = 2, 3
         seq = []
         start, end = '', '123450'

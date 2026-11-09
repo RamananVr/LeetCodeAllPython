@@ -133,7 +133,7 @@ class BinaryIndexedTree:
         return mx
 
 class Solution:
-    def maxBalancedSubsequenceSum(self, nums: List[int]) -> int:
+    def maxBalancedSubsequenceSum(self, nums: list[int]) -> int:
         arr = [x - i for i, x in enumerate(nums)]
         s = sorted(set(arr))
         tree = BinaryIndexedTree(len(s))

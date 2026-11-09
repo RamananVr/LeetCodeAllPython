@@ -91,7 +91,7 @@ class Trie:
         node.is_end = True
 
 class Solution:
-    def boldWords(self, words: List[str], s: str) -> str:
+    def boldWords(self, words: list[str], s: str) -> str:
         trie = Trie()
         for w in words:
             trie.insert(w)

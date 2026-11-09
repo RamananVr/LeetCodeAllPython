@@ -94,7 +94,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def getMaxLen(self, nums: List[int]) -> int:
+    def getMaxLen(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * n
         g = [0] * n
@@ -138,7 +138,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getMaxLen(self, nums: List[int]) -> int:
+    def getMaxLen(self, nums: list[int]) -> int:
         n = len(nums)
         f = int(nums[0] > 0)
         g = int(nums[0] < 0)

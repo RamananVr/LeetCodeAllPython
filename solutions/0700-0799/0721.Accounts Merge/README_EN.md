@@ -112,7 +112,7 @@ class UnionFind:
         return True
 
 class Solution:
-    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+    def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
         uf = UnionFind(len(accounts))
         d = {}
         for i, (_, *emails) in enumerate(accounts):

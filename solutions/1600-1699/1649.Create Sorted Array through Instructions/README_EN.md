@@ -129,7 +129,7 @@ class BinaryIndexedTree:
         return s
 
 class Solution:
-    def createSortedArray(self, instructions: List[int]) -> int:
+    def createSortedArray(self, instructions: list[int]) -> int:
         m = max(instructions)
         tree = BinaryIndexedTree(m)
         ans = 0
@@ -210,7 +210,7 @@ class SegmentTree:
         return v
 
 class Solution:
-    def createSortedArray(self, instructions: List[int]) -> int:
+    def createSortedArray(self, instructions: list[int]) -> int:
         n = max(instructions)
         tree = SegmentTree(n)
         ans = 0

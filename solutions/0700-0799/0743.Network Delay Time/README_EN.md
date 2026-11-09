@@ -93,7 +93,7 @@ The time complexity is $O(n^2 + m)$, and the space complexity is $O(n^2)$, where
 
 ```python
 class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+    def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
         g = [[inf] * n for _ in range(n)]
         for u, v, w in times:
             g[u - 1][v - 1] = w
@@ -134,7 +134,7 @@ We can use a priority queue (heap) to optimize the naive Dijkstra algorithm.
 
 We define $g[u]$ to represent all adjacent edges of node $u$, and $\textit{dist}[u]$ to represent the shortest path length from node $k$ to node $u$. Initially, we set all $\textit{dist}[u]$ to $+\infty$, except for $\textit{dist}[k - 1] = 0$.
 
-We define a priority queue $pq$, where each element is $(d, u)$, representing the distance $d$ from node $u$ to node $k$. Each time, we take out the node $(d, u)$ with the smallest distance from $pq$. If $d > $\textit{dist}[u]$, we skip this node. Otherwise, we traverse all adjacent edges of node $u$. For each adjacent edge $(v, w)$, if $\textit{dist}[v] > \textit{dist}[u] + w$, we \textit{update} $\textit{dist}[v] = \textit{dist}[u] + w$ \textit{and} \textit{add} $(\textit{dist}[v], v)$ to $\textit{pq}$.
+We define a priority queue $pq$, where each element is $(d, u)$, representing the distance $d$ from node $u$ to node $k$. Each time, we take out the node $(d, u)$ with the smallest distance from $pq$. If $d > \textit{dist}[u]$, we skip this node. Otherwise, we traverse all adjacent edges of node $u$. For each adjacent edge $(v, w)$, if $\textit{dist}[v] > \textit{dist}[u] + w$, we update $\textit{dist}[v] = \textit{dist}[u] + w$, and add $(\textit{dist}[v], v)$ to $\textit{pq}$.
 
 Finally, we return the maximum value in $\textit{dist}$ as the answer. If the answer is $+\infty$, it means there are unreachable nodes, and we return $-1$.
 
@@ -146,7 +146,7 @@ The time complexity is $O(m \log m + n)$, and the space complexity is $O(n + m)$
 
 ```python
 class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+    def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in times:
             g[u - 1].append((v - 1, w))

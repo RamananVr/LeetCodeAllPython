@@ -71,7 +71,7 @@ class Trie:
     __slots__ = ("children",)
 
     def __init__(self):
-        self.children: List[Trie | None] = [None, None]
+        self.children: list[Trie | None] = [None, None]
 
     def insert(self, x: int):
         node = self
@@ -94,7 +94,7 @@ class Trie:
         return ans
 
 class Solution:
-    def findMaximumXOR(self, nums: List[int]) -> int:
+    def findMaximumXOR(self, nums: list[int]) -> int:
         trie = Trie()
         for x in nums:
             trie.insert(x)

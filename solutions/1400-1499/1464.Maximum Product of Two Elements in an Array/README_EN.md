@@ -77,7 +77,7 @@ tags:
 
 ```python
 class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
+    def maxProduct(self, nums: list[int]) -> int:
         ans = 0
         for i, a in enumerate(nums):
             for b in nums[i + 1 :]:
@@ -107,7 +107,7 @@ class Solution:
 
 ```python
 class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
+    def maxProduct(self, nums: list[int]) -> int:
         nums.sort()
         return (nums[-1] - 1) * (nums[-2] - 1)
 ```
@@ -134,7 +134,7 @@ class Solution:
 
 ```python
 class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
+    def maxProduct(self, nums: list[int]) -> int:
         a = b = 0
         for v in nums:
             if v > a:

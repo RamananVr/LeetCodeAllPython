@@ -72,7 +72,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         m, n = len(matrix), len(matrix[0])
         dirs = (0, 1, 0, -1, 0)
         vis = [[False] * n for _ in range(m)]
@@ -117,7 +117,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         m, n = len(matrix), len(matrix[0])
         dirs = (0, 1, 0, -1, 0)
         i = j = k = 0

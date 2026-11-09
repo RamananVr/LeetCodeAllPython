@@ -104,7 +104,7 @@ class Trie:
         node.is_end = True
 
 class Solution:
-    def addBoldTag(self, s: str, words: List[str]) -> str:
+    def addBoldTag(self, s: str, words: list[str]) -> str:
         trie = Trie()
         for w in words:
             trie.insert(w)

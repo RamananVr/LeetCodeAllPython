@@ -115,7 +115,7 @@ firstUnique.showFirstUnique(); // return -1
 
 ```python
 class FirstUnique:
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.cnt = Counter(nums)
         self.unique = OrderedDict({v: 1 for v in nums if self.cnt[v] == 1})
 
@@ -157,7 +157,7 @@ class FirstUnique:
 
 ```python
 class FirstUnique:
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.cnt = Counter(nums)
         self.q = deque(nums)
 

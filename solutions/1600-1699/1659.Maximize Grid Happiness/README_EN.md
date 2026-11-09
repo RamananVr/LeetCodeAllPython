@@ -176,7 +176,7 @@ class Solution:
 
 <!-- solution:start -->
 
-### Solution 2: Contour Line Memorized Search
+### Solution 2: Contour Line Memoization Search
 
 <!-- thinking:start -->
 

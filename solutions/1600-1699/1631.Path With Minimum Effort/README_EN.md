@@ -125,7 +125,7 @@ class UnionFind:
         return self.find(a) == self.find(b)
 
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         m, n = len(heights), len(heights[0])
         uf = UnionFind(m * n)
         e = []
@@ -176,7 +176,7 @@ The time complexity is $O(mn \log M)$, and the space complexity is $O(mn)$, wher
 
 ```python
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         def check(h: int) -> bool:
             q = deque([(0, 0)])
             vis = {(0, 0)}
@@ -214,7 +214,7 @@ class Solution:
 
 > **Thinking**
 >
-> The first two methods sort globally or search repeatedly. Treating a move as the new bottleneck $\max(\textit{so far}, \lvert \Delta h \rvert)$ is a shortest-path problem with $\max$ instead of $+$.
+> The first two methods sort globally or search repeatedly. Treating a move as the new bottleneck $\max(\text{so far}, \lvert \Delta h \rvert)$ is a shortest-path problem with $\max$ instead of $+$.
 >
 > Dijkstra with a heap stores the best bottleneck $\textit{dist}$ to each cell and relaxes four neighbors; the bottom-right entry is the answer.
 
@@ -234,7 +234,7 @@ The time complexity is $O(mn \log(mn))$, and the space complexity is $O(mn)$, wh
 
 ```python
 class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+    def minimumEffortPath(self, heights: list[list[int]]) -> int:
         m, n = len(heights), len(heights[0])
         dist = [[inf] * n for _ in range(m)]
         dist[0][0] = 0

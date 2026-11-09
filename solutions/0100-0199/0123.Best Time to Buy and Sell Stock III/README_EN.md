@@ -81,7 +81,7 @@ During the traversal, we directly calculate `f1`, `f2`, `f3`, `f4`. We consider 
 
 Finally, return `f4`.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the `prices` array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the $\textit{prices}$ array.
 
 <!-- tabs:start -->
 
@@ -89,8 +89,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        # 第一次买入，第一次卖出，第二次买入，第二次卖出
+    def maxProfit(self, prices: list[int]) -> int:
         f1, f2, f3, f4 = -prices[0], 0, -prices[0], 0
         for price in prices[1:]:
             f1 = max(f1, -price)

@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1828
+source: Weekly Contest 526 Q3
 ---
 
 <!-- problem:start -->
@@ -99,14 +101,73 @@ Can you solve this in <code>O(nlog(n))</code>?
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Indexed Tree + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting a permutation using only adjacent swaps always requires a minimum number of swaps equal to its inversion count; while a nested loop counts inversions in $O(n^2)$, the follow-up asks for $O(n \log n)$.
+>
+> Unlocking indices does not change the number of required swaps—it only determines which indices can participate in swaps. Because $\textit{nums}$ is a permutation of $1 \dots n$, whenever the maximum of a prefix $[0..i]$ equals $i + 1$, no element needs to cross index $i$, partitioning the array into minimal independent segments $[j..i]$. A segment of length $1$ already has its sole element in place and needs no swaps; a segment of length greater than $1$ cannot be split further, meaning every boundary $(p, p + 1)$ for $p \in [j, i - 1]$ must be crossed by some swap, so every index in $[j..i]$ must be unlocked.
+>
+> Thus, we first scan $\textit{nums}$ from right to left with a Binary Indexed Tree to count total inversions $\textit{inv}$ in $O(n \log n)$ time, and then scan from left to right tracking the prefix maximum $mx$: whenever $mx = i + 1$, we close the current minimal segment $[j..i]$ and, if $i > j$, add the sum of $\textit{locked}[j..i]$ to the required unlock count $\textit{cnt}$.
+
+<!-- thinking:end -->
+
+We can decompose the total number of operations into the **minimum number of swaps** and the **minimum number of unlocks**, and compute them separately:
+
+1. **Minimum number of swaps**: Since each swap only exchanges two adjacent elements, the minimum number of adjacent swaps needed to sort $\textit{nums}$ in strictly increasing order equals the number of **inversions** $\textit{inv}$ in $\textit{nums}$. We can traverse $\textit{nums}$ from right to left and use a Binary Indexed Tree to count how many elements to the right of each element are smaller than it, finding $\textit{inv}$ in $O(n \log n)$ time.
+2. **Minimum number of unlocks**: Since $\textit{nums}$ is a permutation of $[1, n]$, as we scan the array from left to right while maintaining the prefix maximum $mx$, whenever $mx = i + 1$ at index $i$, the prefix $\textit{nums}[0..i]$ contains all integers in $[1, i + 1]$. This means no element needs to be swapped across the boundary between $[0..i]$ and $[i + 1..n - 1]$. Consequently, the array can be partitioned into minimal independent segments $[j..i]$:
+    - If $i = j$ (segment length is $1$), then $\textit{nums}[i] = i + 1$ is already in its final position and does not need to participate in any swap, so index $i$ does not need to be unlocked even if $\textit{locked}[i] = 1$.
+    - If $i > j$ (segment length is greater than $1$), because the segment is minimal, for every $p \in [j, i - 1]$ the maximum of $\textit{nums}[0..p]$ is strictly greater than $p + 1$, so at least one swap must occur between $p$ and $p + 1$. Therefore, all indices in $[j..i]$ must participate in swaps, and every locked index in this segment must be unlocked.
+
+After the scan, if the total number of required unlocks $\textit{cnt} > k$, sorting is impossible and we return $-1$; otherwise, we return $\textit{cnt} + \textit{inv}$.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BinaryIndexedTree:
+    __slots__ = "n", "c"
 
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x: int, delta: int) -> None:
+        while x <= self.n:
+            self.c[x] += delta
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+class Solution:
+    def minOperations(self, nums: list[int], locked: list[int], k: int) -> int:
+        n = len(nums)
+        bit = BinaryIndexedTree(n)
+        inv = 0
+        for x in reversed(nums):
+            inv += bit.query(x - 1)
+            bit.update(x, 1)
+
+        cnt = mx = j = 0
+        for i, x in enumerate(nums):
+            mx = max(mx, x)
+            if mx == i + 1:
+                if i > j:
+                    cnt += sum(locked[j : i + 1])
+                j = i + 1
+
+        return -1 if cnt > k else cnt + inv
 ```
 
 <!-- tabs:end -->

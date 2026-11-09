@@ -90,7 +90,7 @@ The ant never returned to the boundary, so the answer is 0.
 
 Based on the problem description, we only need to calculate how many zeros are in all prefix sums of `nums`.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def returnToBoundaryCount(self, nums: List[int]) -> int:
+    def returnToBoundaryCount(self, nums: list[int]) -> int:
         return sum(s == 0 for s in accumulate(nums))
 ```
 

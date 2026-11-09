@@ -80,7 +80,7 @@ tags:
 
 We can traverse `grid`, finding the minimum boundary of all `1`s, denoted as $(x_1, y_1)$, and the maximum boundary, denoted as $(x_2, y_2)$. Then, the area of the minimum rectangle is $(x_2 - x_1 + 1) \times (y_2 - y_1 + 1)$.
 
-The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in `grid`, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns in $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 
@@ -88,7 +88,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(1)$, where $m$ an
 
 ```python
 class Solution:
-    def minimumArea(self, grid: List[List[int]]) -> int:
+    def minimumArea(self, grid: list[list[int]]) -> int:
         x1 = y1 = inf
         x2 = y2 = -inf
         for i, row in enumerate(grid):

@@ -95,7 +95,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             return max(
@@ -139,7 +139,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         n = len(nums)
         f = [0] * n
         for j in range(1, n):
@@ -180,7 +180,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: list[int]) -> int:
         stk = []
         for i, x in enumerate(nums):
             while stk and nums[stk[-1]] <= x:

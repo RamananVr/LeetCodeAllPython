@@ -80,7 +80,7 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 ```python
 class Trie:
     def __init__(self):
-        self.children: List[Optional[Trie]] = [None] * 26
+        self.children: list[Optional[Trie]] = [None] * 26
         self.is_end = False
 
     def insert(self, w: str):
@@ -104,7 +104,7 @@ class Trie:
         return True
 
 class Solution:
-    def longestWord(self, words: List[str]) -> str:
+    def longestWord(self, words: list[str]) -> str:
         trie = Trie()
         for w in words:
             trie.insert(w)

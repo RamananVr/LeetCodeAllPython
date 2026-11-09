@@ -108,7 +108,7 @@ The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$
 ```python
 class Solution:
     def countRoutes(
-        self, locations: List[int], start: int, finish: int, fuel: int
+        self, locations: list[int], start: int, finish: int, fuel: int
     ) -> int:
         @cache
         def dfs(i: int, k: int) -> int:
@@ -157,7 +157,7 @@ The time complexity is $O(n^2m)$, and the space complexity is $O(nm)$, where $n$
 ```python
 class Solution:
     def countRoutes(
-        self, locations: List[int], start: int, finish: int, fuel: int
+        self, locations: list[int], start: int, finish: int, fuel: int
     ) -> int:
         mod = 10**9 + 7
         n = len(locations)

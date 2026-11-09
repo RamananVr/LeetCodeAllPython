@@ -67,9 +67,9 @@ tags:
 
 <!-- thinking:end -->
 
-We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $\textit{cost}$ of buying two chocolates. If this cost is greater than the money we have, then we return `money`. Otherwise, we return `money - cost`.
+We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $\textit{cost}$ of buying two chocolates. If this cost is greater than the money we have, then we return $\textit{money}$. Otherwise, we return `money - cost`.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array `prices`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -77,7 +77,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def buyChoco(self, prices: List[int], money: int) -> int:
+    def buyChoco(self, prices: list[int], money: int) -> int:
         prices.sort()
         cost = prices[0] + prices[1]
         return money if money < cost else money - cost
@@ -101,7 +101,7 @@ class Solution:
 
 We can find the two smallest prices in one pass, and then calculate the cost.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `prices`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -109,7 +109,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def buyChoco(self, prices: List[int], money: int) -> int:
+    def buyChoco(self, prices: list[int], money: int) -> int:
         a = b = inf
         for x in prices:
             if x < a:

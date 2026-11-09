@@ -94,7 +94,7 @@ Then, we iterate through each number in the array. For each number:
 
 Finally, if the value of $m_3$ has not been updated, it means that there is no third largest number in the array, so we return $m_1$. Otherwise, we return $m_3$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -102,7 +102,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def thirdMax(self, nums: List[int]) -> int:
+    def thirdMax(self, nums: list[int]) -> int:
         m1 = m2 = m3 = -inf
         for num in nums:
             if num in [m1, m2, m3]:

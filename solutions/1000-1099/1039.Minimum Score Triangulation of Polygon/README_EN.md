@@ -112,7 +112,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def minScoreTriangulation(self, values: List[int]) -> int:
+    def minScoreTriangulation(self, values: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i + 1 == j:
@@ -181,7 +181,7 @@ Related problems:
 
 ```python
 class Solution:
-    def minScoreTriangulation(self, values: List[int]) -> int:
+    def minScoreTriangulation(self, values: list[int]) -> int:
         n = len(values)
         f = [[0] * n for _ in range(n)]
         for i in range(n - 3, -1, -1):
@@ -221,7 +221,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def minScoreTriangulation(self, values: List[int]) -> int:
+    def minScoreTriangulation(self, values: list[int]) -> int:
         n = len(values)
         f = [[0] * n for _ in range(n)]
         for l in range(3, n + 1):

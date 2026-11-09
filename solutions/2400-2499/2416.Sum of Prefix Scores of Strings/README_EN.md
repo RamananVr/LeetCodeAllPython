@@ -93,7 +93,7 @@ We can use a prefix tree to maintain all prefixes of the strings and count the o
 Define the prefix tree node structure `Trie`, which includes two properties:
 
 - `children`: An array of length 26 used to store the current node's children.
-- `cnt`: The occurrence count of the current node.
+- $\textit{cnt}$: The occurrence count of the current node.
 
 Define two methods for the prefix tree:
 
@@ -137,7 +137,7 @@ class Trie:
         return ans
 
 class Solution:
-    def sumPrefixScores(self, words: List[str]) -> List[int]:
+    def sumPrefixScores(self, words: list[str]) -> list[int]:
         trie = Trie()
         for w in words:
             trie.insert(w)

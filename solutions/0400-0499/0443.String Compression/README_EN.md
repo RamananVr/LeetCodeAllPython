@@ -93,7 +93,7 @@ After modifying the input array in-place, the first 4 characters of <code>chars<
 
 ```python
 class Solution:
-    def compress(self, chars: List[str]) -> int:
+    def compress(self, chars: list[str]) -> int:
         i, k, n = 0, 0, len(chars)
         while i < n:
             j = i + 1

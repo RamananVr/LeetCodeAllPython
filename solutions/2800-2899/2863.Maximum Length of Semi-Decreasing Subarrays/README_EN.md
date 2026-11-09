@@ -92,7 +92,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def maxSubarrayLength(self, nums: List[int]) -> int:
+    def maxSubarrayLength(self, nums: list[int]) -> int:
         d = defaultdict(list)
         for i, x in enumerate(nums):
             d[x].append(i)

@@ -89,8 +89,8 @@ In summary, we can get:
 
 $$
 \textit{dfs}(i, j) = \begin{cases}
-0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + \max_{i \leq t \leq k} \{\textit{arr}[t]\} \max_{k < t \leq j} \{\textit{arr}[t]\}\}, & \textit{if } i < j
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + \max_{i \leq t \leq k} \{\textit{arr}[t]\} \max_{k < t \leq j} \{\textit{arr}[t]\}\}, & \text{if } i < j
 \end{cases}
 $$
 
@@ -98,8 +98,8 @@ In the above recursive process, we can use the method of memoization search to a
 
 $$
 \textit{dfs}(i, j) = \begin{cases}
-0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{\textit{dfs}(i, k) + \textit{dfs}(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
 \end{cases}
 $$
 
@@ -113,7 +113,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def mctFromLeafValues(self, arr: List[int]) -> int:
+    def mctFromLeafValues(self, arr: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> Tuple:
             if i == j:
@@ -153,8 +153,8 @@ Define $f[i][j]$ to represent the minimum possible sum of all non-leaf node valu
 
 $$
 f[i][j] = \begin{cases}
-0, & \textit{if } i = j \\
-\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
 \end{cases}
 $$
 
@@ -168,7 +168,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def mctFromLeafValues(self, arr: List[int]) -> int:
+    def mctFromLeafValues(self, arr: list[int]) -> int:
         n = len(arr)
         f = [[0] * n for _ in range(n)]
         g = [[0] * n for _ in range(n)]

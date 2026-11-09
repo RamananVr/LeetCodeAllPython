@@ -102,7 +102,7 @@ For each `getBill` call:
 2. Traverse the purchased product IDs and quantities, calculating the total bill $x = \sum_j d[\textit{product}[j]] \times \textit{amount}[j]$;
 3. If $i = 0$, the current customer is the $n$-th customer and the entire bill receives a discount; return $x - \dfrac{\textit{discount} \times x}{100}$. Otherwise, return $x$ directly.
 
-The time complexity of initialization is $O(n)$, where $n$ is the number of product types. Each `getBill` call takes $O(m)$ time, where $m$ is the number of product types in the current purchase. The space complexity is $O(n)$.
+The time complexity of initialization is $O(n)$, where $n$ is the number of product types. Each $\textit{getBill}$ call takes $O(m)$ time, where $m$ is the number of product types in the current purchase. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -111,13 +111,13 @@ The time complexity of initialization is $O(n)$, where $n$ is the number of prod
 ```python
 class Cashier:
 
-    def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
+    def __init__(self, n: int, discount: int, products: list[int], prices: list[int]):
         self.i = 0
         self.n = n
         self.discount = discount
         self.d = {a: b for a, b in zip(products, prices)}
 
-    def getBill(self, product: List[int], amount: List[int]) -> float:
+    def getBill(self, product: list[int], amount: list[int]) -> float:
         self.i = (self.i + 1) % self.n
         x = sum(self.d[a] * b for a, b in zip(product, amount))
         if self.i == 0:

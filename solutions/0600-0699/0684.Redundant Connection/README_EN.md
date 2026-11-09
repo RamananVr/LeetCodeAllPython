@@ -78,7 +78,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+    def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
@@ -121,8 +121,8 @@ class UnionFind:
     __slots__ = "p", "size"
 
     def __init__(self, n: int):
-        self.p: List[int] = list(range(n))
-        self.size: List[int] = [1] * n
+        self.p: list[int] = list(range(n))
+        self.size: list[int] = [1] * n
 
     def find(self, x: int) -> int:
         if self.p[x] != x:
@@ -142,7 +142,7 @@ class UnionFind:
         return True
 
 class Solution:
-    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+    def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
         uf = UnionFind(len(edges))
         for a, b in edges:
             if not uf.union(a - 1, b - 1):

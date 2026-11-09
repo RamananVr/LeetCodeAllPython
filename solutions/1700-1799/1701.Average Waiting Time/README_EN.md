@@ -84,13 +84,13 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 
 We use a variable `tot` to record the total waiting time of the customers, and a variable `t` to record the time when each customer's order is completed. The initial values of both are $0$.
 
-We traverse the customer array `customers`. For each customer:
+We traverse the customer array $\textit{customers}$. For each customer:
 
 If the current time `t` is less than or equal to the customer's arrival time `customers[i][0]`, it means that the chef is not cooking, so the chef can start cooking immediately. The time to complete this dish is $t = \textit{customers}[i][0] + \textit{customers}[i][1]$, and the customer's waiting time is `customers[i][1]`.
 
 Otherwise, it means that the chef is cooking, so the customer needs to wait for the chef to finish the previous dishes before starting to cook their own dishes. The time to complete this dish is $t = t + \textit{customers}[i][1]$, and the customer's waiting time is $t - \textit{customers}[i][0]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the customer array `customers`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the customer array $\textit{customers}$.
 
 <!-- tabs:start -->
 
@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def averageWaitingTime(self, customers: List[List[int]]) -> float:
+    def averageWaitingTime(self, customers: list[list[int]]) -> float:
         tot = t = 0
         for a, b in customers:
             t = max(t, a) + b

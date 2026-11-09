@@ -97,7 +97,7 @@ This problem belongs to the category of two-dimensional partial order problems.
 A two-dimensional partial order problem is defined as follows: given several pairs of points $(a_1, b_1)$, $(a_2, b_2)$, ..., $(a_n, b_n)$, and a defined partial order relation, now given a point $(a_i, b_i)$, we need to find the number/maximum value of point pairs $(a_j, b_j)$ that satisfy the partial order relation. That is:
 
 $$
-\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text { \textit{def} }}{=} a_{j} \lesseqgtr a_{i} \text { \textit{and} } b_{j} \lesseqgtr b_{i}
+\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text{def}}{=} a_{j} \lesseqgtr a_{i} \text{ and } b_{j} \lesseqgtr b_{i}
 $$
 
 The general solution to two-dimensional partial order problems is to sort one dimension and use a data structure to handle the second dimension (this data structure is generally a binary indexed tree).
@@ -138,8 +138,8 @@ class BinaryIndexedTree:
 
 class Solution:
     def maximumSumQueries(
-        self, nums1: List[int], nums2: List[int], queries: List[List[int]]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], queries: list[list[int]]
+    ) -> list[int]:
         nums = sorted(zip(nums1, nums2), key=lambda x: -x[0])
         nums2.sort()
         n, m = len(nums1), len(queries)

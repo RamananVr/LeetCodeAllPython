@@ -79,7 +79,7 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.
 
 ```python
 class Solution:
-    def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
+    def findMaxValueOfEquation(self, points: list[list[int]], k: int) -> int:
         ans = -inf
         pq = []
         for x, y in points:
@@ -113,7 +113,7 @@ class Solution:
 
 ```python
 class Solution:
-    def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
+    def findMaxValueOfEquation(self, points: list[list[int]], k: int) -> int:
         ans = -inf
         q = deque()
         for x, y in points:

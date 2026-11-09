@@ -94,7 +94,7 @@ The execution process of the function $\textit{dfs}(x)$ is as follows:
 
 To avoid repeated calculations, we use a memoization array `f` to record the results that have already been computed.
 
-The time complexity is $O(n(\log n + M))$, and the space complexity is $O(M)$, where $n$ is the length of the `rewardValues` array, and $M$ is twice the maximum value in the `rewardValues` array.
+The time complexity is $O(n(\log n + M))$, and the space complexity is $O(M)$, where $n$ is the length of the $\textit{rewardValues}$ array, and $M$ is twice the maximum value in the $\textit{rewardValues}$ array.
 
 <!-- tabs:start -->
 
@@ -102,7 +102,7 @@ The time complexity is $O(n(\log n + M))$, and the space complexity is $O(M)$, w
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         @cache
         def dfs(x: int) -> int:
             i = bisect_right(rewardValues, x)
@@ -147,7 +147,7 @@ The final answer is $\max\{j \mid f[n][j] = \textit{True}\}$.
 
 Since $f[i][j]$ only depends on $f[i - 1][j]$ and $f[i - 1][j - v]$, we can optimize away the first dimension and use only a one-dimensional array for state transitions.
 
-The time complexity is $O(n \times M)$, and the space complexity is $O(M)$, where $n$ is the length of the `rewardValues` array, and $M$ is twice the maximum value in the `rewardValues` array.
+The time complexity is $O(n \times M)$, and the space complexity is $O(M)$, where $n$ is the length of the $\textit{rewardValues}$ array, and $M$ is twice the maximum value in the $\textit{rewardValues}$ array.
 
 <!-- tabs:start -->
 
@@ -155,7 +155,7 @@ The time complexity is $O(n \times M)$, and the space complexity is $O(M)$, wher
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         m = nums[-1] << 1
         f = [False] * m
@@ -196,7 +196,7 @@ Observing the state transition equation from Solution 2, $f[j] = f[j] \vee f[j -
 
 Thus, the answer is the position of the highest bit in $f$.
 
-The time complexity is $O(n \times M / w)$, and the space complexity is $O(n + M / w)$, where $n$ is the length of the `rewardValues` array, $M$ is twice the maximum value in the `rewardValues` array, and the integer $w = 32$ or $64$.
+The time complexity is $O(n \times M / w)$, and the space complexity is $O(n + M / w)$, where $n$ is the length of the $\textit{rewardValues}$ array, $M$ is twice the maximum value in the $\textit{rewardValues}$ array, and the integer $w = 32$ or $64$.
 
 <!-- tabs:start -->
 
@@ -204,7 +204,7 @@ The time complexity is $O(n \times M / w)$, and the space complexity is $O(n + M
 
 ```python
 class Solution:
-    def maxTotalReward(self, rewardValues: List[int]) -> int:
+    def maxTotalReward(self, rewardValues: list[int]) -> int:
         nums = sorted(set(rewardValues))
         f = 1
         for v in nums:

@@ -89,7 +89,7 @@ We enumerate each person $j$ in `people`. If $f[i] + 1 \lt f[i | p[j]]$, it mean
 
 Finally, we start from the skill set $i=2^m-1$, find the number of the last person at this time $g[i]$, add it to the answer, then update $i$ to $h[i]$, and keep backtracking until $i=0$, to get the personnel numbers in the smallest necessary team.
 
-The time complexity is $O(2^m n)$, and the space complexity is $O(2^m)$, where $m$ and $n$ are the lengths of `req_skills` and `people`, respectively.
+The time complexity is $O(2^m n)$, and the space complexity is $O(2^m)$, where $m$ and $n$ are the lengths of $\textit{req\_skills}$ and $\textit{people}$, respectively.
 
 <!-- tabs:start -->
 
@@ -98,8 +98,8 @@ The time complexity is $O(2^m n)$, and the space complexity is $O(2^m)$, where $
 ```python
 class Solution:
     def smallestSufficientTeam(
-        self, req_skills: List[str], people: List[List[str]]
-    ) -> List[int]:
+        self, req_skills: list[str], people: list[list[str]]
+    ) -> list[int]:
         d = {s: i for i, s in enumerate(req_skills)}
         m, n = len(req_skills), len(people)
         p = [0] * n

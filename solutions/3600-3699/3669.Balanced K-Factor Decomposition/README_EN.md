@@ -96,7 +96,7 @@ for i in range(1, mx):
         g[j].append(i)
 
 class Solution:
-    def minDifference(self, n: int, k: int) -> List[int]:
+    def minDifference(self, n: int, k: int) -> list[int]:
         def dfs(i: int, x: int, mi: int, mx: int):
             if i == 0:
                 nonlocal cur, ans

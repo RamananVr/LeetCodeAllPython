@@ -83,7 +83,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countPairs(self, n: int, edges: List[List[int]]) -> int:
+    def countPairs(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> int:
             if vis[i]:
                 return 0
@@ -135,7 +135,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countPairs(self, n: int, edges: List[List[int]]) -> int:
+    def countPairs(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> int:
             if vis[i]:
                 return 0

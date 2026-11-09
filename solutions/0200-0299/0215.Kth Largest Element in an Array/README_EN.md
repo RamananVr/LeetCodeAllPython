@@ -67,7 +67,7 @@ The time complexity is $O(n)$, and the space complexity is $O(\log n)$, where $n
 
 ```python
 class Solution:
-    def findKthLargest(self, nums: List[int], k: int) -> int:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
         def quick_sort(l: int, r: int) -> int:
             if l == r:
                 return nums[l]
@@ -121,7 +121,7 @@ The time complexity is $O(n \log k)$, and the space complexity is $O(k)$, where 
 
 ```python
 class Solution:
-    def findKthLargest(self, nums: List[int], k: int) -> int:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
         return nlargest(k, nums)[-1]
 ```
 
@@ -153,7 +153,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def findKthLargest(self, nums: List[int], k: int) -> int:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
         cnt = Counter(nums)
         for i in count(max(cnt), -1):
             k -= cnt[i]

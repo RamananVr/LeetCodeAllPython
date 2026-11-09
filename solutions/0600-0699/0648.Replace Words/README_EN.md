@@ -66,7 +66,7 @@ tags:
 >
 > Each sentence word should be replaced by the shortest dictionary root. Testing every root on every word repeats prefixes.
 >
-> Insert roots into a trie and walk each word until the first `is_end`; that prefix is the shortest root.
+> Insert roots into a trie and walk each word until the first $\textit{is\_end}$; that prefix is the shortest root.
 
 <!-- thinking:end -->
 
@@ -107,7 +107,7 @@ class Trie:
         return w
 
 class Solution:
-    def replaceWords(self, dictionary: List[str], sentence: str) -> str:
+    def replaceWords(self, dictionary: list[str], sentence: str) -> str:
         trie = Trie()
         for w in dictionary:
             trie.insert(w)

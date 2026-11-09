@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+    def minTime(self, n: int, edges: list[list[int]], hasApple: list[bool]) -> int:
         def dfs(u, cost):
             if vis[u]:
                 return 0
@@ -128,7 +128,7 @@ class Solution:
 
 ```python
 class Solution:
-    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+    def minTime(self, n: int, edges: list[list[int]], hasApple: list[bool]) -> int:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u].append(v)

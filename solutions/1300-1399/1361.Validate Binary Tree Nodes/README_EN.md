@@ -90,7 +90,7 @@ The time complexity is $O(n \alpha(n))$, and the space complexity is $O(n)$, whe
 ```python
 class Solution:
     def validateBinaryTreeNodes(
-        self, n: int, leftChild: List[int], rightChild: List[int]
+        self, n: int, leftChild: list[int], rightChild: list[int]
     ) -> bool:
         def find(x: int) -> int:
             if p[x] != x:
@@ -141,7 +141,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def validateBinaryTreeNodes(
-        self, n: int, leftChild: List[int], rightChild: List[int]
+        self, n: int, leftChild: list[int], rightChild: list[int]
     ) -> bool:
         indeg = [0] * n
         for c in chain(leftChild, rightChild):

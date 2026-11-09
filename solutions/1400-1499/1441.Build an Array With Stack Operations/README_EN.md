@@ -96,7 +96,7 @@ The answers that read integer 3 from the stream are not accepted.
 
 > **Thinking**
 >
-> The stream is $1,2,\ldots,n$ and `target` is strictly increasing. Numbers missing from `target` need `Push` then `Pop`; numbers in `target` need only `Push`.
+> The stream is $1,2,\ldots,n$ and $\textit{target}$ is strictly increasing. Numbers missing from $\textit{target}$ need $\textit{Push}$ then $\textit{Pop}$; numbers in $\textit{target}$ need only $\textit{Push}$.
 >
 > A pointer $\textit{cur}$ is the next streamed value. For each target $x$, emit Push/Pop for the gap, then Push $x$. $n\le 100$.
 
@@ -120,7 +120,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def buildArray(self, target: List[int], n: int) -> List[str]:
+    def buildArray(self, target: list[int], n: int) -> list[str]:
         ans = []
         cur = 1
         for x in target:

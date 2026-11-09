@@ -105,7 +105,7 @@ Therefore, the size of the longest subarray is 2.</p>
 
 We can enumerate each position as the right endpoint of the subarray, and find the leftmost left endpoint corresponding to it, such that the difference between the maximum and minimum values in the interval does not exceed $\textit{limit}$. During the process, we use an ordered set to maintain the maximum and minimum values within the window.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -113,7 +113,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         sl = SortedList()
         ans = j = 0
         for i, x in enumerate(nums):
@@ -155,7 +155,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         def check(k: int) -> bool:
             min_q = deque()
             max_q = deque()
@@ -216,7 +216,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
+    def longestSubarray(self, nums: list[int], limit: int) -> int:
         maxq = deque()
         minq = deque()
         l, n = 0, len(nums)

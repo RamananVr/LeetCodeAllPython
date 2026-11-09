@@ -81,7 +81,7 @@ Note that you are allowed to reuse a dictionary word.
 
 ```python
 class Solution:
-    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    def wordBreak(self, s: str, wordDict: list[str]) -> bool:
         words = set(wordDict)
         n = len(s)
         f = [True] + [False] * n
@@ -113,7 +113,7 @@ class Solution:
 ```python
 class Trie:
     def __init__(self):
-        self.children: List[Trie | None] = [None] * 26
+        self.children: list[Trie | None] = [None] * 26
         self.isEnd = False
 
     def insert(self, w: str):
@@ -126,7 +126,7 @@ class Trie:
         node.isEnd = True
 
 class Solution:
-    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    def wordBreak(self, s: str, wordDict: list[str]) -> bool:
         trie = Trie()
         for w in wordDict:
             trie.insert(w)

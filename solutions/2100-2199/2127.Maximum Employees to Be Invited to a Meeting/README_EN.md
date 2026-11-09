@@ -108,7 +108,7 @@ In addition, for the size of the cycle equal to $2$, that is, there are two empl
 
 Therefore, the problem is actually equivalent to finding the length of the maximum cycle in the graph, and all cycles of length $2$ plus their longest chain. The maximum of these two can be found. To find the longest chain to the cycle of length $2$, we can use topological sorting.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `favorite`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{favorite}$.
 
 <!-- tabs:start -->
 
@@ -116,8 +116,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumInvitations(self, favorite: List[int]) -> int:
-        def max_cycle(fa: List[int]) -> int:
+    def maximumInvitations(self, favorite: list[int]) -> int:
+        def max_cycle(fa: list[int]) -> int:
             n = len(fa)
             vis = [False] * n
             ans = 0
@@ -136,7 +136,7 @@ class Solution:
                         break
             return ans
 
-        def topological_sort(fa: List[int]) -> int:
+        def topological_sort(fa: list[int]) -> int:
             n = len(fa)
             indeg = [0] * n
             dist = [1] * n

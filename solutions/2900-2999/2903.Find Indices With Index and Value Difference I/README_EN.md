@@ -88,11 +88,11 @@ Hence, [-1,-1] is returned.</pre>
 
 <!-- thinking:end -->
 
-We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $\textit{indexDifference}$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $\textit{indexDifference}$, and $j` points to $0$.
+We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $\textit{indexDifference}$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $\textit{indexDifference}$, and $j$ points to $0$.
 
 We use $mi$ and $mx$ to maintain the indices of the minimum and maximum values to the left of pointer $j$.
 
-When pointer $i$ moves to the right, we need to update $mi$ and $mx$. If $\textit{nums}[j] \lt \textit{nums}[mi]$, then $mi$ is updated to $j$; if $\textit{nums}[j] \gt \textit{nums}[mx]$, then $mx$ is updated to $j$. After updating $mi$ and $mx$, we can determine whether we have found a pair of indices that satisfy the condition. If $\textit{nums}[i] - \textit{nums}[mi] \ge \textit{valueDifference}$, then we have found a pair of indices $[mi, i]$ that satisfy the condition; if $\textit{nums}[mx] - \textit{nums}[i] >= \textit{valueDifference}$, then we have found a pair of indices $[mx, i]$ that satisfy the condition.
+When pointer $i$ moves to the right, we need to update $mi$ and $mx$. If $\textit{nums}[j] \lt \textit{nums}[mi]$, then $mi$ is updated to $j$; if $\textit{nums}[j] \gt \textit{nums}[mx]$, then $mx$ is updated to $j$. After updating $mi$ and $mx$, we can determine whether we have found a pair of indices that satisfy the condition. If $\textit{nums}[i] - \textit{nums}[mi] \ge \textit{valueDifference}$, then we have found a pair of indices $[mi, i]$ that satisfy the condition; if $\textit{nums}[mx] - \textit{nums}[i] \ge \textit{valueDifference}$, then we have found a pair of indices $[mx, i]$ that satisfy the condition.
 
 If pointer $i$ moves to the end of the array and we have not found a pair of indices that satisfy the condition, we return $[-1, -1]$.
 
@@ -105,8 +105,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def findIndices(
-        self, nums: List[int], indexDifference: int, valueDifference: int
-    ) -> List[int]:
+        self, nums: list[int], indexDifference: int, valueDifference: int
+    ) -> list[int]:
         mi = mx = 0
         for i in range(indexDifference, len(nums)):
             j = i - indexDifference

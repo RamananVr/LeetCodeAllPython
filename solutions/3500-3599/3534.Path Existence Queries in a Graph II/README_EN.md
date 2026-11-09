@@ -167,12 +167,12 @@ tags:
 
 <!-- thinking:end -->
 
-Key observation: an edge exists between two nodes if the absolute difference of their values is at most `maxDiff`. After sorting nodes by value, greedily jumping from a smaller-value node to the largest reachable value at each step yields the shortest path.
+Key observation: an edge exists between two nodes if the absolute difference of their values is at most $\textit{maxDiff}$. After sorting nodes by value, greedily jumping from a smaller-value node to the largest reachable value at each step yields the shortest path.
 
 The preprocessing steps are as follows:
 
 1. Sort `(nums[i], i)` pairs by value;
-2. Use two pointers: for each sorted position `l`, find the rightmost position `r` such that `pairs[r].first - pairs[l].first <= maxDiff`. Set `f[i][0] = j`, meaning from node `i`, one jump reaches node `j`, the largest-value node within `maxDiff`;
+2. Use two pointers: for each sorted position `l`, find the rightmost position `r` such that `pairs[r].first - pairs[l].first <= maxDiff`. Set `f[i][0] = j`, meaning from node `i`, one jump reaches node `j`, the largest-value node within $\textit{maxDiff}$;
 3. Build a binary lifting table `f[i][k]`, representing the node reached after $2^k$ jumps from node `i`.
 
 For each query, assume `nums[u] <= nums[v]`:
@@ -190,8 +190,8 @@ The time complexity is $O(n \log n + (n + q) \log n)$, and the space complexity 
 ```python
 class Solution:
     def pathExistenceQueries(
-        self, n: int, nums: List[int], maxDiff: int, queries: List[List[int]]
-    ) -> List[int]:
+        self, n: int, nums: list[int], maxDiff: int, queries: list[list[int]]
+    ) -> list[int]:
         pairs = sorted((x, i) for i, x in enumerate(nums))
         m = 20
         f = [[0] * m for _ in range(n)]

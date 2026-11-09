@@ -90,7 +90,7 @@ class Trie:
         node.is_end = True
 
 class Solution:
-    def findAllConcatenatedWordsInADict(self, words: List[str]) -> List[str]:
+    def findAllConcatenatedWordsInADict(self, words: list[str]) -> list[str]:
         def dfs(w):
             if not w:
                 return True

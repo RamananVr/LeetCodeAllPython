@@ -93,7 +93,7 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 >
 > The secret spreads along same-time meeting components. Both $n$ and the meeting count are $10^5$. Sort by time; each timestamp is a temporary graph, BFS only from people who already know.
 >
-> Later times do not look backward. `vis` stays true once set.
+> Later times do not look backward. $\textit{vis}$ stays true once set.
 
 <!-- thinking:end -->
 
@@ -118,8 +118,8 @@ The time complexity is $O(m \log m + n)$, and the space complexity is $O(n)$, wh
 ```python
 class Solution:
     def findAllPeople(
-        self, n: int, meetings: List[List[int]], firstPerson: int
-    ) -> List[int]:
+        self, n: int, meetings: list[list[int]], firstPerson: int
+    ) -> list[int]:
         vis = [False] * n
         vis[0] = vis[firstPerson] = True
         meetings.sort(key=lambda x: x[2])

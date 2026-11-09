@@ -170,7 +170,7 @@ for i in range(1, mx):
     pow10[i] = pow10[i - 1] * 10 % mod
 
 class Solution:
-    def sumAndMultiply(self, s: str, queries: List[List[int]]) -> List[int]:
+    def sumAndMultiply(self, s: str, queries: list[list[int]]) -> list[int]:
         n = len(s)
         sum_d = [0] * (n + 1)
         cnt_n0 = [0] * (n + 1)

@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+    def getSneakyNumbers(self, nums: list[int]) -> list[int]:
         cnt = Counter(nums)
         return [x for x, v in cnt.items() if v == 2]
 ```
@@ -138,7 +138,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+    def getSneakyNumbers(self, nums: list[int]) -> list[int]:
         n = len(nums) - 2
         xx = nums[n] ^ nums[n + 1]
         for i in range(n):

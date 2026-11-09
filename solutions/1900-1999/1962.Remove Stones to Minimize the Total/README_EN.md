@@ -88,7 +88,7 @@ Next, we perform $k$ operations. In each operation, we take out the top element 
 
 After performing $k$ operations, the sum of all elements in the priority queue is the answer.
 
-The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `piles`.
+The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{piles}$.
 
 <!-- tabs:start -->
 
@@ -96,7 +96,7 @@ The time complexity is $O(n + k \log n)$, and the space complexity is $O(n)$, wh
 
 ```python
 class Solution:
-    def minStoneSum(self, piles: List[int], k: int) -> int:
+    def minStoneSum(self, piles: list[int], k: int) -> int:
         pq = [-x for x in piles]
         heapify(pq)
         for _ in range(k):

@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def tallestBillboard(self, rods: List[int]) -> int:
+    def tallestBillboard(self, rods: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(rods):
@@ -113,7 +113,7 @@ class Solution:
 
 ```python
 class Solution:
-    def tallestBillboard(self, rods: List[int]) -> int:
+    def tallestBillboard(self, rods: list[int]) -> int:
         n = len(rods)
         s = sum(rods)
         f = [[-inf] * (s + 1) for _ in range(n + 1)]

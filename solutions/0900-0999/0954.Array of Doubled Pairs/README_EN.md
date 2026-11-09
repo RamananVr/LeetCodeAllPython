@@ -72,7 +72,7 @@ tags:
 
 ```python
 class Solution:
-    def canReorderDoubled(self, arr: List[int]) -> bool:
+    def canReorderDoubled(self, arr: list[int]) -> bool:
         freq = Counter(arr)
         if freq[0] & 1:
             return False

@@ -92,7 +92,7 @@ Therefore, the answer is 0.</pre>
 
 We can enumerate all index pairs $(i, j)$, where $i < j$, and then determine whether `words[i]` is a prefix or suffix of `words[j]`. If it is, we increment the count.
 
-The time complexity is $O(n^2m)$, where $n$ and $m$ are the length of `words` and the maximum length of the strings, respectively.
+The time complexity is $O(n^2m)$, where $n$ and $m$ are the length of $\textit{words}$ and the maximum length of the strings, respectively.
 
 <!-- tabs:start -->
 
@@ -100,7 +100,7 @@ The time complexity is $O(n^2m)$, where $n$ and $m$ are the length of `words` an
 
 ```python
 class Solution:
-    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+    def countPrefixSuffixPairs(self, words: list[str]) -> int:
         ans = 0
         for i, s in enumerate(words):
             for t in words[i + 1 :]:
@@ -130,7 +130,7 @@ We can treat each string $s$ in the string array as a list of character pairs, w
 
 We can use a trie to store all the character pairs, and then for each string $s$, we search for all the character pairs $(s[i], s[m - i - 1])$ in the trie, and add their counts to the answer.
 
-The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the lengths of `words` and the maximum length of the strings, respectively.
+The time complexity is $O(nm)$, and the space complexity is $O(nm)$, where $n$ and $m$ are the lengths of $\textit{words}$ and the maximum length of the strings, respectively.
 
 <!-- tabs:start -->
 
@@ -145,7 +145,7 @@ class Node:
         self.cnt = 0
 
 class Solution:
-    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+    def countPrefixSuffixPairs(self, words: list[str]) -> int:
         ans = 0
         trie = Node()
         for s in words:

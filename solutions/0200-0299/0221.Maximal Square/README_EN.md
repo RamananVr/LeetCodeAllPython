@@ -74,8 +74,8 @@ The state transition equation is:
 $$
 dp[i + 1][j + 1] =
 \begin{cases}
-0 & \textit{if } \textit{matrix}[i][j] = '0' \\
-\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 & \textit{if } \textit{matrix}[i][j] = '1'
+0 & \text{if } \textit{matrix}[i][j] = '0' \\
+\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 & \text{if } \textit{matrix}[i][j] = '1'
 \end{cases}
 $$
 
@@ -87,7 +87,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def maximalSquare(self, matrix: List[List[str]]) -> int:
+    def maximalSquare(self, matrix: list[list[str]]) -> int:
         m, n = len(matrix), len(matrix[0])
         dp = [[0] * (n + 1) for _ in range(m + 1)]
         mx = 0

@@ -236,13 +236,13 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-	def minRotations(self, s: str) -> int:
-		ans = pre = 0
-		for cur in map(int, s):
-			diff = abs(cur - pre)
-			ans += min(diff, 10 - diff)
-			pre = cur
-		return ans
+    def minRotations(self, s: str) -> int:
+        ans = pre = 0
+        for cur in map(int, s):
+            diff = abs(cur - pre)
+            ans += min(diff, 10 - diff)
+            pre = cur
+        return ans
 ```
 
 <!-- tabs:end -->

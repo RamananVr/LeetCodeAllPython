@@ -119,7 +119,7 @@ $$
 \textit{dfs}(i) = \begin{cases}
 0, & i \geq |\textit{source}| \\
 \textit{dfs}(i + 1), & \textit{source}[i] = \textit{target}[i] \\
-\min_{i \leq j < |\textit{source}|} \{ \textit{dfs}(j + 1) + g[x][y] \}, & \textit{otherwise}
+\min_{i \leq j < |\textit{source}|} \{ \textit{dfs}(j + 1) + g[x][y] \}, & \text{otherwise}
 \end{cases}
 $$
 
@@ -127,7 +127,7 @@ Where $x$ and $y$ are the integer identifiers of $\textit{source}[i..j]$ and $\t
 
 To avoid repeated calculations, we can use memoization search.
 
-The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of the arrays `original` and `source`, respectively.
+The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of the arrays $\textit{original}$ and $\textit{source}$, respectively.
 
 <!-- tabs:start -->
 
@@ -138,7 +138,7 @@ class Node:
     __slots__ = ["children", "v"]
 
     def __init__(self):
-        self.children: List[Node | None] = [None] * 26
+        self.children: list[Node | None] = [None] * 26
         self.v = -1
 
 class Solution:
@@ -146,9 +146,9 @@ class Solution:
         self,
         source: str,
         target: str,
-        original: List[str],
-        changed: List[str],
-        cost: List[int],
+        original: list[str],
+        changed: list[str],
+        cost: list[int],
     ) -> int:
         m = len(cost)
         g = [[inf] * (m << 1) for _ in range(m << 1)]
@@ -225,7 +225,7 @@ Let $f[i]$ be the minimum cost of turning $\textit{source}[i..]$ into $\textit{t
 
 The answer is $f[0]$. If it is at least the preset upper bound, return $-1$.
 
-The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of `original` and $\textit{source}$, respectively.
+The time complexity is $O(m^3 + n^2 + mn)$, and the space complexity is $O(m^2 + mn + n)$, where $m$ and $n$ are the lengths of $\textit{original}$ and $\textit{source}$, respectively.
 
 <!-- tabs:start -->
 
@@ -236,7 +236,7 @@ class Node:
     __slots__ = ["children", "v"]
 
     def __init__(self):
-        self.children: List[Node | None] = [None] * 26
+        self.children: list[Node | None] = [None] * 26
         self.v = -1
 
 class Solution:
@@ -244,9 +244,9 @@ class Solution:
         self,
         source: str,
         target: str,
-        original: List[str],
-        changed: List[str],
-        cost: List[int],
+        original: list[str],
+        changed: list[str],
+        cost: list[int],
     ) -> int:
         m = len(cost)
         g = [[inf] * (m << 1) for _ in range(m << 1)]

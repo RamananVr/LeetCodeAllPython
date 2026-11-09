@@ -105,7 +105,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def mostPoints(self, questions: List[List[int]]) -> int:
+    def mostPoints(self, questions: list[list[int]]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(questions):
@@ -154,7 +154,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def mostPoints(self, questions: List[List[int]]) -> int:
+    def mostPoints(self, questions: list[list[int]]) -> int:
         n = len(questions)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):
@@ -204,7 +204,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def mostPoints(self, questions: List[List[int]]) -> int:
+    def mostPoints(self, questions: list[list[int]]) -> int:
         n = len(questions)
         f = [0] * (n + 1)
         for i in range(n - 1, -1, -1):

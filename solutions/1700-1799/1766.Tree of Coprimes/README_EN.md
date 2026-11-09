@@ -100,7 +100,7 @@ The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$
 
 ```python
 class Solution:
-    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+    def getCoprimes(self, nums: list[int], edges: list[list[int]]) -> list[int]:
         def dfs(i, fa, depth):
             t = k = -1
             for v in f[nums[i]]:
@@ -161,7 +161,7 @@ The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$
 
 ```python
 class Solution:
-    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+    def getCoprimes(self, nums: list[int], edges: list[list[int]]) -> list[int]:
         n = len(nums)
         g = [[] for _ in range(n)]
         for u, v in edges:

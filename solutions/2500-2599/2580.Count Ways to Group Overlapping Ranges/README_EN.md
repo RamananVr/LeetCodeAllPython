@@ -102,7 +102,7 @@ Alternatively, we can also avoid using fast power. Once a new non-overlapping in
 
 ```python
 class Solution:
-    def countWays(self, ranges: List[List[int]]) -> int:
+    def countWays(self, ranges: list[list[int]]) -> int:
         ranges.sort()
         cnt, mx = 0, -1
         for start, end in ranges:
@@ -135,7 +135,7 @@ class Solution:
 
 ```python
 class Solution:
-    def countWays(self, ranges: List[List[int]]) -> int:
+    def countWays(self, ranges: list[list[int]]) -> int:
         ranges.sort()
         mx = -1
         mod = 10**9 + 7

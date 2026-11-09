@@ -84,7 +84,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         def dfs(i: int) -> bool:
             if i == destination:
@@ -115,7 +115,7 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 expands with an explicit stack in depth-first order. A queue expands level by level with the same visited marks: the source is enqueued, and a dequeued vertex that is the destination succeeds. Unvisited neighbors are enqueued. An empty queue means the destination is unreachable.
+> Method 1 expands in depth-first order by recursion. A queue expands level by level with the same visited marks: the source is enqueued, and a dequeued vertex that is the destination succeeds. Unvisited neighbors are enqueued. An empty queue means the destination is unreachable.
 
 <!-- thinking:end -->
 
@@ -136,7 +136,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         g = [[] for _ in range(n)]
         for u, v in edges:
@@ -209,7 +209,7 @@ class UnionFind:
 
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         uf = UnionFind(n)
         for u, v in edges:
@@ -248,7 +248,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
+        self, n: int, edges: list[list[int]], source: int, destination: int
     ) -> bool:
         if source == destination:
             return True

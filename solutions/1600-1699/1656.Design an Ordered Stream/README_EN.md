@@ -96,12 +96,11 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class OrderedStream:
-
     def __init__(self, n: int):
         self.ptr = 1
         self.data = [None] * (n + 1)
 
-    def insert(self, idKey: int, value: str) -> List[str]:
+    def insert(self, idKey: int, value: str) -> list[str]:
         self.data[idKey] = value
         ans = []
         while self.ptr < len(self.data) and self.data[self.ptr]:

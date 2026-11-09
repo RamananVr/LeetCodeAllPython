@@ -76,7 +76,7 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 
 We can first put each element of the arrays into an array, then enumerate each number $i$ from $1$ to $100$, and check whether $i$ appears in at least two arrays. If so, add $i$ to the answer array.
 
-The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 + n_2 + n_3)$, where $n_1, n_2, n_3$ are the lengths of the arrays `nums1`, `nums2`, and `nums3`, respectively.
+The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 + n_2 + n_3)$, where $n_1, n_2, n_3$ are the lengths of the arrays $\textit{nums1}$, $\textit{nums2}$, and $\textit{nums3}$, respectively.
 
 <!-- tabs:start -->
 
@@ -85,8 +85,8 @@ The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 
 ```python
 class Solution:
     def twoOutOfThree(
-        self, nums1: List[int], nums2: List[int], nums3: List[int]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], nums3: list[int]
+    ) -> list[int]:
         s1, s2, s3 = set(nums1), set(nums2), set(nums3)
         return [i for i in range(1, 101) if (i in s1) + (i in s2) + (i in s3) > 1]
 ```
@@ -113,7 +113,7 @@ We can use a hash table `mask` to record which arrays each number appears in. Fo
 
 Finally, we iterate through each number in the hash table and check if its corresponding value has at least two bits set to `1` in binary. If so, add that number to the answer array.
 
-The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 + n_2 + n_3)$, where $n_1, n_2, n_3$ are the lengths of the arrays `nums1`, `nums2`, and `nums3`, respectively.
+The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 + n_2 + n_3)$, where $n_1, n_2, n_3$ are the lengths of the arrays $\textit{nums1}$, $\textit{nums2}$, and $\textit{nums3}$, respectively.
 
 <!-- tabs:start -->
 
@@ -122,8 +122,8 @@ The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 
 ```python
 class Solution:
     def twoOutOfThree(
-        self, nums1: List[int], nums2: List[int], nums3: List[int]
-    ) -> List[int]:
+        self, nums1: list[int], nums2: list[int], nums3: list[int]
+    ) -> list[int]:
         mask = defaultdict(int)
         for i, nums in enumerate((nums1, nums2, nums3)):
             for x in nums:

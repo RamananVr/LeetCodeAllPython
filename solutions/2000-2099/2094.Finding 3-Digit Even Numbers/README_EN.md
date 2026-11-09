@@ -80,7 +80,7 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 
 > **Thinking**
 >
-> Form distinct three-digit even numbers from `digits` without a leading zero. There are only $450$ such evens, so enumerate them and test frequencies rather than permuting the input.
+> Form distinct three-digit even numbers from $\textit{digits}$ without a leading zero. There are only $450$ such evens, so enumerate them and test frequencies rather than permuting the input.
 >
 > Count digits $0..9$, then split each even in $[100,998]$ and compare counts.
 
@@ -100,7 +100,7 @@ The time complexity is $O(k 10^k)$, and the space complexity is $O(1)$, where $k
 
 ```python
 class Solution:
-    def findEvenNumbers(self, digits: List[int]) -> List[int]:
+    def findEvenNumbers(self, digits: list[int]) -> list[int]:
         cnt = Counter(digits)
         ans = []
         for x in range(100, 1000, 2):

@@ -94,7 +94,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def zeroFilledSubarray(self, nums: List[int]) -> int:
+    def zeroFilledSubarray(self, nums: list[int]) -> int:
         ans = cnt = 0
         for x in nums:
             if x == 0:

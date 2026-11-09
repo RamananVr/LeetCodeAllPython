@@ -116,7 +116,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def getLength(self, nums: List[int]) -> int:
+    def getLength(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 1
         for l in range(n):
@@ -130,7 +130,10 @@ class Solution:
                         freq.pop(cnt[x])
                 cnt[x] += 1
                 freq[cnt[x]] += 1
-                if (len(cnt) == 1) or (len(freq) == 2 and (freq[cnt[x] * 2] or (cnt[x] % 2 == 0 and freq[cnt[x] // 2]))):
+                if (len(cnt) == 1) or (
+                    len(freq) == 2
+                    and (freq[cnt[x] * 2] or (cnt[x] % 2 == 0 and freq[cnt[x] // 2]))
+                ):
                     ans = max(ans, r - l + 1)
         return ans
 ```

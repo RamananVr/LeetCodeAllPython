@@ -89,7 +89,7 @@ No group of size 2 exists during any step.
 
 ```python
 class Solution:
-    def findLatestStep(self, arr: List[int], m: int) -> int:
+    def findLatestStep(self, arr: list[int], m: int) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -145,7 +145,7 @@ class Solution:
 
 ```python
 class Solution:
-    def findLatestStep(self, arr: List[int], m: int) -> int:
+    def findLatestStep(self, arr: list[int], m: int) -> int:
         n = len(arr)
         if m == n:
             return n

@@ -95,7 +95,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def maximumStrongPairXor(self, nums: List[int]) -> int:
+    def maximumStrongPairXor(self, nums: list[int]) -> int:
         return max(x ^ y for x in nums for y in nums if abs(x - y) <= min(x, y))
 ```
 
@@ -132,7 +132,7 @@ class Trie:
     __slots__ = ("children", "cnt")
 
     def __init__(self):
-        self.children: List[Trie | None] = [None, None]
+        self.children: list[Trie | None] = [None, None]
         self.cnt = 0
 
     def insert(self, x: int):
@@ -164,7 +164,7 @@ class Trie:
             node.cnt -= 1
 
 class Solution:
-    def maximumStrongPairXor(self, nums: List[int]) -> int:
+    def maximumStrongPairXor(self, nums: list[int]) -> int:
         nums.sort()
         tree = Trie()
         ans = i = 0

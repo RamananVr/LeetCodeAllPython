@@ -101,7 +101,7 @@ class BinaryIndexedTree:
         return s
 
 class Solution:
-    def kEmptySlots(self, bulbs: List[int], k: int) -> int:
+    def kEmptySlots(self, bulbs: list[int], k: int) -> int:
         n = len(bulbs)
         tree = BinaryIndexedTree(n)
         vis = [False] * (n + 1)

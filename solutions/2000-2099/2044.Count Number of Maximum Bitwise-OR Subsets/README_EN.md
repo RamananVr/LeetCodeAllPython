@@ -98,7 +98,7 @@ The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def countMaxOrSubsets(self, nums: List[int]) -> int:
+    def countMaxOrSubsets(self, nums: list[int]) -> int:
         def dfs(i, t):
             nonlocal ans, mx
             if i == len(nums):
@@ -144,7 +144,7 @@ The time complexity is $O(2^n n)$, and the space complexity is $O(1)$, where $n$
 
 ```python
 class Solution:
-    def countMaxOrSubsets(self, nums: List[int]) -> int:
+    def countMaxOrSubsets(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
         mx = 0

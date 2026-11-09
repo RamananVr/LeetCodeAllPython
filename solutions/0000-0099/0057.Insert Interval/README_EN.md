@@ -69,7 +69,7 @@ tags:
 
 <!-- thinking:end -->
 
-We can first add the new interval `newInterval` to the interval list `intervals`, and then merge according to the regular method of interval merging.
+We can first add the new interval $\textit{newInterval}$ to the interval list `intervals`, and then merge according to the regular method of interval merging.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of intervals.
 
@@ -80,9 +80,9 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 ```python
 class Solution:
     def insert(
-        self, intervals: List[List[int]], newInterval: List[int]
-    ) -> List[List[int]]:
-        def merge(intervals: List[List[int]]) -> List[List[int]]:
+        self, intervals: list[list[int]], newInterval: list[int]
+    ) -> list[list[int]]:
+        def merge(intervals: list[list[int]]) -> list[list[int]]:
             intervals.sort()
             ans = [intervals[0]]
             for s, e in intervals[1:]:
@@ -114,7 +114,7 @@ class Solution:
 
 <!-- thinking:end -->
 
-We can traverse the interval list `intervals`, let the current interval be `interval`, and there are three situations for each interval:
+We can traverse the interval list `intervals`, let the current interval be $\textit{interval}$, and there are three situations for each interval:
 
 - The current interval is on the right side of the new interval, that is, $\textit{newInterval}[1] < \textit{interval}[0]$. At this time, if the new interval has not been added, then add the new interval to the answer, and then add the current interval to the answer.
 - The current interval is on the left side of the new interval, that is, $\textit{interval}[1] < \textit{newInterval}[0]$. At this time, add the current interval to the answer.
@@ -131,8 +131,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def insert(
-        self, intervals: List[List[int]], newInterval: List[int]
-    ) -> List[List[int]]:
+        self, intervals: list[list[int]], newInterval: list[int]
+    ) -> list[list[int]]:
         st, ed = newInterval
         ans = []
         insert = False

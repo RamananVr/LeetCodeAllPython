@@ -92,11 +92,11 @@ tags:
 
 > **Thinking**
 >
-> $n\le 8$ gives at most $8!=40320$ permutations, and the allowed prefix flips are few, so BFS on the permutation is the minimum step count.
+> $n\le 8$ gives at most $8! = 40320$ permutations, and the allowed prefix flips are few, so BFS on the permutation is the minimum step count.
 >
 > The target is $(0,1,\ldots,n-1)$. From the start tuple, reverse each prefix in $\textit{pre}$; unvisited states are enqueued. Hitting the target is optimal; an empty queue is impossible.
 >
-> Dedup with tuples or an base-$8$ integer.
+> Dedup with tuples or a base-$8$ integer.
 
 <!-- thinking:end -->
 
@@ -114,7 +114,7 @@ The time complexity is $O(n!mn)$, and the space complexity is $O(n!n)$, where $n
 
 ```python
 class Solution:
-    def sortArray(self, nums: List[int], pre: List[int]) -> int:
+    def sortArray(self, nums: list[int], pre: list[int]) -> int:
         n = len(nums)
         target = tuple(range(n))
         start = tuple(nums)

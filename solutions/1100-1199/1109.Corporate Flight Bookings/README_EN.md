@@ -80,7 +80,7 @@ Hence, answer = [10,25]
 
 <!-- thinking:end -->
 
-We notice that each booking is for `seats` seats on all flights within a certain interval `[first, last]`. Therefore, we can use the idea of a difference array. For each booking, we add `seats` to the number at the `first` position and subtract `seats` from the number at the `last + 1` position. Finally, we calculate the prefix sum of the difference array to get the total number of seats booked for each flight.
+We notice that each booking is for $\textit{seats}$ seats on all flights within a certain interval `[first, last]`. Therefore, we can use the idea of a difference array. For each booking, we add $\textit{seats}$ to the number at the $\textit{first}$ position and subtract $\textit{seats}$ from the number at the `last + 1` position. Finally, we calculate the prefix sum of the difference array to get the total number of seats booked for each flight.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the number of flights.
 
@@ -90,7 +90,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+    def corpFlightBookings(self, bookings: list[list[int]], n: int) -> list[int]:
         ans = [0] * n
         for first, last, seats in bookings:
             ans[first - 1] += seats
@@ -115,7 +115,7 @@ class Solution:
 
 <!-- thinking:end -->
 
-We can also use a binary indexed tree, combined with the idea of difference, to implement the above operations. We can consider each booking as booking `seats` seats on all flights within a certain interval `[first, last]`. Therefore, for each booking, we add `seats` to the `first` position of the binary indexed tree and subtract `seats` from the `last + 1` position of the binary indexed tree. Finally, we calculate the prefix sum for each position in the binary indexed tree to get the total number of seats booked for each flight.
+We can also use a binary indexed tree, combined with the idea of difference, to implement the above operations. We can consider each booking as booking `seats` seats on all flights within a certain interval `[first, last]`. Therefore, for each booking, we add `seats` to the $\textit{first}$ position of the binary indexed tree and subtract `seats` from the `last + 1` position of the binary indexed tree. Finally, we calculate the prefix sum for each position in the binary indexed tree to get the total number of seats booked for each flight.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of flights.
 
@@ -151,7 +151,7 @@ class BinaryIndexedTree:
         return s
 
 class Solution:
-    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+    def corpFlightBookings(self, bookings: list[list[int]], n: int) -> list[int]:
         tree = BinaryIndexedTree(n)
         for first, last, seats in bookings:
             tree.update(first, seats)

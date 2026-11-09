@@ -128,7 +128,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if i >= len(nums):
@@ -180,7 +180,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         f, g = -inf, 0
         for x in nums:
             f, g = max(f, g) + x, f - x
@@ -225,7 +225,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maximumTotalCost(self, nums: List[int]) -> int:
+    def maximumTotalCost(self, nums: list[int]) -> int:
         n = len(nums)
         f = [[0, 0] for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):

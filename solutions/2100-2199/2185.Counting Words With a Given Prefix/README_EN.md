@@ -75,7 +75,7 @@ tags:
 
 ```python
 class Solution:
-    def prefixCount(self, words: List[str], pref: str) -> int:
+    def prefixCount(self, words: list[str], pref: str) -> int:
         return sum(w.startswith(pref) for w in words)
 ```
 
@@ -128,7 +128,7 @@ class Trie:
         return node.cnt
 
 class Solution:
-    def prefixCount(self, words: List[str], pref: str) -> int:
+    def prefixCount(self, words: list[str], pref: str) -> int:
         tree = Trie()
         for w in words:
             tree.insert(w)

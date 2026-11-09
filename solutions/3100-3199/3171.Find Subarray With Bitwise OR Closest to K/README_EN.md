@@ -106,7 +106,7 @@ Similar Problems:
 
 ```python
 class Solution:
-    def minimumDifference(self, nums: List[int], k: int) -> int:
+    def minimumDifference(self, nums: list[int], k: int) -> int:
         m = max(nums).bit_length()
         cnt = [0] * m
         s = i = 0
@@ -165,7 +165,7 @@ Similar Problems:
 
 ```python
 class Solution:
-    def minimumDifference(self, nums: List[int], k: int) -> int:
+    def minimumDifference(self, nums: list[int], k: int) -> int:
         ans = inf
         s = set()
         for x in nums:

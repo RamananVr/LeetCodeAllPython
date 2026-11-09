@@ -91,8 +91,8 @@ Next, we define two arrays $f$ and $g$, where $f[i]$ represents the length of th
 
 We can compute the values of $f$ and $g$ in a single pass:
 
-- For $f$: if $d[i] == d[i - 1]$, then $f[i] = f[i - 1] + 1$.
-- For $g$: if $d[i + 1] == d[i + 2]$, then $g[i] = g[i + 1] + 1$.
+- For $f$: if $d[i] = d[i - 1]$, then $f[i] = f[i - 1] + 1$.
+- For $g$: if $d[i + 1] = d[i + 2]$, then $g[i] = g[i + 1] + 1$.
 
 Then we initialize the answer to $3$, since we can always form an arithmetic subarray of length $3$ by replacing one element. We then enumerate each element and try to replace it with a suitable value to form a longer arithmetic subarray:
 
@@ -111,7 +111,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestArithmetic(self, nums: List[int]) -> int:
+    def longestArithmetic(self, nums: list[int]) -> int:
         n = len(nums)
         d = [0] * n
         for i in range(1, n):
@@ -135,7 +135,7 @@ class Solution:
             if i + 1 < n:
                 ans = max(ans, g[i + 1] + 1)
             if 0 < i < n - 1:
-                diff = nums[i + 1] - nums[i -1]
+                diff = nums[i + 1] - nums[i - 1]
                 if diff % 2 == 0:
                     diff //= 2
                     k = 3

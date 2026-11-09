@@ -69,7 +69,7 @@ It can be proven that we can perform at most 2 operations.
 
 <!-- solution:start -->
 
-### Solution 1: Memorization Search
+### Solution 1: Memoization Search
 
 <!-- thinking:start -->
 
@@ -83,7 +83,7 @@ It can be proven that we can perform at most 2 operations.
 
 <!-- thinking:end -->
 
-There are three possible values for the score $s$, which are $s = \textit{nums}[0] + \textit{nums}[1]$, $s = \textit{nums}[0] + \textit{nums}[n-1]$, and $s = \textit{nums}[n-1] + \textit{nums}[n-2]$. We can perform memorization search for these three cases separately.
+There are three possible values for the score $s$, which are $s = \textit{nums}[0] + \textit{nums}[1]$, $s = \textit{nums}[0] + \textit{nums}[n-1]$, and $s = \textit{nums}[n-1] + \textit{nums}[n-2]$. We can perform memoization search for these three cases separately.
 
 We design a function $\textit{dfs}(i, j)$, which represents the maximum number of operations from index $i$ to index $j$ when the score is $s$. The execution process of function $\textit{dfs}(i, j)$ is as follows:
 
@@ -103,7 +103,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def maxOperations(self, nums: List[int]) -> int:
+    def maxOperations(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, s: int) -> int:
             if j - i < 1:

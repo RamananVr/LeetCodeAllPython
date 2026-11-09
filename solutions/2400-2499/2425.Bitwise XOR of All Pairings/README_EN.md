@@ -72,13 +72,13 @@ Thus, one possible nums3 array is [2,5,1,6].
 
 Since each element of the array will be XORed with each element of another array, we know that the result remains the same when the same number is XORed twice, i.e., $a \oplus a = 0$. Therefore, we only need to count the length of the array to know how many times each element is XORed with each element of another array.
 
-If the length of the `nums2` array is odd, it means that each element in `nums1` has been XORed an odd number of times with each element in `nums2`, so the final XOR result of the `nums1` array is the XOR result of all elements in the `nums1` array. If it is even, it means that each element in `nums1` has been XORed an even number of times with each element in `nums2`, so the final XOR result of the `nums1` array is 0.
+If the length of the $\textit{nums2}$ array is odd, it means that each element in $\textit{nums1}$ has been XORed an odd number of times with each element in $\textit{nums2}$, so the final XOR result of the $\textit{nums1}$ array is the XOR result of all elements in the $\textit{nums1}$ array. If it is even, it means that each element in $\textit{nums1}$ has been XORed an even number of times with each element in $\textit{nums2}$, so the final XOR result of the $\textit{nums1}$ array is 0.
 
-Similarly, we can know the final XOR result of the `nums2` array.
+Similarly, we can know the final XOR result of the $\textit{nums2}$ array.
 
 Finally, XOR the two results again to get the final result.
 
-The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the `nums1` and `nums2` arrays, respectively.
+The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the $\textit{nums1}$ and $\textit{nums2}$ arrays, respectively.
 
 <!-- tabs:start -->
 
@@ -86,7 +86,7 @@ The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the `nums1
 
 ```python
 class Solution:
-    def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
+    def xorAllNums(self, nums1: list[int], nums2: list[int]) -> int:
         ans = 0
         if len(nums2) & 1:
             for v in nums1:

@@ -94,7 +94,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         def dfs(a: int):
             vis[a] = True
             nonlocal ans
@@ -125,7 +125,7 @@ class Solution:
 
 > **Thinking**
 >
-> Method 1 already finds that minimum with an explicit stack. The same visited set also works with a queue and expands the component layer by layer.
+> Method 1 walks the component of city $1$ by recursion and keeps the minimum edge weight. A chain of roads uses a call depth equal to the node count. The same visited set also works with a queue and expands the component layer by layer.
 
 <!-- thinking:end -->
 
@@ -139,7 +139,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b, w in roads:
             g[a].append((b, w))
@@ -189,7 +189,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
+    def minScore(self, n: int, roads: list[list[int]]) -> int:
         g = [[] for _ in range(n + 1)]
         for a, b, w in roads:
             g[a].append((b, w))

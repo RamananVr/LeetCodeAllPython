@@ -90,13 +90,13 @@ Finally, the backlog has (1000000000-3) sell orders with price 7, and (999999995
 
 <!-- thinking:end -->
 
-We can use a priority queue (max-min heap) to maintain the current backlog of orders, where the max heap `buy` maintains the backlog of purchase orders, and the min heap `sell` maintains the backlog of sales orders. Each element in the heap is a tuple $(\textit{price}, \textit{amount})$, indicating that the number of orders at price `price` is `amount`.
+We can use a priority queue (max-min heap) to maintain the current backlog of orders, where the max heap `buy` maintains the backlog of purchase orders, and the min heap `sell` maintains the backlog of sales orders. Each element in the heap is a tuple $(\textit{price}, \textit{amount})$, indicating that the number of orders at price $\textit{price}$ is $\textit{amount}$.
 
 Next, we traverse the order array `orders`, and simulate according to the problem's requirements.
 
 After the traversal, we add the order quantities in `buy` and `sell`, which is the final backlog of orders. Note that the answer may be very large, so we need to take the modulus of $10^9 + 7$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of `orders`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{orders}$.
 
 <!-- tabs:start -->
 
@@ -104,7 +104,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def getNumberOfBacklogOrders(self, orders: List[List[int]]) -> int:
+    def getNumberOfBacklogOrders(self, orders: list[list[int]]) -> int:
         buy, sell = [], []
         for p, a, t in orders:
             if t == 0:

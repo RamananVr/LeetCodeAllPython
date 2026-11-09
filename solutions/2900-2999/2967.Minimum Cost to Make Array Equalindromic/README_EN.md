@@ -104,7 +104,7 @@ for i in range(1, 10**5 + 1):
 ps.sort()
 
 class Solution:
-    def minimumCost(self, nums: List[int]) -> int:
+    def minimumCost(self, nums: list[int]) -> int:
         def f(x: int) -> int:
             return sum(abs(v - x) for v in nums)
 

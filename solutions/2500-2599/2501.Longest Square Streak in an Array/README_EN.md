@@ -87,7 +87,7 @@ The time complexity is $O(n \log \log M)$, and the space complexity is $O(n)$, w
 
 ```python
 class Solution:
-    def longestSquareStreak(self, nums: List[int]) -> int:
+    def longestSquareStreak(self, nums: list[int]) -> int:
         s = set(nums)
         ans = -1
         for x in nums:
@@ -135,7 +135,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def longestSquareStreak(self, nums: List[int]) -> int:
+    def longestSquareStreak(self, nums: list[int]) -> int:
         @cache
         def dfs(x: int) -> int:
             if x not in s:

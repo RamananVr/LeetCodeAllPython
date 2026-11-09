@@ -61,11 +61,11 @@ tags:
 
 <!-- thinking:end -->
 
-We can multiply `threshold` by $k$, so that we can directly compare the sum within the window with `threshold`.
+We can multiply $\textit{threshold}$ by $k$, so that we can directly compare the sum within the window with $\textit{threshold}$.
 
-We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$. If $s$ is greater than or equal to `threshold`, we increment the answer.
+We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$. If $s$ is greater than or equal to $\textit{threshold}$, we increment the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array `arr`.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -73,7 +73,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+    def numOfSubarrays(self, arr: list[int], k: int, threshold: int) -> int:
         threshold *= k
         s = sum(arr[:k])
         ans = int(s >= threshold)

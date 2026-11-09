@@ -88,7 +88,7 @@ We can use two pointers $i$ and $j$ to traverse the two strings. If the characte
 
 If the pointer $i$ has reached the end of the string $s$ or the characters pointed to by $i$ and $j$ are not the same, we return `false`. Otherwise, we move both pointers $i$ and $j$ to the next position. When the pointer $j$ reaches the end of the string $t$, we need to check if the remaining characters in the string $s$ are all lowercase letters. If so, we return `true`, otherwise we return `false`.
 
-The time complexity is $O(nm)$, where $n$ and $m$ are the length of the array `queries` and the string `pattern` respectively.
+The time complexity is $O(nm)$, where $n$ and $m$ are the length of the array $\textit{queries}$ and the string $\textit{pattern}$ respectively.
 
 <!-- tabs:start -->
 
@@ -96,7 +96,7 @@ The time complexity is $O(nm)$, where $n$ and $m$ are the length of the array `q
 
 ```python
 class Solution:
-    def camelMatch(self, queries: List[str], pattern: str) -> List[bool]:
+    def camelMatch(self, queries: list[str], pattern: str) -> list[bool]:
         def check(s, t):
             m, n = len(s), len(t)
             i = j = 0

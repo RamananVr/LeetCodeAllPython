@@ -81,7 +81,7 @@ We can sort the jobs in ascending order of ability, and then sort the jobs in as
 
 Then we traverse the workers. For each worker, we find the job with the maximum profit that he can complete, and then add this profit to the answer.
 
-The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays `profit` and `worker` respectively.
+The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(n)$, where $n$ and $m$ are the lengths of the arrays $\textit{profit}$ and $\textit{worker}$ respectively.
 
 <!-- tabs:start -->
 
@@ -90,7 +90,7 @@ The time complexity is $O(n \log n + m \log m)$, and the space complexity is $O(
 ```python
 class Solution:
     def maxProfitAssignment(
-        self, difficulty: List[int], profit: List[int], worker: List[int]
+        self, difficulty: list[int], profit: list[int], worker: list[int]
     ) -> int:
         worker.sort()
         jobs = sorted(zip(difficulty, profit))
@@ -129,7 +129,7 @@ Next, we iterate from $1$ to $m$, and for each $i$, we update $f[i] = \max(f[i],
 
 Finally, we iterate over the workers, and for each worker $w$, we add $f[w]$ to the answer.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the `profit` array, and $M$ is the maximum value in the `difficulty` array.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the $\textit{profit}$ array, and $M$ is the maximum value in the $\textit{difficulty}$ array.
 
 <!-- tabs:start -->
 
@@ -138,7 +138,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 ```python
 class Solution:
     def maxProfitAssignment(
-        self, difficulty: List[int], profit: List[int], worker: List[int]
+        self, difficulty: list[int], profit: list[int], worker: list[int]
     ) -> int:
         m = max(difficulty)
         f = [0] * (m + 1)

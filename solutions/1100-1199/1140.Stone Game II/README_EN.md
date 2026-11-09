@@ -96,7 +96,7 @@ To avoid repeated calculations, we can use memoization search.
 
 Finally, we return $\textit{dfs}(0, 1)$ as the answer.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array `piles`.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $\textit{piles}$.
 
 <!-- tabs:start -->
 
@@ -104,7 +104,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def stoneGameII(self, piles: List[int]) -> int:
+    def stoneGameII(self, piles: list[int]) -> int:
         @cache
         def dfs(i, m):
             if m * 2 >= n - i:
@@ -140,7 +140,7 @@ class Solution:
 
 ```python
 class Solution:
-    def stoneGameII(self, piles: List[int]) -> int:
+    def stoneGameII(self, piles: list[int]) -> int:
         @cache
         def dfs(i: int, m: int = 1) -> int:
             if i >= len(piles):

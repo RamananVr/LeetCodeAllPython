@@ -110,7 +110,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 MOD = 10**9 + 7
 
 class Solution:
-    def sumCounts(self, nums: List[int]) -> int:
+    def sumCounts(self, nums: list[int]) -> int:
         n = len(nums)
 
         class Node:

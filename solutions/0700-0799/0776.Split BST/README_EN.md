@@ -79,7 +79,7 @@ tags:
 class Solution:
     def splitBST(
         self, root: Optional[TreeNode], target: int
-    ) -> List[Optional[TreeNode]]:
+    ) -> list[Optional[TreeNode]]:
         def dfs(root):
             if root is None:
                 return [None, None]

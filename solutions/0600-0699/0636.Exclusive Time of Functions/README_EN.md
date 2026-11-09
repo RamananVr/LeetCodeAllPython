@@ -92,7 +92,7 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 >
 > Functions nest and we need exclusive time. Stepping the timeline second-by-second is impossible for large timestamps.
 >
-> A stack matches the nesting: on `start`, credit the top with $[\textit{pre}, \textit{cur})$; on `end`, credit $[\textit{pre}, \textit{cur}]$ and set $\textit{pre}=\textit{cur}+1$. One pass over the logs.
+> A stack matches the nesting: on $\textit{start}$, credit the top with $[\textit{pre}, \textit{cur})$; on $\textit{end}$, credit $[\textit{pre}, \textit{cur}]$ and set $\textit{pre}=\textit{cur}+1$. One pass over the logs.
 
 <!-- thinking:end -->
 
@@ -112,7 +112,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
+    def exclusiveTime(self, n: int, logs: list[str]) -> list[int]:
         stk = []
         ans = [0] * n
         pre = 0

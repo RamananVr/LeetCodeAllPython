@@ -75,7 +75,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
+    def largestValues(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         if root is None:
             return ans
@@ -123,7 +123,7 @@ class Solution:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
+    def largestValues(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root, curr):
             if root is None:
                 return

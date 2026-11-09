@@ -74,7 +74,7 @@ tags:
 
 ```python
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         def dfs(i, c):
             color[i] = c
             for j in g[i]:
@@ -105,7 +105,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 already colors the graph with an explicit stack. Union-find does not store colors. It merges people who must share a group: everyone disliked by one person should share a group, and none of them may share that person's group. If that person is already in the same set as a neighbor, the partition fails; otherwise those neighbors are merged under one representative.
+> Solution 1 colors the graph by recursion. A chain of dislikes uses a call depth equal to the number of people. Union-find does not store colors. It merges people who must share a group: everyone disliked by one person should share a group, and none of them may share that person's group. If that person is already in the same set as a neighbor, the partition fails; otherwise those neighbors are merged under one representative.
 
 <!-- thinking:end -->
 
@@ -115,7 +115,7 @@ class Solution:
 
 ```python
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -157,7 +157,7 @@ class Solution:
 
 ```python
 class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+    def possibleBipartition(self, n: int, dislikes: list[list[int]]) -> bool:
         g = defaultdict(list)
         for a, b in dislikes:
             a, b = a - 1, b - 1

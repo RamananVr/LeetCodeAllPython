@@ -85,7 +85,7 @@ We use a hash table or array $\textit{cnt}$ to count the occurrence of each elem
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `changed`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{changed}$.
 
 <!-- tabs:start -->
 
@@ -93,7 +93,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def findOriginalArray(self, changed: List[int]) -> List[int]:
+    def findOriginalArray(self, changed: list[int]) -> list[int]:
         changed.sort()
         cnt = Counter(changed)
         ans = []

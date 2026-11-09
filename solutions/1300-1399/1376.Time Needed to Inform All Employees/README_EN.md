@@ -91,7 +91,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def numOfMinutes(
-        self, n: int, headID: int, manager: List[int], informTime: List[int]
+        self, n: int, headID: int, manager: list[int], informTime: list[int]
     ) -> int:
         def dfs(i: int) -> int:
             ans = 0
@@ -138,7 +138,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def numOfMinutes(
-        self, n: int, headID: int, manager: List[int], informTime: List[int]
+        self, n: int, headID: int, manager: list[int], informTime: list[int]
     ) -> int:
         g = [[] for _ in range(n)]
         for i, x in enumerate(manager):

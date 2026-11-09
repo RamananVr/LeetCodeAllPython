@@ -99,7 +99,7 @@ class Node:
 """
 
 class Solution:
-    def inorderSuccessor(self, node: 'Node') -> 'Optional[Node]':
+    def inorderSuccessor(self, node: "Node") -> "Optional[Node]":
         if node.right:
             node = node.right
             while node.left:

@@ -154,6 +154,9 @@ class Solution:
             dp = ndp
 
         return dp[0][0][0]
+
+    def countPairs(self, n: int) -> int:
+        return self.countNoZeroPairs(n)
 ```
 
 <!-- tabs:end -->

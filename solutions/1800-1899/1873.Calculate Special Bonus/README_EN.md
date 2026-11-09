@@ -84,7 +84,7 @@ The rest of the employees get a 100% bonus.
 
 <!-- thinking:end -->
 
-We can use the `IF` statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by `employee_id`.
+We can use the $\textit{IF}$ statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by $\textit{employee\_id}$.
 
 <!-- tabs:start -->
 
@@ -94,14 +94,8 @@ We can use the `IF` statement to determine the calculation method of the bonus, 
 # Write your MySQL query statement below
 SELECT
     employee_id,
-    IF(
-        employee_id % 2 = 0
-        OR LEFT(name, 1) = 'M',
-        0,
-        salary
-    ) AS bonus
-FROM
-    employees
+    IF(employee_id % 2 = 0 OR LEFT(name, 1) = 'M', 0, salary) AS bonus
+FROM employees
 ORDER BY 1;
 ```
 

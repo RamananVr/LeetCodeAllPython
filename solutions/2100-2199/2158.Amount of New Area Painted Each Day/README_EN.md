@@ -160,7 +160,7 @@ class SegmentTree:
             node.add = 0
 
 class Solution:
-    def amountPainted(self, paint: List[List[int]]) -> List[int]:
+    def amountPainted(self, paint: list[list[int]]) -> list[int]:
         tree = SegmentTree()
         ans = []
         for i, (start, end) in enumerate(paint):

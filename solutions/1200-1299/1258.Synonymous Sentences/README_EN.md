@@ -107,7 +107,7 @@ class UnionFind:
                 self.size[pb] += self.size[pa]
 
 class Solution:
-    def generateSentences(self, synonyms: List[List[str]], text: str) -> List[str]:
+    def generateSentences(self, synonyms: list[list[str]], text: str) -> list[str]:
         def dfs(i):
             if i >= len(sentence):
                 ans.append(' '.join(t))

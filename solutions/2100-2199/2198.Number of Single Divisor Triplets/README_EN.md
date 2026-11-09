@@ -89,7 +89,7 @@ We notice that the range of elements in the array `nums` is $[1, 100]$. Therefor
 
 Finally, we add up the numbers of all single-factor triples.
 
-The time complexity is $O(M^3)$, and the space complexity is $O(M)$, where $M$ is the range of elements in the array `nums`.
+The time complexity is $O(M^3)$, and the space complexity is $O(M)$, where $M$ is the range of elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -97,7 +97,7 @@ The time complexity is $O(M^3)$, and the space complexity is $O(M)$, where $M$ i
 
 ```python
 class Solution:
-    def singleDivisorTriplet(self, nums: List[int]) -> int:
+    def singleDivisorTriplet(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         ans = 0
         for a, x in cnt.items():

@@ -99,7 +99,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    def rightSideView(self, root: Optional[TreeNode]) -> list[int]:
         ans = []
         if root is None:
             return ans
@@ -147,7 +147,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    def rightSideView(self, root: Optional[TreeNode]) -> list[int]:
         def dfs(root: Optional[TreeNode], depth: int) -> None:
             if root is None:
                 return

@@ -93,7 +93,7 @@ The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$, where $m$
 
 ```python
 class Solution:
-    def minCost(self, n: int, cuts: List[int]) -> int:
+    def minCost(self, n: int, cuts: list[int]) -> int:
         cuts.extend([0, n])
         cuts.sort()
         m = len(cuts)
@@ -133,7 +133,7 @@ The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$, where $m$
 
 ```python
 class Solution:
-    def minCost(self, n: int, cuts: List[int]) -> int:
+    def minCost(self, n: int, cuts: list[int]) -> int:
         cuts.extend([0, n])
         cuts.sort()
         m = len(cuts)

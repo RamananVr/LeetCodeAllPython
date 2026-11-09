@@ -157,7 +157,7 @@ class SegmentTree:
             self.tr[u].cnt = self.tr[u << 1 | 1].cnt - self.tr[u << 1].cnt
 
 class MajorityChecker:
-    def __init__(self, arr: List[int]):
+    def __init__(self, arr: list[int]):
         self.tree = SegmentTree(arr)
         self.d = defaultdict(list)
         for i, x in enumerate(arr):

@@ -70,7 +70,7 @@ We define $f[i][j]$ to represent whether it is possible to select several number
 Considering $f[i][j]$, if we select the $i$-th number $x$, then $f[i][j] = f[i - 1][j - x]$. If we do not select the $i$-th number $x$, then $f[i][j] = f[i - 1][j]$. Therefore, the state transition equation is:
 
 $$
-f[i][j] = f[i - 1][j] \textit{ or } f[i - 1][j - x] \textit{ if } j \geq x
+f[i][j] = f[i - 1][j] \text{ or } f[i - 1][j - x] \text{ if } j \geq x
 $$
 
 The final answer is $f[n][m]$.
@@ -83,7 +83,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         m, mod = divmod(sum(nums), 2)
         if mod:
             return False
@@ -122,7 +122,7 @@ The time complexity is $O(nm)$, and the space complexity is $O(m)$, where $n$ is
 
 ```python
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         m, mod = divmod(sum(nums), 2)
         if mod:
             return False

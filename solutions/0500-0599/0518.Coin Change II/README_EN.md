@@ -112,7 +112,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def change(self, amount: int, coins: List[int]) -> int:
+    def change(self, amount: int, coins: list[int]) -> int:
         m, n = len(coins), amount
         f = [[0] * (n + 1) for _ in range(m + 1)]
         f[0][0] = 1
@@ -136,7 +136,7 @@ class Solution:
 
 > **Thinking**
 >
-> $f[i][j]$ depends only on the previous row at $j$ and the current row at $j-x$. A one-dimensional array, updated forward from $x$ to `amount` for each coin, reuses the same coin's new states.
+> $f[i][j]$ depends only on the previous row at $j$ and the current row at $j-x$. A one-dimensional array, updated forward from $x$ to $\textit{amount}$ for each coin, reuses the same coin's new states.
 >
 > Space drops to $O(\textit{amount})$; the number of transitions is unchanged.
 
@@ -150,7 +150,7 @@ We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. The
 
 ```python
 class Solution:
-    def change(self, amount: int, coins: List[int]) -> int:
+    def change(self, amount: int, coins: list[int]) -> int:
         n = amount
         f = [1] + [0] * n
         for x in coins:

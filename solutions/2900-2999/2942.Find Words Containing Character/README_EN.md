@@ -79,7 +79,7 @@ We directly traverse each string `words[i]` in the string array `words`. If `x` 
 
 After the traversal, we return the answer array.
 
-The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the sum of the lengths of all strings in the array `words`.
+The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the sum of the lengths of all strings in the array $\textit{words}$.
 
 <!-- tabs:start -->
 
@@ -87,7 +87,7 @@ The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is 
 
 ```python
 class Solution:
-    def findWordsContaining(self, words: List[str], x: str) -> List[int]:
+    def findWordsContaining(self, words: list[str], x: str) -> list[int]:
         return [i for i, w in enumerate(words) if x in w]
 ```
 

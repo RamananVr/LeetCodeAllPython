@@ -93,7 +93,7 @@ The total score is 50 + 15 - 9 + 4 + 42 = 102.
 
 ```python
 class Solution:
-    def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+    def maximumScore(self, nums: list[int], multipliers: list[int]) -> int:
         @cache
         def f(i, j, k):
             if k >= m or i >= n or j < 0:
@@ -129,7 +129,7 @@ class Solution:
 
 ```python
 class Solution:
-    def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+    def maximumScore(self, nums: list[int], multipliers: list[int]) -> int:
         n, m = len(nums), len(multipliers)
         f = [[-inf] * (m + 1) for _ in range(m + 1)]
         f[0][0] = 0

@@ -83,7 +83,7 @@ tags:
 
 <!-- thinking:end -->
 
-We define an answer array `ans` of length `n`, initially all elements are `0`. According to the problem, if `k` is `0`, return `ans` directly.
+We define an answer array $\textit{ans}$ of length `n`, initially all elements are `0`. According to the problem, if `k` is `0`, return $\textit{ans}$ directly.
 
 Otherwise, we traverse each position `i`:
 
@@ -107,7 +107,7 @@ The time complexity is $O(n|k|)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def decrypt(self, code: List[int], k: int) -> List[int]:
+    def decrypt(self, code: list[int], k: int) -> list[int]:
         n = len(code)
         ans = [0] * n
         if k == 0:
@@ -146,7 +146,7 @@ If $k$ is a positive number, then the value at position $i$ is the sum of the va
 
 If $k$ is a negative number, then the value at position $i$ is the sum of the values at the $|k|$ positions before position $i$, i.e., $\textit{ans}[i] = s[i + n] - s[i + k + n]$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `code` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{code}$ array.
 
 <!-- tabs:start -->
 
@@ -154,7 +154,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def decrypt(self, code: List[int], k: int) -> List[int]:
+    def decrypt(self, code: list[int], k: int) -> list[int]:
         n = len(code)
         ans = [0] * n
         if k == 0:

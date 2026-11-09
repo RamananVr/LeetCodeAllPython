@@ -78,9 +78,9 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 
 According to the problem, we should choose as many units as possible. Therefore, we first sort `boxTypes` in descending order of the number of units.
 
-Then we traverse `boxTypes` from front to back, choose up to `truckSize` boxes, and accumulate the number of units.
+Then we traverse `boxTypes` from front to back, choose up to $\textit{truckSize}$ boxes, and accumulate the number of units.
 
-The time complexity is $O(n \log n)$, where $n$ is the length of the two-dimensional array `boxTypes`.
+The time complexity is $O(n \log n)$, where $n$ is the length of the two-dimensional array $\textit{boxTypes}$.
 
 <!-- tabs:start -->
 
@@ -88,7 +88,7 @@ The time complexity is $O(n \log n)$, where $n$ is the length of the two-dimensi
 
 ```python
 class Solution:
-    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+    def maximumUnits(self, boxTypes: list[list[int]], truckSize: int) -> int:
         ans = 0
         for a, b in sorted(boxTypes, key=lambda x: -x[1]):
             ans += b * min(truckSize, a)
@@ -128,7 +128,7 @@ The time complexity is $O(M)$, where $M$ is the maximum number of units. In this
 
 ```python
 class Solution:
-    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+    def maximumUnits(self, boxTypes: list[list[int]], truckSize: int) -> int:
         cnt = [0] * 1001
         for a, b in boxTypes:
             cnt[b] += a

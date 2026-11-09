@@ -122,7 +122,7 @@ for x in range(1, mx + 1):
         p[x].append(v)
 
 class Solution:
-    def canTraverseAllPairs(self, nums: List[int]) -> bool:
+    def canTraverseAllPairs(self, nums: list[int]) -> bool:
         n = len(nums)
         m = max(nums)
         uf = UnionFind(n + m + 1)

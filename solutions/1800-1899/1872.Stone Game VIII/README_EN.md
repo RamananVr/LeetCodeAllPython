@@ -123,7 +123,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
+    def stoneGameVIII(self, stones: list[int]) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= len(stones) - 1:
@@ -180,7 +180,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
+    def stoneGameVIII(self, stones: list[int]) -> int:
         s = list(accumulate(stones))
         f = s[-1]
         for i in range(len(s) - 2, 0, -1):
@@ -228,7 +228,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
+    def stoneGameVIII(self, stones: list[int]) -> int:
         s = list(accumulate(stones))
         n = len(s)
         f = [0] * n

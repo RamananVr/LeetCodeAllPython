@@ -86,7 +86,7 @@ It can be shown that no two servers are connectable through servers other than 0
 
 First, we construct an adjacency list `g` based on the edges given in the problem, where `g[a]` represents all the neighbor nodes of node `a` and their corresponding edge weights.
 
-Then, we can enumerate each node `a` as the connecting intermediate node, and calculate the number of nodes `t` that start from the neighbor node `b` of `a` and whose distance to node `a` can be divided by `signalSpeed` through depth-first search. Then, the number of connectable node pairs of node `a` increases by `s * t`, where `s` represents the cumulative number of nodes that start from the neighbor node `b` of `a` and whose distance to node `a` cannot be divided by `signalSpeed`. Then we update `s` to `s + t`.
+Then, we can enumerate each node `a` as the connecting intermediate node, and calculate the number of nodes `t` that start from the neighbor node `b` of `a` and whose distance to node `a` can be divided by $\textit{signalSpeed}$ through depth-first search. Then, the number of connectable node pairs of node `a` increases by `s * t`, where `s` represents the cumulative number of nodes that start from the neighbor node `b` of `a` and whose distance to node `a` cannot be divided by $\textit{signalSpeed}$. Then we update `s` to `s + t`.
 
 After enumerating all nodes `a`, we can get the number of connectable node pairs for all nodes.
 
@@ -99,8 +99,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 ```python
 class Solution:
     def countPairsOfConnectableServers(
-        self, edges: List[List[int]], signalSpeed: int
-    ) -> List[int]:
+        self, edges: list[list[int]], signalSpeed: int
+    ) -> list[int]:
         def dfs(a: int, fa: int, ws: int) -> int:
             cnt = 0 if ws % signalSpeed else 1
             for b, w in g[a]:
@@ -154,8 +154,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 ```python
 class Solution:
     def countPairsOfConnectableServers(
-        self, edges: List[List[int]], signalSpeed: int
-    ) -> List[int]:
+        self, edges: list[list[int]], signalSpeed: int
+    ) -> list[int]:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b, w in edges:

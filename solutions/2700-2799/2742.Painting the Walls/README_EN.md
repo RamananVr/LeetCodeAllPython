@@ -58,7 +58,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memorization
+### Solution 1: Memoization
 
 <!-- thinking:start -->
 
@@ -88,7 +88,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$
 
 ```python
 class Solution:
-    def paintWalls(self, cost: List[int], time: List[int]) -> int:
+    def paintWalls(self, cost: list[int], time: list[int]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             if n - i <= j:

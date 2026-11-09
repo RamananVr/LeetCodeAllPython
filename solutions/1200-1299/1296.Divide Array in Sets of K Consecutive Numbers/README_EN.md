@@ -92,7 +92,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
+    def isPossibleDivide(self, nums: list[int], k: int) -> bool:
         if len(nums) % k:
             return False
         cnt = Counter(nums)
@@ -137,7 +137,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
+    def isPossibleDivide(self, nums: list[int], k: int) -> bool:
         if len(nums) % k:
             return False
         cnt = Counter(nums)

@@ -78,7 +78,7 @@ tags:
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def dfs(i: int, j: int):
             grid[i][j] = 0
             for a, b in pairwise(dirs):
@@ -89,15 +89,13 @@ class Solution:
         m, n = len(grid), len(grid[0])
         dirs = (-1, 0, 1, 0, -1)
         for j in range(n):
-            if grid[0][j]:
-                dfs(0, j)
-            if grid[m - 1][j]:
-                dfs(m - 1, j)
+            for i in (0, m - 1):
+                if grid[i][j]:
+                    dfs(i, j)
         for i in range(m):
-            if grid[i][0]:
-                dfs(i, 0)
-            if grid[i][n - 1]:
-                dfs(i, n - 1)
+            for j in (0, n - 1):
+                if grid[i][j]:
+                    dfs(i, j)
         return sum(sum(row) for row in grid)
 ```
 
@@ -113,7 +111,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 already floods from the border with an explicit stack. Connectivity does not depend on search order, so a queue can clear the same cells by layers.
+> Solution 1 floods from the border by recursion. A long border-connected path exhausts the call stack. Connectivity does not depend on search order, so a queue can clear the same cells by layers.
 >
 > Pop a cell and mark each neighboring $1$. After the borders are processed, the remaining $1$s are still the enclaves.
 
@@ -125,12 +123,17 @@ class Solution:
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         q = deque()
+        for j in range(n):
+            for i in (0, m - 1):
+                if grid[i][j]:
+                    q.append((i, j))
+                    grid[i][j] = 0
         for i in range(m):
-            for j in range(n):
-                if grid[i][j] and (i == 0 or i == m - 1 or j == 0 or j == n - 1):
+            for j in (0, n - 1):
+                if grid[i][j]:
                     q.append((i, j))
                     grid[i][j] = 0
         dirs = (-1, 0, 1, 0, -1)
@@ -138,10 +141,10 @@ class Solution:
             i, j = q.popleft()
             for a, b in pairwise(dirs):
                 x, y = i + a, j + b
-                if x >= 0 and x < m and y >= 0 and y < n and grid[x][y]:
+                if 0 <= x < m and 0 <= y < n and grid[x][y]:
                     q.append((x, y))
                     grid[x][y] = 0
-        return sum(v for row in grid for v in row)
+        return sum(sum(row) for row in grid)
 ```
 
 <!-- tabs:end -->
@@ -188,7 +191,7 @@ class UnionFind:
                 self.size[pb] += self.size[pa]
 
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         uf = UnionFind(m * n + 1)
         dirs = (-1, 0, 1, 0, -1)
@@ -239,7 +242,7 @@ Flood from every land cell on the four borders with an explicit stack, marking r
 
 ```python
 class Solution:
-    def numEnclaves(self, grid: List[List[int]]) -> int:
+    def numEnclaves(self, grid: list[list[int]]) -> int:
         def flood(i: int, j: int):
             stk = [(i, j)]
             grid[i][j] = 0

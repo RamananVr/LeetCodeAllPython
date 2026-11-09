@@ -87,7 +87,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def combine(self, n: int, k: int) -> List[List[int]]:
+    def combine(self, n: int, k: int) -> list[list[int]]:
         def dfs(i: int):
             if len(t) == k:
                 ans.append(t[:])
@@ -127,7 +127,7 @@ class Solution:
 
 ```python
 class Solution:
-    def combine(self, n: int, k: int) -> List[List[int]]:
+    def combine(self, n: int, k: int) -> list[list[int]]:
         def dfs(i: int):
             if len(t) == k:
                 ans.append(t[:])

@@ -93,7 +93,7 @@ Next, we traverse the array `nums`. When a number appears twice, we perform an X
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums` or the number of distinct numbers in the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$ or the number of distinct numbers in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -101,7 +101,7 @@ The time complexity is $O(n)$, and the space complexity is $O(M)$, where $n$ is 
 
 ```python
 class Solution:
-    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+    def duplicateNumbersXOR(self, nums: list[int]) -> int:
         cnt = Counter(nums)
         return reduce(xor, [x for x, v in cnt.items() if v == 2], 0)
 ```
@@ -142,7 +142,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+    def duplicateNumbersXOR(self, nums: list[int]) -> int:
         ans = mask = 0
         for x in nums:
             if mask >> x & 1:

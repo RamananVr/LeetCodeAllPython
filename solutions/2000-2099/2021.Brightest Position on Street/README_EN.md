@@ -99,7 +99,7 @@ Then we traverse each position in ascending order, calculate the brightness $s$ 
 
 Finally, return $\textit{ans}$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of `lights`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{lights}$.
 
 <!-- tabs:start -->
 
@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def brightestPosition(self, lights: List[List[int]]) -> int:
+    def brightestPosition(self, lights: list[list[int]]) -> int:
         d = defaultdict(int)
         for i, j in lights:
             l, r = i - j, i + j

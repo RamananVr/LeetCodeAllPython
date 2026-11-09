@@ -104,7 +104,7 @@ The time complexity is $O(50n)$, and the space complexity is $O(100)$, where $n$
 
 ```python
 class Solution:
-    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+    def getSubarrayBeauty(self, nums: list[int], k: int, x: int) -> list[int]:
         def f(x: int) -> int:
             s = 0
             for i in range(50):
@@ -162,7 +162,7 @@ In the `prune(pq)` method, if the top element of the heap is in the delayed dele
 
 In the `rebalance()` method, if the size of the smaller queue is greater than $x$, add the top element of the smaller queue to the larger queue and call the `prune()` method to ensure that the top element of the smaller queue is not in the delayed deletion dictionary. If the size of the smaller queue is less than $x$ and the size of the larger queue is greater than $0$, add the top element of the larger queue to the smaller queue and call the `prune()` method to ensure that the top element of the larger queue is not in the delayed deletion dictionary.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 Similar problems:
 
@@ -206,7 +206,7 @@ class MedianFinder:
                 self.prune(self.large)
         self.rebalance()
 
-    def prune(self, pq: List[int]):
+    def prune(self, pq: list[int]):
         sign = -1 if pq is self.small else 1
         while pq and sign * pq[0] in self.delayed:
             self.delayed[sign * pq[0]] -= 1
@@ -227,7 +227,7 @@ class MedianFinder:
             self.prune(self.large)
 
 class Solution:
-    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+    def getSubarrayBeauty(self, nums: list[int], k: int, x: int) -> list[int]:
         finder = MedianFinder(x)
         for i in range(k):
             if nums[i] < 0:

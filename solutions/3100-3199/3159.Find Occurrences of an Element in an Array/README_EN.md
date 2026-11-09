@@ -83,11 +83,11 @@ tags:
 
 <!-- thinking:end -->
 
-According to the problem description, we can first traverse the array `nums` to find the indices of all elements with a value of $x$, and record them in the array `ids`.
+According to the problem description, we can first traverse the array `nums` to find the indices of all elements with a value of $x$, and record them in the array $\textit{ids}$.
 
-Next, we traverse the array `queries`. For each query $i$, if $i - 1$ is less than the length of `ids`, then the answer is `ids[i - 1]`, otherwise, the answer is $-1$.
+Next, we traverse the array `queries`. For each query $i$, if $i - 1$ is less than the length of $\textit{ids}$, then the answer is `ids[i - 1]`, otherwise, the answer is $-1$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays `nums` and `queries` respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$ respectively.
 
 <!-- tabs:start -->
 
@@ -96,8 +96,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def occurrencesOfElement(
-        self, nums: List[int], queries: List[int], x: int
-    ) -> List[int]:
+        self, nums: list[int], queries: list[int], x: int
+    ) -> list[int]:
         ids = [i for i, v in enumerate(nums) if v == x]
         return [ids[i - 1] if i - 1 < len(ids) else -1 for i in queries]
 ```

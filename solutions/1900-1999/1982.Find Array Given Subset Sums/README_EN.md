@@ -95,7 +95,7 @@ Shift subset sums to be non-negative, then repeatedly take the smallest remainin
 
 ```python
 class Solution:
-    def recoverArray(self, n: int, sums: List[int]) -> List[int]:
+    def recoverArray(self, n: int, sums: list[int]) -> list[int]:
         m = -min(sums)
         sl = SortedList(x + m for x in sums)
         sl.remove(0)
@@ -140,7 +140,7 @@ Recover the next absolute value from adjacent differences and split subset sums 
 
 ```python
 class Solution:
-    def recoverArray(self, n: int, sums: List[int]) -> List[int]:
+    def recoverArray(self, n: int, sums: list[int]) -> list[int]:
         sums.sort()
         ans = []
         for i in range(n, 0, -1):

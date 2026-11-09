@@ -102,7 +102,7 @@ The optimal strategy for picking stones is to maximize one's own score while mak
 
 Next, we let Alice and Bob pick stones alternately according to the order of $\textit{vals}$. Alice picks the stones at even positions in $\textit{vals}$, and Bob picks the stones at odd positions in $\textit{vals}$. Finally, we compare the scores of Alice and Bob and return the corresponding result.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays `aliceValues` and `bobValues`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays $\textit{aliceValues}$ and $\textit{bobValues}$.
 
 <!-- tabs:start -->
 
@@ -110,7 +110,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def stoneGameVI(self, aliceValues: List[int], bobValues: List[int]) -> int:
+    def stoneGameVI(self, aliceValues: list[int], bobValues: list[int]) -> int:
         vals = [(a + b, i) for i, (a, b) in enumerate(zip(aliceValues, bobValues))]
         vals.sort(reverse=True)
         a = sum(aliceValues[i] for _, i in vals[::2])

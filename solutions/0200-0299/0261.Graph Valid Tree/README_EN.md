@@ -80,7 +80,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+    def validTree(self, n: int, edges: list[list[int]]) -> bool:
         def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
@@ -122,7 +122,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+    def validTree(self, n: int, edges: list[list[int]]) -> bool:
         def dfs(i: int):
             vis.add(i)
             for j in g[i]:

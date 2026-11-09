@@ -73,7 +73,7 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def largestTimeFromDigits(self, arr: List[int]) -> str:
+    def largestTimeFromDigits(self, arr: list[int]) -> str:
         cnt = [0] * 10
         for v in arr:
             cnt[v] += 1
@@ -101,7 +101,7 @@ class Solution:
 
 > **Thinking**
 >
-> Enumerating times is constant work; we may instead permute the four indices, build an hour and a minute, and keep the maximum legal value. $4!=24$ permutations are equally affordable.
+> Enumerating times is constant work; we may instead permute the four indices, build an hour and a minute, and keep the maximum legal value. $4! = 24$ permutations are equally affordable.
 
 <!-- thinking:end -->
 
@@ -115,7 +115,7 @@ The time complexity is $O(4^3)$, and the space complexity is $O(1)$.
 
 ```python
 class Solution:
-    def largestTimeFromDigits(self, arr: List[int]) -> str:
+    def largestTimeFromDigits(self, arr: list[int]) -> str:
         ans = -1
         for i in range(4):
             for j in range(4):

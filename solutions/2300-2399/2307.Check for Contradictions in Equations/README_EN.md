@@ -97,7 +97,7 @@ Similar problems:
 ```python
 class Solution:
     def checkContradictions(
-        self, equations: List[List[str]], values: List[float]
+        self, equations: list[list[str]], values: list[float]
     ) -> bool:
         def find(x: int) -> int:
             if p[x] != x:

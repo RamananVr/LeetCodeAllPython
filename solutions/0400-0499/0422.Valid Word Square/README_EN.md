@@ -88,7 +88,7 @@ We observe that if $\textit{words}[i][j] \neq \textit{words}[j][i]$, we can dire
 
 Therefore, we only need to iterate through each row, and then check whether each row satisfies $\textit{words}[i][j] = \textit{words}[j][i]$. Note that if the index is out of bounds, we also directly return `false`.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of `words`.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of $\textit{words}$.
 
 <!-- tabs:start -->
 
@@ -96,7 +96,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
+    def validWordSquare(self, words: list[str]) -> bool:
         m = len(words)
         for i, w in enumerate(words):
             for j, c in enumerate(w):

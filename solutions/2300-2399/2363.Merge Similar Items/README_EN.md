@@ -96,7 +96,7 @@ Therefore, we return [[1,7],[2,4],[7,1]].
 
 We can use a hash table or array `cnt` to count the total weight of each item in `items1` and `items2`. Then, we traverse the values in ascending order, adding each value and its corresponding total weight to the result array.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of `items1` and `items2` respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{items1}$ and $\textit{items2}$ respectively.
 
 <!-- tabs:start -->
 
@@ -105,8 +105,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def mergeSimilarItems(
-        self, items1: List[List[int]], items2: List[List[int]]
-    ) -> List[List[int]]:
+        self, items1: list[list[int]], items2: list[list[int]]
+    ) -> list[list[int]]:
         cnt = Counter()
         for v, w in chain(items1, items2):
             cnt[v] += w

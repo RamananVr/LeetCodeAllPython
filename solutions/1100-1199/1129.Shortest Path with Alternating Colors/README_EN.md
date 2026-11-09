@@ -64,7 +64,7 @@ tags:
 
 > **Thinking**
 >
-> Edges are red or blue and consecutive edges must differ, so a node may be visited twice with different incoming colors. The state is $(\textit{node},\textit{last color})$. BFS from $0$ with both virtual colors; the first time a node is reached is the shortest path.
+> Edges are red or blue and consecutive edges must differ, so a node may be visited twice with different incoming colors. The state is $(\textit{node},\text{last color})$. BFS from $0$ with both virtual colors; the first time a node is reached is the shortest path.
 >
 > Adjacency is stored by color and the color is flipped on each hop so same-color edges are never taken.
 
@@ -96,8 +96,8 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 ```python
 class Solution:
     def shortestAlternatingPaths(
-        self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]
-    ) -> List[int]:
+        self, n: int, redEdges: list[list[int]], blueEdges: list[list[int]]
+    ) -> list[int]:
         g = [defaultdict(list), defaultdict(list)]
         for i, j in redEdges:
             g[0][i].append(j)

@@ -97,7 +97,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def containsCycle(self, grid: List[List[str]]) -> bool:
+    def containsCycle(self, grid: list[list[str]]) -> bool:
         m, n = len(grid), len(grid[0])
         vis = [[False] * n for _ in range(m)]
         dirs = (-1, 0, 1, 0, -1)
@@ -147,7 +147,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def containsCycle(self, grid: List[List[str]]) -> bool:
+    def containsCycle(self, grid: list[list[str]]) -> bool:
         def dfs(x: int, y: int, px: int, py: int) -> bool:
             vis[x][y] = True
             for dx, dy in pairwise(dirs):

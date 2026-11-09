@@ -132,7 +132,7 @@ The time complexity is $O(nm^2 \log m)$, and the space complexity is $O(nm^2)$, 
 
 ```python
 class Solution:
-    def subsequencePairCount(self, nums: List[int]) -> int:
+    def subsequencePairCount(self, nums: list[int]) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i < 0:
@@ -191,7 +191,7 @@ The time complexity is $O(nm^2 \log m)$, and the space complexity is $O(m^2)$, w
 
 ```python
 class Solution:
-    def subsequencePairCount(self, nums: List[int]) -> int:
+    def subsequencePairCount(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         m = max(nums)
         f = [[0] * (m + 1) for _ in range(m + 1)]

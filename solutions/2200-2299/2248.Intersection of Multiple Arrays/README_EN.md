@@ -67,7 +67,7 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 
 Traverse the array `nums`. For each sub-array `arr`, count the occurrence of each number in `arr`. Then traverse the count array, count the numbers that appear as many times as the length of the array `nums`, which are the answers.
 
-The time complexity is $O(N)$, and the space complexity is $O(1000)$, where $N$ is the total number of numbers in the array `nums`.
+The time complexity is $O(N)$, and the space complexity is $O(1000)$, where $N$ is the total number of numbers in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -75,7 +75,7 @@ The time complexity is $O(N)$, and the space complexity is $O(1000)$, where $N$ 
 
 ```python
 class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
+    def intersection(self, nums: list[list[int]]) -> list[int]:
         cnt = [0] * 1001
         for arr in nums:
             for x in arr:
@@ -105,7 +105,7 @@ class Solution:
 
 ```python
 class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
+    def intersection(self, nums: list[list[int]]) -> list[int]:
         cnt = Counter()
         ans = []
         for arr in nums:

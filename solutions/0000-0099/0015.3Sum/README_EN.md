@@ -103,7 +103,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$, where 
 
 ```python
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
         n = len(nums)
         ans = []

@@ -93,7 +93,7 @@ tags:
 
 ```python
 class Solution:
-    def hasValidPath(self, grid: List[List[int]]) -> bool:
+    def hasValidPath(self, grid: list[list[int]]) -> bool:
         m, n = len(grid), len(grid[0])
         p = list(range(m * n))
 

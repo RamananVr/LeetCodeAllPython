@@ -73,7 +73,7 @@ Since we were able to visit every room, we return true.
 
 <!-- thinking:end -->
 
-We can use the Depth-First Search (DFS) method to traverse the entire graph, count the number of reachable nodes, and use an array `vis` to mark whether the current node has been visited to prevent repeated visits.
+We can use the Depth-First Search (DFS) method to traverse the entire graph, count the number of reachable nodes, and use an array $\textit{vis}$ to mark whether the current node has been visited to prevent repeated visits.
 
 Finally, we count the number of visited nodes. If it is the same as the total number of nodes, it means that all nodes can be visited; otherwise, there are nodes that cannot be reached.
 
@@ -85,7 +85,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         def dfs(i: int):
             if i in vis:
                 return
@@ -110,7 +110,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 follows keys with an explicit stack. The same reachability is a queue: start at $0$ and enqueue a room when a key to it is found and that room is still unvisited. The visited marks still drop duplicate keys, and the answer still compares the visited count with $n$.
+> Solution 1 follows keys by recursion. A chain of rooms uses a call depth equal to the room count. The same reachability is a queue: start at $0$ and enqueue a room when a key to it is found and that room is still unvisited. The visited marks still drop duplicate keys, and the answer still compares the visited count with $n$.
 
 <!-- thinking:end -->
 
@@ -128,7 +128,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         vis = set()
         q = deque([0])
         while q:
@@ -168,7 +168,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$
 
 ```python
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms: list[list[int]]) -> bool:
         n = len(rooms)
         vis = [False] * n
         stk = [0]

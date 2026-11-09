@@ -100,7 +100,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Solution:
-    def secondGreaterElement(self, nums: List[int]) -> List[int]:
+    def secondGreaterElement(self, nums: list[int]) -> list[int]:
         arr = [(x, i) for i, x in enumerate(nums)]
         arr.sort(key=lambda x: -x[0])
         sl = SortedList()
@@ -138,7 +138,7 @@ We maintain two decreasing monotonic stacks:
 
 Algorithm:
 
-As we iterate through the array `nums`, for current element $\textit{nums}[k]$, have these steps:
+As we iterate through the array $\textit{nums}$, for current element $\textit{nums}[k]$, have these steps:
 
 1. While `stackTwo` is not empty and its top element is less than $\textit{nums}[k]$,
    these top elements have found their second next greater element.
@@ -153,7 +153,7 @@ As we iterate through the array `nums`, for current element $\textit{nums}[k]$, 
 
 4. Push current element $\textit{nums}[k]$ into `stackOne` for future comparisons.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`. Each element is pushed and popped across the two stacks at most $4$ times in total.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Each element is pushed and popped across the two stacks at most $4$ times in total.
 
 <!-- tabs:start -->
 

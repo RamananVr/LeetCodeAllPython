@@ -69,7 +69,7 @@ tags:
 >
 > Killing a process kills its whole descendant tree. The parent arrays should become an adjacency list first.
 >
-> $g[p]$ stores children of $p$. DFS or BFS from `kill` gathers every reachable id. Each process is entered once.
+> $g[p]$ stores children of $p$. DFS or BFS from $\textit{kill}$ gathers every reachable id. Each process is entered once.
 
 <!-- thinking:end -->
 
@@ -83,7 +83,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
+    def killProcess(self, pid: list[int], ppid: list[int], kill: int) -> list[int]:
         def dfs(i: int):
             ans.append(i)
             for j in g[i]:
@@ -123,7 +123,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
+    def killProcess(self, pid: list[int], ppid: list[int], kill: int) -> list[int]:
         g = defaultdict(list)
         for i, p in zip(pid, ppid):
             g[p].append(i)

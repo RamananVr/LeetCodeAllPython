@@ -94,7 +94,7 @@ The time complexity is $O(nd)$, and the space complexity is $O(n)$, where $n$ is
 
 ```python
 class Solution:
-    def maxJumps(self, arr: List[int], d: int) -> int:
+    def maxJumps(self, arr: list[int], d: int) -> int:
         @cache
         def dfs(i):
             ans = 1
@@ -144,7 +144,7 @@ The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, w
 
 ```python
 class Solution:
-    def maxJumps(self, arr: List[int], d: int) -> int:
+    def maxJumps(self, arr: list[int], d: int) -> int:
         n = len(arr)
         f = [1] * n
         for x, i in sorted(zip(arr, range(n))):
@@ -189,7 +189,7 @@ The time complexity is $O(n \log n + nd)$, and the space complexity is $O(n)$, w
 
 ```python
 class Solution:
-    def maxJumps(self, arr: List[int], d: int) -> int:
+    def maxJumps(self, arr: list[int], d: int) -> int:
         n = len(arr)
         f = [1] * n
         for x, i in sorted(zip(arr, range(n))):

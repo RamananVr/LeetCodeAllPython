@@ -96,7 +96,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+    def longestIncreasingPath(self, matrix: list[list[int]]) -> int:
         @cache
         def dfs(i: int, j: int) -> int:
             ans = 0

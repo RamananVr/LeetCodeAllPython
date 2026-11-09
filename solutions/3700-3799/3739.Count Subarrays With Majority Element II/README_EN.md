@@ -129,7 +129,7 @@ class BinaryIndexedTree:
         return s
 
 class Solution:
-    def countMajoritySubarrays(self, nums: List[int], target: int) -> int:
+    def countMajoritySubarrays(self, nums: list[int], target: int) -> int:
         n = len(nums)
         tree = BinaryIndexedTree(n * 2 + 1)
         s = n + 1

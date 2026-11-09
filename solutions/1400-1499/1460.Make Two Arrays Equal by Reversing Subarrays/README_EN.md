@@ -88,7 +88,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+    def canBeEqual(self, target: list[int], arr: list[int]) -> bool:
         return sorted(target) == sorted(arr)
 ```
 
@@ -112,7 +112,7 @@ We note that the range of the array elements given in the problem is $1 \sim 100
 
 We can also use only one array `cnt`. We traverse the arrays `target` and `arr`. For `target[i]`, we increment `cnt[target[i]]`, and for `arr[i]`, we decrement `cnt[arr[i]]`. In the end, we check if all elements in the array `cnt` are $0$.
 
-The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array `arr`, and $M$ is the range of the array elements. In this problem, $M = 1001$.
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$ is the length of the array $\textit{arr}$, and $M$ is the range of the array elements. In this problem, $M = 1001$.
 
 <!-- tabs:start -->
 
@@ -120,7 +120,7 @@ The time complexity is $O(n + M)$, and the space complexity is $O(M)$, where $n$
 
 ```python
 class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+    def canBeEqual(self, target: list[int], arr: list[int]) -> bool:
         return Counter(target) == Counter(arr)
 ```
 

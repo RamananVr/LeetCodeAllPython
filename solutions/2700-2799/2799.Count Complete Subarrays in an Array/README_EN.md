@@ -86,7 +86,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ i
 
 ```python
 class Solution:
-    def countCompleteSubarrays(self, nums: List[int]) -> int:
+    def countCompleteSubarrays(self, nums: list[int]) -> int:
         cnt = len(set(nums))
         ans, n = 0, len(nums)
         for i in range(n):
@@ -128,7 +128,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def countCompleteSubarrays(self, nums: List[int]) -> int:
+    def countCompleteSubarrays(self, nums: list[int]) -> int:
         cnt = len(set(nums))
         d = Counter()
         ans, n = 0, len(nums)

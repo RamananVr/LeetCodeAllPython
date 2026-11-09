@@ -76,11 +76,11 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 
 ```python
 class Solution:
-    def countPairs(self, nums: List[int], k: int) -> int:
+    def countPairs(self, nums: list[int], k: int) -> int:
         ans = 0
-        for j, y in enumerate(nums):
+        for j in range(1, len(nums)):
             for i, x in enumerate(nums[:j]):
-                ans += int(x == y and i * j % k == 0)
+                ans += int(x == nums[j] and i * j % k == 0)
         return ans
 ```
 

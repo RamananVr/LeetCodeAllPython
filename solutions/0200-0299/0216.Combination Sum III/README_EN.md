@@ -96,7 +96,7 @@ Approach One:
 
 ```python
 class Solution:
-    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+    def combinationSum3(self, k: int, n: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 if len(t) == k:
@@ -133,7 +133,7 @@ The time complexity is $O(k \times C_9^k)$, and the space complexity is $O(k)$.
 
 ```python
 class Solution:
-    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+    def combinationSum3(self, k: int, n: int) -> list[list[int]]:
         def dfs(i: int, s: int):
             if s == 0:
                 if len(t) == k:
@@ -188,7 +188,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+    def combinationSum3(self, k: int, n: int) -> list[list[int]]:
         ans = []
         for mask in range(1 << 9):
             if mask.bit_count() == k:

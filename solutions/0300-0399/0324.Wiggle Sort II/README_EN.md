@@ -73,7 +73,7 @@ tags:
 
 ```python
 class Solution:
-    def wiggleSort(self, nums: List[int]) -> None:
+    def wiggleSort(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
@@ -111,7 +111,7 @@ class Solution:
 
 ```python
 class Solution:
-    def wiggleSort(self, nums: List[int]) -> None:
+    def wiggleSort(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """

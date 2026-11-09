@@ -86,7 +86,7 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 <!-- thinking:end -->
 
-We can generate a table `T` that contains all dates in November 2023 using recursion, then use a left join to connect `T` and the `Purchases` table by date. Finally, group and sum according to the requirements of the problem.
+We can generate a table `T` that contains all dates in November 2023 using recursion, then use a left join to connect `T` and the $\textit{Purchases}$ table by date. Finally, group and sum according to the requirements of the problem.
 
 <!-- tabs:start -->
 
@@ -105,9 +105,8 @@ SELECT
     CEIL(DAYOFMONTH(purchase_date) / 7) AS week_of_month,
     purchase_date,
     IFNULL(SUM(amount_spend), 0) AS total_amount
-FROM
-    T
-    LEFT JOIN Purchases USING (purchase_date)
+FROM T
+LEFT JOIN Purchases USING (purchase_date)
 WHERE DAYOFWEEK(purchase_date) = 6
 GROUP BY 2
 ORDER BY 1;

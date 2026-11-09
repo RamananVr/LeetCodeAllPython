@@ -99,7 +99,7 @@ In total, 1 + 3 + 0 + 0 = 4 moves were used.
 
 Sort both arrays, then traverse the two arrays, calculate the distance between each student's seat and their actual seat, and add all the distances to get the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the arrays `seats` and `students`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the arrays $\textit{seats}$ and $\textit{students}$.
 
 <!-- tabs:start -->
 
@@ -107,7 +107,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, w
 
 ```python
 class Solution:
-    def minMovesToSeat(self, seats: List[int], students: List[int]) -> int:
+    def minMovesToSeat(self, seats: list[int], students: list[int]) -> int:
         seats.sort()
         students.sort()
         return sum(abs(a - b) for a, b in zip(seats, students))

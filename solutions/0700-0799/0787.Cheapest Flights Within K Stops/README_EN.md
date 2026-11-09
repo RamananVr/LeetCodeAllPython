@@ -96,7 +96,7 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 ```python
 class Solution:
     def findCheapestPrice(
-        self, n: int, flights: List[List[int]], src: int, dst: int, k: int
+        self, n: int, flights: list[list[int]], src: int, dst: int, k: int
     ) -> int:
         INF = 0x3F3F3F3F
         dist = [INF] * n
@@ -133,7 +133,7 @@ class Solution:
 ```python
 class Solution:
     def findCheapestPrice(
-        self, n: int, flights: List[List[int]], src: int, dst: int, k: int
+        self, n: int, flights: list[list[int]], src: int, dst: int, k: int
     ) -> int:
         @cache
         def dfs(u, k):

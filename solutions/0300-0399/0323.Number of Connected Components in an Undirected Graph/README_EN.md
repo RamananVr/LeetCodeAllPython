@@ -76,7 +76,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         def dfs(i: int) -> int:
             if i in vis:
                 return 0
@@ -145,7 +145,7 @@ class UnionFind:
         return True
 
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         uf = UnionFind(n)
         for a, b in edges:
             n -= uf.union(a, b)
@@ -164,7 +164,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 expands each component with an explicit stack. A queue expands the same component in breadth-first order, and each new search still increments the count. Time stays $O(n + m)$.
+> Solution 1 expands each component by recursion. A queue expands the same component in breadth-first order, and each new search still increments the count. Time stays $O(n + m)$.
 
 <!-- thinking:end -->
 
@@ -182,7 +182,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
@@ -232,7 +232,7 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where
 
 ```python
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+    def countComponents(self, n: int, edges: list[list[int]]) -> int:
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)

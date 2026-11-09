@@ -85,7 +85,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def treeDiameter(self, edges: List[List[int]]) -> int:
+    def treeDiameter(self, edges: list[list[int]]) -> int:
         def dfs(i: int, fa: int, t: int):
             for j in g[i]:
                 if j != fa:
@@ -137,7 +137,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def treeDiameter(self, edges: List[List[int]]) -> int:
+    def treeDiameter(self, edges: list[list[int]]) -> int:
         n = len(edges) + 1
         g = [[] for _ in range(n)]
         for a, b in edges:

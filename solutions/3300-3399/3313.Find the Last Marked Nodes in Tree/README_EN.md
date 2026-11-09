@@ -115,7 +115,7 @@ Then, starting from node $a$, we perform another depth-first search to find the 
 
 Next, we perform a depth-first search starting from node $b$ to calculate the distance from each node to node $b$, denoted as $\textit{dist3}$.
 
-For each node $i$, if $\textit{dist2}[i] > $\textit{dist3}[i]$, then the distance from node $a$ to \textit{node} $i$ is greater, so node $a$ is the last marked node; otherwise, node $b$ is the last marked node.
+For each node $i$, if $\textit{dist2}[i] > \textit{dist3}[i]$, then the distance from node $a$ to node $i$ is greater, so node $a$ is the last marked node; otherwise, node $b$ is the last marked node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
@@ -125,8 +125,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def lastMarkedNodes(self, edges: List[List[int]]) -> List[int]:
-        def dfs(i: int, fa: int, dist: List[int]):
+    def lastMarkedNodes(self, edges: list[list[int]]) -> list[int]:
+        def dfs(i: int, fa: int, dist: list[int]):
             for j in g[i]:
                 if j != fa:
                     dist[j] = dist[i] + 1
@@ -193,8 +193,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def lastMarkedNodes(self, edges: List[List[int]]) -> List[int]:
-        def dfs(start: int, dist: List[int]) -> None:
+    def lastMarkedNodes(self, edges: list[list[int]]) -> list[int]:
+        def dfs(start: int, dist: list[int]) -> None:
             stk = [(start, -1)]
             while stk:
                 i, fa = stk.pop()

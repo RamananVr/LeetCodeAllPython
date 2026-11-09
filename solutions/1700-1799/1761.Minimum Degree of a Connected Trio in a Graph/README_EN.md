@@ -91,7 +91,7 @@ def min(a: int, b: int) -> int:
     return a if a < b else b
 
 class Solution:
-    def minTrioDegree(self, n: int, edges: List[List[int]]) -> int:
+    def minTrioDegree(self, n: int, edges: list[list[int]]) -> int:
         g = [[False] * n for _ in range(n)]
         deg = [0] * n
         for u, v in edges:

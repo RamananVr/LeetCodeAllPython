@@ -84,7 +84,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def dfs(i, j):
             grid[i][j] = '0'
             for a, b in pairwise(dirs):
@@ -115,7 +115,7 @@ class Solution:
 
 > **Thinking**
 >
-> Solution 1 already clears each component with an explicit stack. The same 4-connectivity can be expanded with a queue.
+> Solution 1 clears each component by recursion. A long island uses a call depth equal to its cell count. The same 4-connectivity can be expanded with a queue.
 >
 > The scan order matches Solution 1. The extra space is still the size of the frontier.
 
@@ -138,7 +138,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def bfs(i, j):
             grid[i][j] = '0'
             q = deque([(i, j)])
@@ -189,7 +189,7 @@ The time complexity is $O(mn \log (mn))$, and the space complexity is $O(mn)$, w
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -244,7 +244,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: list[list[str]]) -> int:
         def flood(i: int, j: int):
             stk = [(i, j)]
             grid[i][j] = '0'

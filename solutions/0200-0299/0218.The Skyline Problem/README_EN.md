@@ -90,7 +90,7 @@ Figure B shows the skyline formed by those buildings. The red points in figure B
 from queue import PriorityQueue
 
 class Solution:
-    def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
+    def getSkyline(self, buildings: list[list[int]]) -> list[list[int]]:
         skys, lines, pq = [], [], PriorityQueue()
         for build in buildings:
             lines.extend([build[0], build[1]])

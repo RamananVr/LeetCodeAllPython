@@ -128,7 +128,7 @@ class OrderManagementSystem:
         del self.orders[orderId]
         self.t[(orderType, price)].remove(orderId)
 
-    def getOrdersAtPrice(self, orderType: str, price: int) -> List[int]:
+    def getOrdersAtPrice(self, orderType: str, price: int) -> list[int]:
         return self.t[(orderType, price)]
 
 # Your OrderManagementSystem object will be instantiated and called as such:

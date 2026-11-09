@@ -90,7 +90,7 @@ First, we preprocess a prefix sum array $s$ of length $n+1$, where $s[i]$ repres
 
 Then we traverse the prefix sum array $s$. For each position $i$, we calculate $s[i+k]-s[i]$, which is the total calories for the consecutive $k$ days starting from the $i$th day. According to the problem description, for each $s[i+k]-s[i]$, we judge its value with $\textit{lower}$ and $\textit{upper}$, and update the answer accordingly.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `calories` array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{calories}$ array.
 
 <!-- tabs:start -->
 
@@ -99,7 +99,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
+        self, calories: list[int], k: int, lower: int, upper: int
     ) -> int:
         s = list(accumulate(calories, initial=0))
         ans, n = 0, len(calories)
@@ -130,7 +130,7 @@ class Solution:
 
 We maintain a sliding window of length $k$, and the sum of the elements in the window is denoted as $s$. If $s \lt \textit{lower}$, the score decreases by $1$; if $s > \textit{upper}$, the score increases by $1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the `calories` array.
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the $\textit{calories}$ array.
 
 <!-- tabs:start -->
 
@@ -139,7 +139,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
+        self, calories: list[int], k: int, lower: int, upper: int
     ) -> int:
         def check(s):
             if s < lower:

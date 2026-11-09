@@ -77,7 +77,7 @@ In this example, the second and third sentences (underlined) have the same numbe
 
 We iterate through the array `sentences`. For each sentence, we count the number of spaces, then the number of words is the number of spaces plus $1$. Finally, we return the maximum number of words.
 
-The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the total length of all strings in the array `sentences`.
+The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is the total length of all strings in the array $\textit{sentences}$.
 
 <!-- tabs:start -->
 
@@ -85,7 +85,7 @@ The time complexity is $O(L)$, and the space complexity is $O(1)$, where $L$ is 
 
 ```python
 class Solution:
-    def mostWordsFound(self, sentences: List[str]) -> int:
+    def mostWordsFound(self, sentences: list[str]) -> int:
         return 1 + max(s.count(' ') for s in sentences)
 ```
 

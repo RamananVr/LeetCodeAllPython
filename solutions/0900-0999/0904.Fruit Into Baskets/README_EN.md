@@ -108,7 +108,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 
 ```python
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
+    def totalFruit(self, fruits: list[int]) -> int:
         cnt = Counter()
         ans = j = 0
         for i, x in enumerate(fruits):
@@ -151,7 +151,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
+    def totalFruit(self, fruits: list[int]) -> int:
         cnt = Counter()
         j = 0
         for x in fruits:

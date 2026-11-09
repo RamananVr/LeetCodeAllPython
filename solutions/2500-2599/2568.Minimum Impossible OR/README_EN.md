@@ -70,7 +70,7 @@ We start from the integer $1$. If $1$ is expressible, it must appear in the arra
 
 Therefore, we can enumerate the powers of $2$. If the currently enumerated $2^i$ is not in the array `nums`, then $2^i$ is the smallest unexpressible integer.
 
-The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$, where $n$ and $M$ are the length of the array `nums` and the maximum value in the array `nums`, respectively.
+The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 
@@ -78,7 +78,7 @@ The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$, wher
 
 ```python
 class Solution:
-    def minImpossibleOR(self, nums: List[int]) -> int:
+    def minImpossibleOR(self, nums: list[int]) -> int:
         s = set(nums)
         return next(1 << i for i in range(32) if 1 << i not in s)
 ```

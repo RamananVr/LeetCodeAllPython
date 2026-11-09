@@ -84,9 +84,9 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 
 <!-- thinking:end -->
 
-We use the variable $s$ to represent the sum of the currently selected integers, and the variable $\textit{ans}$ to represent the number of currently selected integers. We convert the array `banned` into a hash table for easy determination of whether a certain integer is not selectable.
+We use the variable $s$ to represent the sum of the currently selected integers, and the variable $\textit{ans}$ to represent the number of currently selected integers. We convert the array $\textit{banned}$ into a hash table for easy determination of whether a certain integer is not selectable.
 
-Next, we start enumerating the integer $i$ from $1$. If $s + i \leq \textit{maxSum}$ and $i$ is not in `banned`, then we can select the integer $i$, and add $i$ and $1$ to $s$ and $\textit{ans}$ respectively.
+Next, we start enumerating the integer $i$ from $1$. If $s + i \leq \textit{maxSum}$ and $i$ is not in $\textit{banned}$, then we can select the integer $i$, and add $i$ and $1$ to $s$ and $\textit{ans}$ respectively.
 
 Finally, we return $\textit{ans}$.
 
@@ -98,7 +98,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 ```python
 class Solution:
-    def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+    def maxCount(self, banned: list[int], n: int, maxSum: int) -> int:
         ans = s = 0
         ban = set(banned)
         for i in range(1, n + 1):
@@ -132,7 +132,7 @@ We can add $0$ and $n + 1$ to the array `banned`, deduplicate the array `banned`
 
 Next, we enumerate every two adjacent elements $i$ and $j$ in the array `banned`. The range of selectable integers is $[i + 1, j - 1]$. We use binary search to enumerate the number of elements we can select in this range, find the maximum number of selectable elements, and then add it to $\textit{ans}$. At the same time, we subtract the sum of these elements from `maxSum`. If `maxSum` is less than $0$, we break the loop. Return the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `banned`.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{banned}$.
 
 Similar problems:
 
@@ -144,7 +144,7 @@ Similar problems:
 
 ```python
 class Solution:
-    def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+    def maxCount(self, banned: list[int], n: int, maxSum: int) -> int:
         banned.extend([0, n + 1])
         ban = sorted(x for x in set(banned) if x < n + 2)
         ans = 0

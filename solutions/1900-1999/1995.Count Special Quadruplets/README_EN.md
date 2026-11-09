@@ -85,7 +85,7 @@ Enumerate $a < b < c < d$ with four nested loops.
 
 ```python
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         for a in range(n - 3):
             for b in range(a + 1, n - 2):
@@ -120,7 +120,7 @@ Scan $c$ from the right and count values of $d$, then enumerate $a,b$.
 
 ```python
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         counter = Counter()
         for c in range(n - 2, 1, -1):
@@ -155,7 +155,7 @@ Enumerate $b$ while counting $\textit{nums}[d]-\textit{nums}[c]$.
 
 ```python
 class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
+    def countQuadruplets(self, nums: list[int]) -> int:
         ans, n = 0, len(nums)
         counter = Counter()
         for b in range(n - 3, 0, -1):

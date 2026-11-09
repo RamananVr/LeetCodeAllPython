@@ -79,7 +79,7 @@ $$
 f[i][j]=
 \begin{cases}
 1, & i=2^j\\
-\sum_{k=0}^{n-1}f[i \oplus 2^j][k], & i \neq 2^j \textit{ and nums}[j] \textit{ and nums}[k] \textit{ meet the requirements of the problem}\\
+\sum_{k=0}^{n-1}f[i \oplus 2^j][k], & i \neq 2^j \text{ and } \textit{nums}[j] \text{ and } \textit{nums}[k] \text{ meet the requirements of the problem}\\
 \end{cases}
 $$
 
@@ -93,7 +93,7 @@ The time complexity is $O(n^2 2^n)$, and the space complexity is $O(n 2^n)$, whe
 
 ```python
 class Solution:
-    def specialPerm(self, nums: List[int]) -> int:
+    def specialPerm(self, nums: list[int]) -> int:
         mod = 10**9 + 7
         n = len(nums)
         m = 1 << n

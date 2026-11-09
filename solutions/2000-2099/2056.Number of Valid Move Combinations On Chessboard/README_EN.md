@@ -92,7 +92,7 @@ tags:
 >
 > At most four pieces on an $8 \times 8$ board, each with $\le 8$ directions. The tree is large but DFS works: assign each piece a ray and a stop time, then reject collisions with earlier pieces.
 >
-> `dist[i][x][y]` is the transit time and `end` the stop. A stop needs earlier pieces gone; a pass forbids the same time-cell or a finished piece sitting there.
+> `dist[i][x][y]` is the transit time and $\textit{end}$ the stop. A stop needs earlier pieces gone; a pass forbids the same time-cell or a finished piece sitting there.
 >
 > Each complete assignment increments the answer.
 
@@ -117,7 +117,7 @@ rook_dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 bishop_dirs = [(1, 1), (1, -1), (-1, 1), (-1, -1)]
 queue_dirs = rook_dirs + bishop_dirs
 
-def get_dirs(piece: str) -> List[Tuple[int, int]]:
+def get_dirs(piece: str) -> list[Tuple[int, int]]:
     match piece[0]:
         case "r":
             return rook_dirs
@@ -127,7 +127,7 @@ def get_dirs(piece: str) -> List[Tuple[int, int]]:
             return queue_dirs
 
 class Solution:
-    def countCombinations(self, pieces: List[str], positions: List[List[int]]) -> int:
+    def countCombinations(self, pieces: list[str], positions: list[list[int]]) -> int:
         def check_stop(i: int, x: int, y: int, t: int) -> bool:
             return all(dist[j][x][y] < t for j in range(i))
 

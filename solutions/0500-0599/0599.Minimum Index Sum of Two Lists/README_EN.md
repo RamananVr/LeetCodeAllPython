@@ -78,7 +78,7 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 >
 > Among common strings, keep those with the smallest index sum. Scanning the other list for every common string is $O(nm)$.
 >
-> Map `list2` from string to index, then scan `list1` for sums. Keep the current minimum: append on a tie, reset on a smaller sum. One hash build and one linear scan.
+> Map $\textit{list2}$ from string to index, then scan $\textit{list1}$ for sums. Keep the current minimum: append on a tie, reset on a smaller sum. One hash build and one linear scan.
 
 <!-- thinking:end -->
 
@@ -94,7 +94,7 @@ After traversing, return the answer array $\textit{ans}$.
 
 ```python
 class Solution:
-    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+    def findRestaurant(self, list1: list[str], list2: list[str]) -> list[str]:
         d = {s: i for i, s in enumerate(list2)}
         ans = []
         mi = inf

@@ -106,7 +106,7 @@ Each time we enumerate, we take the maximum of these four values, and then updat
 
 Finally, we return the answer.
 
-The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the `grid` array, respectively.
+The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ and $n$ are the number of rows and columns of the $\textit{grid}$ array, respectively.
 
 <!-- tabs:start -->
 
@@ -114,7 +114,7 @@ The time complexity is $O(mn)$, and the space complexity is $O(mn)$, where $m$ a
 
 ```python
 class Solution:
-    def maxTrailingZeros(self, grid: List[List[int]]) -> int:
+    def maxTrailingZeros(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
         r2 = [[0] * (n + 1) for _ in range(m + 1)]
         c2 = [[0] * (n + 1) for _ in range(m + 1)]

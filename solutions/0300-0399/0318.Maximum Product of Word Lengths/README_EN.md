@@ -83,7 +83,7 @@ The time complexity is $O(n^2 + L)$, and the space complexity is $O(n)$, where $
 
 ```python
 class Solution:
-    def maxProduct(self, words: List[str]) -> int:
+    def maxProduct(self, words: list[str]) -> int:
         mask = [0] * len(words)
         ans = 0
         for i, s in enumerate(words):
@@ -117,7 +117,7 @@ class Solution:
 
 ```python
 class Solution:
-    def maxProduct(self, words: List[str]) -> int:
+    def maxProduct(self, words: list[str]) -> int:
         mask = defaultdict(int)
         ans = 0
         for s in words:

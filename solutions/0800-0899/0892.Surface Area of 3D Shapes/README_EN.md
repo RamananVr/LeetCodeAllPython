@@ -79,7 +79,7 @@ tags:
 
 ```python
 class Solution:
-    def surfaceArea(self, grid: List[List[int]]) -> int:
+    def surfaceArea(self, grid: list[list[int]]) -> int:
         ans = 0
         for i, row in enumerate(grid):
             for j, v in enumerate(row):
